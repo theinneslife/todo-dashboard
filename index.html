@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Action Items Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-hover: #222632;
+    --border: #2a2e3b;
+    --text: #e4e4e7;
+    --text-muted: #8b8d98;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --high: #ef4444;
+    --high-bg: rgba(239,68,68,0.12);
+    --medium: #f59e0b;
+    --medium-bg: rgba(245,158,11,0.12);
+    --low: #22c55e;
+    --low-bg: rgba(34,197,94,0.12);
+    --christopher: #6366f1;
+    --christopher-bg: rgba(99,102,241,0.12);
+    --claude: #a855f7;
+    --claude-bg: rgba(168,85,247,0.12);
+    --completed-bg: rgba(34,197,94,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .stat-card .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-card .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+
+  .filter-btn:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .task-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.15s;
+  }
+
+  .task-card:hover {
+    background: var(--surface-hover);
+  }
+
+  .task-card.completed {
+    background: var(--completed-bg);
+    opacity: 0.6;
+  }
+
+  .task-card.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+
+  .task-checkbox {
+    margin-top: 0.15rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    background: transparent;
+  }
+
+  .task-checkbox:hover {
+    border-color: var(--accent);
+  }
+
+  .task-checkbox.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .task-checkbox.checked::after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+  }
+
+  .task-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .task-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .task-description {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .task-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .badge-high { background: var(--high-bg); color: var(--high); }
+  .badge-medium { background: var(--medium-bg); color: var(--medium); }
+  .badge-low { background: var(--low-bg); color: var(--low); }
+
+  .assignee-toggle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.15s;
+  }
+
+  .assignee-christopher {
+    background: var(--christopher-bg);
+    color: var(--christopher);
+  }
+
+  .assignee-claude {
+    background: var(--claude-bg);
+    color: var(--claude);
+  }
+
+  .assignee-toggle:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+
+  .task-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+  }
+
+  .empty-state h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .loading {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+  }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .last-updated {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 1rem; }
+    .stats { gap: 0.5rem; }
+    .stat-card { min-width: 100px; padding: 0.75rem; }
+    .stat-card .value { font-size: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Action Items</h1>
+    <p>Christopher's task dashboard &mdash; synced from Otter transcripts &amp; manual entries</p>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat-card">
+      <div class="label">Pending</div>
+      <div class="value" id="stat-pending">&mdash;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Assigned to Claude</div>
+      <div class="value" id="stat-claude">&mdash;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Completed</div>
+      <div class="value" id="stat-completed">&mdash;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Total</div>
+      <div class="value" id="stat-total">&mdash;</div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="pending">Pending</button>
+    <button class="filter-btn" data-filter="completed">Completed</button>
+    <button class="filter-btn" data-filter="christopher">Mine</button>
+    <button class="filter-btn" data-filter="claude">Claude's</button>
+    <button class="filter-btn" data-filter="high">High Priority</button>
+  </div>
+
+  <div id="task-list" class="task-list">
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading tasks...</p>
+    </div>
+  </div>
+
+  <div class="last-updated" id="last-updated"></div>
+</div>
+
+<script>
+const REPO_OWNER = 'theinneslife';
+const REPO_NAME = 'todo-dashboard';
+const DATA_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/tasks.json`;
+
+let tasks = [];
+let currentFilter = 'all';
+
+async function loadTasks() {
+  try {
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    if (!res.ok) throw new Error('Failed to fetch');
+    tasks = await res.json();
+    renderStats();
+    renderTasks();
+    document.getElementById('last-updated').textContent =
+      'Last refreshed: ' + new Date().toLocaleString();
+  } catch (err) {
+    document.getElementById('task-list').innerHTML =
+      '<div class="empty-state"><h3>Could not load tasks</h3><p>Check that the repository is public and tasks.json exists.</p></div>';
+  }
+}
+
+function renderStats() {
+  const pending = tasks.filter(t => t.status === 'pending').length;
+  const claude = tasks.filter(t => t.status === 'pending' && t.mode === 'auto').length;
+  const completed = tasks.filter(t => t.status === 'completed').length;
+  document.getElementById('stat-pending').textContent = pending;
+  document.getElementById('stat-claude').textContent = claude;
+  document.getElementById('stat-completed').textContent = completed;
+  document.getElementById('stat-total').textContent = tasks.length;
+}
+
+function getFilteredTasks() {
+  switch (currentFilter) {
+    case 'pending': return tasks.filter(t => t.status === 'pending');
+    case 'completed': return tasks.filter(t => t.status === 'completed');
+    case 'christopher': return tasks.filter(t => t.mode === 'manual' && t.status === 'pending');
+    case 'claude': return tasks.filter(t => t.mode === 'auto');
+    case 'high': return tasks.filter(t => t.priority === 1 && t.status === 'pending');
+    default: return tasks;
+  }
+}
+
+function priorityLabel(p) {
+  if (p === 1) return { text: 'High', cls: 'badge-high' };
+  if (p === 2) return { text: 'Medium', cls: 'badge-medium' };
+  return { text: 'Low', cls: 'badge-low' };
+}
+
+function formatDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function renderTasks() {
+  const container = document.getElementById('task-list');
+  const filtered = getFilteredTasks();
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty-state"><h3>No tasks here</h3><p>All clear, or try a different filter.</p></div>';
+    return;
+  }
+
+  filtered.sort((a, b) => {
+    if (a.status === 'pending' && b.status !== 'pending') return -1;
+    if (a.status !== 'pending' && b.status === 'pending') return 1;
+    if (a.status === 'pending' && b.status === 'pending') return (a.priority || 3) - (b.priority || 3);
+    return new Date(b.completed_at || 0) - new Date(a.completed_at || 0);
+  });
+
+  container.innerHTML = filtered.map(task => {
+    const pri = priorityLabel(task.priority);
+    const isCompleted = task.status === 'completed';
+    const assignee = task.mode === 'auto' ? 'claude' : 'christopher';
+    const assigneeLabel = task.mode === 'auto' ? 'Claude' : 'Christopher';
+
+    return `
+      <div class="task-card ${isCompleted ? 'completed' : ''}" data-id="${task.id}">
+        <div class="task-checkbox ${isCompleted ? 'checked' : ''}" title="Toggle complete"></div>
+        <div class="task-content">
+          <div class="task-title">${escapeHtml(task.title)}</div>
+          ${task.description ? `<div class="task-description">${escapeHtml(task.description)}</div>` : ''}
+          <div class="task-meta">
+            <span class="badge ${pri.cls}">${pri.text}</span>
+            <button class="assignee-toggle assignee-${assignee}" title="Click to reassign">${assigneeLabel}</button>
+            <span class="task-date">${formatDate(task.created_at)}</span>
+            ${task.completion_notes ? `<span class="task-date">\u2014 ${escapeHtml(task.completion_notes)}</span>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.querySelector('.filters').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentFilter = e.target.dataset.filter;
+  renderTasks();
+});
+
+document.getElementById('task-list').addEventListener('click', e => {
+  const toggle = e.target.closest('.assignee-toggle');
+  if (toggle) {
+    const card = toggle.closest('.task-card');
+    const taskId = card.dataset.id;
+    const task = tasks.find(t => t.id === taskId);
+    if (task) {
+      task.mode = task.mode === 'auto' ? 'manual' : 'auto';
+      renderStats();
+      renderTasks();
+      saveTasksToRepo();
+    }
+  }
+
+  const checkbox = e.target.closest('.task-checkbox');
+  if (checkbox) {
+    const card = checkbox.closest('.task-card');
+    const taskId = card.dataset.id;
+    const task = tasks.find(t => t.id === taskId);
+    if (task) {
+      task.status = task.status === 'completed' ? 'pending' : 'completed';
+      task.completed_at = task.status === 'completed' ? new Date().toISOString() : null;
+      renderStats();
+      renderTasks();
+      saveTasksToRepo();
+    }
+  }
+});
+
+async function saveTasksToRepo() {
+  const token = getGitHubToken();
+  if (!token) return;
+
+  try {
+    const metaRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/tasks.json`, {
+      headers: { 'Authorization': `token ${token}` }
+    });
+    const meta = await metaRes.json();
+
+    await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/tasks.json`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Update tasks - ${new Date().toISOString()}`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(tasks, null, 2)))),
+        sha: meta.sha
+      })
+    });
+  } catch (err) {
+    console.log('Could not save to repo (read-only mode):', err.message);
+  }
+}
+
+function getGitHubToken() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('token') || null;
+}
+
+loadTasks();
+setInterval(loadTasks, 5 * 60 * 1000);
+</script>
+</body>
+</html>

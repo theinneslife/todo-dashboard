@@ -170,7 +170,7 @@
     "title": "Evan - when is stock transfer?",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "in_progress",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -182,6 +182,12 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-03T18:21:10.147Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
       }
     ],
     "created_at": "2026-04-03T18:09:10.054Z",

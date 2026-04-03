@@ -160,10 +160,10 @@
     "completion_notes": null
   },
   {
-    "id": "a267222a-f144-4297-bde7-06cc4ee53012",
+    "id": "e1315482-fc18-482a-8ebb-0b347530f548",
     "title": "Evan - when is stock transfer?",
     "description": "",
-    "priority": 3,
+    "priority": 1,
     "status": "pending",
     "mode": "manual",
     "labels": [],
@@ -172,13 +172,13 @@
     "subtasks": [],
     "activity_log": [
       {
-        "timestamp": "2026-04-03T18:08:44.072Z",
+        "timestamp": "2026-04-03T18:09:10.054Z",
         "action": "created",
         "by": "System",
         "details": "Task created"
       }
     ],
-    "created_at": "2026-04-03T18:08:44.072Z",
+    "created_at": "2026-04-03T18:09:10.054Z",
     "completed_at": null,
     "completion_notes": null
   }

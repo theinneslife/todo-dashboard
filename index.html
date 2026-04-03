@@ -12,18 +12,18 @@
         }
 
         :root {
-            --bg-primary: #0f1117;
-            --bg-surface: #1a1d27;
-            --surface-hover: #222632;
-            --border-color: #2a2e3b;
-            --text-primary: #e4e4e7;
-            --text-muted: #8b8d98;
-            --indigo: #6366f1;
+            --bg-primary: #06091a;
+            --bg-surface: #0d1526;
+            --surface-hover: #152035;
+            --border-color: #1a3050;
+            --text-primary: #e2e8f0;
+            --text-muted: #64748b;
+            --indigo: #06b6d4;
             --blue: #3b82f6;
-            --purple: #a855f7;
-            --green: #22c55e;
+            --purple: #8b5cf6;
+            --green: #10b981;
             --amber: #f59e0b;
-            --red: #ef4444;
+            --red: #f43f5e;
             --radius: 12px;
         }
 
@@ -83,7 +83,7 @@
         }
 
         .add-btn:hover {
-            background: #2563eb;
+            background: #1d4ed8;
             transform: translateY(-2px);
         }
 
@@ -382,6 +382,175 @@
             color: var(--text-muted);
         }
 
+
+
+        /* ── Detail / Comments Panel ── */
+        .panel-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 900;
+        }
+        .panel-overlay.open { display: block; }
+
+        .detail-panel {
+            position: fixed;
+            top: 0;
+            right: -480px;
+            width: 460px;
+            max-width: 95vw;
+            height: 100vh;
+            background: var(--bg-surface);
+            border-left: 1px solid var(--border-color);
+            z-index: 950;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.28s cubic-bezier(0.4,0,0.2,1);
+            overflow: hidden;
+        }
+        .detail-panel.open { right: 0; }
+
+        .panel-header {
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .panel-title {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+        .panel-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .panel-close:hover { color: var(--text-primary); }
+
+        .panel-meta {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .panel-meta .due-badge, .panel-meta .source-badge {
+            font-size: 11px;
+        }
+        .panel-desc {
+            padding: 14px 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-comments {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .panel-comments-heading {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .comment-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+        .comment-text {
+            font-size: 13px;
+            line-height: 1.45;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+        .comment-meta {
+            margin-top: 6px;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        .no-comments {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .panel-add-comment {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .comment-input {
+            width: 100%;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 13px;
+            resize: none;
+            min-height: 72px;
+        }
+        .comment-input:focus {
+            outline: none;
+            border-color: var(--indigo);
+        }
+        .comment-submit {
+            align-self: flex-end;
+            background: var(--indigo);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .comment-submit:hover { opacity: 0.85; }
+
+        /* Comment count badge on card */
+        .comment-count {
+            font-size: 10px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+        }
+        .comment-count:hover { color: var(--indigo); }
+
+        /* ── Drag and Drop ── */
+        .column-content.drag-over {
+            background: rgba(6, 182, 212, 0.06);
+            border: 2px dashed var(--indigo);
+            border-radius: 8px;
+        }
+        .task-card.dragging {
+            opacity: 0.4;
+            cursor: grabbing;
+        }
 
         /* ── Due-date badges ── */
         .due-badge {
@@ -756,6 +925,28 @@
         </div>
     </div>
 
+
+    <!-- Panel Overlay -->
+    <div class="panel-overlay" id="panel-overlay"></div>
+
+    <!-- Detail / Comments Panel -->
+    <div class="detail-panel" id="detail-panel">
+        <div class="panel-header">
+            <div class="panel-title" id="panel-title"></div>
+            <button class="panel-close" id="panel-close">&times;</button>
+        </div>
+        <div class="panel-meta" id="panel-meta"></div>
+        <div class="panel-desc" id="panel-desc" style="display:none;"></div>
+        <div class="panel-comments" id="panel-comments">
+            <div class="panel-comments-heading">Updates &amp; Comments</div>
+            <div id="comments-list"></div>
+        </div>
+        <div class="panel-add-comment">
+            <textarea class="comment-input" id="comment-input" placeholder="Add an update or comment..."></textarea>
+            <button class="comment-submit" id="comment-submit">Save</button>
+        </div>
+    </div>
+
     <!-- Add Task Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -1032,7 +1223,8 @@
                 due_date: dueDateVal,
                 created_at: new Date().toISOString(),
                 completed_at: null,
-                completion_notes: null
+                completion_notes: null,
+                comments: []
             };
         }
 
@@ -1114,6 +1306,27 @@
                         content.appendChild(createTaskCard(task));
                     });
                 }
+
+                // Drop zone handlers
+                content.dataset.columnId = col.id;
+                content.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    content.classList.add('drag-over');
+                });
+                content.addEventListener('dragleave', (e) => {
+                    if (!content.contains(e.relatedTarget)) {
+                        content.classList.remove('drag-over');
+                    }
+                });
+                content.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    content.classList.remove('drag-over');
+                    const taskId = e.dataTransfer.getData('text/plain');
+                    if (taskId && hasToken) {
+                        moveTaskToColumn(taskId, col.id);
+                    }
+                });
 
                 columnEl.appendChild(content);
                 board.appendChild(columnEl);
@@ -1240,7 +1453,44 @@
                 footer.appendChild(dateEl);
             }
 
+            // Comment count
+            const comments = task.comments || [];
+            if (comments.length > 0 || true) {
+                const commentCount = document.createElement('div');
+                commentCount.className = 'comment-count';
+                commentCount.dataset.id = task.id;
+                commentCount.innerHTML = `<span>💬</span><span>${comments.length || ''}</span>`;
+                commentCount.title = 'View comments';
+                commentCount.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openDetailPanel(task.id);
+                });
+                footer.appendChild(commentCount);
+            }
+
             card.appendChild(footer);
+
+            // Click card body to open detail panel
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.task-checkbox') &&
+                    !e.target.closest('.assignee-toggle') &&
+                    !e.target.closest('.copy-btn') &&
+                    !e.target.closest('.comment-count')) {
+                    openDetailPanel(task.id);
+                }
+            });
+
+            // Drag and drop
+            card.setAttribute('draggable', 'true');
+            card.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', task.id);
+                e.dataTransfer.effectAllowed = 'move';
+                setTimeout(() => card.classList.add('dragging'), 0);
+            });
+            card.addEventListener('dragend', () => {
+                card.classList.remove('dragging');
+                document.querySelectorAll('.column-content').forEach(c => c.classList.remove('drag-over'));
+            });
 
             return card;
         }
@@ -1327,6 +1577,7 @@
                         if (!task.labels) task.labels = [];
                         if (!('source' in task)) task.source = null;
                         if (!('due_date' in task)) task.due_date = null;
+                        if (!task.comments) task.comments = [];
                         // Auto-add "High Priority" label if priority is 1
                         if (task.priority === 1 && !task.labels.includes('High Priority')) {
                             task.labels.push('High Priority');
@@ -1390,6 +1641,168 @@
             };
             return text.replace(/[&<>"']/g, m => map[m]);
         }
+
+
+        // ── Move task between columns ──
+        function moveTaskToColumn(taskId, columnId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (!task) return;
+            const prev = getColumnForTask(task);
+            if (prev === columnId) return;
+
+            switch (columnId) {
+                case 'todo':
+                    task.status = 'pending';
+                    task.mode = 'manual';
+                    task.labels = (task.labels || []).filter(l => l !== 'Parking Lot');
+                    task.completed_at = null;
+                    break;
+                case 'christopher':
+                    task.status = 'in_progress';
+                    task.mode = 'manual';
+                    task.labels = (task.labels || []).filter(l => l !== 'Parking Lot');
+                    task.completed_at = null;
+                    break;
+                case 'claude':
+                    task.status = 'in_progress';
+                    task.mode = 'auto';
+                    task.labels = (task.labels || []).filter(l => l !== 'Parking Lot');
+                    task.completed_at = null;
+                    break;
+                case 'completed':
+                    task.status = 'completed';
+                    task.completed_at = new Date().toISOString();
+                    break;
+                case 'parking':
+                    task.status = 'pending';
+                    task.mode = 'manual';
+                    if (!(task.labels || []).includes('Parking Lot')) {
+                        task.labels = [...(task.labels || []), 'Parking Lot'];
+                    }
+                    task.completed_at = null;
+                    break;
+            }
+
+            renderBoard();
+            updateFilters();
+            saveTasksToRepo();
+        }
+
+        // ── Detail panel ──
+        let panelTaskId = null;
+
+        function openDetailPanel(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (!task) return;
+            panelTaskId = taskId;
+
+            document.getElementById('panel-title').textContent = task.title;
+
+            // Meta row
+            const meta = document.getElementById('panel-meta');
+            meta.innerHTML = '';
+            const priorityMap = {1:'High', 2:'Medium', 3:'Low'};
+            const priorityColors = {1:'label-high-priority', 2:'', 3:''};
+            const pBadge = document.createElement('span');
+            pBadge.className = 'label ' + (priorityColors[task.priority] || 'label-custom');
+            pBadge.textContent = priorityMap[task.priority] || 'Medium';
+            meta.appendChild(pBadge);
+
+            if (task.due_date) {
+                const d = getDueBadge(task.due_date);
+                if (d) {
+                    const db = document.createElement('span');
+                    db.className = 'due-badge ' + d.cls;
+                    db.textContent = d.text;
+                    meta.appendChild(db);
+                }
+            }
+            if (task.source) {
+                const sb = document.createElement('span');
+                sb.className = 'source-badge';
+                sb.textContent = '↗ ' + task.source;
+                meta.appendChild(sb);
+            }
+            (task.labels || []).forEach(label => {
+                const lb = document.createElement('span');
+                lb.className = 'label ' + (label === 'High Priority' ? 'label-high-priority' : label === 'Parking Lot' ? 'label-parking-lot' : 'label-custom');
+                lb.textContent = label;
+                meta.appendChild(lb);
+            });
+
+            // Description
+            const descEl = document.getElementById('panel-desc');
+            if (task.description) {
+                descEl.textContent = task.description;
+                descEl.style.display = 'block';
+            } else {
+                descEl.style.display = 'none';
+            }
+
+            renderComments(task);
+
+            document.getElementById('comment-input').value = '';
+            document.getElementById('detail-panel').classList.add('open');
+            document.getElementById('panel-overlay').classList.add('open');
+        }
+
+        function closeDetailPanel() {
+            document.getElementById('detail-panel').classList.remove('open');
+            document.getElementById('panel-overlay').classList.remove('open');
+            panelTaskId = null;
+        }
+
+        function renderComments(task) {
+            const list = document.getElementById('comments-list');
+            list.innerHTML = '';
+            const comments = task.comments || [];
+            if (comments.length === 0) {
+                list.innerHTML = '<div class="no-comments">No updates yet. Add one below.</div>';
+                return;
+            }
+            comments.slice().reverse().forEach(c => {
+                const item = document.createElement('div');
+                item.className = 'comment-item';
+                const text = document.createElement('div');
+                text.className = 'comment-text';
+                text.textContent = c.text;
+                const meta = document.createElement('div');
+                meta.className = 'comment-meta';
+                const d = new Date(c.created_at);
+                meta.textContent = (c.author || 'Christopher') + ' · ' + d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
+                item.appendChild(text);
+                item.appendChild(meta);
+                list.appendChild(item);
+            });
+        }
+
+        // Panel event listeners
+        document.getElementById('panel-close').addEventListener('click', closeDetailPanel);
+        document.getElementById('panel-overlay').addEventListener('click', closeDetailPanel);
+
+        document.getElementById('comment-submit').addEventListener('click', () => {
+            const text = document.getElementById('comment-input').value.trim();
+            if (!text || !panelTaskId || !hasToken) return;
+            const task = tasks.find(t => t.id === panelTaskId);
+            if (!task) return;
+            if (!task.comments) task.comments = [];
+            task.comments.push({
+                id: crypto.randomUUID(),
+                text,
+                author: 'Christopher',
+                created_at: new Date().toISOString()
+            });
+            document.getElementById('comment-input').value = '';
+            renderComments(task);
+            renderBoard();
+            saveTasksToRepo();
+        });
+
+        document.getElementById('comment-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+                document.getElementById('comment-submit').click();
+            }
+        });
 
         // Initial load
         fetchTasksFromGitHub();

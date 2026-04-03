@@ -4,126 +4,93 @@
     "title": "Call attorney for brooke",
     "description": "Follow up with attorney regarding Brooke's matter.",
     "priority": 2,
-    "status": "completed",
-    "mode": "auto",
+    "status": "pending",
+    "mode": "manual",
     "labels": [],
-    "source": null,
     "due_date": null,
-    "created_at": "2026-04-02T12:00:00Z",
-    "completed_at": "2026-04-03T08:05:57.956847+00:00",
-    "completion_notes": "Research completed on finding an attorney to help Brooke with a stalker situation. Key findings:\n\n**Immediate Steps Recommended:**\n1. Call VictimConnect Hotline: 1-855-4VICTIM (855-484-2846) — 24/7, anonymous, confidential. They provide referrals to local victim service providers and attorneys.\n2. Call the Victim Legal Resource Center: 1-800-VICTIMS (842-8467) — free legal help and advocacy.\n3. Visit SPARC (stalkingawareness.org) for education and local provider referrals.\n\n**Legal Options for Brooke:**\n- File for a Stalking Protective Order / Restraining Order (can often be done without a lawyer, but having one is recommended especially if the stalker has legal representation)\n- File a police report with documented evidence\n- An attorney specializing in protective orders can assist with emergency orders and represent at hearings\n\n**Evidence to Preserve Now:**\n- Screenshots of messages, social media posts, emails, DMs\n- Call logs, voicemails, texts, letters\n- Log of dates, times, locations of any threatening interactions\n- Witness information\n\n**Finding a Local Attorney:**\n- Use Avvo.com or FindLaw.com to search for \"stalking victim attorney\" or \"protective order attorney\" in Brooke's area\n- Many firms offer free consultations for stalking/harassment cases\n- Look for attorneys specializing in family law or victim advocacy\n\n**National Resources:**\n- VictimConnect: victimconnect.org | 1-855-484-2846\n- SPARC: stalkingawareness.org\n- National Center for Victims of Crime: victimsofcrime.org\n- Office for Victims of Crime: ovc.ojp.gov/topics/stalking\n- National Domestic Violence Hotline: offers support in 200+ languages",
-    "comments": [
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
       {
-        "id": "2decc762-b7f6-4269-a859-7a337ac2279f",
-        "text": "Find an attorney to help with a stalker",
-        "author": "Christopher",
-        "created_at": "2026-04-03T07:18:38.700Z"
+        "timestamp": "2026-04-02T12:00:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created from seed data"
       }
-    ]
+    ],
+    "created_at": "2026-04-02T12:00:00Z",
+    "completed_at": null,
+    "completion_notes": null
   },
   {
     "id": "93cb4b8f-d904-4704-8e37-528f9279e1b0",
     "title": "Send corrected T&C report to Heather",
     "description": "From 'Report and Tracker Updates' meeting (Apr 2). Bug found with Richard where brands were missing from the report.",
     "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "High Priority"
-    ],
-    "source": "Report and Tracker Updates",
-    "due_date": null,
-    "created_at": "2026-04-02T16:39:00Z",
-    "completed_at": "2026-04-03T17:26:19.335Z",
-    "completion_notes": null,
-    "comments": [
-      {
-        "id": "7beeca90-504d-4b16-9ce2-b13ebf6dfd12",
-        "text": "waiting on kristen and molly to QA",
-        "author": "Christopher",
-        "created_at": "2026-04-03T07:18:10.932Z"
-      }
-    ]
-  },
-  {
-    "id": "b3ebf502-f5dd-4ae1-8f0b-9ed1c8b4bb86",
-    "title": "Update tracker with effective dates for all agencies",
-    "description": null,
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "source": "Report and Tracker Updates",
-    "due_date": null,
-    "created_at": "2026-04-02T16:39:00Z",
-    "completed_at": "2026-04-03T06:46:45.971Z",
-    "completion_notes": null,
-    "comments": []
-  },
-  {
-    "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
-    "title": "Confirm final agency tracker list / which tracker to use",
-    "description": null,
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "source": "Report and Tracker Updates",
-    "due_date": null,
-    "created_at": "2026-04-02T16:39:00Z",
-    "completed_at": "2026-04-03T06:46:44.637Z",
-    "completion_notes": null,
-    "comments": []
-  },
-  {
-    "id": "5113bef7-1b33-4a56-93dc-af5b7b09ff50",
-    "title": "Update Agency Contracts to Commission Language",
-    "description": "",
-    "priority": 1,
-    "status": "in_progress",
-    "mode": "manual",
-    "labels": [
-      "High Priority"
-    ],
-    "source": null,
-    "due_date": "2026-05-01",
-    "created_at": "2026-04-03T07:07:51.302Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "comments": []
-  },
-  {
-    "id": "bf59f0d8-c853-485c-8d6b-ed0515380e88",
-    "title": "Ask evan where stocks are, why is he delaying",
-    "description": "",
-    "priority": 1,
     "status": "pending",
     "mode": "manual",
     "labels": [
       "High Priority"
     ],
-    "source": null,
     "due_date": null,
-    "created_at": "2026-04-03T07:10:03.934Z",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Report and Tracker Updates meeting"
+      }
+    ],
+    "created_at": "2026-04-02T16:39:00Z",
     "completed_at": null,
-    "completion_notes": null,
-    "comments": []
+    "completion_notes": null
   },
   {
-    "id": "a9ce97d9-aad3-46ce-bc98-8f214de6d7d1",
-    "title": "Slides for MNTN Meet - Peter",
+    "id": "b3ebf502-f5dd-4ae1-8f0b-9ed1c8b4bb86",
+    "title": "Update tracker with effective dates for all agencies",
     "description": "",
-    "priority": 1,
-    "status": "in_progress",
+    "priority": 2,
+    "status": "pending",
     "mode": "manual",
-    "labels": [
-      "High Priority"
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript"
+      }
     ],
-    "source": null,
-    "due_date": "2026-04-06",
-    "created_at": "2026-04-03T17:26:15.987Z",
+    "created_at": "2026-04-02T16:39:00Z",
     "completed_at": null,
-    "completion_notes": null,
-    "comments": []
+    "completion_notes": null
+  },
+  {
+    "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
+    "title": "Confirm final agency tracker list / which tracker to use",
+    "description": "",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript"
+      }
+    ],
+    "created_at": "2026-04-02T16:39:00Z",
+    "completed_at": null,
+    "completion_notes": null
   }
 ]

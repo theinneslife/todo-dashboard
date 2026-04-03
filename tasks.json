@@ -12,7 +12,14 @@
     "created_at": "2026-04-02T12:00:00Z",
     "completed_at": null,
     "completion_notes": null,
-    "comments": []
+    "comments": [
+      {
+        "id": "2decc762-b7f6-4269-a859-7a337ac2279f",
+        "text": "Find an attorney to help with a stalker",
+        "author": "Christopher",
+        "created_at": "2026-04-03T07:18:38.700Z"
+      }
+    ]
   },
   {
     "id": "93cb4b8f-d904-4704-8e37-528f9279e1b0",

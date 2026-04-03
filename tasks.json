@@ -5,7 +5,7 @@
     "description": "Follow up with attorney regarding Brooke's matter.",
     "priority": 2,
     "status": "in_progress",
-    "mode": "manual",
+    "mode": "auto",
     "labels": [],
     "source": null,
     "due_date": null,

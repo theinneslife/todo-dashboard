@@ -39,9 +39,10 @@
     "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
     "title": "Confirm final agency tracker list / which tracker to use",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
-    "created_at": "2026-04-02T16:39:00Z"
+    "created_at": "2026-04-02T16:39:00Z",
+    "completed_at": "2026-04-03T06:46:38.121Z"
   }
 ]

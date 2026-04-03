@@ -5,3 +5,6 @@
 [2026-04-03T07:03:03Z] EA INTAKE SHEET | Created: https://docs.google.com/spreadsheets/d/1T5-5rluCNPtjRcVU3Y8Y4yc6g9akLa9NlHqicSLsbfQ/edit
 [2026-04-03T07:03:03Z] SCANNER UPDATE | Now uses scan_state.json for timestamps; scans transcripts folder directly
 [2026-04-03T07:03:03Z] LOG UPDATE | Log path updated to tasks.log in GitHub repo
+[2026-04-03T07:08:55Z] OTTER SCAN | No new transcripts found. Skipping.
+[2026-04-03T07:08:55Z] EA INTAKE | No new rows. Skipping.
+[2026-04-03T07:08:55Z] WORKER | No pending auto tasks. Skipping.

@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskflow</title>
+    <title>Taskflow — Action Items Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+/* ============================================
+   Taskflow Dashboard - Styles
+   v2.0 - Split from monolith
+   ============================================ */
+
         * {
             margin: 0;
             padding: 0;
@@ -1342,6 +1347,468 @@
             color: #8e8e93;
             padding: 8px 0;
         }
+    
+
+        /* ============================================
+           FEATURE 1: Enhanced Subtasks
+           ============================================ */
+        .subtask-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f2;
+        }
+        .subtask-item:last-child { border-bottom: none; }
+        .subtask-item.done .subtask-text {
+            text-decoration: line-through;
+            color: #8e8e93;
+        }
+        .subtask-checkbox {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1.5px solid #c7c7cc;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.15s ease;
+        }
+        .subtask-checkbox.checked {
+            background-color: #34c759;
+            border-color: #34c759;
+        }
+        .subtask-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 16px;
+        }
+        .subtask-input {
+            flex: 1;
+            border: 1px solid #e5e5e7;
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+        .subtask-input:focus {
+            outline: none;
+            border-color: #007aff;
+        }
+        .subtask-remove {
+            width: 20px;
+            height: 20px;
+            border: none;
+            background: #ff3b30;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.7;
+            transition: opacity 0.15s;
+        }
+        .subtask-remove:hover { opacity: 1; }
+        .subtask-progress {
+            width: 40px;
+            height: 3px;
+            background-color: #e5e5e7;
+            border-radius: 1.5px;
+            overflow: hidden;
+        }
+        .subtask-progress-fill {
+            height: 100%;
+            background-color: #34c759;
+            border-radius: 1.5px;
+            transition: width 0.3s ease;
+        }
+        .subtask-count {
+            font-size: 10px;
+            color: #8e8e93;
+            margin-left: 4px;
+        }
+        .card-subtask-summary {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #8e8e93;
+        }
+
+        /* ============================================
+           FEATURE 2: Timeline / Calendar Strip
+           ============================================ */
+        .timeline-strip {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e7;
+            padding: 12px 24px;
+            display: none;
+        }
+        .timeline-strip.visible { display: block; }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .timeline-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .timeline-toggle {
+            font-size: 12px;
+            color: #007aff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+        .timeline-days {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .timeline-day {
+            flex: 0 0 auto;
+            min-width: 140px;
+            background: #f5f5f7;
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+        .timeline-day.today {
+            background: #e8f0fe;
+            border: 1px solid #007aff30;
+        }
+        .timeline-day.overdue {
+            background: #fff0f0;
+            border: 1px solid #ff3b3030;
+        }
+        .timeline-day-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6e6e73;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .timeline-day.today .timeline-day-label { color: #007aff; }
+        .timeline-day.overdue .timeline-day-label { color: #ff3b30; }
+        .timeline-task {
+            font-size: 12px;
+            color: #1d1d1f;
+            padding: 4px 0;
+            border-bottom: 1px solid #e5e5e730;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .timeline-task:last-child { border-bottom: none; }
+        .timeline-task:hover { color: #007aff; }
+        .timeline-task .priority-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .timeline-no-due {
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            color: #8e8e93;
+            font-style: italic;
+        }
+
+        /* ============================================
+           FEATURE 3: Blocked Task Badge
+           ============================================ */
+        .badge-blocked {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background-color: #ff3b3018;
+            color: #ff3b30;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.2px;
+        }
+        .badge-blocked::before {
+            content: '⚠';
+            font-size: 9px;
+        }
+        .task-card.blocked {
+            border-left: 3px solid #ff3b30;
+        }
+
+        /* ============================================
+           FEATURE 4: Global Activity Feed
+           ============================================ */
+        .activity-modal { max-width: 600px; }
+        .activity-feed { max-height: 500px; overflow-y: auto; }
+        .activity-item {
+            display: flex;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f2;
+            font-size: 13px;
+        }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+        .activity-icon.created { background: #007aff20; }
+        .activity-icon.completed { background: #34c75920; }
+        .activity-icon.moved { background: #ff9f0a20; }
+        .activity-icon.edited { background: #af52de20; }
+        .activity-icon.commented { background: #5856d620; }
+        .activity-icon.attempted { background: #ff3b3020; }
+        .activity-body { flex: 1; }
+        .activity-task-title {
+            font-weight: 500;
+            color: #1d1d1f;
+            cursor: pointer;
+        }
+        .activity-task-title:hover { color: #007aff; }
+        .activity-detail { color: #6e6e73; margin-top: 2px; }
+        .activity-time {
+            font-size: 11px;
+            color: #8e8e93;
+            flex-shrink: 0;
+        }
+        .activity-filters {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .activity-filter-btn {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid #e5e5e7;
+            background: white;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .activity-filter-btn.active {
+            background: #007aff;
+            color: white;
+            border-color: #007aff;
+        }
+
+        /* ============================================
+           FEATURE 5: Smart Priority Signals (Urgency Decay)
+           ============================================ */
+        @keyframes urgency-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.3); }
+            50% { box-shadow: 0 0 0 4px rgba(255, 59, 48, 0); }
+        }
+        .task-card.urgency-critical {
+            border-left: 3px solid #ff3b30;
+            animation: urgency-pulse 2s infinite;
+        }
+        .task-card.urgency-warning {
+            border-left: 3px solid #ff9f0a;
+        }
+        .task-card.urgency-approaching {
+            border-left: 3px solid #ffcc00;
+        }
+        .urgency-label {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.2px;
+        }
+        .urgency-label.critical {
+            background: #ff3b3018;
+            color: #ff3b30;
+        }
+        .urgency-label.warning {
+            background: #ff9f0a18;
+            color: #ff9f0a;
+        }
+        .urgency-label.approaching {
+            background: #ffcc0018;
+            color: #b8860b;
+        }
+
+        /* ============================================
+           FEATURE 6: Recurrence UI (already has dropdown - enhance badge)
+           ============================================ */
+        .task-recurrence {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            color: #5856d6;
+            background: #5856d610;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* ============================================
+           FEATURE 7: Batch Actions
+           ============================================ */
+        .task-card.selectable { cursor: pointer; }
+        .task-card.selected {
+            outline: 2px solid #007aff;
+            outline-offset: -2px;
+            background-color: #f0f5ff;
+        }
+        .batch-bar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1d1d1f;
+            color: white;
+            border-radius: 14px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-size: 13px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s, transform 0.2s;
+            transform: translateX(-50%) translateY(20px);
+        }
+        .batch-bar.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .batch-bar .batch-count {
+            font-weight: 600;
+            color: #007aff;
+        }
+        .batch-bar button {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: inherit;
+            transition: background 0.15s;
+        }
+        .batch-bar button:hover { background: rgba(255,255,255,0.25); }
+        .batch-bar .batch-close {
+            background: transparent;
+            font-size: 16px;
+            padding: 4px 8px;
+        }
+
+        /* ============================================
+           FEATURE 8: Quick Capture Input
+           ============================================ */
+        .quick-capture {
+            display: flex;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e7;
+            align-items: center;
+        }
+        .quick-capture-input {
+            flex: 1;
+            border: 1.5px solid #e5e5e7;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            background: #f5f5f7;
+        }
+        .quick-capture-input:focus {
+            outline: none;
+            border-color: #007aff;
+            background: white;
+        }
+        .quick-capture-input::placeholder { color: #8e8e93; }
+        .quick-capture-btn {
+            background: #007aff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            transition: background 0.15s;
+        }
+        .quick-capture-btn:hover { background: #0062cc; }
+        .quick-capture-hint {
+            font-size: 11px;
+            color: #8e8e93;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           FEATURE 10: Delegation Notes
+           ============================================ */
+        .delegation-notes {
+            margin-top: 12px;
+            padding: 12px;
+            background: #f5f0ff;
+            border-radius: 8px;
+            border: 1px solid #af52de20;
+        }
+        .delegation-notes-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #af52de;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .delegation-notes-input {
+            width: 100%;
+            border: 1px solid #e5e5e7;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 60px;
+        }
+        .delegation-notes-input:focus {
+            outline: none;
+            border-color: #af52de;
+        }
+        .delegation-notes-display {
+            font-size: 13px;
+            color: #1d1d1f;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
     </style>
 </head>
 <body>
@@ -1361,6 +1828,8 @@
                 <div class="button-group">
                     <button class="secondary" id="refreshBtn">↻ Refresh</button>
                     <button class="secondary" id="statsBtn">📊 Stats</button>
+                    <button class="secondary" id="activityBtn">🔔 Activity</button>
+                    <button class="secondary" id="timelineBtn">📅 Timeline</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
                 </div>
             </div>
@@ -1396,6 +1865,23 @@
                 <option value="label">Sort: Label</option>
                 <option value="due-date">Sort: Due Date</option>
             </select>
+        </div>
+
+        
+        <!-- Feature 8: Quick Capture -->
+        <div class="quick-capture">
+            <input type="text" class="quick-capture-input" id="quickCaptureInput" placeholder="Quick add: type a task and press Enter...">
+            <button class="quick-capture-btn" id="quickCaptureBtn">Add</button>
+            <span class="quick-capture-hint">⌘+K</span>
+        </div>
+
+        <!-- Feature 2: Timeline Strip -->
+        <div class="timeline-strip" id="timelineStrip">
+            <div class="timeline-header">
+                <div class="timeline-title">📅 Upcoming Deadlines</div>
+                <button class="timeline-toggle" id="timelineClose">Hide</button>
+            </div>
+            <div class="timeline-days" id="timelineDays"></div>
         </div>
 
         <div class="mobile-tabs" id="mobileTabs"></div>
@@ -1467,6 +1953,10 @@
                 <div class="subtasks-list" id="initialSubtasks"></div>
                 <button type="button" class="secondary" id="addSubtaskBtn" style="width: 100%; margin-top: 8px;">+ Add Subtask</button>
             </div>
+            <div class="form-group" id="delegationNotesGroup" style="display:none;">
+                <label class="form-label">Delegation Notes for Claude</label>
+                <textarea class="delegation-notes-input" id="taskDelegationNotes" placeholder="Instructions for Claude: what to do, tone, format, where to save output..."></textarea>
+            </div>
             <div class="modal-actions">
                 <button class="secondary" id="addTaskCancel">Cancel</button>
                 <button class="primary" id="addTaskSave">Save Task</button>
@@ -1514,7 +2004,43 @@
         </div>
     </div>
 
+    <!-- Feature 4: Activity Feed Modal -->
+    <div class="modal-backdrop" id="activityModal">
+        <div class="modal activity-modal">
+            <div class="modal-header">
+                <div class="modal-title">Activity Feed</div>
+                <button class="modal-close" id="activityClose">✕</button>
+            </div>
+            <div class="activity-filters" id="activityFilters">
+                <button class="activity-filter-btn active" data-filter="all">All</button>
+                <button class="activity-filter-btn" data-filter="created">Created</button>
+                <button class="activity-filter-btn" data-filter="completed">Completed</button>
+                <button class="activity-filter-btn" data-filter="moved">Moved</button>
+                <button class="activity-filter-btn" data-filter="commented">Commented</button>
+            </div>
+            <div class="activity-feed" id="activityFeed"></div>
+        </div>
+    </div>
+
+
+    <!-- Feature 7: Batch Action Bar -->
+    <div class="batch-bar" id="batchBar">
+        <span class="batch-count" id="batchCount">0</span> selected
+        <button onclick="batchMove('christopher')">→ Christopher</button>
+        <button onclick="batchMove('claude')">→ Claude</button>
+        <button onclick="batchMove('completed')">✓ Complete</button>
+        <button onclick="batchMove('parking')">⏸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">✕</button>
+    </div>
+
+
+    
     <script>
+// ============================================
+// Taskflow Dashboard - Application Logic
+// v2.0 - Split from monolith
+// ============================================
+
         // Configuration
         const GITHUB_REPO = 'theinneslife/todo-dashboard';
         const GITHUB_BRANCH = 'main';
@@ -1534,6 +2060,10 @@
         let selectedPriority = '';
         let selectedOwner = '';
         let mobileActiveColumn = 'todo';
+        let batchSelectedIds = [];
+        let batchMode = false;
+        let timelineVisible = false;
+        let activityFilter = 'all';
 
         // Get GitHub token from URL
         function getGithubToken() {
@@ -1686,6 +2216,29 @@
         }
 
         // Task operations
+        // Feature 5: Smart urgency based on due date proximity
+        function getUrgencyLevel(task) {
+            if (!task.due_date || task.status === 'completed') return null;
+            const due = new Date(task.due_date);
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
+            due.setHours(0, 0, 0, 0);
+            const daysUntil = Math.floor((due - now) / 86400000);
+            if (daysUntil < 0) return 'critical'; // overdue
+            if (daysUntil === 0) return 'critical'; // due today
+            if (daysUntil <= 2) return 'warning'; // due in 1-2 days
+            if (daysUntil <= 5) return 'approaching'; // due in 3-5 days
+            return null;
+        }
+
+
+        // Feature 3: Check if task is blocked (Claude attempted but couldn't complete)
+        function isBlocked(task) {
+            if (!task.activity_log) return false;
+            const lastEntry = task.activity_log[task.activity_log.length - 1];
+            return lastEntry && lastEntry.action === 'attempted' && task.mode === 'auto' && task.status !== 'completed';
+        }
+
         function createTask(title, description, priority, labels, column, dueDate, recurrence, subtasks) {
             const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : (column === 'todo' ? 'pending' : 'in_progress'));
             const mode = column === 'claude' ? 'auto' : (column === 'assistance' ? 'assistance' : 'manual');
@@ -1707,6 +2260,7 @@
                 due_date: dueDate || null,
                 recurrence: recurrence || null,
                 subtasks: subtasks || [],
+                comments: [],
                 activity_log: [{
                     timestamp: new Date().toISOString(),
                     action: 'created',
@@ -1844,6 +2398,8 @@
                 tasks = await fetchTasksFromGithub();
                 updateAllLabels();
                 filterTasks();
+                // Feature 2: Update timeline if visible
+                if (timelineVisible) renderTimeline();
             } catch (error) {
                 console.error('Error loading tasks:', error);
             } finally {
@@ -2028,6 +2584,14 @@
             }
             card.id = `task-${task.id}`;
             card.draggable = githubToken ? true : false;
+            // Feature 7: Batch selection on shift-click
+            card.addEventListener('click', (e) => {
+                if (e.shiftKey && githubToken) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleBatchSelect(task.id, card);
+                }
+            });
 
             const header = document.createElement('div');
             header.className = 'task-header';
@@ -2104,6 +2668,14 @@
                 meta.appendChild(recurrence);
             }
 
+            // Feature 10: Delegation Notes display
+            if (task.delegation_notes && task.mode === 'auto') {
+                html += '<div class="detail-section"><div class="delegation-notes">';
+                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
+                html += '</div></div>';
+            }
+
             // Labels
             if (task.labels && task.labels.length > 0) {
                 task.labels.forEach(label => {
@@ -2116,6 +2688,28 @@
                 });
             }
 
+            // Feature 3: Blocked badge
+            if (isBlocked(task)) {
+                const blockedBadge = document.createElement('div');
+                blockedBadge.className = 'badge-blocked';
+                blockedBadge.textContent = 'Blocked';
+                blockedBadge.title = task.activity_log[task.activity_log.length - 1].details;
+                meta.appendChild(blockedBadge);
+            }
+
+            // Feature 5: Urgency label
+            if (urgency) {
+                const urgencyLabel = document.createElement('span');
+                urgencyLabel.className = 'urgency-label ' + urgency;
+                const urgencyTexts = { critical: 'OVERDUE', warning: 'Due Soon', approaching: 'Upcoming' };
+                if (isOverdue(task.due_date)) urgencyTexts.critical = 'OVERDUE';
+                else if (urgency === 'critical') urgencyTexts.critical = 'Due Today';
+                urgencyLabel.textContent = urgencyTexts[urgency] || '';
+                meta.appendChild(urgencyLabel);
+            }
+
+            // Feature 6: Recurrence badge (already exists but ensure styling)
+
             // Subtasks progress
             if (task.subtasks && task.subtasks.length > 0) {
                 const subtaskDiv = document.createElement('div');
@@ -2126,7 +2720,7 @@
                 const progressBar = document.createElement('div');
                 progressBar.className = 'subtask-progress';
                 const progressFill = document.createElement('div');
-                progressFill.className = 'subtask-progress-bar';
+                progressFill.className = 'subtask-progress-fill';
                 progressFill.style.width = `${(completed / task.subtasks.length) * 100}%`;
                 progressBar.appendChild(progressFill);
                 subtaskDiv.appendChild(subtaskText);
@@ -2313,6 +2907,14 @@
             }
             html += `</div></div>`;
 
+            // Feature 10: Delegation Notes display
+            if (task.delegation_notes && task.mode === 'auto') {
+                html += '<div class="detail-section"><div class="delegation-notes">';
+                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
+                html += '</div></div>';
+            }
+
             // Labels
             if (task.labels && task.labels.length > 0) {
                 html += '<div class="detail-section"><div class="detail-title">Labels</div>';
@@ -2415,6 +3017,14 @@
             });
         }
 
+        function updateDelegationVisibility() {
+            const column = document.getElementById('taskColumn').value;
+            const group = document.getElementById('delegationNotesGroup');
+            if (group) {
+                group.style.display = (column === 'claude') ? 'block' : 'none';
+            }
+        }
+
         function showAddTaskModal() {
             if (!githubToken) return;
             currentEditingTaskId = null;
@@ -2422,6 +3032,8 @@
             document.getElementById('taskTitle').value = '';
             document.getElementById('taskDescription').value = '';
             document.getElementById('taskColumn').value = 'todo';
+            document.getElementById('taskDelegationNotes').value = '';
+            updateDelegationVisibility();
             document.getElementById('taskDueDate').value = '';
             document.getElementById('taskRecurrence').value = '';
             document.getElementById('initialSubtasks').innerHTML = '';
@@ -2512,6 +3124,12 @@
                         }
                     }
 
+                    // Feature 10: Handle delegation notes
+                    const delegationNotes = document.getElementById('taskDelegationNotes').value.trim();
+                    if (delegationNotes) {
+                        task.delegation_notes = delegationNotes;
+                    }
+
                     // Handle subtasks from edit form
                     const subtaskInputs = document.querySelectorAll('#initialSubtasks .subtask-input');
                     if (subtaskInputs.length > 0) {
@@ -2530,7 +3148,18 @@
                     });
                 }
             } else {
-                const newTask = createTask(title, description, priority, labels, column, dueDate, recurrence, []);
+                // Collect subtasks from form
+                const newSubtaskInputs = document.querySelectorAll('#initialSubtasks .subtask-input');
+                const newSubtasks = Array.from(newSubtaskInputs).map(input => ({
+                    title: input.value.trim(),
+                    done: false
+                })).filter(st => st.title);
+                const newTask = createTask(title, description, priority, labels, column, dueDate, recurrence, newSubtasks);
+                // Feature 10: delegation notes for new tasks
+                const newDelegationNotes = document.getElementById('taskDelegationNotes').value.trim();
+                if (newDelegationNotes) {
+                    newTask.delegation_notes = newDelegationNotes;
+                }
                 tasks.push(newTask);
             }
 
@@ -2856,6 +3485,10 @@
                 });
             }
 
+            // Feature 10: Set delegation notes
+            document.getElementById('taskDelegationNotes').value = task.delegation_notes || '';
+            updateDelegationVisibility();
+
             // Set subtasks
             const subtasksContainer = document.getElementById('initialSubtasks');
             subtasksContainer.innerHTML = '';
@@ -2879,6 +3512,49 @@
         document.getElementById('refreshBtn').onclick = loadTasks;
         document.getElementById('addTaskBtn').onclick = showAddTaskModal;
         document.getElementById('statsBtn').onclick = showStatsModal;
+
+        // Feature 4: Activity feed button
+        document.getElementById('activityBtn').onclick = showActivityFeed;
+        document.getElementById('activityClose').onclick = () => {
+            document.getElementById('activityModal').classList.remove('active');
+        };
+
+        // Feature 4: Activity filter buttons
+        document.querySelectorAll('.activity-filter-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.activity-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activityFilter = btn.dataset.filter;
+                renderActivityFeed();
+            };
+        });
+
+        // Feature 2: Timeline toggle
+        document.getElementById('timelineBtn').onclick = toggleTimeline;
+        document.getElementById('timelineClose').onclick = toggleTimeline;
+
+        // Feature 8: Quick capture
+        document.getElementById('quickCaptureInput').onkeypress = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                quickCapture();
+            }
+        };
+        document.getElementById('quickCaptureBtn').onclick = quickCapture;
+        // Keyboard shortcut: Cmd/Ctrl+K for quick capture
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('quickCaptureInput').focus();
+            }
+            // Escape to clear batch selection
+            if (e.key === 'Escape' && batchSelectedIds.length > 0) {
+                clearBatchSelection();
+            }
+        });
+
+        // Feature 10: Show/hide delegation notes based on column
+        document.getElementById('taskColumn').onchange = updateDelegationVisibility;
 
         document.getElementById('addTaskClose').onclick = () => {
             document.getElementById('addTaskModal').classList.remove('active');
@@ -2997,7 +3673,258 @@
         };
 
         // Initialize
-        function init() {
+        
+        // ============================================
+        // FEATURE 2: Timeline / Calendar Strip
+        // ============================================
+        function renderTimeline() {
+            const container = document.getElementById('timelineDays');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Collect tasks with due dates that are not completed
+            const dueTasks = tasks.filter(t => t.due_date && t.status !== 'completed');
+            if (dueTasks.length === 0) {
+                container.innerHTML = '<div class="timeline-no-due">No upcoming deadlines</div>';
+                return;
+            }
+
+            // Group by date, including overdue
+            const groups = {};
+
+            // Add overdue group
+            const overdueTasks = dueTasks.filter(t => {
+                const d = new Date(t.due_date);
+                d.setHours(0, 0, 0, 0);
+                return d < today;
+            });
+            if (overdueTasks.length > 0) {
+                groups['overdue'] = { label: 'OVERDUE', tasks: overdueTasks, isOverdue: true };
+            }
+
+            // Add next 7 days
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() + i);
+                const key = date.toISOString().split('T')[0];
+                const dayTasks = dueTasks.filter(t => t.due_date === key);
+                if (dayTasks.length > 0 || i < 3) {
+                    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    const label = i === 0 ? 'TODAY' : i === 1 ? 'TOMORROW' : `${dayNames[date.getDay()]} ${date.getDate()}`;
+                    groups[key] = { label, tasks: dayTasks, isToday: i === 0 };
+                }
+            }
+
+            // Later tasks (>7 days out)
+            const laterTasks = dueTasks.filter(t => {
+                const d = new Date(t.due_date);
+                d.setHours(0, 0, 0, 0);
+                const diff = Math.floor((d - today) / 86400000);
+                return diff > 7;
+            });
+            if (laterTasks.length > 0) {
+                groups['later'] = { label: 'LATER', tasks: laterTasks };
+            }
+
+            Object.entries(groups).forEach(([key, group]) => {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'timeline-day';
+                if (group.isToday) dayEl.classList.add('today');
+                if (group.isOverdue) dayEl.classList.add('overdue');
+
+                const label = document.createElement('div');
+                label.className = 'timeline-day-label';
+                label.textContent = group.label + (group.tasks.length > 0 ? ` (${group.tasks.length})` : '');
+                dayEl.appendChild(label);
+
+                group.tasks.forEach(task => {
+                    const taskEl = document.createElement('div');
+                    taskEl.className = 'timeline-task';
+                    const dot = document.createElement('span');
+                    dot.className = 'priority-dot';
+                    const colors = { 1: '#ff3b30', 2: '#ff9f0a', 3: '#34c759' };
+                    dot.style.backgroundColor = colors[task.priority] || '#8e8e93';
+                    taskEl.appendChild(dot);
+                    const text = document.createElement('span');
+                    text.textContent = task.title;
+                    taskEl.appendChild(text);
+                    taskEl.onclick = () => showTaskDetail(task);
+                    dayEl.appendChild(taskEl);
+                });
+
+                if (group.tasks.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.style.cssText = 'font-size:11px;color:#8e8e93;font-style:italic;padding:4px 0;';
+                    empty.textContent = 'No tasks';
+                    dayEl.appendChild(empty);
+                }
+
+                container.appendChild(dayEl);
+            });
+        }
+
+        function toggleTimeline() {
+            const strip = document.getElementById('timelineStrip');
+            timelineVisible = !timelineVisible;
+            strip.classList.toggle('visible', timelineVisible);
+            if (timelineVisible) renderTimeline();
+        }
+
+        // ============================================
+        // FEATURE 4: Global Activity Feed
+        // ============================================
+        function showActivityFeed() {
+            document.getElementById('activityModal').classList.add('active');
+            renderActivityFeed();
+        }
+
+        function renderActivityFeed() {
+            const container = document.getElementById('activityFeed');
+            if (!container) return;
+
+            // Collect all activity entries across all tasks
+            let allActivities = [];
+            tasks.forEach(task => {
+                (task.activity_log || []).forEach(entry => {
+                    allActivities.push({
+                        ...entry,
+                        taskId: task.id,
+                        taskTitle: task.title
+                    });
+                });
+            });
+
+            // Sort by timestamp descending
+            allActivities.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            // Filter
+            if (activityFilter !== 'all') {
+                allActivities = allActivities.filter(a => a.action === activityFilter);
+            }
+
+            // Limit to 50 most recent
+            allActivities = allActivities.slice(0, 50);
+
+            if (allActivities.length === 0) {
+                container.innerHTML = '<div style="text-align:center;color:#8e8e93;padding:24px;">No activity found</div>';
+                return;
+            }
+
+            const iconMap = {
+                created: '➕',
+                completed: '✓',
+                moved: '→',
+                edited: '✎',
+                commented: '💬',
+                attempted: '⚠',
+                assigned: '👤',
+                recurrence_spawned: '↻'
+            };
+
+            container.innerHTML = allActivities.map(a => `
+                <div class="activity-item">
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || '•'}</div>
+                    <div class="activity-body">
+                        <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
+                        <div class="activity-detail">${escapeHtml(a.details)} — by ${escapeHtml(a.by)}</div>
+                    </div>
+                    <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // FEATURE 7: Batch Actions
+        // ============================================
+        function toggleBatchSelect(taskId, cardEl) {
+            const idx = batchSelectedIds.indexOf(taskId);
+            if (idx >= 0) {
+                batchSelectedIds.splice(idx, 1);
+                cardEl.classList.remove('selected');
+            } else {
+                batchSelectedIds.push(taskId);
+                cardEl.classList.add('selected');
+            }
+            updateBatchBar();
+        }
+
+        function updateBatchBar() {
+            const bar = document.getElementById('batchBar');
+            const count = document.getElementById('batchCount');
+            if (batchSelectedIds.length > 0) {
+                bar.classList.add('visible');
+                count.textContent = batchSelectedIds.length;
+            } else {
+                bar.classList.remove('visible');
+            }
+        }
+
+        function clearBatchSelection() {
+            batchSelectedIds = [];
+            document.querySelectorAll('.task-card.selected').forEach(el => el.classList.remove('selected'));
+            updateBatchBar();
+        }
+
+        async function batchMove(targetColumn) {
+            if (batchSelectedIds.length === 0 || !githubToken) return;
+
+            const columnMapping = {
+                'todo': { status: 'pending', mode: 'manual' },
+                'christopher': { status: 'in_progress', mode: 'manual' },
+                'claude': { status: 'in_progress', mode: 'auto' },
+                'assistance': { status: 'in_progress', mode: 'assistance' },
+                'completed': { status: 'completed', mode: null },
+                'parking': { status: 'pending', mode: 'manual' }
+            };
+            const mapping = columnMapping[targetColumn];
+            if (!mapping) return;
+
+            batchSelectedIds.forEach(id => {
+                const task = tasks.find(t => t.id === id);
+                if (!task) return;
+                const oldColumn = getTaskColumn(task);
+                task.status = mapping.status;
+                if (mapping.mode !== null) task.mode = mapping.mode;
+                if (targetColumn === 'completed') task.completed_at = new Date().toISOString();
+                if (targetColumn === 'parking' && !task.labels.includes('Parking Lot')) {
+                    task.labels = task.labels || [];
+                    task.labels.push('Parking Lot');
+                } else if (targetColumn !== 'parking') {
+                    task.labels = (task.labels || []).filter(l => l !== 'Parking Lot');
+                }
+                task.activity_log = task.activity_log || [];
+                task.activity_log.push({
+                    timestamp: new Date().toISOString(),
+                    action: 'moved',
+                    by: 'User',
+                    details: 'Batch moved from ' + oldColumn + ' to ' + targetColumn
+                });
+            });
+
+            await saveTasksToGithub(tasks);
+            clearBatchSelection();
+            await loadTasks();
+        }
+
+        // ============================================
+        // FEATURE 8: Quick Capture
+        // ============================================
+        async function quickCapture() {
+            const input = document.getElementById('quickCaptureInput');
+            const title = input.value.trim();
+            if (!title || !githubToken) return;
+
+            const newTask = createTask(title, '', 2, [], 'todo', '', '', []);
+            tasks.push(newTask);
+            await saveTasksToGithub(tasks);
+            input.value = '';
+            await loadTasks();
+        }
+
+function init() {
             githubToken = getGithubToken();
             updateTokenStatus();
             loadTasks();
@@ -3007,6 +3934,7 @@
         }
 
         init();
+    
     </script>
 </body>
 </html>

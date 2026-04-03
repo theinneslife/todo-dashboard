@@ -13,3 +13,8 @@
 [2026-04-03T07:14:19Z] SCANNER | Updated to poll form responses via Forms API
 [2026-04-03T12:04:24Z] OTTER SCAN | No new transcripts found. Skipping.
 [2026-04-03T12:04:24Z] WORKER | No auto tasks awaiting work. Skipping.
+[2026-04-03T20:06:45Z] FILE SCAN | Otter: 'Growth Strategy Meeting' found but already processed (dedup - tasks exist from previous run). Skipping.
+[2026-04-03T20:06:45Z] FILE SCAN | Inbox: No new files found. Skipping.
+[2026-04-03T20:06:45Z] FORM INTAKE | Processed 1 submission(s): Meeting request: CPM automation review | Owners: Assistance
+[2026-04-03T20:06:45Z] WORKER | Auto task 'Call attorney for brooke' already attempted and blocked (requires phone call). Skipping.
+[2026-04-03T20:06:45Z] RECURRING | No completed recurring tasks found. Skipping.

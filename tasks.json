@@ -45,7 +45,7 @@
     "title": "Send corrected T&C report to Heather",
     "description": "From 'Report and Tracker Updates' meeting (Apr 2). Bug found with Richard where brands were missing from the report.",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "High Priority"
@@ -65,10 +65,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:29.959Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-02T16:39:00Z",
-    "completed_at": null,
+    "completed_at": "2026-04-03T17:56:29.958Z",
     "completion_notes": null
   },
   {

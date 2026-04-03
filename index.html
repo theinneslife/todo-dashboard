@@ -1077,6 +1077,107 @@
             font-size: 13px;
             margin-bottom: 12px;
         }
+
+        /* Comments */
+        .comments-section {
+            margin-top: 8px;
+        }
+        .comment-item {
+            padding: 10px 12px;
+            background-color: #f5f5f7;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .comment-item:last-child {
+            margin-bottom: 0;
+        }
+        .comment-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .comment-author {
+            font-weight: 500;
+            font-size: 12px;
+            color: #1d1d1f;
+        }
+        .comment-time {
+            font-size: 11px;
+            color: #6e6e73;
+        }
+        .comment-text {
+            color: #1d1d1f;
+            line-height: 1.4;
+        }
+        .comment-input-wrapper {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .comment-input-wrapper textarea {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 36px;
+            max-height: 120px;
+            background: #ffffff;
+        }
+        .comment-input-wrapper textarea:focus {
+            outline: none;
+            border-color: #007aff;
+        }
+        .comment-input-wrapper button {
+            padding: 8px 16px;
+            background-color: #007aff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            align-self: flex-end;
+        }
+        .comment-input-wrapper button:hover {
+            background-color: #0062cc;
+        }
+        .detail-actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px 0 4px;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 8px;
+        }
+        .detail-actions button {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            border: 1px solid #d2d2d7;
+            background: #ffffff;
+            color: #1d1d1f;
+        }
+        .detail-actions button:hover {
+            background: #f5f5f7;
+        }
+        .detail-actions .primary-action {
+            background-color: #007aff;
+            color: #ffffff;
+            border-color: #007aff;
+        }
+        .detail-actions .primary-action:hover {
+            background-color: #0062cc;
+        }
+        .no-comments {
+            font-size: 13px;
+            color: #8e8e93;
+            padding: 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -1242,6 +1343,7 @@
         let tasks = [];
         let filteredTasks = [];
         let currentEditingTaskId = null;
+        let currentDetailTaskId = null;
         let searchQuery = '';
         let selectedLabels = [];
         let currentSort = 'date';
@@ -1323,7 +1425,7 @@
         // GitHub API functions
         async function fetchTasksFromGithub() {
             try {
-                const response = await fetch(DATA_URL);
+                const response = await fetch(DATA_URL + `?t=${Date.now()}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -1923,8 +2025,16 @@
             const content = document.getElementById('detailContent');
 
             title.textContent = task.title;
+            currentDetailTaskId = task.id;
 
             let html = '';
+
+            // Action buttons
+            if (githubToken) {
+                html += `<div class="detail-actions">`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">✎ Edit Task</button>`;
+                html += `</div>`;
+            }
 
             // Description
             if (task.description) {
@@ -1972,19 +2082,49 @@
                 html += '</div></div>';
             }
 
+            // Comments
+            html += '<div class="detail-section"><div class="detail-title">Comments</div>';
+            html += '<div class="comments-section">';
+            const comments = task.comments || [];
+            if (comments.length === 0) {
+                html += '<div class="no-comments">No comments yet</div>';
+            } else {
+                comments.forEach(comment => {
+                    html += `
+                        <div class="comment-item">
+                            <div class="comment-meta">
+                                <span class="comment-author">${escapeHtml(comment.by)}</span>
+                                <span class="comment-time">${getRelativeTime(comment.timestamp)}</span>
+                            </div>
+                            <div class="comment-text">${escapeHtml(comment.text)}</div>
+                        </div>
+                    `;
+                });
+            }
+            if (githubToken) {
+                html += `
+                    <div class="comment-input-wrapper">
+                        <textarea id="commentInput" placeholder="Add a comment..." rows="1"></textarea>
+                        <button onclick="addComment('${task.id}')">Post</button>
+                    </div>
+                `;
+            }
+            html += '</div></div>';
+
             // Activity log
             if (task.activity_log && task.activity_log.length > 0) {
                 html += '<div class="detail-section"><div class="detail-title">Activity</div><div class="activity-timeline">';
                 const log = [...task.activity_log].reverse();
                 log.forEach(entry => {
                     const icons = {
-                        'created': '✓',
-                        'moved': '→',
-                        'completed': '✓',
-                        'assigned': '👤',
-                        'edited': '✎'
+                        'created': '\u2713',
+                        'moved': '\u2192',
+                        'completed': '\u2713',
+                        'assigned': '\ud83d\udc64',
+                        'edited': '\u270e',
+                        'commented': '\ud83d\udcac'
                     };
-                    const icon = icons[entry.action] || '•';
+                    const icon = icons[entry.action] || '\u2022';
                     html += `
                         <div class="activity-item">
                             <div class="activity-icon">${icon}</div>
@@ -2093,6 +2233,45 @@
                     task.priority = parseInt(priority);
                     task.due_date = dueDate || null;
                     task.recurrence = recurrence || null;
+
+                    // Update column/status/mode based on selected column
+                    const columnMapping = {
+                        'todo': { status: 'pending', mode: 'manual' },
+                        'christopher': { status: 'in_progress', mode: 'manual' },
+                        'claude': { status: 'in_progress', mode: 'auto' },
+                        'completed': { status: 'completed', mode: task.mode },
+                        'parking': { status: 'pending', mode: 'manual' }
+                    };
+                    const mapping = columnMapping[column];
+                    if (mapping) {
+                        task.status = mapping.status;
+                        task.mode = mapping.mode;
+                        if (column === 'parking' && !task.labels.includes('Parking Lot')) {
+                            task.labels.push('Parking Lot');
+                        } else if (column !== 'parking') {
+                            task.labels = task.labels.filter(l => l !== 'Parking Lot');
+                        }
+                        if (column === 'completed' && !task.completed_at) {
+                            task.completed_at = new Date().toISOString();
+                        }
+                    }
+
+                    // Handle subtasks from edit form
+                    const subtaskInputs = document.querySelectorAll('#initialSubtasks .subtask-input');
+                    if (subtaskInputs.length > 0) {
+                        task.subtasks = Array.from(subtaskInputs).map((input, idx) => ({
+                            title: input.value.trim(),
+                            done: task.subtasks && task.subtasks[idx] ? task.subtasks[idx].done : false
+                        })).filter(st => st.title);
+                    }
+
+                    task.activity_log = task.activity_log || [];
+                    task.activity_log.push({
+                        timestamp: new Date().toISOString(),
+                        action: 'edited',
+                        by: 'Christopher',
+                        details: 'Task edited'
+                    });
                 }
             } else {
                 const newTask = createTask(title, description, priority, labels, column, dueDate, recurrence, []);
@@ -2357,6 +2536,87 @@
             legendGroup.appendChild(createdLabel);
 
             svg.appendChild(legendGroup);
+        }
+
+
+        async function addComment(taskId) {
+            const input = document.getElementById('commentInput');
+            const text = input ? input.value.trim() : '';
+            if (!text || !githubToken) return;
+
+            const task = tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            if (!task.comments) task.comments = [];
+            task.comments.push({
+                by: 'Christopher',
+                text: text,
+                timestamp: new Date().toISOString()
+            });
+
+            task.activity_log = task.activity_log || [];
+            task.activity_log.push({
+                timestamp: new Date().toISOString(),
+                action: 'commented',
+                by: 'Christopher',
+                details: 'Added a comment'
+            });
+
+            await saveTasksToGithub(tasks);
+            showTaskDetail(task);
+        }
+
+        function showEditTaskModal(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (!task || !githubToken) return;
+
+            // Close detail modal
+            document.getElementById('detailModal').classList.remove('active');
+
+            // Set editing mode
+            currentEditingTaskId = taskId;
+            document.getElementById('modalTitle').textContent = 'Edit Task';
+            document.getElementById('taskTitle').value = task.title || '';
+            document.getElementById('taskDescription').value = task.description || '';
+            document.getElementById('taskDueDate').value = task.due_date || '';
+            document.getElementById('taskRecurrence').value = task.recurrence || '';
+
+            // Set priority
+            document.querySelectorAll('.priority-button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.priority === String(task.priority));
+            });
+
+            // Set column
+            const column = getTaskColumn(task);
+            document.getElementById('taskColumn').value = column;
+
+            // Set labels
+            clearLabelTags();
+            if (task.labels && task.labels.length > 0) {
+                task.labels.forEach(label => {
+                    if (label !== 'Parking Lot') {
+                        addLabelTag(label);
+                    }
+                });
+            }
+
+            // Set subtasks
+            const subtasksContainer = document.getElementById('initialSubtasks');
+            subtasksContainer.innerHTML = '';
+            if (task.subtasks && task.subtasks.length > 0) {
+                task.subtasks.forEach(subtask => {
+                    const item = document.createElement('div');
+                    item.className = 'subtask-item';
+                    item.innerHTML = `
+                        <input type="text" class="subtask-input" placeholder="Subtask title" value="${escapeHtml(subtask.title)}">
+                        <button type="button" class="task-action-btn" style="width: auto; padding: 4px 8px;">Remove</button>
+                    `;
+                    item.querySelector('button').onclick = () => item.remove();
+                    subtasksContainer.appendChild(item);
+                });
+            }
+
+            document.getElementById('addTaskModal').classList.add('active');
         }
 
         // Event listeners

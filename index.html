@@ -382,6 +382,53 @@
             color: var(--text-muted);
         }
 
+
+        /* ── Due-date badges ── */
+        .due-badge {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .due-badge.overdue   { background: rgba(239,68,68,0.18);  color: #fca5a5; }
+        .due-badge.due-today { background: rgba(245,158,11,0.18); color: #fcd34d; }
+        .due-badge.due-soon  { background: rgba(99,102,241,0.15); color: #c4b5fd; }
+        .due-badge.due-future{ background: rgba(34,197,94,0.12);  color: #86efac; }
+
+        /* ── Source badge ── */
+        .source-badge {
+            font-size: 10px;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.04);
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 130px;
+            display: inline-block;
+        }
+
+        /* ── Copy-to-clipboard button ── */
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1;
+            transition: all 0.15s ease;
+            opacity: 0;
+            flex-shrink: 0;
+        }
+        .task-card:hover .copy-btn { opacity: 1; }
+        .copy-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.08); }
+        .copy-btn.copied { color: var(--green); opacity: 1; }
+
         .empty-state {
             padding: 20px 12px;
             text-align: center;
@@ -698,6 +745,7 @@
                     <option value="date">By Date</option>
                     <option value="priority">By Priority</option>
                     <option value="label">By Label</option>
+                    <option value="due">By Due Date</option>
                 </select>
             </div>
         </div>
@@ -732,6 +780,17 @@
                     <div class="labels-input" id="labels-input">
                         <input type="text" id="label-input" placeholder="Type to add labels, press Enter...">
                     </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-label">Due Date</label>
+                    <input type="date" id="form-due-date" style="color-scheme:dark;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Source / Meeting</label>
+                    <input type="text" id="form-source" placeholder="e.g. Sales Strategy Call">
                 </div>
 
                 <div class="form-group">
@@ -958,6 +1017,9 @@
                 labels.push('High Priority');
             }
 
+            const dueDateVal = document.getElementById('form-due-date').value || null;
+            const sourceVal = document.getElementById('form-source').value.trim() || null;
+
             return {
                 id: crypto.randomUUID(),
                 title,
@@ -966,6 +1028,8 @@
                 status,
                 mode,
                 labels,
+                source: sourceVal,
+                due_date: dueDateVal,
                 created_at: new Date().toISOString(),
                 completed_at: null,
                 completion_notes: null
@@ -1003,6 +1067,13 @@
                 sorted.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
             } else if (currentSort === 'label') {
                 sorted.sort((a, b) => a.labels.length - b.labels.length);
+            } else if (currentSort === 'due') {
+                sorted.sort((a, b) => {
+                    if (!a.due_date && !b.due_date) return 0;
+                    if (!a.due_date) return 1;
+                    if (!b.due_date) return -1;
+                    return new Date(a.due_date) - new Date(b.due_date);
+                });
             }
 
             return sorted;
@@ -1052,6 +1123,19 @@
             attachTaskListeners();
         }
 
+
+        function getDueBadge(dueDate) {
+            if (!dueDate) return null;
+            const today = new Date(); today.setHours(0,0,0,0);
+            const due = new Date(dueDate + 'T00:00:00'); due.setHours(0,0,0,0);
+            const diff = Math.round((due - today) / 86400000);
+            const label = due.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+            if (diff < 0)  return { cls: 'overdue',    text: Math.abs(diff) + 'd overdue' };
+            if (diff === 0) return { cls: 'due-today', text: 'Due today' };
+            if (diff <= 3)  return { cls: 'due-soon',  text: label };
+            return              { cls: 'due-future',   text: label };
+        }
+
         function createTaskCard(task) {
             const card = document.createElement('div');
             card.className = 'task-card';
@@ -1071,8 +1155,22 @@
             title.className = 'task-title';
             title.textContent = task.title;
 
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-btn';
+            copyBtn.title = 'Copy title';
+            copyBtn.textContent = '⎘';
+            copyBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigator.clipboard.writeText(task.title).then(() => {
+                    copyBtn.textContent = '✓';
+                    copyBtn.classList.add('copied');
+                    setTimeout(() => { copyBtn.textContent = '⎘'; copyBtn.classList.remove('copied'); }, 1500);
+                });
+            });
+
             header.appendChild(checkbox);
             header.appendChild(title);
+            header.appendChild(copyBtn);
             card.appendChild(header);
 
             if (task.description) {
@@ -1105,6 +1203,15 @@
                 card.appendChild(labelsRow);
             }
 
+            // Source badge
+            if (task.source) {
+                const sourceBadge = document.createElement('div');
+                sourceBadge.className = 'source-badge';
+                sourceBadge.textContent = '↗ ' + task.source;
+                sourceBadge.title = task.source;
+                card.appendChild(sourceBadge);
+            }
+
             const footer = document.createElement('div');
             footer.className = 'task-footer';
 
@@ -1116,13 +1223,23 @@
             assigneeBtn.textContent = assigneeLabel;
             assigneeBtn.classList.add(task.mode === 'auto' ? 'claude' : 'christopher');
 
-            const dateEl = document.createElement('div');
-            dateEl.className = 'task-date';
-            const date = new Date(task.created_at);
-            dateEl.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            // Due date badge
+            const dueBadgeData = getDueBadge(task.due_date);
+            if (dueBadgeData) {
+                const dueBadge = document.createElement('span');
+                dueBadge.className = 'due-badge ' + dueBadgeData.cls;
+                dueBadge.textContent = dueBadgeData.text;
+                footer.appendChild(assigneeBtn);
+                footer.appendChild(dueBadge);
+            } else {
+                const dateEl = document.createElement('div');
+                dateEl.className = 'task-date';
+                const date = new Date(task.created_at);
+                dateEl.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                footer.appendChild(assigneeBtn);
+                footer.appendChild(dateEl);
+            }
 
-            footer.appendChild(assigneeBtn);
-            footer.appendChild(dateEl);
             card.appendChild(footer);
 
             return card;
@@ -1205,9 +1322,11 @@
                 const response = await fetch(DATA_URL + '?t=' + Date.now());
                 if (response.ok) {
                     tasks = await response.json();
-                    // Ensure labels field exists
+                    // Backfill fields for backward compatibility
                     tasks.forEach(task => {
                         if (!task.labels) task.labels = [];
+                        if (!('source' in task)) task.source = null;
+                        if (!('due_date' in task)) task.due_date = null;
                         // Auto-add "High Priority" label if priority is 1
                         if (task.priority === 1 && !task.labels.includes('High Priority')) {
                             task.labels.push('High Priority');

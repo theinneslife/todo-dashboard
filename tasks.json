@@ -82,7 +82,7 @@
     "title": "Update tracker with effective dates for all agencies",
     "description": "",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -112,10 +112,16 @@
         "action": "completed",
         "by": "Christopher",
         "details": "Task reopened"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:37.825Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-02T16:39:00Z",
-    "completed_at": null,
+    "completed_at": "2026-04-03T17:56:37.825Z",
     "completion_notes": null
   },
   {

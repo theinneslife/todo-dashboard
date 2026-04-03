@@ -40,6 +40,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher to claude"
+      },
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "attempted",
+        "by": "Claude",
+        "details": "Unable to complete: task requires making a phone call, which Claude cannot do. Task requires human action. Consider reassigning to manual mode."
       }
     ],
     "created_at": "2026-04-02T12:00:00Z",
@@ -220,6 +226,60 @@
       }
     ],
     "created_at": "2026-04-03T18:40:26.313Z",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "ca563078-55ba-461e-8a31-05dcd290740c",
+    "title": "Review Winning by Design recap and follow-up proposal",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Lauren (WBD CRO) committed to sending a recap of the discovery call and next steps. Garland scheduled a 30-min follow-up with Dan Patterson on Tuesday before the all-MNTN meeting. Review the recap when it arrives.",
+    "priority": 3,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "MNTN",
+      "Winning by Design"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Growth Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T19:19:08.976Z",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
+    "title": "Prepare for May 1 vertical restructure team assignments",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' \u2014 Christopher will need vertical assignments. Verticals TBD.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "MNTN",
+      "Restructure"
+    ],
+    "due_date": "2026-05-01",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Growth Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T19:19:08.976Z",
     "completed_at": null,
     "completion_notes": null
   }

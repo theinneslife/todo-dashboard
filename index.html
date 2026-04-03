@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Dashboard</title>
+    <title>Taskflow</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -229,7 +229,7 @@
         }
 
         .column {
-            flex: 0 0 calc(20% - 12.8px);
+            flex: 0 0 calc(16.666% - 13.3px);
             min-width: 280px;
             background-color: #f5f5f7;
             border-radius: 12px;
@@ -1005,7 +1005,7 @@
 
         @media (max-width: 1400px) {
             .column {
-                flex: 0 0 calc(25% - 12px);
+                flex: 0 0 calc(20% - 10px);
             }
         }
 
@@ -1078,6 +1078,20 @@
             margin-bottom: 12px;
         }
 
+
+        /* Taskflow Branding */
+        .taskflow-logo {
+            flex-shrink: 0;
+        }
+        .version-badge {
+            font-size: 10px;
+            font-weight: 500;
+            color: #6e6e73;
+            background-color: #f5f5f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.2px;
+        }
         /* Comments */
         .comments-section {
             margin-top: 8px;
@@ -1184,8 +1198,13 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <div class="logo">▦</div>
-                <span style="font-size: 14px; font-weight: 500;">Task Dashboard</span>
+                <svg class="taskflow-logo" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="14" height="14" rx="3" fill="#007aff" opacity="0.3"/>
+                    <rect x="7" y="7" width="14" height="14" rx="3" fill="#007aff" opacity="0.5"/>
+                    <rect x="12" y="12" width="14" height="14" rx="3" fill="#007aff"/>
+                </svg>
+                <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: #1d1d1f;">Taskflow</span>
+                <span class="version-badge">v1.3</span>
             </div>
             <div class="header-right">
                 <div class="token-status" id="tokenStatus">Read-only</div>
@@ -1257,11 +1276,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label">Column</label>
+                <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
                     <option value="todo">To Do</option>
-                    <option value="christopher">Christopher In-Progress</option>
-                    <option value="claude">Claude In-Progress</option>
+                    <option value="christopher">Christopher</option>
+                    <option value="claude">Claude</option>
+                    <option value="assistance">Assistance</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
                 </select>
@@ -1490,8 +1510,8 @@
 
         // Task operations
         function createTask(title, description, priority, labels, column, dueDate, recurrence, subtasks) {
-            const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : 'pending');
-            const mode = column === 'claude' ? 'auto' : 'manual';
+            const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : (column === 'todo' ? 'pending' : 'in_progress'));
+            const mode = column === 'claude' ? 'auto' : (column === 'assistance' ? 'assistance' : 'manual');
             const taskLabels = [...labels];
             if (column === 'parking') {
                 if (!taskLabels.includes('Parking Lot')) {
@@ -1534,6 +1554,8 @@
             if (task.status === 'in_progress') {
                 if (task.mode === 'auto') {
                     return 'claude';
+                } else if (task.mode === 'assistance') {
+                    return 'assistance';
                 } else {
                     return 'christopher';
                 }
@@ -1722,10 +1744,11 @@
 
             const columns = [
                 { id: 'todo', title: 'To Do', dot: '#5856d6', getColor: () => '#5856d6' },
-                { id: 'christopher', title: 'Christopher In-Progress', dot: '#007aff', getColor: () => '#007aff' },
-                { id: 'claude', title: 'Claude In-Progress', dot: '#af52de', getColor: () => '#af52de' },
+                { id: 'christopher', title: 'Christopher', dot: '#007aff', getColor: () => '#007aff' },
+                { id: 'claude', title: 'Claude', dot: '#af52de', getColor: () => '#af52de' },
+                { id: 'assistance', title: 'Assistance', dot: '#ff9f0a', getColor: () => '#ff9f0a' },
                 { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared Sundays' },
-                { id: 'parking', title: 'Parking Lot', dot: '#ff9f0a', getColor: () => '#ff9f0a' }
+                { id: 'parking', title: 'Parking Lot', dot: '#8e8e93', getColor: () => '#8e8e93' }
             ];
 
             columns.forEach(col => {
@@ -1901,8 +1924,9 @@
 
             const assignee = document.createElement('div');
             assignee.className = 'task-assignee';
-            const assigneeName = task.mode === 'auto' ? 'Claude' : 'Christopher';
-            assignee.innerHTML = `<span class="assignee-dot" style="background-color: ${task.mode === 'auto' ? '#af52de' : '#007aff'}"></span>${assigneeName}`;
+            const ownerConfig = { 'manual': { name: 'Christopher', color: '#007aff' }, 'auto': { name: 'Claude', color: '#af52de' }, 'assistance': { name: 'Assistance', color: '#ff9f0a' } };
+            const owner = ownerConfig[task.mode] || ownerConfig['manual'];
+            assignee.innerHTML = `<span class="assignee-dot" style="background-color: ${owner.color}"></span>${owner.name}`;
             assignee.onclick = (e) => {
                 e.stopPropagation();
                 if (!githubToken) return;
@@ -1955,17 +1979,25 @@
         }
 
         async function toggleAssignee(task) {
-            task.mode = task.mode === 'auto' ? 'manual' : 'auto';
+            // Cycle: manual -> auto -> assistance -> manual
+            if (task.mode === 'manual') {
+                task.mode = 'auto';
+            } else if (task.mode === 'auto') {
+                task.mode = 'assistance';
+            } else {
+                task.mode = 'manual';
+            }
             if (task.status !== 'completed' && task.status !== 'pending') {
                 task.status = 'in_progress';
             }
 
+            const ownerNames = { 'manual': 'Christopher', 'auto': 'Claude', 'assistance': 'Assistance' };
             task.activity_log = task.activity_log || [];
             task.activity_log.push({
                 timestamp: new Date().toISOString(),
                 action: 'assigned',
                 by: 'System',
-                details: `Assigned to ${task.mode === 'auto' ? 'Claude' : 'Christopher'}`
+                details: `Assigned to ${ownerNames[task.mode]}`
             });
 
             await saveTasksToGithub(tasks);
@@ -1981,6 +2013,7 @@
                 'todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
                 'christopher': { status: 'in_progress', mode: 'manual' },
                 'claude': { status: 'in_progress', mode: 'auto' },
+                'assistance': { status: 'in_progress', mode: 'assistance' },
                 'completed': { status: 'completed', mode: 'manual', completedAt: new Date().toISOString() },
                 'parking': { status: 'pending', mode: 'manual', addLabel: 'Parking Lot' }
             };
@@ -2049,6 +2082,8 @@
             html += '<div class="detail-section"><div class="detail-title">Details</div>';
             html += `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">`;
             html += `<div><span style="color: #6e6e73;">Status:</span> ${task.status}</div>`;
+            const detailOwnerNames = { 'manual': 'Christopher', 'auto': 'Claude', 'assistance': 'Assistance' };
+            html += `<div><span style="color: #6e6e73;">Owner:</span> ${detailOwnerNames[task.mode] || 'Christopher'}</div>`;
             html += `<div><span style="color: #6e6e73;">Priority:</span> ${['', 'High', 'Medium', 'Low'][task.priority]}</div>`;
             if (task.due_date) {
                 html += `<div><span style="color: #6e6e73;">Due:</span> ${formatDate(task.due_date)}</div>`;
@@ -2239,6 +2274,7 @@
                         'todo': { status: 'pending', mode: 'manual' },
                         'christopher': { status: 'in_progress', mode: 'manual' },
                         'claude': { status: 'in_progress', mode: 'auto' },
+                        'assistance': { status: 'in_progress', mode: 'assistance' },
                         'completed': { status: 'completed', mode: task.mode },
                         'parking': { status: 'pending', mode: 'manual' }
                     };
@@ -2365,7 +2401,7 @@
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'todo': 'To Do', 'christopher': 'Christopher', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'todo': 'To Do', 'christopher': 'Christopher', 'claude': 'Claude', 'assistance': 'Assistance', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {

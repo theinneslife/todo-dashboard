@@ -4,7 +4,7 @@
     "title": "Call attorney for brooke",
     "description": "Follow up with attorney regarding Brooke's matter.",
     "priority": 2,
-    "status": "pending",
+    "status": "in_progress",
     "mode": "manual",
     "labels": [],
     "source": null,

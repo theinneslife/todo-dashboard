@@ -62,7 +62,7 @@
     "title": "Update Agency Contracts to Commission Language",
     "description": "",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [
       "High Priority"
@@ -70,7 +70,23 @@
     "source": null,
     "due_date": "2026-05-01",
     "created_at": "2026-04-03T07:07:51.302Z",
-    "completed_at": "2026-04-03T07:08:21.813Z",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "bf59f0d8-c853-485c-8d6b-ed0515380e88",
+    "title": "Ask evan where stocks are, why is he delaying",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "High Priority"
+    ],
+    "source": null,
+    "due_date": null,
+    "created_at": "2026-04-03T07:10:03.934Z",
+    "completed_at": null,
     "completion_notes": null
   }
 ]

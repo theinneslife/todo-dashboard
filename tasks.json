@@ -309,5 +309,269 @@
     "created_at": "2026-04-03T20:05:54.096Z",
     "completed_at": null,
     "completion_notes": null
+  },
+  {
+    "id": "8f6ec1c1-e2a0-4e88-a8c6-df863547fc56",
+    "title": "Travel to New York",
+    "description": "Speaker 1 (Christopher) mentioned traveling to New York next week for meeting. (Source: Account Management Coordination)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Account Management Coordination"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "d0aff4ce-6c25-49a5-8434-3b5dd8de40cd",
+    "title": "Build a comprehensive agency growth plan",
+    "description": "Chris said he will put together a plan to address agency business concerns. No explicit deadline, but needed soon. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "11f43558-9310-4944-bdd9-7e50c7ef9a3f",
+    "title": "Discuss partner program positioning with Garland",
+    "description": "Chris needs clarification from Garland on the partner program timeline and commission structure. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "e5ec2f5c-394b-4a47-b2c3-56a96eaecf44",
+    "title": "Update team on partner program changes",
+    "description": "Chris must inform his team about the new partner program rollout and Q2 timing for agency spend. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "20c8180f-c428-4e4a-89e8-dda5a56355ca",
+    "title": "Communicate Q2 eligibility to interested agencies",
+    "description": "Chris needs to reach out to agencies that tried to join in Q1 and explain they must wait until Q2. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "80ccabf7-0c6f-43d0-a3e0-7e39e495f035",
+    "title": "Prepare deliverable for Mark by end of day Friday",
+    "description": "Mark told Chris: 'I need you to put together something by the end of day Friday.' (Source: Agency Business Strategy Meeting)",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "a3e1b0ab-b989-4e46-a210-5b9ba2eb3013",
+    "title": "Schedule meeting with C-Squared agency",
+    "description": "Chris mentioned to Mark that C-Squared is ready for a meeting about an injection of money. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "fe60d698-e622-4003-9ee5-6637bf0a1bf9",
+    "title": "Take over quarterbacking the neon pixel relationship",
+    "description": "Mark asked Christopher to take over the neon pixel relationship. (Source: Financial Strategy Meeting)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Financial Strategy Meeting"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "748f8253-7fd0-406e-a9bd-9b359ebf6eaa",
+    "title": "Discuss off-site meeting themes",
+    "description": "Christopher to share his perspective on themes or subjects for the executive team off-site scheduled for next Thursday morning. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "8c813054-e46d-497f-b886-7f1cd7173e31",
+    "title": "Review off-site guest list",
+    "description": "Christopher to verify who is invited to the off-site, consider adding or removing participants as needed. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
+  },
+  {
+    "id": "6d871fe2-25ef-40c5-9f2e-ce80ce38b18d",
+    "title": "Request prep from Rachel and Severin",
+    "description": "Christopher to ask Rachel and Severin to prepare materials or metrics on their teams' ability to support customers of all sizes for the upcoming meeting. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": null,
+    "completion_notes": null
   }
 ]

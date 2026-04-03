@@ -222,5 +222,28 @@
     "created_at": "2026-04-03T18:40:26.313Z",
     "completed_at": null,
     "completion_notes": null
+  },
+  {
+    "id": "f9c5e72c-0093-4d0b-8447-5cc603e5ecba",
+    "title": "Talk to mark on COO role",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T18:40:45.813Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-03T18:40:45.813Z",
+    "completed_at": null,
+    "completion_notes": null
   }
 ]

@@ -169,6 +169,28 @@
             display: flex;
         }
 
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #e5e5e7;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #1d1d1f;
+            background-color: #ffffff;
+            cursor: pointer;
+            outline: none;
+            min-width: 120px;
+        }
+
+        .filter-select:focus {
+            border-color: #007aff;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .filter-select.active {
+            border-color: #007aff;
+            background-color: rgba(0, 122, 255, 0.04);
+        }
+
         .search-result-count {
             font-size: 12px;
             color: #6e6e73;
@@ -436,6 +458,29 @@
         .task-due-date.future {
             color: #6e6e73;
             background-color: rgba(110, 110, 115, 0.08);
+        }
+
+        .task-due-date.due-soon {
+            color: #bf5a00;
+            background-color: rgba(255, 159, 10, 0.12);
+            font-weight: 500;
+        }
+
+        .task-due-date::before {
+            content: '📅';
+            font-size: 10px;
+        }
+
+        .task-due-date.overdue::before {
+            content: '🔴';
+        }
+
+        .task-due-date.today::before {
+            content: '🟠';
+        }
+
+        .task-due-date.due-soon::before {
+            content: '🟡';
         }
 
         .task-subtasks {
@@ -1020,17 +1065,39 @@
         }
 
         @media (max-width: 640px) {
-            .column {
-                flex: 0 0 100%;
+            .mobile-tabs {
+                display: flex;
             }
 
             .kanban {
                 flex-direction: column;
+                padding: 12px;
+                gap: 0;
+            }
+
+            .column {
+                flex: 0 0 100%;
+                display: none;
+            }
+
+            .column.mobile-active {
+                display: block;
             }
 
             .controls {
                 flex-direction: column;
                 align-items: stretch;
+                padding: 12px 16px;
+                gap: 8px;
+            }
+
+            .controls .search-wrapper {
+                min-width: 100%;
+            }
+
+            .controls .filter-select,
+            .controls .sort-select {
+                width: 100%;
             }
 
             .label-filters {
@@ -1041,12 +1108,95 @@
                 width: 95%;
                 max-width: 100%;
                 padding: 16px;
+                max-height: 90vh;
             }
 
             header {
                 flex-wrap: wrap;
-                gap: 12px;
+                gap: 8px;
+                padding: 12px 16px;
             }
+
+            .header-right {
+                width: 100%;
+            }
+
+            .header-right .button-group {
+                flex: 1;
+            }
+
+            .header-right .button-group button {
+                flex: 1;
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .token-status {
+                display: none;
+            }
+
+            .task-card {
+                padding: 10px;
+            }
+
+            .task-description {
+                display: none;
+            }
+
+            .column-header {
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+        }
+
+        /* Mobile column tabs */
+        .mobile-tabs {
+            display: none;
+            overflow-x: auto;
+            gap: 0;
+            padding: 0 16px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e7;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-tab {
+            flex: 0 0 auto;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #6e6e73;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-tab.active {
+            color: #007aff;
+            border-bottom-color: #007aff;
+        }
+
+        .mobile-tab .tab-count {
+            display: inline-block;
+            min-width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 9px;
+            background-color: #e5e5e7;
+            color: #6e6e73;
+            margin-left: 4px;
+        }
+
+        .mobile-tab.active .tab-count {
+            background-color: rgba(0, 122, 255, 0.1);
+            color: #007aff;
         }
 
         .hidden {
@@ -1204,7 +1354,7 @@
                     <rect x="12" y="12" width="14" height="14" rx="3" fill="#007aff"/>
                 </svg>
                 <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: #1d1d1f;">Taskflow</span>
-                <span class="version-badge">v1.3</span>
+                <span class="version-badge">v1.4</span>
             </div>
             <div class="header-right">
                 <div class="token-status" id="tokenStatus">Read-only</div>
@@ -1228,6 +1378,18 @@
             </div>
             <div class="search-result-count" id="searchCount"></div>
             <div class="label-filters" id="labelFilters"></div>
+            <select class="filter-select" id="priorityFilter">
+                <option value="">All Priorities</option>
+                <option value="1">🔴 High</option>
+                <option value="2">🟡 Medium</option>
+                <option value="3">🟢 Low</option>
+            </select>
+            <select class="filter-select" id="ownerFilter">
+                <option value="">All Owners</option>
+                <option value="manual">Christopher</option>
+                <option value="auto">Claude</option>
+                <option value="assistance">Assistance</option>
+            </select>
             <select class="sort-select" id="sortSelect">
                 <option value="date">Sort: Date</option>
                 <option value="priority">Sort: Priority</option>
@@ -1236,6 +1398,7 @@
             </select>
         </div>
 
+        <div class="mobile-tabs" id="mobileTabs"></div>
         <div class="kanban" id="kanban"></div>
     </div>
 
@@ -1368,6 +1531,9 @@
         let selectedLabels = [];
         let currentSort = 'date';
         let allLabels = [];
+        let selectedPriority = '';
+        let selectedOwner = '';
+        let mobileActiveColumn = 'todo';
 
         // Get GitHub token from URL
         function getGithubToken() {
@@ -1431,6 +1597,17 @@
             today.setHours(0, 0, 0, 0);
             due.setHours(0, 0, 0, 0);
             return due.getTime() === today.getTime();
+        }
+
+        function isDueSoon(dueDate) {
+            if (!dueDate) return false;
+            if (isOverdue(dueDate) || isToday(dueDate)) return false;
+            const due = new Date(dueDate);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            due.setHours(0, 0, 0, 0);
+            const diffDays = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
+            return diffDays <= 3;
         }
 
         function isFuture(dueDate) {
@@ -1571,6 +1748,17 @@
                         task.labels && task.labels.includes(label)
                     );
                     if (!hasLabel) return false;
+                }
+
+                // Priority filter
+                if (selectedPriority) {
+                    if (String(task.priority) !== selectedPriority) return false;
+                }
+
+                // Owner filter
+                if (selectedOwner) {
+                    const taskMode = task.mode || 'manual';
+                    if (taskMode !== selectedOwner) return false;
                 }
 
                 // Search filter
@@ -1800,6 +1988,36 @@
                 columnEl.appendChild(taskList);
                 kanban.appendChild(columnEl);
             });
+
+            // Mobile tabs
+            renderMobileTabs(columns);
+        }
+
+        function renderMobileTabs(columns) {
+            const tabsEl = document.getElementById('mobileTabs');
+            if (!tabsEl) return;
+            tabsEl.innerHTML = '';
+
+            columns.forEach(col => {
+                const colTasks = filteredTasks.filter(t => getTaskColumn(t) === col.id);
+                const tab = document.createElement('button');
+                tab.className = 'mobile-tab' + (mobileActiveColumn === col.id ? ' active' : '');
+                tab.innerHTML = `${col.title} <span class="tab-count">${colTasks.length}</span>`;
+                tab.onclick = () => {
+                    mobileActiveColumn = col.id;
+                    document.querySelectorAll('.mobile-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.querySelectorAll('.column').forEach(c => {
+                        c.classList.remove('mobile-active');
+                        if (c.id === `col-${col.id}`) c.classList.add('mobile-active');
+                    });
+                };
+                tabsEl.appendChild(tab);
+            });
+
+            // Activate the current mobile column
+            const activeCol = document.getElementById(`col-${mobileActiveColumn}`);
+            if (activeCol) activeCol.classList.add('mobile-active');
         }
 
         function renderTaskCard(task) {
@@ -1853,10 +2071,12 @@
             if (task.due_date) {
                 const dueDate = document.createElement('div');
                 dueDate.className = 'task-due-date';
-                if (isOverdue(task.due_date)) {
+                if (isOverdue(task.due_date) && task.status !== 'completed') {
                     dueDate.classList.add('overdue');
                 } else if (isToday(task.due_date)) {
                     dueDate.classList.add('today');
+                } else if (isDueSoon(task.due_date)) {
+                    dueDate.classList.add('due-soon');
                 } else {
                     dueDate.classList.add('future');
                 }
@@ -2740,6 +2960,20 @@
         // Sort
         document.getElementById('sortSelect').onchange = (e) => {
             currentSort = e.target.value;
+            filterTasks();
+        };
+
+        // Priority filter
+        document.getElementById('priorityFilter').onchange = (e) => {
+            selectedPriority = e.target.value;
+            e.target.classList.toggle('active', selectedPriority !== '');
+            filterTasks();
+        };
+
+        // Owner filter
+        document.getElementById('ownerFilter').onchange = (e) => {
+            selectedOwner = e.target.value;
+            e.target.classList.toggle('active', selectedOwner !== '');
             filterTasks();
         };
 

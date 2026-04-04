@@ -4996,11 +4996,14 @@ function getGithubToken() {
         var controls = document.querySelector('.controls');
         var quickCapture = document.querySelector('.quick-capture');
         var projectBar = document.querySelector('.project-bar');
+        var containerEl = document.querySelector('.container');
         if (view === 'board') {
+            if (containerEl) containerEl.style.height = '100vh';
             if (controls) controls.style.display = '';
             if (quickCapture) quickCapture.style.display = '';
             if (projectBar) projectBar.style.display = '';
         } else {
+            if (containerEl) containerEl.style.height = 'auto';
             if (controls) controls.style.display = 'none';
             if (quickCapture) quickCapture.style.display = 'none';
             if (projectBar) projectBar.style.display = 'none';

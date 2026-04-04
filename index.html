@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskflow Ã¢ÂÂ Action Items Dashboard</title>
+    <title>Taskflow — Action Items Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
@@ -362,7 +362,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: '✓';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -473,20 +473,20 @@
         }
 
         .task-due-date::before {
-            content: 'Ã°ÂÂÂ';
+            content: '📅';
             font-size: 10px;
         }
 
         .task-due-date.overdue::before {
-            content: 'Ã°ÂÂÂ´';
+            content: '🔴';
         }
 
         .task-due-date.today::before {
-            content: 'Ã°ÂÂÂ ';
+            content: '🟠';
         }
 
         .task-due-date.due-soon::before {
-            content: 'Ã°ÂÂÂ¡';
+            content: '🟡';
         }
 
         .task-subtasks {
@@ -870,7 +870,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: '✓';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1379,7 +1379,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: '✓';
             color: white;
             font-size: 10px;
             display: flex;
@@ -1544,7 +1544,7 @@
             letter-spacing: 0.2px;
         }
         .badge-blocked::before {
-            content: 'Ã¢ÂÂ ';
+            content: '⚠';
             font-size: 9px;
         }
         .task-card.blocked {
@@ -2158,8 +2158,6 @@
 
     
 /* ===== V4.0 IMPROVEMENTS CSS ===== */
-
-/* --- Notifications & Reminders --- */
 .notification-bell { position: relative; cursor: pointer; font-size: 1.2em; }
 .notification-bell .badge { position: absolute; top: -6px; right: -6px; background: #e74c3c; color: #fff; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; display: flex; align-items: center; justify-content: center; }
 .notification-panel { position: fixed; top: 60px; right: 20px; width: 360px; max-height: 500px; background: #1e1e2e; border: 1px solid #333; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 1000; display: none; overflow: hidden; }
@@ -2171,21 +2169,13 @@
 .notification-item.unread { border-left: 3px solid #667eea; }
 .notification-item .ni-title { font-size: 13px; color: #e0e0e0; margin-bottom: 4px; }
 .notification-item .ni-time { font-size: 11px; color: #888; }
-.notification-item .ni-icon { margin-right: 8px; }
 .digest-summary { padding: 12px; background: #1a1a2e; border-radius: 8px; margin: 8px; border: 1px solid #333; }
 .digest-summary h4 { color: #667eea; margin: 0 0 8px 0; font-size: 13px; }
 .digest-summary .stat-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; color: #aaa; }
-
-/* --- Google Calendar Integration --- */
-.calendar-sync-btn { background: #4285f4; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: inline-flex; align-items: center; gap: 6px; }
+.calendar-sync-btn { background: #4285f4; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; }
 .calendar-sync-btn:hover { background: #3367d6; }
 .ics-download-btn { background: transparent; border: 1px solid #4285f4; color: #4285f4; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 11px; }
 .ics-download-btn:hover { background: rgba(66,133,244,0.1); }
-.calendar-event-strip { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
-.cal-event-dot { width: 8px; height: 8px; border-radius: 50%; background: #4285f4; }
-.timeline-cal-event { background: rgba(66,133,244,0.15); border-left: 3px solid #4285f4; padding: 4px 8px; border-radius: 4px; font-size: 11px; color: #8ab4f8; margin: 2px 0; }
-
-/* --- Smarter Claude Auto-Worker --- */
 .delegation-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 .delegation-badge.claude-ready { background: rgba(102,126,234,0.2); color: #667eea; }
 .delegation-badge.human-required { background: rgba(231,76,60,0.2); color: #e74c3c; }
@@ -2193,43 +2183,25 @@
 .capability-indicator { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
 .cap-tag { padding: 2px 6px; border-radius: 4px; font-size: 9px; background: rgba(255,255,255,0.05); color: #888; }
 .cap-tag.available { background: rgba(102,126,234,0.15); color: #667eea; }
-.deliverable-card { background: #1a1a2e; border: 1px solid #333; border-radius: 8px; padding: 10px; margin-top: 8px; }
-.deliverable-card .dc-type { font-size: 10px; text-transform: uppercase; color: #667eea; margin-bottom: 4px; }
-.deliverable-card .dc-title { font-size: 13px; color: #e0e0e0; }
 .readiness-meter { height: 4px; background: #333; border-radius: 2px; margin-top: 6px; overflow: hidden; }
 .readiness-meter .fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
 .readiness-meter .fill.high { background: #667eea; }
 .readiness-meter .fill.medium { background: #f1c40f; }
 .readiness-meter .fill.low { background: #e74c3c; }
-
-/* --- Mobile-Friendly Interactive View --- */
 @media (max-width: 768px) {
   .task-card { padding: 14px; margin: 8px 4px; min-height: 70px; touch-action: pan-y; user-select: none; }
   .task-card.swiping { transition: transform 0.05s linear; }
-  .task-card.swipe-complete { background: rgba(46,204,113,0.15); }
-  .task-card.swipe-park { background: rgba(231,76,60,0.15); }
   .swipe-indicator { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding: 0 16px; font-size: 13px; font-weight: 600; pointer-events: none; opacity: 0; transition: opacity 0.15s; }
   .swipe-indicator.left { right: 0; background: rgba(231,76,60,0.9); color: #fff; border-radius: 0 8px 8px 0; }
   .swipe-indicator.right { left: 0; background: rgba(46,204,113,0.9); color: #fff; border-radius: 8px 0 0 8px; }
   .swipe-indicator.visible { opacity: 1; }
-  .mobile-section { border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
   .mobile-section-header { padding: 12px 16px; background: #1e1e2e; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-  .mobile-section-header .chevron { transition: transform 0.2s; }
-  .mobile-section-header.collapsed .chevron { transform: rotate(-90deg); }
-  .mobile-section-body { transition: max-height 0.3s ease; overflow: hidden; }
-  .mobile-section-body.collapsed { max-height: 0 !important; }
-  .mobile-tap-assign { position: absolute; top: 8px; right: 8px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px; }
-  .my-tasks-mobile { padding: 8px; }
-  .my-tasks-mobile .task-card { font-size: 14px; border-radius: 12px; position: relative; overflow: hidden; }
+  .mobile-section-body.collapsed { max-height: 0 !important; overflow: hidden; }
   #myTasksView { padding: 8px !important; }
   .view-tabs button { padding: 8px 12px !important; font-size: 12px !important; }
   .controls { flex-wrap: wrap; gap: 6px !important; padding: 8px !important; }
-  .controls input, .controls select { font-size: 14px !important; }
   .notification-panel { width: calc(100vw - 20px); right: 10px; left: 10px; }
 }
-
-/* --- Recurring Task Intelligence & Habit Tracking --- */
-.habits-view { padding: 20px; }
 .streak-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
 .streak-badge.hot { background: rgba(231,76,60,0.2); color: #e74c3c; }
 .streak-badge.warm { background: rgba(241,196,15,0.2); color: #f1c40f; }
@@ -2284,14 +2256,14 @@
                 </div>
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
-                    <button class="secondary" id="refreshBtn">Ã¢ÂÂ» Refresh</button>
-                    <button class="secondary" id="statsBtn">Ã°ÂÂÂ Stats</button>
-                    <button class="secondary" id="activityBtn">Ã°ÂÂÂ Activity</button>
-                    <button class="secondary" id="timelineBtn">Ã°ÂÂÂ Timeline</button>
-                    <button class="secondary" id="templateBtn">Ã°ÂÂÂ Template</button>
+                    <button class="secondary" id="refreshBtn">↻ Refresh</button>
+                    <button class="secondary" id="statsBtn">📊 Stats</button>
+                    <button class="secondary" id="activityBtn">🔔 Activity</button>
+                    <button class="secondary" id="timelineBtn">📅 Timeline</button>
+                    <button class="secondary" id="templateBtn">📋 Template</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
             <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">🔔<span id="notifBadge" class="badge" style="display:none">0</span></button>
-            <button class="ics-download-btn" onclick="downloadICS()" title="Download calendar (.ics)">📅 .ics</button>
+            <button class="ics-download-btn" onclick="downloadICS()" title="Download .ics">📅 .ics</button>
                 </div>
             </div>
         </header>
@@ -2304,15 +2276,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">Ã¢ÂÂ</button>
+                <button class="search-clear" id="searchClear">✕</button>
             </div>
             <div class="search-result-count" id="searchCount"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter">
                 <option value="">All Priorities</option>
-                <option value="1">Ã°ÂÂÂ´ High</option>
-                <option value="2">Ã°ÂÂÂ¡ Medium</option>
-                <option value="3">Ã°ÂÂÂ¢ Low</option>
+                <option value="1">🔴 High</option>
+                <option value="2">🟡 Medium</option>
+                <option value="3">🟢 Low</option>
             </select>
             <select class="filter-select" id="ownerFilter">
                 <option value="">All Owners</option>
@@ -2338,13 +2310,13 @@
         <div class="quick-capture">
             <input type="text" class="quick-capture-input" id="quickCaptureInput" placeholder="Quick add: type a task and press Enter...">
             <button class="quick-capture-btn" id="quickCaptureBtn">Add</button>
-            <span class="quick-capture-hint">Ã¢ÂÂ+K</span>
+            <span class="quick-capture-hint">⌘+K</span>
         </div>
 
         <!-- Feature 2: Timeline Strip -->
         <div class="timeline-strip" id="timelineStrip">
             <div class="timeline-header">
-                <div class="timeline-title">Ã°ÂÂÂ Upcoming Deadlines</div>
+                <div class="timeline-title">📅 Upcoming Deadlines</div>
                 <button class="timeline-toggle" id="timelineClose">Hide</button>
             </div>
             <div class="timeline-days" id="timelineDays"></div>
@@ -2358,32 +2330,15 @@
         <div class="my-tasks-view" id="myTasksView"></div>
     </div>
 
-    
-        <div id="habitsView" style="display:none;padding:20px;">
-            <div class="habits-view">
-                <div class="habit-stats-grid" id="habitStatsGrid"></div>
-                <div id="slippingAlerts"></div>
-                <h3 style="color:#e0e0e0;margin:16px 0 10px;">Weekly Patterns</h3>
-                <div class="pattern-chart" id="weeklyPattern"></div>
-                <h3 style="color:#e0e0e0;margin:16px 0 10px;">Recurring Tasks</h3>
-                <div id="habitCards"></div>
-            </div>
-        </div>
-        <!-- Notification Panel -->
-        <div id="notificationPanel" class="notification-panel">
-            <div class="np-header">
-                <span>Notifications</span>
-                <button onclick="clearNotifications()" style="background:none;border:none;color:#888;cursor:pointer;font-size:12px;">Clear all</button>
-            </div>
-            <div id="digestSummary" class="digest-summary" style="display:none;"></div>
-            <div class="np-body" id="notifList"></div>
-        </div>
-<!-- Add/Edit Task Modal -->
+    <!-- Add/Edit Task Modal -->
+        <div id="habitsView" style="display:none;padding:20px;"><div class="habits-view"><div class="habit-stats-grid" id="habitStatsGrid"></div><div id="slippingAlerts"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Weekly Patterns</h3><div class="pattern-chart" id="weeklyPattern"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Recurring Tasks</h3><div id="habitCards"></div></div></div>
+        <div id="notificationPanel" class="notification-panel"><div class="np-header"><span>Notifications</span><button onclick="clearNotifications()" style="background:none;border:none;color:#888;cursor:pointer;font-size:12px;">Clear all</button></div><div id="digestSummary" class="digest-summary" style="display:none;"></div><div class="np-body" id="notifList"></div></div>
+
     <div class="modal-backdrop" id="addTaskModal">
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="addTaskClose">✕</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2467,7 +2422,7 @@
                     <div class="custom-field-row">
                         <span class="custom-field-label">Revenue Impact</span>
                         <select class="custom-field-input" id="cfRevenue">
-                            <option value="">Ã¢ÂÂ</option>
+                            <option value="">—</option>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
@@ -2495,7 +2450,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="detailClose">✕</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2506,7 +2461,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="statsClose">✕</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2535,7 +2490,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="activityClose">✕</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2555,7 +2510,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="templateClose">✕</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2564,11 +2519,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">Ã¢ÂÂ Christopher</button>
-        <button onclick="batchMove('claude')">Ã¢ÂÂ Claude</button>
-        <button onclick="batchMove('completed')">Ã¢ÂÂ Complete</button>
-        <button onclick="batchMove('parking')">Ã¢ÂÂ¸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">Ã¢ÂÂ</button>
+        <button onclick="batchMove('christopher')">→ Christopher</button>
+        <button onclick="batchMove('claude')">→ Claude</button>
+        <button onclick="batchMove('completed')">✓ Complete</button>
+        <button onclick="batchMove('parking')">⏸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">✕</button>
     </div>
 
 
@@ -2993,7 +2948,7 @@
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = 'Ã¢ÂÂ Authenticated';
+                status.textContent = '✓ Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3279,14 +3234,14 @@
             if (task.recurrence) {
                 const recurrence = document.createElement('div');
                 recurrence.className = 'task-recurrence';
-                recurrence.textContent = `Ã¢ÂÂ» ${task.recurrence}`;
+                recurrence.textContent = `↻ ${task.recurrence}`;
                 meta.appendChild(recurrence);
             }
 
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3322,7 +3277,7 @@
                 if (unresolvedBlockers.length > 0) {
                     const depBadge = document.createElement('span');
                     depBadge.className = 'dep-badge blocked-by';
-                    depBadge.textContent = 'Ã¢ÂÂ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
+                    depBadge.textContent = '⛔ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
                     depBadge.title = unresolvedBlockers.map(t => t.title).join(', ');
                     meta.appendChild(depBadge);
                 }
@@ -3418,7 +3373,7 @@
 
             const activityBtn = document.createElement('button');
             activityBtn.className = 'task-action-btn';
-            activityBtn.textContent = 'Ã°ÂÂÂ';
+            activityBtn.textContent = '📋';
             activityBtn.title = 'View activity';
             activityBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -3544,7 +3499,7 @@
             // Action buttons
             if (githubToken) {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">Ã¢ÂÂ Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">✎ Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -3575,7 +3530,7 @@
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3598,7 +3553,7 @@
                     task.depends_on.forEach(depId => {
                         const depTask = tasks.find(t => t.id === depId);
                         if (depTask) {
-                            const icon = depTask.status === 'completed' ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ';
+                            const icon = depTask.status === 'completed' ? '✓' : '⛔';
                             html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + depId + '\'))">' + icon + ' ' + escapeHtml(depTask.title) + '</span>';
                         }
                     });
@@ -3704,7 +3659,7 @@
                 log.forEach(entry => {
                     const icons = {
                         'created': '\u2713',
-                        'moved': '→',
+                        'moved': '\u2192',
                         'completed': '\u2713',
                         'assigned': '\ud83d\udc64',
                         'edited': '\u270e',
@@ -3790,7 +3745,7 @@
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂ</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">×</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -3801,7 +3756,7 @@
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const text = tag.textContent.trim().slice(0, -1); // Remove the ÃÂ button
+                const text = tag.textContent.trim().slice(0, -1); // Remove the × button
                 tags.push(text);
             });
             return tags;
@@ -4588,22 +4543,22 @@
             }
 
             const iconMap = {
-                created: 'Ã¢ÂÂ',
-                completed: 'Ã¢ÂÂ',
-                moved: 'Ã¢ÂÂ',
-                edited: 'Ã¢ÂÂ',
-                commented: 'Ã°ÂÂÂ¬',
-                attempted: 'Ã¢ÂÂ ',
-                assigned: 'Ã°ÂÂÂ¤',
-                recurrence_spawned: 'Ã¢ÂÂ»'
+                created: '➕',
+                completed: '✓',
+                moved: '→',
+                edited: '✎',
+                commented: '💬',
+                attempted: '⚠',
+                assigned: '👤',
+                recurrence_spawned: '↻'
             };
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'Ã¢ÂÂ¢'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || '•'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} Ã¢ÂÂ by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} — by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -4797,7 +4752,6 @@
             document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
             const kanban = document.getElementById('kanban');
             const myTasks = document.getElementById('myTasksView');
-        document.getElementById('habitsView').style.display = 'none';
             const mobileTabs = document.getElementById('mobileTabs');
             if (view === 'board') {
                 kanban.style.display = 'flex';
@@ -4808,14 +4762,7 @@
                 myTasks.classList.add('active');
                 if (mobileTabs) mobileTabs.style.display = 'none';
                 renderMyTasksView();
-        if (view === 'habits') {
-            document.getElementById('habitsView').style.display = 'block';
-            document.getElementById('kanban').style.display = 'none';
-            document.getElementById('myTasksView').style.display = 'none';
-            renderHabitsView();
-        } else {
-            document.getElementById('habitsView').style.display = 'none';
-        }
+        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; }
             }
         }
 
@@ -4871,7 +4818,7 @@
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today Ã¢ÂÂ nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today — nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -4896,7 +4843,7 @@
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: 'Ã°ÂÂÂ´', 2: 'Ã°ÂÂÂ¡', 3: 'Ã°ÂÂÂ¢' };
+                        const priNames = { 1: '🔴', 2: '🟡', 3: '🟢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -4967,7 +4914,7 @@
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks Ã¢ÂÂ¢ P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks • P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5002,7 +4949,7 @@
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">Ã¢ÂÂ</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">✕</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5033,574 +4980,317 @@ function init() {
 
     // ===== V4.0: NOTIFICATIONS & REMINDERS =====
     var notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]');
-    var notifPermission = Notification.permission;
+    var notifPermission = typeof Notification !== 'undefined' ? Notification.permission : 'denied';
 
     function requestNotifPermission() {
         if ('Notification' in window && Notification.permission === 'default') {
-            Notification.requestPermission().then(p => { notifPermission = p; });
+            Notification.requestPermission().then(function(p) { notifPermission = p; });
         }
     }
 
     function addNotification(title, body, type, taskId) {
-        const notif = { id: generateUUID(), title, body, type, taskId, time: new Date().toISOString(), read: false };
+        var notif = { id: generateUUID(), title: title, body: body, type: type, taskId: taskId, time: new Date().toISOString(), read: false };
         notifications.unshift(notif);
         if (notifications.length > 50) notifications = notifications.slice(0, 50);
         localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
         updateNotifBadge();
         if (notifPermission === 'granted') {
-            try { new Notification(title, { body, icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✅</text></svg>' }); } catch(e) {}
+            try { new Notification(title, { body: body }); } catch(e) {}
         }
     }
 
     function updateNotifBadge() {
-        const unread = notifications.filter(n => !n.read).length;
-        const badge = document.getElementById('notifBadge');
-        if (badge) {
-            badge.textContent = unread;
-            badge.style.display = unread > 0 ? 'flex' : 'none';
-        }
+        var unread = notifications.filter(function(n) { return !n.read; }).length;
+        var badge = document.getElementById('notifBadge');
+        if (badge) { badge.textContent = unread; badge.style.display = unread > 0 ? 'flex' : 'none'; }
     }
 
     function toggleNotificationPanel() {
-        const panel = document.getElementById('notificationPanel');
-        if (panel) {
-            panel.classList.toggle('open');
-            if (panel.classList.contains('open')) renderNotifications();
-        }
+        var panel = document.getElementById('notificationPanel');
+        if (panel) { panel.classList.toggle('open'); if (panel.classList.contains('open')) renderNotifications(); }
     }
 
     function renderNotifications() {
-        const list = document.getElementById('notifList');
+        var list = document.getElementById('notifList');
         if (!list) return;
-        if (notifications.length === 0) {
-            list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>';
-            return;
-        }
-        list.innerHTML = notifications.slice(0, 20).map(n => {
-            const icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '✅' };
+        if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
+        list.innerHTML = notifications.slice(0, 20).map(function(n) {
+            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '✅' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
-                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span>' + escapeHtml(n.title) + '</div>' +
+                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
         }).join('');
     }
 
     function markNotifRead(id) {
-        const n = notifications.find(x => x.id === id);
+        var n = notifications.find(function(x) { return x.id === id; });
         if (n) { n.read = true; localStorage.setItem('taskflow_notifications', JSON.stringify(notifications)); updateNotifBadge(); renderNotifications(); }
     }
 
     function clearNotifications() {
         notifications = [];
         localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
-        updateNotifBadge();
-        renderNotifications();
+        updateNotifBadge(); renderNotifications();
     }
 
     function checkDeadlines() {
         if (!window.tasks) return;
-        const now = new Date();
-        const today = now.toISOString().split('T')[0];
-        const tomorrow = new Date(now.getTime() + 86400000).toISOString().split('T')[0];
-        window.tasks.forEach(t => {
+        var now = new Date(); var today = now.toISOString().split('T')[0];
+        var tomorrow = new Date(now.getTime() + 86400000).toISOString().split('T')[0];
+        window.tasks.forEach(function(t) {
             if (t.completed || !t.dueDate) return;
-            const notifKey = 'notified_' + t.id + '_' + today;
+            var notifKey = 'notified_' + t.id + '_' + today;
             if (localStorage.getItem(notifKey)) return;
-            if (t.dueDate < today) {
-                addNotification('Overdue: ' + t.title, 'Was due ' + t.dueDate, 'overdue', t.id);
-                localStorage.setItem(notifKey, '1');
-            } else if (t.dueDate === today) {
-                addNotification('Due today: ' + t.title, 'Task is due today!', 'approaching', t.id);
-                localStorage.setItem(notifKey, '1');
-            } else if (t.dueDate === tomorrow) {
-                addNotification('Due tomorrow: ' + t.title, 'Task is due tomorrow', 'approaching', t.id);
-                localStorage.setItem(notifKey, '1');
-            }
+            if (t.dueDate < today) { addNotification('Overdue: ' + t.title, 'Was due ' + t.dueDate, 'overdue', t.id); localStorage.setItem(notifKey, '1'); }
+            else if (t.dueDate === today) { addNotification('Due today: ' + t.title, 'Task is due today!', 'approaching', t.id); localStorage.setItem(notifKey, '1'); }
+            else if (t.dueDate === tomorrow) { addNotification('Due tomorrow: ' + t.title, 'Due tomorrow', 'approaching', t.id); localStorage.setItem(notifKey, '1'); }
         });
     }
 
     function checkUnblockedTasks() {
         if (!window.tasks) return;
-        window.tasks.forEach(t => {
+        window.tasks.forEach(function(t) {
             if (t.completed || !t.blockedBy || t.blockedBy.length === 0) return;
-            const allDone = t.blockedBy.every(bid => {
-                const blocker = window.tasks.find(x => x.id === bid);
-                return blocker && blocker.completed;
-            });
+            var allDone = t.blockedBy.every(function(bid) { var blocker = window.tasks.find(function(x) { return x.id === bid; }); return blocker && blocker.completed; });
             if (allDone) {
-                const key = 'unblocked_' + t.id;
-                if (!localStorage.getItem(key)) {
-                    addNotification('Unblocked: ' + t.title, 'All blocking tasks completed!', 'unblocked', t.id);
-                    localStorage.setItem(key, '1');
-                }
+                var key = 'unblocked_' + t.id;
+                if (!localStorage.getItem(key)) { addNotification('Unblocked: ' + t.title, 'All blocking tasks completed!', 'unblocked', t.id); localStorage.setItem(key, '1'); }
             }
         });
     }
 
     function generateDailyDigest() {
         if (!window.tasks) return;
-        const today = new Date().toISOString().split('T')[0];
-        const digestKey = 'digest_' + today;
-        if (localStorage.getItem(digestKey)) return;
-        const overdue = window.tasks.filter(t => !t.completed && t.dueDate && t.dueDate < today).length;
-        const dueToday = window.tasks.filter(t => !t.completed && t.dueDate === today).length;
-        const completed = window.tasks.filter(t => t.completed).length;
-        const total = window.tasks.length;
-        const summary = overdue + ' overdue, ' + dueToday + ' due today, ' + completed + '/' + total + ' completed';
-        addNotification('Daily Digest', summary, 'digest');
-        localStorage.setItem(digestKey, '1');
-        const el = document.getElementById('digestSummary');
-        if (el) {
-            el.style.display = 'block';
-            el.innerHTML = '<h4>Today\'s Summary</h4>' +
-                '<div class="stat-row"><span>Overdue</span><span style="color:#e74c3c">' + overdue + '</span></div>' +
-                '<div class="stat-row"><span>Due Today</span><span style="color:#f1c40f">' + dueToday + '</span></div>' +
-                '<div class="stat-row"><span>Completed</span><span style="color:#2ecc71">' + completed + '/' + total + '</span></div>';
-        }
+        var today = new Date().toISOString().split('T')[0];
+        if (localStorage.getItem('digest_' + today)) return;
+        var overdue = window.tasks.filter(function(t) { return !t.completed && t.dueDate && t.dueDate < today; }).length;
+        var dueToday = window.tasks.filter(function(t) { return !t.completed && t.dueDate === today; }).length;
+        var completed = window.tasks.filter(function(t) { return t.completed; }).length;
+        addNotification('Daily Digest', overdue + ' overdue, ' + dueToday + ' due today, ' + completed + '/' + window.tasks.length + ' done', 'digest');
+        localStorage.setItem('digest_' + today, '1');
+        var el = document.getElementById('digestSummary');
+        if (el) { el.style.display = 'block'; el.innerHTML = '<h4>Today\'s Summary</h4><div class="stat-row"><span>Overdue</span><span style="color:#e74c3c">' + overdue + '</span></div><div class="stat-row"><span>Due Today</span><span style="color:#f1c40f">' + dueToday + '</span></div><div class="stat-row"><span>Completed</span><span style="color:#2ecc71">' + completed + '/' + window.tasks.length + '</span></div>'; }
     }
 
-    // ===== V4.0: GOOGLE CALENDAR INTEGRATION =====
+    // ===== V4.0: GOOGLE CALENDAR =====
     function generateICSContent() {
         if (!window.tasks) return '';
-        const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Taskflow//v4.0//EN', 'CALSCALE:GREGORIAN'];
-        window.tasks.forEach(t => {
+        var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Taskflow//v4.0//EN','CALSCALE:GREGORIAN'];
+        window.tasks.forEach(function(t) {
             if (!t.dueDate || t.completed) return;
-            const dt = t.dueDate.replace(/-/g, '');
-            lines.push('BEGIN:VEVENT');
-            lines.push('UID:' + t.id + '@taskflow');
-            lines.push('DTSTART;VALUE=DATE:' + dt);
-            lines.push('DTEND;VALUE=DATE:' + dt);
-            lines.push('SUMMARY:' + (t.title || '').replace(/[\\,;]/g, ' '));
-            if (t.description) lines.push('DESCRIPTION:' + t.description.replace(/[\\,;\n]/g, ' ').substring(0, 200));
-            const pri = t.priority === 'high' ? '1' : t.priority === 'medium' ? '5' : '9';
-            lines.push('PRIORITY:' + pri);
-            lines.push('STATUS:' + (t.completed ? 'COMPLETED' : 'NEEDS-ACTION'));
-            if (t.labels && t.labels.length) lines.push('CATEGORIES:' + t.labels.join(','));
+            var dt = t.dueDate.replace(/-/g, '');
+            lines.push('BEGIN:VEVENT','UID:' + t.id + '@taskflow','DTSTART;VALUE=DATE:' + dt,'DTEND;VALUE=DATE:' + dt,'SUMMARY:' + (t.title||'').replace(/[,;]/g,' '));
+            if (t.description) lines.push('DESCRIPTION:' + t.description.replace(/[,;\n]/g,' ').substring(0,200));
             lines.push('END:VEVENT');
         });
         lines.push('END:VCALENDAR');
         return lines.join('\r\n');
     }
-
     function downloadICS() {
-        const icsContent = generateICSContent();
-        if (!icsContent) { alert('No tasks with due dates to export.'); return; }
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'taskflow-tasks-' + new Date().toISOString().split('T')[0] + '.ics';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        addNotification('Calendar Export', 'ICS file downloaded with ' + window.tasks.filter(t => t.dueDate && !t.completed).length + ' events', 'completed');
+        var ics = generateICSContent();
+        if (!ics) { alert('No tasks with due dates to export.'); return; }
+        var blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'taskflow-' + new Date().toISOString().split('T')[0] + '.ics';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
-
     function syncToGoogleCalendar() {
-        const tasks = (window.tasks || []).filter(t => t.dueDate && !t.completed);
-        if (tasks.length === 0) { alert('No tasks with due dates to sync.'); return; }
-        // Use Google Calendar URL scheme for quick add
-        const firstTask = tasks[0];
-        const calUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-            '&text=' + encodeURIComponent(firstTask.title) +
-            '&dates=' + firstTask.dueDate.replace(/-/g, '') + '/' + firstTask.dueDate.replace(/-/g, '') +
-            '&details=' + encodeURIComponent('Synced from Taskflow. ' + (firstTask.description || ''));
-        window.open(calUrl, '_blank');
-        addNotification('Calendar Sync', 'Opened Google Calendar for task: ' + firstTask.title, 'completed');
-    }
-
-    function renderCalendarEventsInTimeline() {
-        const days = document.querySelectorAll('.timeline-day');
-        if (!days.length || !window.tasks) return;
-        days.forEach(dayEl => {
-            const date = dayEl.dataset.date;
-            if (!date) return;
-            const dayTasks = window.tasks.filter(t => t.dueDate === date && !t.completed);
-            if (dayTasks.length > 0) {
-                const strip = document.createElement('div');
-                strip.className = 'calendar-event-strip';
-                dayTasks.forEach(t => {
-                    const dot = document.createElement('div');
-                    dot.className = 'cal-event-dot';
-                    dot.title = t.title;
-                    strip.appendChild(dot);
-                });
-                dayEl.appendChild(strip);
-            }
-        });
+        var tasks = (window.tasks||[]).filter(function(t){return t.dueDate && !t.completed;});
+        if (!tasks.length) { alert('No tasks with due dates.'); return; }
+        var t = tasks[0];
+        window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(t.title) + '&dates=' + t.dueDate.replace(/-/g,'') + '/' + t.dueDate.replace(/-/g,''), '_blank');
     }
 
     // ===== V4.0: SMARTER CLAUDE AUTO-WORKER =====
-    const claudeCapabilities = {
-        research: { label: 'Research', keywords: ['research', 'look up', 'find out', 'investigate', 'analyze', 'review', 'compare'] },
-        drafting: { label: 'Drafting', keywords: ['write', 'draft', 'compose', 'create doc', 'prepare', 'outline', 'summarize'] },
-        email: { label: 'Email Prep', keywords: ['email', 'send', 'reply', 'follow up', 'reach out', 'contact', 'message'] },
-        document: { label: 'Document', keywords: ['document', 'report', 'presentation', 'spreadsheet', 'template', 'format'] },
-        webLookup: { label: 'Web Lookup', keywords: ['search', 'google', 'check online', 'find link', 'url', 'website', 'pricing'] },
-        scheduling: { label: 'Scheduling', keywords: ['schedule', 'calendar', 'book', 'meeting', 'set up time', 'availability'] },
-        dataEntry: { label: 'Data Entry', keywords: ['update', 'enter', 'log', 'record', 'input', 'fill', 'track'] }
+    var claudeCapabilities = {
+        research: {label:'Research', kw:['research','look up','find out','investigate','analyze','review','compare']},
+        drafting: {label:'Drafting', kw:['write','draft','compose','create doc','prepare','outline','summarize']},
+        email: {label:'Email Prep', kw:['email','send','reply','follow up','reach out','contact','message']},
+        document: {label:'Document', kw:['document','report','presentation','spreadsheet','template','format']},
+        web: {label:'Web Lookup', kw:['search','google','check online','find link','url','website','pricing']},
+        scheduling: {label:'Scheduling', kw:['schedule','calendar','book','meeting','set up time']},
+        data: {label:'Data Entry', kw:['update','enter','log','record','input','fill','track']}
     };
-
-    const humanOnlyActions = {
-        phoneCalls: { label: 'Phone Calls', keywords: ['call', 'phone', 'dial', 'ring', 'speak with', 'talk to'] },
-        inPerson: { label: 'In-Person', keywords: ['meet', 'visit', 'go to', 'attend', 'in person', 'onsite', 'walk'] },
-        approvals: { label: 'Approvals', keywords: ['approve', 'sign', 'authorize', 'consent', 'permission', 'decision'] },
-        physical: { label: 'Physical', keywords: ['deliver', 'pick up', 'drop off', 'move', 'carry', 'install', 'fix'] },
-        creative: { label: 'Creative Judgment', keywords: ['design', 'decide', 'choose', 'select style', 'brand', 'vision'] }
+    var humanOnlyActions = {
+        phone: {label:'Phone Calls', kw:['call','phone','dial','ring','speak with','talk to']},
+        inPerson: {label:'In-Person', kw:['meet','visit','go to','attend','in person','onsite']},
+        approvals: {label:'Approvals', kw:['approve','sign','authorize','consent','permission','decision']},
+        physical: {label:'Physical', kw:['deliver','pick up','drop off','move','carry','install','fix']},
+        creative: {label:'Creative', kw:['design','decide','choose','select style','brand','vision']}
     };
-
     function categorizeTask(task) {
-        const text = ((task.title || '') + ' ' + (task.description || '')).toLowerCase();
-        let claudeScore = 0, humanScore = 0;
-        const claudeMatches = [], humanMatches = [];
-
-        Object.entries(claudeCapabilities).forEach(([key, cap]) => {
-            if (cap.keywords.some(kw => text.includes(kw))) {
-                claudeScore++;
-                claudeMatches.push(cap.label);
-            }
-        });
-
-        Object.entries(humanOnlyActions).forEach(([key, act]) => {
-            if (act.keywords.some(kw => text.includes(kw))) {
-                humanScore++;
-                humanMatches.push(act.label);
-            }
-        });
-
-        if (humanScore > 0 && claudeScore > 0) return { type: 'hybrid', claudeMatches, humanMatches, readiness: Math.round(claudeScore / (claudeScore + humanScore) * 100) };
-        if (humanScore > 0) return { type: 'human-required', claudeMatches, humanMatches, readiness: 0 };
-        if (claudeScore > 0) return { type: 'claude-ready', claudeMatches, humanMatches, readiness: 100 };
-        return { type: 'human-required', claudeMatches: [], humanMatches: [], readiness: 0 };
+        var text = ((task.title||'') + ' ' + (task.description||'')).toLowerCase();
+        var cs = 0, hs = 0, cm = [], hm = [];
+        Object.values(claudeCapabilities).forEach(function(c) { if (c.kw.some(function(k){return text.includes(k);})) { cs++; cm.push(c.label); } });
+        Object.values(humanOnlyActions).forEach(function(a) { if (a.kw.some(function(k){return text.includes(k);})) { hs++; hm.push(a.label); } });
+        if (hs > 0 && cs > 0) return {type:'hybrid',cm:cm,hm:hm,readiness:Math.round(cs/(cs+hs)*100)};
+        if (hs > 0) return {type:'human-required',cm:cm,hm:hm,readiness:0};
+        if (cs > 0) return {type:'claude-ready',cm:cm,hm:hm,readiness:100};
+        return {type:'human-required',cm:[],hm:[],readiness:0};
     }
-
     function getDeliverableType(task) {
-        const cat = categorizeTask(task);
-        if (cat.claudeMatches.includes('Research')) return { type: 'Research Brief', icon: '🔍' };
-        if (cat.claudeMatches.includes('Drafting')) return { type: 'Draft Document', icon: '📝' };
-        if (cat.claudeMatches.includes('Email Prep')) return { type: 'Draft Email', icon: '✉' };
-        if (cat.claudeMatches.includes('Document')) return { type: 'Document Template', icon: '📄' };
-        if (cat.claudeMatches.includes('Web Lookup')) return { type: 'Research Summary', icon: '🌐' };
-        if (cat.claudeMatches.includes('Scheduling')) return { type: 'Schedule Proposal', icon: '📅' };
+        var cat = categorizeTask(task);
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'🔍'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'📝'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'✉'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'📄'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'🌐'};
+        if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'📅'};
         return null;
     }
-
     function renderDelegationBadge(task) {
-        const cat = categorizeTask(task);
-        const labels = { 'claude-ready': 'Claude Ready', 'human-required': 'Human Required', 'hybrid': 'Hybrid' };
-        let html = '<span class="delegation-badge ' + cat.type + '">' + labels[cat.type] + '</span>';
+        var cat = categorizeTask(task);
+        var labels = {'claude-ready':'Claude Ready','human-required':'Human Required','hybrid':'Hybrid'};
+        var html = '<span class="delegation-badge ' + cat.type + '">' + labels[cat.type] + '</span>';
         if (cat.readiness > 0 && cat.readiness < 100) {
-            html += '<div class="readiness-meter"><div class="fill ' + (cat.readiness >= 70 ? 'high' : cat.readiness >= 40 ? 'medium' : 'low') + '" style="width:' + cat.readiness + '%"></div></div>';
+            html += '<div class="readiness-meter"><div class="fill ' + (cat.readiness>=70?'high':cat.readiness>=40?'medium':'low') + '" style="width:' + cat.readiness + '%"></div></div>';
         }
         return html;
     }
-
     function renderCapabilityTags(task) {
-        const cat = categorizeTask(task);
-        let html = '<div class="capability-indicator">';
-        cat.claudeMatches.forEach(m => { html += '<span class="cap-tag available">' + m + '</span>'; });
-        cat.humanMatches.forEach(m => { html += '<span class="cap-tag">' + m + '</span>'; });
-        html += '</div>';
-        return html;
+        var cat = categorizeTask(task);
+        var html = '<div class="capability-indicator">';
+        cat.cm.forEach(function(m){html+='<span class="cap-tag available">'+m+'</span>';});
+        cat.hm.forEach(function(m){html+='<span class="cap-tag">'+m+'</span>';});
+        return html + '</div>';
     }
 
     // ===== V4.0: MOBILE SWIPE GESTURES =====
-    let swipeState = { active: false, startX: 0, startY: 0, currentX: 0, taskEl: null, taskId: null };
-    const SWIPE_THRESHOLD = 80;
-
+    var swipeState = {active:false, startX:0, startY:0, currentX:0, taskEl:null, taskId:null};
+    var SWIPE_THRESHOLD = 80;
     function initSwipeGestures() {
         if (!('ontouchstart' in window)) return;
-        document.addEventListener('touchstart', handleTouchStart, { passive: true });
-        document.addEventListener('touchmove', handleTouchMove, { passive: false });
-        document.addEventListener('touchend', handleTouchEnd, { passive: true });
+        document.addEventListener('touchstart', function(e) {
+            var card = e.target.closest('.task-card');
+            if (!card) return;
+            var touch = e.touches[0];
+            swipeState = {active:true, startX:touch.clientX, startY:touch.clientY, currentX:touch.clientX, taskEl:card, taskId:card.dataset.taskId};
+            card.classList.add('swiping');
+        }, {passive:true});
+        document.addEventListener('touchmove', function(e) {
+            if (!swipeState.active || !swipeState.taskEl) return;
+            var touch = e.touches[0];
+            var dx = touch.clientX - swipeState.startX;
+            var dy = touch.clientY - swipeState.startY;
+            if (Math.abs(dy) > Math.abs(dx)) { swipeState.active = false; swipeState.taskEl.classList.remove('swiping'); return; }
+            e.preventDefault(); swipeState.currentX = touch.clientX;
+            var clamp = Math.max(-150, Math.min(150, dx));
+            swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
+            var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
+            var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='✅ Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park 🅿'; swipeState.taskEl.appendChild(li); }
+            ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
+            li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
+        }, {passive:false});
+        document.addEventListener('touchend', function(e) {
+            if (!swipeState.active || !swipeState.taskEl) return;
+            var dx = swipeState.currentX - swipeState.startX;
+            var card = swipeState.taskEl; var tid = swipeState.taskId;
+            card.classList.remove('swiping');
+            if (dx > SWIPE_THRESHOLD && tid) {
+                card.style.transform='translateX(100%)'; card.style.opacity='0'; card.style.transition='all 0.3s ease';
+                setTimeout(function(){toggleTaskComplete(tid);}, 300);
+            } else if (dx < -SWIPE_THRESHOLD && tid) {
+                card.style.transform='translateX(-100%)'; card.style.opacity='0'; card.style.transition='all 0.3s ease';
+                setTimeout(function(){ var t=window.tasks.find(function(x){return x.id===tid;}); if(t){t.column='parked';saveTasksToGithub();loadTasks();} },300);
+            } else { card.style.transform=''; card.style.transition='transform 0.2s ease'; }
+            card.querySelectorAll('.swipe-indicator').forEach(function(el){el.remove();});
+            swipeState = {active:false, startX:0, startY:0, currentX:0, taskEl:null, taskId:null};
+        }, {passive:true});
     }
 
-    function handleTouchStart(e) {
-        const card = e.target.closest('.task-card');
-        if (!card) return;
-        const touch = e.touches[0];
-        swipeState = { active: true, startX: touch.clientX, startY: touch.clientY, currentX: touch.clientX, taskEl: card, taskId: card.dataset.taskId };
-        card.classList.add('swiping');
-    }
-
-    function handleTouchMove(e) {
-        if (!swipeState.active || !swipeState.taskEl) return;
-        const touch = e.touches[0];
-        const dx = touch.clientX - swipeState.startX;
-        const dy = touch.clientY - swipeState.startY;
-        if (Math.abs(dy) > Math.abs(dx)) { swipeState.active = false; swipeState.taskEl.classList.remove('swiping'); return; }
-        e.preventDefault();
-        swipeState.currentX = touch.clientX;
-        const clampedDx = Math.max(-150, Math.min(150, dx));
-        swipeState.taskEl.style.transform = 'translateX(' + clampedDx + 'px)';
-        // Show indicators
-        let rightInd = swipeState.taskEl.querySelector('.swipe-indicator.right');
-        let leftInd = swipeState.taskEl.querySelector('.swipe-indicator.left');
-        if (!rightInd) {
-            rightInd = document.createElement('div');
-            rightInd.className = 'swipe-indicator right';
-            rightInd.textContent = '✅ Done';
-            swipeState.taskEl.appendChild(rightInd);
-        }
-        if (!leftInd) {
-            leftInd = document.createElement('div');
-            leftInd.className = 'swipe-indicator left';
-            leftInd.textContent = 'Park 🅿';
-            swipeState.taskEl.appendChild(leftInd);
-        }
-        rightInd.classList.toggle('visible', dx > SWIPE_THRESHOLD);
-        leftInd.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
-    }
-
-    function handleTouchEnd(e) {
-        if (!swipeState.active || !swipeState.taskEl) return;
-        const dx = swipeState.currentX - swipeState.startX;
-        const card = swipeState.taskEl;
-        const taskId = swipeState.taskId;
-        card.classList.remove('swiping');
-        if (dx > SWIPE_THRESHOLD && taskId) {
-            card.classList.add('swipe-complete');
-            card.style.transform = 'translateX(100%)';
-            card.style.opacity = '0';
-            card.style.transition = 'all 0.3s ease';
-            setTimeout(() => {
-            enhanceTaskCards(); toggleTaskComplete(taskId); }, 300);
-        } else if (dx < -SWIPE_THRESHOLD && taskId) {
-            card.classList.add('swipe-park');
-            card.style.transform = 'translateX(-100%)';
-            card.style.opacity = '0';
-            card.style.transition = 'all 0.3s ease';
-            setTimeout(() => {
-                const task = window.tasks.find(t => t.id === taskId);
-                if (task) { task.column = 'parked'; saveTasksToGithub(); loadTasks(); }
-            }, 300);
-        } else {
-            card.style.transform = '';
-            card.style.transition = 'transform 0.2s ease';
-        }
-        // Remove indicators
-        card.querySelectorAll('.swipe-indicator').forEach(el => el.remove());
-        swipeState = { active: false, startX: 0, startY: 0, currentX: 0, taskEl: null, taskId: null };
-    }
-
-    function initMobileCollapsible() {
-        document.querySelectorAll('.mobile-section-header').forEach(header => {
-            header.addEventListener('click', () => {
-                header.classList.toggle('collapsed');
-                const body = header.nextElementSibling;
-                if (body) body.classList.toggle('collapsed');
-            });
-        });
-    }
-
-    function initTapToAssign() {
-        document.addEventListener('click', (e) => {
-            const assignBtn = e.target.closest('.mobile-tap-assign');
-            if (!assignBtn) return;
-            const taskId = assignBtn.dataset.taskId;
-            if (taskId) toggleAssignee(taskId);
-        });
-    }
-
-    // ===== V4.0: RECURRING TASK INTELLIGENCE & HABIT TRACKING =====
-    function getCompletionHistory(task) {
-        const history = JSON.parse(localStorage.getItem('taskflow_history_' + task.id) || '[]');
-        return history;
-    }
-
+    // ===== V4.0: HABIT TRACKING =====
+    function getCompletionHistory(task) { return JSON.parse(localStorage.getItem('taskflow_history_' + task.id) || '[]'); }
     function recordCompletion(taskId) {
-        const today = new Date().toISOString().split('T')[0];
-        const key = 'taskflow_history_' + taskId;
-        const history = JSON.parse(localStorage.getItem(key) || '[]');
-        if (!history.includes(today)) {
-            history.push(today);
-            localStorage.setItem(key, JSON.stringify(history));
-        }
+        var today = new Date().toISOString().split('T')[0];
+        var key = 'taskflow_history_' + taskId;
+        var h = JSON.parse(localStorage.getItem(key) || '[]');
+        if (!h.includes(today)) { h.push(today); localStorage.setItem(key, JSON.stringify(h)); }
     }
-
     function getStreakInfo(task) {
-        const history = getCompletionHistory(task);
-        if (history.length === 0) return { current: 0, best: 0, rate: 0, trend: 'flat' };
-        const sorted = [...history].sort();
-        let currentStreak = 0, bestStreak = 0, tempStreak = 1;
-        const today = new Date();
-        // Calculate current streak from today backwards
-        for (let i = 0; i < 60; i++) {
-            const d = new Date(today);
-            d.setDate(d.getDate() - i);
-            const ds = d.toISOString().split('T')[0];
-            if (sorted.includes(ds)) { currentStreak++; } else if (i > 0) break;
-        }
-        // Calculate best streak
-        for (let i = 1; i < sorted.length; i++) {
-            const prev = new Date(sorted[i-1]);
-            const curr = new Date(sorted[i]);
-            const diff = (curr - prev) / 86400000;
-            if (diff <= 1.5) { tempStreak++; } else { bestStreak = Math.max(bestStreak, tempStreak); tempStreak = 1; }
-        }
+        var history = getCompletionHistory(task);
+        if (!history.length) return {current:0,best:0,rate:0,trend:'flat',total:0};
+        var sorted = history.slice().sort();
+        var currentStreak=0, bestStreak=0, tempStreak=1;
+        var today = new Date();
+        for (var i=0;i<60;i++) { var d=new Date(today); d.setDate(d.getDate()-i); var ds=d.toISOString().split('T')[0]; if(sorted.includes(ds)){currentStreak++;}else if(i>0)break; }
+        for (var i=1;i<sorted.length;i++) { var diff=(new Date(sorted[i])-new Date(sorted[i-1]))/86400000; if(diff<=1.5){tempStreak++;}else{bestStreak=Math.max(bestStreak,tempStreak);tempStreak=1;} }
         bestStreak = Math.max(bestStreak, tempStreak);
-        // Calculate rate (last 30 days)
-        const thirtyDaysAgo = new Date(today.getTime() - 30 * 86400000).toISOString().split('T')[0];
-        const recentCompletions = sorted.filter(d => d >= thirtyDaysAgo).length;
-        const rate = Math.round((recentCompletions / 30) * 100);
-        // Trend: compare last 14 days vs prior 14 days
-        const fourteenDaysAgo = new Date(today.getTime() - 14 * 86400000).toISOString().split('T')[0];
-        const twentyEightDaysAgo = new Date(today.getTime() - 28 * 86400000).toISOString().split('T')[0];
-        const recent14 = sorted.filter(d => d >= fourteenDaysAgo).length;
-        const prior14 = sorted.filter(d => d >= twentyEightDaysAgo && d < fourteenDaysAgo).length;
-        const trend = recent14 > prior14 + 1 ? 'up' : recent14 < prior14 - 1 ? 'down' : 'flat';
-        return { current: currentStreak, best: bestStreak, rate, trend, total: history.length };
+        var thirtyAgo = new Date(today.getTime()-30*86400000).toISOString().split('T')[0];
+        var rate = Math.round(sorted.filter(function(d){return d>=thirtyAgo;}).length/30*100);
+        var fourteenAgo = new Date(today.getTime()-14*86400000).toISOString().split('T')[0];
+        var twentyEightAgo = new Date(today.getTime()-28*86400000).toISOString().split('T')[0];
+        var r14 = sorted.filter(function(d){return d>=fourteenAgo;}).length;
+        var p14 = sorted.filter(function(d){return d>=twentyEightAgo && d<fourteenAgo;}).length;
+        var trend = r14>p14+1?'up':r14<p14-1?'down':'flat';
+        return {current:currentStreak,best:bestStreak,rate:rate,trend:trend,total:history.length};
     }
-
-    function getStreakBadgeClass(streak) {
-        if (streak >= 7) return 'hot';
-        if (streak >= 3) return 'warm';
-        if (streak >= 1) return 'cool';
-        return 'cold';
-    }
-
     function renderStreakBadge(task) {
-        if (!task.recurrence || task.recurrence === 'none') return '';
-        const info = getStreakInfo(task);
-        const cls = getStreakBadgeClass(info.current);
-        const fire = info.current >= 7 ? '🔥' : info.current >= 3 ? '⭐' : '';
-        return '<span class="streak-badge ' + cls + '">' + fire + ' ' + info.current + ' day streak</span>';
+        if (!task.recurrence || task.recurrence==='none') return '';
+        var info = getStreakInfo(task);
+        var cls = info.current>=7?'hot':info.current>=3?'warm':info.current>=1?'cool':'cold';
+        var icon = info.current>=7?'🔥 ':info.current>=3?'⭐ ':'';
+        return '<span class="streak-badge '+cls+'">'+icon+info.current+' day streak</span>';
     }
-
     function renderHabitsView() {
-        const habitsView = document.getElementById('habitsView');
-        if (!habitsView || !window.tasks) return;
-        const recurring = window.tasks.filter(t => t.recurrence && t.recurrence !== 'none');
-        if (recurring.length === 0) {
-            habitsView.querySelector('.habits-view').innerHTML = '<div style="text-align:center;padding:40px;color:#888;">No recurring tasks found. Add recurrence to tasks to track habits.</div>';
-            return;
-        }
-        // Stats grid
-        const statsGrid = document.getElementById('habitStatsGrid');
-        const totalStreaks = recurring.map(t => getStreakInfo(t));
-        const avgRate = totalStreaks.length ? Math.round(totalStreaks.reduce((s, i) => s + i.rate, 0) / totalStreaks.length) : 0;
-        const bestStreak = Math.max(...totalStreaks.map(i => i.best), 0);
-        const activeHabits = totalStreaks.filter(i => i.current > 0).length;
-        const totalCompletions = totalStreaks.reduce((s, i) => s + (i.total || 0), 0);
-        if (statsGrid) {
-            statsGrid.innerHTML =
-                '<div class="habit-stat-card"><div class="value">' + avgRate + '%</div><div class="label">Avg Completion Rate</div></div>' +
-                '<div class="habit-stat-card"><div class="value">' + bestStreak + '</div><div class="label">Best Streak (days)</div></div>' +
-                '<div class="habit-stat-card"><div class="value">' + activeHabits + '/' + recurring.length + '</div><div class="label">Active Habits</div></div>' +
-                '<div class="habit-stat-card"><div class="value">' + totalCompletions + '</div><div class="label">Total Completions</div></div>';
-        }
-        // Slipping alerts
-        const slipping = document.getElementById('slippingAlerts');
-        if (slipping) {
-            const slippingTasks = recurring.filter(t => { const i = getStreakInfo(t); return i.trend === 'down' && i.rate < 50; });
-            slipping.innerHTML = slippingTasks.map(t =>
-                '<div class="slipping-alert">⚠ <strong>' + escapeHtml(t.title) + '</strong> is slipping \u2014 completion rate dropping</div>'
-            ).join('');
-        }
-        // Weekly pattern
-        const patternEl = document.getElementById('weeklyPattern');
+        var hv = document.getElementById('habitsView');
+        if (!hv || !window.tasks) return;
+        var recurring = window.tasks.filter(function(t){return t.recurrence && t.recurrence!=='none';});
+        if (!recurring.length) { hv.querySelector('.habits-view').innerHTML='<div style="text-align:center;padding:40px;color:#888;">No recurring tasks yet. Add recurrence to tasks to track habits.</div>'; return; }
+        var statsGrid = document.getElementById('habitStatsGrid');
+        var infos = recurring.map(function(t){return getStreakInfo(t);});
+        var avgRate = Math.round(infos.reduce(function(s,i){return s+i.rate;},0)/infos.length);
+        var bestStreak = Math.max.apply(null, infos.map(function(i){return i.best;}));
+        var activeCount = infos.filter(function(i){return i.current>0;}).length;
+        var totalC = infos.reduce(function(s,i){return s+(i.total||0);},0);
+        if (statsGrid) statsGrid.innerHTML = '<div class="habit-stat-card"><div class="value">'+avgRate+'%</div><div class="label">Avg Completion</div></div><div class="habit-stat-card"><div class="value">'+bestStreak+'</div><div class="label">Best Streak</div></div><div class="habit-stat-card"><div class="value">'+activeCount+'/'+recurring.length+'</div><div class="label">Active Habits</div></div><div class="habit-stat-card"><div class="value">'+totalC+'</div><div class="label">Total Completions</div></div>';
+        var slipping = document.getElementById('slippingAlerts');
+        if (slipping) { slipping.innerHTML = recurring.filter(function(t){var i=getStreakInfo(t);return i.trend==='down'&&i.rate<50;}).map(function(t){return '<div class="slipping-alert">⚠ <strong>'+escapeHtml(t.title)+'</strong> is slipping</div>';}).join(''); }
+        var patternEl = document.getElementById('weeklyPattern');
         if (patternEl) {
-            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            const dayCounts = [0,0,0,0,0,0,0];
-            const dayTotals = [0,0,0,0,0,0,0];
-            recurring.forEach(t => {
-                const hist = getCompletionHistory(t);
-                hist.forEach(d => { const day = new Date(d).getDay(); dayCounts[day]++; });
-            });
-            const maxCount = Math.max(...dayCounts, 1);
-            patternEl.innerHTML = dayNames.map((name, i) => {
-                const pct = Math.round(dayCounts[i] / maxCount * 100);
-                return '<div class="pattern-bar-row"><span class="day-label">' + name + '</span><div class="bar" style="width:' + pct + '%"></div><span class="pct">' + dayCounts[i] + '</span></div>';
-            }).join('');
+            var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], dayCounts=[0,0,0,0,0,0,0];
+            recurring.forEach(function(t){getCompletionHistory(t).forEach(function(d){dayCounts[new Date(d).getDay()]++;});});
+            var mx = Math.max.apply(null, dayCounts.concat([1]));
+            patternEl.innerHTML = dayNames.map(function(name,i){var pct=Math.round(dayCounts[i]/mx*100); return '<div class="pattern-bar-row"><span class="day-label">'+name+'</span><div class="bar" style="width:'+pct+'%"></div><span class="pct">'+dayCounts[i]+'</span></div>';}).join('');
         }
-        // Habit cards
-        const cardsEl = document.getElementById('habitCards');
-        if (cardsEl) {
-            cardsEl.innerHTML = recurring.map(t => {
-                const info = getStreakInfo(t);
-                const rateClass = info.rate >= 70 ? 'good' : info.rate >= 40 ? 'ok' : 'poor';
-                const trendArrow = info.trend === 'up' ? '<span class="trend-arrow up">↑</span>' : info.trend === 'down' ? '<span class="trend-arrow down">↓</span>' : '<span class="trend-arrow flat">→</span>';
-                // Mini heatmap for last 28 days
-                const hist = getCompletionHistory(t);
-                const today = new Date();
-                let heatmap = '<div class="habit-heatmap">';
-                for (let i = 27; i >= 0; i--) {
-                    const d = new Date(today);
-                    d.setDate(d.getDate() - i);
-                    const ds = d.toISOString().split('T')[0];
-                    const cls = hist.includes(ds) ? 'completed' : i === 0 ? 'future' : 'missed';
-                    heatmap += '<div class="day ' + cls + '" title="' + ds + '"></div>';
-                }
-                heatmap += '</div>';
-                return '<div class="habit-card"><div class="hc-header"><span class="hc-title">' + escapeHtml(t.title) + '</span><span class="hc-rate ' + rateClass + '">' + info.rate + '%' + trendArrow + '</span></div>' +
-                    renderStreakBadge(t) + heatmap +
-                    '<div style="display:flex;gap:16px;margin-top:8px;font-size:12px;color:#888;"><span>Current: ' + info.current + ' days</span><span>Best: ' + info.best + ' days</span><span>Recurrence: ' + (t.recurrence || 'none') + '</span></div></div>';
-            }).join('');
-        }
+        var cardsEl = document.getElementById('habitCards');
+        if (cardsEl) { cardsEl.innerHTML = recurring.map(function(t) {
+            var info=getStreakInfo(t); var rc=info.rate>=70?'good':info.rate>=40?'ok':'poor';
+            var ta = info.trend==='up'?'<span class="trend-arrow up">↑</span>':info.trend==='down'?'<span class="trend-arrow down">↓</span>':'<span class="trend-arrow flat">→</span>';
+            var hist=getCompletionHistory(t); var today=new Date(); var hm='<div class="habit-heatmap">';
+            for(var i=27;i>=0;i--){var d=new Date(today);d.setDate(d.getDate()-i);var ds=d.toISOString().split('T')[0];hm+='<div class="day '+(hist.includes(ds)?'completed':i===0?'future':'missed')+'" title="'+ds+'"></div>';}
+            hm+='</div>';
+            return '<div class="habit-card"><div class="hc-header"><span class="hc-title">'+escapeHtml(t.title)+'</span><span class="hc-rate '+rc+'">'+info.rate+'%'+ta+'</span></div>'+renderStreakBadge(t)+hm+'<div style="display:flex;gap:16px;margin-top:8px;font-size:12px;color:#888;"><span>Current: '+info.current+'d</span><span>Best: '+info.best+'d</span><span>'+t.recurrence+'</span></div></div>';
+        }).join(''); }
     }
 
-    // ===== V4.0: INITIALIZATION HOOKS =====
-    
-    // V4.0: Enhance task cards with delegation + streak badges (post-render)
+    // V4.0: Post-render card enhancement
     function enhanceTaskCards() {
         if (!window.tasks) return;
-        document.querySelectorAll('.task-card').forEach(card => {
-            const taskId = card.dataset.taskId;
-            if (!taskId || card.dataset.v4Enhanced) return;
-            const task = window.tasks.find(t => t.id === taskId);
+        document.querySelectorAll('.task-card').forEach(function(card) {
+            var tid = card.dataset.taskId;
+            if (!tid || card.dataset.v4e) return;
+            var task = window.tasks.find(function(t){return t.id===tid;});
             if (!task) return;
-            card.dataset.v4Enhanced = 'true';
-            // Add delegation badge
-            const badgeHtml = renderDelegationBadge(task) + renderCapabilityTags(task) + renderStreakBadge(task);
-            if (badgeHtml.trim()) {
-                const div = document.createElement('div');
-                div.style.marginTop = '6px';
-                div.innerHTML = badgeHtml;
-                card.appendChild(div);
-            }
+            card.dataset.v4e = '1';
+            var html = renderDelegationBadge(task) + renderCapabilityTags(task) + renderStreakBadge(task);
+            if (html.trim()) { var div=document.createElement('div'); div.style.marginTop='6px'; div.innerHTML=html; card.appendChild(div); }
         });
     }
 
-    // Hook into renderBoard and renderMyTasksView to enhance after render
-    const _origFilterTasks = typeof filterTasks === 'function' ? filterTasks : null;
-    if (_origFilterTasks) {
-        // Use a MutationObserver to enhance cards when DOM changes
-        const cardObserver = new MutationObserver(() => { setTimeout(enhanceTaskCards, 100); });
-        const kanbanEl = document.getElementById('kanban');
-        if (kanbanEl) cardObserver.observe(kanbanEl, { childList: true, subtree: true });
-        const myTasksEl = document.getElementById('myTasksView');
-        if (myTasksEl) cardObserver.observe(myTasksEl, { childList: true, subtree: true });
-    }
-
-    // Also record completions for habit tracking via a safer approach
-    const _origToggleComplete = typeof toggleTaskComplete === 'function' ? toggleTaskComplete : null;
-    if (_origToggleComplete) {
-        window._origToggleComplete = _origToggleComplete;
-        window.toggleTaskComplete = function(taskId) {
-            const task = window.tasks ? window.tasks.find(t => t.id === taskId) : null;
-            if (task && task.recurrence && task.recurrence !== 'none' && !task.completed) {
-                recordCompletion(taskId);
-            }
-            return _origToggleComplete.apply(this, arguments);
-        };
-    }
-
+    // ===== V4.0: INIT =====
     function initV4Features() {
         requestNotifPermission();
         initSwipeGestures();
-        initTapToAssign();
         updateNotifBadge();
-        // Check deadlines and generate digest after tasks load
-        setTimeout(() => {
-            checkDeadlines();
-            checkUnblockedTasks();
-            generateDailyDigest();
-        }, 3000);
-        // Periodic checks every 5 minutes
-        setInterval(() => {
-            checkDeadlines();
-            checkUnblockedTasks();
-        }, 300000);
+        setTimeout(function() { enhanceTaskCards(); checkDeadlines(); checkUnblockedTasks(); generateDailyDigest(); }, 3000);
+        setInterval(function() { checkDeadlines(); checkUnblockedTasks(); }, 300000);
+        var kanbanEl = document.getElementById('kanban');
+        var myTasksEl = document.getElementById('myTasksView');
+        var obs = new MutationObserver(function(){setTimeout(enhanceTaskCards,100);});
+        if (kanbanEl) obs.observe(kanbanEl, {childList:true,subtree:true});
+        if (myTasksEl) obs.observe(myTasksEl, {childList:true,subtree:true});
     }
 
     </script>

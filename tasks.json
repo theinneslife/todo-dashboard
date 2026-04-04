@@ -337,7 +337,7 @@
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
     "title": "Prepare for May 1 vertical restructure team assignments",
-    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' — Christopher will need vertical assignments. Verticals TBD.",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' â Christopher will need vertical assignments. Verticals TBD.",
     "priority": 2,
     "status": "pending",
     "mode": "manual",
@@ -861,5 +861,37 @@
     "created_at": "2026-04-04T12:00:00Z",
     "source": "manual",
     "owner": "manual"
+  },
+  {
+    "id": "corpdev-install-004",
+    "title": "Install Corp Dev skill from outputs folder",
+    "description": "Open the corp-dev.skill file from outputs (or copy corp-dev/ folder to ~/.claude/skills/). This installs the M&A and corporate development knowledge base for future Claude conversations.",
+    "priority": 2,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [
+      "corp-dev"
+    ],
+    "due_date": "2026-04-07",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T21:28:29.237Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created for Christopher to install Corp Dev skill"
+      }
+    ],
+    "created_at": "2026-04-04T21:28:29.238Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": "Corp Dev",
+    "depends_on": [],
+    "collaborators": [
+      "Christopher"
+    ],
+    "custom_fields": {},
+    "delegation_notes": "Assigned to Christopher"
   }
 ]

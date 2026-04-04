@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskflow â Action Items Dashboard</title>
+    <title>Taskflow Ã¢ÂÂ Action Items Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
@@ -362,7 +362,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -473,20 +473,20 @@
         }
 
         .task-due-date::before {
-            content: 'ð';
+            content: 'Ã°ÂÂÂ';
             font-size: 10px;
         }
 
         .task-due-date.overdue::before {
-            content: 'ð´';
+            content: 'Ã°ÂÂÂ´';
         }
 
         .task-due-date.today::before {
-            content: 'ð ';
+            content: 'Ã°ÂÂÂ ';
         }
 
         .task-due-date.due-soon::before {
-            content: 'ð¡';
+            content: 'Ã°ÂÂÂ¡';
         }
 
         .task-subtasks {
@@ -870,7 +870,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1379,7 +1379,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: white;
             font-size: 10px;
             display: flex;
@@ -1544,7 +1544,7 @@
             letter-spacing: 0.2px;
         }
         .badge-blocked::before {
-            content: 'â ';
+            content: 'Ã¢ÂÂ ';
             font-size: 9px;
         }
         .task-card.blocked {
@@ -2284,14 +2284,14 @@
                 </div>
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
-                    <button class="secondary" id="refreshBtn">â» Refresh</button>
-                    <button class="secondary" id="statsBtn">ð Stats</button>
-                    <button class="secondary" id="activityBtn">ð Activity</button>
-                    <button class="secondary" id="timelineBtn">ð Timeline</button>
-                    <button class="secondary" id="templateBtn">ð Template</button>
+                    <button class="secondary" id="refreshBtn">Ã¢ÂÂ» Refresh</button>
+                    <button class="secondary" id="statsBtn">Ã°ÂÂÂ Stats</button>
+                    <button class="secondary" id="activityBtn">Ã°ÂÂÂ Activity</button>
+                    <button class="secondary" id="timelineBtn">Ã°ÂÂÂ Timeline</button>
+                    <button class="secondary" id="templateBtn">Ã°ÂÂÂ Template</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
-            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">\u{1F514}<span id="notifBadge" class="badge" style="display:none">0</span></button>
-            <button class="ics-download-btn" onclick="downloadICS()" title="Download calendar (.ics)">\u{1F4C5} .ics</button>
+            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">🔔<span id="notifBadge" class="badge" style="display:none">0</span></button>
+            <button class="ics-download-btn" onclick="downloadICS()" title="Download calendar (.ics)">📅 .ics</button>
                 </div>
             </div>
         </header>
@@ -2304,15 +2304,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">â</button>
+                <button class="search-clear" id="searchClear">Ã¢ÂÂ</button>
             </div>
             <div class="search-result-count" id="searchCount"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter">
                 <option value="">All Priorities</option>
-                <option value="1">ð´ High</option>
-                <option value="2">ð¡ Medium</option>
-                <option value="3">ð¢ Low</option>
+                <option value="1">Ã°ÂÂÂ´ High</option>
+                <option value="2">Ã°ÂÂÂ¡ Medium</option>
+                <option value="3">Ã°ÂÂÂ¢ Low</option>
             </select>
             <select class="filter-select" id="ownerFilter">
                 <option value="">All Owners</option>
@@ -2338,13 +2338,13 @@
         <div class="quick-capture">
             <input type="text" class="quick-capture-input" id="quickCaptureInput" placeholder="Quick add: type a task and press Enter...">
             <button class="quick-capture-btn" id="quickCaptureBtn">Add</button>
-            <span class="quick-capture-hint">â+K</span>
+            <span class="quick-capture-hint">Ã¢ÂÂ+K</span>
         </div>
 
         <!-- Feature 2: Timeline Strip -->
         <div class="timeline-strip" id="timelineStrip">
             <div class="timeline-header">
-                <div class="timeline-title">ð Upcoming Deadlines</div>
+                <div class="timeline-title">Ã°ÂÂÂ Upcoming Deadlines</div>
                 <button class="timeline-toggle" id="timelineClose">Hide</button>
             </div>
             <div class="timeline-days" id="timelineDays"></div>
@@ -2383,7 +2383,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">â</button>
+                <button class="modal-close" id="addTaskClose">Ã¢ÂÂ</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2467,7 +2467,7 @@
                     <div class="custom-field-row">
                         <span class="custom-field-label">Revenue Impact</span>
                         <select class="custom-field-input" id="cfRevenue">
-                            <option value="">â</option>
+                            <option value="">Ã¢ÂÂ</option>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
@@ -2495,7 +2495,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">â</button>
+                <button class="modal-close" id="detailClose">Ã¢ÂÂ</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2506,7 +2506,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">â</button>
+                <button class="modal-close" id="statsClose">Ã¢ÂÂ</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2535,7 +2535,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">â</button>
+                <button class="modal-close" id="activityClose">Ã¢ÂÂ</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2555,7 +2555,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">â</button>
+                <button class="modal-close" id="templateClose">Ã¢ÂÂ</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2564,11 +2564,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">â Christopher</button>
-        <button onclick="batchMove('claude')">â Claude</button>
-        <button onclick="batchMove('completed')">â Complete</button>
-        <button onclick="batchMove('parking')">â¸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">â</button>
+        <button onclick="batchMove('christopher')">Ã¢ÂÂ Christopher</button>
+        <button onclick="batchMove('claude')">Ã¢ÂÂ Claude</button>
+        <button onclick="batchMove('completed')">Ã¢ÂÂ Complete</button>
+        <button onclick="batchMove('parking')">Ã¢ÂÂ¸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">Ã¢ÂÂ</button>
     </div>
 
 
@@ -2993,7 +2993,7 @@
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = 'â Authenticated';
+                status.textContent = 'Ã¢ÂÂ Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3279,14 +3279,14 @@
             if (task.recurrence) {
                 const recurrence = document.createElement('div');
                 recurrence.className = 'task-recurrence';
-                recurrence.textContent = `â» ${task.recurrence}`;
+                recurrence.textContent = `Ã¢ÂÂ» ${task.recurrence}`;
                 meta.appendChild(recurrence);
             }
 
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3322,7 +3322,7 @@
                 if (unresolvedBlockers.length > 0) {
                     const depBadge = document.createElement('span');
                     depBadge.className = 'dep-badge blocked-by';
-                    depBadge.textContent = 'â ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
+                    depBadge.textContent = 'Ã¢ÂÂ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
                     depBadge.title = unresolvedBlockers.map(t => t.title).join(', ');
                     meta.appendChild(depBadge);
                 }
@@ -3418,7 +3418,7 @@
 
             const activityBtn = document.createElement('button');
             activityBtn.className = 'task-action-btn';
-            activityBtn.textContent = 'ð';
+            activityBtn.textContent = 'Ã°ÂÂÂ';
             activityBtn.title = 'View activity';
             activityBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -3438,10 +3438,6 @@
         }
 
         async function toggleTaskComplete(task) {
-            // V4.0: Record completion for habit tracking
-            const _tsk = window.tasks ? window.tasks.find(t => t.id === arguments[0]) : null;
-            if (_tsk && _tsk.recurrence && _tsk.recurrence !== 'none') recordCompletion(arguments[0]);
-
             task.status = task.status === 'completed' ? 'pending' : 'completed';
             if (task.status === 'completed') {
                 task.completed_at = new Date().toISOString();
@@ -3548,7 +3544,7 @@
             // Action buttons
             if (githubToken) {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">â Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">Ã¢ÂÂ Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -3579,7 +3575,7 @@
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3602,7 +3598,7 @@
                     task.depends_on.forEach(depId => {
                         const depTask = tasks.find(t => t.id === depId);
                         if (depTask) {
-                            const icon = depTask.status === 'completed' ? 'â' : 'â';
+                            const icon = depTask.status === 'completed' ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ';
                             html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + depId + '\'))">' + icon + ' ' + escapeHtml(depTask.title) + '</span>';
                         }
                     });
@@ -3708,7 +3704,7 @@
                 log.forEach(entry => {
                     const icons = {
                         'created': '\u2713',
-                        'moved': '\u2192',
+                        'moved': '→',
                         'completed': '\u2713',
                         'assigned': '\ud83d\udc64',
                         'edited': '\u270e',
@@ -3794,7 +3790,7 @@
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">Ã</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂ</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -3805,7 +3801,7 @@
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const text = tag.textContent.trim().slice(0, -1); // Remove the Ã button
+                const text = tag.textContent.trim().slice(0, -1); // Remove the ÃÂ button
                 tags.push(text);
             });
             return tags;
@@ -4592,22 +4588,22 @@
             }
 
             const iconMap = {
-                created: 'â',
-                completed: 'â',
-                moved: 'â',
-                edited: 'â',
-                commented: 'ð¬',
-                attempted: 'â ',
-                assigned: 'ð¤',
-                recurrence_spawned: 'â»'
+                created: 'Ã¢ÂÂ',
+                completed: 'Ã¢ÂÂ',
+                moved: 'Ã¢ÂÂ',
+                edited: 'Ã¢ÂÂ',
+                commented: 'Ã°ÂÂÂ¬',
+                attempted: 'Ã¢ÂÂ ',
+                assigned: 'Ã°ÂÂÂ¤',
+                recurrence_spawned: 'Ã¢ÂÂ»'
             };
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'â¢'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'Ã¢ÂÂ¢'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} â by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} Ã¢ÂÂ by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -4875,7 +4871,7 @@
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today â nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today Ã¢ÂÂ nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -4900,7 +4896,7 @@
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: 'ð´', 2: 'ð¡', 3: 'ð¢' };
+                        const priNames = { 1: 'Ã°ÂÂÂ´', 2: 'Ã°ÂÂÂ¡', 3: 'Ã°ÂÂÂ¢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -4971,7 +4967,7 @@
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks â¢ P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks Ã¢ÂÂ¢ P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5006,7 +5002,7 @@
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">â</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">Ã¢ÂÂ</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5036,8 +5032,8 @@ function init() {
     
 
     // ===== V4.0: NOTIFICATIONS & REMINDERS =====
-    let notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]');
-    let notifPermission = Notification.permission;
+    var notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]');
+    var notifPermission = Notification.permission;
 
     function requestNotifPermission() {
         if ('Notification' in window && Notification.permission === 'default') {
@@ -5052,7 +5048,7 @@ function init() {
         localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
         updateNotifBadge();
         if (notifPermission === 'granted') {
-            try { new Notification(title, { body, icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">\u2705</text></svg>' }); } catch(e) {}
+            try { new Notification(title, { body, icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✅</text></svg>' }); } catch(e) {}
         }
     }
 
@@ -5081,9 +5077,9 @@ function init() {
             return;
         }
         list.innerHTML = notifications.slice(0, 20).map(n => {
-            const icons = { overdue: '\u{1F6A8}', approaching: '\u23F0', unblocked: '\u{1F513}', digest: '\u{1F4CA}', completed: '\u2705' };
+            const icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '✅' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
-                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '\u{1F514}') + '</span>' + escapeHtml(n.title) + '</div>' +
+                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span>' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
         }).join('');
     }
@@ -5280,12 +5276,12 @@ function init() {
 
     function getDeliverableType(task) {
         const cat = categorizeTask(task);
-        if (cat.claudeMatches.includes('Research')) return { type: 'Research Brief', icon: '\u{1F50D}' };
-        if (cat.claudeMatches.includes('Drafting')) return { type: 'Draft Document', icon: '\u{1F4DD}' };
-        if (cat.claudeMatches.includes('Email Prep')) return { type: 'Draft Email', icon: '\u2709' };
-        if (cat.claudeMatches.includes('Document')) return { type: 'Document Template', icon: '\u{1F4C4}' };
-        if (cat.claudeMatches.includes('Web Lookup')) return { type: 'Research Summary', icon: '\u{1F310}' };
-        if (cat.claudeMatches.includes('Scheduling')) return { type: 'Schedule Proposal', icon: '\u{1F4C5}' };
+        if (cat.claudeMatches.includes('Research')) return { type: 'Research Brief', icon: '🔍' };
+        if (cat.claudeMatches.includes('Drafting')) return { type: 'Draft Document', icon: '📝' };
+        if (cat.claudeMatches.includes('Email Prep')) return { type: 'Draft Email', icon: '✉' };
+        if (cat.claudeMatches.includes('Document')) return { type: 'Document Template', icon: '📄' };
+        if (cat.claudeMatches.includes('Web Lookup')) return { type: 'Research Summary', icon: '🌐' };
+        if (cat.claudeMatches.includes('Scheduling')) return { type: 'Schedule Proposal', icon: '📅' };
         return null;
     }
 
@@ -5296,11 +5292,6 @@ function init() {
         if (cat.readiness > 0 && cat.readiness < 100) {
             html += '<div class="readiness-meter"><div class="fill ' + (cat.readiness >= 70 ? 'high' : cat.readiness >= 40 ? 'medium' : 'low') + '" style="width:' + cat.readiness + '%"></div></div>';
         }
-        // V4.0: Add delegation and streak badges
-        html += renderDelegationBadge(task);
-        html += renderCapabilityTags(task);
-        html += renderStreakBadge(task);
-
         return html;
     }
 
@@ -5348,13 +5339,13 @@ function init() {
         if (!rightInd) {
             rightInd = document.createElement('div');
             rightInd.className = 'swipe-indicator right';
-            rightInd.textContent = '\u2705 Done';
+            rightInd.textContent = '✅ Done';
             swipeState.taskEl.appendChild(rightInd);
         }
         if (!leftInd) {
             leftInd = document.createElement('div');
             leftInd.className = 'swipe-indicator left';
-            leftInd.textContent = 'Park \u{1F17F}';
+            leftInd.textContent = 'Park 🅿';
             swipeState.taskEl.appendChild(leftInd);
         }
         rightInd.classList.toggle('visible', dx > SWIPE_THRESHOLD);
@@ -5372,7 +5363,8 @@ function init() {
             card.style.transform = 'translateX(100%)';
             card.style.opacity = '0';
             card.style.transition = 'all 0.3s ease';
-            setTimeout(() => { toggleTaskComplete(taskId); }, 300);
+            setTimeout(() => {
+            enhanceTaskCards(); toggleTaskComplete(taskId); }, 300);
         } else if (dx < -SWIPE_THRESHOLD && taskId) {
             card.classList.add('swipe-park');
             card.style.transform = 'translateX(-100%)';
@@ -5471,7 +5463,7 @@ function init() {
         if (!task.recurrence || task.recurrence === 'none') return '';
         const info = getStreakInfo(task);
         const cls = getStreakBadgeClass(info.current);
-        const fire = info.current >= 7 ? '\u{1F525}' : info.current >= 3 ? '\u2B50' : '';
+        const fire = info.current >= 7 ? '🔥' : info.current >= 3 ? '⭐' : '';
         return '<span class="streak-badge ' + cls + '">' + fire + ' ' + info.current + ' day streak</span>';
     }
 
@@ -5502,7 +5494,7 @@ function init() {
         if (slipping) {
             const slippingTasks = recurring.filter(t => { const i = getStreakInfo(t); return i.trend === 'down' && i.rate < 50; });
             slipping.innerHTML = slippingTasks.map(t =>
-                '<div class="slipping-alert">\u26A0 <strong>' + escapeHtml(t.title) + '</strong> is slipping \u2014 completion rate dropping</div>'
+                '<div class="slipping-alert">⚠ <strong>' + escapeHtml(t.title) + '</strong> is slipping \u2014 completion rate dropping</div>'
             ).join('');
         }
         // Weekly pattern
@@ -5527,7 +5519,7 @@ function init() {
             cardsEl.innerHTML = recurring.map(t => {
                 const info = getStreakInfo(t);
                 const rateClass = info.rate >= 70 ? 'good' : info.rate >= 40 ? 'ok' : 'poor';
-                const trendArrow = info.trend === 'up' ? '<span class="trend-arrow up">\u2191</span>' : info.trend === 'down' ? '<span class="trend-arrow down">\u2193</span>' : '<span class="trend-arrow flat">\u2192</span>';
+                const trendArrow = info.trend === 'up' ? '<span class="trend-arrow up">↑</span>' : info.trend === 'down' ? '<span class="trend-arrow down">↓</span>' : '<span class="trend-arrow flat">→</span>';
                 // Mini heatmap for last 28 days
                 const hist = getCompletionHistory(t);
                 const today = new Date();
@@ -5548,6 +5540,51 @@ function init() {
     }
 
     // ===== V4.0: INITIALIZATION HOOKS =====
+    
+    // V4.0: Enhance task cards with delegation + streak badges (post-render)
+    function enhanceTaskCards() {
+        if (!window.tasks) return;
+        document.querySelectorAll('.task-card').forEach(card => {
+            const taskId = card.dataset.taskId;
+            if (!taskId || card.dataset.v4Enhanced) return;
+            const task = window.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            card.dataset.v4Enhanced = 'true';
+            // Add delegation badge
+            const badgeHtml = renderDelegationBadge(task) + renderCapabilityTags(task) + renderStreakBadge(task);
+            if (badgeHtml.trim()) {
+                const div = document.createElement('div');
+                div.style.marginTop = '6px';
+                div.innerHTML = badgeHtml;
+                card.appendChild(div);
+            }
+        });
+    }
+
+    // Hook into renderBoard and renderMyTasksView to enhance after render
+    const _origFilterTasks = typeof filterTasks === 'function' ? filterTasks : null;
+    if (_origFilterTasks) {
+        // Use a MutationObserver to enhance cards when DOM changes
+        const cardObserver = new MutationObserver(() => { setTimeout(enhanceTaskCards, 100); });
+        const kanbanEl = document.getElementById('kanban');
+        if (kanbanEl) cardObserver.observe(kanbanEl, { childList: true, subtree: true });
+        const myTasksEl = document.getElementById('myTasksView');
+        if (myTasksEl) cardObserver.observe(myTasksEl, { childList: true, subtree: true });
+    }
+
+    // Also record completions for habit tracking via a safer approach
+    const _origToggleComplete = typeof toggleTaskComplete === 'function' ? toggleTaskComplete : null;
+    if (_origToggleComplete) {
+        window._origToggleComplete = _origToggleComplete;
+        window.toggleTaskComplete = function(taskId) {
+            const task = window.tasks ? window.tasks.find(t => t.id === taskId) : null;
+            if (task && task.recurrence && task.recurrence !== 'none' && !task.completed) {
+                recordCompletion(taskId);
+            }
+            return _origToggleComplete.apply(this, arguments);
+        };
+    }
+
     function initV4Features() {
         requestNotifPermission();
         initSwipeGestures();

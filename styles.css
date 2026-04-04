@@ -1,3 +1,5 @@
+/* Taskflow v3.0 */
+
 /* ============================================
    Taskflow Dashboard - Styles
    v2.0 - Split from monolith
@@ -1799,4 +1801,350 @@
             color: #1d1d1f;
             line-height: 1.5;
             white-space: pre-wrap;
+        }
+
+    
+
+        /* ============================================
+           FEATURE 1: Projects & Sections
+           ============================================ */
+        .project-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e7;
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+        }
+        .project-pill {
+            padding: 5px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1.5px solid #e5e5e7;
+            background: white;
+            color: #1d1d1f;
+            white-space: nowrap;
+            transition: all 0.15s;
+            font-family: inherit;
+        }
+        .project-pill:hover { border-color: #007aff; color: #007aff; }
+        .project-pill.active {
+            background: #007aff;
+            color: white;
+            border-color: #007aff;
+        }
+        .project-pill .project-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .project-pill .project-count {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-left: 4px;
+        }
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .section-divider {
+            padding: 6px 0;
+            margin: 4px 0;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6e6e73;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e5e5e730;
+        }
+
+        /* ============================================
+           FEATURE 2: Dependencies
+           ============================================ */
+        .dep-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .dep-badge.blocked-by {
+            background: #ff3b3012;
+            color: #ff3b30;
+        }
+        .dep-badge.blocking {
+            background: #ff9f0a12;
+            color: #cc7a00;
+        }
+        .dep-selector {
+            border: 1px solid #e5e5e7;
+            border-radius: 8px;
+            padding: 8px;
+            max-height: 120px;
+            overflow-y: auto;
+            background: #f9f9fb;
+        }
+        .dep-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 6px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .dep-option:hover { background: #e5e5e7; }
+        .dep-option input { margin: 0; }
+        .dep-chain {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #6e6e73;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+        .dep-chain-item {
+            background: #f0f0f2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .dep-chain-item:hover { background: #e5e5e7; }
+        .dep-chain-arrow { color: #c7c7cc; }
+
+        /* ============================================
+           FEATURE 3: My Tasks View (Today/Upcoming/Later)
+           ============================================ */
+        .view-toggle {
+            display: flex;
+            background: #f0f0f2;
+            border-radius: 8px;
+            padding: 2px;
+            gap: 2px;
+        }
+        .view-toggle-btn {
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #6e6e73;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .view-toggle-btn.active {
+            background: white;
+            color: #1d1d1f;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .my-tasks-view { display: none; padding: 24px; flex: 1; overflow-y: auto; }
+        .my-tasks-view.active { display: block; }
+        .my-tasks-section {
+            margin-bottom: 24px;
+        }
+        .my-tasks-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 2px solid #e5e5e7;
+            margin-bottom: 8px;
+        }
+        .my-tasks-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .my-tasks-section-count {
+            font-size: 12px;
+            color: #8e8e93;
+            background: #f0f0f2;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        .my-tasks-section-header.today { border-color: #007aff; }
+        .my-tasks-section-header.overdue { border-color: #ff3b30; }
+        .my-tasks-section-header.upcoming { border-color: #ff9f0a; }
+        .my-tasks-section-header.later { border-color: #8e8e93; }
+        .my-tasks-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f2;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+        .my-tasks-row:hover { background: #f9f9fb; }
+        .my-tasks-row .task-checkbox { flex-shrink: 0; }
+        .my-tasks-row-content { flex: 1; min-width: 0; }
+        .my-tasks-row-title {
+            font-size: 13px;
+            color: #1d1d1f;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .my-tasks-row-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 11px;
+            color: #8e8e93;
+            margin-top: 2px;
+        }
+        .my-tasks-row-due {
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+        .my-tasks-empty {
+            padding: 16px;
+            text-align: center;
+            color: #8e8e93;
+            font-size: 13px;
+            font-style: italic;
+        }
+        .my-tasks-row.completed .my-tasks-row-title {
+            text-decoration: line-through;
+            color: #8e8e93;
+        }
+
+        /* ============================================
+           FEATURE 4: Multi-user / Collaborators
+           ============================================ */
+        .avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+        .avatar-stack {
+            display: flex;
+            gap: 0;
+        }
+        .avatar-stack .avatar {
+            margin-left: -6px;
+            border: 2px solid white;
+        }
+        .avatar-stack .avatar:first-child { margin-left: 0; }
+        .collaborator-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 0;
+        }
+        .collaborator-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 14px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1.5px solid #e5e5e7;
+            background: white;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .collaborator-chip:hover { border-color: #007aff; }
+        .collaborator-chip.selected {
+            background: #007aff10;
+            border-color: #007aff;
+            color: #007aff;
+        }
+        .mention-highlight {
+            background: #007aff15;
+            color: #007aff;
+            padding: 0 2px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* ============================================
+           FEATURE 5: Custom Fields & Templates
+           ============================================ */
+        .custom-fields-section {
+            margin-top: 8px;
+        }
+        .custom-field-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            font-size: 13px;
+        }
+        .custom-field-label {
+            color: #6e6e73;
+            min-width: 100px;
+            font-size: 12px;
+        }
+        .custom-field-value {
+            flex: 1;
+            font-size: 13px;
+        }
+        .custom-field-input {
+            flex: 1;
+            border: 1px solid #e5e5e7;
+            border-radius: 6px;
+            padding: 5px 8px;
+            font-size: 12px;
+            font-family: inherit;
+        }
+        .custom-field-input:focus {
+            outline: none;
+            border-color: #007aff;
+        }
+        .template-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px 0;
+        }
+        .template-card {
+            border: 1.5px solid #e5e5e7;
+            border-radius: 10px;
+            padding: 12px;
+            min-width: 180px;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: white;
+        }
+        .template-card:hover {
+            border-color: #007aff;
+            box-shadow: 0 2px 8px rgba(0,122,255,0.1);
+        }
+        .template-card-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .template-card-desc {
+            font-size: 11px;
+            color: #6e6e73;
+        }
+        .template-card-meta {
+            font-size: 10px;
+            color: #8e8e93;
+            margin-top: 6px;
         }

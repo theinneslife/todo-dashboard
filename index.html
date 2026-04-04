@@ -5471,7 +5471,7 @@ function init() {
     
 
     // v4.2 Mobile Filter Bottom Sheet
-    (function(){
+    document.addEventListener("DOMContentLoaded",function(){
         var fab=document.getElementById('mobileFilterFab'),overlay=document.getElementById('mobileFilterOverlay'),sheet=document.getElementById('mobileFilterSheet'),closeBtn=document.getElementById('mobileFilterClose'),badge=document.getElementById('filterBadge'),mSearch=document.getElementById('mobileSearchInput'),mPriority=document.getElementById('mobilePriorityFilter'),mOwner=document.getElementById('mobileOwnerFilter'),mSort=document.getElementById('mobileSortSelect'),mReset=document.getElementById('mobileResetFilters'),mLabels=document.getElementById('mobileLabelFilters');
         var dSearch=document.getElementById('searchInput'),dPriority=document.getElementById('priorityFilter'),dOwner=document.getElementById('ownerFilter'),dSort=document.getElementById('sortSelect'),dLabels=document.getElementById('labelFilters');
         if(!fab||!sheet)return;
@@ -5491,7 +5491,7 @@ function init() {
         var obs=new MutationObserver(function(){updateBadge()});if(dLabels)obs.observe(dLabels,{childList:true,subtree:true,attributes:true});
         setTimeout(updateBadge,1000);
         var touchY=0;sheet.addEventListener('touchstart',function(e){touchY=e.touches[0].clientY},{passive:true});sheet.addEventListener('touchmove',function(e){if(e.touches[0].clientY-touchY>80&&sheet.scrollTop<=0)closeSheet()},{passive:true});
-    })();
+    });
 
     </script>
 

@@ -4969,7 +4969,7 @@ function init() {
             updateTokenStatus();
             detectProjects();
             loadTasks();
-        initV4Features();
+        setTimeout(initV4Features, 100);
 
             // Auto-refresh
             setInterval(loadTasks, AUTO_REFRESH_INTERVAL);
@@ -5003,6 +5003,7 @@ function init() {
     }
 
     function updateNotifBadge() {
+        if (typeof notifications === "undefined" || !notifications) { notifications = []; }
         var unread = notifications.filter(function(n) { return !n.read; }).length;
         var badge = document.getElementById('notifBadge');
         if (badge) { badge.textContent = unread; badge.style.display = unread > 0 ? 'flex' : 'none'; }

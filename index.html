@@ -4750,23 +4750,32 @@
         // FEATURE 3 (v3): My Tasks View
         // ============================================
         function switchView(view) {
-            currentView = view;
-            document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
-            const kanban = document.getElementById('kanban');
-            const myTasks = document.getElementById('myTasksView');
-            const mobileTabs = document.getElementById('mobileTabs');
-            if (view === 'board') {
-                kanban.style.display = 'flex';
-                myTasks.classList.remove('active');
-                if (mobileTabs) mobileTabs.style.display = '';
-            } else {
-                kanban.style.display = 'none';
-                myTasks.classList.add('active');
-                if (mobileTabs) mobileTabs.style.display = 'none';
-                renderMyTasksView();
-        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; document.querySelector('.container').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; document.querySelector('.container').style.display = ''; }
-            }
-        }
+      document.querySelectorAll('.view-tab').forEach(function(t) { t.classList.remove('active'); });
+      var activeTab = document.querySelector('.view-tab[data-view="' + view + '"]');
+      if (activeTab) activeTab.classList.add('active');
+      
+      var kanban = document.getElementById('kanban');
+      var myTasks = document.getElementById('myTasksView');
+      var habits = document.getElementById('habitsView');
+      var container = document.querySelector('.container');
+      
+      // Hide all views first
+      if (kanban) kanban.style.display = 'none';
+      if (myTasks) { myTasks.style.display = 'none'; myTasks.classList.remove('active'); }
+      if (habits) habits.style.display = 'none';
+      if (container) container.style.display = '';
+      
+      if (view === 'board') {
+        if (kanban) kanban.style.display = 'flex';
+      } else if (view === 'my-tasks') {
+        if (myTasks) { myTasks.style.display = 'block'; myTasks.classList.add('active'); }
+        if (typeof renderMyTasks === 'function') renderMyTasks();
+      } else if (view === 'habits') {
+        if (habits) habits.style.display = 'block';
+        if (container) container.style.display = 'none';
+        if (typeof renderHabitsView === 'function') renderHabitsView();
+      }
+    }
 
         function renderMyTasksView() {
             const container = document.getElementById('myTasksView');

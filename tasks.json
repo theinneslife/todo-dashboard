@@ -861,29 +861,5 @@
     "created_at": "2026-04-04T12:00:00Z",
     "source": "manual",
     "owner": "manual"
-  },
-  {
-    "id": "2693e902-5e43-4634-9c1c-c9c556ecd537",
-    "title": "TEST v4.1 debug",
-    "description": "",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-04-04T20:35:40.545Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-04-04T20:35:40.545Z",
-    "completed_at": null,
-    "completion_notes": null
   }
 ]

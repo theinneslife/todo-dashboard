@@ -4764,7 +4764,7 @@
                 myTasks.classList.add('active');
                 if (mobileTabs) mobileTabs.style.display = 'none';
                 renderMyTasksView();
-        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; }
+        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; document.getElementById('container').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; document.getElementById('container').style.display = ''; }
             }
         }
 
@@ -5247,9 +5247,9 @@ function init() {
         var cardsDiv = document.getElementById('habitCards');
         if (!statsGrid || !cardsDiv) return;
 
-        var completed = habitTasks.filter(function(t) { return t.status === 'Completed'; });
-        var inProgress = habitTasks.filter(function(t) { return t.status !== 'Completed' && t.status !== 'Parking Lot'; });
-        var overdue = habitTasks.filter(function(t) { return t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'Completed'; });
+        var completed = habitTasks.filter(function(t) { return (t.status === 'completed' || t.status === 'Completed'); });
+        var inProgress = habitTasks.filter(function(t) { return (t.status !== 'completed' && t.status !== 'Completed') && t.status !== 'Parking Lot'; });
+        var overdue = habitTasks.filter(function(t) { return t.dueDate && new Date(t.dueDate) < new Date() && (t.status !== 'completed' && t.status !== 'Completed'); });
         var rate = habitTasks.length > 0 ? Math.round((completed.length / habitTasks.length) * 100) : 0;
 
         statsGrid.innerHTML = '<div class="habit-card"><h4>Total Tasks</h4><div style="font-size:2em;font-weight:bold;color:#2563eb">' + habitTasks.length + '</div></div>' +
@@ -5289,7 +5289,7 @@ function init() {
           if (!owners[o]) owners[o] = {total: 0, done: 0, tasks: []};
           owners[o].total++;
           owners[o].tasks.push(t);
-          if (t.status === 'Completed') owners[o].done++;
+          if ((t.status === 'completed' || t.status === 'Completed')) owners[o].done++;
         });
 
         cardsDiv.innerHTML = '<h3>Tasks by Owner</h3>' + Object.keys(owners).map(function(owner) {
@@ -5301,7 +5301,7 @@ function init() {
             '<div style="display:flex;gap:16px;margin:8px 0"><span>Total: <strong>' + d.total + '</strong></span><span>Done: <strong style="color:#16a34a">' + d.done + '</strong></span><span>Rate: <strong style="color:' + (ownerRate >= 50 ? '#16a34a' : '#ef4444') + '">' + ownerRate + '%</strong></span></div>' +
             '<div style="background:#e5e7eb;border-radius:4px;height:8px"><div style="background:' + (ownerRate >= 50 ? '#16a34a' : '#f59e0b') + ';height:100%;border-radius:4px;width:' + ownerRate + '%"></div></div>' +
             '<div style="margin-top:8px;font-size:0.85em;color:#666">' + d.tasks.map(function(t) {
-              var icon = t.status === 'Completed' ? String.fromCodePoint(0x2705) : (t.status === 'Parking Lot' ? String.fromCodePoint(0x1F17F) : String.fromCodePoint(0x1F539));
+              var icon = (t.status === 'completed' || t.status === 'Completed') ? String.fromCodePoint(0x2705) : ((t.status === 'parking_lot' || t.status === 'Parking Lot') ? String.fromCodePoint(0x1F17F) : String.fromCodePoint(0x1F539));
               return icon + ' ' + (t.title || '');
             }).join('<br>') + '</div></div>';
         }).join('');

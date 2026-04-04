@@ -2171,7 +2171,7 @@
 .habit-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
 .habit-stat-card { background: #1a1a2e; border-radius: 10px; padding: 14px; text-align: center; }
 .habit-stat-card .value { font-size: 28px; font-weight: 700; color: #667eea; }
-.habit-stat-card .label { font-size: 11px; color: #c0c0d0; text-transform: uppercase; margin-top: 4px; }
+.habit-stat-card .label { font-size: 11px; color: #d4d4e0; text-transform: uppercase; margin-top: 4px; }
 .pattern-chart { background: #1a1a2e; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
 .pattern-bar-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
 .pattern-bar-row .day-label { width: 30px; font-size: 11px; color: #888; }
@@ -2203,7 +2203,7 @@
         .move-to-wrapper { position: relative; display: inline-block; }
         .move-to-btn { background: none; border: 1px solid #e5e5e7; border-radius: 6px; padding: 2px 6px; font-size: 11px; cursor: pointer; color: #6e6e73; transition: all 0.2s; }
         .move-to-btn:hover { background: #f5f5f7; border-color: #d0d0d5; }
-        .move-to-menu { display: none; position: absolute; bottom: 100%; left: 0; background: #fff; border: 1px solid #e5e5e7; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 100; min-width: 140px; padding: 4px 0; margin-bottom: 4px; }
+        .move-to-menu { display: none; position: absolute; bottom: 100%; right: 0; background: #fff; border: 1px solid #e5e5e7; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 100; min-width: 140px; padding: 4px 0; margin-bottom: 4px; }
         .move-to-menu.open { display: block; }
         .move-to-option { display: block; width: 100%; padding: 6px 12px; border: none; background: none; text-align: left; cursor: pointer; font-size: 12px; color: #1d1d1f; font-family: inherit; }
         .move-to-option:hover { background: #f5f5f7; }
@@ -4992,7 +4992,20 @@ function getGithubToken() {
         if (habits) habits.style.display = 'block';
         if (typeof renderHabitsView === 'function') renderHabitsView();
       }
-      window.scrollTo(0, 0);
+      // Toggle controls visibility for non-board views
+        var controls = document.querySelector('.controls');
+        var quickCapture = document.querySelector('.quick-capture');
+        var projectBar = document.querySelector('.project-bar');
+        if (view === 'board') {
+            if (controls) controls.style.display = '';
+            if (quickCapture) quickCapture.style.display = '';
+            if (projectBar) projectBar.style.display = '';
+        } else {
+            if (controls) controls.style.display = 'none';
+            if (quickCapture) quickCapture.style.display = 'none';
+            if (projectBar) projectBar.style.display = 'none';
+        }
+        window.scrollTo(0, 0);
     }
 
         function renderMyTasksView() {

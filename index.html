@@ -2324,6 +2324,7 @@
 
         <div class="mobile-tabs" id="mobileTabs"></div>
         <div class="kanban" id="kanban"></div>
+      <div id="habitsView" style="display:none;padding:20px;"><div class="habits-view"><div class="habit-stats-grid" id="habitStatsGrid"></div><div id="slippingAlerts"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Weekly Patterns</h3><div class="pattern-chart" id="weeklyPattern"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Recurring Tasks</h3><div id="habitCards"></div></div></div>
     </div>
 
         <!-- Feature 3 (v3): My Tasks View -->
@@ -2331,7 +2332,7 @@
     </div>
 
     <!-- Add/Edit Task Modal -->
-        <div id="habitsView" style="display:none;padding:20px;"><div class="habits-view"><div class="habit-stats-grid" id="habitStatsGrid"></div><div id="slippingAlerts"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Weekly Patterns</h3><div class="pattern-chart" id="weeklyPattern"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Recurring Tasks</h3><div id="habitCards"></div></div></div>
+        
         <div id="notificationPanel" class="notification-panel"><div class="np-header"><span>Notifications</span><button onclick="clearNotifications()" style="background:none;border:none;color:#888;cursor:pointer;font-size:12px;">Clear all</button></div><div id="digestSummary" class="digest-summary" style="display:none;"></div><div class="np-body" id="notifList"></div></div>
 
     <div class="modal-backdrop" id="addTaskModal">
@@ -4757,13 +4758,10 @@
       var kanban = document.getElementById('kanban');
       var myTasks = document.getElementById('myTasksView');
       var habits = document.getElementById('habitsView');
-      var container = document.querySelector('.container');
       
-      // Hide all views first
       if (kanban) kanban.style.display = 'none';
       if (myTasks) { myTasks.style.display = 'none'; myTasks.classList.remove('active'); }
       if (habits) habits.style.display = 'none';
-      if (container) container.style.display = '';
       
       if (view === 'board') {
         if (kanban) kanban.style.display = 'flex';
@@ -4772,9 +4770,9 @@
         if (typeof renderMyTasks === 'function') renderMyTasks();
       } else if (view === 'habits') {
         if (habits) habits.style.display = 'block';
-        if (container) container.style.display = 'none';
         if (typeof renderHabitsView === 'function') renderHabitsView();
       }
+      window.scrollTo(0, 0);
     }
 
         function renderMyTasksView() {

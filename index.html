@@ -5239,36 +5239,73 @@ function init() {
         return '<span class="streak-badge '+cls+'">'+icon+info.current+' day streak</span>';
     }
     function renderHabitsView() {
-        var hv = document.getElementById('habitsView');
-        if (!hv || !tasks) return;
-        var recurring = tasks.filter(function(t){return t.recurrence && t.recurrence!=='none';});
-        if (!recurring.length) { hv.querySelector('.habits-view').innerHTML='<div style="text-align:center;padding:40px;color:#888;">No recurring tasks yet. Add recurrence to tasks to track habits.</div>'; return; }
+        if (!tasks || tasks.length === 0) return;
+        var habitTasks = tasks;
         var statsGrid = document.getElementById('habitStatsGrid');
-        var infos = recurring.map(function(t){return getStreakInfo(t);});
-        var avgRate = Math.round(infos.reduce(function(s,i){return s+i.rate;},0)/infos.length);
-        var bestStreak = Math.max.apply(null, infos.map(function(i){return i.best;}));
-        var activeCount = infos.filter(function(i){return i.current>0;}).length;
-        var totalC = infos.reduce(function(s,i){return s+(i.total||0);},0);
-        if (statsGrid) statsGrid.innerHTML = '<div class="habit-stat-card"><div class="value">'+avgRate+'%</div><div class="label">Avg Completion</div></div><div class="habit-stat-card"><div class="value">'+bestStreak+'</div><div class="label">Best Streak</div></div><div class="habit-stat-card"><div class="value">'+activeCount+'/'+recurring.length+'</div><div class="label">Active Habits</div></div><div class="habit-stat-card"><div class="value">'+totalC+'</div><div class="label">Total Completions</div></div>';
-        var slipping = document.getElementById('slippingAlerts');
-        if (slipping) { slipping.innerHTML = recurring.filter(function(t){var i=getStreakInfo(t);return i.trend==='down'&&i.rate<50;}).map(function(t){return '<div class="slipping-alert">⚠ <strong>'+escapeHtml(t.title)+'</strong> is slipping</div>';}).join(''); }
-        var patternEl = document.getElementById('weeklyPattern');
-        if (patternEl) {
-            var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], dayCounts=[0,0,0,0,0,0,0];
-            recurring.forEach(function(t){getCompletionHistory(t).forEach(function(d){dayCounts[new Date(d).getDay()]++;});});
-            var mx = Math.max.apply(null, dayCounts.concat([1]));
-            patternEl.innerHTML = dayNames.map(function(name,i){var pct=Math.round(dayCounts[i]/mx*100); return '<div class="pattern-bar-row"><span class="day-label">'+name+'</span><div class="bar" style="width:'+pct+'%"></div><span class="pct">'+dayCounts[i]+'</span></div>';}).join('');
+        var slippingDiv = document.getElementById('slippingAlerts');
+        var weeklyDiv = document.getElementById('weeklyPattern');
+        var cardsDiv = document.getElementById('habitCards');
+        if (!statsGrid || !cardsDiv) return;
+
+        var completed = habitTasks.filter(function(t) { return t.status === 'Completed'; });
+        var inProgress = habitTasks.filter(function(t) { return t.status !== 'Completed' && t.status !== 'Parking Lot'; });
+        var overdue = habitTasks.filter(function(t) { return t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'Completed'; });
+        var rate = habitTasks.length > 0 ? Math.round((completed.length / habitTasks.length) * 100) : 0;
+
+        statsGrid.innerHTML = '<div class="habit-card"><h4>Total Tasks</h4><div style="font-size:2em;font-weight:bold;color:#2563eb">' + habitTasks.length + '</div></div>' +
+          '<div class="habit-card"><h4>Completed</h4><div style="font-size:2em;font-weight:bold;color:#16a34a">' + completed.length + '</div></div>' +
+          '<div class="habit-card"><h4>In Progress</h4><div style="font-size:2em;font-weight:bold;color:#f59e0b">' + inProgress.length + '</div></div>' +
+          '<div class="habit-card"><h4>Completion Rate</h4><div style="font-size:2em;font-weight:bold;color:' + (rate >= 50 ? '#16a34a' : '#ef4444') + '">' + rate + '%</div></div>';
+
+        if (overdue.length > 0) {
+          slippingDiv.innerHTML = '<h3 style="color:#ef4444">Slipping Tasks (' + overdue.length + ')</h3>' +
+            overdue.map(function(t) { return '<div class="slipping-alert">' + String.fromCodePoint(0x26A0) + ' <strong>' + (t.title || 'Untitled') + '</strong> - due ' + (t.dueDate || 'N/A') + '</div>'; }).join('');
+        } else {
+          slippingDiv.innerHTML = '<div style="color:#16a34a;padding:12px">' + String.fromCodePoint(0x2705) + ' No overdue tasks - great job!</div>';
         }
-        var cardsEl = document.getElementById('habitCards');
-        if (cardsEl) { cardsEl.innerHTML = recurring.map(function(t) {
-            var info=getStreakInfo(t); var rc=info.rate>=70?'good':info.rate>=40?'ok':'poor';
-            var ta = info.trend==='up'?'<span class="trend-arrow up">↑</span>':info.trend==='down'?'<span class="trend-arrow down">↓</span>':'<span class="trend-arrow flat">→</span>';
-            var hist=getCompletionHistory(t); var today=new Date(); var hm='<div class="habit-heatmap">';
-            for(var i=27;i>=0;i--){var d=new Date(today);d.setDate(d.getDate()-i);var ds=d.toISOString().split('T')[0];hm+='<div class="day '+(hist.includes(ds)?'completed':i===0?'future':'missed')+'" title="'+ds+'"></div>';}
-            hm+='</div>';
-            return '<div class="habit-card"><div class="hc-header"><span class="hc-title">'+escapeHtml(t.title)+'</span><span class="hc-rate '+rc+'">'+info.rate+'%'+ta+'</span></div>'+renderStreakBadge(t)+hm+'<div style="display:flex;gap:16px;margin-top:8px;font-size:12px;color:#888;"><span>Current: '+info.current+'d</span><span>Best: '+info.best+'d</span><span>'+t.recurrence+'</span></div></div>';
-        }).join(''); }
-    }
+
+        var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        var dayCounts = [0,0,0,0,0,0,0];
+        var history = JSON.parse(localStorage.getItem('taskflow_completions') || '{}');
+        Object.keys(history).forEach(function(key) {
+          var entries = history[key];
+          if (Array.isArray(entries)) {
+            entries.forEach(function(dateStr) {
+              var d = new Date(dateStr);
+              if (!isNaN(d)) dayCounts[d.getDay()]++;
+            });
+          }
+        });
+        var maxCount = Math.max.apply(null, dayCounts) || 1;
+        weeklyDiv.innerHTML = '<h3>Weekly Patterns</h3><div class="pattern-chart">' +
+          days.map(function(day, i) {
+            var pct = Math.round((dayCounts[i] / maxCount) * 100);
+            return '<div class="pattern-bar-row"><span style="width:40px;display:inline-block">' + day + '</span><div style="background:#e5e7eb;border-radius:4px;flex:1;height:20px;margin-left:8px"><div style="background:#3b82f6;height:100%;border-radius:4px;width:' + pct + '%;min-width:2px"></div></div><span style="margin-left:8px;min-width:20px">' + dayCounts[i] + '</span></div>';
+          }).join('') + '</div>';
+
+        var owners = {};
+        habitTasks.forEach(function(t) {
+          var o = t.owner || 'Unassigned';
+          if (!owners[o]) owners[o] = {total: 0, done: 0, tasks: []};
+          owners[o].total++;
+          owners[o].tasks.push(t);
+          if (t.status === 'Completed') owners[o].done++;
+        });
+
+        cardsDiv.innerHTML = '<h3>Tasks by Owner</h3>' + Object.keys(owners).map(function(owner) {
+          var d = owners[owner];
+          var ownerRate = d.total > 0 ? Math.round((d.done / d.total) * 100) : 0;
+          var streakInfo = getStreakInfo({owner: owner});
+          var badge = streakInfo.current > 0 ? renderStreakBadge({owner: owner}) : '';
+          return '<div class="habit-card" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;align-items:center"><h4>' + owner + '</h4>' + badge + '</div>' +
+            '<div style="display:flex;gap:16px;margin:8px 0"><span>Total: <strong>' + d.total + '</strong></span><span>Done: <strong style="color:#16a34a">' + d.done + '</strong></span><span>Rate: <strong style="color:' + (ownerRate >= 50 ? '#16a34a' : '#ef4444') + '">' + ownerRate + '%</strong></span></div>' +
+            '<div style="background:#e5e7eb;border-radius:4px;height:8px"><div style="background:' + (ownerRate >= 50 ? '#16a34a' : '#f59e0b') + ';height:100%;border-radius:4px;width:' + ownerRate + '%"></div></div>' +
+            '<div style="margin-top:8px;font-size:0.85em;color:#666">' + d.tasks.map(function(t) {
+              var icon = t.status === 'Completed' ? String.fromCodePoint(0x2705) : (t.status === 'Parking Lot' ? String.fromCodePoint(0x1F17F) : String.fromCodePoint(0x1F539));
+              return icon + ' ' + (t.title || '');
+            }).join('<br>') + '</div></div>';
+        }).join('');
+      }
 
     // V4.0: Post-render card enhancement
     function enhanceTaskCards() {

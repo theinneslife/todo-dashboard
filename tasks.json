@@ -46,17 +46,20 @@
         "action": "attempted",
         "by": "Claude",
         "details": "Unable to complete: task requires making a phone call, which Claude cannot do. Task requires human action. Consider reassigning to manual mode."
-      },
-      {
-        "timestamp": "2026-04-04T00:10:14.474261+00:00",
-        "action": "attempted",
-        "by": "Claude",
-        "details": "Second attempt: Task still requires making a phone call, which Claude cannot do autonomously. Recommending reassignment to manual mode for Christopher."
       }
     ],
     "created_at": "2026-04-02T12:00:00Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "93cb4b8f-d904-4704-8e37-528f9279e1b0",
@@ -93,7 +96,19 @@
     ],
     "created_at": "2026-04-02T16:39:00Z",
     "completed_at": "2026-04-03T17:56:29.958Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "heather",
+      "richard"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "b3ebf502-f5dd-4ae1-8f0b-9ed1c8b4bb86",
@@ -140,7 +155,16 @@
     ],
     "created_at": "2026-04-02T16:39:00Z",
     "completed_at": "2026-04-03T17:56:37.825Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
@@ -175,7 +199,16 @@
     ],
     "created_at": "2026-04-02T16:39:00Z",
     "completed_at": "2026-04-03T17:56:42.758Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "e1315482-fc18-482a-8ebb-0b347530f548",
@@ -204,7 +237,18 @@
     ],
     "created_at": "2026-04-03T18:09:10.054Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "evan"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "b8f7505e-804b-40ee-a5f0-a7e45ba10736",
@@ -233,7 +277,16 @@
     ],
     "created_at": "2026-04-03T18:40:26.313Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "ca563078-55ba-461e-8a31-05dcd290740c",
@@ -260,7 +313,20 @@
     ],
     "created_at": "2026-04-03T19:19:08.976Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [
+      "garland",
+      "lauren",
+      "dan"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
@@ -287,7 +353,18 @@
     ],
     "created_at": "2026-04-03T19:19:08.976Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [
+      "garland"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "8f302e9f-251f-4787-ae0c-e8954e2c3a0b",
@@ -314,7 +391,18 @@
     ],
     "created_at": "2026-04-03T20:05:54.096Z",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "8f6ec1c1-e2a0-4e88-a8c6-df863547fc56",
@@ -338,7 +426,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "d0aff4ce-6c25-49a5-8434-3b5dd8de40cd",
@@ -362,7 +459,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "11f43558-9310-4944-bdd9-7e50c7ef9a3f",
@@ -386,7 +492,18 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "garland"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "e5ec2f5c-394b-4a47-b2c3-56a96eaecf44",
@@ -410,7 +527,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "20c8180f-c428-4e4a-89e8-dda5a56355ca",
@@ -434,7 +560,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "80ccabf7-0c6f-43d0-a3e0-7e39e495f035",
@@ -458,7 +593,18 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "a3e1b0ab-b989-4e46-a210-5b9ba2eb3013",
@@ -482,7 +628,18 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "fe60d698-e622-4003-9ee5-6637bf0a1bf9",
@@ -506,7 +663,18 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "client-work",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "748f8253-7fd0-406e-a9bd-9b359ebf6eaa",
@@ -530,7 +698,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "8c813054-e46d-497f-b886-7f1cd7173e31",
@@ -554,7 +731,16 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   },
   {
     "id": "6d871fe2-25ef-40c5-9f2e-ce80ce38b18d",
@@ -578,6 +764,18 @@
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
     "completed_at": null,
-    "completion_notes": null
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [
+      "rachel",
+      "severin"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null
   }
 ]

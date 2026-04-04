@@ -3318,6 +3318,7 @@
             }
 
             // Feature 5: Urgency label
+            var urgency = getUrgencyLevel(task);
             if (urgency) {
                 const urgencyLabel = document.createElement('span');
                 urgencyLabel.className = 'urgency-label ' + urgency;
@@ -4979,8 +4980,10 @@ function init() {
     
 
     // ===== V4.0: NOTIFICATIONS & REMINDERS =====
-    var notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]');
-    var notifPermission = typeof Notification !== 'undefined' ? Notification.permission : 'denied';
+    var notifications = [];
+    try { notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]'); } catch(e) {}
+    var notifPermission = 'default';
+    try { notifPermission = (typeof Notification !== 'undefined') ? Notification.permission : 'denied'; } catch(e) {}
 
     function requestNotifPermission() {
         if ('Notification' in window && Notification.permission === 'default') {

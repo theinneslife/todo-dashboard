@@ -2789,11 +2789,28 @@ function getGithubToken() {
         // GitHub API functions
         async function fetchTasksFromGithub() {
             try {
-                const response = await fetch(DATA_URL + `?t=${Date.now()}`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                // v4.1: Use API endpoint when authenticated for fresh data (CDN caches for minutes)
+                if (githubToken) {
+                    var apiResp = await fetch(GITHUB_API_URL, {
+                        headers: {
+                            'Authorization': 'token ' + githubToken,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    if (apiResp.ok) {
+                        var apiData = await apiResp.json();
+                        _lastKnownSha = apiData.sha;
+                        var decoded = decodeURIComponent(escape(atob(apiData.content.replace(/\n/g, ''))));
+                        var parsed = JSON.parse(decoded);
+                        return Array.isArray(parsed) ? parsed : [];
+                    }
                 }
-                const data = await response.json();
+                // Fallback: use raw CDN (may be cached)
+                var response = await fetch(DATA_URL + '?t=' + Date.now());
+                if (!response.ok) {
+                    throw new Error('HTTP error! status: ' + response.status);
+                }
+                var data = await response.json();
                 return Array.isArray(data) ? data : [];
             } catch (error) {
                 console.error('Error fetching tasks:', error);

@@ -546,7 +546,7 @@
     "title": "Update team on partner program changes",
     "description": "Chris must inform his team about the new partner program rollout and Q2 timing for agency spend. (Source: Agency Business Strategy Meeting)",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -559,10 +559,16 @@
         "action": "created",
         "by": "System",
         "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:17.650Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-03T21:05:16.156115+00:00",
-    "completed_at": null,
+    "completed_at": "2026-04-04T21:40:17.650Z",
     "completion_notes": null,
     "project": "agency-growth",
     "depends_on": [],

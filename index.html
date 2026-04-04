@@ -174,6 +174,9 @@
         .search-input.active ~ .search-clear {
             display: flex;
         }
+        .search-input.active {
+            padding-right: 30px;
+        }
 
         .filter-select {
             padding: 8px 12px;
@@ -1900,7 +1903,7 @@
             color: #1d1d1f;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        .my-tasks-view { display: none; padding: 24px; flex: 1; overflow-y: auto; }
+        .my-tasks-view { display: none; padding: 24px; padding-top: 8px; flex: 1; overflow-y: auto; }
         .my-tasks-view.active { display: block; }
         .my-tasks-section {
             margin-bottom: 24px;
@@ -2168,7 +2171,7 @@
 .habit-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
 .habit-stat-card { background: #1a1a2e; border-radius: 10px; padding: 14px; text-align: center; }
 .habit-stat-card .value { font-size: 28px; font-weight: 700; color: #667eea; }
-.habit-stat-card .label { font-size: 11px; color: #888; text-transform: uppercase; margin-top: 4px; }
+.habit-stat-card .label { font-size: 11px; color: #c0c0d0; text-transform: uppercase; margin-top: 4px; }
 .pattern-chart { background: #1a1a2e; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
 .pattern-bar-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
 .pattern-bar-row .day-label { width: 30px; font-size: 11px; color: #888; }
@@ -2196,9 +2199,33 @@
 .sheet-body .label-filters{flex-wrap:wrap;gap:8px}
 .reset-filters-btn{width:100%;padding:12px;border-radius:10px;border:none;background:#f0f0f2;color:#007aff;font-size:15px;font-weight:600;cursor:pointer}
 
-</style>
+
+        .move-to-wrapper { position: relative; display: inline-block; }
+        .move-to-btn { background: none; border: 1px solid #e5e5e7; border-radius: 6px; padding: 2px 6px; font-size: 11px; cursor: pointer; color: #6e6e73; transition: all 0.2s; }
+        .move-to-btn:hover { background: #f5f5f7; border-color: #d0d0d5; }
+        .move-to-menu { display: none; position: absolute; bottom: 100%; left: 0; background: #fff; border: 1px solid #e5e5e7; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 100; min-width: 140px; padding: 4px 0; margin-bottom: 4px; }
+        .move-to-menu.open { display: block; }
+        .move-to-option { display: block; width: 100%; padding: 6px 12px; border: none; background: none; text-align: left; cursor: pointer; font-size: 12px; color: #1d1d1f; font-family: inherit; }
+        .move-to-option:hover { background: #f5f5f7; }
+        .move-to-option .col-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+        
+        .loading-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); z-index: 500; align-items: center; justify-content: center; flex-direction: column; }
+        body.loading .loading-overlay { display: flex; }
+        .loading-spinner { width: 36px; height: 36px; border: 3px solid #e5e5e7; border-top-color: #007aff; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { margin-top: 12px; font-size: 13px; color: #6e6e73; }
+        .skeleton-card { background: #f5f5f7; border-radius: 10px; padding: 16px; margin-bottom: 8px; animation: pulse 1.5s ease-in-out infinite; }
+        .skeleton-line { height: 12px; background: #e5e5e7; border-radius: 4px; margin-bottom: 8px; }
+        .skeleton-line.short { width: 60%; }
+        .skeleton-line.medium { width: 80%; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        </style>
 </head>
 <body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading tasks...</div>
+    </div>
     <div class="container">
         <header>
             <div class="header-left">
@@ -3081,6 +3108,7 @@ function getGithubToken() {
 
         async function loadTasks() {
             document.body.classList.add('loading');
+            document.getElementById('loadingOverlay').style.display = 'flex';
             try {
                 tasks = await fetchTasksFromGithub();
                 detectProjects();
@@ -3095,6 +3123,7 @@ function getGithubToken() {
                 console.error('Error loading tasks:', error);
             } finally {
                 document.body.classList.remove('loading');
+                document.getElementById('loadingOverlay').style.display = 'none';
             }
         }
 
@@ -3107,6 +3136,7 @@ function getGithubToken() {
             const allBtn = document.createElement('button');
             allBtn.className = 'label-pill active';
             allBtn.textContent = 'All';
+            allBtn.id = 'allPillBtn';
             allBtn.onclick = () => {
                 selectedLabels = [];
                 document.querySelectorAll('.label-pill').forEach(b => b.classList.remove('active'));
@@ -3171,6 +3201,9 @@ function getGithubToken() {
             } else {
                 count.textContent = '';
             }
+            // Update All pill count to reflect filtered results
+            const allPill = document.getElementById('allPillBtn');
+            if (allPill) { allPill.textContent = 'All ' + filteredTasks.length; }
         }
 
         function renderBoard() {
@@ -3232,6 +3265,12 @@ function getGithubToken() {
                     taskList.appendChild(renderTaskCard(task));
                 });
 
+                if (columnTasks.length === 0 && (searchQuery || selectedLabels.length > 0 || selectedPriority || selectedOwner || (selectedProject && selectedProject !== 'all'))) {
+                    const emptyMsg = document.createElement('div');
+                    emptyMsg.style.cssText = 'text-align:center;padding:24px 12px;color:#8e8e93;font-size:13px;';
+                    emptyMsg.textContent = 'No tasks match this filter';
+                    taskList.appendChild(emptyMsg);
+                }
                 columnEl.appendChild(taskList);
                 kanban.appendChild(columnEl);
             });
@@ -3493,7 +3532,45 @@ function getGithubToken() {
             const actions = document.createElement('div');
             actions.className = 'task-actions';
 
-            const activityBtn = document.createElement('button');
+            // Move-to dropdown
+                if (githubToken) {
+                    const moveWrapper = document.createElement('div');
+                    moveWrapper.className = 'move-to-wrapper';
+                    const moveBtn = document.createElement('button');
+                    moveBtn.className = 'move-to-btn';
+                    moveBtn.textContent = '\u27A4';
+                    moveBtn.title = 'Move to column';
+                    moveBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.move-to-menu.open').forEach(m => m.classList.remove('open'));
+                        moveMenu.classList.toggle('open');
+                    };
+                    const moveMenu = document.createElement('div');
+                    moveMenu.className = 'move-to-menu';
+                    [{id:'todo',title:'To Do',color:'#5856d6'},{id:'christopher',title:'Christopher',color:'#007aff'},{id:'claude',title:'Claude',color:'#af52de'},{id:'assistance',title:'Assistance',color:'#ff9f0a'},{id:'completed',title:'Completed',color:'#34c759'},{id:'parking',title:'Parking Lot',color:'#8e8e93'}].forEach(function(col) {
+                        if (getTaskColumn(task) === col.id) return;
+                        const opt = document.createElement('button');
+                        opt.className = 'move-to-option';
+                        opt.innerHTML = '<span class=\"col-dot\" style=\"background:' + col.color + '\"></span>' + escapeHtml(col.title);
+                        opt.onclick = function(ev) {
+                            ev.stopPropagation();
+                            moveMenu.classList.remove('open');
+                            if (col.id === 'completed') { task.status = 'completed'; } else { task.status = 'open'; }
+                            if (col.id === 'christopher') { task.mode = 'manual'; }
+                            else if (col.id === 'claude') { task.mode = 'auto'; }
+                            else if (col.id === 'assistance') { task.mode = 'assistance'; }
+                            else if (col.id === 'parking') { task.labels = task.labels || []; if (!task.labels.includes('Parking Lot')) task.labels.push('Parking Lot'); task.mode = 'manual'; }
+                            else { task.mode = 'manual'; }
+                            if (col.id !== 'parking' && task.labels) { task.labels = task.labels.filter(function(l){return l !== 'Parking Lot';}); }
+                            saveTasksToGithub(); filterTasks();
+                        };
+                        moveMenu.appendChild(opt);
+                    });
+                    moveWrapper.appendChild(moveBtn);
+                    moveWrapper.appendChild(moveMenu);
+                    actions.appendChild(moveWrapper);
+                }
+                const activityBtn = document.createElement('button');
             activityBtn.className = 'task-action-btn';
             activityBtn.textContent = '📋';
             activityBtn.title = 'View activity';
@@ -4398,9 +4475,32 @@ function getGithubToken() {
                 e.preventDefault();
                 document.getElementById('quickCaptureInput').focus();
             }
-            // Escape to clear batch selection
-            if (e.key === 'Escape' && batchSelectedIds.length > 0) {
-                clearBatchSelection();
+            // Escape to close modals and clear batch selection
+            if (e.key === 'Escape') {
+                // Close any open modals
+                var openModals = ['detailModal','addTaskModal','statsModal','activityModal','templateModal'];
+                var closedModal = false;
+                openModals.forEach(function(id) {
+                    var modal = document.getElementById(id);
+                    if (modal && modal.classList.contains('active')) {
+                        modal.classList.remove('active');
+                        closedModal = true;
+                    }
+                });
+                // Close mobile filter sheet
+                var mfOverlay = document.getElementById('mobileFilterOverlay');
+                var mfSheet = document.getElementById('mobileFilterSheet');
+                if (mfOverlay && mfOverlay.classList.contains('visible')) {
+                    mfOverlay.classList.remove('visible');
+                    if (mfSheet) mfSheet.classList.remove('open');
+                    document.body.style.overflow = '';
+                    setTimeout(function(){ mfOverlay.style.display='none'; if(mfSheet) mfSheet.style.display='none'; }, 300);
+                    closedModal = true;
+                }
+                // Clear batch selection if no modal was closed
+                if (!closedModal && batchSelectedIds.length > 0) {
+                    clearBatchSelection();
+                }
             }
         });
 
@@ -5092,6 +5192,9 @@ function getGithubToken() {
             document.getElementById('modalTitle').textContent = 'New Task from Template: ' + tmpl.name;
         }
 
+
+    // Close move-to menus on outside click
+    document.addEventListener('click', function() { document.querySelectorAll('.move-to-menu.open').forEach(function(m) { m.classList.remove('open'); }); });
 function init() {
             githubToken = getGithubToken();
             updateTokenStatus();

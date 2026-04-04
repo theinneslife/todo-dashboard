@@ -2900,6 +2900,7 @@
             sortTasks();
             updateSearchCount();
             renderBoard();
+        if (document.getElementById('habitsView') && document.getElementById('habitsView').style.display !== 'none') { if (typeof renderHabitsView === 'function') renderHabitsView(); }
         }
 
         function sortTasks() {
@@ -5038,10 +5039,10 @@ function init() {
     }
 
     function checkDeadlines() {
-        if (!window.tasks) return;
+        if (!tasks) return;
         var now = new Date(); var today = now.toISOString().split('T')[0];
         var tomorrow = new Date(now.getTime() + 86400000).toISOString().split('T')[0];
-        window.tasks.forEach(function(t) {
+        tasks.forEach(function(t) {
             if (t.completed || !t.dueDate) return;
             var notifKey = 'notified_' + t.id + '_' + today;
             if (localStorage.getItem(notifKey)) return;
@@ -5052,10 +5053,10 @@ function init() {
     }
 
     function checkUnblockedTasks() {
-        if (!window.tasks) return;
-        window.tasks.forEach(function(t) {
+        if (!tasks) return;
+        tasks.forEach(function(t) {
             if (t.completed || !t.blockedBy || t.blockedBy.length === 0) return;
-            var allDone = t.blockedBy.every(function(bid) { var blocker = window.tasks.find(function(x) { return x.id === bid; }); return blocker && blocker.completed; });
+            var allDone = t.blockedBy.every(function(bid) { var blocker = tasks.find(function(x) { return x.id === bid; }); return blocker && blocker.completed; });
             if (allDone) {
                 var key = 'unblocked_' + t.id;
                 if (!localStorage.getItem(key)) { addNotification('Unblocked: ' + t.title, 'All blocking tasks completed!', 'unblocked', t.id); localStorage.setItem(key, '1'); }
@@ -5064,23 +5065,23 @@ function init() {
     }
 
     function generateDailyDigest() {
-        if (!window.tasks) return;
+        if (!tasks) return;
         var today = new Date().toISOString().split('T')[0];
         if (localStorage.getItem('digest_' + today)) return;
-        var overdue = window.tasks.filter(function(t) { return !t.completed && t.dueDate && t.dueDate < today; }).length;
-        var dueToday = window.tasks.filter(function(t) { return !t.completed && t.dueDate === today; }).length;
-        var completed = window.tasks.filter(function(t) { return t.completed; }).length;
-        addNotification('Daily Digest', overdue + ' overdue, ' + dueToday + ' due today, ' + completed + '/' + window.tasks.length + ' done', 'digest');
+        var overdue = tasks.filter(function(t) { return !t.completed && t.dueDate && t.dueDate < today; }).length;
+        var dueToday = tasks.filter(function(t) { return !t.completed && t.dueDate === today; }).length;
+        var completed = tasks.filter(function(t) { return t.completed; }).length;
+        addNotification('Daily Digest', overdue + ' overdue, ' + dueToday + ' due today, ' + completed + '/' + tasks.length + ' done', 'digest');
         localStorage.setItem('digest_' + today, '1');
         var el = document.getElementById('digestSummary');
-        if (el) { el.style.display = 'block'; el.innerHTML = '<h4>Today\'s Summary</h4><div class="stat-row"><span>Overdue</span><span style="color:#e74c3c">' + overdue + '</span></div><div class="stat-row"><span>Due Today</span><span style="color:#f1c40f">' + dueToday + '</span></div><div class="stat-row"><span>Completed</span><span style="color:#2ecc71">' + completed + '/' + window.tasks.length + '</span></div>'; }
+        if (el) { el.style.display = 'block'; el.innerHTML = '<h4>Today\'s Summary</h4><div class="stat-row"><span>Overdue</span><span style="color:#e74c3c">' + overdue + '</span></div><div class="stat-row"><span>Due Today</span><span style="color:#f1c40f">' + dueToday + '</span></div><div class="stat-row"><span>Completed</span><span style="color:#2ecc71">' + completed + '/' + tasks.length + '</span></div>'; }
     }
 
     // ===== V4.0: GOOGLE CALENDAR =====
     function generateICSContent() {
-        if (!window.tasks) return '';
+        if (!tasks) return '';
         var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Taskflow//v4.0//EN','CALSCALE:GREGORIAN'];
-        window.tasks.forEach(function(t) {
+        tasks.forEach(function(t) {
             if (!t.dueDate || t.completed) return;
             var dt = t.dueDate.replace(/-/g, '');
             lines.push('BEGIN:VEVENT','UID:' + t.id + '@taskflow','DTSTART;VALUE=DATE:' + dt,'DTEND;VALUE=DATE:' + dt,'SUMMARY:' + (t.title||'').replace(/[,;]/g,' '));
@@ -5099,7 +5100,7 @@ function init() {
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
     function syncToGoogleCalendar() {
-        var tasks = (window.tasks||[]).filter(function(t){return t.dueDate && !t.completed;});
+        var tasks = (tasks||[]).filter(function(t){return t.dueDate && !t.completed;});
         if (!tasks.length) { alert('No tasks with due dates.'); return; }
         var t = tasks[0];
         window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(t.title) + '&dates=' + t.dueDate.replace(/-/g,'') + '/' + t.dueDate.replace(/-/g,''), '_blank');
@@ -5197,7 +5198,7 @@ function init() {
                 setTimeout(function(){toggleTaskComplete(tid);}, 300);
             } else if (dx < -SWIPE_THRESHOLD && tid) {
                 card.style.transform='translateX(-100%)'; card.style.opacity='0'; card.style.transition='all 0.3s ease';
-                setTimeout(function(){ var t=window.tasks.find(function(x){return x.id===tid;}); if(t){t.column='parked';saveTasksToGithub();loadTasks();} },300);
+                setTimeout(function(){ var t=tasks.find(function(x){return x.id===tid;}); if(t){t.column='parked';saveTasksToGithub();loadTasks();} },300);
             } else { card.style.transform=''; card.style.transition='transform 0.2s ease'; }
             card.querySelectorAll('.swipe-indicator').forEach(function(el){el.remove();});
             swipeState = {active:false, startX:0, startY:0, currentX:0, taskEl:null, taskId:null};
@@ -5239,8 +5240,8 @@ function init() {
     }
     function renderHabitsView() {
         var hv = document.getElementById('habitsView');
-        if (!hv || !window.tasks) return;
-        var recurring = window.tasks.filter(function(t){return t.recurrence && t.recurrence!=='none';});
+        if (!hv || !tasks) return;
+        var recurring = tasks.filter(function(t){return t.recurrence && t.recurrence!=='none';});
         if (!recurring.length) { hv.querySelector('.habits-view').innerHTML='<div style="text-align:center;padding:40px;color:#888;">No recurring tasks yet. Add recurrence to tasks to track habits.</div>'; return; }
         var statsGrid = document.getElementById('habitStatsGrid');
         var infos = recurring.map(function(t){return getStreakInfo(t);});
@@ -5271,11 +5272,11 @@ function init() {
 
     // V4.0: Post-render card enhancement
     function enhanceTaskCards() {
-        if (!window.tasks) return;
+        if (!tasks) return;
         document.querySelectorAll('.task-card').forEach(function(card) {
             var tid = card.dataset.taskId;
             if (!tid || card.dataset.v4e) return;
-            var task = window.tasks.find(function(t){return t.id===tid;});
+            var task = tasks.find(function(t){return t.id===tid;});
             if (!task) return;
             card.dataset.v4e = '1';
             var html = renderDelegationBadge(task) + renderCapabilityTags(task) + renderStreakBadge(task);

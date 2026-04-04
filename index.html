@@ -4764,7 +4764,7 @@
                 myTasks.classList.add('active');
                 if (mobileTabs) mobileTabs.style.display = 'none';
                 renderMyTasksView();
-        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; document.getElementById('container').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; document.getElementById('container').style.display = ''; }
+        if (view === 'habits') { document.getElementById('habitsView').style.display = 'block'; document.getElementById('kanban').style.display = 'none'; document.getElementById('myTasksView').style.display = 'none'; document.querySelector('.container').style.display = 'none'; renderHabitsView(); } else { document.getElementById('habitsView').style.display = 'none'; document.querySelector('.container').style.display = ''; }
             }
         }
 

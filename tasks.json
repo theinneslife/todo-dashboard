@@ -337,7 +337,7 @@
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
     "title": "Prepare for May 1 vertical restructure team assignments",
-    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' \u2014 Christopher will need vertical assignments. Verticals TBD.",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' — Christopher will need vertical assignments. Verticals TBD.",
     "priority": 2,
     "status": "pending",
     "mode": "manual",
@@ -783,5 +783,83 @@
       "sprint": ""
     },
     "delegation_notes": null
+  },
+  {
+    "id": "corpdev-guide-001",
+    "title": "Read: Corporate Development Transition Guide",
+    "description": "415-line guide on transitioning from COO to Head of Corp Dev at MNTN. Covers day-to-day of the role, 90-day plan, skills to build (valuation, deal structures, due diligence), key relationships (bankers, lawyers, board), common mistakes, learning resources, and public vs private M&A differences. Includes templates for deal evaluation, due diligence ownership, and 90-day milestones.",
+    "priority": 1,
+    "status": "christopher",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual"
+  },
+  {
+    "id": "corpdev-deals-002",
+    "title": "Read: Non-Equity Deal Structures Playbook",
+    "description": "Comprehensive guide on 10 deal types MNTN can use without diluting shareholders. Key insight: ~$250M-$350M deal capacity from cash + debt alone. Covers all-cash acquisitions, debt financing, earnouts, asset vs stock purchases, licensing, JVs, minority investments, seller financing. Includes MNTN-specific context and peer examples like Magnite/SpotX.",
+    "priority": 1,
+    "status": "christopher",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual"
+  },
+  {
+    "id": "corpdev-targets-003",
+    "title": "Read: MNTN Strategic Landscape & Acquisition Targets",
+    "description": "590-line strategic landscape report with 25+ potential acquisition targets across 7 categories, 12+ competitor profiles, 19 recent deals with valuations. Top priority targets: measurement/attribution (EDO, Samba TV, iSpot), creative tools (Celtra, Waymark), data/commerce (Attain, Affinity Solutions). Prioritized recommendation stack included.",
+    "priority": 1,
+    "status": "christopher",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual"
   }
 ]

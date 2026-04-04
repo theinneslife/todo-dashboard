@@ -1,3 +1,5 @@
+// Taskflow v3.0
+
 // ============================================
 // Taskflow Dashboard - Application Logic
 // v2.0 - Split from monolith
@@ -26,6 +28,77 @@
         let batchMode = false;
         let timelineVisible = false;
         let activityFilter = 'all';
+        let currentView = 'board'; // 'board' or 'my-tasks'
+        let selectedProject = 'all';
+        let projects = [];
+        let teamMembers = [
+            { id: 'christopher', name: 'Christopher', color: '#007aff', initials: 'CI' },
+            { id: 'claude', name: 'Claude', color: '#af52de', initials: 'CL' },
+            { id: 'mark', name: 'Mark', color: '#ff9f0a', initials: 'MK' },
+            { id: 'garland', name: 'Garland', color: '#34c759', initials: 'GL' },
+            { id: 'rachel', name: 'Rachel', color: '#ff2d55', initials: 'RA' },
+            { id: 'severin', name: 'Severin', color: '#5856d6', initials: 'SV' },
+            { id: 'heather', name: 'Heather', color: '#00c7be', initials: 'HT' },
+            { id: 'lauren', name: 'Lauren', color: '#ff6482', initials: 'LA' },
+            { id: 'dan', name: 'Dan', color: '#30b0c7', initials: 'DP' },
+            { id: 'richard', name: 'Richard', color: '#8e8e93', initials: 'RD' },
+            { id: 'evan', name: 'Evan', color: '#a2845e', initials: 'EV' }
+        ];
+        let taskTemplates = [
+            {
+                name: 'New Agency Onboarding',
+                description: 'Onboard a new agency partner',
+                priority: 1,
+                labels: ['Agency'],
+                subtasks: [
+                    { title: 'Initial discovery call', done: false },
+                    { title: 'Send agreement / contract', done: false },
+                    { title: 'Set up in tracker', done: false },
+                    { title: 'Schedule kickoff meeting', done: false },
+                    { title: 'Assign account manager', done: false }
+                ],
+                custom_fields: { client: '', revenue_impact: 'high', sprint: '' }
+            },
+            {
+                name: 'Meeting Follow-up',
+                description: 'Standard post-meeting action items',
+                priority: 2,
+                labels: ['follow up'],
+                subtasks: [
+                    { title: 'Send meeting recap', done: false },
+                    { title: 'Create action items from notes', done: false },
+                    { title: 'Schedule follow-up meeting', done: false }
+                ],
+                custom_fields: { client: '', revenue_impact: '', sprint: '' }
+            },
+            {
+                name: 'Partner Program Review',
+                description: 'Quarterly partner program check-in',
+                priority: 2,
+                labels: ['Partner Program'],
+                subtasks: [
+                    { title: 'Pull partner metrics', done: false },
+                    { title: 'Review commission structure', done: false },
+                    { title: 'Update eligibility list', done: false },
+                    { title: 'Prepare presentation', done: false }
+                ],
+                custom_fields: { client: '', revenue_impact: 'medium', sprint: '' }
+            },
+            {
+                name: 'Client Deliverable',
+                description: 'Prepare and deliver client-facing work',
+                priority: 1,
+                labels: [],
+                subtasks: [
+                    { title: 'Gather requirements', done: false },
+                    { title: 'Draft deliverable', done: false },
+                    { title: 'Internal review', done: false },
+                    { title: 'Revisions', done: false },
+                    { title: 'Send to client', done: false }
+                ],
+                custom_fields: { client: '', revenue_impact: 'high', sprint: '' }
+            }
+        ];
 
         // Get GitHub token from URL
         function getGithubToken() {
@@ -358,10 +431,14 @@
             document.body.classList.add('loading');
             try {
                 tasks = await fetchTasksFromGithub();
+                detectProjects();
+                renderProjectBar();
                 updateAllLabels();
                 filterTasks();
                 // Feature 2: Update timeline if visible
                 if (timelineVisible) renderTimeline();
+                // Feature 3 (v3): Update my tasks if active
+                if (currentView === 'my-tasks') renderMyTasksView();
             } catch (error) {
                 console.error('Error loading tasks:', error);
             } finally {
@@ -650,6 +727,56 @@
                 });
             }
 
+            // Feature 1 (v3): Project badge
+            if (task.project) {
+                const projBadge = document.createElement('span');
+                projBadge.className = 'project-badge';
+                const proj = projects.find(p => p.id === task.project);
+                if (proj) {
+                    projBadge.style.cssText = 'background:' + proj.color + '15;color:' + proj.color;
+                    projBadge.textContent = proj.name;
+                }
+                meta.appendChild(projBadge);
+            }
+
+            // Feature 2 (v3): Dependency badges
+            if (task.depends_on && task.depends_on.length > 0) {
+                const blockerTasks = task.depends_on.map(id => tasks.find(t => t.id === id)).filter(Boolean);
+                const unresolvedBlockers = blockerTasks.filter(t => t.status !== 'completed');
+                if (unresolvedBlockers.length > 0) {
+                    const depBadge = document.createElement('span');
+                    depBadge.className = 'dep-badge blocked-by';
+                    depBadge.textContent = '⛔ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
+                    depBadge.title = unresolvedBlockers.map(t => t.title).join(', ');
+                    meta.appendChild(depBadge);
+                }
+            }
+
+            // Feature 4 (v3): Collaborator avatars
+            if (task.collaborators && task.collaborators.length > 0) {
+                const avatarStack = document.createElement('div');
+                avatarStack.className = 'avatar-stack';
+                task.collaborators.slice(0, 3).forEach(cId => {
+                    const member = teamMembers.find(m => m.id === cId);
+                    if (member) {
+                        const av = document.createElement('div');
+                        av.className = 'avatar';
+                        av.style.backgroundColor = member.color;
+                        av.textContent = member.initials;
+                        av.title = member.name;
+                        avatarStack.appendChild(av);
+                    }
+                });
+                if (task.collaborators.length > 3) {
+                    const more = document.createElement('div');
+                    more.className = 'avatar';
+                    more.style.backgroundColor = '#8e8e93';
+                    more.textContent = '+' + (task.collaborators.length - 3);
+                    avatarStack.appendChild(more);
+                }
+                meta.appendChild(avatarStack);
+            }
+
             // Feature 3: Blocked badge
             if (isBlocked(task)) {
                 const blockedBadge = document.createElement('div');
@@ -877,6 +1004,70 @@
                 html += '</div></div>';
             }
 
+            // Feature 1 (v3): Project
+            if (task.project) {
+                const proj = projects.find(p => p.id === task.project);
+                if (proj) {
+                    html += '<div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:8px;">';
+                    html += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + '">' + escapeHtml(proj.name) + '</span>';
+                    html += '</div>';
+                }
+            }
+
+            // Feature 2 (v3): Dependencies
+            if ((task.depends_on && task.depends_on.length > 0) || tasks.some(t => (t.depends_on || []).includes(task.id))) {
+                html += '<div class="detail-section"><div class="detail-title">Dependencies</div>';
+                if (task.depends_on && task.depends_on.length > 0) {
+                    html += '<div class="dep-chain"><span style="font-weight:500;color:#ff3b30;">Blocked by:</span>';
+                    task.depends_on.forEach(depId => {
+                        const depTask = tasks.find(t => t.id === depId);
+                        if (depTask) {
+                            const icon = depTask.status === 'completed' ? '✓' : '⛔';
+                            html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + depId + '\'))">' + icon + ' ' + escapeHtml(depTask.title) + '</span>';
+                        }
+                    });
+                    html += '</div>';
+                }
+                const blocking = tasks.filter(t => (t.depends_on || []).includes(task.id));
+                if (blocking.length > 0) {
+                    html += '<div class="dep-chain" style="margin-top:6px;"><span style="font-weight:500;color:#ff9f0a;">Blocking:</span>';
+                    blocking.forEach(bt => {
+                        html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + bt.id + '\'))">' + escapeHtml(bt.title) + '</span>';
+                    });
+                    html += '</div>';
+                }
+                html += '</div>';
+            }
+
+            // Feature 4 (v3): Collaborators
+            if (task.collaborators && task.collaborators.length > 0) {
+                html += '<div class="detail-section"><div class="detail-title">Collaborators</div>';
+                html += '<div style="display:flex;gap:8px;flex-wrap:wrap;">';
+                task.collaborators.forEach(cId => {
+                    const m = teamMembers.find(m => m.id === cId);
+                    if (m) {
+                        html += '<div style="display:flex;align-items:center;gap:5px;">';
+                        html += '<div class="avatar" style="background:' + m.color + '">' + m.initials + '</div>';
+                        html += '<span style="font-size:12px;">' + escapeHtml(m.name) + '</span></div>';
+                    }
+                });
+                html += '</div></div>';
+            }
+
+            // Feature 5 (v3): Custom Fields
+            if (task.custom_fields) {
+                const cf = task.custom_fields;
+                const hasAny = cf.client || cf.revenue_impact || cf.sprint;
+                if (hasAny) {
+                    html += '<div class="detail-section"><div class="detail-title">Custom Fields</div>';
+                    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;">';
+                    if (cf.client) html += '<div><span style="color:#6e6e73;">Client:</span> ' + escapeHtml(cf.client) + '</div>';
+                    if (cf.revenue_impact) html += '<div><span style="color:#6e6e73;">Revenue Impact:</span> ' + cf.revenue_impact.charAt(0).toUpperCase() + cf.revenue_impact.slice(1) + '</div>';
+                    if (cf.sprint) html += '<div><span style="color:#6e6e73;">Sprint:</span> ' + escapeHtml(cf.sprint) + '</div>';
+                    html += '</div></div>';
+                }
+            }
+
             // Labels
             if (task.labels && task.labels.length > 0) {
                 html += '<div class="detail-section"><div class="detail-title">Labels</div>';
@@ -995,6 +1186,12 @@
             document.getElementById('taskDescription').value = '';
             document.getElementById('taskColumn').value = 'todo';
             document.getElementById('taskDelegationNotes').value = '';
+            document.getElementById('taskProject').value = '';
+            document.getElementById('cfClient').value = '';
+            document.getElementById('cfRevenue').value = '';
+            document.getElementById('cfSprint').value = '';
+            renderDepSelector(null, []);
+            renderCollabSelector([]);
             updateDelegationVisibility();
             document.getElementById('taskDueDate').value = '';
             document.getElementById('taskRecurrence').value = '';
@@ -1086,6 +1283,16 @@
                         }
                     }
 
+                    // Feature 1-5 (v3): Handle project, deps, collaborators, custom fields
+                    task.project = document.getElementById('taskProject').value || null;
+                    task.depends_on = getSelectedDeps();
+                    task.collaborators = getSelectedCollaborators();
+                    task.custom_fields = {
+                        client: document.getElementById('cfClient').value.trim(),
+                        revenue_impact: document.getElementById('cfRevenue').value,
+                        sprint: document.getElementById('cfSprint').value.trim()
+                    };
+
                     // Feature 10: Handle delegation notes
                     const delegationNotes = document.getElementById('taskDelegationNotes').value.trim();
                     if (delegationNotes) {
@@ -1117,6 +1324,15 @@
                     done: false
                 })).filter(st => st.title);
                 const newTask = createTask(title, description, priority, labels, column, dueDate, recurrence, newSubtasks);
+                // Feature 1-5 (v3): new fields for new tasks
+                newTask.project = document.getElementById('taskProject').value || null;
+                newTask.depends_on = getSelectedDeps();
+                newTask.collaborators = getSelectedCollaborators();
+                newTask.custom_fields = {
+                    client: document.getElementById('cfClient').value.trim(),
+                    revenue_impact: document.getElementById('cfRevenue').value,
+                    sprint: document.getElementById('cfSprint').value.trim()
+                };
                 // Feature 10: delegation notes for new tasks
                 const newDelegationNotes = document.getElementById('taskDelegationNotes').value.trim();
                 if (newDelegationNotes) {
@@ -1447,6 +1663,15 @@
                 });
             }
 
+            // Feature 1-5 (v3): Set project, deps, collaborators, custom fields
+            document.getElementById('taskProject').value = task.project || '';
+            renderDepSelector(task.id, task.depends_on || []);
+            renderCollabSelector(task.collaborators || []);
+            const cf = task.custom_fields || {};
+            document.getElementById('cfClient').value = cf.client || '';
+            document.getElementById('cfRevenue').value = cf.revenue_impact || '';
+            document.getElementById('cfSprint').value = cf.sprint || '';
+
             // Feature 10: Set delegation notes
             document.getElementById('taskDelegationNotes').value = task.delegation_notes || '';
             updateDelegationVisibility();
@@ -1474,6 +1699,17 @@
         document.getElementById('refreshBtn').onclick = loadTasks;
         document.getElementById('addTaskBtn').onclick = showAddTaskModal;
         document.getElementById('statsBtn').onclick = showStatsModal;
+
+        // Feature 1-5 (v3): View toggle
+        document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+            btn.onclick = () => switchView(btn.dataset.view);
+        });
+
+        // Feature 5 (v3): Template button
+        document.getElementById('templateBtn').onclick = showTemplateModal;
+        document.getElementById('templateClose').onclick = () => {
+            document.getElementById('templateModal').classList.remove('active');
+        };
 
         // Feature 4: Activity feed button
         document.getElementById('activityBtn').onclick = showActivityFeed;
@@ -1886,9 +2122,319 @@
             await loadTasks();
         }
 
+
+        // ============================================
+        // FEATURE 1 (v3): Projects & Sections
+        // ============================================
+        function detectProjects() {
+            const projectMap = {};
+            tasks.forEach(t => {
+                if (t.project) {
+                    if (!projectMap[t.project]) projectMap[t.project] = { count: 0 };
+                    projectMap[t.project].count++;
+                }
+            });
+            // Also detect from labels/sources
+            const defaultProjects = [
+                { id: 'agency-growth', name: 'Agency Growth', color: '#007aff' },
+                { id: 'mntn', name: 'MNTN', color: '#af52de' },
+                { id: 'partner-program', name: 'Partner Program', color: '#34c759' },
+                { id: 'team-ops', name: 'Team Ops', color: '#ff9f0a' },
+                { id: 'client-work', name: 'Client Work', color: '#ff2d55' }
+            ];
+            projects = defaultProjects;
+            return projects;
+        }
+
+        function renderProjectBar() {
+            const bar = document.getElementById('projectBar');
+            if (!bar) return;
+            bar.innerHTML = '';
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'project-pill' + (selectedProject === 'all' ? ' active' : '');
+            allBtn.dataset.project = 'all';
+            allBtn.innerHTML = 'All <span class="project-count">' + tasks.length + '</span>';
+            allBtn.onclick = () => { selectedProject = 'all'; filterTasks(); renderProjectBar(); };
+            bar.appendChild(allBtn);
+
+            projects.forEach(proj => {
+                const count = tasks.filter(t => t.project === proj.id).length;
+                const btn = document.createElement('button');
+                btn.className = 'project-pill' + (selectedProject === proj.id ? ' active' : '');
+                btn.dataset.project = proj.id;
+                btn.innerHTML = '<span class="project-dot" style="background:' + proj.color + '"></span>' + proj.name + (count > 0 ? ' <span class="project-count">' + count + '</span>' : '');
+                btn.onclick = () => { selectedProject = proj.id; filterTasks(); renderProjectBar(); };
+                bar.appendChild(btn);
+            });
+
+            // Update project dropdown in modal
+            const select = document.getElementById('taskProject');
+            if (select) {
+                const val = select.value;
+                select.innerHTML = '<option value="">No Project</option>';
+                projects.forEach(p => {
+                    select.innerHTML += '<option value="' + p.id + '">' + p.name + '</option>';
+                });
+                select.value = val;
+            }
+        }
+
+        // ============================================
+        // FEATURE 2 (v3): Dependencies
+        // ============================================
+        function renderDepSelector(currentTaskId, selectedDeps) {
+            const container = document.getElementById('depSelector');
+            if (!container) return;
+            container.innerHTML = '';
+            const otherTasks = tasks.filter(t => t.id !== currentTaskId && t.status !== 'completed');
+            if (otherTasks.length === 0) {
+                container.innerHTML = '<div style="font-size:12px;color:#8e8e93;padding:4px;">No available tasks to depend on</div>';
+                return;
+            }
+            otherTasks.slice(0, 20).forEach(t => {
+                const opt = document.createElement('label');
+                opt.className = 'dep-option';
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.value = t.id;
+                cb.checked = (selectedDeps || []).includes(t.id);
+                opt.appendChild(cb);
+                const text = document.createElement('span');
+                text.textContent = t.title;
+                text.style.cssText = 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+                opt.appendChild(text);
+                container.appendChild(opt);
+            });
+        }
+
+        function getSelectedDeps() {
+            const checks = document.querySelectorAll('#depSelector input[type=checkbox]:checked');
+            return Array.from(checks).map(cb => cb.value);
+        }
+
+        // ============================================
+        // FEATURE 3 (v3): My Tasks View
+        // ============================================
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+            const kanban = document.getElementById('kanban');
+            const myTasks = document.getElementById('myTasksView');
+            const mobileTabs = document.getElementById('mobileTabs');
+            if (view === 'board') {
+                kanban.style.display = 'flex';
+                myTasks.classList.remove('active');
+                if (mobileTabs) mobileTabs.style.display = '';
+            } else {
+                kanban.style.display = 'none';
+                myTasks.classList.add('active');
+                if (mobileTabs) mobileTabs.style.display = 'none';
+                renderMyTasksView();
+            }
+        }
+
+        function renderMyTasksView() {
+            const container = document.getElementById('myTasksView');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Filter to Christopher's tasks (mode=manual or unassigned)
+            let myTasks = filteredTasks.filter(t => t.mode === 'manual' || !t.mode);
+
+            // Group into sections
+            const overdue = myTasks.filter(t => t.due_date && isOverdue(t.due_date) && t.status !== 'completed');
+            const todayTasks = myTasks.filter(t => t.due_date && isToday(t.due_date) && t.status !== 'completed');
+            const upcoming = myTasks.filter(t => {
+                if (!t.due_date || t.status === 'completed') return false;
+                const d = new Date(t.due_date);
+                d.setHours(0, 0, 0, 0);
+                const diff = Math.floor((d - today) / 86400000);
+                return diff >= 1 && diff <= 7;
+            });
+            const later = myTasks.filter(t => {
+                if (t.status === 'completed') return false;
+                if (!t.due_date) return true;
+                const d = new Date(t.due_date);
+                d.setHours(0, 0, 0, 0);
+                const diff = Math.floor((d - today) / 86400000);
+                return diff > 7;
+            });
+            const completed = myTasks.filter(t => t.status === 'completed').slice(0, 5);
+
+            const sections = [
+                { id: 'overdue', title: 'Overdue', tasks: overdue, color: 'overdue' },
+                { id: 'today', title: 'Today', tasks: todayTasks, color: 'today' },
+                { id: 'upcoming', title: 'Upcoming (7 days)', tasks: upcoming, color: 'upcoming' },
+                { id: 'later', title: 'Later / No Date', tasks: later, color: 'later' },
+                { id: 'completed', title: 'Recently Completed', tasks: completed, color: 'later' }
+            ];
+
+            sections.forEach(section => {
+                const sectionEl = document.createElement('div');
+                sectionEl.className = 'my-tasks-section';
+
+                const header = document.createElement('div');
+                header.className = 'my-tasks-section-header ' + section.color;
+                header.innerHTML = '<span class="my-tasks-section-title">' + section.title + '</span>' +
+                    '<span class="my-tasks-section-count">' + section.tasks.length + '</span>';
+                sectionEl.appendChild(header);
+
+                if (section.tasks.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'my-tasks-empty';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today — nice!' : 'No tasks';
+                    sectionEl.appendChild(empty);
+                } else {
+                    section.tasks.forEach(task => {
+                        const row = document.createElement('div');
+                        row.className = 'my-tasks-row' + (task.status === 'completed' ? ' completed' : '');
+
+                        const checkbox = document.createElement('div');
+                        checkbox.className = 'task-checkbox' + (task.status === 'completed' ? ' checked' : '');
+                        checkbox.onclick = (e) => { e.stopPropagation(); if (githubToken) toggleTaskComplete(task); };
+                        row.appendChild(checkbox);
+
+                        const content = document.createElement('div');
+                        content.className = 'my-tasks-row-content';
+                        const titleEl = document.createElement('div');
+                        titleEl.className = 'my-tasks-row-title';
+                        titleEl.textContent = task.title;
+                        content.appendChild(titleEl);
+
+                        const metaEl = document.createElement('div');
+                        metaEl.className = 'my-tasks-row-meta';
+                        if (task.project) {
+                            const proj = projects.find(p => p.id === task.project);
+                            if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
+                        }
+                        const priNames = { 1: '🔴', 2: '🟡', 3: '🟢' };
+                        metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
+                        if (task.subtasks && task.subtasks.length > 0) {
+                            const done = task.subtasks.filter(s => s.done).length;
+                            metaEl.innerHTML += '<span>' + done + '/' + task.subtasks.length + ' subtasks</span>';
+                        }
+                        content.appendChild(metaEl);
+                        row.appendChild(content);
+
+                        if (task.due_date) {
+                            const due = document.createElement('span');
+                            due.className = 'my-tasks-row-due';
+                            due.textContent = formatDate(task.due_date);
+                            if (isOverdue(task.due_date) && task.status !== 'completed') due.style.color = '#ff3b30';
+                            else if (isToday(task.due_date)) due.style.color = '#007aff';
+                            row.appendChild(due);
+                        }
+
+                        row.onclick = () => showTaskDetail(task);
+                        sectionEl.appendChild(row);
+                    });
+                }
+
+                container.appendChild(sectionEl);
+            });
+        }
+
+        // ============================================
+        // FEATURE 4 (v3): Collaborators
+        // ============================================
+        function renderCollabSelector(selectedIds) {
+            const container = document.getElementById('collabSelector');
+            if (!container) return;
+            container.innerHTML = '';
+            teamMembers.forEach(m => {
+                const chip = document.createElement('button');
+                chip.type = 'button';
+                chip.className = 'collaborator-chip' + ((selectedIds || []).includes(m.id) ? ' selected' : '');
+                chip.innerHTML = '<div class="avatar" style="background:' + m.color + ';width:18px;height:18px;font-size:8px;">' + m.initials + '</div>' + m.name;
+                chip.dataset.memberId = m.id;
+                chip.onclick = () => {
+                    chip.classList.toggle('selected');
+                };
+                container.appendChild(chip);
+            });
+        }
+
+        function getSelectedCollaborators() {
+            const chips = document.querySelectorAll('#collabSelector .collaborator-chip.selected');
+            return Array.from(chips).map(c => c.dataset.memberId);
+        }
+
+        function getAvatarHtml(memberId) {
+            const m = teamMembers.find(m => m.id === memberId);
+            if (!m) return '';
+            return '<div class="avatar" style="background:' + m.color + '">' + m.initials + '</div>';
+        }
+
+        // ============================================
+        // FEATURE 5 (v3): Templates
+        // ============================================
+        function showTemplateModal() {
+            const modal = document.getElementById('templateModal');
+            const list = document.getElementById('templateList');
+            list.innerHTML = '';
+
+            taskTemplates.forEach((tmpl, idx) => {
+                const card = document.createElement('div');
+                card.className = 'template-card';
+                card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
+                    '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks • P' + tmpl.priority + '</div>';
+                card.onclick = () => {
+                    applyTemplate(idx);
+                    modal.classList.remove('active');
+                };
+                list.appendChild(card);
+            });
+
+            modal.classList.add('active');
+        }
+
+        function applyTemplate(templateIdx) {
+            const tmpl = taskTemplates[templateIdx];
+            if (!tmpl) return;
+
+            // Open add task modal pre-filled with template
+            showAddTaskModal();
+            document.getElementById('taskTitle').value = tmpl.name;
+            document.getElementById('taskDescription').value = tmpl.description;
+
+            // Set priority
+            document.querySelectorAll('.priority-button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.priority === String(tmpl.priority));
+            });
+
+            // Set labels
+            clearLabelTags();
+            tmpl.labels.forEach(l => addLabelTag(l));
+
+            // Set subtasks
+            const subtasksContainer = document.getElementById('initialSubtasks');
+            subtasksContainer.innerHTML = '';
+            tmpl.subtasks.forEach(st => {
+                const item = document.createElement('div');
+                item.className = 'subtask-item';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">✕</button>';
+                subtasksContainer.appendChild(item);
+            });
+
+            // Set custom fields
+            if (tmpl.custom_fields) {
+                document.getElementById('cfClient').value = tmpl.custom_fields.client || '';
+                document.getElementById('cfRevenue').value = tmpl.custom_fields.revenue_impact || '';
+                document.getElementById('cfSprint').value = tmpl.custom_fields.sprint || '';
+            }
+
+            document.getElementById('modalTitle').textContent = 'New Task from Template: ' + tmpl.name;
+        }
+
 function init() {
             githubToken = getGithubToken();
             updateTokenStatus();
+            detectProjects();
             loadTasks();
 
             // Auto-refresh
@@ -1896,4 +2442,5 @@ function init() {
         }
 
         init();
+    
     

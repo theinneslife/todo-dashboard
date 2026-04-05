@@ -1,0 +1,319 @@
+{
+  "trips": [
+    {
+      "id": "trip_sample1",
+      "title": "NYC — Agency Meetings",
+      "type": "business",
+      "status": "booked",
+      "destination": {
+        "city": "New York",
+        "country": "US",
+        "timezone": "America/New_York"
+      },
+      "dates": {
+        "start": "2026-04-14",
+        "end": "2026-04-16"
+      },
+      "purpose": "Q2 agency partner reviews",
+      "tags": [
+        "agencies",
+        "Q2"
+      ],
+      "budget": {
+        "estimated": 2800,
+        "currency": "USD"
+      },
+      "companions": [
+        {
+          "name": "Sarah Chen",
+          "email": "sarah@example.com",
+          "phone": ""
+        }
+      ],
+      "notes": "Meeting with three agency partners. Main office is at 375 Park Ave. Remember to bring printed decks for each partner.",
+      "bookings": [
+        {
+          "id": "bk_flight1",
+          "type": "flight",
+          "title": "United UA 2145",
+          "details": {
+            "bAirline": "United Airlines",
+            "bFlightNum": "UA 2145",
+            "bDepAirport": "LAX",
+            "bArrAirport": "JFK",
+            "bDepDate": "2026-04-14",
+            "bDepTime": "07:30",
+            "bArrDate": "2026-04-14",
+            "bArrTime": "15:55",
+            "bSeat": "12A",
+            "bConfCode": "UNXK7M"
+          },
+          "date": "2026-04-14",
+          "time": "07:30",
+          "createdAt": "2026-03-20T10:00:00Z",
+          "updatedAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "bk_hotel1",
+          "type": "hotel",
+          "title": "The Standard, High Line",
+          "details": {
+            "bName": "The Standard, High Line",
+            "bAddress": "848 Washington St, New York, NY 10014",
+            "bCheckin": "2026-04-14",
+            "bCheckout": "2026-04-16",
+            "bConfCode": "STD-90214",
+            "bPhone": "+1 212-645-4646"
+          },
+          "date": "2026-04-14",
+          "time": "15:00",
+          "createdAt": "2026-03-20T10:00:00Z",
+          "updatedAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "bk_meeting1",
+          "type": "meeting",
+          "title": "Q2 Review — Horizon Media",
+          "details": {
+            "bName": "Q2 Review — Horizon Media",
+            "bLocation": "375 Park Ave, 22nd Floor",
+            "bMeetDate": "2026-04-15",
+            "bMeetTime": "10:00",
+            "bContacts": "David Park, Lisa Reyes",
+            "bAgenda": "Review Q1 performance metrics\nDiscuss Q2 campaign strategy\nBudget allocation for H2"
+          },
+          "date": "2026-04-15",
+          "time": "10:00",
+          "createdAt": "2026-03-20T10:00:00Z",
+          "updatedAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "bk_restaurant1",
+          "type": "restaurant",
+          "title": "Le Bernardin",
+          "details": {
+            "bName": "Le Bernardin",
+            "bAddress": "155 W 51st St, New York, NY 10019",
+            "bResDate": "2026-04-15",
+            "bResTime": "19:00",
+            "bPartySize": "4",
+            "bConfCode": "LB-8829"
+          },
+          "date": "2026-04-15",
+          "time": "19:00",
+          "createdAt": "2026-03-20T10:00:00Z",
+          "updatedAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "bk_flight2",
+          "type": "flight",
+          "title": "Delta DL 487",
+          "details": {
+            "bAirline": "Delta",
+            "bFlightNum": "DL 487",
+            "bDepAirport": "JFK",
+            "bArrAirport": "LAX",
+            "bDepDate": "2026-04-16",
+            "bDepTime": "18:30",
+            "bArrDate": "2026-04-16",
+            "bArrTime": "21:45",
+            "bSeat": "8C",
+            "bConfCode": "DLWY42"
+          },
+          "date": "2026-04-16",
+          "time": "18:30",
+          "createdAt": "2026-03-20T10:00:00Z",
+          "updatedAt": "2026-03-20T10:00:00Z"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "task_1",
+          "title": "Print partner presentation decks",
+          "phase": "pre-trip",
+          "status": "done",
+          "priority": "high",
+          "dueDate": "2026-04-12",
+          "createdAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "task_2",
+          "title": "Confirm hotel reservation",
+          "phase": "pre-trip",
+          "status": "done",
+          "priority": "medium",
+          "dueDate": "2026-04-10",
+          "createdAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "task_3",
+          "title": "Pack charger and adapters",
+          "phase": "pre-trip",
+          "status": "pending",
+          "priority": "medium",
+          "dueDate": "2026-04-13",
+          "createdAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "task_4",
+          "title": "Send follow-up emails to partners",
+          "phase": "post-trip",
+          "status": "pending",
+          "priority": "high",
+          "dueDate": "2026-04-18",
+          "createdAt": "2026-03-20T10:00:00Z"
+        },
+        {
+          "id": "task_5",
+          "title": "Submit expense report",
+          "phase": "post-trip",
+          "status": "pending",
+          "priority": "medium",
+          "dueDate": "2026-04-20",
+          "createdAt": "2026-03-20T10:00:00Z"
+        }
+      ],
+      "documents": [],
+      "createdAt": "2026-03-20T10:00:00Z",
+      "updatedAt": "2026-04-01T14:30:00Z"
+    },
+    {
+      "id": "trip_sample2",
+      "title": "Barcelona Vacation",
+      "type": "personal",
+      "status": "planning",
+      "destination": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "timezone": "Europe/Madrid"
+      },
+      "dates": {
+        "start": "2026-06-10",
+        "end": "2026-06-17"
+      },
+      "purpose": "Summer vacation with family",
+      "tags": [
+        "vacation",
+        "europe",
+        "summer"
+      ],
+      "budget": {
+        "estimated": 5500,
+        "currency": "USD"
+      },
+      "companions": [
+        {
+          "name": "Jamie Innes",
+          "email": "jamie@example.com",
+          "phone": ""
+        }
+      ],
+      "notes": "Look into Sagrada Familia tickets — book early! Also want to visit Park Guell and the Gothic Quarter.",
+      "bookings": [
+        {
+          "id": "bk_flight3",
+          "type": "flight",
+          "title": "Iberia IB 6174",
+          "details": {
+            "bAirline": "Iberia",
+            "bFlightNum": "IB 6174",
+            "bDepAirport": "LAX",
+            "bArrAirport": "BCN",
+            "bDepDate": "2026-06-10",
+            "bDepTime": "16:45",
+            "bArrDate": "2026-06-11",
+            "bArrTime": "12:30",
+            "bSeat": "",
+            "bConfCode": "IBR92X"
+          },
+          "date": "2026-06-10",
+          "time": "16:45",
+          "createdAt": "2026-03-25T08:00:00Z",
+          "updatedAt": "2026-03-25T08:00:00Z"
+        },
+        {
+          "id": "bk_airbnb1",
+          "type": "airbnb",
+          "title": "Sunny Loft in El Born",
+          "details": {
+            "bName": "Sunny Loft in El Born",
+            "bAddress": "Carrer de la Princesa 42, Barcelona",
+            "bHostName": "Maria",
+            "bHostPhone": "+34 612 345 678",
+            "bCheckin": "2026-06-11",
+            "bCheckout": "2026-06-17",
+            "bCheckinInstructions": "Lockbox at entrance. Code provided 24h before check-in. 3rd floor, door on the left.",
+            "bWifi": "ElBornLoft2026",
+            "bAccessCode": "7742"
+          },
+          "date": "2026-06-11",
+          "time": "14:00",
+          "createdAt": "2026-03-25T08:00:00Z",
+          "updatedAt": "2026-03-25T08:00:00Z"
+        },
+        {
+          "id": "bk_activity1",
+          "type": "activity",
+          "title": "Sagrada Familia Guided Tour",
+          "details": {
+            "bName": "Sagrada Familia Guided Tour",
+            "bLocation": "Carrer de Mallorca 401, Barcelona",
+            "bActDate": "2026-06-12",
+            "bActTime": "10:00",
+            "bContacts": "Tour company: +34 933 000 000",
+            "bNotes": "Bring printed ticket. No large bags allowed. Tower access included."
+          },
+          "date": "2026-06-12",
+          "time": "10:00",
+          "createdAt": "2026-03-25T08:00:00Z",
+          "updatedAt": "2026-03-25T08:00:00Z"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "task_6",
+          "title": "Book Sagrada Familia tickets",
+          "phase": "pre-trip",
+          "status": "done",
+          "priority": "high",
+          "dueDate": "2026-04-15",
+          "createdAt": "2026-03-25T08:00:00Z"
+        },
+        {
+          "id": "task_7",
+          "title": "Check passport expiration",
+          "phase": "pre-trip",
+          "status": "pending",
+          "priority": "high",
+          "dueDate": "2026-05-01",
+          "createdAt": "2026-03-25T08:00:00Z"
+        },
+        {
+          "id": "task_8",
+          "title": "Get travel insurance",
+          "phase": "pre-trip",
+          "status": "pending",
+          "priority": "medium",
+          "dueDate": "2026-05-15",
+          "createdAt": "2026-03-25T08:00:00Z"
+        },
+        {
+          "id": "task_9",
+          "title": "Exchange currency",
+          "phase": "pre-trip",
+          "status": "pending",
+          "priority": "low",
+          "dueDate": "2026-06-05",
+          "createdAt": "2026-03-25T08:00:00Z"
+        }
+      ],
+      "documents": [],
+      "createdAt": "2026-03-25T08:00:00Z",
+      "updatedAt": "2026-03-30T12:00:00Z"
+    }
+  ],
+  "templates": [],
+  "settings": {
+    "defaultTimezone": "America/Los_Angeles"
+  }
+}

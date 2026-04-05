@@ -1019,5 +1019,38 @@
     ],
     "assigned_to": "christopher",
     "category": "Personal"
+  },
+  {
+    "id": "04891084-94ce-4844-85dd-9a706ada61ed",
+    "title": "Anniversary plan for Friday",
+    "description": "I have a dinner booked at 5pm st soothr. Need plans after. Cabernet, comedy, weird shows, something to do.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "auto",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T23:21:50.777Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-05T23:21:50.777Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me"
   }
 ]

@@ -3310,7 +3310,7 @@
         if (!trip) return;
         const container = document.getElementById('smartPackingList');
         if (!container) return;
-        if (!trip.packingList) trip.packingList = [];
+        if (!Array.isArray(trip.packingList)) trip.packingList = [];
         const categories = this.generateSmartPackingList(trip);
         container.innerHTML = Object.entries(categories).map(([cat, items]) => `
             <div class="packing-category"><div class="packing-category-title">${cat}</div><div class="packing-items">
@@ -3324,7 +3324,7 @@
     togglePackingItem(tripId, itemName) {
         const trip = this.trips.find(t => t.id === tripId);
         if (!trip) return;
-        if (!trip.packingList) trip.packingList = [];
+        if (!Array.isArray(trip.packingList)) trip.packingList = [];
         const existing = trip.packingList.find(p => p.name === itemName);
         if (existing) { existing.packed = !existing.packed; }
         else { trip.packingList.push({ name: itemName, packed: true }); }

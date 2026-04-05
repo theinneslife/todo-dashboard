@@ -2,10 +2,10 @@
   "trips": [
     {
       "id": "trip_nyc_apr6",
-      "name": "New York",
-      "destination": "New York, US",
-      "startDate": "2026-04-06",
-      "endDate": "2026-04-11",
+      "destination": {
+        "city": "New York",
+        "country": "US"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -35,14 +35,19 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "New York",
+      "dates": {
+        "start": "2026-04-06",
+        "end": "2026-04-11"
+      }
     },
     {
       "id": "trip_belize_apr11",
-      "name": "Belize",
-      "destination": "Belize",
-      "startDate": "2026-04-11",
-      "endDate": "2026-04-18",
+      "destination": {
+        "city": "Belize",
+        "country": ""
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -106,15 +111,23 @@
         }
       ],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Belize",
+      "dates": {
+        "start": "2026-04-11",
+        "end": "2026-04-18"
+      }
     },
     {
       "id": "trip_belizcity_apr18",
-      "name": "Belize City",
-      "destination": "Belize City, Belize",
-      "startDate": "2026-04-18",
-      "endDate": "2026-04-19",
+      "destination": {
+        "city": "Belize City",
+        "country": "Belize"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -136,14 +149,19 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Belize City",
+      "dates": {
+        "start": "2026-04-18",
+        "end": "2026-04-19"
+      }
     },
     {
       "id": "trip_atl_apr19",
-      "name": "Atlanta",
-      "destination": "Atlanta, US",
-      "startDate": "2026-04-19",
-      "endDate": "2026-04-20",
+      "destination": {
+        "city": "Atlanta",
+        "country": "US"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -173,14 +191,19 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Atlanta",
+      "dates": {
+        "start": "2026-04-19",
+        "end": "2026-04-20"
+      }
     },
     {
       "id": "trip_cabos_apr20",
-      "name": "Los Cabos",
-      "destination": "Los Cabos, Mexico",
-      "startDate": "2026-04-20",
-      "endDate": "2026-04-24",
+      "destination": {
+        "city": "Los Cabos",
+        "country": "Mexico"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -210,17 +233,24 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Los Cabos",
+      "dates": {
+        "start": "2026-04-20",
+        "end": "2026-04-24"
+      }
     },
     {
       "id": "trip_la_apr24",
-      "name": "Los Angeles",
-      "destination": "Los Angeles, US",
-      "startDate": "2026-04-24",
-      "endDate": "2026-04-30",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "US"
+      },
       "status": "planning",
       "type": "business",
-      "tags": ["board meeting"],
+      "tags": [
+        "board meeting"
+      ],
       "purpose": "Brooke birthday + board meeting. Christopher in LA Mon-Wed.",
       "notes": "Brooke birthday + board meeting. Christopher has to be in LA Monday through Wednesday.",
       "bookings": [
@@ -245,15 +275,23 @@
         }
       ],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Los Angeles",
+      "dates": {
+        "start": "2026-04-24",
+        "end": "2026-04-30"
+      }
     },
     {
       "id": "trip_jhb_apr30",
-      "name": "Johannesburg",
-      "destination": "Johannesburg, South Africa",
-      "startDate": "2026-04-30",
-      "endDate": "2026-05-02",
+      "destination": {
+        "city": "Johannesburg",
+        "country": "South Africa"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -289,15 +327,23 @@
         }
       ],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Johannesburg",
+      "dates": {
+        "start": "2026-04-30",
+        "end": "2026-05-02"
+      }
     },
     {
       "id": "trip_singita_may2",
-      "name": "Singita Safari",
-      "destination": "Singita, South Africa",
-      "startDate": "2026-05-02",
-      "endDate": "2026-05-06",
+      "destination": {
+        "city": "Singita",
+        "country": "South Africa"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -331,15 +377,23 @@
       ],
       "tasks": [],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Singita Safari",
+      "dates": {
+        "start": "2026-05-02",
+        "end": "2026-05-06"
+      }
     },
     {
       "id": "trip_jhb2_may6",
-      "name": "Johannesburg \u2192 Cape Town",
-      "destination": "Johannesburg, South Africa",
-      "startDate": "2026-05-06",
-      "endDate": "2026-05-06",
+      "destination": {
+        "city": "Johannesburg",
+        "country": "South Africa"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -378,15 +432,23 @@
         }
       ],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Johannesburg → Cape Town",
+      "dates": {
+        "start": "2026-05-06",
+        "end": "2026-05-06"
+      }
     },
     {
       "id": "trip_capetown_may6",
-      "name": "Cape Town",
-      "destination": "Cape Town, South Africa",
-      "startDate": "2026-05-06",
-      "endDate": "2026-05-15",
+      "destination": {
+        "city": "Cape Town",
+        "country": "South Africa"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -408,15 +470,23 @@
       ],
       "tasks": [],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Cape Town",
+      "dates": {
+        "start": "2026-05-06",
+        "end": "2026-05-15"
+      }
     },
     {
       "id": "trip_dubrovnik_may15",
-      "name": "Dubrovnik",
-      "destination": "Dubrovnik, Croatia",
-      "startDate": "2026-05-15",
-      "endDate": "2026-05-29",
+      "destination": {
+        "city": "Dubrovnik",
+        "country": "Croatia"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -447,15 +517,23 @@
       ],
       "tasks": [],
       "companions": [
-        { "name": "Brooke", "email": "" }
-      ]
+        {
+          "name": "Brooke",
+          "email": ""
+        }
+      ],
+      "title": "Dubrovnik",
+      "dates": {
+        "start": "2026-05-15",
+        "end": "2026-05-29"
+      }
     },
     {
       "id": "trip_la2_may29",
-      "name": "Los Angeles (May)",
-      "destination": "Los Angeles, US",
-      "startDate": "2026-05-29",
-      "endDate": "2026-05-30",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "US"
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -485,17 +563,24 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Los Angeles (May)",
+      "dates": {
+        "start": "2026-05-29",
+        "end": "2026-05-30"
+      }
     },
     {
       "id": "trip_playa_may30",
-      "name": "Playa del Carmen",
-      "destination": "Playa del Carmen, Mexico",
-      "startDate": "2026-05-30",
-      "endDate": "2026-06-13",
+      "destination": {
+        "city": "Playa del Carmen",
+        "country": "Mexico"
+      },
       "status": "booked",
       "type": "personal",
-      "tags": ["classes"],
+      "tags": [
+        "classes"
+      ],
       "purpose": "Classes (see email for registration details)",
       "notes": "Registered for classes — see email for details.",
       "bookings": [
@@ -522,17 +607,24 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Playa del Carmen",
+      "dates": {
+        "start": "2026-05-30",
+        "end": "2026-06-13"
+      }
     },
     {
       "id": "trip_antigua_jun13",
-      "name": "Antigua, Guatemala",
-      "destination": "Antigua, Guatemala",
-      "startDate": "2026-06-13",
-      "endDate": "2026-06-27",
+      "destination": {
+        "city": "Antigua",
+        "country": "Guatemala"
+      },
       "status": "booked",
       "type": "personal",
-      "tags": ["classes"],
+      "tags": [
+        "classes"
+      ],
       "purpose": "Classes (see email for registration details)",
       "notes": "1 hour drive to Antigua from airport, need parking at Airbnb. Registered for classes — see email.",
       "bookings": [
@@ -583,17 +675,24 @@
           "due": "2026-06-10"
         }
       ],
-      "companions": []
+      "companions": [],
+      "title": "Antigua, Guatemala",
+      "dates": {
+        "start": "2026-06-13",
+        "end": "2026-06-27"
+      }
     },
     {
       "id": "trip_bogota_jun27",
-      "name": "Bogot\u00e1, Colombia",
-      "destination": "Bogot\u00e1, Colombia",
-      "startDate": "2026-06-27",
-      "endDate": "2026-07-11",
+      "destination": {
+        "city": "Bogotá",
+        "country": "Colombia"
+      },
       "status": "booked",
       "type": "personal",
-      "tags": ["classes"],
+      "tags": [
+        "classes"
+      ],
       "purpose": "Classes (see email for registration details)",
       "notes": "Send photos of passports and immigration stamps after entry to Airbnb host to avoid the 20% tourist tax. Registered for classes — see email.",
       "bookings": [
@@ -612,7 +711,7 @@
         {
           "id": "bk_bog2",
           "type": "airbnb",
-          "title": "Airbnb — Bogot\u00e1",
+          "title": "Airbnb — Bogotá",
           "date": "2026-06-27",
           "time": "",
           "status": "booked",
@@ -632,17 +731,24 @@
           "due": "2026-06-28"
         }
       ],
-      "companions": []
+      "companions": [],
+      "title": "Bogotá, Colombia",
+      "dates": {
+        "start": "2026-06-27",
+        "end": "2026-07-11"
+      }
     },
     {
       "id": "trip_buenosaires_jul11",
-      "name": "Buenos Aires",
-      "destination": "Buenos Aires, Argentina",
-      "startDate": "2026-07-11",
-      "endDate": "2026-07-26",
+      "destination": {
+        "city": "Buenos Aires",
+        "country": "Argentina"
+      },
       "status": "booked",
       "type": "personal",
-      "tags": ["classes"],
+      "tags": [
+        "classes"
+      ],
       "purpose": "Classes (see email for registration details)",
       "notes": "Registered for classes — see email.",
       "bookings": [
@@ -672,17 +778,24 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "Buenos Aires",
+      "dates": {
+        "start": "2026-07-11",
+        "end": "2026-07-26"
+      }
     },
     {
       "id": "trip_la3_jul26",
-      "name": "Los Angeles (July)",
-      "destination": "Los Angeles, US",
-      "startDate": "2026-07-26",
-      "endDate": "2026-07-30",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "US"
+      },
       "status": "planning",
       "type": "business",
-      "tags": ["board meeting"],
+      "tags": [
+        "board meeting"
+      ],
       "purpose": "Board meeting",
       "notes": "Arrives at 8:30am via Delta. Confirmation: HLWTES.",
       "bookings": [
@@ -709,14 +822,19 @@
           "due": "2026-07-20"
         }
       ],
-      "companions": []
+      "companions": [],
+      "title": "Los Angeles (July)",
+      "dates": {
+        "start": "2026-07-26",
+        "end": "2026-07-30"
+      }
     },
     {
       "id": "trip_salvador_jul30",
-      "name": "El Salvador",
-      "destination": "El Salvador",
-      "startDate": "2026-07-30",
-      "endDate": "2026-08-09",
+      "destination": {
+        "city": "El Salvador",
+        "country": ""
+      },
       "status": "booked",
       "type": "personal",
       "tags": [],
@@ -749,17 +867,24 @@
         }
       ],
       "tasks": [],
-      "companions": []
+      "companions": [],
+      "title": "El Salvador",
+      "dates": {
+        "start": "2026-07-30",
+        "end": "2026-08-09"
+      }
     },
     {
       "id": "trip_vegas_aug10",
-      "name": "Las Vegas — MNTN Meet",
-      "destination": "Las Vegas, US",
-      "startDate": "2026-08-10",
-      "endDate": "2026-08-17",
+      "destination": {
+        "city": "Las Vegas",
+        "country": "US"
+      },
       "status": "planning",
       "type": "business",
-      "tags": ["MNTN"],
+      "tags": [
+        "MNTN"
+      ],
       "purpose": "MNTN Meet",
       "notes": "",
       "bookings": [
@@ -785,7 +910,12 @@
           "due": "2026-08-05"
         }
       ],
-      "companions": []
+      "companions": [],
+      "title": "Las Vegas — MNTN Meet",
+      "dates": {
+        "start": "2026-08-10",
+        "end": "2026-08-17"
+      }
     }
   ],
   "version": 1,

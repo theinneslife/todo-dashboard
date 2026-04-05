@@ -969,7 +969,7 @@
     "title": "Install Corp Dev skill from outputs folder",
     "description": "Open the corp-dev.skill file from outputs (or copy corp-dev/ folder to ~/.claude/skills/). This installs the M&A and corporate development knowledge base for future Claude conversations.",
     "priority": 2,
-    "status": "todo",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "corp-dev"
@@ -983,10 +983,16 @@
         "action": "created",
         "by": "Claude",
         "details": "Task created for Christopher to install Corp Dev skill"
+      },
+      {
+        "timestamp": "2026-04-05T23:21:56.297Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-04T21:28:29.238Z",
-    "completed_at": null,
+    "completed_at": "2026-04-05T23:21:56.297Z",
     "completion_notes": null,
     "project": "Corp Dev",
     "depends_on": [],

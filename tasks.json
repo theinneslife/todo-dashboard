@@ -343,7 +343,7 @@
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
     "title": "Prepare for May 1 vertical restructure team assignments",
-    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' â Christopher will need vertical assignments. Verticals TBD.",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' Ã¢ÂÂ Christopher will need vertical assignments. Verticals TBD.",
     "priority": 2,
     "status": "completed",
     "mode": "manual",
@@ -989,5 +989,29 @@
     ],
     "custom_fields": {},
     "delegation_notes": "Assigned to Christopher"
+  },
+  {
+    "id": "task-1775361207142",
+    "title": "NYC Rent vs Buy — Review analysis and decide next steps",
+    "description": "Review the rent vs buy analysis. Key findings: (1) Rent first for 12 months while setting up a 10b5-1 plan to liquidate MNTN stock. (2) Combined NYC tax hit on stock sales is ~38.5% — need to sell ~$500K to net $300K for a down payment. (3) Co-ops are out due to primary residence/subletting restrictions. (4) Look at condos in $1.0-1.3M range after building liquid position. (5) Consider furnished rental services (Blueground, Sonder) for maximum flexibility while traveling. Next steps: talk to a financial advisor about 10b5-1 plan, talk to a real estate attorney, start exploring neighborhoods.",
+    "priority": 1,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [
+      "Personal"
+    ],
+    "due_date": "2026-04-11",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T03:53:27.142Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      }
+    ],
+    "assigned_to": "christopher",
+    "category": "Personal"
   }
 ]

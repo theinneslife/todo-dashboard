@@ -1967,8 +1967,8 @@
                 document.getElementById('tripForm').addEventListener('submit', (e) => this.handleTripSubmit(e));
 
                 // Calendar
-                document.getElementById('prevMonthBtn').addEventListener('click', () => this.prevCalendarMonth());
-                document.getElementById('nextMonthBtn').addEventListener('click', () => this.nextCalendarMonth());
+                document.getElementById('prevMonthBtn')?.addEventListener('click', () => this.prevCalendarMonth());
+                document.getElementById('nextMonthBtn')?.addEventListener('click', () => this.nextCalendarMonth());
 
                 // Search
                 document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e.target.value));

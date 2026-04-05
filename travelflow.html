@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo Phase 2 - Trip Management Dashboard</title>
+    <title>TravelFlo v3.0 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1325,6 +1325,161 @@
                 font-size: 1.25rem;
             }
         }
+
+/* ========== TravelFlo v3.0 - New Dashboard & Feature Styles ========== */
+:root {
+  --primary: #4a90e2;
+  --primary-dark: #357abd;
+  --secondary: #50c878;
+  --warning: #ffa500;
+  --danger: #ff6b6b;
+  --accent-green: #00d9a3;
+  --accent-orange: #ff8c42;
+  --accent-blue: #4a90e2;
+}
+
+/* Dashboard Tab */
+#dashboardTab { display: none; flex-direction: column; gap: 20px; padding: 16px; overflow-y: auto; max-height: calc(100vh - 200px); }
+#dashboardTab.active { display: flex; }
+.dashboard-section { background: var(--bg-secondary, #1a1f2e); border: 1px solid var(--border-color, #2a3040); border-radius: 12px; padding: 20px; }
+.dashboard-section-title { font-size: 15px; font-weight: 700; color: var(--text-primary, #e2e8f0); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+/* Quick Stats */
+.quick-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+.stat-box { background: var(--bg-tertiary, #25293d); border: 1px solid var(--border-color, #2a3040); border-radius: 10px; padding: 16px; text-align: center; transition: transform 0.2s; }
+.stat-box:hover { transform: translateY(-2px); }
+.stat-value { font-size: 28px; font-weight: 700; color: #4a90e2; margin-bottom: 4px; }
+.stat-label { font-size: 11px; color: var(--text-secondary, #cbd5e1); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Action Items */
+.action-items-grid { display: flex; flex-direction: column; gap: 10px; }
+.action-item { background: var(--bg-tertiary, #25293d); border-left: 4px solid #4a90e2; padding: 12px 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.action-item.urgent { border-left-color: #ff6b6b; background: rgba(255,107,107,0.06); }
+.action-item.warning { border-left-color: #ffa500; background: rgba(255,165,0,0.06); }
+.action-item-content { flex: 1; }
+.action-item-title { font-weight: 600; color: var(--text-primary, #e2e8f0); margin-bottom: 3px; }
+.action-item-trip { font-size: 11px; color: var(--text-secondary, #cbd5e1); }
+.action-item-btn { background: #4a90e2; border: none; color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; cursor: pointer; }
+
+/* Next Flight */
+.next-flight-container { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.flight-countdown-card { background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 12px; padding: 24px; color: white; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
+.countdown-timer { font-size: 42px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.countdown-label { font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.flight-route { font-size: 18px; font-weight: 700; margin-top: 16px; }
+.flight-meta { font-size: 12px; opacity: 0.9; margin-top: 6px; line-height: 1.6; }
+.flight-status-card { background: var(--bg-tertiary, #25293d); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.status-row { display: flex; justify-content: space-between; align-items: center; }
+.status-label { font-size: 11px; color: var(--text-secondary, #cbd5e1); text-transform: uppercase; letter-spacing: 0.5px; }
+.status-badge { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.status-badge.on-time { background: rgba(0,217,163,0.15); color: #00d9a3; }
+.status-badge.delayed { background: rgba(255,165,0,0.15); color: #ffa500; }
+.status-badge.cancelled { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+.status-update-btn { width: 100%; background: #4a90e2; border: none; color: white; padding: 10px; border-radius: 6px; font-size: 13px; cursor: pointer; margin-top: auto; }
+
+/* Upcoming Trips Timeline */
+.trips-timeline-scroll { display: flex; gap: 14px; overflow-x: auto; padding: 4px 0; scroll-behavior: smooth; }
+.trips-timeline-scroll::-webkit-scrollbar { height: 5px; }
+.trips-timeline-scroll::-webkit-scrollbar-thumb { background: #3a4452; border-radius: 3px; }
+.timeline-trip-card { flex: 0 0 180px; background: var(--bg-tertiary, #25293d); border: 1px solid var(--border-color, #2a3040); border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.25s; display: flex; flex-direction: column; gap: 10px; }
+.timeline-trip-card:hover { border-color: #4a90e2; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(74,144,226,0.12); }
+.timeline-trip-destination { font-size: 15px; font-weight: 700; color: var(--text-primary, #e2e8f0); }
+.timeline-trip-date { font-size: 12px; color: var(--text-secondary, #cbd5e1); }
+.timeline-trip-countdown { background: #4a90e2; color: white; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; text-align: center; }
+
+/* Current Trip Hero */
+.current-trip-hero { background: linear-gradient(135deg, var(--bg-tertiary, #25293d), var(--border-color, #2a3040)); border-radius: 12px; padding: 24px; border: 1px solid var(--border-color, #2a3040); display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.current-trip-info { display: flex; flex-direction: column; gap: 10px; }
+.current-trip-destination { font-size: 28px; font-weight: 700; color: #4a90e2; }
+.current-trip-meta { font-size: 13px; color: var(--text-secondary, #cbd5e1); line-height: 1.6; }
+.current-trip-itinerary { background: var(--bg-secondary, #1a1f2e); border-radius: 8px; padding: 14px; }
+.itinerary-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary, #cbd5e1); margin-bottom: 8px; }
+.itinerary-item { font-size: 13px; color: var(--text-primary, #e2e8f0); padding: 3px 0; }
+.weather-widget { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary, #cbd5e1); margin-top: 10px; }
+
+/* Recent Activity */
+.activity-feed { display: flex; flex-direction: column; gap: 10px; max-height: 280px; overflow-y: auto; }
+.activity-item { background: var(--bg-tertiary, #25293d); border-left: 3px solid #4a90e2; padding: 10px 12px; border-radius: 6px; font-size: 13px; }
+.activity-trip { font-weight: 600; color: var(--text-primary, #e2e8f0); }
+.activity-action { font-size: 12px; color: var(--text-secondary, #cbd5e1); }
+.activity-time { font-size: 11px; color: var(--text-secondary, #cbd5e1); margin-top: 3px; }
+
+/* Expense Tracker */
+.expense-tracker-container { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.expense-chart-wrapper { background: var(--bg-tertiary, #25293d); border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: center; }
+.burn-down-canvas { width: 100%; height: 180px; }
+.expense-categories { display: flex; flex-direction: column; gap: 10px; }
+.expense-category-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: var(--bg-tertiary, #25293d); border-radius: 8px; }
+.category-label { font-size: 13px; color: var(--text-primary, #e2e8f0); font-weight: 500; }
+.category-amount { font-size: 14px; font-weight: 700; color: #4a90e2; }
+.category-bar { width: 100%; height: 4px; background: var(--border-color, #2a3040); border-radius: 2px; margin-top: 6px; }
+.category-bar-fill { height: 100%; background: linear-gradient(90deg, #4a90e2, #00d9a3); border-radius: 2px; transition: width 0.3s; }
+
+/* Destination Intel Cards */
+.destination-card-enhanced { background: var(--bg-tertiary, #25293d); border: 1px solid var(--border-color, #2a3040); border-radius: 12px; padding: 16px; transition: all 0.25s; cursor: pointer; }
+.destination-card-enhanced:hover { border-color: #4a90e2; transform: translateY(-3px); }
+.destination-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px; }
+.destination-name { font-size: 15px; font-weight: 700; color: var(--text-primary, #e2e8f0); }
+.destination-weather { font-size: 28px; }
+.destination-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.destination-meta-item { background: var(--bg-secondary, #1a1f2e); padding: 8px; border-radius: 6px; }
+.destination-meta-label { font-size: 10px; color: var(--text-secondary, #cbd5e1); text-transform: uppercase; letter-spacing: 0.5px; }
+.destination-meta-value { font-size: 13px; color: var(--text-primary, #e2e8f0); font-weight: 600; }
+.destination-tips { font-size: 12px; color: var(--text-secondary, #cbd5e1); line-height: 1.5; padding: 8px; background: var(--bg-secondary, #1a1f2e); border-radius: 6px; }
+
+/* Smart Packing List */
+.packing-list-container { background: var(--bg-tertiary, #25293d); border-radius: 10px; padding: 16px; }
+.packing-category { margin-bottom: 16px; }
+.packing-category-title { font-size: 13px; font-weight: 700; color: var(--text-primary, #e2e8f0); margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border-color, #2a3040); }
+.packing-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.packing-item { display: flex; align-items: center; gap: 6px; padding: 6px 10px; background: var(--bg-secondary, #1a1f2e); border-radius: 6px; font-size: 12px; color: var(--text-secondary, #cbd5e1); cursor: pointer; transition: all 0.2s; }
+.packing-item.packed { opacity: 0.5; text-decoration: line-through; }
+.packing-item input[type="checkbox"] { accent-color: #00d9a3; }
+
+/* Analytics */
+.analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.analytics-card { background: var(--bg-tertiary, #25293d); border-radius: 10px; padding: 16px; border: 1px solid var(--border-color, #2a3040); }
+.analytics-card-title { font-size: 14px; font-weight: 700; color: var(--text-primary, #e2e8f0); margin-bottom: 12px; }
+.analytics-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.analytics-item-label { color: var(--text-secondary, #cbd5e1); }
+.analytics-item-value { color: #4a90e2; font-weight: 600; }
+
+/* ROI View */
+.roi-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+.roi-tag.business { background: rgba(74,144,226,0.15); color: #4a90e2; }
+.roi-tag.personal { background: rgba(0,217,163,0.15); color: #00d9a3; }
+
+/* Shareboard */
+.shareboard-container { background: white; color: #333; border-radius: 12px; padding: 32px; max-width: 700px; margin: 0 auto; }
+.shareboard-title { font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+.shareboard-subtitle { font-size: 14px; color: #666; margin-bottom: 24px; }
+.shareboard-section { margin-bottom: 20px; }
+.shareboard-section-title { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 10px; border-bottom: 2px solid #4a90e2; padding-bottom: 6px; }
+.shareboard-item { padding: 6px 0; font-size: 13px; color: #555; line-height: 1.6; }
+
+/* Debrief Prompt */
+.debrief-prompt { background: linear-gradient(135deg, rgba(255,140,66,0.1), rgba(255,107,107,0.1)); border: 1px solid rgba(255,140,66,0.3); border-radius: 10px; padding: 14px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.debrief-prompt-text { font-size: 13px; color: var(--text-primary, #e2e8f0); }
+.debrief-prompt-btn { background: #ff8c42; border: none; color: white; padding: 8px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; white-space: nowrap; }
+
+/* Modal enhancements */
+.modal-section { margin-bottom: 16px; }
+.modal-section-title { font-size: 13px; font-weight: 700; color: var(--text-primary, #e2e8f0); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.modal-btn { background: #4a90e2; border: none; color: white; padding: 10px 18px; border-radius: 8px; font-size: 13px; cursor: pointer; transition: background 0.2s; }
+.modal-btn:hover { background: #357abd; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .next-flight-container { grid-template-columns: 1fr; }
+  .current-trip-hero { grid-template-columns: 1fr; }
+  .analytics-grid { grid-template-columns: 1fr; }
+  .expense-tracker-container { grid-template-columns: 1fr; }
+}
+@media print {
+  .shareboard-container { box-shadow: none; padding: 0; }
+  .modal-content > *:not(.shareboard-container) { display: none !important; }
+}
+
     </style>
 </head>
 <body>
@@ -1333,60 +1488,74 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs><path d="M33.5 2.5L16 14l-8-2L2 14.5l10 5.5 5.5 10L20 24l-2-8L33.5 2.5z" fill="url(#logoGrad)"/><path d="M12 24l-3.5 3.5M14.5 21.5L10 26" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/></svg> TravelFlo</div>
-                <div class="version-badge">v3.0</div>
-                <a href="index.html" class="taskflo-link">→ TaskFlo</a>
+                    <div class="version-badge">v3.0</div>
+                <a href="index.html" class="taskflo-link">â TaskFlo</a>
             </div>
             <div class="header-right">
-                <button class="icon-btn" id="shareBtn" title="Share">📤</button>
-                <button class="icon-btn" id="calendarBtn" title="Calendar">📅</button>
+                <button class="icon-btn" id="shareBtn" title="Share">ð¤</button>
+                <button class="icon-btn" id="calendarBtn" title="Calendar">ð</button>
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
             <!-- Timeline Tab -->
-            <div id="timelineTab" class="tab-content active">
-                <div class="calendar-strip">
-                    <div class="calendar-header">
-                        <h2>📅 Trip Timeline</h2>
-                        <div class="calendar-nav">
-                            <button class="calendar-btn" id="prevMonthBtn">← Previous</button>
-                            <button class="calendar-btn" id="nextMonthBtn">Next →</button>
-                        </div>
-                    </div>
-                    <div class="months-container" id="monthsContainer"></div>
-                </div>
-
-                <div class="trips-section">
-                    <div class="section-title">🔜 Upcoming Trips</div>
-                    <div class="trips-grid" id="upcomingTripsGrid">
-                        <div class="empty-state">
-                            <div class="empty-state-icon">✈️</div>
-                            <div class="empty-state-title">No upcoming trips</div>
-                            <div class="empty-state-text">Create your first trip to get started!</div>
-                        </div>
+            <div id="dashboardTab" class="tab-content active">
+                <!-- Quick Stats Bar -->
+                <div class="dashboard-section">
+                    <div class="quick-stats" id="quickStats">
+                        <div class="stat-box"><div class="stat-value" id="statTrips">0</div><div class="stat-label">📅 Trips This Month</div></div>
+                        <div class="stat-box"><div class="stat-value" id="statNights">0</div><div class="stat-label">🌙 Nights Away</div></div>
+                        <div class="stat-box"><div class="stat-value" id="statCountries">0</div><div class="stat-label">🌍 Countries</div></div>
+                        <div class="stat-box"><div class="stat-value" id="statSpent">$0</div><div class="stat-label">💰 Total Spent</div></div>
                     </div>
                 </div>
 
-                <div class="trips-section">
-                    <div class="section-title">📍 Past Trips</div>
-                    <div class="trips-grid" id="pastTripsGrid">
-                        <div class="empty-state">
-                            <div class="empty-state-icon">🏁</div>
-                            <div class="empty-state-title">No past trips</div>
-                            <div class="empty-state-text">Your completed trips will appear here</div>
-                        </div>
+                <!-- Action Items -->
+                <div class="dashboard-section" id="actionItemsSection" style="display:none;">
+                    <div class="dashboard-section-title">✓ Action Items</div>
+                    <div class="action-items-grid" id="actionItemsGrid"></div>
+                </div>
+
+                <!-- Next Flight Countdown + Status -->
+                <div class="dashboard-section" id="nextFlightSection" style="display:none;">
+                    <div class="dashboard-section-title">✈️ Next Flight</div>
+                    <div class="next-flight-container" id="nextFlightContainer"></div>
+                </div>
+
+                <!-- Current Trip Hero Card -->
+                <div class="dashboard-section" id="currentTripHeroSection" style="display:none;">
+                    <div class="dashboard-section-title">🌍 Currently Traveling</div>
+                    <div id="currentTripHero"></div>
+                </div>
+
+                <!-- Upcoming Trips Timeline -->
+                <div class="dashboard-section" id="upcomingTripsSection" style="display:none;">
+                    <div class="dashboard-section-title">📍 Upcoming Trips</div>
+                    <div class="trips-timeline-scroll" id="upcomingTripsTimeline"></div>
+                </div>
+
+                <!-- Expense Tracker -->
+                <div class="dashboard-section" id="expenseTrackerSection" style="display:none;">
+                    <div class="dashboard-section-title">💳 Trip Expenses</div>
+                    <div class="expense-tracker-container" id="expenseTrackerContainer">
+                        <div class="expense-chart-wrapper"><canvas class="burn-down-canvas" id="burnDownCanvas"></canvas></div>
+                        <div class="expense-categories" id="expenseCategoriesList"></div>
                     </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-section" id="recentActivitySection" style="display:none;">
+                    <div class="dashboard-section-title">📝 Recent Activity</div>
+                    <div class="activity-feed" id="activityFeed"></div>
                 </div>
             </div>
-
-            <!-- Current Tab -->
             <div id="currentTab" class="tab-content">
                 <div class="current-tab-content">
-                    <div class="section-title">🎯 Current Trip</div>
+                    <div class="section-title">ð¯ Current Trip</div>
                     <div id="currentTripContent">
                         <div class="empty-state">
-                            <div class="empty-state-icon">🌍</div>
+                            <div class="empty-state-icon">ð</div>
                             <div class="empty-state-title">No active trip</div>
                             <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
                         </div>
@@ -1398,12 +1567,12 @@
             <div id="discoverTab" class="tab-content">
                 <div class="discover-content">
                     <div class="discover-section">
-                        <div class="discover-title">🗺️ Discover Destinations</div>
+                        <div class="discover-title">ðºï¸ Discover Destinations</div>
                         <div class="destinations-grid" id="destinationsGrid"></div>
                     </div>
 
                     <div class="discover-section">
-                        <div class="discover-title">🌟 Top Recommendations</div>
+                        <div class="discover-title">ð Top Recommendations</div>
                         <div class="top-lists" id="topListsContainer"></div>
                     </div>
                 </div>
@@ -1411,13 +1580,13 @@
 
             <!-- Search Tab -->
             <div id="searchTab" class="tab-content">
-                <div class="section-title">🔍 Search Trips</div>
+                <div class="section-title">ð Search Trips</div>
                 <div class="form-group">
                     <input type="text" class="form-input" id="searchInput" placeholder="Search by destination, notes...">
                 </div>
                 <div class="trips-grid" id="searchResultsGrid">
                     <div class="empty-state">
-                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-icon">ð</div>
                         <div class="empty-state-title">Search trips</div>
                         <div class="empty-state-text">Enter a destination or keyword to find trips</div>
                     </div>
@@ -1426,10 +1595,11 @@
         </div>
 
         <!-- Bottom Navigation -->
+        <!-- Bottom Navigation -->
         <div class="bottom-nav">
-            <button class="nav-item active" data-tab="timeline">
-                <div class="nav-icon">📅</div>
-                <div>Timeline</div>
+            <button class="nav-item active" data-tab="dashboard">
+                <div class="nav-icon">📊</div>
+                <div>Dashboard</div>
             </button>
             <button class="nav-item" data-tab="current">
                 <div class="nav-icon">🎯</div>
@@ -1449,7 +1619,6 @@
             </button>
         </div>
     </div>
-
     <!-- Trip Modal -->
     <div id="tripModal" class="modal">
         <div class="modal-content">
@@ -1472,7 +1641,7 @@
                 <!-- Overlap Warning -->
                 <div id="overlapWarning" style="display: none;">
                     <div class="overlap-warning">
-                        <div class="overlap-warning-title">⚠️ Date Overlap Detected</div>
+                        <div class="overlap-warning-title">â ï¸ Date Overlap Detected</div>
                         <div class="overlap-trips" id="overlapTripsText"></div>
                     </div>
                 </div>
@@ -1501,21 +1670,21 @@
 
                 <!-- Flight Information -->
                 <div class="form-group">
-                    <label class="form-label">✈️ Flight Information</label>
+                    <label class="form-label">âï¸ Flight Information</label>
                     <div id="flightSegmentsContainer"></div>
                     <button type="button" class="add-flight-btn" id="addFlightBtn">+ Add Flight Segment</button>
                 </div>
 
                 <!-- Accommodation -->
                 <div class="form-group">
-                    <label class="form-label">🏨 Accommodation</label>
+                    <label class="form-label">ð¨ Accommodation</label>
                     <div id="accommodationDisplay" style="display: none;"></div>
                     <input type="url" class="form-input" id="accommodationInput" placeholder="Paste Airbnb or hotel booking link...">
                 </div>
 
                 <!-- Budget -->
                 <div class="form-group">
-                    <label class="form-label">💰 Total Budget</label>
+                    <label class="form-label">ð° Total Budget</label>
                     <div class="form-row">
                         <div>
                             <input type="number" class="form-input" id="budgetInput" placeholder="0" min="0">
@@ -1532,7 +1701,7 @@
 
                 <!-- Packing List -->
                 <div id="packingSection" style="display: none;">
-                    <label class="form-label">🎒 Packing List</label>
+                    <label class="form-label">ð Packing List</label>
                     <div id="packingListContent"></div>
                 </div>
 
@@ -1564,13 +1733,13 @@
                     <div class="form-group">
                         <label class="form-label">Category *</label>
                         <select class="form-select" id="expenseCategoryInput" required>
-                            <option value="flights">✈️ Flights</option>
-                            <option value="accommodation">🏨 Accommodation</option>
-                            <option value="food">🍽️ Food</option>
-                            <option value="transport">🚗 Transport</option>
-                            <option value="activities">🎭 Activities</option>
-                            <option value="shopping">🛍️ Shopping</option>
-                            <option value="other">📝 Other</option>
+                            <option value="flights">âï¸ Flights</option>
+                            <option value="accommodation">ð¨ Accommodation</option>
+                            <option value="food">ð½ï¸ Food</option>
+                            <option value="transport">ð Transport</option>
+                            <option value="activities">ð­ Activities</option>
+                            <option value="shopping">ðï¸ Shopping</option>
+                            <option value="other">ð Other</option>
                         </select>
                     </div>
                 </div>
@@ -1582,6 +1751,92 @@
         </div>
     </div>
 
+
+    <!-- Trip Details Modal Enhanced -->
+    <div id="tripDetailsModal" class="modal" style="display:none;">
+        <div class="modal-content" style="max-height:90vh;overflow-y:auto;">
+            <span class="close" onclick="document.getElementById('tripDetailsModal').style.display='none'">&times;</span>
+            <div class="modal-title" id="tripDetailTitle"></div>
+            <div class="modal-section"><div class="modal-section-title">Trip Info</div><div id="tripDetailInfo"></div></div>
+            <div class="modal-section"><div class="modal-section-title">Flights</div><div id="tripDetailFlights"></div></div>
+            <div class="modal-section"><div class="modal-section-title">Trip Tasks</div>
+                <button class="modal-btn" onclick="app.generateTasksForTrip(app.currentTripDetail?.id)" style="width:100%;margin-bottom:12px;">Generate Tasks for TaskFlo</button>
+                <div id="tripTasksList"></div>
+            </div>
+            <div class="modal-section"><div class="modal-section-title">Smart Packing List</div><div class="packing-list-container" id="smartPackingList"></div></div>
+            <div class="modal-section"><div class="modal-section-title">Expenses</div><div id="tripDetailExpenses"></div></div>
+            <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;">
+                <button class="modal-btn" onclick="app.openTripModal(app.currentTripDetail?.id)">Edit</button>
+                <button class="modal-btn" onclick="app.openShareboard(app.currentTripDetail?.id)">Share / Print</button>
+                <button class="modal-btn" onclick="app.openAnalytics()">Analytics</button>
+                <button class="modal-btn" style="background:#ff6b6b;" onclick="if(confirm('Delete?')){app.deleteTrip(app.currentTripDetail?.id);document.getElementById('tripDetailsModal').style.display='none';}">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Modal -->
+    <div id="analyticsModal" class="modal" style="display:none;">
+        <div class="modal-content" style="max-width:700px;">
+            <span class="close" onclick="document.getElementById('analyticsModal').style.display='none'">&times;</span>
+            <div class="modal-title">📊 Travel Analytics & ROI</div>
+            <div class="analytics-grid" id="analyticsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Flight Status Update Modal -->
+    <div id="statusUpdateModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('statusUpdateModal').style.display='none'">&times;</span>
+            <div class="modal-title">Update Flight Status</div>
+            <div class="form-group"><label>Flight</label><div id="statusFlightInfo" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
+            <div class="form-group"><label>Status</label>
+                <select id="statusSelect"><option value="on-time">✓ On Time</option><option value="delayed">⏱️ Delayed</option><option value="cancelled">✗ Cancelled</option></select>
+            </div>
+            <div class="form-group"><label>Gate / Terminal</label><input type="text" id="gateInput" placeholder="e.g. Gate 12A, Terminal 3"></div>
+            <div class="form-group"><label>Notes</label><textarea id="statusNotesInput" rows="2" placeholder="Additional status info..."></textarea></div>
+            <button class="modal-btn" onclick="app.saveFlightStatus()" style="width:100%;">Save Status</button>
+        </div>
+    </div>
+
+    <!-- Trip Shareboard Modal -->
+    <div id="shareboardModal" class="modal" style="display:none;">
+        <div class="modal-content" style="max-height:90vh;overflow-y:auto;max-width:750px;">
+            <span class="close" onclick="document.getElementById('shareboardModal').style.display='none'">&times;</span>
+            <div style="text-align:right;margin-bottom:16px;">
+                <button class="modal-btn" onclick="window.print()">🖨️ Print</button>
+                <button class="modal-btn" onclick="app.copyShareboardToClipboard()">📋 Copy</button>
+            </div>
+            <div class="shareboard-container" id="shareboardContent"></div>
+        </div>
+    </div>
+
+    <!-- Task Generator Modal -->
+    <div id="taskGeneratorModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('taskGeneratorModal').style.display='none'">&times;</span>
+            <div class="modal-title">Generate Trip Tasks</div>
+            <div class="form-group"><label>Trip Type</label>
+                <select id="tripTypeSelect" onchange="app.refreshGeneratedTasks()"><option value="personal">Personal Travel</option><option value="business">Business Travel</option></select>
+            </div>
+            <div class="modal-section-title" style="margin-top:14px;">Generated Checklist</div>
+            <div id="generatedTasksList" style="background:var(--bg-tertiary,#25293d);border-radius:10px;padding:12px;margin-bottom:14px;max-height:300px;overflow-y:auto;"></div>
+            <button class="modal-btn" onclick="app.exportTasksToTaskFlo()" style="width:100%;">Copy Tasks for TaskFlo</button>
+        </div>
+    </div>
+
+    <!-- Trip Debrief Modal -->
+    <div id="debriefModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('debriefModal').style.display='none'">&times;</span>
+            <div class="modal-title">🧳 Trip Debrief</div>
+            <div class="form-group"><label>Trip</label><div id="debriefTripName" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
+            <div class="form-group"><label>What went well? Follow-ups needed?</label>
+                <textarea id="debriefNotesInput" rows="5" placeholder="Enter notes... Use - or • at the start of a line to auto-create follow-up tasks."></textarea>
+            </div>
+            <div class="form-group"><label><input type="checkbox" id="generateFollowupCheckbox" checked> Generate follow-up tasks from bullet points</label></div>
+            <button class="modal-btn" onclick="app.saveDebrief()" style="width:100%;">Save Debrief</button>
+        </div>
+    </div>
     <script>
         // ===== Data Management =====
         class TravelFloApp {
@@ -1590,20 +1845,22 @@
                 this.currentEditingTrip = null;
                 this.currentModal = null;
                 this.allDestinations = [
-                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
-                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
-                    { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
-                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '🏖️' },
-                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '🏙️' },
-                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
-                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '🌴' },
-                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
-                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
-                    { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
+                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: 'ð¼' },
+                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: 'ð¯' },
+                    { name: 'New York', country: 'USA', tag: 'City', emoji: 'ð½' },
+                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: 'ðï¸' },
+                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: 'ðï¸' },
+                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: 'ð¨' },
+                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: 'ð´' },
+                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: 'ð¦' },
+                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: 'ðï¸' },
+                    { name: 'London', country: 'UK', tag: 'Culture', emoji: 'ð«' }
                 ];
                 this.loadTrips();
                 this.initializeEventListeners();
                 this.renderAllViews();
+            this.initDashboard();
+            window.app = this;
             }
 
             loadTrips() {
@@ -1753,29 +2010,27 @@
                 });
             }
 
-            switchTab(tabName) {
-                // Update navigation
-                document.querySelectorAll('.nav-item').forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.tab === tabName);
-                });
-
-                // Update content
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.getElementById(tabName + 'Tab').classList.add('active');
-
-                // Render relevant content
-                if (tabName === 'timeline') {
-                    this.renderTimeline();
-                    this.renderUpcomingTrips();
-                    this.renderPastTrips();
-                } else if (tabName === 'current') {
-                    this.renderCurrentTrip();
-                } else if (tabName === 'discover') {
-                    this.renderDiscover();
-                }
+        switchTab(tabName) {
+            if (tabName === 'add') {
+                this.openTripModal();
+                return;
             }
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tabName);
+            });
+            // Show/hide tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', discover: 'discoverTab', search: 'searchTab' };
+            const targetTab = document.getElementById(tabMap[tabName]);
+            if (targetTab) targetTab.classList.add('active');
+            // Refresh views
+            if (tabName === 'dashboard') this.initDashboard();
+            if (tabName === 'current') this.renderCurrentTrip();
+            if (tabName === 'discover') { this.renderDiscover(); this.renderEnhancedDiscover(); }
+        }
 
             openTripModal(tripId = null) {
                 this.currentEditingTrip = tripId ? this.trips.find(t => t.id === tripId) : null;
@@ -1794,12 +2049,12 @@
 
                 if (this.currentEditingTrip) {
                     // Edit mode
-                    document.getElementById('modalTitle').textContent = '✏️ Edit Trip';
+                    document.getElementById('modalTitle').textContent = 'âï¸ Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
                     this.populateTripForm(this.currentEditingTrip);
                 } else {
                     // Create mode - show templates
-                    document.getElementById('modalTitle').textContent = '➕ Add New Trip';
+                    document.getElementById('modalTitle').textContent = 'â Add New Trip';
                     this.renderTemplateSelection();
                 }
 
@@ -1809,11 +2064,11 @@
 
             renderTemplateSelection() {
                 const templates = [
-                    { id: 'weekend', name: 'Weekend Getaway', icon: '🏖️', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'business', name: 'Business Trip', icon: '💼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
-                    { id: 'beach', name: 'Beach Vacation', icon: '🌴', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
-                    { id: 'city', name: 'City Explorer', icon: '🏙️', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'adventure', name: 'Adventure Trip', icon: '⛰️', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
+                    { id: 'weekend', name: 'Weekend Getaway', icon: 'ðï¸', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'business', name: 'Business Trip', icon: 'ð¼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
+                    { id: 'beach', name: 'Beach Vacation', icon: 'ð´', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
+                    { id: 'city', name: 'City Explorer', icon: 'ðï¸', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'adventure', name: 'Adventure Trip', icon: 'â°ï¸', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
                 ];
 
                 const html = templates.map(t => `
@@ -1875,13 +2130,13 @@
 
             getCategoryEmoji(category) {
                 const emojis = {
-                    'Essentials': '📋',
-                    'Clothing': '👕',
-                    'Toiletries': '🧴',
-                    'Electronics': '📱',
-                    'Documents': '📄'
+                    'Essentials': 'ð',
+                    'Clothing': 'ð',
+                    'Toiletries': 'ð§´',
+                    'Electronics': 'ð±',
+                    'Documents': 'ð'
                 };
-                return emojis[category] || '📦';
+                return emojis[category] || 'ð¦';
             }
 
             populateTripForm(trip) {
@@ -1930,7 +2185,7 @@
                     <div class="flight-segment" data-segment-index="${segNum - 1}">
                         <div class="flight-segment-header">
                             <div class="segment-num">Flight ${segNum}</div>
-                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">✕</button>
+                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">â</button>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -1981,11 +2236,11 @@
                 const isBooking = url.includes('booking');
                 const isHotel = url.includes('hotels.com') || url.includes('hotel');
 
-                let icon = '🏨';
+                let icon = 'ð¨';
                 let name = 'Accommodation';
-                if (isAirbnb) { icon = '🏠'; name = 'Airbnb'; }
-                else if (isBooking) { icon = '🏨'; name = 'Booking.com'; }
-                else if (isHotel) { icon = '🏨'; name = 'Hotel'; }
+                if (isAirbnb) { icon = 'ð '; name = 'Airbnb'; }
+                else if (isBooking) { icon = 'ð¨'; name = 'Booking.com'; }
+                else if (isHotel) { icon = 'ð¨'; name = 'Hotel'; }
 
                 const display = document.getElementById('accommodationDisplay');
                 display.innerHTML = `
@@ -2011,23 +2266,23 @@
             addExpenseToList(expense) {
                 const list = document.getElementById('expensesList');
                 const categoryEmojis = {
-                    'flights': '✈️',
-                    'accommodation': '🏨',
-                    'food': '🍽️',
-                    'transport': '🚗',
-                    'activities': '🎭',
-                    'shopping': '🛍️',
-                    'other': '📝'
+                    'flights': 'âï¸',
+                    'accommodation': 'ð¨',
+                    'food': 'ð½ï¸',
+                    'transport': 'ð',
+                    'activities': 'ð­',
+                    'shopping': 'ðï¸',
+                    'other': 'ð'
                 };
 
                 const html = `
                     <div class="expense-item" data-expense-id="${expense.id || Date.now()}">
                         <div class="expense-details">
                             <div class="expense-description">${expense.description}</div>
-                            <div class="expense-category">${categoryEmojis[expense.category] || '📝'} ${expense.category}</div>
+                            <div class="expense-category">${categoryEmojis[expense.category] || 'ð'} ${expense.category}</div>
                         </div>
                         <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
-                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
+                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">â</button>
                     </div>
                 `;
                 list.insertAdjacentHTML('beforeend', html);
@@ -2161,7 +2416,7 @@
                 if (results.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">🔍</div>
+                            <div class="empty-state-icon">ð</div>
                             <div class="empty-state-title">No trips found</div>
                             <div class="empty-state-text">Try a different search term</div>
                         </div>
@@ -2179,7 +2434,7 @@
                 }
 
                 const shareText = upcoming.map(t =>
-                    `🌍 ${t.destination} (${t.startDate} to ${t.endDate})`
+                    `ð ${t.destination} (${t.startDate} to ${t.endDate})`
                 ).join('\n');
 
                 if (navigator.share) {
@@ -2271,7 +2526,7 @@
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">✈️</div>
+                            <div class="empty-state-icon">âï¸</div>
                             <div class="empty-state-title">No upcoming trips</div>
                             <div class="empty-state-text">Create your first trip to get started!</div>
                         </div>
@@ -2287,7 +2542,7 @@
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">🏁</div>
+                            <div class="empty-state-icon">ð</div>
                             <div class="empty-state-title">No past trips</div>
                             <div class="empty-state-text">Your completed trips will appear here</div>
                         </div>
@@ -2304,7 +2559,7 @@
                 if (!trip) {
                     container.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">🌍</div>
+                            <div class="empty-state-icon">ð</div>
                             <div class="empty-state-title">No active trip</div>
                             <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
                         </div>
@@ -2326,10 +2581,10 @@
                         <div class="trip-header">
                             <div style="flex: 1;">
                                 <div class="trip-destination">${trip.destination}</div>
-                                <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                                <div class="trip-dates">ð ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
                                 <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                             </div>
-                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;">✏️ Edit</button>
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;">âï¸ Edit</button>
                         </div>
 
                         ${trip.notes ? `<div class="trip-notes"><strong>Notes:</strong> ${trip.notes}</div>` : ''}
@@ -2338,14 +2593,14 @@
                 // Flights
                 if (trip.flights && trip.flights.length > 0) {
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">✈️ Flight Information</div>`;
+                        <div style="font-weight: 600; margin-bottom: 1rem;">âï¸ Flight Information</div>`;
                     trip.flights.forEach((flight, idx) => {
                         html += `
                             <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem;">
                                 <div style="font-weight: 600; margin-bottom: 0.5rem;">Flight ${idx + 1}</div>
                                 <div style="font-size: 0.875rem; color: var(--text-secondary);">
                                     ${flight.airline} ${flight.number}<br>
-                                    ${flight.depAirport} → ${flight.arrAirport}<br>
+                                    ${flight.depAirport} â ${flight.arrAirport}<br>
                                     ${flight.depTime ? `Departs: ${this.formatDateTime(flight.depTime)}<br>` : ''}
                                     ${flight.arrTime ? `Arrives: ${this.formatDateTime(flight.arrTime)}` : ''}
                                 </div>
@@ -2358,9 +2613,9 @@
                 // Accommodation
                 if (trip.accommodation) {
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">🏨 Accommodation</div>
+                        <div style="font-weight: 600; margin-bottom: 1rem;">ð¨ Accommodation</div>
                         <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
-                        <button class="action-btn" onclick="window.open('${trip.accommodation}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>
+                        <button class="action-btn" onclick="window.open('${trip.accommodation}', '_blank'); return false;" style="width: 100%; flex: none;">ð Open Link</button>
                     </div>`;
                 }
 
@@ -2373,17 +2628,17 @@
                     });
 
                     const categoryEmojis = {
-                        'flights': '✈️',
-                        'accommodation': '🏨',
-                        'food': '🍽️',
-                        'transport': '🚗',
-                        'activities': '🎭',
-                        'shopping': '🛍️',
-                        'other': '📝'
+                        'flights': 'âï¸',
+                        'accommodation': 'ð¨',
+                        'food': 'ð½ï¸',
+                        'transport': 'ð',
+                        'activities': 'ð­',
+                        'shopping': 'ðï¸',
+                        'other': 'ð'
                     };
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">💰 Budget Tracking</div>
+                        <div style="font-weight: 600; margin-bottom: 1rem;">ð° Budget Tracking</div>
                         <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                                 <div>
@@ -2455,7 +2710,7 @@
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <div style="font-weight: 600;">🎒 Packing List</div>
+                            <div style="font-weight: 600;">ð Packing List</div>
                             <div style="font-size: 0.875rem; color: var(--accent-green); font-weight: 600;">${packedItems} of ${totalItems} packed</div>
                         </div>`;
 
@@ -2465,7 +2720,7 @@
                         items.forEach(item => {
                             const itemName = typeof item === 'string' ? item : item.item;
                             const isChecked = typeof item === 'string' ? false : item.checked;
-                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">✓ ${itemName}</div>`;
+                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">â ${itemName}</div>`;
                         });
                         html += `</div>`;
                     }
@@ -2488,12 +2743,12 @@
                             <div class="trip-destination">${trip.destination}</div>
                             <div class="trip-color-indicator" style="background-color: ${color};"></div>
                         </div>
-                        <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                        <div class="trip-dates">ð ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
                         <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                         ${trip.notes ? `<div class="trip-notes">${trip.notes}</div>` : ''}
                         <div class="trip-actions">
-                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">✏️ Edit</button>
-                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">🗑️ Delete</button>
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">âï¸ Edit</button>
+                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">ðï¸ Delete</button>
                         </div>
                     </div>
                 `;
@@ -2516,7 +2771,7 @@
                         <div>
                             <span class="destination-tag">${dest.tag}</span>
                         </div>
-                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;">✈️ Plan Trip</button>
+                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;">âï¸ Plan Trip</button>
                     </div>
                 `).join('');
                 document.getElementById('destinationsGrid').innerHTML = html;
@@ -2529,16 +2784,16 @@
 
             renderTopLists() {
                 const restaurants = [
-                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
-                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
+                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: 'â­â­â­â­â­' },
+                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: 'â­â­â­â­' },
+                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: 'â­â­â­â­' },
+                    { name: 'Beachfront CafÃ©', cuisine: 'Seafood', price: '$$', rating: 'â­â­â­â­' },
+                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: 'â­â­â­â­' },
+                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: 'â­â­â­â­â­' },
+                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: 'â­â­â­â­' },
+                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: 'â­â­â­' },
+                    { name: 'Vegetarian CafÃ©', cuisine: 'Vegan', price: '$$', rating: 'â­â­â­â­' },
+                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: 'â­â­â­â­â­' }
                 ];
 
                 const attractions = [
@@ -2569,7 +2824,7 @@
 
                 const listsHTML = `
                     <div class="top-list">
-                        <div class="top-list-title">🍽️ Top 10 Restaurants</div>
+                        <div class="top-list-title">ð½ï¸ Top 10 Restaurants</div>
                         <div class="top-list-items">
                             ${restaurants.map((r, i) => `
                                 <div class="list-item">
@@ -2588,7 +2843,7 @@
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">🎭 Top 10 Attractions</div>
+                        <div class="top-list-title">ð­ Top 10 Attractions</div>
                         <div class="top-list-items">
                             ${attractions.map((a, i) => `
                                 <div class="list-item">
@@ -2603,7 +2858,7 @@
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">✨ Top 10 Experiences</div>
+                        <div class="top-list-title">â¨ Top 10 Experiences</div>
                         <div class="top-list-items">
                             ${experiences.map((e, i) => `
                                 <div class="list-item">
@@ -2621,13 +2876,13 @@
                 document.getElementById('topListsContainer').innerHTML = listsHTML;
             }
 
-            renderAllViews() {
-                this.renderTimeline();
-                this.renderUpcomingTrips();
-                this.renderPastTrips();
-                this.renderCurrentTrip();
-                this.renderDiscover();
-            }
+        renderAllViews() {
+            this.renderUpcomingTrips();
+            this.renderPastTrips();
+            this.renderCurrentTrip();
+            this.renderDiscover();
+            this.renderEnhancedDiscover();
+        }
 
             formatDate(dateStr) {
                 const date = new Date(dateStr);
@@ -2646,12 +2901,12 @@
                 const start = new Date(startDate);
                 const diff = Math.floor((start - today) / (1000 * 60 * 60 * 24));
 
-                if (diff < 0) return '✓ Ongoing';
-                if (diff === 0) return '🔴 Today!';
-                if (diff === 1) return '🟡 Tomorrow!';
-                if (diff < 7) return `⏰ In ${diff} days`;
-                if (diff < 30) return `⏰ In ${Math.floor(diff / 7)} weeks`;
-                return `⏰ In ${Math.floor(diff / 30)} months`;
+                if (diff < 0) return 'â Ongoing';
+                if (diff === 0) return 'ð´ Today!';
+                if (diff === 1) return 'ð¡ Tomorrow!';
+                if (diff < 7) return `â° In ${diff} days`;
+                if (diff < 30) return `â° In ${Math.floor(diff / 7)} weeks`;
+                return `â° In ${Math.floor(diff / 30)} months`;
             }
 
             showToast(message, type = 'success') {
@@ -2732,6 +2987,576 @@
             ];
 
             sampleTrips.forEach(trip => app.addTrip(trip));
+
+    // ========== DASHBOARD (v3.0) ==========
+    initDashboard() {
+        this.updateDashboardStats();
+        this.updateActionItems();
+        this.updateNextFlightCountdown();
+        this.updateCurrentTripHero();
+        this.updateUpcomingTripsTimeline();
+        this.updateExpenseOverview();
+        this.updateRecentActivity();
+        this.startCountdownTimer();
+    }
+
+    updateDashboardStats() {
+        const now = new Date();
+        const currentMonth = now.getMonth();
+        const currentYear = now.getFullYear();
+        let tripsThisMonth = 0, nightsAway = 0, totalSpent = 0;
+        const countries = new Set();
+        this.trips.forEach(trip => {
+            const s = new Date(trip.startDate), e = new Date(trip.endDate);
+            if (s.getMonth() === currentMonth && s.getFullYear() === currentYear) tripsThisMonth++;
+            nightsAway += Math.max(0, Math.ceil((e - s) / 864e5));
+            if (trip.country) countries.add(trip.country);
+            if (trip.expenses) trip.expenses.forEach(ex => totalSpent += (ex.amount || 0));
+        });
+        const el = (id, v) => { const e = document.getElementById(id); if(e) e.textContent = v; };
+        el('statTrips', tripsThisMonth);
+        el('statNights', nightsAway);
+        el('statCountries', countries.size);
+        el('statSpent', '$' + Math.round(totalSpent).toLocaleString());
+    }
+
+    updateActionItems() {
+        const items = [], now = new Date();
+        this.trips.forEach(trip => {
+            const start = new Date(trip.startDate);
+            const days = Math.ceil((start - now) / 864e5);
+            if (days < 0 || days > 30) return;
+            if (trip.flights) trip.flights.forEach(f => {
+                if (!f.confirmed && days <= 14) items.push({ title: 'Confirm flight: ' + (f.airline || f.departure || 'Flight'), trip: trip.destination, urgent: days < 3, warning: days < 7, id: trip.id });
+            });
+            if (trip.packingList) {
+                const unpacked = trip.packingList.filter(p => !p.packed).length;
+                if (unpacked > 0 && days <= 5) items.push({ title: 'Pack ' + unpacked + ' items', trip: trip.destination, urgent: days < 2, warning: days < 4, id: trip.id });
+            }
+            if (!trip.accommodation && days <= 10) items.push({ title: 'Book accommodation', trip: trip.destination, urgent: days < 5, warning: true, id: trip.id });
+            // Debrief check for past trips
+            const end = new Date(trip.endDate);
+            if (end < now && !trip.debriefCompleted) items.push({ title: 'Complete trip debrief', trip: trip.destination, urgent: false, warning: true, id: trip.id, debrief: true });
+        });
+        const section = document.getElementById('actionItemsSection');
+        const grid = document.getElementById('actionItemsGrid');
+        if (!section || !grid) return;
+        if (items.length === 0) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        grid.innerHTML = items.map(it => `<div class="action-item ${it.urgent ? 'urgent' : it.warning ? 'warning' : ''}">
+            <div class="action-item-content"><div class="action-item-title">${it.title}</div><div class="action-item-trip">${it.trip}</div></div>
+            <button class="action-item-btn" onclick="app.${it.debrief ? 'openDebriefModal' : 'openTripDetails'}('${it.id}')">${it.debrief ? 'Debrief' : 'View'}</button>
+        </div>`).join('');
+    }
+
+    getNextFlight() {
+        const now = new Date(); let best = null, minDiff = Infinity;
+        this.trips.forEach(trip => {
+            if (!trip.flights) return;
+            trip.flights.forEach(f => {
+                const d = new Date(f.departureDate || f.date || trip.startDate);
+                const diff = d - now;
+                if (diff > 0 && diff < minDiff) { minDiff = diff; best = { ...f, tripId: trip.id, tripDest: trip.destination, departDate: d }; }
+            });
+        });
+        return best;
+    }
+
+    updateNextFlightCountdown() {
+        const flight = this.getNextFlight();
+        const section = document.getElementById('nextFlightSection');
+        const container = document.getElementById('nextFlightContainer');
+        if (!section || !container) return;
+        if (!flight) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        const status = flight.status || 'on-time';
+        const statusText = status === 'on-time' ? '\u2713 On Time' : status === 'delayed' ? '\u23F1 Delayed' : '\u2717 Cancelled';
+        const statusClass = status;
+        container.innerHTML = `
+            <div class="flight-countdown-card">
+                <div><div class="countdown-timer" id="countdownTimer">--</div><div class="countdown-label">Until Departure</div></div>
+                <div><div class="flight-route">${(flight.departure || flight.from || '???').toUpperCase()} \u2192 ${(flight.arrival || flight.to || flight.tripDest || '???').toUpperCase()}</div>
+                <div class="flight-meta">Airline: ${flight.airline || 'N/A'}<br>Confirmation: ${flight.confirmation || flight.confirmationCode || 'N/A'}<br>Date: ${flight.departDate.toLocaleDateString()}</div></div>
+            </div>
+            <div class="flight-status-card">
+                <div class="status-row"><span class="status-label">Status</span><span class="status-badge ${statusClass}">${statusText}</span></div>
+                <div class="status-row"><span class="status-label">Gate</span><span>${flight.gate || 'TBA'}</span></div>
+                <div class="status-row"><span class="status-label">Terminal</span><span>${flight.terminal || 'TBA'}</span></div>
+                <div class="status-row"><span class="status-label">Time</span><span>${flight.departDate.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</span></div>
+                <button class="status-update-btn" onclick="app.openFlightStatusModal()">Update Status</button>
+            </div>`;
+        this._updateCountdownDisplay();
+    }
+
+    _updateCountdownDisplay() {
+        const flight = this.getNextFlight();
+        if (!flight) return;
+        const diff = flight.departDate - new Date();
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 864e5), h = Math.floor((diff % 864e5) / 36e5), m = Math.floor((diff % 36e5) / 6e4);
+        const el = document.getElementById('countdownTimer');
+        if (el) el.textContent = d > 0 ? d + 'd ' + h + 'h' : h > 0 ? h + 'h ' + m + 'm' : m + 'm';
+    }
+
+    startCountdownTimer() {
+        setInterval(() => this._updateCountdownDisplay(), 60000);
+    }
+
+    updateCurrentTripHero() {
+        const now = new Date();
+        const current = this.trips.find(t => new Date(t.startDate) <= now && now <= new Date(t.endDate));
+        const section = document.getElementById('currentTripHeroSection');
+        const hero = document.getElementById('currentTripHero');
+        if (!section || !hero) return;
+        if (!current) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        const s = new Date(current.startDate), e = new Date(current.endDate);
+        const dayNum = Math.ceil((now - s) / 864e5) + 1;
+        const totalDays = Math.ceil((e - s) / 864e5);
+        const flightsHTML = current.flights && current.flights.length > 0
+            ? current.flights.map(f => '<div class="itinerary-item">\u2708\uFE0F ' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||current.destination||'').toUpperCase() + '</div>').join('')
+            : '<div class="itinerary-item">No flights scheduled</div>';
+        hero.innerHTML = `<div class="current-trip-hero">
+            <div class="current-trip-info">
+                <div class="current-trip-destination">${current.destination} \u{1F30D}</div>
+                <div class="current-trip-meta"><strong>Day ${dayNum} of ${totalDays}</strong><br>${s.toLocaleDateString()} - ${e.toLocaleDateString()}<br>
+                ${current.country || ''} | ${current.type === 'business' ? '\u{1F4BC} Business' : '\u{1F334} Personal'}</div>
+            </div>
+            <div><div class="current-trip-itinerary"><div class="itinerary-title">Today's Itinerary</div>${flightsHTML}
+            <div class="weather-widget">\u2600\uFE0F 24\u00B0C | \u{1F553} ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+            </div></div></div>`;
+    }
+
+    updateUpcomingTripsTimeline() {
+        const now = new Date();
+        const upcoming = this.trips.filter(t => new Date(t.startDate) > now).sort((a,b) => new Date(a.startDate) - new Date(b.startDate)).slice(0, 5);
+        const section = document.getElementById('upcomingTripsSection');
+        const timeline = document.getElementById('upcomingTripsTimeline');
+        if (!section || !timeline) return;
+        if (upcoming.length === 0) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        timeline.innerHTML = upcoming.map(trip => {
+            const days = Math.ceil((new Date(trip.startDate) - now) / 864e5);
+            const label = days === 0 ? 'Today!' : days === 1 ? 'Tomorrow' : days + ' days';
+            return `<div class="timeline-trip-card" onclick="app.openTripDetails('${trip.id}')">
+                <div class="timeline-trip-destination">${trip.destination}</div>
+                <div class="timeline-trip-date">${new Date(trip.startDate).toLocaleDateString([], {month:'short',day:'numeric'})}</div>
+                <div class="timeline-trip-countdown">${label}</div>
+            </div>`;
+        }).join('');
+    }
+
+    updateExpenseOverview() {
+        const section = document.getElementById('expenseTrackerSection');
+        const container = document.getElementById('expenseTrackerContainer');
+        if (!section || !container) return;
+        // Show expenses from most recent/current trip
+        const now = new Date();
+        const trip = this.trips.find(t => new Date(t.startDate) <= now && now <= new Date(t.endDate))
+            || this.trips.filter(t => t.expenses && t.expenses.length > 0).sort((a,b) => new Date(b.startDate) - new Date(a.startDate))[0];
+        if (!trip || !trip.expenses || trip.expenses.length === 0) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        const cats = { '\u{1F354} Food': 0, '\u{1F697} Transport': 0, '\u{1F3E8} Lodging': 0, '\u{1F3AD} Entertainment': 0, '\u{1F4E6} Other': 0 };
+        trip.expenses.forEach(ex => {
+            const c = ex.category || 'Other';
+            const key = Object.keys(cats).find(k => k.toLowerCase().includes(c.toLowerCase())) || '\u{1F4E6} Other';
+            cats[key] += (ex.amount || 0);
+        });
+        const total = Object.values(cats).reduce((s,v) => s+v, 0);
+        const budget = trip.budget || total * 1.2;
+        const pct = budget > 0 ? Math.min(100, Math.round((total / budget) * 100)) : 0;
+        // Draw burn-down on canvas
+        const canvas = document.getElementById('burnDownCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth * 2; canvas.height = 360;
+            ctx.scale(2, 2);
+            const w = canvas.offsetWidth, h = 180;
+            ctx.clearRect(0, 0, w, h);
+            // Budget line
+            ctx.strokeStyle = '#3a4452'; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
+            ctx.beginPath(); ctx.moveTo(10, 10); ctx.lineTo(w-10, h-10); ctx.stroke();
+            // Spend line
+            ctx.setLineDash([]); ctx.strokeStyle = '#4a90e2'; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(10, h-10);
+            const pts = trip.expenses.sort((a,b) => new Date(a.date||0) - new Date(b.date||0));
+            let cumul = 0;
+            pts.forEach((ex, i) => {
+                cumul += (ex.amount || 0);
+                const x = 10 + ((i+1) / pts.length) * (w - 20);
+                const y = h - 10 - (cumul / budget) * (h - 20);
+                ctx.lineTo(x, Math.max(10, y));
+            });
+            ctx.stroke();
+            // Labels
+            ctx.fillStyle = '#cbd5e1'; ctx.font = '11px Inter, sans-serif';
+            ctx.fillText('$' + Math.round(total) + ' / $' + Math.round(budget) + ' (' + pct + '%)', 10, h - 2);
+        }
+        // Categories list
+        const catsList = document.getElementById('expenseCategoriesList');
+        if (catsList) {
+            catsList.innerHTML = Object.entries(cats).filter(([,v]) => v > 0).map(([cat, amt]) => {
+                const p = budget > 0 ? Math.round((amt / budget) * 100) : 0;
+                return `<div class="expense-category-item"><div><div class="category-label">${cat}</div><div class="category-bar"><div class="category-bar-fill" style="width:${p}%"></div></div></div><div class="category-amount">$${Math.round(amt)}</div></div>`;
+            }).join('');
+        }
+    }
+
+    updateRecentActivity() {
+        const section = document.getElementById('recentActivitySection');
+        const feed = document.getElementById('activityFeed');
+        if (!section || !feed) return;
+        // Build activity from trip data
+        const activities = [];
+        this.trips.forEach(trip => {
+            activities.push({ trip: trip.destination, action: 'Trip created', time: trip.createdAt || trip.startDate });
+            if (trip.debriefCompleted) activities.push({ trip: trip.destination, action: 'Debrief completed', time: trip.endDate });
+        });
+        activities.sort((a,b) => new Date(b.time) - new Date(a.time));
+        const recent = activities.slice(0, 5);
+        if (recent.length === 0) { section.style.display = 'none'; return; }
+        section.style.display = 'block';
+        feed.innerHTML = recent.map(a => {
+            const ago = this._timeAgo(a.time);
+            return `<div class="activity-item"><div><div class="activity-trip">${a.trip}</div><div class="activity-action">${a.action}</div><div class="activity-time">${ago}</div></div></div>`;
+        }).join('');
+    }
+
+    _timeAgo(date) {
+        const diff = Date.now() - new Date(date).getTime();
+        const d = Math.floor(diff / 864e5);
+        if (d > 30) return Math.floor(d/30) + ' months ago';
+        if (d > 0) return d + 'd ago';
+        const h = Math.floor(diff / 36e5);
+        if (h > 0) return h + 'h ago';
+        return 'Just now';
+    }
+
+    // ========== FLIGHT STATUS ==========
+    openFlightStatusModal() {
+        const flight = this.getNextFlight();
+        if (!flight) return;
+        this._statusFlight = flight;
+        const modal = document.getElementById('statusUpdateModal');
+        if (!modal) return;
+        const info = document.getElementById('statusFlightInfo');
+        if (info) info.textContent = (flight.departure||flight.from||'').toUpperCase() + ' \u2192 ' + (flight.arrival||flight.to||flight.tripDest||'').toUpperCase() + ' on ' + flight.departDate.toLocaleDateString();
+        const sel = document.getElementById('statusSelect'); if (sel) sel.value = flight.status || 'on-time';
+        const gate = document.getElementById('gateInput'); if (gate) gate.value = flight.gate || '';
+        const notes = document.getElementById('statusNotesInput'); if (notes) notes.value = flight.statusNotes || '';
+        modal.style.display = 'block';
+    }
+
+    saveFlightStatus() {
+        if (!this._statusFlight) return;
+        const trip = this.trips.find(t => t.id === this._statusFlight.tripId);
+        if (!trip || !trip.flights) return;
+        const idx = trip.flights.findIndex(f => (f.departure||f.from) === (this._statusFlight.departure||this._statusFlight.from));
+        if (idx === -1) return;
+        trip.flights[idx].status = document.getElementById('statusSelect')?.value || 'on-time';
+        trip.flights[idx].gate = document.getElementById('gateInput')?.value || '';
+        trip.flights[idx].terminal = trip.flights[idx].gate?.split(/[,\s]/)[0] || '';
+        trip.flights[idx].statusNotes = document.getElementById('statusNotesInput')?.value || '';
+        this.saveTrips();
+        this.updateNextFlightCountdown();
+        document.getElementById('statusUpdateModal').style.display = 'none';
+        this.showToast('Flight status updated');
+    }
+
+    // ========== TASK GENERATION (TaskFlo Integration) ==========
+    generateTasksForTrip(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        this._taskTrip = trip;
+        const modal = document.getElementById('taskGeneratorModal');
+        if (!modal) return;
+        const sel = document.getElementById('tripTypeSelect');
+        if (sel) sel.value = trip.type || 'personal';
+        this.refreshGeneratedTasks();
+        modal.style.display = 'block';
+    }
+
+    refreshGeneratedTasks() {
+        const trip = this._taskTrip;
+        if (!trip) return;
+        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
+        const tasks = this._buildChecklist(trip, type);
+        const list = document.getElementById('generatedTasksList');
+        if (list) list.innerHTML = tasks.map(t => '<div style="padding:8px;background:var(--bg-secondary,#1a1f2e);border-radius:6px;margin-bottom:6px;font-size:12px;color:var(--text-primary,#e2e8f0);">\u2713 ' + t + '</div>').join('');
+    }
+
+    _buildChecklist(trip, type) {
+        const base = ['Check passport expiration', 'Purchase travel insurance', 'Notify bank of travel dates', 'Download offline maps for ' + trip.destination, 'Confirm accommodation booking', 'Arrange airport transportation', 'Set out-of-office replies', 'Check weather forecast'];
+        if (type === 'business') {
+            base.push('Prepare presentation materials', 'Print business cards', 'Schedule client meetings', 'Book conference rooms', 'Prepare expense report template', 'Pack business attire');
+        } else {
+            base.push('Research local attractions', 'Book tours/activities', 'Learn basic local phrases', 'Download entertainment for travel', 'Pack camera/accessories');
+        }
+        const duration = Math.ceil((new Date(trip.endDate) - new Date(trip.startDate)) / 864e5);
+        if (duration > 7) base.push('Arrange mail hold', 'Set up pet/plant care');
+        return base;
+    }
+
+    exportTasksToTaskFlo() {
+        const trip = this._taskTrip;
+        if (!trip) return;
+        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
+        const tasks = this._buildChecklist(trip, type);
+        const payload = { project: trip.destination + ' Trip Prep', source: 'TravelFlo', tasks: tasks.map(t => ({ name: t, dueDate: trip.startDate, category: 'travel-prep' })) };
+        navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
+            this.showToast('Tasks copied! Paste into TaskFlo');
+            document.getElementById('taskGeneratorModal').style.display = 'none';
+        }).catch(() => this.showToast('Copy failed - check clipboard permissions'));
+    }
+
+    // ========== TRIP DEBRIEF ==========
+    openDebriefModal(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        this._debriefTrip = trip;
+        const modal = document.getElementById('debriefModal');
+        if (!modal) return;
+        const name = document.getElementById('debriefTripName');
+        if (name) name.textContent = trip.destination + ' (' + new Date(trip.startDate).toLocaleDateString() + ' - ' + new Date(trip.endDate).toLocaleDateString() + ')';
+        const notes = document.getElementById('debriefNotesInput');
+        if (notes) notes.value = trip.debriefNotes || '';
+        modal.style.display = 'block';
+    }
+
+    saveDebrief() {
+        const trip = this._debriefTrip;
+        if (!trip) return;
+        trip.debriefNotes = document.getElementById('debriefNotesInput')?.value || '';
+        trip.debriefCompleted = true;
+        if (document.getElementById('generateFollowupCheckbox')?.checked) {
+            const lines = trip.debriefNotes.split('\n');
+            trip.followupTasks = lines.filter(l => l.trim().match(/^[-\u2022*]/)).map(l => l.replace(/^[-\u2022*]\s*/, '').trim()).filter(t => t.length > 0);
+        }
+        this.saveTrips();
+        this.initDashboard();
+        document.getElementById('debriefModal').style.display = 'none';
+        this.showToast('Debrief saved' + (trip.followupTasks?.length ? ' with ' + trip.followupTasks.length + ' follow-up tasks' : ''));
+    }
+
+    // ========== SMART PACKING LIST ==========
+    generateSmartPackingList(trip) {
+        const duration = Math.ceil((new Date(trip.endDate) - new Date(trip.startDate)) / 864e5);
+        const sets = duration > 5 ? '7-10' : '3-5';
+        const items = {
+            '\u{1F4C4} Documents': ['Passport', 'Travel insurance docs', 'Flight tickets', 'Hotel confirmations', 'ID / Driver license'],
+            '\u{1F454} Clothing': ['Underwear (' + sets + ')', 'Socks (' + sets + ')', 'T-shirts/Tops', 'Pants/Shorts', 'Sleepwear', 'Light jacket', 'Comfortable shoes', 'Dress shoes'],
+            '\u{1F9F4} Toiletries': ['Toothbrush & toothpaste', 'Deodorant', 'Shampoo', 'Sunscreen', 'Skincare', 'Medications'],
+            '\u{1F50C} Electronics': ['Phone charger', 'Power bank', 'Headphones', 'Travel adapter', 'Laptop + charger'],
+            '\u{1F4E6} Misc': ['Wallet', 'Keys', 'Sunglasses', 'Travel pillow', 'Water bottle', 'Snacks']
+        };
+        if (trip.type === 'business') items['\u{1F4BC} Business'] = ['Laptop', 'Business cards', 'Notebook & pens', 'Presentation clicker', 'Professional attire'];
+        if (duration > 7) items['\u{1F4E6} Misc'].push('Laundry bag', 'Extra toiletries');
+        return items;
+    }
+
+    renderSmartPackingList(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        const container = document.getElementById('smartPackingList');
+        if (!container) return;
+        if (!trip.packingList) trip.packingList = [];
+        const categories = this.generateSmartPackingList(trip);
+        container.innerHTML = Object.entries(categories).map(([cat, items]) => `
+            <div class="packing-category"><div class="packing-category-title">${cat}</div><div class="packing-items">
+            ${items.map(item => {
+                const packed = trip.packingList.some(p => p.name === item && p.packed);
+                return '<label class="packing-item ' + (packed ? 'packed' : '') + '"><input type="checkbox" ' + (packed ? 'checked' : '') + ' onchange="app.togglePackingItem(\'' + tripId + '\',\'' + item.replace(/'/g,"\\'") + '\')"><span>' + item + '</span></label>';
+            }).join('')}
+            </div></div>`).join('');
+    }
+
+    togglePackingItem(tripId, itemName) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        if (!trip.packingList) trip.packingList = [];
+        const existing = trip.packingList.find(p => p.name === itemName);
+        if (existing) { existing.packed = !existing.packed; }
+        else { trip.packingList.push({ name: itemName, packed: true }); }
+        this.saveTrips();
+    }
+
+    // ========== DISCOVER TAB - DESTINATION INTEL ==========
+    renderEnhancedDiscover() {
+        const grid = document.getElementById('destinationsGrid');
+        if (!grid) return;
+        const dests = this.getDestinationIntel();
+        grid.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">' +
+            dests.map(d => {
+                const visited = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase())).length;
+                const tips = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase()) && t.notes).map(t => t.notes).slice(0, 1);
+                return `<div class="destination-card-enhanced" onclick="app.createTripFromDestination({name:'\'${d.name.split(',')[0]}\'', country:'\'${d.country}\''})"  >
+                    <div class="destination-header"><div class="destination-name">${d.emoji} ${d.name}</div><div class="destination-weather">${d.weather}</div></div>
+                    <div class="destination-meta-grid">
+                        <div class="destination-meta-item"><div class="destination-meta-label">Local Time</div><div class="destination-meta-value">${d.localTime}</div></div>
+                        <div class="destination-meta-item"><div class="destination-meta-label">Currency</div><div class="destination-meta-value">${d.currency}</div></div>
+                    </div>
+                    <div class="destination-tips"><div style="font-weight:600;margin-bottom:4px;">\u{1F4A1} Tips</div>${d.tips}
+                    ${visited > 0 ? '<div style="margin-top:6px;font-size:11px;color:#00d9a3;">\u2713 Visited ' + visited + ' time' + (visited>1?'s':'') + '</div>' : ''}
+                    ${tips.length > 0 ? '<div style="margin-top:4px;font-size:11px;color:#ffa500;">Your note: ' + tips[0].substring(0,60) + '...</div>' : ''}
+                    </div>
+                </div>`;
+            }).join('') + '</div>';
+    }
+
+    getDestinationIntel() {
+        return [
+            { name: 'Tokyo, Japan', country: 'Japan', emoji: '\u{1F5FC}', weather: '\u{1F338}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'}), currency: '\u00A5 JPY', tips: 'Cherry blossoms in spring. Get a rail pass for bullet trains.' },
+            { name: 'Paris, France', country: 'France', emoji: '\u{1F5FC}', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Museum pass saves money. Visit Montmartre for views.' },
+            { name: 'Bali, Indonesia', country: 'Indonesia', emoji: '\u{1F3DD}\uFE0F', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Makassar',hour:'2-digit',minute:'2-digit'}), currency: '\u20A8 IDR', tips: 'Dry season May-Sep. Ubud for culture, Seminyak for beaches.' },
+            { name: 'New York, USA', country: 'USA', emoji: '\u{1F5FD}', weather: '\u{2744}\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'America/New_York',hour:'2-digit',minute:'2-digit'}), currency: '$ USD', tips: 'Get a MetroCard. Times Square is overrated - try the High Line.' },
+            { name: 'Barcelona, Spain', country: 'Spain', emoji: '\u{1F3D6}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Book Sagrada Familia in advance. La Boqueria for food.' },
+            { name: 'Bangkok, Thailand', country: 'Thailand', emoji: '\u{1F6D5}', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Bangkok',hour:'2-digit',minute:'2-digit'}), currency: '\u0E3F THB', tips: 'Street food is incredible. Take water taxis to avoid traffic.' },
+            { name: 'Dubai, UAE', country: 'UAE', emoji: '\u{1F3D9}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit'}), currency: 'AED', tips: 'Desert safari is a must. Dubai Mall has an aquarium.' },
+            { name: 'Sydney, Australia', country: 'Australia', emoji: '\u{1F3C4}', weather: '\u{1F30A}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit'}), currency: 'A$ AUD', tips: 'Bondi to Coogee walk is free. Manly Ferry for harbor views.' }
+        ];
+    }
+
+    // ========== ANALYTICS & ROI ==========
+    openAnalytics() {
+        const modal = document.getElementById('analyticsModal');
+        const grid = document.getElementById('analyticsGrid');
+        if (!modal || !grid) return;
+        const stats = this.calculateAnalytics();
+        grid.innerHTML = Object.entries(stats).map(([title, data]) => `
+            <div class="analytics-card"><div class="analytics-card-title">${title}</div>
+            <div class="analytics-list">${data.map(item => '<div class="analytics-item"><span class="analytics-item-label">' + item.label + '</span><span class="analytics-item-value">' + item.value + '</span></div>').join('')}</div>
+            </div>`).join('');
+        modal.style.display = 'block';
+    }
+
+    calculateAnalytics() {
+        const cities = new Map(), monthNights = new Map(), catSpend = {}, roiData = [];
+        let totalTrips = 0, totalNights = 0;
+        this.trips.forEach(trip => {
+            totalTrips++;
+            const s = new Date(trip.startDate), e = new Date(trip.endDate);
+            const nights = Math.ceil((e - s) / 864e5);
+            totalNights += nights;
+            cities.set(trip.destination, (cities.get(trip.destination) || 0) + 1);
+            const mk = s.getFullYear() + '-' + String(s.getMonth()+1).padStart(2,'0');
+            monthNights.set(mk, (monthNights.get(mk) || 0) + nights);
+            if (trip.expenses) trip.expenses.forEach(ex => { const c = ex.category || 'Other'; catSpend[c] = (catSpend[c] || 0) + (ex.amount || 0); });
+            // ROI: count follow-up tasks generated
+            const taskCount = (trip.followupTasks?.length || 0) + (trip.type === 'business' ? 1 : 0);
+            if (trip.type === 'business' || taskCount > 0) roiData.push({ dest: trip.destination, type: trip.type || 'personal', tasks: taskCount });
+        });
+        const result = {
+            '\u{1F3D9}\uFE0F Top Destinations': Array.from(cities.entries()).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,n])=>({label:c,value:n+' trip'+(n>1?'s':'')})),
+            '\u{1F319} Nights by Month': Array.from(monthNights.entries()).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,6).map(([m,n])=>({label:m,value:n+' nights'})),
+            '\u{1F4B3} Spending by Category': Object.entries(catSpend).sort((a,b)=>b[1]-a[1]).map(([c,a])=>({label:c,value:'$'+Math.round(a)})),
+            '\u{1F4CA} Summary': [
+                { label: 'Total Trips', value: totalTrips },
+                { label: 'Total Nights', value: totalNights },
+                { label: 'Avg Trip Length', value: Math.round(totalNights / (totalTrips || 1)) + ' days' },
+                { label: 'Countries', value: new Set(this.trips.map(t=>t.country).filter(Boolean)).size }
+            ]
+        };
+        if (roiData.length > 0) {
+            result['\u{1F4C8} Travel ROI'] = [
+                { label: 'Business Trips', value: roiData.filter(r=>r.type==='business').length },
+                { label: 'Personal Trips', value: roiData.filter(r=>r.type==='personal').length },
+                { label: 'Follow-up Tasks Generated', value: roiData.reduce((s,r)=>s+r.tasks,0) },
+                ...roiData.slice(0,3).map(r=>({ label: r.dest, value: '<span class="roi-tag ' + r.type + '">' + r.type + '</span> ' + r.tasks + ' tasks' }))
+            ];
+        }
+        return result;
+    }
+
+    // ========== TRIP SHAREBOARD ==========
+    openShareboard(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        const modal = document.getElementById('shareboardModal');
+        const content = document.getElementById('shareboardContent');
+        if (!modal || !content) return;
+        const s = new Date(trip.startDate), e = new Date(trip.endDate);
+        const duration = Math.ceil((e - s) / 864e5);
+        let html = '<div class="shareboard-title">' + trip.destination + '</div>';
+        html += '<div class="shareboard-subtitle">' + s.toLocaleDateString() + ' \u2013 ' + e.toLocaleDateString() + ' (' + duration + ' days) | ' + (trip.country || '') + '</div>';
+        // Flights
+        html += '<div class="shareboard-section"><div class="shareboard-section-title">\u2708\uFE0F Flights</div>';
+        if (trip.flights?.length > 0) {
+            trip.flights.forEach(f => { html += '<div class="shareboard-item">' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||'').toUpperCase() + ' | ' + (f.airline||'') + ' | Conf: ' + (f.confirmation||f.confirmationCode||'N/A') + '</div>'; });
+        } else { html += '<div class="shareboard-item">No flights booked</div>'; }
+        html += '</div>';
+        // Accommodation
+        if (trip.accommodation) {
+            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F3E8} Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
+        }
+        // Budget
+        if (trip.budget || (trip.expenses?.length > 0)) {
+            const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
+            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F4B0} Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
+        }
+        // Packing
+        if (trip.packingList?.length > 0) {
+            const packed = trip.packingList.filter(p=>p.packed).length;
+            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F9F3} Packing</div><div class="shareboard-item">' + packed + '/' + trip.packingList.length + ' items packed</div></div>';
+        }
+        // Notes
+        if (trip.notes) html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F4DD} Notes</div><div class="shareboard-item">' + trip.notes + '</div></div>';
+        content.innerHTML = html;
+        modal.style.display = 'block';
+    }
+
+    copyShareboardToClipboard() {
+        const el = document.getElementById('shareboardContent');
+        if (!el) return;
+        navigator.clipboard.writeText(el.innerText).then(() => this.showToast('Trip details copied to clipboard'));
+    }
+
+    // ========== TRIP DETAILS (Enhanced) ==========
+    openTripDetails(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        this.currentTripDetail = trip;
+        const modal = document.getElementById('tripDetailsModal');
+        if (!modal) return;
+        const title = document.getElementById('tripDetailTitle');
+        if (title) title.textContent = trip.destination + ' \u{2708}\uFE0F';
+        // Info
+        const info = document.getElementById('tripDetailInfo');
+        if (info) {
+            const s = new Date(trip.startDate), e = new Date(trip.endDate);
+            const duration = Math.ceil((e - s) / 864e5);
+            info.innerHTML = '<div style="line-height:1.8;font-size:13px;"><strong>Dates:</strong> ' + s.toLocaleDateString() + ' - ' + e.toLocaleDateString() + ' (' + duration + ' days)<br><strong>Country:</strong> ' + (trip.country||'N/A') + '<br><strong>Type:</strong> <span class="roi-tag ' + (trip.type||'personal') + '">' + (trip.type||'personal') + '</span><br><strong>Budget:</strong> $' + (trip.budget||0) + (trip.notes ? '<br><strong>Notes:</strong> ' + trip.notes : '') + '</div>';
+        }
+        // Flights
+        const flights = document.getElementById('tripDetailFlights');
+        if (flights) {
+            if (trip.flights?.length > 0) {
+                flights.innerHTML = trip.flights.map(f => {
+                    const st = f.status || 'on-time';
+                    const badge = '<span class="status-badge ' + st + '">' + (st === 'on-time' ? '\u2713 On Time' : st === 'delayed' ? '\u23F1 Delayed' : '\u2717 Cancelled') + '</span>';
+                    return '<div style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:8px;margin-bottom:8px;font-size:13px;">' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||'').toUpperCase() + ' | ' + (f.airline||'') + ' ' + badge + (f.gate ? '<br>Gate: ' + f.gate : '') + '</div>';
+                }).join('');
+            } else { flights.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;">No flights added</div>'; }
+        }
+        // Expenses
+        const expenses = document.getElementById('tripDetailExpenses');
+        if (expenses) {
+            if (trip.expenses?.length > 0) {
+                const total = trip.expenses.reduce((s,ex) => s+(ex.amount||0), 0);
+                expenses.innerHTML = '<div style="margin-bottom:8px;font-weight:600;">Total: $' + Math.round(total) + ' / $' + (trip.budget||0) + '</div>' + trip.expenses.map(ex => '<div style="padding:6px;font-size:12px;display:flex;justify-content:space-between;"><span>' + (ex.category||'Other') + ': ' + (ex.description||'') + '</span><span style="font-weight:600;">$' + (ex.amount||0) + '</span></div>').join('');
+            } else { expenses.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;">No expenses tracked</div>'; }
+        }
+        // Tasks
+        const tasksList = document.getElementById('tripTasksList');
+        if (tasksList) {
+            if (trip.followupTasks?.length > 0) {
+                tasksList.innerHTML = trip.followupTasks.map(t => '<div style="padding:6px;font-size:12px;">\u2022 ' + t + '</div>').join('');
+            } else { tasksList.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;">No tasks yet. Click Generate above.</div>'; }
+        }
+        // Packing
+        this.renderSmartPackingList(tripId);
+        modal.style.display = 'block';
+    }
+
         }
     </script>
 </body>

@@ -3501,7 +3501,7 @@ function getGithubToken() {
             }
             checkbox.onclick = (e) => {
                 e.stopPropagation();
-                if (!githubToken) return;
+                if (!githubToken) { const t = prompt('GitHub token required:'); if (t) { githubToken = t; } else { return; } }
                 toggleTaskComplete(task);
             };
             header.appendChild(checkbox);
@@ -3692,7 +3692,7 @@ function getGithubToken() {
             assignee.innerHTML = `<span class="assignee-dot" style="background-color: ${owner.color}"></span>${owner.name}`;
             assignee.onclick = (e) => {
                 e.stopPropagation();
-                if (!githubToken) return;
+                if (!githubToken) { const t = prompt('GitHub token required:'); if (t) { githubToken = t; } else { return; } }
                 toggleAssignee(task);
             };
             footer.appendChild(assignee);

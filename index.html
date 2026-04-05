@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskflow — Action Items Dashboard</title>
+    <title>TaskFlo — Action Items Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
 /* ==================================== ========
-   Taskflow Dashboard - Styles
+   TaskFlo Dashboard - Styles
    v2.0 - Split from monolith
    ============================================ */
 
@@ -1251,8 +1251,8 @@
         }
 
 
-        /* Taskflow Branding */
-        .taskflow-logo {
+        /* TaskFlo Branding */
+        .taskflo-logo {
             flex-shrink: 0;
         }
         .version-badge {
@@ -2376,15 +2376,10 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <svg class="taskflow-logo" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="14" height="14" rx="3" fill="#007aff" opacity="0.3"/>
-                    <rect x="7" y="7" width="14" height="14" rx="3" fill="#007aff" opacity="0.5"/>
-                    <rect x="12" y="12" width="14" height="14" rx="3" fill="#007aff"/>
-                </svg>
-                <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: #1d1d1f;">Taskflow</span>
+                <svg viewBox="0 0 148 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><rect x="6" y="10" width="5" height="14" rx="1.5" fill="#fff" opacity=".9"/><rect x="13" y="10" width="5" height="10" rx="1.5" fill="#fff" opacity=".9"/><rect x="20" y="10" width="5" height="18" rx="1.5" fill="#fff" opacity=".9"/><path d="M6 29Q13 25 17 29Q21 33 27 29" stroke="#fff" stroke-width="1.5" fill="none" opacity=".7"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Task</text><text x="90" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M90 33Q102 28 114 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg>
                 <span class="version-badge">v4.1</span>
             </div>
-            <a href="travelflow.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlow</a>
+            <a href="travelflow.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <div class="header-right">
                 <div class="view-toggle">
                     <button class="view-toggle-btn active" data-view="board">Board</button>
@@ -2694,7 +2689,7 @@
     <script>
 
 // ============================================
-// Taskflow Dashboard - Application Logic
+// TaskFlo Dashboard - Application Logic
 // v2.0 - Split from monolith
 // ============================================
 
@@ -5413,7 +5408,7 @@ function init() {
 
     // ===== V4.0: NOTIFICATIONS & REMINDERS =====
     var notifications = [];
-    try { notifications = JSON.parse(localStorage.getItem('taskflow_notifications') || '[]'); } catch(e) {}
+    try { notifications = JSON.parse(localStorage.getItem('taskflo_notifications') || '[]'); } catch(e) {}
     var notifPermission = 'default';
     try { notifPermission = (typeof Notification !== 'undefined') ? Notification.permission : 'denied'; } catch(e) {}
 
@@ -5427,7 +5422,7 @@ function init() {
         var notif = { id: generateUUID(), title: title, body: body, type: type, taskId: taskId, time: new Date().toISOString(), read: false };
         notifications.unshift(notif);
         if (notifications.length > 50) notifications = notifications.slice(0, 50);
-        localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
+        localStorage.setItem('taskflo_notifications', JSON.stringify(notifications));
         updateNotifBadge();
         if (notifPermission === 'granted') {
             try { new Notification(title, { body: body }); } catch(e) {}
@@ -5462,7 +5457,7 @@ function init() {
         var n = notifications.find(function(x) { return x.id === id; });
         if (n) {
             n.read = true;
-            localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
+            localStorage.setItem('taskflo_notifications', JSON.stringify(notifications));
             updateNotifBadge();
             renderNotifications();
             var panel = document.getElementById('notificationPanel');
@@ -5477,7 +5472,7 @@ function init() {
 
     function clearNotifications() {
         notifications = [];
-        localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
+        localStorage.setItem('taskflo_notifications', JSON.stringify(notifications));
         updateNotifBadge(); renderNotifications();
     }
 
@@ -5523,11 +5518,11 @@ function init() {
     // ===== V4.0: GOOGLE CALENDAR =====
     function generateICSContent() {
         if (!tasks) return '';
-        var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Taskflow//v4.0//EN','CALSCALE:GREGORIAN'];
+        var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//TaskFlo//v4.0//EN','CALSCALE:GREGORIAN'];
         tasks.forEach(function(t) {
             if (!t.dueDate || t.completed) return;
             var dt = t.dueDate.replace(/-/g, '');
-            lines.push('BEGIN:VEVENT','UID:' + t.id + '@taskflow','DTSTART;VALUE=DATE:' + dt,'DTEND;VALUE=DATE:' + dt,'SUMMARY:' + (t.title||'').replace(/[,;]/g,' '));
+            lines.push('BEGIN:VEVENT','UID:' + t.id + '@taskflo','DTSTART;VALUE=DATE:' + dt,'DTEND;VALUE=DATE:' + dt,'SUMMARY:' + (t.title||'').replace(/[,;]/g,' '));
             if (t.description) lines.push('DESCRIPTION:' + t.description.replace(/[,;\n]/g,' ').substring(0,200));
             lines.push('END:VEVENT');
         });
@@ -5539,7 +5534,7 @@ function init() {
         if (!ics) { alert('No tasks with due dates to export.'); return; }
         var blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
         var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-        a.download = 'taskflow-' + new Date().toISOString().split('T')[0] + '.ics';
+        a.download = 'taskflo-' + new Date().toISOString().split('T')[0] + '.ics';
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
     function syncToGoogleCalendar() {
@@ -5649,10 +5644,10 @@ function init() {
     }
 
     // ===== V4.0: HABIT TRACKING =====
-    function getCompletionHistory(task) { return JSON.parse(localStorage.getItem('taskflow_history_' + task.id) || '[]'); }
+    function getCompletionHistory(task) { return JSON.parse(localStorage.getItem('taskflo_history_' + task.id) || '[]'); }
     function recordCompletion(taskId) {
         var today = new Date().toISOString().split('T')[0];
-        var key = 'taskflow_history_' + taskId;
+        var key = 'taskflo_history_' + taskId;
         var h = JSON.parse(localStorage.getItem(key) || '[]');
         if (!h.includes(today)) { h.push(today); localStorage.setItem(key, JSON.stringify(h)); }
     }
@@ -5709,7 +5704,7 @@ function init() {
 
         var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
         var dayCounts = [0,0,0,0,0,0,0];
-        var history = JSON.parse(localStorage.getItem('taskflow_completions') || '{}');
+        var history = JSON.parse(localStorage.getItem('taskflo_completions') || '{}');
         Object.keys(history).forEach(function(key) {
           var entries = history[key];
           if (Array.isArray(entries)) {

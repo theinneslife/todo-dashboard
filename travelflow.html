@@ -1489,11 +1489,11 @@
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs><path d="M33.5 2.5L16 14l-8-2L2 14.5l10 5.5 5.5 10L20 24l-2-8L33.5 2.5z" fill="url(#logoGrad)"/><path d="M12 24l-3.5 3.5M14.5 21.5L10 26" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/></svg> TravelFlo</div>
                     <div class="version-badge">v3.0</div>
-                <a href="index.html" class="taskflo-link">â TaskFlo</a>
+                <a href="index.html" class="taskflo-link">→ TaskFlo</a>
             </div>
             <div class="header-right">
-                <button class="icon-btn" id="shareBtn" title="Share">ð¤</button>
-                <button class="icon-btn" id="calendarBtn" title="Calendar">ð</button>
+                <button class="icon-btn" id="shareBtn" title="Share">📤</button>
+                <button class="icon-btn" id="calendarBtn" title="Calendar">📅</button>
             </div>
         </div>
 
@@ -1552,10 +1552,10 @@
             </div>
             <div id="currentTab" class="tab-content">
                 <div class="current-tab-content">
-                    <div class="section-title">ð¯ Current Trip</div>
+                    <div class="section-title">🎯 Current Trip</div>
                     <div id="currentTripContent">
                         <div class="empty-state">
-                            <div class="empty-state-icon">ð</div>
+                            <div class="empty-state-icon">🌍</div>
                             <div class="empty-state-title">No active trip</div>
                             <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
                         </div>
@@ -1567,12 +1567,12 @@
             <div id="discoverTab" class="tab-content">
                 <div class="discover-content">
                     <div class="discover-section">
-                        <div class="discover-title">ðºï¸ Discover Destinations</div>
+                        <div class="discover-title">🗺️ Discover Destinations</div>
                         <div class="destinations-grid" id="destinationsGrid"></div>
                     </div>
 
                     <div class="discover-section">
-                        <div class="discover-title">ð Top Recommendations</div>
+                        <div class="discover-title">🌟 Top Recommendations</div>
                         <div class="top-lists" id="topListsContainer"></div>
                     </div>
                 </div>
@@ -1580,13 +1580,13 @@
 
             <!-- Search Tab -->
             <div id="searchTab" class="tab-content">
-                <div class="section-title">ð Search Trips</div>
+                <div class="section-title">🔍 Search Trips</div>
                 <div class="form-group">
                     <input type="text" class="form-input" id="searchInput" placeholder="Search by destination, notes...">
                 </div>
                 <div class="trips-grid" id="searchResultsGrid">
                     <div class="empty-state">
-                        <div class="empty-state-icon">ð</div>
+                        <div class="empty-state-icon">🔍</div>
                         <div class="empty-state-title">Search trips</div>
                         <div class="empty-state-text">Enter a destination or keyword to find trips</div>
                     </div>
@@ -1641,7 +1641,7 @@
                 <!-- Overlap Warning -->
                 <div id="overlapWarning" style="display: none;">
                     <div class="overlap-warning">
-                        <div class="overlap-warning-title">â ï¸ Date Overlap Detected</div>
+                        <div class="overlap-warning-title">⚠️ Date Overlap Detected</div>
                         <div class="overlap-trips" id="overlapTripsText"></div>
                     </div>
                 </div>
@@ -1670,21 +1670,21 @@
 
                 <!-- Flight Information -->
                 <div class="form-group">
-                    <label class="form-label">âï¸ Flight Information</label>
+                    <label class="form-label">✈️ Flight Information</label>
                     <div id="flightSegmentsContainer"></div>
                     <button type="button" class="add-flight-btn" id="addFlightBtn">+ Add Flight Segment</button>
                 </div>
 
                 <!-- Accommodation -->
                 <div class="form-group">
-                    <label class="form-label">ð¨ Accommodation</label>
+                    <label class="form-label">🏨 Accommodation</label>
                     <div id="accommodationDisplay" style="display: none;"></div>
                     <input type="url" class="form-input" id="accommodationInput" placeholder="Paste Airbnb or hotel booking link...">
                 </div>
 
                 <!-- Budget -->
                 <div class="form-group">
-                    <label class="form-label">ð° Total Budget</label>
+                    <label class="form-label">💰 Total Budget</label>
                     <div class="form-row">
                         <div>
                             <input type="number" class="form-input" id="budgetInput" placeholder="0" min="0">
@@ -1701,7 +1701,7 @@
 
                 <!-- Packing List -->
                 <div id="packingSection" style="display: none;">
-                    <label class="form-label">ð Packing List</label>
+                    <label class="form-label">🎒 Packing List</label>
                     <div id="packingListContent"></div>
                 </div>
 
@@ -1733,13 +1733,13 @@
                     <div class="form-group">
                         <label class="form-label">Category *</label>
                         <select class="form-select" id="expenseCategoryInput" required>
-                            <option value="flights">âï¸ Flights</option>
-                            <option value="accommodation">ð¨ Accommodation</option>
-                            <option value="food">ð½ï¸ Food</option>
-                            <option value="transport">ð Transport</option>
-                            <option value="activities">ð­ Activities</option>
-                            <option value="shopping">ðï¸ Shopping</option>
-                            <option value="other">ð Other</option>
+                            <option value="flights">✈️ Flights</option>
+                            <option value="accommodation">🏨 Accommodation</option>
+                            <option value="food">🍽️ Food</option>
+                            <option value="transport">🚗 Transport</option>
+                            <option value="activities">🎭 Activities</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📝 Other</option>
                         </select>
                     </div>
                 </div>
@@ -1846,16 +1846,16 @@
                 this.currentModal = null;
             window.app = this;
                 this.allDestinations = [
-                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: 'ð¼' },
-                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: 'ð¯' },
-                    { name: 'New York', country: 'USA', tag: 'City', emoji: 'ð½' },
-                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: 'ðï¸' },
-                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: 'ðï¸' },
-                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: 'ð¨' },
-                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: 'ð´' },
-                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: 'ð¦' },
-                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: 'ðï¸' },
-                    { name: 'London', country: 'UK', tag: 'Culture', emoji: 'ð«' }
+                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
+                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
+                    { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
+                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '🏖️' },
+                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '🏙️' },
+                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
+                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '🌴' },
+                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
+                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
+                    { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
                 ];
                 this.loadTrips();
                 this.initializeEventListeners();
@@ -2054,12 +2054,12 @@
 
                 if (this.currentEditingTrip) {
                     // Edit mode
-                    document.getElementById('modalTitle').textContent = 'âï¸ Edit Trip';
+                    document.getElementById('modalTitle').textContent = '✏️ Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
                     this.populateTripForm(this.currentEditingTrip);
                 } else {
                     // Create mode - show templates
-                    document.getElementById('modalTitle').textContent = 'â Add New Trip';
+                    document.getElementById('modalTitle').textContent = '➕ Add New Trip';
                     this.renderTemplateSelection();
                 }
 
@@ -2069,11 +2069,11 @@
 
             renderTemplateSelection() {
                 const templates = [
-                    { id: 'weekend', name: 'Weekend Getaway', icon: 'ðï¸', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'business', name: 'Business Trip', icon: 'ð¼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
-                    { id: 'beach', name: 'Beach Vacation', icon: 'ð´', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
-                    { id: 'city', name: 'City Explorer', icon: 'ðï¸', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'adventure', name: 'Adventure Trip', icon: 'â°ï¸', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
+                    { id: 'weekend', name: 'Weekend Getaway', icon: '🏖️', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'business', name: 'Business Trip', icon: '💼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
+                    { id: 'beach', name: 'Beach Vacation', icon: '🌴', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
+                    { id: 'city', name: 'City Explorer', icon: '🏙️', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'adventure', name: 'Adventure Trip', icon: '⛰️', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
                 ];
 
                 const html = templates.map(t => `
@@ -2135,13 +2135,13 @@
 
             getCategoryEmoji(category) {
                 const emojis = {
-                    'Essentials': 'ð',
-                    'Clothing': 'ð',
-                    'Toiletries': 'ð§´',
-                    'Electronics': 'ð±',
-                    'Documents': 'ð'
+                    'Essentials': '📋',
+                    'Clothing': '👕',
+                    'Toiletries': '🧴',
+                    'Electronics': '📱',
+                    'Documents': '📄'
                 };
-                return emojis[category] || 'ð¦';
+                return emojis[category] || '📦';
             }
 
             populateTripForm(trip) {
@@ -2190,7 +2190,7 @@
                     <div class="flight-segment" data-segment-index="${segNum - 1}">
                         <div class="flight-segment-header">
                             <div class="segment-num">Flight ${segNum}</div>
-                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">â</button>
+                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">✕</button>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -2241,11 +2241,11 @@
                 const isBooking = url.includes('booking');
                 const isHotel = url.includes('hotels.com') || url.includes('hotel');
 
-                let icon = 'ð¨';
+                let icon = '🏨';
                 let name = 'Accommodation';
-                if (isAirbnb) { icon = 'ð '; name = 'Airbnb'; }
-                else if (isBooking) { icon = 'ð¨'; name = 'Booking.com'; }
-                else if (isHotel) { icon = 'ð¨'; name = 'Hotel'; }
+                if (isAirbnb) { icon = '🏠'; name = 'Airbnb'; }
+                else if (isBooking) { icon = '🏨'; name = 'Booking.com'; }
+                else if (isHotel) { icon = '🏨'; name = 'Hotel'; }
 
                 const display = document.getElementById('accommodationDisplay');
                 display.innerHTML = `
@@ -2271,23 +2271,23 @@
             addExpenseToList(expense) {
                 const list = document.getElementById('expensesList');
                 const categoryEmojis = {
-                    'flights': 'âï¸',
-                    'accommodation': 'ð¨',
-                    'food': 'ð½ï¸',
-                    'transport': 'ð',
-                    'activities': 'ð­',
-                    'shopping': 'ðï¸',
-                    'other': 'ð'
+                    'flights': '✈️',
+                    'accommodation': '🏨',
+                    'food': '🍽️',
+                    'transport': '🚗',
+                    'activities': '🎭',
+                    'shopping': '🛍️',
+                    'other': '📝'
                 };
 
                 const html = `
                     <div class="expense-item" data-expense-id="${expense.id || Date.now()}">
                         <div class="expense-details">
                             <div class="expense-description">${expense.description}</div>
-                            <div class="expense-category">${categoryEmojis[expense.category] || 'ð'} ${expense.category}</div>
+                            <div class="expense-category">${categoryEmojis[expense.category] || '📝'} ${expense.category}</div>
                         </div>
                         <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
-                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">â</button>
+                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
                     </div>
                 `;
                 list.insertAdjacentHTML('beforeend', html);
@@ -2421,7 +2421,7 @@
                 if (results.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">ð</div>
+                            <div class="empty-state-icon">🔍</div>
                             <div class="empty-state-title">No trips found</div>
                             <div class="empty-state-text">Try a different search term</div>
                         </div>
@@ -2439,7 +2439,7 @@
                 }
 
                 const shareText = upcoming.map(t =>
-                    `ð ${t.destination} (${t.startDate} to ${t.endDate})`
+                    `🌍 ${t.destination} (${t.startDate} to ${t.endDate})`
                 ).join('\n');
 
                 if (navigator.share) {
@@ -2531,7 +2531,7 @@
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">âï¸</div>
+                            <div class="empty-state-icon">✈️</div>
                             <div class="empty-state-title">No upcoming trips</div>
                             <div class="empty-state-text">Create your first trip to get started!</div>
                         </div>
@@ -2547,7 +2547,7 @@
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">ð</div>
+                            <div class="empty-state-icon">🏁</div>
                             <div class="empty-state-title">No past trips</div>
                             <div class="empty-state-text">Your completed trips will appear here</div>
                         </div>
@@ -2564,7 +2564,7 @@
                 if (!trip) {
                     container.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">ð</div>
+                            <div class="empty-state-icon">🌍</div>
                             <div class="empty-state-title">No active trip</div>
                             <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
                         </div>
@@ -2586,10 +2586,10 @@
                         <div class="trip-header">
                             <div style="flex: 1;">
                                 <div class="trip-destination">${trip.destination}</div>
-                                <div class="trip-dates">ð ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                                <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
                                 <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                             </div>
-                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;">âï¸ Edit</button>
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;">✏️ Edit</button>
                         </div>
 
                         ${trip.notes ? `<div class="trip-notes"><strong>Notes:</strong> ${trip.notes}</div>` : ''}
@@ -2598,14 +2598,14 @@
                 // Flights
                 if (trip.flights && trip.flights.length > 0) {
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">âï¸ Flight Information</div>`;
+                        <div style="font-weight: 600; margin-bottom: 1rem;">✈️ Flight Information</div>`;
                     trip.flights.forEach((flight, idx) => {
                         html += `
                             <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem;">
                                 <div style="font-weight: 600; margin-bottom: 0.5rem;">Flight ${idx + 1}</div>
                                 <div style="font-size: 0.875rem; color: var(--text-secondary);">
                                     ${flight.airline} ${flight.number}<br>
-                                    ${flight.depAirport} â ${flight.arrAirport}<br>
+                                    ${flight.depAirport} → ${flight.arrAirport}<br>
                                     ${flight.depTime ? `Departs: ${this.formatDateTime(flight.depTime)}<br>` : ''}
                                     ${flight.arrTime ? `Arrives: ${this.formatDateTime(flight.arrTime)}` : ''}
                                 </div>
@@ -2618,9 +2618,9 @@
                 // Accommodation
                 if (trip.accommodation) {
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">ð¨ Accommodation</div>
+                        <div style="font-weight: 600; margin-bottom: 1rem;">🏨 Accommodation</div>
                         <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
-                        <button class="action-btn" onclick="window.open('${trip.accommodation}', '_blank'); return false;" style="width: 100%; flex: none;">ð Open Link</button>
+                        <button class="action-btn" onclick="window.open('${trip.accommodation}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>
                     </div>`;
                 }
 
@@ -2633,17 +2633,17 @@
                     });
 
                     const categoryEmojis = {
-                        'flights': 'âï¸',
-                        'accommodation': 'ð¨',
-                        'food': 'ð½ï¸',
-                        'transport': 'ð',
-                        'activities': 'ð­',
-                        'shopping': 'ðï¸',
-                        'other': 'ð'
+                        'flights': '✈️',
+                        'accommodation': '🏨',
+                        'food': '🍽️',
+                        'transport': '🚗',
+                        'activities': '🎭',
+                        'shopping': '🛍️',
+                        'other': '📝'
                     };
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;">ð° Budget Tracking</div>
+                        <div style="font-weight: 600; margin-bottom: 1rem;">💰 Budget Tracking</div>
                         <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                                 <div>
@@ -2715,7 +2715,7 @@
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <div style="font-weight: 600;">ð Packing List</div>
+                            <div style="font-weight: 600;">🎒 Packing List</div>
                             <div style="font-size: 0.875rem; color: var(--accent-green); font-weight: 600;">${packedItems} of ${totalItems} packed</div>
                         </div>`;
 
@@ -2725,7 +2725,7 @@
                         items.forEach(item => {
                             const itemName = typeof item === 'string' ? item : item.item;
                             const isChecked = typeof item === 'string' ? false : item.checked;
-                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">â ${itemName}</div>`;
+                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">✓ ${itemName}</div>`;
                         });
                         html += `</div>`;
                     }
@@ -2748,12 +2748,12 @@
                             <div class="trip-destination">${trip.destination}</div>
                             <div class="trip-color-indicator" style="background-color: ${color};"></div>
                         </div>
-                        <div class="trip-dates">ð ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                        <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
                         <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                         ${trip.notes ? `<div class="trip-notes">${trip.notes}</div>` : ''}
                         <div class="trip-actions">
-                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">âï¸ Edit</button>
-                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">ðï¸ Delete</button>
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">✏️ Edit</button>
+                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">🗑️ Delete</button>
                         </div>
                     </div>
                 `;
@@ -2776,7 +2776,7 @@
                         <div>
                             <span class="destination-tag">${dest.tag}</span>
                         </div>
-                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;">âï¸ Plan Trip</button>
+                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;">✈️ Plan Trip</button>
                     </div>
                 `).join('');
                 document.getElementById('destinationsGrid').innerHTML = html;
@@ -2789,16 +2789,16 @@
 
             renderTopLists() {
                 const restaurants = [
-                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: 'â­â­â­â­â­' },
-                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: 'â­â­â­â­' },
-                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: 'â­â­â­â­' },
-                    { name: 'Beachfront CafÃ©', cuisine: 'Seafood', price: '$$', rating: 'â­â­â­â­' },
-                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: 'â­â­â­â­' },
-                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: 'â­â­â­â­â­' },
-                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: 'â­â­â­â­' },
-                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: 'â­â­â­' },
-                    { name: 'Vegetarian CafÃ©', cuisine: 'Vegan', price: '$$', rating: 'â­â­â­â­' },
-                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: 'â­â­â­â­â­' }
+                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
+                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
                 ];
 
                 const attractions = [
@@ -2829,7 +2829,7 @@
 
                 const listsHTML = `
                     <div class="top-list">
-                        <div class="top-list-title">ð½ï¸ Top 10 Restaurants</div>
+                        <div class="top-list-title">🍽️ Top 10 Restaurants</div>
                         <div class="top-list-items">
                             ${restaurants.map((r, i) => `
                                 <div class="list-item">
@@ -2848,7 +2848,7 @@
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">ð­ Top 10 Attractions</div>
+                        <div class="top-list-title">🎭 Top 10 Attractions</div>
                         <div class="top-list-items">
                             ${attractions.map((a, i) => `
                                 <div class="list-item">
@@ -2863,7 +2863,7 @@
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">â¨ Top 10 Experiences</div>
+                        <div class="top-list-title">✨ Top 10 Experiences</div>
                         <div class="top-list-items">
                             ${experiences.map((e, i) => `
                                 <div class="list-item">
@@ -2906,12 +2906,12 @@
                 const start = new Date(startDate);
                 const diff = Math.floor((start - today) / (1000 * 60 * 60 * 24));
 
-                if (diff < 0) return 'â Ongoing';
-                if (diff === 0) return 'ð´ Today!';
-                if (diff === 1) return 'ð¡ Tomorrow!';
-                if (diff < 7) return `â° In ${diff} days`;
-                if (diff < 30) return `â° In ${Math.floor(diff / 7)} weeks`;
-                return `â° In ${Math.floor(diff / 30)} months`;
+                if (diff < 0) return '✓ Ongoing';
+                if (diff === 0) return '🔴 Today!';
+                if (diff === 1) return '🟡 Tomorrow!';
+                if (diff < 7) return `⏰ In ${diff} days`;
+                if (diff < 30) return `⏰ In ${Math.floor(diff / 7)} weeks`;
+                return `⏰ In ${Math.floor(diff / 30)} months`;
             }
 
             showToast(message, type = 'success') {

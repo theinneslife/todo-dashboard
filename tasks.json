@@ -1058,5 +1058,37 @@
       "sprint": ""
     },
     "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me"
+  },
+  {
+    "id": "cf1f1ba6-2304-4819-bb4d-4558b7b711c2",
+    "title": "Add all travel to TravelFlo",
+    "description": "I don’t think Claude is doing it correctly",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T23:27:25.514Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-05T23:27:25.514Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    }
   }
 ]

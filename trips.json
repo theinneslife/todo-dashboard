@@ -1,0 +1,365 @@
+{
+  "trips": [
+    {
+      "id": 1,
+      "destination": "New York City",
+      "dates": "Apr 6 - Apr 11, 2026",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "flightNumber": "DL650",
+          "confirmation": "JN4VEP",
+          "route": "HNL > JFK",
+          "departure": "Apr 6, 2026 5:24 PM",
+          "arrival": "Apr 7, 2026 9:00 AM",
+          "class": "Economy",
+          "passengers": [
+            "Christopher Innes"
+          ]
+        }
+      ],
+      "accommodation": {
+        "provider": "Airbnb",
+        "name": "Stunning view+terrasse/Hells Kitchen",
+        "address": "548 W 48th St, New York, NY 10036, USA",
+        "confirmation": "HMYHDJ9ETP",
+        "checkIn": "Apr 6, 2026 4:00 PM",
+        "checkOut": "Apr 11, 2026 11:00 AM",
+        "nights": 5,
+        "cost": "$7,742 USD",
+        "host": "LuxQuarters"
+      }
+    },
+    {
+      "id": 2,
+      "destination": "Belize",
+      "dates": "Apr 11 - Apr 19, 2026",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "route": "EWR > BZE",
+          "departure": "Apr 11, 2026",
+          "note": "Newark to Belize City"
+        },
+        {
+          "airline": "Delta Air Lines",
+          "route": "BZE > ATL > MEX > SJD",
+          "departure": "Apr 19, 2026",
+          "arrival": "Apr 19, 2026 10:30 PM",
+          "note": "Belize City to Los Cabos via Atlanta and Mexico City"
+        }
+      ],
+      "accommodation": {
+        "provider": "Airbnb",
+        "note": "Suggestions received for Apr 10-17 stays near Belize City; no confirmed reservation found"
+      }
+    },
+    {
+      "id": 3,
+      "destination": "Los Cabos",
+      "dates": "Apr 19 - Apr 24, 2026",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "note": "Los Cabos to Los Angeles"
+        }
+      ],
+      "accommodation": {
+        "note": "No confirmed accommodation found in email"
+      }
+    },
+    {
+      "id": 4,
+      "destination": "Los Angeles",
+      "dates": "Apr 24 - Apr 30, 2026",
+      "flights": [
+        {
+          "airline": "Lufthansa",
+          "flightNumber": "LH457",
+          "confirmation": "76XWTD",
+          "route": "LAX > FRA > JNB",
+          "departure": "Apr 30, 2026 3:05 PM",
+          "arrival": "May 2, 2026 8:35 AM",
+          "class": "First Flex",
+          "cost": "$22,397.80 USD",
+          "passengers": [
+            "Christopher Innes (Ticket: 2202244116472)",
+            "Brooke Scimemi (Ticket: 2202244116473)"
+          ],
+          "note": "11h 05m layover in Frankfurt"
+        }
+      ],
+      "accommodation": {
+        "note": "No confirmed accommodation found in email"
+      }
+    },
+    {
+      "id": 5,
+      "destination": "Johannesburg",
+      "dates": "May 2, 2026",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "confirmation": "1124-346-110",
+          "route": "JNB > MQP (Kruger Mpumalanga Intl)",
+          "departure": "May 2, 2026 11:05 AM",
+          "arrival": "May 2, 2026 12:00 PM",
+          "cost": "$652.29 USD",
+          "passengers": [
+            "Christopher Innes",
+            "Brooke Scimemi"
+          ]
+        }
+      ],
+      "accommodation": {
+        "note": "Transit to Singita Safari"
+      }
+    },
+    {
+      "id": 6,
+      "destination": "Singita Safari (Sabi Sand)",
+      "dates": "May 2 - May 6, 2026",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "confirmation": "1125-931-158",
+          "route": "MQP > CPT",
+          "departure": "May 6, 2026 3:10 PM",
+          "arrival": "May 6, 2026 5:50 PM",
+          "cost": "$472.19 USD",
+          "passengers": [
+            "Christopher Innes",
+            "Brooke Scimemi"
+          ]
+        },
+        {
+          "airline": "Flightnetwork",
+          "confirmation": "1127-650-787",
+          "route": "JNB > CPT",
+          "departure": "May 6, 2026 5:40 PM",
+          "arrival": "May 6, 2026 7:55 PM",
+          "cost": "$857.72 USD",
+          "passengers": [
+            "Christopher Innes",
+            "Brooke Scimemi"
+          ],
+          "note": "Alternative routing via Johannesburg"
+        }
+      ],
+      "accommodation": {
+        "provider": "Singita",
+        "name": "Singita Boulders Lodge - River Suite",
+        "confirmation": "Res14331",
+        "checkIn": "May 2, 2026",
+        "checkOut": "May 6, 2026",
+        "nights": 4,
+        "cost": "ZAR 56,310 per adult per night",
+        "includes": "All meals, beverages, game drives, walking safaris, transfers",
+        "contact": "Stephanie Schwatlo +27 79 6088081",
+        "note": "Booked for Brookes 30th birthday (May 4)"
+      }
+    },
+    {
+      "id": 7,
+      "destination": "Cape Town",
+      "dates": "May 6 - May 15, 2026",
+      "flights": [],
+      "accommodation": {
+        "note": "Two weeks stay mentioned in Singita correspondence - accommodation already arranged separately. No Airbnb/hotel confirmation found in email."
+      }
+    },
+    {
+      "id": 8,
+      "destination": "Dubrovnik",
+      "dates": "May 15 - May 29, 2026",
+      "flights": [
+        {
+          "airline": "Delta Air Lines (operated by KLM)",
+          "flightNumber": "DL9171 / DL9225",
+          "confirmation": "GHBJWI",
+          "route": "DBV > AMS > LAX",
+          "departure": "May 29, 2026 6:30 AM",
+          "arrival": "May 29, 2026 11:50 AM (local)",
+          "class": "Europe Business / World Business",
+          "cost": "EUR 4,315.62",
+          "passengers": [
+            "Brooke Scimemi (Ticket: 0062417569358)"
+          ],
+          "note": "DL9171 operated by KLM City Hopper (DBV-AMS), DL9225 operated by KLM (AMS-LAX)"
+        }
+      ],
+      "accommodation": {
+        "provider": "Airbnb",
+        "name": "Maxima Comoda",
+        "address": "Zagrebacka Ul. 22, 20000, Dubrovnik, Croatia",
+        "confirmation": "HMZKNPNPRQ",
+        "checkIn": "May 15, 2026 3:00 PM",
+        "checkOut": "May 29, 2026 10:00 AM",
+        "nights": 14,
+        "cost": "$18,098.50 USD",
+        "host": "Maxima Comoda - Premium Properties D.O.O.",
+        "phone": "+385 91 527 5007"
+      }
+    },
+    {
+      "id": 9,
+      "destination": "Playa del Carmen",
+      "dates": "Jun 1 - Jun 12, 2026",
+      "flights": [],
+      "accommodation": {
+        "provider": "donQuijote Spanish School",
+        "name": "Intensive Spanish 20 Program",
+        "address": "Calle 6 s/n entre Avenidas 35 y 40, Centro, 77710 Playa del Carmen, Quintana Roo",
+        "phone": "+52-984-8730755",
+        "contact": "Montserrat Huerta",
+        "note": "Arrive 08:00 on first day. Part of Latin America program ($2,938 total for all destinations). Student: Brooke Scimemi."
+      }
+    },
+    {
+      "id": 10,
+      "destination": "Antigua Guatemala",
+      "dates": "Jun 15 - Jun 26, 2026",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "route": "Guatemala departure",
+          "departure": "Jun 27, 2026 9:30 AM",
+          "note": "eticket for both Christopher Innes and Brooke Scimemi"
+        }
+      ],
+      "accommodation": {
+        "provider": "donQuijote Spanish School",
+        "name": "Intensive Spanish 20 Program",
+        "address": "6ta Avenida Norte 16 - 16 A 03001, Antigua Guatemala",
+        "phone": "+502 7932 1500",
+        "contact": "Tricia, Victor, Nancy",
+        "note": "Arrive 07:00 Monday for Orientation"
+      }
+    },
+    {
+      "id": 11,
+      "destination": "Bogota",
+      "dates": "Jun 27 - Jul 11, 2026",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "confirmation": "AJ2LFB",
+          "route": "BOG > EZE (Buenos Aires)",
+          "departure": "Jul 11, 2026",
+          "class": "Business Flex",
+          "cost": "$3,014.00 USD",
+          "seats": "Christopher Innes (2K), Brooke Scimemi (2D)",
+          "passengers": [
+            "Christopher Innes",
+            "Brooke Scimemi"
+          ]
+        }
+      ],
+      "accommodation": {
+        "provider": "donQuijote Spanish School",
+        "name": "Intensive Spanish 20 Program",
+        "address": "Calle 69 No. 11a-09, Barrio Quinta Camacho, Bogota",
+        "phone": "+57 18138674",
+        "contact": "Anderson Mejia",
+        "note": "Arrive 09:00 first day"
+      }
+    },
+    {
+      "id": 12,
+      "destination": "Buenos Aires",
+      "dates": "Jul 11 - Jul 30, 2026",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "route": "LAX > SAL",
+          "departure": "Jul 30, 2026 2:40 PM",
+          "note": "eticket for Christopher Innes and Brooke Scimemi departing Los Angeles to El Salvador"
+        }
+      ],
+      "accommodation": {
+        "provider": "donQuijote Spanish School",
+        "name": "Intensive Spanish 20 Program",
+        "address": "Calle Hipolito Yrigoyen 571, piso 4, Ciudad Autonoma de Buenos Aires, CP 1086, Argentina",
+        "phone": "(+5411) 4345 5954",
+        "note": "Arrive 09:00 first day"
+      }
+    },
+    {
+      "id": 13,
+      "destination": "El Salvador",
+      "dates": "Jul 30 - Aug 9, 2026",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "flightNumber": "DL1978 / DL825",
+          "confirmation": "HL94IF",
+          "route": "SAL > ATL > LAS",
+          "departure": "Aug 9, 2026 1:48 PM",
+          "arrival": "Aug 9, 2026 10:08 PM",
+          "class": "Delta First Classic",
+          "cost": "$2,596.09 USD",
+          "passengers": [
+            "Brooke Scimemi (Seats: 03B, 02B)"
+          ],
+          "note": "DL1978 SAL 1:48PM - ATL 7:30PM, DL825 ATL 8:55PM - LAS 10:08PM"
+        }
+      ],
+      "accommodation": {
+        "provider": "Airbnb",
+        "name": "Il Vento Uno - Penthouse TERRA",
+        "address": "Pje Libertad, San Salvador, El Salvador",
+        "confirmation": "HMNDWCQ3C8",
+        "checkIn": "Jul 30, 2026 3:00 PM",
+        "checkOut": "Aug 9, 2026 11:00 AM",
+        "nights": 10,
+        "cost": "$3,727.00 USD",
+        "host": "Rosa Alba",
+        "phone": "+503 7482 4049"
+      }
+    },
+    {
+      "id": 14,
+      "destination": "Las Vegas",
+      "dates": "Aug 9, 2026+",
+      "flights": [],
+      "accommodation": {
+        "note": "No confirmed accommodation found in email. Arrive via Delta DL825 from Atlanta at 10:08 PM on Aug 9."
+      }
+    },
+    {
+      "id": 15,
+      "destination": "Atlanta",
+      "dates": "Transit only",
+      "flights": [],
+      "accommodation": {
+        "note": "Atlanta appears only as a connection point (SAL>ATL>LAS on Aug 9). No dedicated Atlanta trip booking found."
+      }
+    }
+  ],
+  "additionalBookings": [
+    {
+      "destination": "St. Augustine, FL",
+      "dates": "Apr 5 - Apr 11, 2026",
+      "accommodation": {
+        "provider": "Airbnb",
+        "name": "Sea the Sunrise beach and pool",
+        "address": "5255 Atlantic View, St. Augustine, FL 32080, USA",
+        "confirmation": "HMJR9NJ5W4",
+        "checkIn": "Apr 5, 2026 4:00 PM",
+        "checkOut": "Apr 11, 2026 11:00 AM",
+        "nights": 6,
+        "cost": "$5,377 USD",
+        "host": "The Proper Group",
+        "guests": "4 adults, 1 child"
+      }
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2026-04-04",
+    "dataSource": "Email search (theinneslife@gmail.com and innes@mountain.com)",
+    "notes": "Some flight confirmation numbers for Belize legs (EWR>BZE, BZE>MEX>SJD) and Los Cabos>LA not individually verified from receipts. Data sourced from Gmail AI Overview and individual booking confirmation emails."
+  }
+}

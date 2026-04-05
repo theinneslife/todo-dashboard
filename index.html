@@ -1097,7 +1097,7 @@
             font-weight: 300;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
-            z-index: 50;
+            z-index: 1050;
             align-items: center;
             justify-content: center;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -4078,7 +4078,7 @@ function getGithubToken() {
 
         function showAddTaskModal() {
     closeHamburgerMenu();
-            if (!githubToken) return;
+                        if (!githubToken) { const t = prompt('Enter your GitHub token to add/edit tasks:'); if (t) { githubToken = t; } else { return; } }
             currentEditingTaskId = null;
             document.getElementById('modalTitle').textContent = 'Add Task';
             document.getElementById('taskTitle').value = '';

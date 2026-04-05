@@ -97,7 +97,7 @@
             min-height: 36px;
         }
         .app-nav-title svg { height: 36px; width: auto; flex-shrink: 0; }
-        .app-nav-title svg { width: 24px; height: 24px; }
+        .app-nav-title svg { width: 34px; height: 34px; }
         .version-label { font-size: 0.65rem; font-weight: 500; color: var(--text-tertiary, #999); letter-spacing: 0.03em; opacity: 0.7; margin-left: -2px; }
         .app-nav-actions { display: flex; gap: 8px; align-items: center; }
         .nav-btn {
@@ -1302,8 +1302,8 @@
     async function fetchTrips() {
         const token = getToken();
         if (!token) {
-            showToast('No auth token found. Add ?token=YOUR_TOKEN to URL.', 'error');
-            document.getElementById('loadingScreen').innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted);">No auth token found.<br>Add ?token=YOUR_TOKEN to the URL.</div>';
+            try{const r=await fetch('trips.json',{cache:'no-store'});if(r.ok){state=await r.json();if(!state.trips)state.trips=[];if(!state.templates)state.templates=[];if(!state.settings)state.settings={defaultTimezone:'America/Los_Angeles'};window.__readOnlyMode=true;return;}}catch(e){}
+            showToast('Could not load trips.','error');
             return;
         }
         try {

@@ -3480,10 +3480,10 @@ function getGithubToken() {
                 card.classList.add('completed');
             }
             card.id = `task-${task.id}`;
-            card.draggable = githubToken ? true : false;
+            card.draggable = true;
             // Feature 7: Batch selection on shift-click
             card.addEventListener('click', (e) => {
-                if (e.shiftKey && githubToken) {
+                if (e.shiftKey) {
                     e.preventDefault();
                     e.stopPropagation();
                     toggleBatchSelect(task.id, card);
@@ -3501,7 +3501,6 @@ function getGithubToken() {
             }
             checkbox.onclick = (e) => {
                 e.stopPropagation();
-                if (!githubToken) { const t = prompt('GitHub token required:'); if (t) { githubToken = t; } else { return; } }
                 toggleTaskComplete(task);
             };
             header.appendChild(checkbox);
@@ -3692,7 +3691,6 @@ function getGithubToken() {
             assignee.innerHTML = `<span class="assignee-dot" style="background-color: ${owner.color}"></span>${owner.name}`;
             assignee.onclick = (e) => {
                 e.stopPropagation();
-                if (!githubToken) { const t = prompt('GitHub token required:'); if (t) { githubToken = t; } else { return; } }
                 toggleAssignee(task);
             };
             footer.appendChild(assignee);
@@ -3701,7 +3699,7 @@ function getGithubToken() {
             actions.className = 'task-actions';
 
             // Move-to dropdown
-                if (githubToken) {
+                {
                     const moveWrapper = document.createElement('div');
                     moveWrapper.className = 'move-to-wrapper';
                     const moveBtn = document.createElement('button');
@@ -3808,7 +3806,7 @@ function getGithubToken() {
         async function handleDrop(e, columnId) {
             const taskId = e.dataTransfer.getData('taskId');
             const task = tasks.find(t => t.id === taskId);
-            if (!task || !githubToken) return;
+            if (!task) return;
 
             const columnMapping = {
                 'todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
@@ -3864,7 +3862,7 @@ function getGithubToken() {
             let html = '';
 
             // Action buttons
-            if (githubToken) {
+            {
                 html += `<div class="detail-actions">`;
                 html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">✎ Edit Task</button>`;
                 html += `</div>`;
@@ -4009,7 +4007,7 @@ function getGithubToken() {
                     `;
                 });
             }
-            if (githubToken) {
+            {
                 html += `
                     <div class="comment-input-wrapper">
                         <textarea id="commentInput" placeholder="Add a comment..." rows="1"></textarea>
@@ -4052,7 +4050,7 @@ function getGithubToken() {
 
         function toggleSubtask(taskId, subtaskIdx) {
             const task = tasks.find(t => t.id === taskId);
-            if (!task || !githubToken) return;
+            if (!task) return;
 
             task.subtasks[subtaskIdx].done = !task.subtasks[subtaskIdx].done;
             task.activity_log = task.activity_log || [];
@@ -4078,7 +4076,7 @@ function getGithubToken() {
 
         function showAddTaskModal() {
     closeHamburgerMenu();
-                        if (!githubToken) { const t = prompt('Enter your GitHub token to add/edit tasks:'); if (t) { githubToken = t; } else { return; } }
+                        
             currentEditingTaskId = null;
             document.getElementById('modalTitle').textContent = 'Add Task';
             document.getElementById('taskTitle').value = '';
@@ -4144,10 +4142,7 @@ function getGithubToken() {
                 return;
             }
 
-            if (!githubToken) {
-                alert('You need to be authenticated to save tasks');
-                return;
-            }
+            
 
             if (currentEditingTaskId) {
                 const task = tasks.find(t => t.id === currentEditingTaskId);
@@ -4504,7 +4499,7 @@ function getGithubToken() {
         async function addComment(taskId) {
             const input = document.getElementById('commentInput');
             const text = input ? input.value.trim() : '';
-            if (!text || !githubToken) return;
+            if (!text) return;
 
             const task = tasks.find(t => t.id === taskId);
             if (!task) return;
@@ -4531,7 +4526,7 @@ function getGithubToken() {
         function showEditTaskModal(taskId) {
     closeHamburgerMenu();
             const task = tasks.find(t => t.id === taskId);
-            if (!task || !githubToken) return;
+            if (!task) return;
 
             // Close detail modal
             document.getElementById('detailModal').classList.remove('active');
@@ -4990,7 +4985,7 @@ function getGithubToken() {
         }
 
         async function batchMove(targetColumn) {
-            if (batchSelectedIds.length === 0 || !githubToken) return;
+            if (batchSelectedIds.length === 0) return;
 
             const columnMapping = {
                 'todo': { status: 'pending', mode: 'manual' },
@@ -5036,7 +5031,7 @@ function getGithubToken() {
         async function quickCapture() {
             const input = document.getElementById('quickCaptureInput');
             const title = input.value.trim();
-            if (!title || !githubToken) return;
+            if (!title) return;
 
             const newTask = createTask(title, '', 2, [], 'todo', '', '', []);
             tasks.push(newTask);
@@ -5242,7 +5237,7 @@ function getGithubToken() {
 
                         const checkbox = document.createElement('div');
                         checkbox.className = 'task-checkbox' + (task.status === 'completed' ? ' checked' : '');
-                        checkbox.onclick = (e) => { e.stopPropagation(); if (githubToken) toggleTaskComplete(task); };
+                        checkbox.onclick = (e) => { e.stopPropagation(); toggleTaskComplete(task); };
                         row.appendChild(checkbox);
 
                         const content = document.createElement('div');

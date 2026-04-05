@@ -1,4 +1,2742 @@
-<!DOCTYPE html>
+TEST_REPLACE_CONTENT<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelFlo Phase 2 - Trip Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #1a1f2e;
+            --bg-tertiary: #25293d;
+            --border-color: #2a3040;
+            --text-primary: #e2e8f0;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-blue: #60a5fa;
+            --accent-purple: #a78bfa;
+            --accent-green: #34d399;
+            --accent-orange: #fb923c;
+            --accent-red: #f87171;
+            --accent-pink: #f472b6;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: var(--bg-primary);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo svg {
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+        }
+
+        .version-badge {
+            background-color: var(--accent-purple);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .taskflo-link {
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .taskflo-link:hover {
+            background-color: var(--bg-tertiary);
+            border-color: var(--accent-blue);
+        }
+
+        .header-right {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Timeline View */
+        .calendar-strip {
+            margin-bottom: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .calendar-btn {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .calendar-btn:hover {
+            background-color: var(--bg-tertiary);
+            border-color: var(--accent-blue);
+        }
+
+        .months-container {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            padding-right: 1rem;
+        }
+
+        .months-container::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .months-container::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .months-container::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 2px;
+        }
+
+        .month {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 280px;
+            flex-shrink: 0;
+        }
+
+        .month-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.25rem;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.25rem;
+            font-size: 0.65rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: var(--text-muted);
+            background-color: var(--bg-tertiary);
+        }
+
+        .day.with-trip {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .day-num {
+            font-weight: 600;
+        }
+
+        /* Trip Cards */
+        .trips-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trips-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .trip-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+        }
+
+        .trip-card:hover {
+            background-color: var(--bg-tertiary);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .trip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .trip-destination {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .trip-color-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+        }
+
+        .trip-dates {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .trip-countdown {
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .trip-notes {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            max-height: 60px;
+            overflow: hidden;
+        }
+
+        .trip-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .action-btn:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .action-btn.delete:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* Discover Tab */
+        .discover-content {
+            max-width: 1200px;
+        }
+
+        .discover-section {
+            margin-bottom: 2rem;
+        }
+
+        .discover-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .destinations-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            margin-bottom: 2rem;
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .destination-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+        }
+
+        .destination-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .destination-info {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .destination-tag {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .top-lists {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .top-list {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .top-list-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .list-item-num {
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 0.875rem;
+            min-width: 20px;
+        }
+
+        .list-item-content {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .list-item-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .list-item-detail {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .restaurant-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .cuisine-tag {
+            background-color: var(--bg-tertiary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            color: var(--accent-blue);
+        }
+
+        .price-tag {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .rating {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-red);
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background-color: var(--bg-secondary);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+            border-color: var(--accent-blue);
+        }
+
+        .btn-danger {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #ef4444;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+        }
+
+        /* Overlap Warning */
+        .overlap-warning {
+            background-color: rgba(251, 146, 60, 0.1);
+            border: 1px solid var(--accent-orange);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .overlap-warning-title {
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overlap-trips {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Flight Segment */
+        .flight-segment {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .flight-segment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .segment-num {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .remove-flight-btn {
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0;
+        }
+
+        .add-flight-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-tertiary);
+            border: 2px dashed var(--border-color);
+            color: var(--accent-blue);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .add-flight-btn:hover {
+            border-color: var(--accent-blue);
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+
+        /* Accommodation */
+        .accommodation-display {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .accommodation-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .accommodation-info {
+            flex: 1;
+        }
+
+        .accommodation-url {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-bottom: 0.5rem;
+        }
+
+        .open-accommodation-btn {
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .open-accommodation-btn:hover {
+            background-color: #3b82f6;
+        }
+
+        /* Budget */
+        .budget-section {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .budget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .budget-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .budget-info {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .spending-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .category-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            min-width: 80px;
+        }
+
+        .category-amount {
+            font-size: 0.75rem;
+            font-weight: 600;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .category-visual {
+            flex: 1;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .category-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .expense-item {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expense-details {
+            flex: 1;
+        }
+
+        .expense-description {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .expense-category {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .expense-amount {
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-right: 0.5rem;
+        }
+
+        .remove-expense-btn {
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+        }
+
+        /* Packing List */
+        .packing-section {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .packing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .packing-progress {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .packing-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .packing-category {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .packing-category:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .packing-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .packing-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .packing-item:hover {
+            background-color: var(--border-color);
+        }
+
+        .packing-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+
+        .packing-label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.875rem;
+            user-select: none;
+        }
+
+        .packing-label.checked {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .add-item-btn {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: var(--border-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-item-btn:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            border-color: var(--accent-blue);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            right: 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem 1.5rem;
+            color: var(--text-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.success {
+            border-color: var(--accent-green);
+        }
+
+        .toast.error {
+            border-color: var(--accent-red);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            flex-shrink: 0;
+        }
+
+        .nav-item {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .nav-item.active {
+            color: var(--accent-blue);
+        }
+
+        .nav-item:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Template Selection */
+        .templates-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-bottom: 2rem;
+        }
+
+        .template-card {
+            background-color: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            border-color: var(--accent-blue);
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+
+        .template-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .template-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .template-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-text {
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Current Tab */
+        .current-tab-content {
+            max-width: 800px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95vw;
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 0.75rem;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .header-left,
+            .header-right {
+                width: 100%;
+            }
+
+            .header-right {
+                justify-content: flex-end;
+            }
+
+            .taskflo-link {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
+            }
+
+            .months-container {
+                flex-direction: column;
+                padding-right: 0;
+            }
+
+            .month {
+                min-width: 100%;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-lists {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 0.75rem;
+            }
+
+            .bottom-nav {
+                padding: 0.375rem 0;
+            }
+
+            .nav-item {
+                padding: 0.5rem;
+            }
+
+            .nav-icon {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .version-badge {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .section-title {
+                font-size: 1rem;
+            }
+
+            .template-icon {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="logo"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs><path d="M33.5 2.5L16 14l-8-2L2 14.5l10 5.5 5.5 10L20 24l-2-8L33.5 2.5z" fill="url(#logoGrad)"/><path d="M12 24l-3.5 3.5M14.5 21.5L10 26" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/></svg> TravelFlo</div>
+                <div class="version-badge">v3.0</div>
+                <a href="index.html" class="taskflo-link">→ TaskFlo</a>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" id="shareBtn" title="Share">📤</button>
+                <button class="icon-btn" id="calendarBtn" title="Calendar">📅</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Timeline Tab -->
+            <div id="timelineTab" class="tab-content active">
+                <div class="calendar-strip">
+                    <div class="calendar-header">
+                        <h2>📅 Trip Timeline</h2>
+                        <div class="calendar-nav">
+                            <button class="calendar-btn" id="prevMonthBtn">← Previous</button>
+                            <button class="calendar-btn" id="nextMonthBtn">Next →</button>
+                        </div>
+                    </div>
+                    <div class="months-container" id="monthsContainer"></div>
+                </div>
+
+                <div class="trips-section">
+                    <div class="section-title">🔜 Upcoming Trips</div>
+                    <div class="trips-grid" id="upcomingTripsGrid">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">✈️</div>
+                            <div class="empty-state-title">No upcoming trips</div>
+                            <div class="empty-state-text">Create your first trip to get started!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trips-section">
+                    <div class="section-title">📍 Past Trips</div>
+                    <div class="trips-grid" id="pastTripsGrid">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🏁</div>
+                            <div class="empty-state-title">No past trips</div>
+                            <div class="empty-state-text">Your completed trips will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Tab -->
+            <div id="currentTab" class="tab-content">
+                <div class="current-tab-content">
+                    <div class="section-title">🎯 Current Trip</div>
+                    <div id="currentTripContent">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🌍</div>
+                            <div class="empty-state-title">No active trip</div>
+                            <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discover Tab -->
+            <div id="discoverTab" class="tab-content">
+                <div class="discover-content">
+                    <div class="discover-section">
+                        <div class="discover-title">🗺️ Discover Destinations</div>
+                        <div class="destinations-grid" id="destinationsGrid"></div>
+                    </div>
+
+                    <div class="discover-section">
+                        <div class="discover-title">🌟 Top Recommendations</div>
+                        <div class="top-lists" id="topListsContainer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Tab -->
+            <div id="searchTab" class="tab-content">
+                <div class="section-title">🔍 Search Trips</div>
+                <div class="form-group">
+                    <input type="text" class="form-input" id="searchInput" placeholder="Search by destination, notes...">
+                </div>
+                <div class="trips-grid" id="searchResultsGrid">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-title">Search trips</div>
+                        <div class="empty-state-text">Enter a destination or keyword to find trips</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <button class="nav-item active" data-tab="timeline">
+                <div class="nav-icon">📅</div>
+                <div>Timeline</div>
+            </button>
+            <button class="nav-item" data-tab="current">
+                <div class="nav-icon">🎯</div>
+                <div>Current</div>
+            </button>
+            <button class="nav-item" data-tab="add" id="addNavBtn">
+                <div class="nav-icon">➕</div>
+                <div>Add</div>
+            </button>
+            <button class="nav-item" data-tab="discover">
+                <div class="nav-icon">🗺️</div>
+                <div>Discover</div>
+            </button>
+            <button class="nav-item" data-tab="search">
+                <div class="nav-icon">🔍</div>
+                <div>Search</div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Trip Modal -->
+    <div id="tripModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Add New Trip</div>
+                <button class="close-btn">&times;</button>
+            </div>
+
+            <!-- Template Selection (only on create) -->
+            <div id="templateSelection" style="display: none; margin-bottom: 2rem;">
+                <div style="font-weight: 600; margin-bottom: 1rem;">Choose a template:</div>
+                <div class="templates-grid" id="templatesGrid"></div>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button class="btn btn-secondary btn-block" id="skipTemplateBtn">Skip Template</button>
+                </div>
+            </div>
+
+            <!-- Trip Form -->
+            <form id="tripForm">
+                <!-- Overlap Warning -->
+                <div id="overlapWarning" style="display: none;">
+                    <div class="overlap-warning">
+                        <div class="overlap-warning-title">⚠️ Date Overlap Detected</div>
+                        <div class="overlap-trips" id="overlapTripsText"></div>
+                    </div>
+                </div>
+
+                <!-- Basic Info -->
+                <div class="form-group">
+                    <label class="form-label">Destination *</label>
+                    <input type="text" class="form-input" id="destinationInput" placeholder="e.g., Paris, Tokyo, NYC" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Start Date *</label>
+                        <input type="date" class="form-input" id="startDateInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">End Date *</label>
+                        <input type="date" class="form-input" id="endDateInput" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-textarea" id="notesInput" placeholder="Add trip notes..."></textarea>
+                </div>
+
+                <!-- Flight Information -->
+                <div class="form-group">
+                    <label class="form-label">✈️ Flight Information</label>
+                    <div id="flightSegmentsContainer"></div>
+                    <button type="button" class="add-flight-btn" id="addFlightBtn">+ Add Flight Segment</button>
+                </div>
+
+                <!-- Accommodation -->
+                <div class="form-group">
+                    <label class="form-label">🏨 Accommodation</label>
+                    <div id="accommodationDisplay" style="display: none;"></div>
+                    <input type="url" class="form-input" id="accommodationInput" placeholder="Paste Airbnb or hotel booking link...">
+                </div>
+
+                <!-- Budget -->
+                <div class="form-group">
+                    <label class="form-label">💰 Total Budget</label>
+                    <div class="form-row">
+                        <div>
+                            <input type="number" class="form-input" id="budgetInput" placeholder="0" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenses -->
+                <div id="expensesSection" style="display: none;">
+                    <label class="form-label">Expenses</label>
+                    <div id="expensesList"></div>
+                    <button type="button" class="add-flight-btn" id="addExpenseBtn">+ Add Expense</button>
+                </div>
+
+                <!-- Packing List -->
+                <div id="packingSection" style="display: none;">
+                    <label class="form-label">🎒 Packing List</label>
+                    <div id="packingListContent"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Trip</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Expense Modal -->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Add Expense</div>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label class="form-label">Description *</label>
+                    <input type="text" class="form-input" id="expenseDescInput" placeholder="e.g., Flight ticket" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Amount *</label>
+                        <input type="number" class="form-input" id="expenseAmountInput" placeholder="0" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category *</label>
+                        <select class="form-select" id="expenseCategoryInput" required>
+                            <option value="flights">✈️ Flights</option>
+                            <option value="accommodation">🏨 Accommodation</option>
+                            <option value="food">🍽️ Food</option>
+                            <option value="transport">🚗 Transport</option>
+                            <option value="activities">🎭 Activities</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="expenseCancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Expense</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ===== Data Management =====
+        class TravelFloApp {
+            constructor() {
+                this.trips = [];
+                this.currentEditingTrip = null;
+                this.currentModal = null;
+                this.allDestinations = [
+                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
+                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
+                    { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
+                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '🏖️' },
+                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '🏙️' },
+                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
+                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '🌴' },
+                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
+                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
+                    { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
+                ];
+                this.loadTrips();
+                this.initializeEventListeners();
+                this.renderAllViews();
+            }
+
+            loadTrips() {
+                const stored = localStorage.getItem('travelFloTrips');
+                this.trips = stored ? JSON.parse(stored) : [];
+            }
+
+            saveTrips() {
+                localStorage.setItem('travelFloTrips', JSON.stringify(this.trips));
+            }
+
+            addTrip(trip) {
+                trip.id = Date.now().toString();
+                trip.colorIndex = Math.floor(Math.random() * 5);
+                trip.flights = trip.flights || [];
+                trip.accommodation = trip.accommodation || null;
+                trip.budget = trip.budget || 0;
+                trip.expenses = trip.expenses || [];
+                trip.packingList = trip.packingList || {};
+                this.trips.push(trip);
+                this.saveTrips();
+                return trip;
+            }
+
+            updateTrip(id, updates) {
+                const trip = this.trips.find(t => t.id === id);
+                if (trip) {
+                    Object.assign(trip, updates);
+                    this.saveTrips();
+                }
+                return trip;
+            }
+
+            deleteTrip(id) {
+                this.trips = this.trips.filter(t => t.id !== id);
+                this.saveTrips();
+            }
+
+            searchTrips(query) {
+                const q = query.toLowerCase();
+                return this.trips.filter(t =>
+                    t.destination.toLowerCase().includes(q) ||
+                    (t.notes && t.notes.toLowerCase().includes(q))
+                );
+            }
+
+            getUpcomingTrips() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return this.trips
+                    .filter(t => new Date(t.startDate) >= today)
+                    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+            }
+
+            getPastTrips() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return this.trips
+                    .filter(t => new Date(t.endDate) < today)
+                    .sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+            }
+
+            getCurrentTrip() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return this.trips.find(t =>
+                    new Date(t.startDate) <= today && new Date(t.endDate) >= today
+                );
+            }
+
+            checkOverlap(startDate, endDate, excludeId = null) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                return this.trips.filter(t => {
+                    if (excludeId && t.id === excludeId) return false;
+                    const tStart = new Date(t.startDate);
+                    const tEnd = new Date(t.endDate);
+                    return (start <= tEnd && end >= tStart);
+                });
+            }
+
+            initializeEventListeners() {
+                // Navigation
+                document.querySelectorAll('.nav-item').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.switchTab(btn.dataset.tab));
+                });
+
+                // Add button
+                document.getElementById('addNavBtn').addEventListener('click', () => this.openTripModal());
+
+                // Modal controls
+                document.querySelectorAll('.close-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.closeAllModals());
+                });
+
+                document.getElementById('cancelBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.closeAllModals();
+                });
+
+                // Trip form
+                document.getElementById('tripForm').addEventListener('submit', (e) => this.handleTripSubmit(e));
+
+                // Calendar
+                document.getElementById('prevMonthBtn').addEventListener('click', () => this.prevCalendarMonth());
+                document.getElementById('nextMonthBtn').addEventListener('click', () => this.nextCalendarMonth());
+
+                // Search
+                document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e.target.value));
+
+                // Share and Calendar buttons
+                document.getElementById('shareBtn').addEventListener('click', () => this.handleShare());
+                document.getElementById('calendarBtn').addEventListener('click', () => this.switchTab('timeline'));
+
+                // Date inputs for overlap detection
+                document.getElementById('startDateInput').addEventListener('change', () => this.checkOverlapWarning());
+                document.getElementById('endDateInput').addEventListener('change', () => this.checkOverlapWarning());
+
+                // Flights
+                document.getElementById('addFlightBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.addFlightSegment();
+                });
+
+                // Budget and Expenses
+                document.getElementById('budgetInput').addEventListener('change', () => this.showExpensesSection());
+
+                // Accommodation
+                document.getElementById('accommodationInput').addEventListener('change', () => this.handleAccommodationInput());
+
+                // Expense modal
+                document.getElementById('expenseForm').addEventListener('submit', (e) => this.handleExpenseSubmit(e));
+                document.getElementById('expenseCancelBtn').addEventListener('click', () => this.closeAllModals());
+
+                // Skip template button
+                document.getElementById('skipTemplateBtn').addEventListener('click', () => {
+                    document.getElementById('templateSelection').style.display = 'none';
+                });
+
+                // Modal backdrop click
+                document.getElementById('tripModal').addEventListener('click', (e) => {
+                    if (e.target.id === 'tripModal') this.closeAllModals();
+                });
+
+                document.getElementById('expenseModal').addEventListener('click', (e) => {
+                    if (e.target.id === 'expenseModal') this.closeAllModals();
+                });
+            }
+
+            switchTab(tabName) {
+                // Update navigation
+                document.querySelectorAll('.nav-item').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.tab === tabName);
+                });
+
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.getElementById(tabName + 'Tab').classList.add('active');
+
+                // Render relevant content
+                if (tabName === 'timeline') {
+                    this.renderTimeline();
+                    this.renderUpcomingTrips();
+                    this.renderPastTrips();
+                } else if (tabName === 'current') {
+                    this.renderCurrentTrip();
+                } else if (tabName === 'discover') {
+                    this.renderDiscover();
+                }
+            }
+
+            openTripModal(tripId = null) {
+                this.currentEditingTrip = tripId ? this.trips.find(t => t.id === tripId) : null;
+                const modal = document.getElementById('tripModal');
+
+                // Reset form
+                document.getElementById('tripForm').reset();
+                document.getElementById('overlapWarning').style.display = 'none';
+                document.getElementById('flightSegmentsContainer').innerHTML = '';
+                document.getElementById('accommodationDisplay').style.display = 'none';
+                document.getElementById('accommodationInput').value = '';
+                document.getElementById('expensesList').innerHTML = '';
+                document.getElementById('expensesSection').style.display = 'none';
+                document.getElementById('packingListContent').innerHTML = '';
+                document.getElementById('packingSection').style.display = 'none';
+
+                if (this.currentEditingTrip) {
+                    // Edit mode
+                    document.getElementById('modalTitle').textContent = '✏️ Edit Trip';
+                    document.getElementById('templateSelection').style.display = 'none';
+                    this.populateTripForm(this.currentEditingTrip);
+                } else {
+                    // Create mode - show templates
+                    document.getElementById('modalTitle').textContent = '➕ Add New Trip';
+                    this.renderTemplateSelection();
+                }
+
+                modal.classList.add('active');
+                this.currentModal = modal;
+            }
+
+            renderTemplateSelection() {
+                const templates = [
+                    { id: 'weekend', name: 'Weekend Getaway', icon: '🏖️', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'business', name: 'Business Trip', icon: '💼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
+                    { id: 'beach', name: 'Beach Vacation', icon: '🌴', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
+                    { id: 'city', name: 'City Explorer', icon: '🏙️', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'adventure', name: 'Adventure Trip', icon: '⛰️', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
+                ];
+
+                const html = templates.map(t => `
+                    <div class="template-card" onclick="app.selectTemplate('${t.id}')">
+                        <div class="template-icon">${t.icon}</div>
+                        <div class="template-name">${t.name}</div>
+                        <div class="template-desc">${t.desc}</div>
+                    </div>
+                `).join('');
+
+                document.getElementById('templatesGrid').innerHTML = html;
+                document.getElementById('templateSelection').style.display = 'block';
+            }
+
+            selectTemplate(templateId) {
+                document.getElementById('templateSelection').style.display = 'none';
+                const templates = {
+                    weekend: { packingList: { 'Essentials': ['Passport', 'Wallet', 'Phone'], 'Clothing': ['Underwear', 'Socks', 'Casual outfits'], 'Electronics': ['Charger', 'Headphones'] } },
+                    business: { packingList: { 'Essentials': ['Passport', 'Wallet', 'Phone'], 'Clothing': ['Business attire', 'Underwear', 'Socks'], 'Electronics': ['Laptop', 'Charger', 'Phone'], 'Documents': ['Passport', 'ID', 'Travel documents'] } },
+                    beach: { packingList: { 'Clothing': ['Swimsuit', 'Beach cover-ups', 'Summer dresses', 'Underwear'], 'Toiletries': ['Sunscreen', 'Aloe vera', 'Toothbrush'], 'Electronics': ['Waterproof bag', 'Camera'] } },
+                    city: { packingList: { 'Essentials': ['Passport', 'Wallet', 'Phone'], 'Clothing': ['Comfortable shoes', 'Casual wear', 'Nice outfit'], 'Electronics': ['Charger', 'Camera'] } },
+                    adventure: { packingList: { 'Essentials': ['Passport', 'Wallet', 'Phone', 'ID'], 'Clothing': ['Hiking boots', 'Outdoor gear', 'Layers'], 'Electronics': ['Headlamp', 'Portable charger'], 'Documents': ['Travel docs', 'Emergency contacts'] } }
+                };
+
+                const template = templates[templateId] || {};
+                this.currentTemplatePackingList = template.packingList || {};
+                this.renderPackingSection();
+            }
+
+            renderPackingSection() {
+                const packingList = this.currentTemplatePackingList || {
+                    'Essentials': ['Passport', 'Wallet', 'Phone', 'ID'],
+                    'Clothing': ['Underwear', 'Socks', 'Comfortable shoes'],
+                    'Toiletries': ['Toothbrush', 'Toothpaste', 'Deodorant'],
+                    'Electronics': ['Charger', 'Headphones'],
+                    'Documents': ['Travel documents', 'Insurance info']
+                };
+
+                let html = '<div class="packing-categories">';
+                for (const [category, items] of Object.entries(packingList)) {
+                    html += `
+                        <div class="packing-category">
+                            <div class="category-title">${this.getCategoryEmoji(category)} ${category}</div>
+                            <div class="packing-items">
+                                ${items.map((item, idx) => `
+                                    <label class="packing-item">
+                                        <input type="checkbox" class="packing-checkbox" data-category="${category}" data-item="${item}">
+                                        <span class="packing-label">${item}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                html += '</div>';
+                document.getElementById('packingListContent').innerHTML = html;
+                document.getElementById('packingSection').style.display = 'block';
+            }
+
+            getCategoryEmoji(category) {
+                const emojis = {
+                    'Essentials': '📋',
+                    'Clothing': '👕',
+                    'Toiletries': '🧴',
+                    'Electronics': '📱',
+                    'Documents': '📄'
+                };
+                return emojis[category] || '📦';
+            }
+
+            populateTripForm(trip) {
+                document.getElementById('destinationInput').value = trip.destination;
+                document.getElementById('startDateInput').value = trip.startDate;
+                document.getElementById('endDateInput').value = trip.endDate;
+                document.getElementById('notesInput').value = trip.notes || '';
+                document.getElementById('budgetInput').value = trip.budget || 0;
+                document.getElementById('accommodationInput').value = trip.accommodation || '';
+
+                // Render flights
+                if (trip.flights && trip.flights.length > 0) {
+                    trip.flights.forEach((flight, idx) => {
+                        this.addFlightSegment(flight, idx);
+                    });
+                }
+
+                // Render accommodation
+                if (trip.accommodation) {
+                    this.renderAccommodationDisplay(trip.accommodation);
+                }
+
+                // Render expenses
+                if (trip.budget > 0) {
+                    this.showExpensesSection();
+                    if (trip.expenses && trip.expenses.length > 0) {
+                        trip.expenses.forEach(exp => {
+                            this.addExpenseToList(exp);
+                        });
+                    }
+                }
+
+                // Render packing list
+                if (Object.keys(trip.packingList).length > 0) {
+                    this.currentTemplatePackingList = trip.packingList;
+                    this.renderPackingSection();
+                } else {
+                    this.renderPackingSection();
+                }
+            }
+
+            addFlightSegment(flight = {}, index = null) {
+                const container = document.getElementById('flightSegmentsContainer');
+                const segNum = container.querySelectorAll('.flight-segment').length + 1;
+                const html = `
+                    <div class="flight-segment" data-segment-index="${segNum - 1}">
+                        <div class="flight-segment-header">
+                            <div class="segment-num">Flight ${segNum}</div>
+                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">✕</button>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Airline</label>
+                                <input type="text" class="form-input flight-airline" placeholder="e.g., United Airlines" value="${flight.airline || ''}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Flight Number</label>
+                                <input type="text" class="form-input flight-number" placeholder="e.g., UA123" value="${flight.number || ''}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Departure Airport</label>
+                                <input type="text" class="form-input flight-dep-airport" placeholder="e.g., JFK" value="${flight.depAirport || ''}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Arrival Airport</label>
+                                <input type="text" class="form-input flight-arr-airport" placeholder="e.g., CDG" value="${flight.arrAirport || ''}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Departure Time</label>
+                                <input type="datetime-local" class="form-input flight-dep-time" value="${flight.depTime || ''}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Arrival Time</label>
+                                <input type="datetime-local" class="form-input flight-arr-time" value="${flight.arrTime || ''}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            }
+
+            handleAccommodationInput() {
+                const url = document.getElementById('accommodationInput').value.trim();
+                if (url) {
+                    this.renderAccommodationDisplay(url);
+                } else {
+                    document.getElementById('accommodationDisplay').style.display = 'none';
+                }
+            }
+
+            renderAccommodationDisplay(url) {
+                const isAirbnb = url.includes('airbnb');
+                const isBooking = url.includes('booking');
+                const isHotel = url.includes('hotels.com') || url.includes('hotel');
+
+                let icon = '🏨';
+                let name = 'Accommodation';
+                if (isAirbnb) { icon = '🏠'; name = 'Airbnb'; }
+                else if (isBooking) { icon = '🏨'; name = 'Booking.com'; }
+                else if (isHotel) { icon = '🏨'; name = 'Hotel'; }
+
+                const display = document.getElementById('accommodationDisplay');
+                display.innerHTML = `
+                    <div class="accommodation-display">
+                        <div class="accommodation-icon">${icon}</div>
+                        <div class="accommodation-info">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">${name}</div>
+                            <div class="accommodation-url">${url}</div>
+                        </div>
+                        <button type="button" class="open-accommodation-btn" onclick="window.open('${url}', '_blank')">Open</button>
+                    </div>
+                `;
+                display.style.display = 'block';
+            }
+
+            showExpensesSection() {
+                const budget = document.getElementById('budgetInput').value;
+                if (budget > 0) {
+                    document.getElementById('expensesSection').style.display = 'block';
+                }
+            }
+
+            addExpenseToList(expense) {
+                const list = document.getElementById('expensesList');
+                const categoryEmojis = {
+                    'flights': '✈️',
+                    'accommodation': '🏨',
+                    'food': '🍽️',
+                    'transport': '🚗',
+                    'activities': '🎭',
+                    'shopping': '🛍️',
+                    'other': '📝'
+                };
+
+                const html = `
+                    <div class="expense-item" data-expense-id="${expense.id || Date.now()}">
+                        <div class="expense-details">
+                            <div class="expense-description">${expense.description}</div>
+                            <div class="expense-category">${categoryEmojis[expense.category] || '📝'} ${expense.category}</div>
+                        </div>
+                        <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
+                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
+                    </div>
+                `;
+                list.insertAdjacentHTML('beforeend', html);
+            }
+
+            handleExpenseSubmit(e) {
+                e.preventDefault();
+                const expense = {
+                    id: Date.now().toString(),
+                    description: document.getElementById('expenseDescInput').value,
+                    amount: parseFloat(document.getElementById('expenseAmountInput').value),
+                    category: document.getElementById('expenseCategoryInput').value
+                };
+                this.addExpenseToList(expense);
+                document.getElementById('expenseForm').reset();
+                this.closeAllModals();
+            }
+
+            handleTripSubmit(e) {
+                e.preventDefault();
+
+                const startDate = document.getElementById('startDateInput').value;
+                const endDate = document.getElementById('endDateInput').value;
+
+                if (!startDate || !endDate) {
+                    this.showToast('Please fill in all required fields', 'error');
+                    return;
+                }
+
+                // Collect flight data
+                const flights = [];
+                document.querySelectorAll('.flight-segment').forEach(segment => {
+                    const airline = segment.querySelector('.flight-airline').value;
+                    const number = segment.querySelector('.flight-number').value;
+                    if (airline || number) {
+                        flights.push({
+                            airline: airline,
+                            number: number,
+                            depAirport: segment.querySelector('.flight-dep-airport').value,
+                            arrAirport: segment.querySelector('.flight-arr-airport').value,
+                            depTime: segment.querySelector('.flight-dep-time').value,
+                            arrTime: segment.querySelector('.flight-arr-time').value
+                        });
+                    }
+                });
+
+                // Collect expense data
+                const expenses = [];
+                document.querySelectorAll('.expense-item').forEach(item => {
+                    const desc = item.querySelector('.expense-description').textContent;
+                    const amount = item.querySelector('.expense-amount').textContent.replace('$', '');
+                    const category = item.querySelector('.expense-category').textContent.toLowerCase();
+                    expenses.push({
+                        id: item.dataset.expenseId || Date.now().toString(),
+                        description: desc,
+                        amount: parseFloat(amount),
+                        category: category.split(' ')[1] || 'other'
+                    });
+                });
+
+                // Collect packing list
+                const packingList = {};
+                document.querySelectorAll('.packing-category').forEach(cat => {
+                    const categoryTitle = cat.querySelector('.category-title').textContent.trim().split(' ').pop();
+                    const items = [];
+                    cat.querySelectorAll('.packing-checkbox').forEach(checkbox => {
+                        items.push({
+                            item: checkbox.getAttribute('data-item'),
+                            checked: checkbox.checked
+                        });
+                    });
+                    if (items.length > 0) {
+                        packingList[categoryTitle] = items;
+                    }
+                });
+
+                const trip = {
+                    destination: document.getElementById('destinationInput').value,
+                    startDate: startDate,
+                    endDate: endDate,
+                    notes: document.getElementById('notesInput').value,
+                    flights: flights,
+                    accommodation: document.getElementById('accommodationInput').value || null,
+                    budget: parseFloat(document.getElementById('budgetInput').value) || 0,
+                    expenses: expenses,
+                    packingList: packingList
+                };
+
+                if (this.currentEditingTrip) {
+                    this.updateTrip(this.currentEditingTrip.id, trip);
+                    this.showToast('Trip updated successfully!', 'success');
+                } else {
+                    this.addTrip(trip);
+                    this.showToast('Trip created successfully!', 'success');
+                }
+
+                this.closeAllModals();
+                this.renderAllViews();
+            }
+
+            checkOverlapWarning() {
+                const startDate = document.getElementById('startDateInput').value;
+                const endDate = document.getElementById('endDateInput').value;
+
+                if (!startDate || !endDate) return;
+
+                const excludeId = this.currentEditingTrip?.id;
+                const overlaps = this.checkOverlap(startDate, endDate, excludeId);
+
+                const warningDiv = document.getElementById('overlapWarning');
+                if (overlaps.length > 0) {
+                    const tripNames = overlaps.map(t => `<strong>${t.destination}</strong> (${t.startDate} to ${t.endDate})`).join(', ');
+                    document.getElementById('overlapTripsText').innerHTML = `You have overlapping trips: ${tripNames}`;
+                    warningDiv.style.display = 'block';
+                } else {
+                    warningDiv.style.display = 'none';
+                }
+            }
+
+            closeAllModals() {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                this.currentModal = null;
+            }
+
+            handleSearch(query) {
+                const results = this.searchTrips(query);
+                const grid = document.getElementById('searchResultsGrid');
+
+                if (results.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔍</div>
+                            <div class="empty-state-title">No trips found</div>
+                            <div class="empty-state-text">Try a different search term</div>
+                        </div>
+                    `;
+                } else {
+                    grid.innerHTML = results.map(trip => this.createTripCardHTML(trip)).join('');
+                }
+            }
+
+            handleShare() {
+                const upcoming = this.getUpcomingTrips();
+                if (upcoming.length === 0) {
+                    this.showToast('No upcoming trips to share', 'error');
+                    return;
+                }
+
+                const shareText = upcoming.map(t =>
+                    `🌍 ${t.destination} (${t.startDate} to ${t.endDate})`
+                ).join('\n');
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'My Trips',
+                        text: shareText
+                    }).catch(err => console.log('Share cancelled'));
+                } else {
+                    navigator.clipboard.writeText(shareText);
+                    this.showToast('Trip list copied to clipboard!', 'success');
+                }
+            }
+
+            renderTimeline() {
+                const container = document.getElementById('monthsContainer');
+                const months = this.generateMonthsData(6);
+                container.innerHTML = months.map(month => this.createMonthHTML(month)).join('');
+            }
+
+            generateMonthsData(count) {
+                const today = new Date();
+                const months = [];
+                for (let i = 0; i < count; i++) {
+                    const date = new Date(today.getFullYear(), today.getMonth() + i);
+                    months.push(this.getMonthData(date));
+                }
+                return months;
+            }
+
+            getMonthData(date) {
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+                const startingDayOfWeek = firstDay.getDay();
+
+                const days = [];
+                for (let i = 0; i < startingDayOfWeek; i++) {
+                    days.push(null);
+                }
+                for (let i = 1; i <= daysInMonth; i++) {
+                    days.push(i);
+                }
+
+                return {
+                    month: date.toLocaleString('default', { month: 'short', year: 'numeric' }),
+                    year: year,
+                    monthNum: month,
+                    days: days
+                };
+            }
+
+            createMonthHTML(monthData) {
+                let html = `<div class="month"><div class="month-header">${monthData.month}</div><div class="days-grid">`;
+
+                for (const day of monthData.days) {
+                    if (day === null) {
+                        html += '<div></div>';
+                    } else {
+                        const date = new Date(monthData.year, monthData.monthNum, day);
+                        const hasTrip = this.trips.some(t => {
+                            const start = new Date(t.startDate);
+                            const end = new Date(t.endDate);
+                            return date >= start && date <= end;
+                        });
+                        html += `<div class="day ${hasTrip ? 'with-trip' : ''}"><span class="day-num">${day}</span></div>`;
+                    }
+                }
+                html += '</div></div>';
+                return html;
+            }
+
+            prevCalendarMonth() {
+                // Scroll left
+                const container = document.getElementById('monthsContainer');
+                container.scrollBy({ left: -300, behavior: 'smooth' });
+            }
+
+            nextCalendarMonth() {
+                // Scroll right
+                const container = document.getElementById('monthsContainer');
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+            }
+
+            renderUpcomingTrips() {
+                const trips = this.getUpcomingTrips();
+                const grid = document.getElementById('upcomingTripsGrid');
+                if (trips.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">✈️</div>
+                            <div class="empty-state-title">No upcoming trips</div>
+                            <div class="empty-state-text">Create your first trip to get started!</div>
+                        </div>
+                    `;
+                } else {
+                    grid.innerHTML = trips.map(trip => this.createTripCardHTML(trip)).join('');
+                }
+            }
+
+            renderPastTrips() {
+                const trips = this.getPastTrips();
+                const grid = document.getElementById('pastTripsGrid');
+                if (trips.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🏁</div>
+                            <div class="empty-state-title">No past trips</div>
+                            <div class="empty-state-text">Your completed trips will appear here</div>
+                        </div>
+                    `;
+                } else {
+                    grid.innerHTML = trips.map(trip => this.createTripCardHTML(trip)).join('');
+                }
+            }
+
+            renderCurrentTrip() {
+                const trip = this.getCurrentTrip();
+                const container = document.getElementById('currentTripContent');
+
+                if (!trip) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🌍</div>
+                            <div class="empty-state-title">No active trip</div>
+                            <div class="empty-state-text">You don't have an active trip right now. Create one to get started!</div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = this.createDetailedTripHTML(trip);
+                }
+            }
+
+            createDetailedTripHTML(trip) {
+                const budget = trip.budget || 0;
+                const expenses = trip.expenses || [];
+                const totalSpent = expenses.reduce((sum, e) => sum + e.amount, 0);
+                const remaining = budget - totalSpent;
+                const percentSpent = budget > 0 ? Math.min((totalSpent / budget) * 100, 100) : 0;
+
+                let html = `
+                    <div class="trip-card" style="border: none; cursor: auto;">
+                        <div class="trip-header">
+                            <div style="flex: 1;">
+                                <div class="trip-destination">${trip.destination}</div>
+                                <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                                <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
+                            </div>
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;">✏️ Edit</button>
+                        </div>
+
+                        ${trip.notes ? `<div class="trip-notes"><strong>Notes:</strong> ${trip.notes}</div>` : ''}
+                `;
+
+                // Flights
+                if (trip.flights && trip.flights.length > 0) {
+                    html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div style="font-weight: 600; margin-bottom: 1rem;">✈️ Flight Information</div>`;
+                    trip.flights.forEach((flight, idx) => {
+                        html += `
+                            <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Flight ${idx + 1}</div>
+                                <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                                    ${flight.airline} ${flight.number}<br>
+                                    ${flight.depAirport} → ${flight.arrAirport}<br>
+                                    ${flight.depTime ? `Departs: ${this.formatDateTime(flight.depTime)}<br>` : ''}
+                                    ${flight.arrTime ? `Arrives: ${this.formatDateTime(flight.arrTime)}` : ''}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+
+                // Accommodation
+                if (trip.accommodation) {
+                    html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div style="font-weight: 600; margin-bottom: 1rem;">🏨 Accommodation</div>
+                        <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
+                        <button class="action-btn" onclick="window.open('${trip.accommodation}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>
+                    </div>`;
+                }
+
+                // Budget & Expenses
+                if (budget > 0) {
+                    const categoryBreakdown = {};
+                    expenses.forEach(e => {
+                        if (!categoryBreakdown[e.category]) categoryBreakdown[e.category] = 0;
+                        categoryBreakdown[e.category] += e.amount;
+                    });
+
+                    const categoryEmojis = {
+                        'flights': '✈️',
+                        'accommodation': '🏨',
+                        'food': '🍽️',
+                        'transport': '🚗',
+                        'activities': '🎭',
+                        'shopping': '🛍️',
+                        'other': '📝'
+                    };
+
+                    html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div style="font-weight: 600; margin-bottom: 1rem;">💰 Budget Tracking</div>
+                        <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <div>
+                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">Total Budget</div>
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$${budget.toFixed(2)}</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">Spent / Remaining</div>
+                                    <div style="font-size: 0.875rem; font-weight: 600;">
+                                        <span style="color: var(--accent-orange);">$${totalSpent.toFixed(2)}</span> / <span style="color: var(--accent-green);">$${Math.max(0, remaining).toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${percentSpent}%"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span>0%</span>
+                                <span style="font-weight: 600;">${Math.round(percentSpent)}%</span>
+                                <span>100%</span>
+                            </div>
+                        </div>`;
+
+                    // Category breakdown
+                    if (Object.keys(categoryBreakdown).length > 0) {
+                        html += `<div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem;">Spending by Category</div>`;
+                        for (const [category, amount] of Object.entries(categoryBreakdown)) {
+                            const categoryPercent = (amount / budget) * 100;
+                            html += `
+                                <div class="category-bar" style="margin-bottom: 0.75rem;">
+                                    <div class="category-label">${categoryEmojis[category]} ${category}</div>
+                                    <div class="category-visual">
+                                        <div class="category-fill" style="width: ${categoryPercent}%; background-color: var(--accent-blue);"></div>
+                                    </div>
+                                    <div class="category-amount">$${amount.toFixed(2)}</div>
+                                </div>
+                            `;
+                        }
+                    }
+
+                    // Expenses list
+                    if (expenses.length > 0) {
+                        html += `<div style="margin-top: 1rem;"><div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem;">Expenses</div>`;
+                        expenses.forEach(exp => {
+                            html += `
+                                <div style="background-color: var(--bg-secondary); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem;">
+                                    <div>
+                                        <div style="font-weight: 600;">${exp.description}</div>
+                                        <div style="color: var(--text-muted); font-size: 0.75rem;">${categoryEmojis[exp.category]} ${exp.category}</div>
+                                    </div>
+                                    <div style="font-weight: 600; color: var(--accent-orange);">$${exp.amount.toFixed(2)}</div>
+                                </div>
+                            `;
+                        });
+                        html += `</div>`;
+                    }
+
+                    html += `</div>`;
+                }
+
+                // Packing List
+                if (trip.packingList && Object.keys(trip.packingList).length > 0) {
+                    let totalItems = 0;
+                    let packedItems = 0;
+                    for (const [category, items] of Object.entries(trip.packingList)) {
+                        totalItems += items.length;
+                        packedItems += items.filter(i => i.checked).length;
+                    }
+
+                    html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="font-weight: 600;">🎒 Packing List</div>
+                            <div style="font-size: 0.875rem; color: var(--accent-green); font-weight: 600;">${packedItems} of ${totalItems} packed</div>
+                        </div>`;
+
+                    for (const [category, items] of Object.entries(trip.packingList)) {
+                        html += `<div style="margin-bottom: 1rem;">
+                            <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--text-secondary);">${this.getCategoryEmoji(category)} ${category}</div>`;
+                        items.forEach(item => {
+                            const itemName = typeof item === 'string' ? item : item.item;
+                            const isChecked = typeof item === 'string' ? false : item.checked;
+                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">✓ ${itemName}</div>`;
+                        });
+                        html += `</div>`;
+                    }
+
+                    html += `</div>`;
+                }
+
+                html += `</div>`;
+                return html;
+            }
+
+            createTripCardHTML(trip) {
+                const colors = ['#60a5fa', '#a78bfa', '#34d399', '#fb923c', '#f87171'];
+                const colorIndex = trip.colorIndex || 0;
+                const color = colors[colorIndex % colors.length];
+
+                return `
+                    <div class="trip-card" style="border-left-color: ${color};" onclick="app.openTripModal('${trip.id}'); return false;">
+                        <div class="trip-header">
+                            <div class="trip-destination">${trip.destination}</div>
+                            <div class="trip-color-indicator" style="background-color: ${color};"></div>
+                        </div>
+                        <div class="trip-dates">📅 ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                        <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
+                        ${trip.notes ? `<div class="trip-notes">${trip.notes}</div>` : ''}
+                        <div class="trip-actions">
+                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">✏️ Edit</button>
+                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">🗑️ Delete</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderDiscover() {
+                this.renderDestinations();
+                this.renderTopLists();
+            }
+
+            renderDestinations() {
+                const html = this.allDestinations.map(dest => `
+                    <div class="destination-card">
+                        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
+                            <div>
+                                <div class="destination-name">${dest.emoji} ${dest.name}</div>
+                                <div class="destination-info">${dest.country}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="destination-tag">${dest.tag}</span>
+                        </div>
+                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;">✈️ Plan Trip</button>
+                    </div>
+                `).join('');
+                document.getElementById('destinationsGrid').innerHTML = html;
+            }
+
+            createTripFromDestination(destination) {
+                this.openTripModal();
+                document.getElementById('destinationInput').value = destination;
+            }
+
+            renderTopLists() {
+                const restaurants = [
+                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
+                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
+                ];
+
+                const attractions = [
+                    { name: 'Historic Monument', desc: 'UNESCO World Heritage Site' },
+                    { name: 'Modern Art Museum', desc: 'Contemporary collections' },
+                    { name: 'Local Market', desc: 'Traditional crafts and goods' },
+                    { name: 'National Park', desc: 'Hiking and nature trails' },
+                    { name: 'Beach', desc: 'Swimming and water sports' },
+                    { name: 'Historic Old Town', desc: 'Cobblestone streets & architecture' },
+                    { name: 'Botanical Garden', desc: 'Exotic plants and flowers' },
+                    { name: 'Temple/Shrine', desc: 'Religious and cultural landmark' },
+                    { name: 'Observatory', desc: 'Stargazing experiences' },
+                    { name: 'Canyon/Viewpoint', desc: 'Scenic photography spots' }
+                ];
+
+                const experiences = [
+                    { name: 'Cooking Class', type: 'Culinary' },
+                    { name: 'Guided City Tour', type: 'Cultural' },
+                    { name: 'Adventure Activities', type: 'Sports' },
+                    { name: 'Spa & Wellness', type: 'Relaxation' },
+                    { name: 'Local Festival', type: 'Cultural' },
+                    { name: 'Mountain Hiking', type: 'Adventure' },
+                    { name: 'Wine Tasting', type: 'Culinary' },
+                    { name: 'Sunset Cruise', type: 'Scenic' },
+                    { name: 'Photography Tour', type: 'Creative' },
+                    { name: 'Meditation Retreat', type: 'Wellness' }
+                ];
+
+                const listsHTML = `
+                    <div class="top-list">
+                        <div class="top-list-title">🍽️ Top 10 Restaurants</div>
+                        <div class="top-list-items">
+                            ${restaurants.map((r, i) => `
+                                <div class="list-item">
+                                    <div class="list-item-num">${i + 1}</div>
+                                    <div class="list-item-content">
+                                        <div class="list-item-name">${r.name}</div>
+                                        <div class="restaurant-meta">
+                                            <span class="cuisine-tag">${r.cuisine}</span>
+                                            <span class="price-tag">${r.price}</span>
+                                            <span class="rating">${r.rating}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="top-list">
+                        <div class="top-list-title">🎭 Top 10 Attractions</div>
+                        <div class="top-list-items">
+                            ${attractions.map((a, i) => `
+                                <div class="list-item">
+                                    <div class="list-item-num">${i + 1}</div>
+                                    <div class="list-item-content">
+                                        <div class="list-item-name">${a.name}</div>
+                                        <div class="list-item-detail">${a.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="top-list">
+                        <div class="top-list-title">✨ Top 10 Experiences</div>
+                        <div class="top-list-items">
+                            ${experiences.map((e, i) => `
+                                <div class="list-item">
+                                    <div class="list-item-num">${i + 1}</div>
+                                    <div class="list-item-content">
+                                        <div class="list-item-name">${e.name}</div>
+                                        <div class="list-item-detail">${e.type}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('topListsContainer').innerHTML = listsHTML;
+            }
+
+            renderAllViews() {
+                this.renderTimeline();
+                this.renderUpcomingTrips();
+                this.renderPastTrips();
+                this.renderCurrentTrip();
+                this.renderDiscover();
+            }
+
+            formatDate(dateStr) {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            }
+
+            formatDateTime(dateTimeStr) {
+                if (!dateTimeStr) return '';
+                const date = new Date(dateTimeStr);
+                return date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            }
+
+            getCountdown(startDate) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const start = new Date(startDate);
+                const diff = Math.floor((start - today) / (1000 * 60 * 60 * 24));
+
+                if (diff < 0) return '✓ Ongoing';
+                if (diff === 0) return '🔴 Today!';
+                if (diff === 1) return '🟡 Tomorrow!';
+                if (diff < 7) return `⏰ In ${diff} days`;
+                if (diff < 30) return `⏰ In ${Math.floor(diff / 7)} weeks`;
+                return `⏰ In ${Math.floor(diff / 30)} months`;
+            }
+
+            showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            }
+
+            deleteTrip(id) {
+                if (confirm('Are you sure you want to delete this trip?')) {
+                    this.deleteTrip(id);
+                    this.showToast('Trip deleted', 'success');
+                    this.renderAllViews();
+                }
+            }
+        }
+
+        // Override deleteTrip properly
+        TravelFloApp.prototype.deleteTrip = function(id) {
+            const trip = this.trips.find(t => t.id === id);
+            if (!trip) return;
+
+            if (confirm(`Delete trip to ${trip.destination}?`)) {
+                this.trips = this.trips.filter(t => t.id !== id);
+                this.saveTrips();
+                this.showToast('Trip deleted', 'success');
+                this.renderAllViews();
+            }
+        };
+
+        // Initialize app
+        const app = new TravelFloApp();
+
+        // Sample data for demo
+        if (app.trips.length === 0) {
+            const sampleTrips = [
+                {
+                    destination: 'Paris, France',
+                    startDate: '2026-05-15',
+                    endDate: '2026-05-22',
+                    notes: 'Summer vacation - visit museums and enjoy wine',
+                    flights: [],
+                    accommodation: 'https://www.airbnb.com',
+                    budget: 3000,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 0
+                },
+                {
+                    destination: 'Tokyo, Japan',
+                    startDate: '2026-06-01',
+                    endDate: '2026-06-15',
+                    notes: 'Cherry blossoms and cultural exploration',
+                    flights: [],
+                    accommodation: 'https://www.booking.com',
+                    budget: 4500,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 1
+                },
+                {
+                    destination: 'Bali, Indonesia',
+                    startDate: '2026-03-10',
+                    endDate: '2026-03-18',
+                    notes: 'Beach relaxation and temple visits',
+                    flights: [],
+                    accommodation: null,
+                    budget: 2500,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 2
+                }
+            ];
+
+            sampleTrips.forEach(trip => app.addTrip(trip));
+        }
+    </script>
+</body>
+</html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

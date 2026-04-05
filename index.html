@@ -3567,6 +3567,7 @@ function getGithubToken() {
 
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
+                            let html = '';
                 html += '<div class="detail-section"><div class="delegation-notes">';
                 html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';

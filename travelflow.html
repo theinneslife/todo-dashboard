@@ -2454,6 +2454,7 @@
             }
 
             renderTimeline() {
+            if (!document.getElementById('monthsContainer')) return;
                 const container = document.getElementById('monthsContainer');
                 const months = this.generateMonthsData(6);
                 container.innerHTML = months.map(month => this.createMonthHTML(month)).join('');
@@ -2514,18 +2515,21 @@
             }
 
             prevCalendarMonth() {
+            if (!document.getElementById('monthsContainer')) return;
                 // Scroll left
                 const container = document.getElementById('monthsContainer');
                 container.scrollBy({ left: -300, behavior: 'smooth' });
             }
 
             nextCalendarMonth() {
+            if (!document.getElementById('monthsContainer')) return;
                 // Scroll right
                 const container = document.getElementById('monthsContainer');
                 container.scrollBy({ left: 300, behavior: 'smooth' });
             }
 
             renderUpcomingTrips() {
+            if (!document.getElementById('upcomingTripsGrid')) return;
                 const trips = this.getUpcomingTrips();
                 const grid = document.getElementById('upcomingTripsGrid');
                 if (trips.length === 0) {
@@ -2542,6 +2546,7 @@
             }
 
             renderPastTrips() {
+            if (!document.getElementById('pastTripsGrid')) return;
                 const trips = this.getPastTrips();
                 const grid = document.getElementById('pastTripsGrid');
                 if (trips.length === 0) {
@@ -3034,6 +3039,7 @@
     }
 
     _updateCountdownDisplay() {
+            if (!document.getElementById('countdownTimer')) return;
         const flight = this.getNextFlight();
         if (!flight) return;
         const diff = flight.departDate - new Date();

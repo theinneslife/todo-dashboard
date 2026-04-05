@@ -1080,6 +1080,31 @@
             }
         }
 
+
+        /* Mobile FAB for Add Task */
+        .mobile-add-fab {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #007aff;
+            color: #ffffff;
+            border: none;
+            font-size: 1.7rem;
+            font-weight: 300;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .mobile-add-fab:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(0, 122, 255, 0.5); }
+        .mobile-add-fab:active { transform: scale(0.95); }
+
         @media (max-width: 640px) {
             .mobile-column-nav { display: flex; } .mobile-tabs { display: flex; }
             .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; }
@@ -1112,6 +1137,8 @@
             .hamburger-wrapper { display: block !important; position: relative; }
             .hamburger-menu-btn { display: flex !important; }
             .button-group .toolbar-hideable { display: none !important; }
+            #addTaskBtn { display: none !important; }
+            .mobile-add-fab { display: flex; }
             .button-group { overflow: visible !important; }
             header { overflow: visible !important; }
 
@@ -5874,6 +5901,10 @@ function updateNavArrows() {
             </div>
         </div>
     </div>
+
+
+    <!-- Mobile Add Task FAB -->
+    <button class="mobile-add-fab" id="mobileAddFab" onclick="showAddTaskModal()" title="Add Task">+</button>
 
 </body>
 </html>

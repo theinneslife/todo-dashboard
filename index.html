@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskflow — Action Items Dashboard</title>
+    <title>Taskflow â Action Items Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
@@ -18,17 +18,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #f5f5f7;
             color: #1d1d1f;
             line-height: 1.5;
+                    overflow-x: hidden;
         }
 
         .container {
             display: flex;
             flex-direction: column;
             height: 100vh;
+                    overflow-x: hidden;
+            max-width: 100vw;
         }
 
         header {
@@ -365,7 +372,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -476,20 +483,20 @@
         }
 
         .task-due-date::before {
-            content: '📅';
+            content: 'ð';
             font-size: 10px;
         }
 
         .task-due-date.overdue::before {
-            content: '🔴';
+            content: 'ð´';
         }
 
         .task-due-date.today::before {
-            content: '🟠';
+            content: 'ð ';
         }
 
         .task-due-date.due-soon::before {
-            content: '🟡';
+            content: 'ð¡';
         }
 
         .task-subtasks {
@@ -873,7 +880,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1075,29 +1082,31 @@
 
         @media (max-width: 640px) {
             .mobile-tabs { display: flex; }
-            .kanban { flex-direction: column; padding: 8px; gap: 0; }
+            .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; }
             .column { flex: 0 0 100%; display: none; }
             .column.mobile-active { display: block; }
             .controls { display: none !important; }
             .mobile-filter-fab { display: flex; }
-            .quick-capture { padding: 8px 12px; }
+            .quick-capture { padding: 8px 12px; max-width: 100vw; overflow: hidden; }
             .quick-capture-hint { display: none; }
-            .project-bar { padding: 6px 12px; gap: 6px; }
+            .project-bar { padding: 6px 12px; gap: 6px; max-width: 100vw; overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .project-pill { padding: 4px 10px; font-size: 11px; }
             .timeline-strip { padding: 6px 12px; }
             .modal { width: 95%; max-width: 100%; padding: 16px; max-height: 90vh; }
-            header { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
+            header { flex-wrap: wrap; gap: 6px; padding: 10px 12px; max-width: 100vw; overflow: hidden; }
             .logo { font-size: 18px; }
             .version-badge { display: none; }
             .header-right { width: 100%; }
-            .header-right .button-group { flex: 1; }
+            .header-right .button-group { flex: 1; flex-wrap: wrap; overflow: hidden; }
             .header-right .button-group button { flex: 1; font-size: 11px; padding: 5px 8px; }
             .token-status { display: none; }
             .task-card { padding: 10px; }
             .task-description { display: none; }
             .column-header { position: sticky; top: 0; z-index: 5; }
             .mobile-tabs { padding: 6px 8px; gap: 4px; }
+            .batch-bar { max-width: 100vw; overflow-x: hidden; flex-wrap: wrap; }
             .mobile-tab { padding: 6px 10px; font-size: 12px; }
+            .notification-panel { width: calc(100vw - 16px); right: 8px; left: 8px; top: 56px; }
         }
 
         /* Mobile column tabs */
@@ -1323,7 +1332,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: white;
             font-size: 10px;
             display: flex;
@@ -1488,7 +1497,7 @@
             letter-spacing: 0.2px;
         }
         .badge-blocked::before {
-            content: '⚠';
+            content: 'â ';
             font-size: 9px;
         }
         .task-card.blocked {
@@ -2245,14 +2254,14 @@
                 </div>
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
-                    <button class="secondary" id="refreshBtn">↻ Refresh</button>
-                    <button class="secondary" id="statsBtn">📊 Stats</button>
-                    <button class="secondary" id="activityBtn">🔔 Activity</button>
-                    <button class="secondary" id="timelineBtn">📅 Timeline</button>
-                    <button class="secondary" id="templateBtn">📋 Template</button>
+                    <button class="secondary" id="refreshBtn">â» Refresh</button>
+                    <button class="secondary" id="statsBtn">ð Stats</button>
+                    <button class="secondary" id="activityBtn">ð Activity</button>
+                    <button class="secondary" id="timelineBtn">ð Timeline</button>
+                    <button class="secondary" id="templateBtn">ð Template</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
-            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">🔔<span id="notifBadge" class="badge" style="display:none">0</span></button>
-            <button class="ics-download-btn" onclick="downloadICS()" title="Download .ics">📅 .ics</button>
+            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">ð<span id="notifBadge" class="badge" style="display:none">0</span></button>
+            <button class="ics-download-btn" onclick="downloadICS()" title="Download .ics">ð .ics</button>
                 </div>
             </div>
         </header>
@@ -2265,15 +2274,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">✕</button>
+                <button class="search-clear" id="searchClear">â</button>
             </div>
             <div class="search-result-count" id="searchCount"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter">
                 <option value="">All Priorities</option>
-                <option value="1">🔴 High</option>
-                <option value="2">🟡 Medium</option>
-                <option value="3">🟢 Low</option>
+                <option value="1">ð´ High</option>
+                <option value="2">ð¡ Medium</option>
+                <option value="3">ð¢ Low</option>
             </select>
             <select class="filter-select" id="ownerFilter">
                 <option value="">All Owners</option>
@@ -2299,13 +2308,13 @@
         <div class="quick-capture">
             <input type="text" class="quick-capture-input" id="quickCaptureInput" placeholder="Quick add: type a task and press Enter...">
             <button class="quick-capture-btn" id="quickCaptureBtn">Add</button>
-            <span class="quick-capture-hint">⌘+K</span>
+            <span class="quick-capture-hint">â+K</span>
         </div>
 
         <!-- Feature 2: Timeline Strip -->
         <div class="timeline-strip" id="timelineStrip">
             <div class="timeline-header">
-                <div class="timeline-title">📅 Upcoming Deadlines</div>
+                <div class="timeline-title">ð Upcoming Deadlines</div>
                 <button class="timeline-toggle" id="timelineClose">Hide</button>
             </div>
             <div class="timeline-days" id="timelineDays"></div>
@@ -2328,7 +2337,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">✕</button>
+                <button class="modal-close" id="addTaskClose">â</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2412,7 +2421,7 @@
                     <div class="custom-field-row">
                         <span class="custom-field-label">Revenue Impact</span>
                         <select class="custom-field-input" id="cfRevenue">
-                            <option value="">—</option>
+                            <option value="">â</option>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
@@ -2440,7 +2449,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">✕</button>
+                <button class="modal-close" id="detailClose">â</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2451,7 +2460,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">✕</button>
+                <button class="modal-close" id="statsClose">â</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2480,7 +2489,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">✕</button>
+                <button class="modal-close" id="activityClose">â</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2500,7 +2509,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">✕</button>
+                <button class="modal-close" id="templateClose">â</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2509,11 +2518,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">→ Christopher</button>
-        <button onclick="batchMove('claude')">→ Claude</button>
-        <button onclick="batchMove('completed')">✓ Complete</button>
-        <button onclick="batchMove('parking')">⏸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">✕</button>
+        <button onclick="batchMove('christopher')">â Christopher</button>
+        <button onclick="batchMove('claude')">â Claude</button>
+        <button onclick="batchMove('completed')">â Complete</button>
+        <button onclick="batchMove('parking')">â¸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">â</button>
     </div>
 
 
@@ -2643,7 +2652,7 @@
                 document.body.appendChild(container);
             }
             var toast = document.createElement('div');
-            var icons = {success:'✅',error:'❌',info:'ℹ️',warning:'⚠️'};
+            var icons = {success:'â',error:'â',info:'â¹ï¸',warning:'â ï¸'};
             var colors = {success:'#10b981',error:'#ef4444',info:'#3b82f6',warning:'#f59e0b'};
             toast.style.cssText = 'padding:12px 20px;border-radius:8px;color:white;font-size:14px;font-weight:500;background:'+
                 (colors[type]||colors.info)+';box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:all 0.3s;opacity:0;transform:translateX(20px);max-width:350px;pointer-events:auto;';
@@ -3096,7 +3105,7 @@ function getGithubToken() {
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = '✓ Authenticated';
+                status.textContent = 'â Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3394,14 +3403,14 @@ function getGithubToken() {
             if (task.recurrence) {
                 const recurrence = document.createElement('div');
                 recurrence.className = 'task-recurrence';
-                recurrence.textContent = `↻ ${task.recurrence}`;
+                recurrence.textContent = `â» ${task.recurrence}`;
                 meta.appendChild(recurrence);
             }
 
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3437,7 +3446,7 @@ function getGithubToken() {
                 if (unresolvedBlockers.length > 0) {
                     const depBadge = document.createElement('span');
                     depBadge.className = 'dep-badge blocked-by';
-                    depBadge.textContent = '⛔ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
+                    depBadge.textContent = 'â ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
                     depBadge.title = unresolvedBlockers.map(t => t.title).join(', ');
                     meta.appendChild(depBadge);
                 }
@@ -3572,7 +3581,7 @@ function getGithubToken() {
                 }
                 const activityBtn = document.createElement('button');
             activityBtn.className = 'task-action-btn';
-            activityBtn.textContent = '📋';
+            activityBtn.textContent = 'ð';
             activityBtn.title = 'View activity';
             activityBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -3698,7 +3707,7 @@ function getGithubToken() {
             // Action buttons
             if (githubToken) {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">✎ Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">â Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -3729,7 +3738,7 @@ function getGithubToken() {
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -3752,7 +3761,7 @@ function getGithubToken() {
                     task.depends_on.forEach(depId => {
                         const depTask = tasks.find(t => t.id === depId);
                         if (depTask) {
-                            const icon = depTask.status === 'completed' ? '✓' : '⛔';
+                            const icon = depTask.status === 'completed' ? 'â' : 'â';
                             html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + depId + '\'))">' + icon + ' ' + escapeHtml(depTask.title) + '</span>';
                         }
                     });
@@ -3944,7 +3953,7 @@ function getGithubToken() {
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">×</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">Ã</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -3955,7 +3964,7 @@ function getGithubToken() {
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : '×', '').trim();
+                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'Ã', '').trim();
                 tags.push(text);
             });
             return tags;
@@ -4765,22 +4774,22 @@ function getGithubToken() {
             }
 
             const iconMap = {
-                created: '➕',
-                completed: '✓',
-                moved: '→',
-                edited: '✎',
-                commented: '💬',
-                attempted: '⚠',
-                assigned: '👤',
-                recurrence_spawned: '↻'
+                created: 'â',
+                completed: 'â',
+                moved: 'â',
+                edited: 'â',
+                commented: 'ð¬',
+                attempted: 'â ',
+                assigned: 'ð¤',
+                recurrence_spawned: 'â»'
             };
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || '•'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'â¢'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} — by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} â by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -5063,7 +5072,7 @@ function getGithubToken() {
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today — nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today â nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -5088,7 +5097,7 @@ function getGithubToken() {
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: '🔴', 2: '🟡', 3: '🟢' };
+                        const priNames = { 1: 'ð´', 2: 'ð¡', 3: 'ð¢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -5159,7 +5168,7 @@ function getGithubToken() {
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks • P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks â¢ P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5194,7 +5203,7 @@ function getGithubToken() {
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">✕</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">â</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5277,16 +5286,30 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '✅' };
+            var icons = { overdue: 'ð¨', approaching: 'â°', unblocked: 'ð', digest: 'ð', completed: 'â' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
-                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span> ' + escapeHtml(n.title) + '</div>' +
+                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || 'ð') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
         }).join('');
     }
 
     function markNotifRead(id) {
         var n = notifications.find(function(x) { return x.id === id; });
-        if (n) { n.read = true; localStorage.setItem('taskflow_notifications', JSON.stringify(notifications)); updateNotifBadge(); renderNotifications(); }
+        if (n) {
+            n.read = true;
+            localStorage.setItem('taskflow_notifications', JSON.stringify(notifications));
+            updateNotifBadge();
+            renderNotifications();
+            // Close notification panel
+            var panel = document.getElementById('notificationPanel');
+            if (panel) panel.classList.remove('open');
+            // Handle action based on notification type
+            if (n.type === 'digest') {
+                showStatsModal();
+            } else if (n.taskId) {
+                showTaskDetail(n.taskId);
+            }
+        }
     }
 
     function clearNotifications() {
@@ -5392,12 +5415,12 @@ function init() {
     }
     function getDeliverableType(task) {
         var cat = categorizeTask(task);
-        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'🔍'};
-        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'📝'};
-        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'✉'};
-        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'📄'};
-        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'🌐'};
-        if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'📅'};
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'ð'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'ð'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'â'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'ð'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'ð'};
+        if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'ð'};
         return null;
     }
     function renderDelegationBadge(task) {
@@ -5440,8 +5463,8 @@ function init() {
             swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
             var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
             var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
-            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='✅ Done'; swipeState.taskEl.appendChild(ri); }
-            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park 🅿'; swipeState.taskEl.appendChild(li); }
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='â Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park ð¿'; swipeState.taskEl.appendChild(li); }
             ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
             li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
         }, {passive:false});
@@ -5492,7 +5515,7 @@ function init() {
         if (!task.recurrence || task.recurrence==='none') return '';
         var info = getStreakInfo(task);
         var cls = info.current>=7?'hot':info.current>=3?'warm':info.current>=1?'cool':'cold';
-        var icon = info.current>=7?'🔥 ':info.current>=3?'⭐ ':'';
+        var icon = info.current>=7?'ð¥ ':info.current>=3?'â­ ':'';
         return '<span class="streak-badge '+cls+'">'+icon+info.current+' day streak</span>';
     }
     function renderHabitsView() {

@@ -4644,15 +4644,7 @@ function getGithubToken() {
         document.getElementById('timelineClose').onclick = toggleTimeline;
 
         // Feature 8: Quick capture
-        document.getElementById('quickCaptureInput').onkeypress = (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                quickCapture();
-            }
-        };
-        document.getElementById('quickCaptureBtn').onclick = quickCapture;
-        // Keyboard shortcut: Cmd/Ctrl+K for quick capture
-        document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', (e) => {
             
             // Escape to close modals and clear batch selection
             if (e.key === 'Escape') {

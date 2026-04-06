@@ -349,7 +349,7 @@
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
     "title": "Prepare for May 1 vertical restructure team assignments",
-    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' Ã¢ÂÂ Christopher will need vertical assignments. Verticals TBD.",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' ÃÂ¢ÃÂÃÂ Christopher will need vertical assignments. Verticals TBD.",
     "priority": 2,
     "status": "completed",
     "mode": "manual",
@@ -1004,8 +1004,8 @@
   },
   {
     "id": "task-1775361207142",
-    "title": "NYC Rent vs Buy — Review analysis and decide next steps",
-    "description": "Review the rent vs buy analysis. Key findings: (1) Rent first for 12 months while setting up a 10b5-1 plan to liquidate MNTN stock. (2) Combined NYC tax hit on stock sales is ~38.5% — need to sell ~$500K to net $300K for a down payment. (3) Co-ops are out due to primary residence/subletting restrictions. (4) Look at condos in $1.0-1.3M range after building liquid position. (5) Consider furnished rental services (Blueground, Sonder) for maximum flexibility while traveling. Next steps: talk to a financial advisor about 10b5-1 plan, talk to a real estate attorney, start exploring neighborhoods.",
+    "title": "NYC Rent vs Buy â Review analysis and decide next steps",
+    "description": "Review the rent vs buy analysis. Key findings: (1) Rent first for 12 months while setting up a 10b5-1 plan to liquidate MNTN stock. (2) Combined NYC tax hit on stock sales is ~38.5% â need to sell ~$500K to net $300K for a down payment. (3) Co-ops are out due to primary residence/subletting restrictions. (4) Look at condos in $1.0-1.3M range after building liquid position. (5) Consider furnished rental services (Blueground, Sonder) for maximum flexibility while traveling. Next steps: talk to a financial advisor about 10b5-1 plan, talk to a real estate attorney, start exploring neighborhoods.",
     "priority": 1,
     "status": "todo",
     "mode": "manual",
@@ -1062,7 +1062,7 @@
   {
     "id": "cf1f1ba6-2304-4819-bb4d-4558b7b711c2",
     "title": "Add all travel to TravelFlo",
-    "description": "I don’t think Claude is doing it correctly",
+    "description": "I donât think Claude is doing it correctly",
     "priority": 1,
     "status": "in_progress",
     "mode": "manual",
@@ -1122,5 +1122,110 @@
       "revenue_impact": "",
       "sprint": ""
     }
+  },
+  {
+    "id": "task-race-food-1775440341775",
+    "title": "Buy food for race",
+    "description": "",
+    "priority": 2,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal"
+  },
+  {
+    "id": "task-race-battery-1775440341776",
+    "title": "Buy a battery for race",
+    "description": "",
+    "priority": 2,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal"
+  },
+  {
+    "id": "task-race-gear-ny-1775440341777",
+    "title": "Test race gear in New York",
+    "description": "",
+    "priority": 2,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal"
   }
 ]

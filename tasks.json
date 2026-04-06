@@ -71,7 +71,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": "Research attorneys in new york that can help with digital stalking, digital abuse, etc."
+    "delegation_notes": "Research attorneys in new york that can help with digital stalking, digital abuse, etc.",
+    "pinned": true
   },
   {
     "id": "3694f669-1d1e-4763-a4b7-5a6a57ed5c36",
@@ -120,7 +121,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "b3ebf502-f5dd-4ae1-8f0b-9ed1c8b4bb86",
@@ -176,7 +178,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
@@ -220,7 +223,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "e1315482-fc18-482a-8ebb-0b347530f548",
@@ -260,7 +264,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": true
   },
   {
     "id": "b8f7505e-804b-40ee-a5f0-a7e45ba10736",
@@ -304,7 +309,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "ca563078-55ba-461e-8a31-05dcd290740c",
@@ -350,7 +356,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
@@ -394,7 +401,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "8f302e9f-251f-4787-ae0c-e8954e2c3a0b",
@@ -438,7 +446,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "8f6ec1c1-e2a0-4e88-a8c6-df863547fc56",
@@ -489,7 +498,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "d0aff4ce-6c25-49a5-8434-3b5dd8de40cd",
@@ -528,7 +538,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "11f43558-9310-4944-bdd9-7e50c7ef9a3f",
@@ -569,7 +580,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "e5ec2f5c-394b-4a47-b2c3-56a96eaecf44",
@@ -608,7 +620,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "20c8180f-c428-4e4a-89e8-dda5a56355ca",
@@ -647,7 +660,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "80ccabf7-0c6f-43d0-a3e0-7e39e495f035",
@@ -688,7 +702,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "a3e1b0ab-b989-4e46-a210-5b9ba2eb3013",
@@ -729,7 +744,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "fe60d698-e622-4003-9ee5-6637bf0a1bf9",
@@ -770,7 +786,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "748f8253-7fd0-406e-a9bd-9b359ebf6eaa",
@@ -809,7 +826,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "8c813054-e46d-497f-b886-7f1cd7173e31",
@@ -848,7 +866,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "6d871fe2-25ef-40c5-9f2e-ce80ce38b18d",
@@ -890,7 +909,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": null
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "corpdev-guide-001",
@@ -925,7 +945,8 @@
     "owner": "manual",
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "corpdev-deals-002",
@@ -960,7 +981,8 @@
     "owner": "manual",
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "corpdev-targets-003",
@@ -995,7 +1017,8 @@
     "owner": "manual",
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "corpdev-install-004",
@@ -1033,7 +1056,8 @@
       "Christopher"
     ],
     "custom_fields": {},
-    "delegation_notes": "Assigned to Christopher"
+    "delegation_notes": "Assigned to Christopher",
+    "pinned": false
   },
   {
     "id": "task-1775361207142",
@@ -1066,7 +1090,8 @@
     "category": "Personal",
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "04891084-94ce-4844-85dd-9a706ada61ed",
@@ -1099,7 +1124,8 @@
       "revenue_impact": "",
       "sprint": ""
     },
-    "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me"
+    "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me",
+    "pinned": true
   },
   {
     "id": "cf1f1ba6-2304-4819-bb4d-4558b7b711c2",
@@ -1131,7 +1157,8 @@
       "client": "",
       "revenue_impact": "",
       "sprint": ""
-    }
+    },
+    "pinned": false
   },
   {
     "id": "909a7139-df5c-40db-898d-c5320e3c61d0",
@@ -1163,7 +1190,8 @@
       "client": "",
       "revenue_impact": "",
       "sprint": ""
-    }
+    },
+    "pinned": false
   },
   {
     "id": "task-race-food-1775440341775",
@@ -1210,7 +1238,8 @@
     },
     "delegation_notes": null,
     "assigned_to": "christopher",
-    "category": "Personal"
+    "category": "Personal",
+    "pinned": false
   },
   {
     "id": "task-race-battery-1775440341776",
@@ -1251,7 +1280,8 @@
     },
     "delegation_notes": null,
     "assigned_to": "christopher",
-    "category": "Personal"
+    "category": "Personal",
+    "pinned": false
   },
   {
     "id": "task-race-gear-ny-1775440341777",
@@ -1292,7 +1322,8 @@
     },
     "delegation_notes": null,
     "assigned_to": "christopher",
-    "category": "Personal"
+    "category": "Personal",
+    "pinned": false
   },
   {
     "id": "task-nutrition-plan-1775463278068",
@@ -1323,6 +1354,7 @@
     ],
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   }
 ]

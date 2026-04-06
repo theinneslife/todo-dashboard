@@ -3078,7 +3078,7 @@
                 var flag = flags[country] || "✈️";
                 var dateStr = self.formatDate(t.startDate) + " - " + self.formatDate(t.endDate);
                 var bk = (t.bookings || []).length || ((t.flights || []).length + (t.accommodation ? 1 : 0));
-                var cityPhotos={"New York City":"photo-1534430480872-3498386e7856","Belize":"photo-1580415126968-091be9aa2e28","Los Angeles":"photo-1534190760961-74e8c1c5c3da","London":"photo-1513635269975-59663e0ac1ad","Paris":"photo-1502602898657-3e91760cbb34","Tokyo":"photo-1540959733332-eab4deabeeaf","Miami":"photo-1533106497176-45ae19e68ba2","San Francisco":"photo-1501594907352-04cda38ebc29","Barcelona":"photo-1583422409516-2895a77efded","Rome":"photo-1552832230-c0197dd311b5","Amsterdam":"photo-1534351590666-13e3e96b5017","Dublin":"photo-1549918864-48ac978761a4","Sydney":"photo-1506973035872-a4ec16b8e8d9","Cancun":"photo-1552074284-5e88ef1aef18","Denver":"photo-1619856699906-09e1f4ef541c","Nashville":"photo-1588347818036-558601350947","Austin":"photo-1531218150217-54595bc2b934","Seattle":"photo-1502175353174-a7a70e73b362","Chicago":"photo-1494522855154-9297ac14b55f","Tulum":"photo-1682553064441-3d2db1dee35e","Aspen":"photo-1578983427937-3433e5fc4394","Sedona":"photo-1500513478007-4091c978445a","Lake Tahoe":"photo-1542731409-26e7e6e7bdd6","Napa Valley":"photo-1510812431401-41d2bd2722f3","Las Vegas":"photo-1581351721010-8cf859cb14a4","Scottsdale":"photo-1558645836-e44122a743ee","Savannah":"photo-1563991655280-cb95c90ca2fb","Charleston":"photo-1587578932405-7c740a762fe0","Portland":"photo-1507245338956-97e654dcb1a3","Maui":"photo-1542259009477-d625272157b7","Honolulu":"photo-1507876466758-bc54f384809c","Key West":"photo-1578894381163-e72c17f2d45f","New Orleans":"photo-1568402102990-bc541580b59f","Palm Springs":"photo-1542401886-65d6c61db217","Cabo San Lucas":"photo-1510097467424-192d713fd8b2","Puerto Rico":"photo-1572563924928-cd972252a944","Costa Rica":"photo-1519023450109-34d901c4d8da","Jamaica":"photo-1586036553212-4793738fa716"};
+                var cityPhotos={"New York City":"photo-1534430480872-3498386e7856","Belize":"photo-1580415126968-091be9aa2e28","Los Angeles":"photo-1534190760961-74e8c1c5c3da","London":"photo-1513635269975-59663e0ac1ad","Paris":"photo-1502602898657-3e91760cbb34","Tokyo":"photo-1540959733332-eab4deabeeaf","Miami":"photo-1533106497176-45ae19e68ba2","San Francisco":"photo-1501594907352-04cda38ebc29","Barcelona":"photo-1583422409516-2895a77efded","Rome":"photo-1552832230-c0197dd311b5","Amsterdam":"photo-1534351590666-13e3e96b5017","Dublin":"photo-1549918864-48ac978761a4","Sydney":"photo-1506973035872-a4ec16b8e8d9","Cancun":"photo-1552074284-5e88ef1aef18","Denver":"photo-1619856699906-09e1f4ef541c","Nashville":"photo-1588347818036-558601350947","Austin":"photo-1531218150217-54595bc2b934","Seattle":"photo-1502175353174-a7a70e73b362","Chicago":"photo-1494522855154-9297ac14b55f","Tulum":"photo-1682553064441-3d2db1dee35e","Aspen":"photo-1578983427937-3433e5fc4394","Sedona":"photo-1500513478007-4091c978445a","Lake Tahoe":"photo-1542731409-26e7e6e7bdd6","Napa Valley":"photo-1510812431401-41d2bd2722f3","Las Vegas":"photo-1581351721010-8cf859cb14a4","Scottsdale":"photo-1558645836-e44122a743ee","Savannah":"photo-1563991655280-cb95c90ca2fb","Charleston":"photo-1587578932405-7c740a762fe0","Portland":"photo-1507245338956-97e654dcb1a3","Maui":"photo-1542259009477-d625272157b7","Honolulu":"photo-1507876466758-bc54f384809c","Key West":"photo-1578894381163-e72c17f2d45f","New Orleans":"photo-1568402102990-bc541580b59f","Palm Springs":"photo-1542401886-65d6c61db217","Cabo San Lucas":"photo-1510097467424-192d713fd8b2","Los Cabos":"photo-1510097467424-192d713fd8b2","Puerto Rico":"photo-1572563924928-cd972252a944","Costa Rica":"photo-1519023450109-34d901c4d8da","Jamaica":"photo-1586036553212-4793738fa716"};
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
@@ -3157,8 +3157,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     if (d.bCost) html += "Cost: "+d.bCost+"<br>";
                     if (d.bConfirmation) html += "Confirmation: "+d.bConfirmation+"<br>";
                     if (d.bHost) html += "Host: "+d.bHost;
-                    var accomQ = encodeURIComponent((a.title || "Hotel") + " " + (d.bAddress || trip.destination));
-                    html += '<div style="margin-top:8px"><a href="https://www.google.com/maps/search/'+accomQ+'" target="_blank" style="color:var(--accent-blue);text-decoration:none;font-size:.8rem">\ud83d\udccd Open in Maps</a></div>';
+                html += '<br><a href="https://www.google.com/maps/search/'+encodeURIComponent((d.bAddress||a.title||"")+" "+(trip.destination||""))+'" target="_blank" style="display:inline-block;margin-top:8px;padding:4px 12px;background:#6c63ff;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;">Open in Maps</a>';
                     html += "</div></div>";
                 });
                 html += "</div>";
@@ -3176,37 +3175,18 @@ var destCity = (trip.destination || "").split(",")[0].trim();
 var destCityEnc = encodeURIComponent(destCity);
 var mapsSearch = "https://www.google.com/maps/search/";
 html += '<div style="margin-top:24px;"><h3 style="font-size:16px;font-weight:700;margin-bottom:12px;color:#1a1a2e;">\u{1F4CD} Local Recommendations</h3>';
-
-// Pilates Studios
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#6c63ff;margin-bottom:8px;">Pilates Studios</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("best pilates studios near " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#f0eeff;border-radius:8px;color:#6c63ff;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F9D8} Find Pilates Studios in ' + destCity + ' \u2192</a></div>';
-
-// Pole Fitness / Dance Studios
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#e91e8c;margin-bottom:8px;">Pole Fitness & Dance Studios</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("pole fitness dance studios near " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#fce4f3;border-radius:8px;color:#e91e8c;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F483} Find Pole & Dance Studios in ' + destCity + ' \u2192</a></div>';
-
-// Equinox
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:8px;">Equinox Locations</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("Equinox gym within 10 miles of " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#e8e8e8;border-radius:8px;color:#1a1a2e;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F3CB} Equinox near ' + destCity + ' \u2192</a></div>';
-
-// Soho House
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#8B7355;margin-bottom:8px;">Soho House Locations</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("Soho House within 10 miles of " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#f5f0e8;border-radius:8px;color:#8B7355;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F378} Soho House near ' + destCity + ' \u2192</a></div>';
-
-// Restaurants
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#e67e22;margin-bottom:8px;">Restaurants</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("best restaurants in " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#fef3e2;border-radius:8px;color:#e67e22;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F37D} Top Restaurants in ' + destCity + ' \u2192</a></div>';
-
-// Things to Do
-html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#27ae60;margin-bottom:8px;">Things to Do</h4>';
-html += '<a href="' + mapsSearch + encodeURIComponent("things to do in " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#e8f8ef;border-radius:8px;color:#27ae60;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{2B50} Explore ' + destCity + ' \u2192</a></div>';
-
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#6c63ff;margin-bottom:8px;">Pilates Studios</h4><a href="' + mapsSearch + encodeURIComponent("best pilates studios near " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#f0eeff;border-radius:8px;color:#6c63ff;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F9D8} Find Pilates Studios in ' + destCity + ' \u2192</a></div>';
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#e91e8c;margin-bottom:8px;">Pole Fitness & Dance Studios</h4><a href="' + mapsSearch + encodeURIComponent("pole fitness dance studios near " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#fce4f3;border-radius:8px;color:#e91e8c;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F483} Find Pole & Dance Studios in ' + destCity + ' \u2192</a></div>';
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:8px;">Equinox Locations</h4><a href="' + mapsSearch + encodeURIComponent("Equinox gym within 10 miles of " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#e8e8e8;border-radius:8px;color:#1a1a2e;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F3CB} Equinox near ' + destCity + ' \u2192</a></div>';
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#8B7355;margin-bottom:8px;">Soho House Locations</h4><a href="' + mapsSearch + encodeURIComponent("Soho House within 10 miles of " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#f5f0e8;border-radius:8px;color:#8B7355;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F378} Soho House near ' + destCity + ' \u2192</a></div>';
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#e67e22;margin-bottom:8px;">Restaurants</h4><a href="' + mapsSearch + encodeURIComponent("best restaurants in " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#fef3e2;border-radius:8px;color:#e67e22;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{1F37D} Top Restaurants in ' + destCity + ' \u2192</a></div>';
+html += '<div style="margin-bottom:16px;"><h4 style="font-size:13px;font-weight:600;color:#27ae60;margin-bottom:8px;">Things to Do</h4><a href="' + mapsSearch + encodeURIComponent("things to do in " + destCity) + '" target="_blank" style="display:block;padding:8px 12px;background:#e8f8ef;border-radius:8px;color:#27ae60;text-decoration:none;font-size:13px;margin-bottom:4px;">\u{2B50} Explore ' + destCity + ' \u2192</a></div>';
 html += '</div>';
 document.getElementById("tripDetailBody").innerHTML = html;
             modal.style.display = "";modal.classList.add("active");
         }
 
-        closeTripDetail() { var m = document.getElementById("tripDetailModal"); m.classList.remove("active"); m.style.display = "none"; }
+        closeTripDetail() { var m=document.getElementById("tripDetailModal");m.style.display="none";m.classList.remove("active"); }
 
         editFromDetail() { this.closeTripDetail(); if (this._detailTripId) this.openTripModal(this._detailTripId); }
 
@@ -3844,7 +3824,7 @@ formatDate(dateStr) {
         const tasksList = document.getElementById('tripTasksList');
         if (tasksList) {
             if (trip.followupTasks?.length > 0) {
-                tasksList.innerHTML = trip.followupTasks.map(function(t, idx) { return '<div style="padding:6px;font-size:12px;display:flex;align-items:center;gap:8px;cursor:pointer" onclick="this.querySelector(\'input\').checked=!this.querySelector(\'input\').checked;this.style.opacity=this.querySelector(\'input\').checked?\'0.5\':\'1\';this.querySelector(\'span\').style.textDecoration=this.querySelector(\'input\').checked?\'line-through\':\'none\'"><input type="checkbox" style="accent-color:var(--accent-green);cursor:pointer" onclick="event.stopPropagation()"><span>' + t + '</span></div>'; }).join('');
+                tasksList.innerHTML = trip.followupTasks.map(t => '<div style="padding:6px;font-size:12px;">\u2022 ' + t + '</div>').join('');
             } else { tasksList.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;">No tasks yet. Click Generate above.</div>'; }
         }
         // Packing

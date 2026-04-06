@@ -1697,6 +1697,7 @@
     <!-- Trip Modal -->
     <div id="tripModal" class="modal">
         <div class="modal-content">
+            <img id="modalPhoto" class="modal-photo-hero" style="display:none; width:100%; max-height:220px; object-fit:cover; border-radius:12px 12px 0 0;">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add New Trip</div>
                 <button class="close-btn">&times;</button>
@@ -2198,13 +2199,15 @@
                     document.getElementById('templateSelection').style.display = 'none';
                     this.populateTripForm(this.currentEditingTrip);
                 var modalPhoto = document.getElementById("modalPhoto");
+            if (modalPhoto) {
                 if (this.currentEditingTrip) {
                     var editCityPhotos = {"New York City":"photo-1534430480872-3498386e7856","Belize":"photo-1580415216516-cf4c6514e68e","Los Cabos":"photo-1585160015832-4db9cf27c572","Los Angeles":"photo-1534190760961-74e8c1c5c3da","Johannesburg":"photo-1577948000111-9c970dfe3743","Singita Safari":"photo-1516426122078-c23e76319801","Cape Town":"photo-1580060839134-75a5edca2e99","Dubrovnik":"photo-1555990538-1e6e4df0e2b4","Playa del Carmen":"photo-1552074284-5e88ef1aef18","Antigua Guatemala":"photo-1563523986-66e88f67ca19","Bogota":"photo-1568632234157-ce7aecd03d0d","Buenos Aires":"photo-1589909202802-8f4aadce1849","El Salvador":"photo-1592385391379-16e0a085ca05","Las Vegas":"photo-1605833556294-ea5c7a74f57d"};
                     var eTCity = (this.currentEditingTrip.title || this.currentEditingTrip.destination || "").split(",")[0].trim();
                     var ePid = editCityPhotos[eTCity];
                     modalPhoto.src = ePid ? "https://images.unsplash.com/"+ePid+"?w=800&h=300&fit=crop&auto=format" : "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=300&fit=crop&auto=format";
                     modalPhoto.style.display = "block";
-                } else { modalPhoto.style.display = "none"; }
+                } else { modalPhoto.style.display = "none";
+            } }
 
                 } else {
                     // Create mode - show templates

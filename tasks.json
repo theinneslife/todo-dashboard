@@ -267,7 +267,7 @@
     "title": "Slides for MNTN meet",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -285,10 +285,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-06T17:17:06.710Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-03T18:40:26.313Z",
-    "completed_at": null,
+    "completed_at": "2026-04-06T17:17:06.710Z",
     "completion_notes": null,
     "project": "mntn",
     "depends_on": [],

@@ -1175,7 +1175,7 @@
     "title": "Buy a battery for race",
     "description": "",
     "priority": 2,
-    "status": "todo",
+    "status": "in_progress",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1188,6 +1188,12 @@
         "action": "created",
         "by": "Claude",
         "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:22:44.864Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
       }
     ],
     "created_at": "2026-04-06T01:52:21.775Z",

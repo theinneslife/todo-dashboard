@@ -1866,9 +1866,72 @@
             }
 
             loadTrips() {
-                const stored = localStorage.getItem('travelFloTrips');
-                this.trips = stored ? JSON.parse(stored) : [];
+            const stored = localStorage.getItem('travelFloTrips');
+            this.trips = stored ? JSON.parse(stored) : [];
+            // Async fetch from trips.json to get authoritative data
+            this.loadTripsFromJson();
+        }
+
+        async loadTripsFromJson() {
+            try {
+                const resp = await fetch('trips.json');
+                if (!resp.ok) return;
+                const data = await resp.json();
+                const raw = data.trips || data;
+                if (!Array.isArray(raw) || raw.length === 0) return;
+                // Transform structured trips.json format to app format
+                this.trips = raw.map((t, i) => {
+                    const dest = t.destination;
+                    const destStr = typeof dest === 'string' ? dest : (dest.city && dest.country ? dest.city + ', ' + dest.country : dest.city || '');
+                    const startDate = t.dates ? t.dates.start : (t.startDate || '');
+                    const endDate = t.dates ? t.dates.end : (t.endDate || '');
+                    const bookings = t.bookings || [];
+                    const flights = bookings.filter(b => b.type === 'flight').map(b => ({
+                        airline: b.title || '',
+                        route: b.details ? b.details.bRoute || '' : '',
+                        departure: b.details ? b.details.bDepDate || '' : '',
+                        arrival: b.details ? b.details.bArrDate || '' : '',
+                        confirmation: b.details ? b.details.bConfirmation || '' : '',
+                        class: b.details ? b.details.bClass || '' : '',
+                        cost: b.details ? b.details.bCost || '' : '',
+                        notes: b.details ? b.details.bNotes || '' : '',
+                        passengers: b.details ? b.details.bPassengers || '' : ''
+                    }));
+                    const accBooking = bookings.find(b => b.type === 'accommodation');
+                    const accommodation = accBooking ? accBooking.title || '' : (t.accommodation || '');
+                    let budget = 0;
+                    bookings.forEach(b => {
+                        if (b.details && b.details.bCost) {
+                            const m = b.details.bCost.match(/[\d,.]+/);
+                            if (m) budget += parseFloat(m[0].replace(/,/g, '')) || 0;
+                        }
+                    });
+                    return {
+                        id: t.id || String(Date.now() + i),
+                        destination: destStr,
+                        startDate: startDate,
+                        endDate: endDate,
+                        notes: t.notes || '',
+                        flights: flights,
+                        accommodation: accommodation,
+                        budget: budget,
+                        expenses: t.expenses || [],
+                        packingList: t.packingList || [],
+                        colorIndex: i % 10,
+                        status: t.status || 'upcoming',
+                        type: t.type || 'personal',
+                        companions: t.companions || [],
+                        bookings: bookings,
+                        title: t.title || destStr
+                    };
+                });
+                this.saveTrips();
+                this.renderAllViews();
+                this.initDashboard();
+            } catch(e) {
+                console.log('trips.json fetch error:', e);
             }
+        }
 
             saveTrips() {
                 localStorage.setItem('travelFloTrips', JSON.stringify(this.trips));

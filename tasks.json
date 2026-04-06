@@ -1098,24 +1098,36 @@
     "title": "Anniversary plan for Friday",
     "description": "I have a dinner booked at 5pm st soothr. Need plans after. Cabernet, comedy, weird shows, something to do.",
     "priority": 1,
-    "status": "in_progress",
-    "mode": "auto",
+    "status": "completed",
+    "mode": "manual",
     "labels": [],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "timestamp": "2026-04-06T20:13:51.206479+00:00",
+        "by": "Claude",
+        "text": "## Anniversary After-Dinner Plans \u2014 Options Near Soothr (204 E 13th St, East Village)\n\nDinner is at 5pm at Soothr, so you'll likely be done around 6:30\u20137pm. Here are curated after-dinner options:\n\n### Wine Bars (Cabernet Focus)\n1. **Ruffian** \u2014 Tiny East Village wine bar, 250+ natural wines, Michelin Bib Gourmand. Walk from Soothr. Great intimate anniversary vibe.\n2. **Stars** \u2014 New spot from the Claud/Penny team. 1,000-bottle list, by-the-glass from $11, homage to classic East Village wine bars. Very close to Soothr.\n3. **Ten Bells** (LES) \u2014 Cozy, dark, laid-back natural wine bar. Short walk east.\n\n### Comedy Shows\n1. **New York Comedy Club** (E 4th St) \u2014 Walking distance from Soothr. Multiple shows nightly, check newyorkcomedyclub.com for April 10 lineup.\n2. **Greenwich Village Comedy Club** \u2014 Also nearby in the Village, intimate setting.\n3. **Broadway Comedy Club** \u2014 Near Times Square, top headliner lineups from Netflix/Comedy Central acts.\n\n### Weird/Unique Experiences\n1. **Batsu** \u2014 Japanese game show-style challenges with authentic food & drinks, inspired by Tokyo alleyways. Fun, interactive, memorable.\n2. **The Office of Mr. Motto** \u2014 Private museum + 21-course omakase with a cryptic password to enter. Very unique anniversary-worthy experience.\n3. **SPYSCAPE** (Midtown) \u2014 Interactive spy museum with surveillance, lie detection, hacking challenges. Fun couples activity.\n4. **Swingers NoMad** \u2014 Crazy mini-golf with craft cocktails, 21+. Lighthearted and fun.\n\n### Suggested Flow\n**Option A (Romantic):** Soothr \u2192 Stars or Ruffian for wine \u2192 walk through East Village\n**Option B (Fun):** Soothr \u2192 Batsu (game show) \u2192 nightcap at Ten Bells\n**Option C (Adventure):** Soothr \u2192 SPYSCAPE or Swingers \u2192 cocktails at a nearby bar"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-05T23:21:50.777Z",
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-06T20:13:51.206479+00:00",
+        "action": "completed",
+        "by": "Claude",
+        "details": "Researched after-dinner anniversary plans near Soothr in East Village. Posted curated options (wine bars, comedy, unique experiences) and 3 suggested evening flows as comments. Assigned back to Christopher."
       }
     ],
     "created_at": "2026-04-05T23:21:50.777Z",
-    "completed_at": null,
-    "completion_notes": null,
+    "completed_at": "2026-04-06T20:13:51.206479+00:00",
+    "completion_notes": "Researched after-dinner anniversary options near Soothr (East Village): wine bars (Ruffian, Stars, Ten Bells), comedy shows (NY Comedy Club, Greenwich Village), unique experiences (Batsu, Office of Mr. Motto, SPYSCAPE, Swingers). Posted 3 suggested evening flows as comments.",
     "project": null,
     "depends_on": [],
     "collaborators": [],

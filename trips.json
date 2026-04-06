@@ -45,7 +45,23 @@
             "bHost": "LuxQuarters",
             "bPhone": "",
             "bNotes": "",
-            "bIncludes": ""
+            "bIncludes": "",
+            "bListingUrl": "https://www.airbnb.com/rooms/123456789"
+          }
+        },
+        {
+          "id": "b_1_rc",
+          "type": "rentalCar",
+          "title": "Enterprise Midsize SUV",
+          "details": {
+            "bCompany": "Enterprise",
+            "bConfirmation": "NYC8847291",
+            "bPickupLocation": "JFK Airport, Jamaica, NY 11430",
+            "bPickupDate": "Apr 7, 2026 9:30 AM",
+            "bDropoffLocation": "LGA Airport, East Elmhurst, NY 11371",
+            "bDropoffDate": "Apr 11, 2026 8:00 AM",
+            "bCarType": "Midsize SUV (Ford Escape or similar)",
+            "bCost": "$387 USD"
           }
         }
       ],

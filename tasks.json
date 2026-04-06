@@ -1034,7 +1034,7 @@
     "title": "NYC Rent vs Buy Ã¢ÂÂ Review analysis and decide next steps",
     "description": "Review the rent vs buy analysis. Key findings: (1) Rent first for 12 months while setting up a 10b5-1 plan to liquidate MNTN stock. (2) Combined NYC tax hit on stock sales is ~38.5% Ã¢ÂÂ need to sell ~$500K to net $300K for a down payment. (3) Co-ops are out due to primary residence/subletting restrictions. (4) Look at condos in $1.0-1.3M range after building liquid position. (5) Consider furnished rental services (Blueground, Sonder) for maximum flexibility while traveling. Next steps: talk to a financial advisor about 10b5-1 plan, talk to a real estate attorney, start exploring neighborhoods.",
     "priority": 1,
-    "status": "todo",
+    "status": "in_progress",
     "mode": "manual",
     "labels": [
       "Personal"
@@ -1048,10 +1048,19 @@
         "action": "created",
         "by": "Claude",
         "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:54.864Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
       }
     ],
     "assigned_to": "christopher",
-    "category": "Personal"
+    "category": "Personal",
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
   },
   {
     "id": "04891084-94ce-4844-85dd-9a706ada61ed",

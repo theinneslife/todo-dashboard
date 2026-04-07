@@ -1410,7 +1410,8 @@
       "corpdev-deals-002",
       "corpdev-targets-003"
     ],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
   },
   {
     "id": "17979cf4-59a5-499f-9837-9725fe681d83",

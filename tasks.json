@@ -1519,7 +1519,7 @@
     "title": "Review multi-touch attribution roadmap with marketing team",
     "description": "From Mid Market Strategy Update call — Speaker 1 outlined need for multi-touch attribution modeling to understand marketing recipes (which combo of TV + paid social + LinkedIn drives mid-market sign-ups). Christopher expressed strong interest. Follow up on timeline/SLA from Will (under Paulo's team).",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "mntn",
@@ -1536,10 +1536,16 @@
         "action": "created",
         "by": "System",
         "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:53.129Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
-    "completed_at": null,
+    "completed_at": "2026-04-07T00:29:53.129Z",
     "completion_notes": null
   },
   {

@@ -45,7 +45,8 @@
             "bHost": "LuxQuarters",
             "bPhone": "",
             "bNotes": "",
-            "bIncludes": ""
+            "bIncludes": "",
+            "bListingUrl": "https://www.airbnb.com/rooms/HMYHDJ9ETP"
           }
         }
       ],
@@ -97,6 +98,21 @@
             "bProvider": "Airbnb",
             "bNotes": "Suggestions received for Apr 10-17 stays near Belize City; no confirmed reservation found"
           }
+        },
+        {
+          "id": "b_2_rc",
+          "type": "rentalCar",
+          "title": "Crystal Auto Rental - Toyota Hilux",
+          "details": {
+            "bCompany": "Crystal Auto Rental",
+            "bPickupLocation": "Belize City (BZE) Airport",
+            "bDropoffLocation": "Belize City (BZE) Airport",
+            "bPickupDate": "Apr 11, 2026",
+            "bDropoffDate": "Apr 19, 2026",
+            "bConfirmation": "CR-BZE-2026-0411",
+            "bCost": "$680.00 USD",
+            "bNotes": "4WD recommended for jungle roads to Caracol/ATM cave"
+          }
         }
       ],
       "tasks": [],
@@ -132,6 +148,21 @@
             "bDepDate": "Apr 24, 2026",
             "bArrDate": "Apr 24, 2026 4:43 PM",
             "bNotes": "Los Cabos to Los Angeles"
+          }
+        },
+        {
+          "id": "b_3_rc",
+          "type": "rentalCar",
+          "title": "Hertz - Jeep Wrangler 4dr",
+          "details": {
+            "bCompany": "Hertz",
+            "bPickupLocation": "SJD Airport",
+            "bDropoffLocation": "SJD Airport",
+            "bPickupDate": "Apr 19, 2026 11:30 AM",
+            "bDropoffDate": "Apr 24, 2026 1:00 PM",
+            "bConfirmation": "H7K2NM",
+            "bCost": "$612.40 USD",
+            "bNotes": "Unlimited mileage, full insurance included"
           }
         }
       ],
@@ -304,7 +335,23 @@
       },
       "status": "upcoming",
       "type": "personal",
-      "bookings": [],
+      "bookings": [
+        {
+          "id": "b_7_rc",
+          "type": "rentalCar",
+          "title": "Avis - Toyota Fortuner 4x4",
+          "details": {
+            "bCompany": "Avis",
+            "bPickupLocation": "Cape Town International Airport",
+            "bDropoffLocation": "Cape Town International Airport",
+            "bPickupDate": "May 6, 2026 8:00 PM",
+            "bDropoffDate": "May 15, 2026 10:00 AM",
+            "bConfirmation": "AV-CPT-44219",
+            "bCost": "ZAR 14,250",
+            "bNotes": "For day trips along the Cape Peninsula and winelands"
+          }
+        }
+      ],
       "tasks": [],
       "companions": [
         {
@@ -357,7 +404,8 @@
             "bNights": "14",
             "bCost": "$18,098.50 USD",
             "bHost": "Maxima Comoda - Premium Properties D.O.O.",
-            "bPhone": "+385 91 527 5007"
+            "bPhone": "+385 91 527 5007",
+            "bListingUrl": "https://www.airbnb.com/rooms/HMZKNPNPRQ"
           }
         }
       ],
@@ -590,7 +638,8 @@
             "bNights": "10",
             "bCost": "$3,727.00 USD",
             "bHost": "Rosa Alba",
-            "bPhone": "+503 7482 4049"
+            "bPhone": "+503 7482 4049",
+            "bListingUrl": "https://www.airbnb.com/rooms/HMNDWCQ3C8"
           }
         }
       ],

@@ -1685,5 +1685,32 @@
     "project": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "27f41ea1-7c34-4aa5-a3ec-9a6873f1fab6",
+    "title": "Get back to signita",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-07T02:02:54.946Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-07T02:02:54.946Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

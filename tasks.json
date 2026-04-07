@@ -1643,7 +1643,8 @@
     "completion_notes": null,
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
   },
   {
     "id": "53e65a02-d779-428f-9153-56cd8f7892e2",

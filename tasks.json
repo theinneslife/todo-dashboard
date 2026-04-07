@@ -1617,5 +1617,32 @@
     "collaborators": [
       "christopher"
     ]
+  },
+  {
+    "id": "9b94aa52-b1ec-4280-b42b-fbd8a1bde804",
+    "title": "Approve bonuses",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-07T00:30:54.223Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-07T00:30:54.223Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

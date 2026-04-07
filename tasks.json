@@ -1485,7 +1485,7 @@
     "title": "Align with Paulo on mid-market segment definitions",
     "description": "From Mid Market Strategy Update call — Paulo is leading the redefinition of market segments. Christopher defined mid-market as brands that can start at $25K/month and scale to $100K/month. Ensure alignment with Paulo's definitions for OKR tracking (9,000 leads/quarter, 25% mid-market capable).",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "mntn",
@@ -1502,10 +1502,16 @@
         "action": "created",
         "by": "System",
         "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:48.375Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
-    "completed_at": null,
+    "completed_at": "2026-04-07T00:29:48.375Z",
     "completion_notes": null
   },
   {

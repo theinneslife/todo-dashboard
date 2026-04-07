@@ -2428,6 +2428,19 @@
     70% { outline-color: #D4A574; }
     100% { outline-color: transparent; }
 }
+
+        /* Always-on hamburger consolidation */
+        .hamburger-wrapper { display: block !important; position: relative; }
+        .hamburger-menu-btn { display: flex !important; }
+        .button-group .toolbar-hideable { display: none !important; }
+
+        /* Touch target fixes (P2) */
+        @media (max-width: 768px) {
+          .view-tab { min-height: 44px !important; min-width: 44px !important; padding: 12px 16px !important; display: inline-flex; align-items: center; justify-content: center; }
+          .mobile-column-nav .nav-arrow { width: 44px !important; height: 44px !important; min-width: 44px !important; min-height: 44px !important; }
+          .mobile-tabs button, .mobile-tabs .mobile-tab, .mobile-tab { min-height: 44px !important; min-width: 44px !important; padding: 12px 14px !important; display: inline-flex; align-items: center; justify-content: center; }
+          .hamburger-menu-btn { width: 44px !important; height: 44px !important; min-width: 44px !important; min-height: 44px !important; }
+        }
 </style>
 </head>
 <body>
@@ -3030,6 +3043,7 @@ function getGithubToken() {
 
         async function saveTasksToGithub(tasksData, reason) {
             reason = reason || 'Update tasks';
+            if (Array.isArray(tasksData)) { tasksData.forEach(function(t){ if (t && t.status === 'completed') { t.pinned = false; } }); }
             if (!githubToken) {
                 showToast('Not authenticated - changes are local only', 'warning');
                 return false;
@@ -3446,7 +3460,7 @@ function getGithubToken() {
                 title.className = 'column-title';
                 title.textContent = col.title;
                 if (col.subtitle) {
-                    title.innerHTML += `<div style="font-size: 11px; color: #6e6e73; font-weight: 400; margin-top: 2px;">${escapeHtml(col.subtitle)}</div>`;
+                    title.innerHTML += `<div style="display: block; font-size: 11px; color: #6e6e73; font-weight: 400; margin-top: 4px;">${escapeHtml(col.subtitle)}</div>`;
                 }
                 const count = document.createElement('div');
                 count.className = 'column-count';

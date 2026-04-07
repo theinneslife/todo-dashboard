@@ -1417,7 +1417,7 @@
     "title": "Check if MNTN on-site messaging product is still available",
     "description": "From Mid Market Strategy Update call — Christopher mentioned MNTN used to have an on-site messaging product that could serve in-website ads to people who saw TV commercials. Speaker 1 needs this for user pathing. Check with Richard if it's still in beta or was sunset.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "mntn",
@@ -1434,10 +1434,16 @@
         "action": "created",
         "by": "System",
         "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:37.306Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
-    "completed_at": null,
+    "completed_at": "2026-04-07T00:29:37.306Z",
     "completion_notes": null
   },
   {

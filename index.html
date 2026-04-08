@@ -2458,9 +2458,9 @@
             <a href="travelflow.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <div class="header-right">
                 <div class="view-toggle">
-                    <button class="view-toggle-btn active" data-view="board">Board</button>
+                    <button class="view-toggle-btn active" data-view="board"><i data-lucide="kanban-square" style="width:14px;vertical-align:middle;margin-right:6px"></i>Board</button>
                     <button class="view-toggle-btn" data-view="my-tasks">My Tasks</button>
-            <button class="view-tab" data-view="habits" onclick="switchView('habits')">Habits</button>
+            <button class="view-tab" data-view="habits" onclick="switchView('habits')"><i data-lucide="repeat" style="width:14px;vertical-align:middle;margin-right:6px"></i>Habits</button>
                 </div>
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
@@ -2847,6 +2847,8 @@
         
         // ===== v4.1: TOAST NOTIFICATIONS =====
         function showToast(message, type, duration) {
+if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
+
             type = type || 'info';
             duration = duration || 3000;
             var container = document.getElementById('toastContainer');
@@ -2857,7 +2859,7 @@
                 document.body.appendChild(container);
             }
             var toast = document.createElement('div');
-            var icons = {success:'✅',error:'❌',info:'ℹ️',warning:'⚠️'};
+            var icons = {success:'<i data-lucide="check-circle-2" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>',error:'<i data-lucide="x-circle" style="width:16px;vertical-align:middle;color:#ff3b30;margin-right:6px"></i>',info:'<i data-lucide="info" style="width:16px;vertical-align:middle;color:#007aff;margin-right:6px"></i>',warning:'<i data-lucide="triangle-alert" style="width:16px;vertical-align:middle;color:#ff9f0a;margin-right:6px"></i>'};
             var colors = {success:'#10b981',error:'#ef4444',info:'#3b82f6',warning:'#f59e0b'};
             toast.style.cssText = 'padding:12px 20px;border-radius:8px;color:white;font-size:14px;font-weight:500;background:'+
                 (colors[type]||colors.info)+';box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:all 0.3s;opacity:0;transform:translateX(20px);max-width:350px;pointer-events:auto;';
@@ -3608,7 +3610,8 @@ function getGithubToken() {
             if (task.priority) {
                 const priority = document.createElement('div');
                 priority.className = `task-priority priority-${task.priority}`;
-                priority.innerHTML = '<span class="priority-dot"></span>';
+                const prioIcons = { '1': 'arrow-up', '2': 'minus', '3': 'arrow-down' };
+                priority.innerHTML = '<i data-lucide="' + (prioIcons[task.priority] || 'circle') + '" style="width:14px;vertical-align:middle;margin-right:4px"></i>';
                 const priorityText = document.createElement('span');
                 const priorityNames = { '1': 'High', '2': 'Medium', '3': 'Low' };
                 priorityText.textContent = priorityNames[task.priority];
@@ -5367,7 +5370,7 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '✅' };
+            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '<i data-lucide="check-circle-2" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
                 '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';

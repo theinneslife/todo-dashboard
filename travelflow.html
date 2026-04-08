@@ -1899,7 +1899,7 @@
                 <!-- Overlap Warning -->
                 <div id="overlapWarning" style="display: none;">
                     <div class="overlap-warning">
-                        <div class="overlap-warning-title">⚠️ Date Overlap Detected</div>
+                        <div class="overlap-warning-title"><i data-lucide="triangle-alert" style="width:16px;vertical-align:middle;color:#ff9f0a"></i> Date Overlap Detected</div>
                         <div class="overlap-trips" id="overlapTripsText"></div>
                     </div>
                 </div>
@@ -2107,10 +2107,10 @@
                     { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
                     { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
                     { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
-                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '🏖️' },
-                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '🏙️' },
+                    { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>' },
+                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '<i data-lucide="building-2" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
-                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '🌴' },
+                    { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
                     { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
                     { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
@@ -2431,7 +2431,7 @@
 
                 if (this.currentEditingTrip) {
                     // Edit mode
-                    document.getElementById('modalTitle').textContent = '✏️ Edit Trip';
+                    document.getElementById('modalTitle').textContent = '<i data-lucide="pencil" style="width:20px;vertical-align:middle"></i> Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
                     this.populateTripForm(this.currentEditingTrip);
                 var modalPhoto = document.getElementById("modalPhoto");
@@ -2447,21 +2447,23 @@
 
                 } else {
                     // Create mode - show templates
-                    document.getElementById('modalTitle').textContent = '➕ Add New Trip';
+                    document.getElementById('modalTitle').textContent = '<i data-lucide="plus-circle" style="width:20px;vertical-align:middle"></i> Add New Trip';
                     this.renderTemplateSelection();
                 }
 
                 modal.classList.add('active');
+if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
+
                 this.currentModal = modal;
             }
 
             renderTemplateSelection() {
                 const templates = [
-                    { id: 'weekend', name: 'Weekend Getaway', icon: '🏖️', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'business', name: 'Business Trip', icon: '💼', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
-                    { id: 'beach', name: 'Beach Vacation', icon: '🌴', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
-                    { id: 'city', name: 'City Explorer', icon: '🏙️', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
-                    { id: 'adventure', name: 'Adventure Trip', icon: '⛰️', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
+                    { id: 'weekend', name: 'Weekend Getaway', icon: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'business', name: 'Business Trip', icon: '<i data-lucide="briefcase" style="width:24px;height:24px;margin:0 auto"></i>', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
+                    { id: 'beach', name: 'Beach Vacation', icon: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
+                    { id: 'city', name: 'City Explorer', icon: '<i data-lucide="building-2" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'adventure', name: 'Adventure Trip', icon: '<i data-lucide="mountain" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
                 ];
 
                 const html = templates.map(t => `
@@ -2473,6 +2475,8 @@
                 `).join('');
 
                 document.getElementById('templatesGrid').innerHTML = html;
+if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
+
                 document.getElementById('templateSelection').style.display = 'block';
             }
 
@@ -2518,18 +2522,20 @@
                 }
                 html += '</div>';
                 document.getElementById('packingListContent').innerHTML = html;
+if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
+
                 document.getElementById('packingSection').style.display = 'block';
             }
 
             getCategoryEmoji(category) {
                 const emojis = {
-                    'Essentials': '📋',
-                    'Clothing': '👕',
-                    'Toiletries': '🧴',
-                    'Electronics': '📱',
-                    'Documents': '📄'
+                    'Essentials': '<i data-lucide="clipboard-list" style="width:16px;vertical-align:middle"></i>',
+                    'Clothing': '<i data-lucide="shirt" style="width:16px;vertical-align:middle"></i>',
+                    'Toiletries': '<i data-lucide="droplets" style="width:16px;vertical-align:middle"></i>',
+                    'Electronics': '<i data-lucide="smartphone" style="width:16px;vertical-align:middle"></i>',
+                    'Documents': '<i data-lucide="file-text" style="width:16px;vertical-align:middle"></i>'
                 };
-                return emojis[category] || '📦';
+                return emojis[category] || '<i data-lucide="package" style="width:16px;vertical-align:middle"></i>';
             }
 
             populateTripForm(trip) {
@@ -2629,11 +2635,11 @@
                 const isBooking = url.includes('booking');
                 const isHotel = url.includes('hotels.com') || url.includes('hotel');
 
-                let icon = '🏨';
+                let icon = '<i data-lucide="building" style="width:16px;vertical-align:middle"></i>';
                 let name = 'Accommodation';
                 if (isAirbnb) { icon = '🏠'; name = 'Airbnb'; }
-                else if (isBooking) { icon = '🏨'; name = 'Booking.com'; }
-                else if (isHotel) { icon = '🏨'; name = 'Hotel'; }
+                else if (isBooking) { icon = '<i data-lucide="building" style="width:16px;vertical-align:middle"></i>'; name = 'Booking.com'; }
+                else if (isHotel) { icon = '<i data-lucide="building" style="width:16px;vertical-align:middle"></i>'; name = 'Hotel'; }
 
                 const display = document.getElementById('accommodationDisplay');
                 display.innerHTML = `
@@ -2659,20 +2665,20 @@
             addExpenseToList(expense) {
                 const list = document.getElementById('expensesList');
                 const categoryEmojis = {
-                    'flights': '✈️',
-                    'accommodation': '🏨',
-                    'food': '🍽️',
-                    'transport': '🚗',
-                    'activities': '🎭',
-                    'shopping': '🛍️',
-                    'other': '📝'
+                    'flights': '<i data-lucide="plane" style="width:16px;vertical-align:middle"></i>',
+                    'accommodation': '<i data-lucide="building" style="width:16px;vertical-align:middle"></i>',
+                    'food': '<i data-lucide="utensils" style="width:16px;vertical-align:middle"></i>',
+                    'transport': '<i data-lucide="car" style="width:16px;vertical-align:middle"></i>',
+                    'activities': '<i data-lucide="ticket" style="width:16px;vertical-align:middle"></i>',
+                    'shopping': '<i data-lucide="shopping-bag" style="width:16px;vertical-align:middle"></i>',
+                    'other': '<i data-lucide="receipt" style="width:16px;vertical-align:middle"></i>'
                 };
 
                 const html = `
                     <div class="expense-item" data-expense-id="${expense.id || Date.now()}">
                         <div class="expense-details">
                             <div class="expense-description">${expense.description}</div>
-                            <div class="expense-category">${categoryEmojis[expense.category] || '📝'} ${expense.category}</div>
+                            <div class="expense-category">${categoryEmojis[expense.category] || '<i data-lucide="receipt" style="width:16px;vertical-align:middle"></i>'} ${expense.category}</div>
                         </div>
                         <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
                         <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
@@ -3026,13 +3032,13 @@
                     });
 
                     const categoryEmojis = {
-                        'flights': '✈️',
-                        'accommodation': '🏨',
-                        'food': '🍽️',
-                        'transport': '🚗',
-                        'activities': '🎭',
-                        'shopping': '🛍️',
-                        'other': '📝'
+                        'flights': '<i data-lucide="plane" style="width:16px;vertical-align:middle"></i>',
+                        'accommodation': '<i data-lucide="building" style="width:16px;vertical-align:middle"></i>',
+                        'food': '<i data-lucide="utensils" style="width:16px;vertical-align:middle"></i>',
+                        'transport': '<i data-lucide="car" style="width:16px;vertical-align:middle"></i>',
+                        'activities': '<i data-lucide="ticket" style="width:16px;vertical-align:middle"></i>',
+                        'shopping': '<i data-lucide="shopping-bag" style="width:16px;vertical-align:middle"></i>',
+                        'other': '<i data-lucide="receipt" style="width:16px;vertical-align:middle"></i>'
                     };
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
@@ -3614,12 +3620,12 @@ formatDate(dateStr) {
                 const start = new Date(startDate);
                 const diff = Math.floor((start - today) / (1000 * 60 * 60 * 24));
 
-                if (diff < 0) return '✓ Ongoing';
-                if (diff === 0) return '🔴 Today!';
-                if (diff === 1) return '🟡 Tomorrow!';
-                if (diff < 7) return `⏰ In ${diff} days`;
-                if (diff < 30) return `⏰ In ${Math.floor(diff / 7)} weeks`;
-                return `⏰ In ${Math.floor(diff / 30)} months`;
+                if (diff < 0) return '<i data-lucide="play-circle" style="width:14px;vertical-align:middle;color:#34c759"></i> Ongoing';
+                if (diff === 0) return '<i data-lucide="circle-alert" style="width:14px;vertical-align:middle;color:#ff3b30"></i> Today!';
+                if (diff === 1) return '<i data-lucide="clock-4" style="width:14px;vertical-align:middle;color:#ff9f0a"></i> Tomorrow!';
+                if (diff < 7) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${diff} days`;
+                if (diff < 30) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 7)} weeks`;
+                return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 30)} months`;
             }
 
             showToast(message, type = 'success') {

@@ -5953,5 +5953,26 @@ function updateNavArrows() {
     <!-- Mobile Add Task FAB -->
     <button class="mobile-add-fab" id="mobileAddFab" onclick="showAddTaskModal()" title="Add Task">+</button>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  });
+  
+  // Backup observer for dynamically added icons
+  const observer = new MutationObserver(mutations => {
+    if (window.lucide) {
+      let needsUpdate = false;
+      mutations.forEach(m => {
+        if (m.addedNodes.length > 0) needsUpdate = true;
+      });
+      if (needsUpdate) lucide.createIcons();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
 </body>
+
 </html>

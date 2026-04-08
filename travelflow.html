@@ -4285,6 +4285,27 @@ formatDate(dateStr) {
 
         }
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  });
+  
+  // Backup observer for dynamically added icons
+  const observer = new MutationObserver(mutations => {
+    if (window.lucide) {
+      let needsUpdate = false;
+      mutations.forEach(m => {
+        if (m.addedNodes.length > 0) needsUpdate = true;
+      });
+      if (needsUpdate) lucide.createIcons();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
 </body>
+
 </html>
 

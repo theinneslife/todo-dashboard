@@ -1319,7 +1319,7 @@
     "title": "Test race gear in New York",
     "description": "",
     "priority": 2,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1338,10 +1338,16 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-08T17:39:38.428Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-06T01:52:21.775Z",
-    "completed_at": null,
+    "completed_at": "2026-04-08T17:39:38.428Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

@@ -1387,7 +1387,7 @@
     "title": "Get an overview of Corp Dev",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1412,10 +1412,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-08T17:39:32.529Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-06T19:33:28.336Z",
-    "completed_at": null,
+    "completed_at": "2026-04-08T17:39:32.529Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [

@@ -2108,7 +2108,7 @@
                     { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
                     { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
                     { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>' },
-                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '<i data-lucide="building-2" style="width:24px;height:24px;margin:0 auto"></i>' },
+                    { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '<i data-lucide="building" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
                     { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
@@ -2447,7 +2447,7 @@
 
                 } else {
                     // Create mode - show templates
-                    document.getElementById('modalTitle').textContent = '<i data-lucide="plus-circle" style="width:20px;vertical-align:middle"></i> Add New Trip';
+                    document.getElementById('modalTitle').textContent = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
                     this.renderTemplateSelection();
                 }
 
@@ -2462,7 +2462,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     { id: 'weekend', name: 'Weekend Getaway', icon: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Short 2-3 day trip', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
                     { id: 'business', name: 'Business Trip', icon: '<i data-lucide="briefcase" style="width:24px;height:24px;margin:0 auto"></i>', desc: '1-2 week work trip', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] },
                     { id: 'beach', name: 'Beach Vacation', icon: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Tropical getaway', packingCategories: ['Clothing', 'Toiletries', 'Electronics'] },
-                    { id: 'city', name: 'City Explorer', icon: '<i data-lucide="building-2" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
+                    { id: 'city', name: 'City Explorer', icon: '<i data-lucide="building" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Urban adventure', packingCategories: ['Essentials', 'Clothing', 'Electronics'] },
                     { id: 'adventure', name: 'Adventure Trip', icon: '<i data-lucide="mountain" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
                 ];
 
@@ -3620,9 +3620,9 @@ formatDate(dateStr) {
                 const start = new Date(startDate);
                 const diff = Math.floor((start - today) / (1000 * 60 * 60 * 24));
 
-                if (diff < 0) return '<i data-lucide="play-circle" style="width:14px;vertical-align:middle;color:#34c759"></i> Ongoing';
+                if (diff < 0) return '<i data-lucide="circle-play" style="width:14px;vertical-align:middle;color:#34c759"></i> Ongoing';
                 if (diff === 0) return '<i data-lucide="circle-alert" style="width:14px;vertical-align:middle;color:#ff3b30"></i> Today!';
-                if (diff === 1) return '<i data-lucide="clock-4" style="width:14px;vertical-align:middle;color:#ff9f0a"></i> Tomorrow!';
+                if (diff === 1) return '<i data-lucide="clock" style="width:14px;vertical-align:middle;color:#ff9f0a"></i> Tomorrow!';
                 if (diff < 7) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${diff} days`;
                 if (diff < 30) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 7)} weeks`;
                 return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 30)} months`;
@@ -4286,39 +4286,31 @@ formatDate(dateStr) {
         }
     </script>
 
+
 <script>
   function renderIcons() {
-    if (!window.lucide) return;
-    document.querySelectorAll('[data-lucide]').forEach(el => {
-      if(el.tagName.toLowerCase() === 'svg') return;
-      try {
-        const name = el.getAttribute('data-lucide');
-        let iconName = name;
-        if(name==='kanban-square') iconName='square-kanban';
-        if(name==='check-circle-2') iconName='circle-check';
-        if(name==='x-circle') iconName='circle-x';
-        if(name==='bar-chart-2') iconName='chart-bar';
-        if(name==='plus-circle') iconName='circle-plus';
-        if(name==='play-circle') iconName='circle-play';
-        if(name==='clock-4') iconName='clock';
-        if(name==='building-2') iconName='building';
-        if(name==='arrow-right') iconName='arrow-right';
-        el.setAttribute('data-lucide', iconName);
-        lucide.createIcons({ elements: [el] });
-      } catch(e) {}
-    });
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   }
-
   document.addEventListener('DOMContentLoaded', renderIcons);
   
-  // Backup observer for dynamically added icons
+  // Safe observer with debounce
+  let timeout;
   const observer = new MutationObserver(mutations => {
-    if (window.lucide) {
-      let needsUpdate = false;
-      mutations.forEach(m => {
-        if (m.addedNodes.length > 0) needsUpdate = true;
-      });
-      if (needsUpdate) renderIcons();
+    let hasAdditions = false;
+    for (let m of mutations) {
+      if (m.addedNodes.length > 0) {
+        for (let n of m.addedNodes) {
+          if (n.nodeType === 1 && !n.classList.contains('lucide')) {
+             hasAdditions = true;
+          }
+        }
+      }
+    }
+    if (hasAdditions && window.lucide) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => lucide.createIcons(), 100);
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });

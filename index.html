@@ -3623,13 +3623,13 @@ function getGithubToken() {
                 meta.appendChild(recurrence);
             }
 
-            // Feature 10: Delegation Notes display
+            // Feature 10: Delegation Notes display on card
             if (task.delegation_notes && task.mode === 'auto') {
-                            let html = '';
-                html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
-                html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
-                html += '</div></div>';
+                const delegationDiv = document.createElement('div');
+                delegationDiv.className = 'delegation-notes';
+                delegationDiv.innerHTML = '<div class="delegation-notes-title">🤖 Delegation Notes</div>' +
+                    '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
+                meta.appendChild(delegationDiv);
             }
 
             // Labels
@@ -3780,14 +3780,16 @@ function getGithubToken() {
                         opt.onclick = function(ev) {
                             ev.stopPropagation();
                             moveMenu.classList.remove('open');
-                            if (col.id === 'completed') { task.status = 'completed'; } else { task.status = 'open'; }
+                            if (col.id === 'completed') { task.status = 'completed'; }
+                            else if (col.id === 'todo' || col.id === 'parking') { task.status = 'pending'; }
+                            else { task.status = 'in_progress'; }
                             if (col.id === 'christopher') { task.mode = 'manual'; }
                             else if (col.id === 'claude') { task.mode = 'auto'; }
                             else if (col.id === 'assistance') { task.mode = 'assistance'; }
                             else if (col.id === 'parking') { task.labels = task.labels || []; if (!task.labels.includes('Parking Lot')) task.labels.push('Parking Lot'); task.mode = 'manual'; }
                             else { task.mode = 'manual'; }
                             if (col.id !== 'parking' && task.labels) { task.labels = task.labels.filter(function(l){return l !== 'Parking Lot';}); }
-                            saveTasksToGithub(); filterTasks();
+                            saveTasksToGithub(tasks, 'Move task'); filterTasks();
                         };
                         moveMenu.appendChild(opt);
                     });

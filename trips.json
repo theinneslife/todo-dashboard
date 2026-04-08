@@ -51,7 +51,25 @@
       ],
       "tasks": [],
       "companions": [],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL650",
+          "route": "HNL > JFK",
+          "departure": "Apr 6, 2026 5:24 PM",
+          "arrival": "Apr 7, 2026 9:00 AM",
+          "confirmation": "JN4VEP",
+          "class": "Economy",
+          "cost": "",
+          "notes": "",
+          "passengers": "Christopher Innes"
+        }
+      ],
+      "accommodation": "Stunning view+terrasse/Hells Kitchen",
+      "budget": 7742,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0
     },
     {
       "id": "2",
@@ -106,7 +124,36 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "route": "EWR > BZE",
+          "departure": "Apr 11, 2026",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "Newark to Belize City",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines",
+          "route": "BZE > ATL > MEX > SJD",
+          "departure": "Apr 19, 2026",
+          "arrival": "Apr 19, 2026 10:30 PM",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "Belize City to Los Cabos via Atlanta and Mexico City",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "Airbnb",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1
     },
     {
       "id": "3",
@@ -142,7 +189,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "Los Cabos to Los Angeles",
+          "passengers": ""
+        }
+      ],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 2
     },
     {
       "id": "4",
@@ -182,7 +247,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Lufthansa LH457",
+          "route": "LAX > FRA > JNB",
+          "departure": "Apr 30, 2026 3:05 PM",
+          "arrival": "May 2, 2026 8:35 AM",
+          "confirmation": "76XWTD",
+          "class": "First Flex",
+          "cost": "$22,397.80 USD",
+          "notes": "11h 05m layover in Frankfurt",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": null,
+      "budget": 22397.8,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 3
     },
     {
       "id": "5",
@@ -220,7 +303,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "route": "JNB > MQP",
+          "departure": "May 2, 2026 11:05 AM",
+          "arrival": "May 2, 2026 12:00 PM",
+          "confirmation": "1124-346-110",
+          "class": "",
+          "cost": "$652.29 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": null,
+      "budget": 652.29,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4
     },
     {
       "id": "6",
@@ -288,7 +389,36 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "route": "MQP > CPT",
+          "departure": "May 6, 2026 3:10 PM",
+          "arrival": "May 6, 2026 5:50 PM",
+          "confirmation": "1125-931-158",
+          "class": "",
+          "cost": "$472.19 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        },
+        {
+          "airline": "Flightnetwork",
+          "route": "JNB > CPT",
+          "departure": "May 6, 2026 5:40 PM",
+          "arrival": "May 6, 2026 7:55 PM",
+          "confirmation": "1127-650-787",
+          "class": "",
+          "cost": "$857.72 USD",
+          "notes": "Alternative routing via Johannesburg",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": "Singita Boulders Lodge - River Suite",
+      "budget": 57639.91,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 5
     },
     {
       "id": "7",
@@ -312,7 +442,13 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 6
     },
     {
       "id": "8",
@@ -368,7 +504,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta/KLM DL9171/DL9225",
+          "route": "DBV > AMS > LAX",
+          "departure": "May 29, 2026 6:30 AM",
+          "arrival": "May 29, 2026 11:50 AM",
+          "confirmation": "GHBJWI",
+          "class": "Europe Business / World Business",
+          "cost": "EUR 4,315.62",
+          "notes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
+          "passengers": "Brooke Scimemi"
+        }
+      ],
+      "accommodation": "Maxima Comoda",
+      "budget": 22414.12,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 7
     },
     {
       "id": "9",
@@ -404,7 +558,13 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 8
     },
     {
       "id": "10",
@@ -450,7 +610,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "route": "Guatemala departure",
+          "departure": "Jun 27, 2026 9:30 AM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 9
     },
     {
       "id": "11",
@@ -499,7 +677,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "route": "BOG > EZE",
+          "departure": "Jul 11, 2026",
+          "arrival": "",
+          "confirmation": "AJ2LFB",
+          "class": "Business Flex",
+          "cost": "$3,014.00 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 3014,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0
     },
     {
       "id": "12",
@@ -545,7 +741,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "route": "LAX > SAL",
+          "departure": "Jul 30, 2026 2:40 PM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1
     },
     {
       "id": "13",
@@ -601,7 +815,25 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta DL1978/DL825",
+          "route": "SAL > ATL > LAS",
+          "departure": "Aug 9, 2026 1:48 PM",
+          "arrival": "Aug 9, 2026 10:08 PM",
+          "confirmation": "HL94IF",
+          "class": "Delta First Classic",
+          "cost": "$2,596.09 USD",
+          "notes": "DL1978 SAL 1:48PM-ATL 7:30PM, DL825 ATL 8:55PM-LAS 10:08PM",
+          "passengers": "Brooke Scimemi"
+        }
+      ],
+      "accommodation": "Il Vento Uno - Penthouse TERRA",
+      "budget": 6323.09,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 2
     },
     {
       "id": "14",
@@ -625,7 +857,13 @@
           "email": ""
         }
       ],
-      "notes": ""
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 3
     },
     {
       "id": "15",
@@ -649,7 +887,13 @@
           "email": ""
         }
       ],
-      "notes": "Transit only - connection point (SAL>ATL>LAS on Aug 9)"
+      "notes": "Transit only - connection point (SAL>ATL>LAS on Aug 9)",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4
     },
     {
       "id": "1775582430454",
@@ -668,7 +912,13 @@
       "bookings": [],
       "tasks": [],
       "companions": [],
-      "notes": "Summer vacation - visit museums and enjoy wine"
+      "notes": "Summer vacation - visit museums and enjoy wine",
+      "flights": [],
+      "accommodation": "https://www.airbnb.com",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 5
     }
   ],
   "templates": [],

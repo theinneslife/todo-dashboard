@@ -4287,30 +4287,44 @@ formatDate(dateStr) {
     </script>
 
 
+
 <script>
   function renderIcons() {
-    if (window.lucide) {
-      lucide.createIcons();
-    }
+    if (!window.lucide) return;
+    document.querySelectorAll('i[data-lucide]').forEach(el => {
+      try {
+        let name = el.getAttribute('data-lucide');
+        if(name==='kanban-square') name='square-kanban';
+        if(name==='check-circle-2') name='circle-check';
+        if(name==='x-circle') name='circle-x';
+        if(name==='bar-chart-2') name='chart-bar';
+        if(name==='plus-circle') name='circle-plus';
+        if(name==='play-circle') name='circle-play';
+        if(name==='clock-4') name='clock';
+        if(name==='building-2') name='building';
+        el.setAttribute('data-lucide', name);
+        lucide.createIcons({ elements: [el] });
+      } catch(e) { console.warn(e); }
+    });
   }
+
   document.addEventListener('DOMContentLoaded', renderIcons);
   
-  // Safe observer with debounce
   let timeout;
   const observer = new MutationObserver(mutations => {
-    let hasAdditions = false;
+    let needsUpdate = false;
     for (let m of mutations) {
-      if (m.addedNodes.length > 0) {
-        for (let n of m.addedNodes) {
-          if (n.nodeType === 1 && !n.classList.contains('lucide')) {
-             hasAdditions = true;
-          }
+      for (let n of m.addedNodes) {
+        if (n.nodeType === 1 && n.tagName.toLowerCase() === 'i' && n.hasAttribute('data-lucide')) {
+           needsUpdate = true;
+        } else if (n.nodeType === 1 && n.querySelector && n.querySelector('i[data-lucide]')) {
+           needsUpdate = true;
         }
       }
     }
-    if (hasAdditions && window.lucide) {
+    if (needsUpdate && window.lucide) {
       clearTimeout(timeout);
-      timeout = setTimeout(() => lucide.createIcons(), 100);
+      timeout = setTimeout(renderIcons, 50);
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });

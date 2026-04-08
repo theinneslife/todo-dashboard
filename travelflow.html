@@ -3281,7 +3281,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             }
 
         renderAllViews() {
-            if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
+            setTimeout(renderIcons, 50);
+if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             this.renderUpcomingTrips();
             this.renderPastTrips();
             this.renderCurrentTrip();
@@ -3641,7 +3642,8 @@ formatDate(dateStr) {
 
     // ========== DASHBOARD (v3.0) ==========
     initDashboard() {
-        this.updateDashboardStats();
+            setTimeout(renderIcons, 50);
+this.updateDashboardStats();
         this.updateActionItems();
         this.updateNextFlightCountdown();
         this.updateCurrentTripHero();
@@ -4309,25 +4311,6 @@ formatDate(dateStr) {
   }
 
   document.addEventListener('DOMContentLoaded', renderIcons);
-  
-  let timeout;
-  const observer = new MutationObserver(mutations => {
-    let needsUpdate = false;
-    for (let m of mutations) {
-      for (let n of m.addedNodes) {
-        if (n.nodeType === 1 && n.tagName.toLowerCase() === 'i' && n.hasAttribute('data-lucide')) {
-           needsUpdate = true;
-        } else if (n.nodeType === 1 && n.querySelector && n.querySelector('i[data-lucide]')) {
-           needsUpdate = true;
-        }
-      }
-    }
-    if (needsUpdate && window.lucide) {
-      clearTimeout(timeout);
-      timeout = setTimeout(renderIcons, 50);
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
 </script>
 </body>
 

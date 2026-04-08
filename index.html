@@ -5977,25 +5977,6 @@ function updateNavArrows() {
   }
 
   document.addEventListener('DOMContentLoaded', renderIcons);
-  
-  let timeout;
-  const observer = new MutationObserver(mutations => {
-    let needsUpdate = false;
-    for (let m of mutations) {
-      for (let n of m.addedNodes) {
-        if (n.nodeType === 1 && n.tagName.toLowerCase() === 'i' && n.hasAttribute('data-lucide')) {
-           needsUpdate = true;
-        } else if (n.nodeType === 1 && n.querySelector && n.querySelector('i[data-lucide]')) {
-           needsUpdate = true;
-        }
-      }
-    }
-    if (needsUpdate && window.lucide) {
-      clearTimeout(timeout);
-      timeout = setTimeout(renderIcons, 50);
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
 </script>
 </body>
 

@@ -1770,5 +1770,32 @@
     "project": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "9fab9ddc-28c7-4e14-88f7-972e54808168",
+    "title": "TTD Inventory Deal",
+    "description": "Sell our inventory through TTD for a discount.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-08T17:40:55.226Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-08T17:40:55.226Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

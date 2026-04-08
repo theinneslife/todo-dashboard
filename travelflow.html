@@ -4287,11 +4287,29 @@ formatDate(dateStr) {
     </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.lucide) {
-      lucide.createIcons();
-    }
-  });
+  function renderIcons() {
+    if (!window.lucide) return;
+    document.querySelectorAll('[data-lucide]').forEach(el => {
+      if(el.tagName.toLowerCase() === 'svg') return;
+      try {
+        const name = el.getAttribute('data-lucide');
+        let iconName = name;
+        if(name==='kanban-square') iconName='square-kanban';
+        if(name==='check-circle-2') iconName='circle-check';
+        if(name==='x-circle') iconName='circle-x';
+        if(name==='bar-chart-2') iconName='chart-bar';
+        if(name==='plus-circle') iconName='circle-plus';
+        if(name==='play-circle') iconName='circle-play';
+        if(name==='clock-4') iconName='clock';
+        if(name==='building-2') iconName='building';
+        if(name==='arrow-right') iconName='arrow-right';
+        el.setAttribute('data-lucide', iconName);
+        lucide.createIcons({ elements: [el] });
+      } catch(e) {}
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderIcons);
   
   // Backup observer for dynamically added icons
   const observer = new MutationObserver(mutations => {
@@ -4300,7 +4318,7 @@ formatDate(dateStr) {
       mutations.forEach(m => {
         if (m.addedNodes.length > 0) needsUpdate = true;
       });
-      if (needsUpdate) lucide.createIcons();
+      if (needsUpdate) renderIcons();
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });

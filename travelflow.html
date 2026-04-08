@@ -1709,6 +1709,7 @@
         .timeline-in-progress-badge { display:inline-block; background:linear-gradient(135deg,#10b981,#059669); color:#fff; font-size:0.65rem; font-weight:700; padding:3px 8px; border-radius:10px; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:6px; box-shadow:0 2px 8px rgba(16,185,129,0.4); }
         .timeline-trip-card-current { border:1px solid rgba(16,185,129,0.5); box-shadow:0 4px 16px rgba(16,185,129,0.15); }
 </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="container">
@@ -1720,7 +1721,7 @@
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
             </div>
             <div class="header-right">
-                <button class="icon-btn" id="shareBtn" title="Share">📤</button>
+                <button class="icon-btn" id="shareBtn" title="Share"><i data-lucide="share-2" style="width:20px;height:20px"></i></button>
                 <button class="icon-btn" id="calendarBtn" title="Calendar">📅</button>
             </div>
         </div>
@@ -2413,6 +2414,7 @@
         }
 
             openTripModal(tripId = null) {
+            if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 this.currentEditingTrip = tripId ? this.trips.find(t => t.id === tripId) : null;
                 const modal = document.getElementById('tripModal');
 
@@ -3144,7 +3146,7 @@
                         ${trip.notes ? `<div class="trip-notes">${trip.notes}</div>` : ''}
                         <div class="trip-actions">
                             <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();">✏️ Edit</button>
-                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();">🗑️ Delete</button>
+                            <button class="action-btn delete" onclick="app.deleteTrip('${trip.id}'); event.stopPropagation();"><i data-lucide="trash-2" style="width:14px;vertical-align:middle"></i> Delete</button>
                         </div>
                     </div>
                 `;
@@ -3273,6 +3275,7 @@
             }
 
         renderAllViews() {
+            if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             this.renderUpcomingTrips();
             this.renderPastTrips();
             this.renderCurrentTrip();
@@ -3463,7 +3466,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             var rentalCars = bookings.filter(function(b){return b.type==="rentalCar";});
             // ===== FLIGHTS with Confirmation Codes =====
             if (flights.length > 0) {
-                html += '<div class="detail-section"><div class="detail-section-title">\u2708\uFE0F Flights</div>';
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
                 flights.forEach(function(f) {
                     var d = f.details || {};
                     html += '<div class="booking-card-detail"><div class="booking-title">'+(f.title||"Flight")+'</div><div class="booking-info">';
@@ -3480,7 +3483,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                 });
                 html += "</div>";
             } else if (trip.flights && trip.flights.length > 0) {
-                html += '<div class="detail-section"><div class="detail-section-title">\u2708\uFE0F Flights</div>';
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
                 trip.flights.forEach(function(f) {
                     html += '<div class="booking-card-detail"><div class="booking-title">'+(f.airline||"Flight")+'</div><div class="booking-info">';
                     if (f.route) html += "Route: "+f.route+"<br>";
@@ -3496,7 +3499,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             }
             // ===== ACCOMMODATION with Listing Links =====
             if (accoms.length > 0) {
-                html += '<div class="detail-section"><div class="detail-section-title">\u{1F3E8} Accommodation</div>';
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div>';
                 accoms.forEach(function(a) {
                     var d = a.details || {};
                     html += '<div class="booking-card-detail"><div class="booking-title">'+(a.title||"Accommodation")+'</div><div class="booking-info">';
@@ -3545,7 +3548,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             // ===== BUDGET =====
             if (trip.budget > 0) {
                 var spent = (trip.expenses||[]).reduce(function(s,e){return s+(e.amount||0);}, 0);
-                html += '<div class="detail-section"><div class="detail-section-title">\u{1F4B0} Budget</div>';
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div>';
                 html += '<div class="detail-row"><span class="detail-label">Budget</span><span class="detail-value">$'+trip.budget.toLocaleString()+'</span></div>';
                 html += '<div class="detail-row"><span class="detail-label">Spent</span><span class="detail-value">$'+spent.toLocaleString()+'</span></div></div>';
             }
@@ -4128,27 +4131,27 @@ formatDate(dateStr) {
         let html = '<div class="shareboard-title">' + trip.destination + '</div>';
         html += '<div class="shareboard-subtitle">' + s.toLocaleDateString() + ' \u2013 ' + e.toLocaleDateString() + ' (' + duration + ' days) | ' + (trip.country || '') + '</div>';
         // Flights
-        html += '<div class="shareboard-section"><div class="shareboard-section-title">\u2708\uFE0F Flights</div>';
+        html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
         if (trip.flights?.length > 0) {
             trip.flights.forEach(f => { html += '<div class="shareboard-item">' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||'').toUpperCase() + ' | ' + (f.airline||'') + ' | Conf: ' + (f.confirmation||f.confirmationCode||'N/A') + '</div>'; });
         } else { html += '<div class="shareboard-item">No flights booked</div>'; }
         html += '</div>';
         // Accommodation
         if (trip.accommodation) {
-            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F3E8} Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
         }
         // Budget
         if (trip.budget || (trip.expenses?.length > 0)) {
             const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
-            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F4B0} Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
         }
         // Packing
         if (trip.packingList?.length > 0) {
             const packed = trip.packingList.filter(p=>p.packed).length;
-            html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F9F3} Packing</div><div class="shareboard-item">' + packed + '/' + trip.packingList.length + ' items packed</div></div>';
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="luggage" style="width:16px;vertical-align:middle"></i> Packing</div><div class="shareboard-item">' + packed + '/' + trip.packingList.length + ' items packed</div></div>';
         }
         // Notes
-        if (trip.notes) html += '<div class="shareboard-section"><div class="shareboard-section-title">\u{1F4DD} Notes</div><div class="shareboard-item">' + trip.notes + '</div></div>';
+        if (trip.notes) html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="sticky-note" style="width:16px;vertical-align:middle"></i> Notes</div><div class="shareboard-item">' + trip.notes + '</div></div>';
         content.innerHTML = html;
         modal.style.display = 'block';
     }

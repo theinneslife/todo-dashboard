@@ -2442,6 +2442,7 @@
           .hamburger-menu-btn { width: 44px !important; height: 44px !important; min-width: 44px !important; min-height: 44px !important; }
         }
 </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="loading-overlay" id="loadingOverlay">
@@ -3533,7 +3534,7 @@ function getGithubToken() {
             // Pin/Star button for Priority Strip
             const pinBtn = document.createElement('button');
             pinBtn.className = 'task-pin-btn' + (task.pinned ? ' pinned' : '');
-            pinBtn.innerHTML = task.pinned ? '★' : '☆';
+            pinBtn.innerHTML = task.pinned ? '<i data-lucide="pin" fill="currentColor" style="width:16px;height:16px"></i>' : '<i data-lucide="pin" style="width:16px;height:16px"></i>';
             pinBtn.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
             pinBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -3763,7 +3764,7 @@ function getGithubToken() {
                     moveWrapper.className = 'move-to-wrapper';
                     const moveBtn = document.createElement('button');
                     moveBtn.className = 'move-to-btn';
-                    moveBtn.textContent = '\u27A4';
+                    moveBtn.innerHTML = '<i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
                     moveBtn.title = 'Move to column';
                     moveBtn.onclick = (e) => {
                         e.stopPropagation();
@@ -3799,7 +3800,7 @@ function getGithubToken() {
                 }
                 const activityBtn = document.createElement('button');
             activityBtn.className = 'task-action-btn';
-            activityBtn.textContent = '📋';
+            activityBtn.innerHTML = '<i data-lucide="history" style="width:14px;height:14px"></i>';
             activityBtn.title = 'View activity';
             activityBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -3913,6 +3914,7 @@ function getGithubToken() {
         }
 
         function showTaskDetail(task) {
+            if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             const modal = document.getElementById('detailModal');
             const title = document.getElementById('detailTitle');
             const content = document.getElementById('detailContent');
@@ -3979,7 +3981,7 @@ function getGithubToken() {
                     task.depends_on.forEach(depId => {
                         const depTask = tasks.find(t => t.id === depId);
                         if (depTask) {
-                            const icon = depTask.status === 'completed' ? '✓' : '⛔';
+                            const icon = depTask.status === 'completed' ? '<i data-lucide="check-circle" style="width:14px;vertical-align:middle"></i>' : '<i data-lucide="shield-alert" style="width:14px;vertical-align:middle;color:#ff3b30"></i>';
                             html += '<span class="dep-chain-item" onclick="showTaskDetail(tasks.find(t=>t.id===\'' + depId + '\'))">' + icon + ' ' + escapeHtml(depTask.title) + '</span>';
                         }
                     });

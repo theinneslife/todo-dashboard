@@ -1,1 +1,1819 @@
-PLACEHOLDER_WILL_USE_WORKBENCH
+[
+  {
+    "id": "seed-example-001",
+    "title": "Research Attorneys",
+    "description": "find a new attorney for brooke",
+    "priority": 2,
+    "status": "completed",
+    "mode": "auto",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T12:00:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created from seed data"
+      },
+      {
+        "timestamp": "2026-04-03T17:53:28.483Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:18.375Z",
+        "action": "assigned",
+        "by": "System",
+        "details": "Assigned to Claude"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:22.348Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from claude to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T18:21:07.502Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher to claude"
+      },
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "attempted",
+        "by": "Claude",
+        "details": "Unable to complete: task requires making a phone call, which Claude cannot do. Task requires human action. Consider reassigning to manual mode."
+      },
+      {
+        "timestamp": "2026-04-04T01:26:30.000000+00:00",
+        "action": "attempted",
+        "by": "Claude",
+        "details": "Unable to complete: task requires making a phone call to an attorney, which Claude cannot do. This task requires human action. Recommend reassigning mode to 'manual' so Christopher can handle it directly."
+      },
+      {
+        "timestamp": "2026-04-05T06:41:06.663Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-07T02:11:51.827073Z",
+        "action": "completed",
+        "by": "Claude",
+        "details": "Compiled research report on NY attorneys specializing in digital stalking/cyber abuse. Top recommendation: C.A. Goldberg, PLLC. Report delivered to /Users/innesinnes/AI/todo-dashboard/attorney-research-brooke.md"
+      }
+    ],
+    "created_at": "2026-04-02T12:00:00Z",
+    "completed_at": "2026-04-07T02:11:51.827073Z",
+    "completion_notes": "Researched NY attorneys for digital stalking/abuse. Top recs: C.A. Goldberg PLLC (Brooklyn) — leading firm for tech-facilitated abuse; Veridian Legal P.C. (NYC) — cyberstalking/NCII boutique; Mullen Law Firm; Hacker Murphy LLP. Full report saved to /Users/innesinnes/AI/todo-dashboard/attorney-research-brooke.md with practice areas, comparison table, NY legal context, and next steps.",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": "Research attorneys in new york that can help with digital stalking, digital abuse, etc.",
+    "pinned": false
+  },
+  {
+    "id": "3694f669-1d1e-4763-a4b7-5a6a57ed5c36",
+    "title": "Send corrected T&C report to Heather",
+    "description": "From 'Report and Tracker Updates' meeting (Apr 2). Bug found with Richard where brands were missing from the report.",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "High Priority"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Report and Tracker Updates meeting"
+      },
+      {
+        "timestamp": "2026-04-03T17:53:17.365Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:29.959Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-02T16:39:00Z",
+    "completed_at": "2026-04-03T17:56:29.958Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "heather",
+      "richard"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "b3ebf502-f5dd-4ae1-8f0b-9ed1c8b4bb86",
+    "title": "Update tracker with effective dates for all agencies",
+    "description": "",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript"
+      },
+      {
+        "timestamp": "2026-04-03T17:53:21.403Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:31.091Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:35.275Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task reopened"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:37.825Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-02T16:39:00Z",
+    "completed_at": "2026-04-03T17:56:37.825Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "36d91ec6-bad2-4607-8b3c-4bbe5f909afa",
+    "title": "Confirm final agency tracker list / which tracker to use",
+    "description": "",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-02T16:39:00Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript"
+      },
+      {
+        "timestamp": "2026-04-03T17:54:07.531Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-03T17:56:42.758Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-02T16:39:00Z",
+    "completed_at": "2026-04-03T17:56:42.758Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "e1315482-fc18-482a-8ebb-0b347530f548",
+    "title": "Evan - when is stock transfer?",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T18:09:10.054Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-03T18:21:10.147Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      }
+    ],
+    "created_at": "2026-04-03T18:09:10.054Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "evan"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "b8f7505e-804b-40ee-a5f0-a7e45ba10736",
+    "title": "Slides for MNTN meet",
+    "description": "",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T18:40:26.313Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-03T18:40:49.300Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-06T17:17:06.710Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T18:40:26.313Z",
+    "completed_at": "2026-04-06T17:17:06.710Z",
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "ca563078-55ba-461e-8a31-05dcd290740c",
+    "title": "Review Winning by Design recap and follow-up proposal",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Lauren (WBD CRO) committed to sending a recap of the discovery call and next steps. Garland scheduled a 30-min follow-up with Dan Patterson on Tuesday before the all-MNTN meeting. Review the recap when it arrives.",
+    "priority": 3,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "MNTN",
+      "Winning by Design"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Growth Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:55.958Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T19:19:08.976Z",
+    "completed_at": "2026-04-04T21:40:55.958Z",
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [
+      "garland",
+      "lauren",
+      "dan"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "df828786-3c7c-4ba4-98b4-afb0d220a511",
+    "title": "Prepare for May 1 vertical restructure team assignments",
+    "description": "From 'Growth Strategy Meeting' (Apr 3). Garland (CRO) discussed restructuring the org into vertical sales pods by May 1, similar to TikTok model. Mentioned needing to 'put Innes in boxes' — Christopher will need vertical assignments. Verticals TBD.",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "MNTN",
+      "Restructure"
+    ],
+    "due_date": "2026-05-01",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T19:19:08.976Z",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Growth Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:41:01.609Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T19:19:08.976Z",
+    "completed_at": "2026-04-04T21:41:01.609Z",
+    "completion_notes": null,
+    "project": "mntn",
+    "depends_on": [],
+    "collaborators": [
+      "garland"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "8f302e9f-251f-4787-ae0c-e8954e2c3a0b",
+    "title": "Meeting request: CPM automation review",
+    "description": "Mark wants regroup to happen asap. Source: selec gtm",
+    "priority": 1,
+    "status": "completed",
+    "mode": "assistance",
+    "labels": [
+      "follow up",
+      "call"
+    ],
+    "due_date": "2026-04-08",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T20:05:54.096Z",
+        "action": "created",
+        "by": "System",
+        "details": "Submitted via Google Form by test"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:52.609Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T20:05:54.096Z",
+    "completed_at": "2026-04-04T21:40:52.609Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "8f6ec1c1-e2a0-4e88-a8c6-df863547fc56",
+    "title": "Travel to New York",
+    "description": "Speaker 1 (Christopher) mentioned traveling to New York next week for meeting. (Source: Account Management Coordination)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Account Management Coordination"
+      },
+      {
+        "timestamp": "2026-04-04T21:39:51.466Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      },
+      {
+        "timestamp": "2026-04-04T21:39:52.726Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task reopened"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:06.531Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:06.531Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "d0aff4ce-6c25-49a5-8434-3b5dd8de40cd",
+    "title": "Build a comprehensive agency growth plan",
+    "description": "Chris said he will put together a plan to address agency business concerns. No explicit deadline, but needed soon. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:07.798Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:07.798Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "11f43558-9310-4944-bdd9-7e50c7ef9a3f",
+    "title": "Discuss partner program positioning with Garland",
+    "description": "Chris needs clarification from Garland on the partner program timeline and commission structure. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:14.052Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:14.052Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "garland"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "e5ec2f5c-394b-4a47-b2c3-56a96eaecf44",
+    "title": "Update team on partner program changes",
+    "description": "Chris must inform his team about the new partner program rollout and Q2 timing for agency spend. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:17.650Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:17.650Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "20c8180f-c428-4e4a-89e8-dda5a56355ca",
+    "title": "Communicate Q2 eligibility to interested agencies",
+    "description": "Chris needs to reach out to agencies that tried to join in Q1 and explain they must wait until Q2. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:22.203Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:22.203Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "80ccabf7-0c6f-43d0-a3e0-7e39e495f035",
+    "title": "Prepare deliverable for Mark by end of day Friday",
+    "description": "Mark told Chris: 'I need you to put together something by the end of day Friday.' (Source: Agency Business Strategy Meeting)",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:26.387Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:26.387Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "a3e1b0ab-b989-4e46-a210-5b9ba2eb3013",
+    "title": "Schedule meeting with C-Squared agency",
+    "description": "Chris mentioned to Mark that C-Squared is ready for a meeting about an injection of money. (Source: Agency Business Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Agency Business Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:29.605Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:29.605Z",
+    "completion_notes": null,
+    "project": "agency-growth",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "fe60d698-e622-4003-9ee5-6637bf0a1bf9",
+    "title": "Take over quarterbacking the neon pixel relationship",
+    "description": "Mark asked Christopher to take over the neon pixel relationship. (Source: Financial Strategy Meeting)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Financial Strategy Meeting"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:34.039Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:34.039Z",
+    "completion_notes": null,
+    "project": "client-work",
+    "depends_on": [],
+    "collaborators": [
+      "mark"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "748f8253-7fd0-406e-a9bd-9b359ebf6eaa",
+    "title": "Discuss off-site meeting themes",
+    "description": "Christopher to share his perspective on themes or subjects for the executive team off-site scheduled for next Thursday morning. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:37.606Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:37.606Z",
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "8c813054-e46d-497f-b886-7f1cd7173e31",
+    "title": "Review off-site guest list",
+    "description": "Christopher to verify who is invited to the off-site, consider adding or semoving participants as needed. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:42.054Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:42.054Z",
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "6d871fe2-25ef-40c5-9f2e-ce80ce38b18d",
+    "title": "Request prep from Rachel and Severin",
+    "description": "Christopher to ask Rachel and Severin to prepare materials or metrics on their teams' ability to support customers of all sizes for the upcoming meeting. (Source: Team Strategy and Planning)",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-03T21:05:16.156115+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Team Strategy and Planning"
+      },
+      {
+        "timestamp": "2026-04-04T21:40:47.956Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-03T21:05:16.156115+00:00",
+    "completed_at": "2026-04-04T21:40:47.956Z",
+    "completion_notes": null,
+    "project": "team-ops",
+    "depends_on": [],
+    "collaborators": [
+      "rachel",
+      "severin"
+    ],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "corpdev-guide-001",
+    "title": "Read: Corporate Development Transition Guide",
+    "description": "415-line guide on transitioning from COO to Head of Corp Dev at MNTN. Covers day-to-day of the role, 90-day plan, skills to build (valuation, deal structures, due diligence), key relationships (bankers, lawyers, board), common mistakes, learning resources, and public vs private M&A differences. Includes templates for deal evaluation, due diligence ownership, and 90-day milestones.",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:17.547Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-07T13:51:52.767Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false,
+    "completed_at": "2026-04-07T13:51:52.767Z"
+  },
+  {
+    "id": "corpdev-deals-002",
+    "title": "Read: Non-Equity Deal Structures Playbook",
+    "description": "Comprehensive guide on 10 deal types MNTN can use without diluting shareholders. Key insight: ~$250M-$350M deal capacity from cash + debt alone. Covers all-cash acquisitions, debt financing, earnouts, asset vs stock purchases, licensing, JVs, minority investments, seller financing. Includes MNTN-specific context and peer examples like Magnite/SpotX.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:32.144Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "corpdev-targets-003",
+    "title": "Read: MNTN Strategic Landscape & Acquisition Targets",
+    "description": "590-line strategic landscape report with 25+ potential acquisition targets across 7 categories, 12+ competitor profiles, 19 recent deals with valuations. Top priority targets: measurement/attribution (EDO, Samba TV, iSpot), creative tools (Celtra, Waymark), data/commerce (Attain, Affinity Solutions). Prioritized recommendation stack included.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [
+      "Corp Dev",
+      "Reading"
+    ],
+    "due_date": "2026-04-06",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T12:00:00Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created manually for Christopher's Monday reading list"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:42.969Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      }
+    ],
+    "created_at": "2026-04-04T12:00:00Z",
+    "source": "manual",
+    "owner": "manual",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "corpdev-install-004",
+    "title": "Install Corp Dev skill from outputs folder",
+    "description": "Open the corp-dev.skill file from outputs (or copy corp-dev/ folder to ~/.claude/skills/). This installs the M&A and corporate development knowledge base for future Claude conversations.",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "corp-dev"
+    ],
+    "due_date": "2026-04-07",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-04T21:28:29.237Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created for Christopher to install Corp Dev skill"
+      },
+      {
+        "timestamp": "2026-04-05T23:21:56.297Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-04T21:28:29.238Z",
+    "completed_at": "2026-04-05T23:21:56.297Z",
+    "completion_notes": null,
+    "project": "Corp Dev",
+    "depends_on": [],
+    "collaborators": [
+      "Christopher"
+    ],
+    "custom_fields": {},
+    "delegation_notes": "Assigned to Christopher",
+    "pinned": false
+  },
+  {
+    "id": "task-1775361207142",
+    "title": "NYC Rent vs Buy — Review analysis and decide next steps",
+    "description": "Review the rent vs buy analysis. Key findings: (1) Rent first for 12 months while setting up a 10b5-1 plan to liquidate MNTN stock. (2) Combined NYC tax hit on stock sales is ~38.5% — need to sell ~$500K to net $300K for a down payment. (3) Co-ops are out due to primary residence/subletting restrictions. (4) Look at condos in $1.0-1.3M range after building liquid position. (5) Consider furnished rental services (Blueground, Sonder) for maximum flexibility while traveling. Next steps: talk to a financial advisor about 10b5-1 plan, talk to a real estate attorney, start exploring neighborhoods.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [
+      "Personal"
+    ],
+    "due_date": "2026-04-11",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T03:53:27.142Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:54.864Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      }
+    ],
+    "assigned_to": "christopher",
+    "category": "Personal",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "04891084-94ce-4844-85dd-9a706ada61ed",
+    "title": "Anniversary plan for Friday",
+    "description": "I have a dinner booked at 5pm st soothr. Need plans after. Cabernet, comedy, weird shows, something to do.",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [
+      {
+        "timestamp": "2026-04-06T20:13:51.206479+00:00",
+        "by": "Claude",
+        "text": "## Anniversary After-Dinner Plans — Options Near Soothr (204 E 13th St, East Village)\n\nDinner is at 5pm at Soothr, so you'll likely be done around 6:30–7pm. Here are curated after-dinner options:\n\n### Wine Bars (Cabernet Focus)\n1. **Ruffian** — Tiny East Village wine bar, 250+ natural wines, Michelin Bib Gourmand. Walk from Soothr. Great intimate anniversary vibe.\n2. **Stars** — New spot from the Claud/Penny team. 1,000-bottle list, by-the-glass from $11, homage to classic East Village wine bars. Very close to Soothr.\n3. **Ten Bells** (LES) — Cozy, dark, laid-back natural wine bar. Short walk east.\n\n### Comedy Shows\n1. **New York Comedy Club** (E 4th St) — Walking distance from Soothr. Multiple shows nightly, check newyorkcomedyclub.com for April 10 lineup.\n2. **Greenwich Village Comedy Club** — Also nearby in the Village, intimate setting.\n3. **Broadway Comedy Club** — Near Times Square, top headliner lineups from Netflix/Comedy Central acts.\n\n### Weird/Unique Experiences\n1. **Batsu** — Japanese game show-style challenges with authentic food & drinks, inspired by Tokyo alleyways. Fun, interactive, memorable.\n2. **The Office of Mr. Motto** — Private museum + 21-course omakase with a cryptic password to enter. Very unique anniversary-worthy experience.\n3. **SPYSCAPE** (Midtown) — Interactive spy museum with surveillance, lie detection, hacking challenges. Fun couples activity.\n4. **Swingers NoMad** — Crazy mini-golf with craft cocktails, 21+. Lighthearted and fun.\n\n### Suggested Flow\n**Option A (Romantic):** Soothr → Stars or Ruffian for wine → walk through East Village\n**Option B (Fun):** Soothr → Batsu (game show) → nightcap at Ten Bells\n**Option C (Adventure):** Soothr → SPYSCAPE or Swingers → cocktails at a nearby bar"
+      }
+    ],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T23:21:50.777Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-06T20:13:51.206479+00:00",
+        "action": "completed",
+        "by": "Claude",
+        "details": "Researched after-dinner anniversary plans near Soothr in East Village. Posted curated options (wine bars, comedy, unique experiences) and 3 suggested evening flows as comments. Assigned back to Christopher."
+      }
+    ],
+    "created_at": "2026-04-05T23:21:50.777Z",
+    "completed_at": "2026-04-06T20:13:51.206479+00:00",
+    "completion_notes": "Researched after-dinner anniversary options near Soothr (East Village): wine bars (Ruffian, Stars, Ten Bells), comedy shows (NY Comedy Club, Greenwich Village), unique experiences (Batsu, Office of Mr. Motto, SPYSCAPE, Swingers). Posted 3 suggested evening flows as comments.",
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me",
+    "pinned": true
+  },
+  {
+    "id": "cf1f1ba6-2304-4819-bb4d-4558b7b711c2",
+    "title": "Add all travel to TravelFlo",
+    "description": "I don—t think Claude is doing it correctly",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T23:27:25.514Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-05T23:27:25.514Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "pinned": false
+  },
+  {
+    "id": "909a7139-df5c-40db-898d-c5320e3c61d0",
+    "title": "Get hair fixed",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-05T23:34:11.838Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-05T23:34:11.838Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "pinned": false
+  },
+  {
+    "id": "task-race-food-1775440341775",
+    "title": "Buy food for race",
+    "description": "",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:21:55.208Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      },
+      {
+        "timestamp": "2026-04-06T08:22:26.487Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-08T17:39:35.378Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": "2026-04-08T17:39:35.378Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal",
+    "pinned": false
+  },
+  {
+    "id": "task-race-battery-1775440341776",
+    "title": "Buy a battery for race",
+    "description": "",
+    "priority": 2,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:22:44.864Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal",
+    "pinned": false
+  },
+  {
+    "id": "task-race-gear-ny-1775440341777",
+    "title": "Test race gear in New York",
+    "description": "",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T01:52:21.775Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created via Cowork session"
+      },
+      {
+        "timestamp": "2026-04-06T08:23:02.510Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-08T17:39:38.428Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T01:52:21.775Z",
+    "completed_at": "2026-04-08T17:39:38.428Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "assigned_to": "christopher",
+    "category": "Personal",
+    "pinned": false
+  },
+  {
+    "id": "task-nutrition-plan-1775463278068",
+    "title": "Review 50-Mile Race Nutrition & Hydration Plan",
+    "description": "## 50-MILE RACE NUTRITION PLAN — HOT & HUMID CONDITIONS (90°F)\n\n### HOURLY TARGETS\n- Carbs: 60-80g per hour (higher end due to heat increasing glycogen burn)\n- Calories: 250-320 cal per hour\n- Sodium: 800-1200mg per hour (critical in heat/humidity — sweat losses can exceed 1500mg/hr)\n- Water: 800-1000ml per hour (20-30oz). Drink to thirst but don't fall behind. In 90°F humidity you'll lose 1-2 liters/hour through sweat.\n\n### HOUR-BY-HOUR FOOD PLAN\n\n**Miles 1-15 (Hours 0-2.5) — Start Early, Stay Ahead**\n- Every 30 min: 1 gel (25g carbs, ~100 cal) + 2-3 sips sports drink\n- Every hour: 1 SaltStick cap (215mg sodium) or 2 if sweating heavy\n- Water: alternate sips between plain water and sports drink mix\n- DON'T skip fueling because you feel good — heat catches up fast\n\n**Miles 15-30 (Hours 2.5-5) — Mix It Up**\n- Alternate gels with real food every other feeding:\n  - PB&J squares (cut into 2-inch pieces, wrapped in foil): ~150 cal, 20g carbs each\n  - Boiled baby potatoes dipped in salt: ~80 cal, easy on stomach\n  - Rice balls with salt: ~120 cal, 25g carbs\n- Continue 1 electrolyte cap every 30-45 min\n- Add a LMNT or similar high-sodium drink packet to one flask\n- If stomach feels off: switch to liquid calories only (Tailwind, Maurten mix)\n\n**Miles 30-40 (Hours 5-7) — The Grind**\n- Whatever sounds good — sweet or savory, just keep eating\n- Deploy caffeine: 100mg caffeinated gel at mile 30, another at mile 38\n- Cola at aid stations: easy caffeine + sugar + settles stomach\n- Broth: warm sodium bomb, surprisingly easy to stomach\n- Watermelon: hydration + sugar + potassium (grab at every aid station offering it)\n- Continue electrolyte caps religiously\n\n**Miles 40-50 (Hours 7-9+) — Bring It Home**\n- Liquid calories are fine if solids won't stay down\n- Second caffeine push if needed (stay under 400mg total race)\n- Cola, broth, ginger ale are your friends\n- Keep sipping water — dehydration compounds exponentially in the final miles\n\n### HYDRATION STRATEGY FOR EXTREME HEAT\n- Pre-load: drink 500ml with electrolytes 2 hours before start\n- Carry: 2 x 500ml soft flasks (one water, one sports drink)\n- Refill at EVERY aid station even if flasks aren't empty\n- Ice: stuff ice in hat, bandana around neck, and down shirt at aid stations — cooling is as important as hydration\n- Pour water on head and wrists at every opportunity\n- Monitor urine: if you haven't peed in 3+ hours or it's very dark, increase intake immediately\n\n### SODIUM IS KING IN THE HEAT\n- Target 800-1200mg/hour (vs normal 500-700mg in cool weather)\n- Sources: SaltStick caps (215mg each = take 4-5/hour), LMNT packets (1000mg), salty food at aid stations, sports drink mix\n- Signs you're low: bloating, nausea, swollen fingers, confusion, muscle cramps\n- Carry extra salt caps in a ziplock in your vest — do not run out\n\n### WHAT TO BUY (SHOPPING LIST)\n- 15-20 gels (mix flavors: some caffeinated for miles 30+)\n- 2 boxes energy chews as backup\n- SaltStick caps (full bottle of 100 — you'll use 40-50)\n- LMNT or Liquid IV packets (6-8)\n- Sports drink powder (Tailwind, Skratch, or Maurten)\n- PB&J supplies (white bread, smooth PB, jam)\n- Baby potatoes + salt\n- Sushi rice + salt for rice balls\n- Ginger chews (nausea backup)\n- Body glide (chafing is worse in humidity)\n- Cooling bandana or ice bandana\n- Spare hat (white/light colored)\n\n### HEAT-SPECIFIC WARNINGS\n- Start 15-20% slower than cool-weather goal pace — heat costs you, period\n- Walk all uphills from mile 1 — save energy for thermoregulation\n- If you stop sweating, feel confused, or get chills: STOP, cool down, seek medical. These are heat illness red flags.\n- Avoid NSAIDs (ibuprofen/Advil) — they impair kidney function and worsen heat illness risk\n- Pre-cool: cold towel on neck before start, cold water in flasks",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-04-09",
+    "recurrence": null,
+    "subtasks": [],
+    "category": "Personal",
+    "assignee": "Christopher",
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T08:14:38.068Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created with detailed 50-mile race nutrition plan for hot/humid conditions"
+      },
+      {
+        "timestamp": "2026-04-06T08:20:00.704Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      }
+    ],
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "9720b6fa-2205-4e22-986a-54b51768af33",
+    "title": "Get an overview of Corp Dev",
+    "description": "",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T19:33:28.336Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-06T19:33:59.903Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-06T19:34:56.257Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-08T17:39:32.529Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T19:33:28.336Z",
+    "completed_at": "2026-04-08T17:39:32.529Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [
+      "corpdev-guide-001",
+      "corpdev-deals-002",
+      "corpdev-targets-003"
+    ],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "17979cf4-59a5-499f-9837-9725fe681d83",
+    "title": "Check if MNTN on-site messaging product is still available",
+    "description": "From Mid Market Strategy Update call — Christopher mentioned MNTN used to have an on-site messaging product that could serve in-website ads to people who saw TV commercials. Speaker 1 needs this for user pathing. Check with Richard if it's still in beta or was sunset.",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "mntn",
+      "product",
+      "mid-market"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T20:11:18.482055+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:37.306Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T20:11:18.482055+00:00",
+    "completed_at": "2026-04-07T00:29:37.306Z",
+    "completion_notes": null
+  },
+  {
+    "id": "2e2203f5-86e9-4428-9b61-c469c1706fcd",
+    "title": "Follow up with Rick (Legal) on non-solicit for new marketing hire's candidate",
+    "description": "From Mid Market Strategy Update call — Speaker 1 (new mid-market marketing hire) sent non-solicit docs to Rick (head of legal) but hasn't gotten a response. Speaker 1 wants to hire a former direct report. Christopher should ensure this gets unblocked.",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "mntn",
+      "legal",
+      "hiring"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T20:11:18.482055+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:41.045Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T20:11:18.482055+00:00",
+    "completed_at": "2026-04-07T00:29:41.045Z",
+    "completion_notes": null
+  },
+  {
+    "id": "95066609-cd2f-4a27-991b-e41f08eda3ea",
+    "title": "Align with Paulo on mid-market segment definitions",
+    "description": "From Mid Market Strategy Update call — Paulo is leading the redefinition of market segments. Christopher defined mid-market as brands that can start at $25K/month and scale to $100K/month. Ensure alignment with Paulo's definitions for OKR tracking (9,000 leads/quarter, 25% mid-market capable).",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "mntn",
+      "strategy",
+      "mid-market"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T20:11:18.482055+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:48.375Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T20:11:18.482055+00:00",
+    "completed_at": "2026-04-07T00:29:48.375Z",
+    "completion_notes": null
+  },
+  {
+    "id": "39137d6e-d77b-4633-9553-ed08b1c7d6f2",
+    "title": "Review multi-touch attribution roadmap with marketing team",
+    "description": "From Mid Market Strategy Update call — Speaker 1 outlined need for multi-touch attribution modeling to understand marketing recipes (which combo of TV + paid social + LinkedIn drives mid-market sign-ups). Christopher expressed strong interest. Follow up on timeline/SLA from Will (under Paulo's team).",
+    "priority": 2,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [
+      "mntn",
+      "analytics",
+      "mid-market"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T20:11:18.482055+00:00",
+        "action": "created",
+        "by": "System",
+        "details": "Extracted from Otter transcript: Mid Market Strategy Update"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:53.129Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T20:11:18.482055+00:00",
+    "completed_at": "2026-04-07T00:29:53.129Z",
+    "completion_notes": null
+  },
+  {
+    "id": "85556c98-7d2b-4314-9c12-16f5f0a60251",
+    "title": "Review and approve Q1 Achievement & Attainment Report",
+    "description": "Review the following tabs on the Q1 2026 OKR Reporting Sheet:\nOKR Dashboard\nCompilation Sheet (Do Not Edit)\n\nIn your review assess the following:\nReported achievement and status on goals from all functional departments. Reviewing attainment by functional department \n\nPlease list any questions or feedback for any goals or reporting overall. \n\nhttps://docs.google.com/spreadsheets/d/1nAD8eXIKIMJ8bcg0iiPhmcZOriE78zc19EotytBTl6A/edit?gid=1219863003#gid=1219863003",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-04-07",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T21:21:02.928Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:33.915Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T21:21:02.928Z",
+    "completed_at": "2026-04-07T00:29:33.915Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "christopher"
+    ]
+  },
+  {
+    "id": "f4ec8c54-daf9-48f9-a0f0-0730f9857159",
+    "title": "Review and approve Q1 Achievement & Attainment Report",
+    "description": "Review the following tabs on the Q1 2026 OKR Reporting Sheet:\nOKR Dashboard\nCompilation Sheet (Do Not Edit)\n\nIn your review assess the following:\nReported achievement and status on goals from all functional departments. Reviewing attainment by functional department \n\nPlease list any questions or feedback for any goals or reporting overall. \n\nhttps://docs.google.com/spreadsheets/d/1nAD8eXIKIMJ8bcg0iiPhmcZOriE78zc19EotytBTl6A/edit?gid=1219863003#gid=1219863003",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-04-07",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-06T21:21:04.260Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-07T00:29:43.827Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-06T21:21:04.260Z",
+    "completed_at": "2026-04-07T00:29:43.827Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [
+      "christopher"
+    ]
+  },
+  {
+    "id": "9b94aa52-b1ec-4280-b42b-fbd8a1bde804",
+    "title": "Approve bonuses",
+    "description": "",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-07T00:30:54.223Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-07T01:56:02.384Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-07T00:30:54.223Z",
+    "completed_at": "2026-04-07T01:56:02.384Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "53e65a02-d779-428f-9153-56cd8f7892e2",
+    "title": "Approve bonuses",
+    "description": "",
+    "priority": 1,
+    "status": "completed",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-07T00:30:55.824Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-07T01:20:35.755Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "created_at": "2026-04-07T00:30:55.824Z",
+    "completed_at": "2026-04-07T01:20:35.755Z",
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
+  },
+  {
+    "id": "27f41ea1-7c34-4aa5-a3ec-9a6873f1fab6",
+    "title": "Get back to signita",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-07T02:02:54.946Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-08T17:41:07.980Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      }
+    ],
+    "created_at": "2026-04-07T02:02:54.946Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
+  },
+  {
+    "id": "dd78ab15-a261-4fdc-86c6-da8f99279177",
+    "title": "Zeta Global Deal",
+    "description": "Get a deal setup to buy inventory from MNTN, use our Deal IDS in exchange we take a cut.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-08T17:40:29.777Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-08T17:41:03.430Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      }
+    ],
+    "created_at": "2026-04-08T17:40:29.777Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
+  },
+  {
+    "id": "9fab9ddc-28c7-4e14-88f7-972e54808168",
+    "title": "TTD Inventory Deal",
+    "description": "Sell our inventory through TTD for a discount.",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-08T17:40:55.226Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-08T17:41:00.416Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from todo to christopher"
+      }
+    ],
+    "created_at": "2026-04-08T17:40:55.226Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": []
+  }
+]

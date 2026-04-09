@@ -1315,6 +1315,30 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .trip-card {
+                height: auto;
+                flex-direction: row;
+                padding: 1rem;
+                align-items: center;
+                gap: 1rem;
+            }
+            .trip-card::before {
+                background: none;
+            }
+            .trip-card .trip-header, .trip-card .trip-dates, .trip-card .trip-countdown {
+                color: var(--text-primary);
+                text-shadow: none;
+            }
+            .trip-card .trip-destination {
+                font-size: 1rem;
+            }
+            .trip-card .trip-dates, .trip-card .trip-countdown {
+                font-size: 0.75rem;
+            }
+            .trip-card .trip-actions {
+                position: static;
+                margin-left: auto;
+            }
             .modal-content {
                 max-width: 95vw;
                 padding: 1.5rem;

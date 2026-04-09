@@ -2497,7 +2497,7 @@
 
                 if (this.currentEditingTrip) {
                     // Edit mode
-                    document.getElementById('modalTitle').textContent = '<i data-lucide="pencil" style="width:20px;vertical-align:middle"></i> Edit Trip';
+                    document.getElementById('modalTitle').innerHTML = '<i data-lucide="pencil" style="width:20px;vertical-align:middle"></i> Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
                     this.populateTripForm(this.currentEditingTrip);
                 var modalPhoto = document.getElementById("modalPhoto");
@@ -2513,7 +2513,7 @@
 
                 } else {
                     // Create mode - show templates
-                    document.getElementById('modalTitle').textContent = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
+                    document.getElementById('modalTitle').innerHTML = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
                     this.renderTemplateSelection();
                 }
 
@@ -2562,16 +2562,31 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             }
 
             renderPackingSection() {
-                const packingList = this.currentTemplatePackingList || {
-                    'Essentials': ['Passport', 'Wallet', 'Phone', 'ID'],
-                    'Clothing': ['Underwear', 'Socks', 'Comfortable shoes'],
-                    'Toiletries': ['Toothbrush', 'Toothpaste', 'Deodorant'],
-                    'Electronics': ['Charger', 'Headphones'],
-                    'Documents': ['Travel documents', 'Insurance info']
-                };
+                let packingList = this.currentTemplatePackingList || {};
+                
+                // Safety fallback for legacy array-based packing lists
+                if (Array.isArray(packingList)) {
+                    const migrated = { 'Items': [] };
+                    packingList.forEach(p => {
+                        if (typeof p === 'string') migrated['Items'].push(p);
+                        else if (p && p.item) migrated['Items'].push(p.item);
+                    });
+                    packingList = migrated;
+                }
+                
+                if (Object.keys(packingList).length === 0) {
+                    packingList = {
+                        'Essentials': ['Passport', 'Wallet', 'Phone', 'ID'],
+                        'Clothing': ['Underwear', 'Socks', 'Comfortable shoes'],
+                        'Toiletries': ['Toothbrush', 'Toothpaste', 'Deodorant'],
+                        'Electronics': ['Charger', 'Headphones'],
+                        'Documents': ['Travel documents', 'Insurance info']
+                    };
+                }
 
                 let html = '<div class="packing-categories">';
                 for (const [category, items] of Object.entries(packingList)) {
+                    if (!Array.isArray(items)) continue; // Safety check
                     html += `
                         <div class="packing-category">
                             <div class="category-title">${this.getCategoryEmoji(category)} ${category}</div>
@@ -2635,7 +2650,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 }
 
                 // Render packing list
-                if (Object.keys(trip.packingList).length > 0) {
+                if (trip.packingList && Object.keys(trip.packingList).length > 0) {
                     this.currentTemplatePackingList = trip.packingList;
                     this.renderPackingSection();
                 } else {
@@ -3211,8 +3226,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 return `
                     <div class="trip-card" style="background-image: url('${bgImage}');" onclick="app.openTripModal('${trip.id}'); return false;">
                         <div class="trip-actions">
-                            <button class="action-btn" onclick="app.openTripModal('${trip.id}'); event.stopPropagation();"><i data-lucide="pencil" style="width:14px;height:14px"></i></button>
-                            <button class="action-btn delete" onclick="app.confirmDeleteTrip('${trip.id}'); event.stopPropagation();"><i data-lucide="trash-2" style="width:14px;height:14px"></i></button>
+                            <button class="action-btn" onclick="if(typeof event !== 'undefined') event.stopPropagation(); app.openTripModal('${trip.id}'); return false;"><i data-lucide="pencil" style="width:14px;height:14px"></i></button>
+                            <button class="action-btn delete" onclick="if(typeof event !== 'undefined') event.stopPropagation(); app.confirmDeleteTrip('${trip.id}'); return false;"><i data-lucide="trash-2" style="width:14px;height:14px"></i></button>
                         </div>
                         <div class="trip-header">
                             <div class="trip-destination">${trip.destination}</div>
@@ -3391,7 +3406,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates">📅 '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="event.stopPropagation();app.openTripModal(\x27'+t.id+'\x27)">✎ Edit</button></div></div>';
+return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates">📅 '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -3835,15 +3850,18 @@ this.updateDashboardStats();
         const flightsHTML = current.flights && current.flights.length > 0
             ? current.flights.map(f => '<div class="itinerary-item">\u2708\uFE0F ' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||current.destination||'').toUpperCase() + '</div>').join('')
             : '<div class="itinerary-item">No flights scheduled</div>';
-        hero.innerHTML = `<div class="current-trip-hero">
+        hero.innerHTML = `<div class="current-trip-hero" style="cursor:pointer;" onclick="app.showTripDetail('${current.id}')">
             <div class="current-trip-info">
-                <div class="current-trip-destination">${current.destination} \u{1F30D}</div>
+                <div class="current-trip-destination">${current.destination} 🌍</div>
                 <div class="current-trip-meta"><strong>Day ${dayNum} of ${totalDays}</strong><br>${s.toLocaleDateString()} - ${e.toLocaleDateString()}<br>
-                ${current.country || ''} | ${current.type === 'business' ? '\u{1F4BC} Business' : '\u{1F334} Personal'}</div>
+                ${current.country || ''} | ${current.type === 'business' ? '💼 Business' : '🌴 Personal'}</div>
             </div>
-            <div><div class="current-trip-itinerary"><div class="itinerary-title">Today's Itinerary</div>${flightsHTML}
-            <div class="weather-widget">\u2600\uFE0F 24\u00B0C | \u{1F553} ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
-            </div></div></div>`;
+            <div>
+                <div class="current-trip-itinerary"><div class="itinerary-title">Today's Itinerary</div>${flightsHTML}
+                <div class="weather-widget">☀️ 24°C | 🕒 ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+                </div>
+            </div>
+        </div>`;
     }
 
     updateUpcomingTripsTimeline() {

@@ -1730,55 +1730,55 @@
         <div class="main-content">
             <!-- Timeline Tab -->
             <div id="dashboardTab" class="tab-content active">
-                <!-- Quick Stats Bar -->
-                <div class="dashboard-section">
-                    <div class="quick-stats" id="quickStats">
-                        <div class="stat-box"><div class="stat-value" id="statTrips">0</div><div class="stat-label">📅 Trips This Month</div></div>
-                        <div class="stat-box"><div class="stat-value" id="statNights">0</div><div class="stat-label">🌙 Nights Away</div></div>
-                        <div class="stat-box"><div class="stat-value" id="statCountries">0</div><div class="stat-label">🌍 Countries</div></div>
-                        <div class="stat-box"><div class="stat-value" id="statSpent">$0</div><div class="stat-label">💰 Total Spent</div></div>
-                    </div>
-                </div>
+    <!-- Current Trip Hero Card -->
+    <div class="dashboard-section" id="currentTripHeroSection" style="display:none;">
+        <div class="dashboard-section-title">🌍 Currently Traveling</div>
+        <div id="currentTripHero"></div>
+    </div>
 
-                <!-- Action Items -->
-                <div class="dashboard-section" id="actionItemsSection" style="display:none;">
-                    <div class="dashboard-section-title">✓ Action Items</div>
-                    <div class="action-items-grid" id="actionItemsGrid"></div>
-                </div>
+    <!-- Next Flight Countdown + Status -->
+    <div class="dashboard-section" id="nextFlightSection" style="display:none;">
+        <div class="dashboard-section-title">✈️ Next Flight</div>
+        <div class="next-flight-container" id="nextFlightContainer"></div>
+    </div>
+    
+    <!-- Upcoming Trips Timeline -->
+    <div class="dashboard-section" id="upcomingTripsSection" style="display:none;">
+        <div class="dashboard-section-title">📍 Upcoming Trips</div>
+        <div class="trips-timeline-scroll" id="upcomingTripsTimeline"></div>
+    </div>
+    
+    <!-- Quick Stats Bar -->
+    <div class="dashboard-section">
+        <div class="quick-stats" id="quickStats">
+            <div class="stat-box"><div class="stat-value" id="statTrips">0</div><div class="stat-label">📅 Trips This Month</div></div>
+            <div class="stat-box"><div class="stat-value" id="statNights">0</div><div class="stat-label">🌙 Nights Away</div></div>
+            <div class="stat-box"><div class="stat-value" id="statCountries">0</div><div class="stat-label">🌍 Countries</div></div>
+            <div class="stat-box"><div class="stat-value" id="statSpent">$0</div><div class="stat-label">💰 Total Spent</div></div>
+        </div>
+    </div>
 
-                <!-- Next Flight Countdown + Status -->
-                <div class="dashboard-section" id="nextFlightSection" style="display:none;">
-                    <div class="dashboard-section-title">✈️ Next Flight</div>
-                    <div class="next-flight-container" id="nextFlightContainer"></div>
-                </div>
+    <!-- Action Items -->
+    <div class="dashboard-section" id="actionItemsSection" style="display:none;">
+        <div class="dashboard-section-title">✓ Action Items</div>
+        <div class="action-items-grid" id="actionItemsGrid"></div>
+    </div>
 
-                <!-- Current Trip Hero Card -->
-                <div class="dashboard-section" id="currentTripHeroSection" style="display:none;">
-                    <div class="dashboard-section-title">🌍 Currently Traveling</div>
-                    <div id="currentTripHero"></div>
-                </div>
+    <!-- Expense Tracker -->
+    <div class="dashboard-section" id="expenseTrackerSection" style="display:none;">
+        <div class="dashboard-section-title">💳 Trip Expenses</div>
+        <div class="expense-tracker-container" id="expenseTrackerContainer">
+            <div class="expense-chart-wrapper"><canvas class="burn-down-canvas" id="burnDownCanvas"></canvas></div>
+            <div class="expense-categories" id="expenseCategoriesList"></div>
+        </div>
+    </div>
 
-                <!-- Upcoming Trips Timeline -->
-                <div class="dashboard-section" id="upcomingTripsSection" style="display:none;">
-                    <div class="dashboard-section-title">📍 Upcoming Trips</div>
-                    <div class="trips-timeline-scroll" id="upcomingTripsTimeline"></div>
-                </div>
-
-                <!-- Expense Tracker -->
-                <div class="dashboard-section" id="expenseTrackerSection" style="display:none;">
-                    <div class="dashboard-section-title">💳 Trip Expenses</div>
-                    <div class="expense-tracker-container" id="expenseTrackerContainer">
-                        <div class="expense-chart-wrapper"><canvas class="burn-down-canvas" id="burnDownCanvas"></canvas></div>
-                        <div class="expense-categories" id="expenseCategoriesList"></div>
-                    </div>
-                </div>
-
-                <!-- Recent Activity -->
-                <div class="dashboard-section" id="recentActivitySection" style="display:none;">
-                    <div class="dashboard-section-title">📝 Recent Activity</div>
-                    <div class="activity-feed" id="activityFeed"></div>
-                </div>
-            </div>
+    <!-- Recent Activity -->
+    <div class="dashboard-section" id="recentActivitySection" style="display:none;">
+        <div class="dashboard-section-title">📝 Recent Activity</div>
+        <div class="activity-feed" id="activityFeed"></div>
+    </div>
+</div>
             <div id="currentTab" class="tab-content">
                 <div class="current-tab-content">
                     <div class="section-title">🎯 Current Trip</div>

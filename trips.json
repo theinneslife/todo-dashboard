@@ -61,14 +61,14 @@
           "confirmation": "JN4VEP",
           "class": "Economy",
           "cost": "",
-          "notes": "QA_TEST_NOTE_1775582446227",
+          "notes": "",
           "passengers": "Christopher Innes"
         }
       ],
       "accommodation": "Stunning view+terrasse/Hells Kitchen",
       "budget": 7742,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 0
     },
     {
@@ -152,7 +152,7 @@
       "accommodation": "Airbnb",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 1
     },
     {
@@ -206,7 +206,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 2
     },
     {
@@ -264,7 +264,7 @@
       "accommodation": null,
       "budget": 22397.8,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 3
     },
     {
@@ -320,7 +320,7 @@
       "accommodation": null,
       "budget": 652.29,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 4
     },
     {
@@ -417,7 +417,7 @@
       "accommodation": "Singita Boulders Lodge - River Suite",
       "budget": 57639.91,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 5
     },
     {
@@ -447,7 +447,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 6
     },
     {
@@ -521,7 +521,7 @@
       "accommodation": "Maxima Comoda",
       "budget": 22414.12,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 7
     },
     {
@@ -563,7 +563,7 @@
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 8
     },
     {
@@ -627,7 +627,7 @@
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 9
     },
     {
@@ -694,7 +694,7 @@
       "accommodation": "donQuijote Spanish School",
       "budget": 3014,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 0
     },
     {
@@ -758,7 +758,7 @@
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 1
     },
     {
@@ -832,7 +832,7 @@
       "accommodation": "Il Vento Uno - Penthouse TERRA",
       "budget": 6323.09,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 2
     },
     {
@@ -862,7 +862,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 3
     },
     {
@@ -892,7 +892,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 4
     },
     {
@@ -915,7 +915,7 @@
       "notes": "Summer vacation - visit museums and enjoy wine",
       "flights": [],
       "accommodation": "https://www.airbnb.com",
-      "budget": 3000,
+      "budget": 0,
       "expenses": [],
       "packingList": {},
       "colorIndex": 5

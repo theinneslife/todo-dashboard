@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlo — Action Items Dashboard</title>
+    <style>html,body{background-color:#f5f5f7;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
@@ -494,7 +495,7 @@
         }
 
         .task-due-date::before {
-            content: '📅';
+            content: '<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>';
             font-size: 10px;
         }
 
@@ -1568,7 +1569,7 @@
             letter-spacing: 0.2px;
         }
         .badge-blocked::before {
-            content: '⚠';
+            content: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>';
             font-size: 9px;
         }
         .task-card.blocked {
@@ -2116,7 +2117,7 @@
 .habit-heatmap { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin: 10px 0; }
 .habit-heatmap .day { width: 100%; aspect-ratio: 1; border-radius: 3px; background: #262638; }
 .habit-heatmap .day.completed { background: #2ecc71; }
-.habit-heatmap .day.missed { background: #e74c3c33; }
+.habit-heatmap .day.missed { background: rgba(248,113,113,0.35); }
 .habit-heatmap .day.future { background: #1a1a2e; }
 .trend-arrow { font-size: 12px; margin-left: 4px; }
 .trend-arrow.up { color: #2ecc71; }
@@ -2125,13 +2126,13 @@
 .slipping-alert { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #e74c3c; }
 .habit-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
 .habit-stat-card { background: #1a1a2e; border-radius: 10px; padding: 14px; text-align: center; }
-.habit-stat-card .value { font-size: 28px; font-weight: 700; color: #667eea; }
-.habit-stat-card .label { font-size: 11px; color: #d4d4e0; text-transform: uppercase; margin-top: 4px; }
+.habit-stat-card .value { font-size: 28px; font-weight: 700; color: #818cf8; }
+.habit-stat-card .label { font-size: 11px; color: #e2e8f0; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.05em; }
 .pattern-chart { background: #1a1a2e; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
 .pattern-bar-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
-.pattern-bar-row .day-label { width: 30px; font-size: 11px; color: #888; }
-.pattern-bar-row .bar { height: 18px; border-radius: 4px; background: #667eea; transition: width 0.3s; min-width: 2px; }
-.pattern-bar-row .pct { font-size: 11px; color: #aaa; width: 35px; text-align: right; }
+.pattern-bar-row .day-label { width: 30px; font-size: 11px; color: #cbd5e1; }
+.pattern-bar-row .bar { height: 18px; border-radius: 4px; background: #818cf8; transition: width 0.3s; min-width: 2px; }
+.pattern-bar-row .pct { font-size: 11px; color: #cbd5e1; width: 35px; text-align: right; }
 
 
 
@@ -2455,7 +2456,7 @@
                 <svg viewBox="0 0 148 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><rect x="6" y="10" width="5" height="14" rx="1.5" fill="#fff" opacity=".9"/><rect x="13" y="10" width="5" height="10" rx="1.5" fill="#fff" opacity=".9"/><rect x="20" y="10" width="5" height="18" rx="1.5" fill="#fff" opacity=".9"/><path d="M6 29Q13 25 17 29Q21 33 27 29" stroke="#fff" stroke-width="1.5" fill="none" opacity=".7"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Task</text><text x="90" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M90 33Q102 28 114 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg>
                 <span class="version-badge">v4.1</span>
             </div>
-            <a href="travelflow.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
+            <a href="travelflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <div class="header-right">
                 <div class="view-toggle">
                     <button class="view-toggle-btn active" data-view="board"><i data-lucide="square-kanban" style="width:14px;vertical-align:middle;margin-right:6px"></i>Board</button>
@@ -2465,37 +2466,37 @@
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
                     <div class="hamburger-wrapper">
-                        <button class="hamburger-menu-btn" id="hamburgerBtn" onclick="toggleHamburgerMenu(event)" title="Menu">☰</button>
+                        <button class="hamburger-menu-btn" id="hamburgerBtn" onclick="toggleHamburgerMenu(event)" title="Menu"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
                         <div class="hamburger-overlay" id="hamburgerOverlay" onclick="closeHamburgerMenu()"></div>
                         <div class="hamburger-dropdown" id="hamburgerDropdown">
                             <button class="hamburger-dropdown-item" onclick="document.getElementById('refreshBtn').click(); toggleHamburgerMenu();">
-                                <span class="menu-icon">↻</span><span class="menu-label">Refresh</span>
+                                <span class="menu-icon"><i data-lucide="refresh-cw" style="width:14px;height:14px;"></i></span><span class="menu-label">Refresh</span>
                             </button>
                             <button class="hamburger-dropdown-item" onclick="document.getElementById('statsBtn').click(); toggleHamburgerMenu();">
-                                <span class="menu-icon">📊</span><span class="menu-label">Stats</span>
+                                <span class="menu-icon"><i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i></span><span class="menu-label">Stats</span>
                             </button>
                             <button class="hamburger-dropdown-item" onclick="document.getElementById('activityBtn').click(); toggleHamburgerMenu();">
-                                <span class="menu-icon">🔔</span><span class="menu-label">Activity Log</span>
+                                <span class="menu-icon"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i></span><span class="menu-label">Activity Log</span>
                             </button>
                             <button class="hamburger-dropdown-item" onclick="document.getElementById('timelineBtn').click(); toggleHamburgerMenu();">
-                                <span class="menu-icon">📅</span><span class="menu-label">Timeline</span>
+                                <span class="menu-icon"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i></span><span class="menu-label">Timeline</span>
                             </button>
                             <button class="hamburger-dropdown-item" onclick="document.getElementById('templateBtn').click(); toggleHamburgerMenu();">
-                                <span class="menu-icon">📋</span><span class="menu-label">Templates</span>
+                                <span class="menu-icon"><i data-lucide="clipboard-list" style="width:14px;height:14px;vertical-align:-2px;"></i></span><span class="menu-label">Templates</span>
                             </button>
                             <button class="hamburger-dropdown-item" onclick="downloadICS(); toggleHamburgerMenu();">
-                                <span class="menu-icon">📅</span><span class="menu-label">Download .ics</span>
+                                <span class="menu-icon"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i></span><span class="menu-label">Download .ics</span>
                             </button>
                         </div>
                     </div>
-                    <button class="secondary toolbar-hideable" id="refreshBtn">↻ Refresh</button>
-                    <button class="secondary toolbar-hideable" id="statsBtn">📊 Stats</button>
-                    <button class="secondary toolbar-hideable" id="activityBtn">🔔 Activity</button>
-                    <button class="secondary toolbar-hideable" id="timelineBtn">📅 Timeline</button>
-                    <button class="secondary toolbar-hideable" id="templateBtn">📋 Template</button>
+                    <button class="secondary toolbar-hideable" id="refreshBtn"><i data-lucide="refresh-cw" style="width:14px;height:14px;"></i> Refresh</button>
+                    <button class="secondary toolbar-hideable" id="statsBtn"><i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i> Stats</button>
+                    <button class="secondary toolbar-hideable" id="activityBtn"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i> Activity</button>
+                    <button class="secondary toolbar-hideable" id="timelineBtn"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> Timeline</button>
+                    <button class="secondary toolbar-hideable" id="templateBtn"><i data-lucide="clipboard-list" style="width:14px;height:14px;vertical-align:-2px;"></i> Template</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
-            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications">🔔<span id="notifBadge" class="badge" style="display:none">0</span></button>
-            <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics">📅 .ics</button>
+            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i><span id="notifBadge" class="badge" style="display:none">0</span></button>
+            <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> .ics</button>
                 </div>
             </div>
         </header>
@@ -2536,7 +2537,7 @@
         <!-- Feature 2: Timeline Strip -->
         <div class="timeline-strip" id="timelineStrip">
             <div class="timeline-header">
-                <div class="timeline-title">📅 Upcoming Deadlines</div>
+                <div class="timeline-title"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> Upcoming Deadlines</div>
                 <button class="timeline-toggle" id="timelineClose">Hide</button>
             </div>
             <div class="timeline-days" id="timelineDays"></div>
@@ -2545,7 +2546,7 @@
         <div class="mobile-column-nav" id="mobileColumnNav"><button class="nav-arrow" id="navLeft" onclick="mobileNavColumn(-1)">&lsaquo;</button><div class="mobile-tabs" id="mobileTabs"></div><button class="nav-arrow" id="navRight" onclick="mobileNavColumn(1)">&rsaquo;</button></div>
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
-            <span class="priority-strip-title" id="priorityStripTitle">⭐ Priorities (0)</span>
+            <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
             <span class="priority-strip-toggle">▼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
@@ -3424,7 +3425,7 @@ function getGithubToken() {
             if (allPill) { allPill.textContent = 'All ' + filteredTasks.length; }
         }
 
-        function renderBoard() {
+        function renderBoard() { setTimeout(function(){if(typeof lucide!=='undefined')lucide.createIcons();},0);
             const kanban = document.getElementById('kanban');
             kanban.innerHTML = '';
 
@@ -3623,7 +3624,7 @@ function getGithubToken() {
             if (task.recurrence) {
                 const recurrence = document.createElement('div');
                 recurrence.className = 'task-recurrence';
-                recurrence.textContent = `↻ ${task.recurrence}`;
+                recurrence.textContent = `<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i> ${task.recurrence}`;
                 meta.appendChild(recurrence);
             }
 
@@ -3667,7 +3668,7 @@ function getGithubToken() {
                 if (unresolvedBlockers.length > 0) {
                     const depBadge = document.createElement('span');
                     depBadge.className = 'dep-badge blocked-by';
-                    depBadge.textContent = '⛔ ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
+                    depBadge.textContent = '<i data-lucide="octagon" style="width:12px;height:12px;vertical-align:-1px;"></i> ' + unresolvedBlockers.length + ' blocker' + (unresolvedBlockers.length > 1 ? 's' : '');
                     depBadge.title = unresolvedBlockers.map(t => t.title).join(', ');
                     meta.appendChild(depBadge);
                 }
@@ -3703,7 +3704,8 @@ function getGithubToken() {
                 const blockedBadge = document.createElement('div');
                 blockedBadge.className = 'badge-blocked';
                 blockedBadge.textContent = 'Blocked';
-                blockedBadge.title = task.activity_log[task.activity_log.length - 1].details;
+                const lastLog = task.activity_log && task.activity_log.length > 0 ? task.activity_log[task.activity_log.length - 1] : null;
+                blockedBadge.title = (lastLog && lastLog.details) ? lastLog.details : 'Blocked';
                 meta.appendChild(blockedBadge);
             }
 
@@ -4962,9 +4964,9 @@ document.addEventListener('keydown', (e) => {
                 moved: '→',
                 edited: '✎',
                 commented: '💬',
-                attempted: '⚠',
-                assigned: '👤',
-                recurrence_spawned: '↻'
+                attempted: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>',
+                assigned: '<i data-lucide="user" style="width:14px;height:14px;vertical-align:-2px;"></i>',
+                recurrence_spawned: '<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i>'
             };
 
             container.innerHTML = allActivities.map(a => `
@@ -5370,9 +5372,9 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '📊', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
+            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
-                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '🔔') + '</span> ' + escapeHtml(n.title) + '</div>' +
+                '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '<i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i>') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
         }).join('');
     }
@@ -5502,7 +5504,7 @@ function init() {
         if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'✉'};
         if (cat.cm.includes('Document')) return {type:'Document Template',icon:'📄'};
         if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'🌐'};
-        if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'📅'};
+        if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>'};
         return null;
     }
     function renderDelegationBadge(task) {
@@ -5597,7 +5599,7 @@ function init() {
         if (!task.recurrence || task.recurrence==='none') return '';
         var info = getStreakInfo(task);
         var cls = info.current>=7?'hot':info.current>=3?'warm':info.current>=1?'cool':'cold';
-        var icon = info.current>=7?'🔥 ':info.current>=3?'⭐ ':'';
+        var icon = info.current>=7?'<i data-lucide="flame" style="width:12px;height:12px;color:#e74c3c;"></i> ':info.current>=3?'<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> ':'';
         return '<span class="streak-badge '+cls+'">'+icon+info.current+' day streak</span>';
     }
     function renderHabitsView() {
@@ -5803,7 +5805,7 @@ function updateNavArrows() {
             return;
         }
         task.pinned = !task.pinned;
-        btnEl.innerHTML = task.pinned ? '★' : '☆';
+        btnEl.innerHTML = task.pinned ? '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:14px;height:14px;"></i>';
         btnEl.className = 'task-pin-btn' + (task.pinned ? ' pinned' : '');
         btnEl.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
         btnEl.classList.add('pop');
@@ -5820,7 +5822,7 @@ function updateNavArrows() {
         if (!strip || !title) return;
         
         const pinnedTasks = tasks.filter(t => t.pinned);
-        title.textContent = '⭐ Priorities (' + pinnedTasks.length + ')';
+        title.textContent = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (' + pinnedTasks.length + ')';
         
         // Clear existing pinned cards (keep empty message)
         strip.querySelectorAll('.pinned-card').forEach(el => el.remove());
@@ -5857,7 +5859,7 @@ function updateNavArrows() {
                 if (taskCard) {
                     const btn = taskCard.querySelector('.task-pin-btn');
                     if (btn) {
-                        btn.innerHTML = '☆';
+                        btn.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;"></i>';
                         btn.className = 'task-pin-btn';
                     }
                 }

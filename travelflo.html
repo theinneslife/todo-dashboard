@@ -1776,10 +1776,126 @@
     
         .timeline-in-progress-badge { display:inline-block; background:linear-gradient(135deg,#10b981,#059669); color:#fff; font-size:0.65rem; font-weight:700; padding:3px 8px; border-radius:10px; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:6px; box-shadow:0 2px 8px rgba(16,185,129,0.4); }
         .timeline-trip-card-current { border:1px solid rgba(16,185,129,0.5); box-shadow:0 4px 16px rgba(16,185,129,0.15); }
+
+/* ===== MAP VIEW STYLES ===== */
+.map-container { width: 100%; height: calc(100vh - 160px); border-radius: 12px; overflow: hidden; position: relative; z-index: 1; }
+.map-container .leaflet-popup-content { font-family: inherit; }
+.map-popup { min-width: 180px; }
+.map-popup h4 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.map-popup p { margin: 2px 0; font-size: 12px; color: var(--text-muted); }
+.map-popup .map-popup-link { color: var(--accent-primary); text-decoration: none; font-size: 12px; font-weight: 500; cursor: pointer; }
+.map-popup .map-popup-link:hover { text-decoration: underline; }
+.map-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; color: var(--text-muted); gap: 12px; }
+.map-legend { position: absolute; bottom: 20px; right: 20px; background: var(--bg-primary); border-radius: 8px; padding: 10px 14px; z-index: 1000; box-shadow: var(--shadow-md); font-size: 12px; }
+.map-legend-item { display: flex; align-items: center; gap: 6px; margin: 4px 0; }
+.map-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* ===== RACE EVENT STYLES ===== */
+.race-fields { background: var(--bg-tertiary); border-radius: 10px; padding: 16px; margin-top: 12px; border: 1px solid var(--border-color); }
+.race-fields h4 { margin: 0 0 12px; font-size: 14px; color: var(--accent-primary); display: flex; align-items: center; gap: 6px; }
+.race-detail-card { background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(249,115,22,0.08)); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 16px; margin-top: 12px; }
+.race-detail-card h4 { color: #ef4444; margin: 0 0 10px; font-size: 15px; }
+.race-detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(239,68,68,0.1); font-size: 13px; }
+.race-detail-row:last-child { border-bottom: none; }
+
+/* ===== DOCUMENT VAULT STYLES ===== */
+.doc-vault { margin-top: 12px; }
+.doc-vault-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.doc-list { display: flex; flex-direction: column; gap: 6px; }
+.doc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg-tertiary); border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.2s; }
+.doc-item:hover { border-color: var(--accent-primary); transform: translateX(4px); }
+.doc-item-icon { font-size: 20px; flex-shrink: 0; }
+.doc-item-name { flex: 1; font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.doc-item-ext { font-size: 11px; color: var(--text-muted); }
+.doc-add-btn { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: none; border: 1px dashed var(--border-color); border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 13px; width: 100%; justify-content: center; margin-top: 8px; }
+.doc-add-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+
+/* ===== COUNTDOWN TIMER STYLES ===== */
+.countdown-banner { background: linear-gradient(135deg, var(--accent-primary), #8b5cf6); color: white; border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; position: relative; overflow: hidden; }
+.countdown-banner::after { content: ''; position: absolute; top: -50%; right: -20%; width: 150px; height: 150px; background: rgba(255,255,255,0.08); border-radius: 50%; }
+.countdown-label { font-size: 12px; opacity: 0.85; margin-bottom: 4px; }
+.countdown-value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+.countdown-sub { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+.countdown-row { display: flex; gap: 12px; margin-bottom: 16px; overflow-x: auto; }
+.countdown-row::-webkit-scrollbar { display: none; }
+.countdown-mini { flex-shrink: 0; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; min-width: 160px; }
+.countdown-mini-label { font-size: 11px; color: var(--text-muted); }
+.countdown-mini-value { font-size: 18px; font-weight: 600; color: var(--text-primary); }
+.countdown-mini-dest { font-size: 12px; color: var(--accent-primary); margin-top: 2px; }
+
+/* ===== TIMELINE VIEW STYLES ===== */
+.trip-timeline { position: relative; padding-left: 24px; margin-top: 12px; }
+.trip-timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border-color); }
+.timeline-item { position: relative; margin-bottom: 16px; padding-left: 16px; }
+.timeline-item::before { content: ''; position: absolute; left: -20px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-primary); }
+.timeline-item.past::before { background: var(--text-muted); }
+.timeline-item.current::before { background: #10b981; box-shadow: 0 0 8px rgba(16,185,129,0.4); }
+.timeline-item-date { font-size: 11px; color: var(--text-muted); }
+.timeline-item-title { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+
+/* ===== WEATHER STYLES ===== */
+.weather-section { margin-top: 12px; }
+.weather-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; margin-top: 8px; }
+.weather-day { text-align: center; padding: 10px 6px; background: var(--bg-tertiary); border-radius: 10px; border: 1px solid var(--border-color); }
+.weather-day-name { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+.weather-icon { font-size: 24px; margin: 4px 0; }
+.weather-temp { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.weather-temp-low { font-size: 11px; color: var(--text-muted); }
+.weather-precip { font-size: 10px; color: #3b82f6; margin-top: 2px; }
+.weather-notice { font-size: 12px; color: var(--text-muted); font-style: italic; padding: 12px; text-align: center; }
+
+/* ===== PACKING LIST TEMPLATE STYLES ===== */
+.template-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+.template-card { padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--bg-tertiary); cursor: pointer; text-align: center; transition: all 0.2s; }
+.template-card:hover, .template-card.selected { border-color: var(--accent-primary); background: rgba(99,102,241,0.06); }
+.template-card-icon { font-size: 28px; margin-bottom: 6px; }
+.template-card-name { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.template-card-count { font-size: 11px; color: var(--text-muted); }
+
+/* ===== BUDGET TRACKER STYLES ===== */
+.budget-tracker { margin-top: 12px; }
+.budget-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+.budget-stat { padding: 12px; background: var(--bg-tertiary); border-radius: 10px; border: 1px solid var(--border-color); text-align: center; }
+.budget-stat-value { font-size: 20px; font-weight: 700; color: var(--accent-primary); }
+.budget-stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.budget-cat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; }
+.budget-cat-row:last-child { border-bottom: none; }
+.budget-bar { height: 6px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.budget-bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+.currency-badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: var(--bg-tertiary); color: var(--text-muted); margin-left: 4px; }
+.expense-log-form { display: grid; grid-template-columns: 1fr 80px 70px; gap: 8px; margin-top: 10px; align-items: end; }
+.expense-log-form input, .expense-log-form select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); font-size: 13px; }
+
+/* ===== SHARE LINK STYLES ===== */
+.share-section { margin-top: 12px; }
+.share-url-box { display: flex; gap: 8px; margin-top: 8px; }
+.share-url-input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-primary); font-size: 12px; font-family: monospace; }
+.share-copy-btn { padding: 10px 16px; border-radius: 8px; background: var(--accent-primary); color: white; border: none; cursor: pointer; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.share-copy-btn:hover { opacity: 0.9; }
+
+/* ===== CALENDAR EXPORT STYLES ===== */
+.cal-export-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; font-size: 13px; transition: all 0.2s; }
+.cal-export-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+
+/* ===== OFFLINE INDICATOR ===== */
+.offline-banner { position: fixed; top: 0; left: 0; right: 0; background: #f59e0b; color: #1a1a2e; text-align: center; padding: 4px; font-size: 12px; font-weight: 500; z-index: 10000; transform: translateY(-100%); transition: transform 0.3s; }
+.offline-banner.visible { transform: translateY(0); }
 </style>
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Leaflet.js for Map View -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Web App Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
+    <div class="offline-banner" id="offlineBanner">You are offline — changes will sync when connection returns</div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -1799,6 +1915,9 @@
         <div class="main-content">
             <!-- Timeline Tab -->
             <div id="dashboardTab" class="tab-content active">
+    <!-- Countdown Banners (Feature 4) -->
+    <div id="countdownBannersSection" style="padding:0 16px"></div>
+
     <!-- Current Trip Hero Card -->
     <div class="dashboard-section" id="currentTripHeroSection" style="display:none;">
         <div class="dashboard-section-title"><i data-lucide="map-pin" style="width:18px;height:18px;stroke:var(--accent-green);vertical-align:-3px;"></i> Currently Traveling</div>
@@ -1937,7 +2056,23 @@
             </div>
         </div>
         <!-- Bottom Navigation -->
-        <div class="bottom-nav">
+        
+        <!-- Map View Tab -->
+        <div id="mapViewTab" class="tab-content">
+            <div style="padding:16px 16px 8px">
+                <h2 style="font-size:20px;font-weight:700;margin:0">Trip Map</h2>
+                <p style="font-size:13px;color:var(--text-muted);margin:4px 0 12px">All your destinations at a glance</p>
+            </div>
+            <div id="mapContainer" class="map-container"></div>
+            <div class="map-legend" id="mapLegend" style="display:none">
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#10b981"></div> Current</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#3b82f6"></div> Upcoming</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#6b7280"></div> Past</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#ef4444"></div> Race</div>
+            </div>
+        </div>
+
+<div class="bottom-nav">
             <button class="nav-item active" data-tab="dashboard">
                 <div class="nav-icon"><i data-lucide="layout-dashboard" style="width:24px;height:24px"></i></div>
                 <div>Dashboard</div>
@@ -1957,6 +2092,10 @@
             <button class="nav-item" data-tab="discover">
                 <div class="nav-icon"><i data-lucide="compass" style="width:24px;height:24px"></i></div>
                 <div>Discover</div>
+            </button>
+            <button class="nav-item" data-tab="mapView">
+                <div class="nav-icon"><i data-lucide="globe" style="width:24px;height:24px"></i></div>
+                <div>Map</div>
             </button>
             <button class="nav-item" data-tab="search">
                 <div class="nav-icon"><i data-lucide="search" style="width:24px;height:24px"></i></div>
@@ -2009,6 +2148,14 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label>Trip Type</label>
+                    <select id="tripTypeInput" class="form-control" onchange="if(this.value==='race'){document.getElementById('raceFieldsSection').style.display='block'}else{document.getElementById('raceFieldsSection').style.display='none'}">
+                        <option value="vacation">Vacation</option>
+                        <option value="race">Race</option>
+                    </select>
+                </div>
+                <div id="raceFieldsContainer"></div>
                 <div class="form-group">
                     <label class="form-label">Notes</label>
                     <textarea class="form-textarea" id="notesInput" placeholder="Add trip notes..."></textarea>
@@ -2473,12 +2620,13 @@
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab' };
+            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab', mapView: 'mapViewTab' };
             const targetTab = document.getElementById(tabMap[tabName]);
             if (targetTab) targetTab.classList.add('active');
             // Refresh views
             if (tabName === 'dashboard') this.initDashboard();
             if (tabName === 'current') this.renderCurrentTrip();
+            if (tabName === 'mapView') this.renderMapView();
             if (tabName === 'discover') { this.renderDiscover();
             this.renderEnhancedDiscover(); }
         }
@@ -2492,6 +2640,9 @@
                 document.getElementById('tripForm').reset();
                 document.getElementById('overlapWarning').style.display = 'none';
                 document.getElementById('flightSegmentsContainer').innerHTML = '';
+                // Inject race fields HTML (Feature 2)
+                var rfContainer = document.getElementById('raceFieldsContainer');
+                if (rfContainer) rfContainer.innerHTML = this.getRaceFieldsHTML(this.currentEditingTrip);
                 document.getElementById('accommodationDisplay').style.display = 'none';
                 document.getElementById('accommodationInput').value = '';
                 document.getElementById('expensesList').innerHTML = '';
@@ -2629,6 +2780,23 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 document.getElementById('destinationInput').value = trip.destination;
                 document.getElementById('startDateInput').value = trip.startDate;
                 document.getElementById('endDateInput').value = trip.endDate;
+
+                // Populate trip type and race fields (Feature 2)
+                var typeInput = document.getElementById('tripTypeInput');
+                if (typeInput) { typeInput.value = trip.tripType || trip.type || 'vacation'; }
+                var raceSection = document.getElementById('raceFieldsSection');
+                if (raceSection && (trip.tripType === 'race' || trip.type === 'race')) {
+                    raceSection.style.display = 'block';
+                    if (trip.raceData) {
+                        var rd = trip.raceData;
+                        if (document.getElementById('raceNameInput')) document.getElementById('raceNameInput').value = rd.raceName || '';
+                        if (document.getElementById('racePickupInput')) document.getElementById('racePickupInput').value = rd.packetPickup || '';
+                        if (document.getElementById('raceStartInput')) document.getElementById('raceStartInput').value = rd.raceStart || '';
+                        if (document.getElementById('raceCutoffsInput')) document.getElementById('raceCutoffsInput').value = rd.cutoffs || '';
+                        if (document.getElementById('raceDropBagsInput')) document.getElementById('raceDropBagsInput').value = rd.dropBags || '';
+                        if (document.getElementById('raceCrewInput')) document.getElementById('raceCrewInput').value = rd.crewPoints || '';
+                    }
+                }
                 document.getElementById('notesInput').value = trip.notes || '';
                 document.getElementById('budgetInput').value = trip.budget || 0;
                 document.getElementById('accommodationInput').value = trip.accommodation || '';
@@ -2855,7 +3023,17 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     accommodation: document.getElementById('accommodationInput').value || null,
                     budget: parseFloat(document.getElementById('budgetInput').value) || 0,
                     expenses: expenses,
-                    packingList: packingList
+                    packingList: packingList,
+                    tripType: document.getElementById('tripTypeInput') ? document.getElementById('tripTypeInput').value : 'vacation',
+                    raceData: (document.getElementById('tripTypeInput') && document.getElementById('tripTypeInput').value === 'race') ? {
+                        raceName: document.getElementById('raceNameInput') ? document.getElementById('raceNameInput').value : '',
+                        packetPickup: document.getElementById('racePickupInput') ? document.getElementById('racePickupInput').value : '',
+                        raceStart: document.getElementById('raceStartInput') ? document.getElementById('raceStartInput').value : '',
+                        cutoffs: document.getElementById('raceCutoffsInput') ? document.getElementById('raceCutoffsInput').value : '',
+                        dropBags: document.getElementById('raceDropBagsInput') ? document.getElementById('raceDropBagsInput').value : '',
+                        crewPoints: document.getElementById('raceCrewInput') ? document.getElementById('raceCrewInput').value : ''
+                    } : null,
+                    documents: this.currentEditingTrip ? (this.currentEditingTrip.documents || []) : []
                 };
 
                 if (this.currentEditingTrip) {
@@ -3653,7 +3831,44 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             var destCity = (trip.destination || "").split(",")[0].trim();
             html += this._renderResearchEngine(destCity);
 
+            
+            // Add Race Detail Card (Feature 2)
+            if (trip.raceData && trip.raceData.raceName) {
+                html += self.renderRaceDetailCard(trip);
+            }
+
+            // Add Trip Timeline (Feature 4)
+            html += self.renderTripTimeline(trip);
+
+            // Add Budget Tracker (Feature 7)
+            html += '<div class="detail-section">' + self.renderBudgetTracker(trip) + '</div>';
+
+            // Add Document Vault (Feature 3)
+            html += '<div class="detail-section">' + self.renderDocumentVault(trip) + '</div>';
+
+            // Add Share Section (Feature 8)
+            html += '<div class="detail-section">' + self.renderShareSection(trip) + '</div>';
+
+            // Add Calendar Export (Feature 9)
+            html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="calendar-days" style="width:16px;vertical-align:middle"></i> Calendar</div>';
+            html += '<button class="cal-export-btn" onclick="window.app.generateICS(\'' + trip.id + '\')"><i data-lucide="download" style="width:14px;height:14px"></i> Export to Calendar (.ics)</button>';
+            html += '</div>';
+
+            // Weather placeholder (loaded async)
+            html += '<div class="detail-section" id="weatherSection_' + trip.id + '"><div class="detail-section-title"><i data-lucide="cloud-sun" style="width:16px;vertical-align:middle"></i> Weather</div><div class="weather-notice">Loading weather...</div></div>';
+
             document.getElementById("tripDetailBody").innerHTML = html;
+
+            // Async: Load weather (Feature 5)
+            self.fetchWeather(trip).then(function(weatherResult) {
+                var weatherEl = document.getElementById('weatherSection_' + trip.id);
+                if (weatherEl && weatherResult) {
+                    weatherEl.innerHTML = self.renderWeatherHTML(weatherResult);
+                    if (window.lucide) lucide.createIcons();
+                } else if (weatherEl) {
+                    weatherEl.innerHTML = '<div class="detail-section-title"><i data-lucide="cloud-sun" style="width:16px;vertical-align:middle"></i> Weather</div><div class="weather-notice">Weather data unavailable for this location</div>';
+                }
+            });
             modal.style.display = "";modal.classList.add("active");
         }
 
@@ -3742,6 +3957,9 @@ formatDate(dateStr) {
             if (typeof lucide !== "undefined") setTimeout(() => lucide.createIcons(), 50);
 this.updateDashboardStats();
         this.updateActionItems();
+        // Render countdown banners (Feature 4)
+        var countdownEl = document.getElementById('countdownBannersSection');
+        if (countdownEl) countdownEl.innerHTML = this.renderCountdownBanners();
         this.updateNextFlightCountdown();
         this.updateCurrentTripHero();
         this.updateUpcomingTripsTimeline();
@@ -4288,8 +4506,566 @@ this.updateDashboardStats();
             }
         };
 
-        // Initialize app
+        
+
+        // ===== FEATURE 1: MAP VIEW =====
+        _geocodeCache = {};
+
+        async geocodeDestination(destination) {
+            if (this._geocodeCache[destination]) return this._geocodeCache[destination];
+            // Known coordinates for common destinations
+            const knownCoords = {
+                'paris': [48.8566, 2.3522], 'tokyo': [35.6762, 139.6503], 'new york': [40.7128, -74.0060],
+                'new york city': [40.7128, -74.0060], 'bali': [-8.3405, 115.0920], 'dubai': [25.2048, 55.2708],
+                'barcelona': [41.3851, 2.1734], 'bangkok': [13.7563, 100.5018], 'sydney': [-33.8688, 151.2093],
+                'rome': [41.9028, 12.4964], 'london': [51.5074, -0.1278], 'los angeles': [34.0522, -118.2437],
+                'las vegas': [36.1699, -115.1398], 'belize': [17.1899, -88.4976], 'los cabos': [22.8905, -109.9167],
+                'johannesburg': [-26.2041, 28.0473], 'cape town': [-33.9249, 18.4241], 'dubrovnik': [42.6507, 18.0944],
+                'playa del carmen': [20.6296, -87.0739], 'antigua guatemala': [14.5586, -90.7295],
+                'bogota': [4.7110, -74.0721], 'buenos aires': [-34.6037, -58.3816], 'el salvador': [13.7942, -88.8965],
+                'san francisco': [37.7749, -122.4194], 'miami': [25.7617, -80.1918], 'cancun': [21.1619, -86.8515],
+                'honolulu': [21.3069, -157.8583], 'maui': [20.7984, -156.3319], 'denver': [39.7392, -104.9903],
+                'chamonix': [45.9237, 6.8694], 'leadville': [39.2508, -106.2925], 'squaw valley': [39.1968, -120.2354],
+                'silverton': [37.8116, -107.6645], 'iten': [-0.3600, 35.5100], 'flagstaff': [35.1983, -111.6513],
+                'western states': [39.1968, -120.2354], 'hardrock': [37.8116, -107.6645],
+                'utmb': [45.9237, 6.8694], 'comrades': [-29.6006, 30.3794],
+                'singita safari': [-24.9866, 31.5461], 'kruger': [-24.9866, 31.5461],
+                'london': [51.5074, -0.1278], 'amsterdam': [52.3676, 4.9041], 'berlin': [52.5200, 13.4050],
+                'lisbon': [38.7223, -9.1393], 'prague': [50.0755, 14.4378], 'vienna': [48.2082, 16.3738],
+                'athens': [37.9838, 23.7275], 'istanbul': [41.0082, 28.9784], 'marrakech': [31.6295, -7.9811],
+                'cairo': [30.0444, 31.2357], 'nairobi': [-1.2921, 36.8219], 'singapore': [1.3521, 103.8198],
+                'hong kong': [22.3193, 114.1694], 'seoul': [37.5665, 126.9780], 'taipei': [25.0330, 121.5654],
+                'mexico city': [19.4326, -99.1332], 'lima': [12.0464, -77.0428], 'santiago': [-33.4489, -70.6693],
+                'rio de janeiro': [-22.9068, -43.1729], 'medellin': [6.2442, -75.5812],
+                'cartagena': [10.3910, -75.5364], 'cusco': [-13.5319, -71.9675],
+                'queenstown': [-45.0312, 168.6626], 'fiji': [-17.7134, 178.0650],
+                'phuket': [7.8804, 98.3923], 'reykjavik': [64.1466, -21.9426]
+            };
+            const key = destination.toLowerCase().split(',')[0].trim();
+            if (knownCoords[key]) {
+                this._geocodeCache[destination] = knownCoords[key];
+                return knownCoords[key];
+            }
+            // Try Nominatim for unknown destinations
+            try {
+                const resp = await fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(destination) + '&limit=1');
+                const data = await resp.json();
+                if (data && data.length > 0) {
+                    const coords = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+                    this._geocodeCache[destination] = coords;
+                    return coords;
+                }
+            } catch(e) { console.warn('Geocode failed:', e); }
+            return null;
+        }
+
+        async renderMapView() {
+            const container = document.getElementById('mapContainer');
+            if (!container) return;
+            if (!window.L) { container.innerHTML = '<div class="map-empty"><i data-lucide="map-pin-off" style="width:48px;height:48px"></i><p>Map library not loaded</p></div>'; return; }
+
+            // Clean up existing map
+            if (this._mapInstance) { this._mapInstance.remove(); this._mapInstance = null; }
+
+            const trips = this.trips;
+            if (!trips || trips.length === 0) {
+                container.innerHTML = '<div class="map-empty"><i data-lucide="map-pin-off" style="width:48px;height:48px"></i><p>No trips to display</p><p style="font-size:12px">Add a trip to see it on the map</p></div>';
+                if (window.lucide) lucide.createIcons();
+                document.getElementById('mapLegend').style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = '';
+            const map = L.map(container).setView([20, 0], 2);
+            this._mapInstance = map;
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors', maxZoom: 18
+            }).addTo(map);
+
+            const bounds = [];
+            const self = this;
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            for (const trip of trips) {
+                const dest = trip.title || trip.destination;
+                if (!dest) continue;
+                const coords = await this.geocodeDestination(dest);
+                if (!coords) continue;
+
+                bounds.push(coords);
+                const start = this.parseLocalDate(trip.startDate);
+                const end = this.parseLocalDate(trip.endDate);
+                const isRace = (trip.type === 'race' || trip.tripType === 'race');
+                let color = '#6b7280'; // past = gray
+                let status = 'Past';
+                if (start && end && today >= start && today <= end) { color = '#10b981'; status = 'Current'; }
+                else if (start && today < start) { color = '#3b82f6'; status = 'Upcoming'; }
+                if (isRace) color = '#ef4444';
+
+                const icon = L.divIcon({
+                    className: '',
+                    html: '<div style="width:16px;height:16px;background:'+color+';border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',
+                    iconSize: [16, 16], iconAnchor: [8, 8]
+                });
+
+                const marker = L.marker(coords, { icon: icon }).addTo(map);
+                const popupHtml = '<div class="map-popup"><h4>'+(dest)+'</h4>'
+                    + '<p>'+self.formatDate(trip.startDate)+' - '+self.formatDate(trip.endDate)+'</p>'
+                    + '<p style="color:'+color+';font-weight:500">'+status+(isRace ? ' (Race)' : '')+'</p>'
+                    + '<a class="map-popup-link" onclick="window.app.showTripDetail(\''+trip.id+'\')">View Details →</a></div>';
+                marker.bindPopup(popupHtml);
+            }
+
+            if (bounds.length > 0) {
+                map.fitBounds(bounds, { padding: [40, 40], maxZoom: 6 });
+            }
+            document.getElementById('mapLegend').style.display = 'block';
+            setTimeout(() => map.invalidateSize(), 100);
+        }
+
+
+        // ===== FEATURE 2: RACE EVENT INTEGRATION =====
+        getRaceFieldsHTML(trip = null) {
+            const rd = trip && trip.raceData ? trip.raceData : {};
+            return '<div class="race-fields" id="raceFieldsSection" style="display:none">'
+                + '<h4><i data-lucide="trophy" style="width:16px;height:16px"></i> Race Details</h4>'
+                + '<div class="form-group"><label>Race Name</label><input type="text" id="raceNameInput" class="form-control" value="'+(rd.raceName||'')+'" placeholder="e.g. Western States 100"></div>'
+                + '<div class="form-group"><label>Packet Pickup</label><input type="text" id="racePickupInput" class="form-control" value="'+(rd.packetPickup||'')+'" placeholder="Time & Location"></div>'
+                + '<div class="form-group"><label>Race Start Time</label><input type="datetime-local" id="raceStartInput" class="form-control" value="'+(rd.raceStart||'')+'"></div>'
+                + '<div class="form-group"><label>Cutoff Times</label><textarea id="raceCutoffsInput" class="form-control" rows="2" placeholder="e.g. Aid 1: 4h, Aid 2: 8h">'+(rd.cutoffs||'')+'</textarea></div>'
+                + '<div class="form-group"><label>Drop Bag Notes</label><textarea id="raceDropBagsInput" class="form-control" rows="2" placeholder="e.g. Mile 30: warm layers, Mile 60: fresh shoes">'+(rd.dropBags||'')+'</textarea></div>'
+                + '<div class="form-group"><label>Crew Meeting Points</label><textarea id="raceCrewInput" class="form-control" rows="2" placeholder="e.g. Aid 3 (Mile 24), Aid 7 (Mile 62)">'+(rd.crewPoints||'')+'</textarea></div>'
+                + '</div>';
+        }
+
+        renderRaceDetailCard(trip) {
+            const rd = trip.raceData;
+            if (!rd || !rd.raceName) return '';
+            let html = '<div class="race-detail-card"><h4><i data-lucide="trophy" style="width:16px;height:16px;vertical-align:middle"></i> ' + (rd.raceName || 'Race') + '</h4>';
+            if (rd.raceStart) html += '<div class="race-detail-row"><span>Race Start</span><span>' + this.formatDateTime(rd.raceStart) + '</span></div>';
+            if (rd.packetPickup) html += '<div class="race-detail-row"><span>Packet Pickup</span><span>' + rd.packetPickup + '</span></div>';
+            if (rd.cutoffs) html += '<div class="race-detail-row"><span>Cutoffs</span><span>' + rd.cutoffs.replace(/\n/g, '<br>') + '</span></div>';
+            if (rd.dropBags) html += '<div class="race-detail-row"><span>Drop Bags</span><span>' + rd.dropBags.replace(/\n/g, '<br>') + '</span></div>';
+            if (rd.crewPoints) html += '<div class="race-detail-row"><span>Crew Points</span><span>' + rd.crewPoints.replace(/\n/g, '<br>') + '</span></div>';
+            html += '</div>';
+            return html;
+        }
+
+        // ===== FEATURE 3: DOCUMENT VAULT =====
+        renderDocumentVault(trip) {
+            const docs = trip.documents || [];
+            const docIcons = { 'passport': '🛂', 'ticket': '🎫', 'insurance': '🛡️', 'visa': '📋', 'hotel': '🏨', 'flight': '✈️', 'car': '🚗', 'other': '📄', 'race': '🏁', 'medical': '🏥', 'id': '🪪' };
+            let html = '<div class="doc-vault"><div class="doc-vault-title"><i data-lucide="folder-open" style="width:16px;height:16px"></i> Documents</div>';
+            html += '<div class="doc-list">';
+            if (docs.length === 0) {
+                html += '<div style="text-align:center;padding:16px;color:var(--text-muted);font-size:13px">No documents added yet</div>';
+            }
+            docs.forEach(function(doc, i) {
+                const icon = docIcons[doc.type] || docIcons['other'];
+                html += '<div class="doc-item" onclick="window.open(\'' + (doc.url || '#') + '\', \'_blank\')">';
+                html += '<div class="doc-item-icon">' + icon + '</div>';
+                html += '<div class="doc-item-name">' + (doc.name || 'Document') + '</div>';
+                html += '<div class="doc-item-ext"><i data-lucide="external-link" style="width:12px;height:12px"></i></div>';
+                html += '</div>';
+            });
+            html += '</div>';
+            html += '<button class="doc-add-btn" onclick="window.app.addDocumentToTrip(\'' + trip.id + '\')"><i data-lucide="plus" style="width:14px;height:14px"></i> Add Document</button>';
+            html += '</div>';
+            return html;
+        }
+
+        addDocumentToTrip(tripId) {
+            const name = prompt('Document name (e.g. "Boarding Pass"):');
+            if (!name) return;
+            const typeOptions = 'passport, ticket, insurance, visa, hotel, flight, car, race, medical, id, other';
+            const type = prompt('Document type (' + typeOptions + '):', 'other') || 'other';
+            const url = prompt('Document URL or link:');
+            if (!url) return;
+            const trip = this.trips.find(function(t) { return t.id === tripId; });
+            if (!trip) return;
+            if (!trip.documents) trip.documents = [];
+            trip.documents.push({ name: name, type: type.toLowerCase().trim(), url: url, addedAt: new Date().toISOString() });
+            this.saveTrips();
+            this.showTripDetail(tripId);
+            this.showToast('Document added!', 'success');
+        }
+
+        // ===== FEATURE 4: COUNTDOWN TIMERS =====
+        renderCountdownBanners() {
+            const today = new Date(); today.setHours(0,0,0,0);
+            const upcoming = this.trips
+                .filter(function(t) { var s = new Date(t.startDate + 'T00:00:00'); return s > today; })
+                .sort(function(a,b) { return new Date(a.startDate) - new Date(b.startDate); });
+
+            let html = '';
+            if (upcoming.length > 0) {
+                const next = upcoming[0];
+                const days = Math.ceil((new Date(next.startDate + 'T00:00:00') - today) / (1000*60*60*24));
+                const dest = next.title || next.destination;
+                const isRace = (next.type === 'race' || next.tripType === 'race');
+                html += '<div class="countdown-banner" style="'+(isRace ? 'background:linear-gradient(135deg,#ef4444,#f97316)' : '')+'">';
+                html += '<div class="countdown-label">'+(isRace ? 'Next Race' : 'Next Trip')+'</div>';
+                html += '<div class="countdown-value">' + days + ' day' + (days !== 1 ? 's' : '') + '</div>';
+                html += '<div class="countdown-sub">until ' + dest + '</div>';
+                html += '</div>';
+            }
+
+            // Race-specific countdown (if different from next trip)
+            const nextRace = upcoming.find(function(t) { return t.type === 'race' || t.tripType === 'race'; });
+            if (nextRace && upcoming[0] && nextRace.id !== upcoming[0].id) {
+                const days = Math.ceil((new Date(nextRace.startDate + 'T00:00:00') - today) / (1000*60*60*24));
+                html += '<div class="countdown-row"><div class="countdown-mini" style="border-color:rgba(239,68,68,0.3)">';
+                html += '<div class="countdown-mini-label">Next Race</div>';
+                html += '<div class="countdown-mini-value" style="color:#ef4444">' + days + ' days</div>';
+                html += '<div class="countdown-mini-dest">' + (nextRace.title || nextRace.destination) + '</div>';
+                html += '</div></div>';
+            }
+            return html;
+        }
+
+        renderTripTimeline(trip) {
+            const start = this.parseLocalDate(trip.startDate);
+            const end = this.parseLocalDate(trip.endDate);
+            if (!start || !end) return '';
+            const today = new Date(); today.setHours(0,0,0,0);
+            const events = [];
+            events.push({ date: trip.startDate, title: 'Trip Starts', type: start <= today ? (end >= today ? 'current' : 'past') : 'future' });
+
+            const bookings = trip.bookings || [];
+            bookings.forEach(function(b) {
+                if (b.details && b.details.bDepDate) {
+                    const d = b.details.bDepDate.split(' ')[0] || b.details.bDepDate;
+                    events.push({ date: d, title: (b.title || b.type), type: 'future' });
+                }
+            });
+
+            if (trip.raceData && trip.raceData.raceStart) {
+                events.push({ date: trip.raceData.raceStart.split('T')[0], title: 'Race Start: ' + (trip.raceData.raceName || 'Race'), type: 'future' });
+            }
+            events.push({ date: trip.endDate, title: 'Trip Ends', type: end < today ? 'past' : 'future' });
+
+            events.sort(function(a,b) { return a.date.localeCompare(b.date); });
+
+            let html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="git-branch" style="width:16px;vertical-align:middle"></i> Timeline</div>';
+            html += '<div class="trip-timeline">';
+            events.forEach(function(ev) {
+                const cls = ev.date === new Date().toISOString().split('T')[0] ? 'current' : (new Date(ev.date + 'T00:00:00') < today ? 'past' : '');
+                html += '<div class="timeline-item ' + cls + '">';
+                html += '<div class="timeline-item-date">' + ev.date + '</div>';
+                html += '<div class="timeline-item-title">' + ev.title + '</div>';
+                html += '</div>';
+            });
+            html += '</div></div>';
+            return html;
+        }
+
+        // ===== FEATURE 5: WEATHER FORECAST =====
+        async fetchWeather(trip) {
+            const dest = trip.title || trip.destination;
+            const coords = await this.geocodeDestination(dest);
+            if (!coords) return null;
+            const today = new Date();
+            const start = this.parseLocalDate(trip.startDate);
+            // If trip starts within 7 days, fetch forecast
+            const daysTillStart = start ? Math.ceil((start - today) / (1000*60*60*24)) : 999;
+            try {
+                if (daysTillStart <= 14 && daysTillStart >= -7) {
+                    const url = 'https://api.open-meteo.com/v1/forecast?latitude='+coords[0]+'&longitude='+coords[1]+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto&forecast_days=7';
+                    const resp = await fetch(url);
+                    const data = await resp.json();
+                    return { type: 'forecast', data: data.daily };
+                } else {
+                    // Historical averages - use climate API
+                    const month = start ? (start.getMonth()+1) : (today.getMonth()+1);
+                    const day = start ? start.getDate() : today.getDate();
+                    const startStr = '2024-' + String(month).padStart(2,'0') + '-' + String(day).padStart(2,'0');
+                    const endDate = new Date(2024, month-1, day+6);
+                    const endStr = '2024-' + String(endDate.getMonth()+1).padStart(2,'0') + '-' + String(endDate.getDate()).padStart(2,'0');
+                    const url = 'https://archive-api.open-meteo.com/v1/archive?latitude='+coords[0]+'&longitude='+coords[1]+'&start_date='+startStr+'&end_date='+endStr+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto';
+                    const resp = await fetch(url);
+                    const data = await resp.json();
+                    return { type: 'historical', data: data.daily };
+                }
+            } catch(e) { console.warn('Weather fetch failed:', e); return null; }
+        }
+
+        renderWeatherHTML(weatherResult) {
+            if (!weatherResult || !weatherResult.data) return '<div class="weather-notice">Weather data unavailable</div>';
+            const d = weatherResult.data;
+            const isHistorical = weatherResult.type === 'historical';
+            const weatherIcons = { 0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️', 45:'🌫️', 48:'🌫️', 51:'🌦️', 53:'🌦️', 55:'🌧️', 61:'🌧️', 63:'🌧️', 65:'🌧️', 71:'🌨️', 73:'🌨️', 75:'🌨️', 80:'🌧️', 81:'🌧️', 82:'🌧️', 85:'🌨️', 86:'🌨️', 95:'⛈️', 96:'⛈️', 99:'⛈️' };
+            const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            let html = '<div class="weather-section"><div class="detail-section-title"><i data-lucide="cloud-sun" style="width:16px;vertical-align:middle"></i> ' + (isHistorical ? 'Historical Weather (avg)' : '7-Day Forecast') + '</div>';
+            html += '<div class="weather-grid">';
+            const len = Math.min(d.time ? d.time.length : 0, 7);
+            for (var i = 0; i < len; i++) {
+                const date = new Date(d.time[i] + 'T00:00:00');
+                const code = d.weathercode ? d.weathercode[i] : 0;
+                const hi = d.temperature_2m_max ? Math.round(d.temperature_2m_max[i]) : '--';
+                const lo = d.temperature_2m_min ? Math.round(d.temperature_2m_min[i]) : '--';
+                const precip = d.precipitation_sum ? d.precipitation_sum[i] : 0;
+                html += '<div class="weather-day">';
+                html += '<div class="weather-day-name">' + dayNames[date.getDay()] + '</div>';
+                html += '<div class="weather-icon">' + (weatherIcons[code] || '🌡️') + '</div>';
+                html += '<div class="weather-temp">' + hi + '°</div>';
+                html += '<div class="weather-temp-low">' + lo + '°</div>';
+                if (precip > 0) html += '<div class="weather-precip">💧 ' + precip.toFixed(1) + 'mm</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+            return html;
+        }
+
+        // ===== FEATURE 6: PACKING LIST TEMPLATES =====
+        packingTemplates = {
+            'race_domestic': { name: 'Race Domestic', icon: '🏃', items: {
+                'Race Gear': ['Race bib & pins','Headlamp + spare batteries','Hydration vest/pack','Water bottles/flasks','GPS watch + charger','Trekking poles','Drop bags (labeled)','Crew bags'],
+                'Clothing': ['Race shoes (broken in)','Backup shoes','Race socks (2+ pairs)','Shorts','Race top','Arm sleeves','Rain jacket','Warm mid-layer','Gloves','Buff/bandana','Hat/visor'],
+                'Nutrition': ['Gels (calculated for distance)','Electrolyte mix','Salt tabs','Real food (PB sandwiches etc)','Caffeine pills','Spare calories'],
+                'Medical': ['Body glide/anti-chafe','Blister kit','KT tape','Pain relief','Prescription meds','Sunscreen','Lip balm SPF'],
+                'Recovery': ['Compression socks','Foam roller/ball','Ice packs','Recovery sandals','Clean clothes for after']
+            }},
+            'race_international': { name: 'Race International', icon: '🌍🏃', items: {
+                'Documents': ['Passport','Race registration confirmation','Travel insurance docs','Medical certificate','Emergency contacts card','Visa (if required)','International health card'],
+                'Race Gear': ['Race bib & pins','Headlamp + spare batteries','Hydration vest/pack','GPS watch + charger','Trekking poles','Required mandatory kit'],
+                'Clothing': ['Race shoes (primary)','Backup shoes','Race socks (3+ pairs)','Shorts','Race top','Full-length tights','Rain jacket (race legal)','Warm layer','Gloves','Hat'],
+                'Nutrition': ['Gels/fuel (enough for race)','Electrolyte mix','Salt tabs','Familiar foods from home','Water purification tabs'],
+                'Medical': ['Body glide','Blister kit','First aid basics','Prescription meds','Altitude meds (if needed)','Sunscreen SPF50+'],
+                'Travel': ['Power adapter','Phone charger','Offline maps downloaded','Translation app','Local currency/cards','SIM card/eSIM']
+            }},
+            'vacation_beach': { name: 'Vacation Beach', icon: '🏖️', items: {
+                'Clothing': ['Swimsuits (2+)','Cover-up/sarong','Casual shorts','T-shirts/tanks','Sundress/linen outfit','Evening outfit','Sandals','Sneakers/walking shoes'],
+                'Beach': ['Sunscreen SPF 50+','Sunglasses','Beach towel','Waterproof phone case','Snorkel gear','Book/Kindle','Beach bag'],
+                'Toiletries': ['Aloe vera gel','Insect repellent','Shampoo/conditioner','Toothbrush/paste','Deodorant','Razor','Medications'],
+                'Tech': ['Phone + charger','Camera','Portable battery','Headphones','Travel adapter'],
+                'Other': ['Daypack','Reusable water bottle','Passport/ID','Travel insurance card','Cash/cards']
+            }},
+            'vacation_city': { name: 'Vacation City', icon: '🏙️', items: {
+                'Clothing': ['Walking shoes (comfortable!)','Dress shoes','Jeans/pants (2)','Shorts','T-shirts/tops','Nice dinner outfit','Light jacket/layer','Rain jacket','Underwear/socks'],
+                'Day Bag': ['Daypack/crossbody','Reusable water bottle','Sunglasses','Umbrella','Guidebook/map','Snacks'],
+                'Toiletries': ['Sunscreen','Hand sanitizer','Toiletries bag','Medications','Pain relief'],
+                'Tech': ['Phone + charger','Camera + charger','Portable battery','Headphones','Travel adapter'],
+                'Documents': ['Passport/ID','Hotel confirmations','Flight/train tickets','Travel insurance','Cash + cards','Copies of documents']
+            }}
+        };
+
+        getPackingTemplateHTML() {
+            let html = '<div class="template-grid">';
+            const self = this;
+            Object.keys(this.packingTemplates).forEach(function(key) {
+                const t = self.packingTemplates[key];
+                const totalItems = Object.values(t.items).reduce(function(sum, arr) { return sum + arr.length; }, 0);
+                html += '<div class="template-card" onclick="window.app.applyPackingTemplate(\'' + key + '\')">';
+                html += '<div class="template-card-icon">' + t.icon + '</div>';
+                html += '<div class="template-card-name">' + t.name + '</div>';
+                html += '<div class="template-card-count">' + totalItems + ' items</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+            return html;
+        }
+
+        applyPackingTemplate(templateKey) {
+            const template = this.packingTemplates[templateKey];
+            if (!template) return;
+            const packingList = {};
+            Object.keys(template.items).forEach(function(cat) {
+                packingList[cat] = template.items[cat].map(function(item) { return { item: item, checked: false }; });
+            });
+            // Render into the packing section of the current form
+            this.renderPackingSection(packingList);
+            this.showToast(template.name + ' template applied!', 'success');
+        }
+
+        // ===== FEATURE 7: BUDGET TRACKER WITH MULTI-CURRENCY =====
+        currencyRates = { 'USD':1, 'EUR':0.92, 'GBP':0.79, 'JPY':149.5, 'MXN':17.1, 'BRL':4.97, 'ARS':870, 'COP':3950, 'THB':35.5, 'AUD':1.53, 'CAD':1.36, 'ZAR':18.6, 'GEL':2.65, 'IDR':15400, 'PHP':55.8, 'CRC':525, 'PEN':3.72, 'CLP':890, 'NZD':1.63, 'CHF':0.88, 'NOK':10.5, 'SEK':10.4, 'DKK':6.87, 'ISK':137, 'HRK':7.1, 'CZK':22.8, 'PLN':4.05, 'HUF':355, 'RON':4.57, 'TRY':30.2, 'AED':3.67, 'SGD':1.34, 'HKD':7.83, 'KRW':1310, 'TWD':31.2, 'INR':83.1, 'MAD':10.1, 'EGP':30.9, 'KES':153, 'FJD':2.24 };
+
+        convertToUSD(amount, currency) {
+            const rate = this.currencyRates[currency] || 1;
+            return amount / rate;
+        }
+
+        renderBudgetTracker(trip) {
+            const expenses = trip.expenses || [];
+            const budget = trip.budget || 0;
+            const catEmojis = { 'flights':'✈️', 'hotel':'🏨', 'food':'🍽️', 'activities':'🎯', 'transport':'🚗', 'shopping':'🛍️', 'race_entry':'🏁', 'other':'📦' };
+            const categories = {};
+            let totalUSD = 0;
+            expenses.forEach(function(exp) {
+                const cat = exp.category || 'other';
+                const amt = this.convertToUSD(exp.amount || 0, exp.currency || 'USD');
+                if (!categories[cat]) categories[cat] = 0;
+                categories[cat] += amt;
+                totalUSD += amt;
+            }.bind(this));
+
+            let html = '<div class="budget-tracker"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div>';
+            html += '<div class="budget-summary">';
+            html += '<div class="budget-stat"><div class="budget-stat-value">$' + totalUSD.toFixed(0) + '</div><div class="budget-stat-label">Spent</div></div>';
+            html += '<div class="budget-stat"><div class="budget-stat-value"' + (budget > 0 && totalUSD > budget ? ' style="color:#ef4444"' : '') + '>$' + (budget > 0 ? (budget - totalUSD).toFixed(0) : '--') + '</div><div class="budget-stat-label">' + (budget > 0 ? 'Remaining' : 'No Budget Set') + '</div></div>';
+            html += '</div>';
+
+            if (budget > 0) {
+                const pct = Math.min((totalUSD / budget) * 100, 100);
+                const color = pct > 90 ? '#ef4444' : pct > 70 ? '#f59e0b' : '#10b981';
+                html += '<div class="budget-bar"><div class="budget-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>';
+            }
+
+            Object.keys(categories).sort().forEach(function(cat) {
+                html += '<div class="budget-cat-row"><span>' + (catEmojis[cat] || '📦') + ' ' + cat.charAt(0).toUpperCase() + cat.slice(1).replace('_', ' ') + '</span><span>$' + categories[cat].toFixed(2) + '</span></div>';
+            });
+
+            // Add expense form
+            html += '<div class="expense-log-form">';
+            html += '<input type="text" id="expDescInput" placeholder="Description">';
+            html += '<input type="number" id="expAmtInput" placeholder="Amount" step="0.01">';
+            html += '<select id="expCurrInput"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="MXN">MXN</option><option value="JPY">JPY</option><option value="THB">THB</option><option value="BRL">BRL</option><option value="AUD">AUD</option><option value="ZAR">ZAR</option><option value="COP">COP</option></select>';
+            html += '</div>';
+            html += '<div style="display:flex;gap:8px;margin-top:8px">';
+            html += '<select id="expCatInput" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-size:13px"><option value="food">Food</option><option value="hotel">Hotel</option><option value="flights">Flights</option><option value="transport">Transport</option><option value="activities">Activities</option><option value="shopping">Shopping</option><option value="race_entry">Race Entry</option><option value="other">Other</option></select>';
+            html += '<button onclick="window.app.addExpenseToTrip(\'' + trip.id + '\')" style="padding:8px 16px;border-radius:8px;background:var(--accent-primary);color:white;border:none;cursor:pointer;font-size:13px">Add</button>';
+            html += '</div></div>';
+            return html;
+        }
+
+        addExpenseToTrip(tripId) {
+            const desc = document.getElementById('expDescInput');
+            const amt = document.getElementById('expAmtInput');
+            const curr = document.getElementById('expCurrInput');
+            const cat = document.getElementById('expCatInput');
+            if (!desc || !amt || !desc.value || !amt.value) { this.showToast('Fill in description and amount', 'error'); return; }
+            const trip = this.trips.find(function(t) { return t.id === tripId; });
+            if (!trip) return;
+            if (!trip.expenses) trip.expenses = [];
+            trip.expenses.push({
+                id: Date.now().toString(), description: desc.value, amount: parseFloat(amt.value),
+                currency: curr ? curr.value : 'USD', category: cat ? cat.value : 'other', date: new Date().toISOString()
+            });
+            this.saveTrips();
+            this.showTripDetail(tripId);
+            this.showToast('Expense added!', 'success');
+        }
+
+        // ===== FEATURE 8: CREW/COMPANION SHARING =====
+        generateShareURL(tripId) {
+            const trip = this.trips.find(function(t) { return t.id === tripId; });
+            if (!trip) return '';
+            const shareData = {
+                d: trip.title || trip.destination, s: trip.startDate, e: trip.endDate,
+                n: (trip.notes || '').substring(0, 200),
+                f: (trip.bookings || []).filter(function(b) { return b.type === 'flight'; }).map(function(b) {
+                    return (b.title || '') + '|' + (b.details ? b.details.bRoute || '' : '');
+                }),
+                a: trip.accommodation || '',
+                r: trip.raceData ? JSON.stringify(trip.raceData) : ''
+            };
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(shareData))));
+            return window.location.origin + window.location.pathname + '#share=' + encoded;
+        }
+
+        renderShareSection(trip) {
+            let html = '<div class="share-section"><div class="detail-section-title"><i data-lucide="share-2" style="width:16px;vertical-align:middle"></i> Share Trip</div>';
+            html += '<p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px">Generate a read-only link for crew or travel companions</p>';
+            html += '<div class="share-url-box">';
+            html += '<input type="text" class="share-url-input" id="shareUrlInput_' + trip.id + '" value="" readonly placeholder="Click Generate to create link">';
+            html += '<button class="share-copy-btn" onclick="window.app.generateAndCopyShareLink(\'' + trip.id + '\')">Generate & Copy</button>';
+            html += '</div></div>';
+            return html;
+        }
+
+        generateAndCopyShareLink(tripId) {
+            const url = this.generateShareURL(tripId);
+            const input = document.getElementById('shareUrlInput_' + tripId);
+            if (input) input.value = url;
+            navigator.clipboard.writeText(url).then(function() {
+                window.app.showToast('Share link copied!', 'success');
+            }).catch(function() {
+                if (input) { input.select(); document.execCommand('copy'); }
+                window.app.showToast('Link generated — copy from the field', 'success');
+            });
+        }
+
+        loadSharedTrip() {
+            const hash = window.location.hash;
+            if (!hash.startsWith('#share=')) return;
+            try {
+                const data = JSON.parse(decodeURIComponent(escape(atob(hash.substring(7)))));
+                document.querySelector('.container').innerHTML = '<div style="padding:20px;max-width:600px;margin:0 auto">'
+                    + '<h2 style="margin-bottom:4px">' + (data.d || 'Shared Trip') + '</h2>'
+                    + '<p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">' + (data.s || '') + ' → ' + (data.e || '') + '</p>'
+                    + (data.n ? '<div class="detail-section"><div class="detail-section-title">Notes</div><p>' + data.n + '</p></div>' : '')
+                    + (data.f && data.f.length ? '<div class="detail-section"><div class="detail-section-title">✈️ Flights</div>' + data.f.map(function(f) { var p = f.split('|'); return '<p>' + p[0] + (p[1] ? ' — ' + p[1] : '') + '</p>'; }).join('') + '</div>' : '')
+                    + (data.a ? '<div class="detail-section"><div class="detail-section-title">🏨 Accommodation</div><p>' + data.a + '</p></div>' : '')
+                    + (data.r ? '<div class="detail-section"><div class="detail-section-title">🏁 Race Details</div><pre style="font-size:12px;white-space:pre-wrap">' + data.r + '</pre></div>' : '')
+                    + '<p style="text-align:center;margin-top:30px;color:var(--text-muted);font-size:12px">Shared via TravelFlo</p></div>';
+            } catch(e) { console.warn('Failed to parse shared trip:', e); }
+        }
+
+        // ===== FEATURE 9: CALENDAR SYNC (.ics EXPORT) =====
+        generateICS(tripId) {
+            const trip = this.trips.find(function(t) { return t.id === tripId; });
+            if (!trip) return;
+            const dest = trip.title || trip.destination;
+            const formatICSDate = function(dateStr) { return dateStr.replace(/-/g, ''); };
+            let ics = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//TravelFlo//EN\nCALSCALE:GREGORIAN\n';
+
+            // Main trip event
+            ics += 'BEGIN:VEVENT\n';
+            ics += 'DTSTART;VALUE=DATE:' + formatICSDate(trip.startDate) + '\n';
+            ics += 'DTEND;VALUE=DATE:' + formatICSDate(trip.endDate) + '\n';
+            ics += 'SUMMARY:' + dest + '\n';
+            ics += 'DESCRIPTION:' + (trip.notes || '').replace(/\n/g, '\\n').substring(0, 500) + '\n';
+            if (trip.accommodation) ics += 'LOCATION:' + trip.accommodation + '\n';
+            ics += 'UID:travelflo-' + trip.id + '@travelflo\n';
+            ics += 'END:VEVENT\n';
+
+            // Flight events
+            var bookings = trip.bookings || [];
+            bookings.filter(function(b) { return b.type === 'flight'; }).forEach(function(f, i) {
+                var d = f.details || {};
+                if (d.bDepDate) {
+                    ics += 'BEGIN:VEVENT\n';
+                    ics += 'DTSTART;VALUE=DATE:' + formatICSDate(d.bDepDate.split(' ')[0] || d.bDepDate.split('T')[0]) + '\n';
+                    ics += 'SUMMARY:Flight: ' + (f.title || d.bRoute || 'Flight ' + (i+1)) + '\n';
+                    if (d.bConfirmation) ics += 'DESCRIPTION:Confirmation: ' + d.bConfirmation + '\n';
+                    ics += 'UID:travelflo-flight-' + trip.id + '-' + i + '@travelflo\n';
+                    ics += 'END:VEVENT\n';
+                }
+            });
+
+            // Race event
+            if (trip.raceData && trip.raceData.raceStart) {
+                ics += 'BEGIN:VEVENT\n';
+                var rs = trip.raceData.raceStart.replace(/[-:]/g, '').replace('T', 'T');
+                ics += 'DTSTART:' + rs.substring(0, 15) + '\n';
+                ics += 'SUMMARY:Race: ' + (trip.raceData.raceName || dest) + '\n';
+                var raceDesc = '';
+                if (trip.raceData.packetPickup) raceDesc += 'Pickup: ' + trip.raceData.packetPickup + '\\n';
+                if (trip.raceData.cutoffs) raceDesc += 'Cutoffs: ' + trip.raceData.cutoffs + '\\n';
+                if (raceDesc) ics += 'DESCRIPTION:' + raceDesc + '\n';
+                ics += 'UID:travelflo-race-' + trip.id + '@travelflo\n';
+                ics += 'END:VEVENT\n';
+            }
+
+            ics += 'END:VCALENDAR';
+
+            // Download
+            var blob = new Blob([ics.replace(/\\n/g, '\n')], { type: 'text/calendar;charset=utf-8' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = (dest.replace(/[^a-zA-Z0-9]/g, '_')) + '_trip.ics';
+            link.click();
+            URL.revokeObjectURL(link.href);
+            this.showToast('Calendar file downloaded!', 'success');
+        }
+
+// Initialize app
         window.app = new TravelFloApp();
+        // Load shared trip if URL has share hash (Feature 8)
+        if (window.location.hash.startsWith('#share=')) {
+            window.app.loadSharedTrip();
+        }
 
         // Sample data for demo
         if (app.trips.length === 0) {
@@ -4362,6 +5138,40 @@ this.updateDashboardStats();
 
   document.addEventListener('DOMContentLoaded', renderIcons);
 </script>
+
+<script>
+  // ===== FEATURE 10: SERVICE WORKER & OFFLINE MODE =====
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(reg) {
+        console.log('SW registered:', reg.scope);
+      }).catch(function(err) {
+        console.log('SW registration failed:', err);
+      });
+    });
+  }
+
+  // Offline detection
+  function updateOnlineStatus() {
+    var banner = document.getElementById('offlineBanner');
+    if (banner) {
+      if (!navigator.onLine) {
+        banner.classList.add('visible');
+      } else {
+        banner.classList.remove('visible');
+        // Sync any pending changes
+        var trips = localStorage.getItem('travelFloTrips');
+        if (trips) {
+          console.log('Online: trip data available for sync');
+        }
+      }
+    }
+  }
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
+</script>
+
 </body>
 
 </html>

@@ -4481,7 +4481,7 @@ function getGithubToken() {
                 label.setAttribute('x', padding - 8);
                 label.setAttribute('y', y + 4);
                 label.setAttribute('font-size', '11');
-                label.setAttribute('fill', '#6e6e73');
+                label.setAttribute('fill', '#94a3b8');
                 label.setAttribute('text-anchor', 'end');
                 label.textContent = value;
                 svg.appendChild(label);
@@ -4495,7 +4495,7 @@ function getGithubToken() {
                 label.setAttribute('x', x);
                 label.setAttribute('y', height + padding + 20);
                 label.setAttribute('font-size', '11');
-                label.setAttribute('fill', '#6e6e73');
+                label.setAttribute('fill', '#94a3b8');
                 label.setAttribute('text-anchor', 'middle');
                 label.textContent = `${day.getMonth() + 1}/${day.getDate()}`;
                 svg.appendChild(label);
@@ -5616,10 +5616,10 @@ function init() {
         var overdue = habitTasks.filter(function(t) { return t.dueDate && new Date(t.dueDate) < new Date() && (t.status !== 'completed' && t.status !== 'Completed'); });
         var rate = habitTasks.length > 0 ? Math.round((completed.length / habitTasks.length) * 100) : 0;
 
-        statsGrid.innerHTML = '<div class="habit-card"><h4>Total Tasks</h4><div style="font-size:2em;font-weight:bold;color:#2563eb">' + habitTasks.length + '</div></div>' +
-          '<div class="habit-card"><h4>Completed</h4><div style="font-size:2em;font-weight:bold;color:#16a34a">' + completed.length + '</div></div>' +
-          '<div class="habit-card"><h4>In Progress</h4><div style="font-size:2em;font-weight:bold;color:#f59e0b">' + inProgress.length + '</div></div>' +
-          '<div class="habit-card"><h4>Completion Rate</h4><div style="font-size:2em;font-weight:bold;color:' + (rate >= 50 ? '#16a34a' : '#ef4444') + '">' + rate + '%</div></div>';
+        statsGrid.innerHTML = '<div class="habit-card"><h4 style="color:#e2e8f0">Total Tasks</h4><div style="font-size:2em;font-weight:bold;color:#60a5fa">' + habitTasks.length + '</div></div>' +
+          '<div class="habit-card"><h4 style="color:#e2e8f0">Completed</h4><div style="font-size:2em;font-weight:bold;color:#34d399">' + completed.length + '</div></div>' +
+          '<div class="habit-card"><h4 style="color:#e2e8f0">In Progress</h4><div style="font-size:2em;font-weight:bold;color:#fbbf24">' + inProgress.length + '</div></div>' +
+          '<div class="habit-card"><h4 style="color:#e2e8f0">Completion Rate</h4><div style="font-size:2em;font-weight:bold;color:' + (rate >= 50 ? '#16a34a' : '#ef4444') + '">' + rate + '%</div></div>';
 
         if (overdue.length > 0) {
           slippingDiv.innerHTML = '<h3 style="color:#ef4444">Slipping Tasks (' + overdue.length + ')</h3>' +
@@ -5641,10 +5641,10 @@ function init() {
           }
         });
         var maxCount = Math.max.apply(null, dayCounts) || 1;
-        weeklyDiv.innerHTML = '<h3>Weekly Patterns</h3><div class="pattern-chart">' +
+        weeklyDiv.innerHTML = '<h3 style="color:#e2e8f0">Weekly Patterns</h3><div class="pattern-chart">' +
           days.map(function(day, i) {
             var pct = Math.round((dayCounts[i] / maxCount) * 100);
-            return '<div class="pattern-bar-row"><span style="width:40px;display:inline-block">' + day + '</span><div style="background:#e5e7eb;border-radius:4px;flex:1;height:20px;margin-left:8px"><div style="background:#3b82f6;height:100%;border-radius:4px;width:' + pct + '%;min-width:2px"></div></div><span style="margin-left:8px;min-width:20px">' + dayCounts[i] + '</span></div>';
+            return '<div class="pattern-bar-row"><span style="width:40px;display:inline-block">' + day + '</span><div style="background:#2a2a3e;border-radius:4px;flex:1;height:20px;margin-left:8px"><div style="background:#818cf8;height:100%;border-radius:4px;width:' + pct + '%;min-width:2px"></div></div><span style="margin-left:8px;min-width:20px">' + dayCounts[i] + '</span></div>';
           }).join('') + '</div>';
 
         var owners = {};
@@ -5656,15 +5656,15 @@ function init() {
           if ((t.status === 'completed' || t.status === 'Completed')) owners[o].done++;
         });
 
-        cardsDiv.innerHTML = '<h3>Tasks by Owner</h3>' + Object.keys(owners).map(function(owner) {
+        cardsDiv.innerHTML = '<h3 style="color:#e2e8f0">Tasks by Owner</h3>' + Object.keys(owners).map(function(owner) {
           var d = owners[owner];
           var ownerRate = d.total > 0 ? Math.round((d.done / d.total) * 100) : 0;
           var streakInfo = getStreakInfo({owner: owner});
           var badge = streakInfo.current > 0 ? renderStreakBadge({owner: owner}) : '';
-          return '<div class="habit-card" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;align-items:center"><h4>' + owner + '</h4>' + badge + '</div>' +
-            '<div style="display:flex;gap:16px;margin:8px 0"><span>Total: <strong>' + d.total + '</strong></span><span>Done: <strong style="color:#16a34a">' + d.done + '</strong></span><span>Rate: <strong style="color:' + (ownerRate >= 50 ? '#16a34a' : '#ef4444') + '">' + ownerRate + '%</strong></span></div>' +
-            '<div style="background:#e5e7eb;border-radius:4px;height:8px"><div style="background:' + (ownerRate >= 50 ? '#16a34a' : '#f59e0b') + ';height:100%;border-radius:4px;width:' + ownerRate + '%"></div></div>' +
-            '<div style="margin-top:8px;font-size:0.85em;color:#666">' + d.tasks.map(function(t) {
+          return '<div class="habit-card" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;align-items:center"><h4 style="color:#e2e8f0">' + owner + '</h4>' + badge + '</div>' +
+            '<div style="display:flex;gap:16px;margin:8px 0;color:#cbd5e1"><span>Total: <strong>' + d.total + '</strong></span><span>Done: <strong style="color:#16a34a">' + d.done + '</strong></span><span>Rate: <strong style="color:' + (ownerRate >= 50 ? '#16a34a' : '#ef4444') + '">' + ownerRate + '%</strong></span></div>' +
+            '<div style="background:#2a2a3e;border-radius:4px;height:8px"><div style="background:' + (ownerRate >= 50 ? '#16a34a' : '#f59e0b') + ';height:100%;border-radius:4px;width:' + ownerRate + '%"></div></div>' +
+            '<div style="margin-top:8px;font-size:0.85em;color:#94a3b8">' + d.tasks.map(function(t) {
               var icon = (t.status === 'completed' || t.status === 'Completed') ? String.fromCodePoint(0x2705) : ((t.status === 'parking_lot' || t.status === 'Parking Lot') ? String.fromCodePoint(0x1F17F) : String.fromCodePoint(0x1F539));
               return icon + ' ' + (t.title || '');
             }).join('<br>') + '</div></div>';
@@ -5822,13 +5822,14 @@ function updateNavArrows() {
         if (!strip || !title) return;
         
         const pinnedTasks = tasks.filter(t => t.pinned);
-        title.textContent = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (' + pinnedTasks.length + ')';
+        title.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;display:inline;vertical-align:-2px;margin-right:4px;"></i>Priorities (' + pinnedTasks.length + ')';
         
         // Clear existing pinned cards (keep empty message)
         strip.querySelectorAll('.pinned-card').forEach(el => el.remove());
         
         if (pinnedTasks.length === 0) {
             if (empty) empty.style.display = '';
+            lucide.createIcons();
             return;
         }
         if (empty) empty.style.display = 'none';
@@ -5850,7 +5851,7 @@ function updateNavArrows() {
             
             const unpin = document.createElement('span');
             unpin.className = 'pinned-card-unpin';
-            unpin.innerHTML = '✕';
+            unpin.innerHTML = '<i data-lucide="x" style="width:14px;height:14px;"></i>';
             unpin.title = 'Unpin';
             unpin.onclick = (e) => {
                 e.stopPropagation();
@@ -5861,6 +5862,7 @@ function updateNavArrows() {
                     if (btn) {
                         btn.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;"></i>';
                         btn.className = 'task-pin-btn';
+                        lucide.createIcons();
                     }
                 }
                 card.style.opacity = '0';
@@ -5874,6 +5876,8 @@ function updateNavArrows() {
             
             strip.appendChild(card);
         });
+        // Call createIcons AFTER all elements are in the DOM
+        lucide.createIcons();
     }
 
     function scrollToTask(taskId) {

@@ -51,24 +51,88 @@
       ],
       "tasks": [],
       "companions": [],
-      "notes": "",
+      "notes": "QA Test Note - verify persistence",
       "flights": [
         {
           "airline": "Delta Air Lines DL650",
-          "route": "HNL > JFK",
-          "departure": "Apr 6, 2026 5:24 PM",
-          "arrival": "Apr 7, 2026 9:00 AM",
-          "confirmation": "JN4VEP",
-          "class": "Economy",
-          "cost": "",
-          "notes": "QA_TEST_NOTE_1775582446227",
-          "passengers": "Christopher Innes"
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "Stunning view+terrasse/Hells Kitchen",
       "budget": 7742,
       "expenses": [],
-      "packingList": [],
+      "packingList": {
+        "Essentials": [
+          {
+            "item": "Passport",
+            "checked": false
+          },
+          {
+            "item": "Wallet",
+            "checked": false
+          },
+          {
+            "item": "Phone",
+            "checked": false
+          },
+          {
+            "item": "ID",
+            "checked": false
+          }
+        ],
+        "Clothing": [
+          {
+            "item": "Underwear",
+            "checked": false
+          },
+          {
+            "item": "Socks",
+            "checked": false
+          },
+          {
+            "item": "Comfortable shoes",
+            "checked": false
+          }
+        ],
+        "Toiletries": [
+          {
+            "item": "Toothbrush",
+            "checked": false
+          },
+          {
+            "item": "Toothpaste",
+            "checked": false
+          },
+          {
+            "item": "Deodorant",
+            "checked": false
+          }
+        ],
+        "Electronics": [
+          {
+            "item": "Charger",
+            "checked": false
+          },
+          {
+            "item": "Headphones",
+            "checked": false
+          }
+        ],
+        "Documents": [
+          {
+            "item": "Travel documents",
+            "checked": false
+          },
+          {
+            "item": "Insurance info",
+            "checked": false
+          }
+        ]
+      },
       "colorIndex": 0
     },
     {

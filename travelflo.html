@@ -2493,8 +2493,8 @@
                 document.getElementById('accommodationInput').value = '';
                 document.getElementById('expensesList').innerHTML = '';
                 document.getElementById('expensesSection').style.display = 'none';
-                document.getElementById('packingListContent').innerHTML = '';
-                document.getElementById('packingSection').style.display = 'none';
+                var _plc = document.getElementById('packingListContent'); if (_plc) _plc.innerHTML = '';
+                var _ps = document.getElementById('packingSection'); if (_ps) _ps.style.display = 'none';
 
                 if (this.currentEditingTrip) {
                     // Edit mode
@@ -2603,10 +2603,10 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     `;
                 }
                 html += '</div>';
-                document.getElementById('packingListContent').innerHTML = html;
+                var _plc2 = document.getElementById('packingListContent'); if (_plc2) _plc2.innerHTML = html;
 if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 
-                document.getElementById('packingSection').style.display = 'block';
+                var _ps2 = document.getElementById('packingSection'); if (_ps2) _ps2.style.display = 'block';
             }
 
             getCategoryEmoji(category) {

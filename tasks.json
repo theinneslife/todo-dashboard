@@ -1628,42 +1628,6 @@
     "pinned": false
   },
   {
-    "id": "f4ec8c54-daf9-48f9-a0f0-0730f9857159",
-    "title": "Review and approve Q1 Achievement & Attainment Report",
-    "description": "Review the following tabs on the Q1 2026 OKR Reporting Sheet:\nOKR Dashboard\nCompilation Sheet (Do Not Edit)\n\nIn your review assess the following:\nReported achievement and status on goals from all functional departments. Reviewing attainment by functional department \n\nPlease list any questions or feedback for any goals or reporting overall. \n\nhttps://docs.google.com/spreadsheets/d/1nAD8eXIKIMJ8bcg0iiPhmcZOriE78zc19EotytBTl6A/edit?gid=1219863003#gid=1219863003",
-    "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "due_date": "2026-04-07",
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-04-06T21:21:04.260Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      },
-      {
-        "timestamp": "2026-04-07T00:29:43.827Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-04-06T21:21:04.260Z",
-    "completed_at": "2026-04-07T00:29:43.827Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [
-      "christopher"
-    ],
-    "pinned": false
-  },
-  {
     "id": "9b94aa52-b1ec-4280-b42b-fbd8a1bde804",
     "title": "Approve bonuses",
     "description": "",
@@ -1691,40 +1655,6 @@
     ],
     "created_at": "2026-04-07T00:30:54.223Z",
     "completed_at": "2026-04-07T01:56:02.384Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "pinned": false
-  },
-  {
-    "id": "53e65a02-d779-428f-9153-56cd8f7892e2",
-    "title": "Approve bonuses",
-    "description": "",
-    "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-04-07T00:30:55.824Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      },
-      {
-        "timestamp": "2026-04-07T01:20:35.755Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-04-07T00:30:55.824Z",
-    "completed_at": "2026-04-07T01:20:35.755Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

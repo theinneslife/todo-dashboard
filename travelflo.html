@@ -1785,7 +1785,7 @@
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs><path d="M33.5 2.5L16 14l-8-2L2 14.5l10 5.5 5.5 10L20 24l-2-8L33.5 2.5z" fill="url(#logoGrad)"/><path d="M12 24l-3.5 3.5M14.5 21.5L10 26" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/></svg> TravelFlo</div>
                     <div class="version-badge">v3.0</div>
-                <a href="index.html" class="taskflo-link">â TaskFlo</a>
+                <a href="index.html" class="taskflo-link">→ TaskFlo</a>
             </div>
             <div class="header-right">
                 <button class="icon-btn" id="shareBtn" title="Share"><i data-lucide="share-2" style="width:20px;height:20px"></i></button>
@@ -1888,7 +1888,7 @@
                     </div>
 
                     <div class="discover-section">
-                        <div class="discover-title">ð Top Recommendations</div>
+                        <div class="discover-title">🌟 Top Recommendations</div>
                         <div class="top-lists" id="topListsContainer"></div>
                     </div>
                 </div>
@@ -1927,7 +1927,7 @@
                 <div class="trip-detail-header">
                     <h2 id="tripDetailTitle">Trip Details</h2>
                     <div style="display:flex;gap:.5rem;align-items:center">
-                        <button class="trip-action-btn" onclick="app.editFromDetail()">â Edit</button>
+                        <button class="trip-action-btn" onclick="app.editFromDetail()">✎ Edit</button>
                         <button class="close-btn" onclick="app.closeTripDetail()">&times;</button>
                     </div>
                 </div>
@@ -2111,7 +2111,7 @@
             <div class="modal-title">Update Flight Status</div>
             <div class="form-group"><label>Flight</label><div id="statusFlightInfo" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
             <div class="form-group"><label>Status</label>
-                <select id="statusSelect"><option value="on-time">â On Time</option><option value="delayed">â±ï¸ Delayed</option><option value="cancelled">â Cancelled</option></select>
+                <select id="statusSelect"><option value="on-time">✓ On Time</option><option value="delayed">⏱️ Delayed</option><option value="cancelled">✗ Cancelled</option></select>
             </div>
             <div class="form-group"><label>Gate / Terminal</label><input type="text" id="gateInput" placeholder="e.g. Gate 12A, Terminal 3"></div>
             <div class="form-group"><label>Notes</label><textarea id="statusNotesInput" rows="2" placeholder="Additional status info..."></textarea></div>
@@ -2124,7 +2124,7 @@
         <div class="modal-content" style="max-height:90vh;overflow-y:auto;max-width:750px;">
             <span class="close" onclick="document.getElementById('shareboardModal').style.display='none'">&times;</span>
             <div style="text-align:right;margin-bottom:16px;">
-                <button class="modal-btn" onclick="window.print()">ð¨ï¸ Print</button>
+                <button class="modal-btn" onclick="window.print()">🖨️ Print</button>
                 <button class="modal-btn" onclick="app.copyShareboardToClipboard()"><i data-lucide="list-checks" style="width:14px;height:14px;"></i> Copy</button>
             </div>
             <div class="shareboard-container" id="shareboardContent"></div>
@@ -2149,10 +2149,10 @@
     <div id="debriefModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('debriefModal').style.display='none'">&times;</span>
-            <div class="modal-title">ð§³ Trip Debrief</div>
+            <div class="modal-title">🧳 Trip Debrief</div>
             <div class="form-group"><label>Trip</label><div id="debriefTripName" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
             <div class="form-group"><label>What went well? Follow-ups needed?</label>
-                <textarea id="debriefNotesInput" rows="5" placeholder="Enter notes... Use - or â¢ at the start of a line to auto-create follow-up tasks."></textarea>
+                <textarea id="debriefNotesInput" rows="5" placeholder="Enter notes... Use - or • at the start of a line to auto-create follow-up tasks."></textarea>
             </div>
             <div class="form-group"><label><input type="checkbox" id="generateFollowupCheckbox" checked> Generate follow-up tasks from bullet points</label></div>
             <button class="modal-btn" onclick="app.saveDebrief()" style="width:100%;">Save Debrief</button>
@@ -2167,16 +2167,16 @@
                 this.currentModal = null;
             window.app = this;
                 this.allDestinations = [
-                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: 'ð¼' },
-                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: 'ð¯' },
-                    { name: 'New York', country: 'USA', tag: 'City', emoji: 'ð½' },
+                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
+                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
+                    { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
                     { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '<i data-lucide="building" style="width:24px;height:24px;margin:0 auto"></i>' },
-                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: 'ð¨' },
+                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
                     { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>' },
-                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: 'ð¦' },
-                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: 'ðï¸' },
-                    { name: 'London', country: 'UK', tag: 'Culture', emoji: 'ð«' }
+                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
+                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
+                    { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
                 ];
                 this.loadTrips();
                 this.initializeEventListeners();
@@ -2665,7 +2665,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     <div class="flight-segment" data-segment-index="${segNum - 1}">
                         <div class="flight-segment-header">
                             <div class="segment-num">Flight ${segNum}</div>
-                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">â</button>
+                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">✕</button>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -2763,7 +2763,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                             <div class="expense-category">${categoryEmojis[expense.category] || '<i data-lucide="receipt" style="width:16px;vertical-align:middle"></i>'} ${expense.category}</div>
                         </div>
                         <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
-                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">â</button>
+                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
                     </div>
                 `;
                 list.insertAdjacentHTML('beforeend', html);
@@ -3028,7 +3028,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">ð</div>
+                            <div class="empty-state-icon">🏁</div>
                             <div class="empty-state-title">No past trips</div>
                             <div class="empty-state-text">Your completed trips will appear here</div>
                         </div>
@@ -3086,7 +3086,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                                 <div style="font-weight: 600; margin-bottom: 0.5rem;">Flight ${idx + 1}</div>
                                 <div style="font-size: 0.875rem; color: var(--text-secondary);">
                                     ${flight.airline} ${flight.number}<br>
-                                    ${flight.depAirport} â ${flight.arrAirport}<br>
+                                    ${flight.depAirport} → ${flight.arrAirport}<br>
                                     ${flight.depTime ? `Departs: ${this.formatDateTime(flight.depTime)}<br>` : ''}
                                     ${flight.arrTime ? `Arrives: ${this.formatDateTime(flight.arrTime)}` : ''}
                                 </div>
@@ -3103,7 +3103,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
                         <div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodation</div>
                         <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
-                        ${_accomUrl ? `<button class="action-btn" onclick="window.open('${_accomUrl}', '_blank'); return false;" style="width: 100%; flex: none;">ð Open Link</button>` : ''}
+                        ${_accomUrl ? `<button class="action-btn" onclick="window.open('${_accomUrl}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>` : ''}
                     </div>`;
                 }
 
@@ -3208,7 +3208,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         items.forEach(item => {
                             const itemName = typeof item === 'string' ? item : item.item;
                             const isChecked = typeof item === 'string' ? false : item.checked;
-                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">â ${itemName}</div>`;
+                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">✓ ${itemName}</div>`;
                         });
                         html += `</div>`;
                     }
@@ -3271,16 +3271,16 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 
             renderTopLists() {
                 const restaurants = [
-                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: 'â­â­â­â­â­' },
-                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: 'â­â­â­â­' },
-                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: 'â­â­â­â­' },
-                    { name: 'Beachfront CafÃ©', cuisine: 'Seafood', price: '$$', rating: 'â­â­â­â­' },
-                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: 'â­â­â­â­' },
-                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: 'â­â­â­â­â­' },
-                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: 'â­â­â­â­' },
-                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: 'â­â­â­' },
-                    { name: 'Vegetarian CafÃ©', cuisine: 'Vegan', price: '$$', rating: 'â­â­â­â­' },
-                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: 'â­â­â­â­â­' }
+                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
+                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
+                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
+                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
                 ];
 
                 const attractions = [
@@ -3345,7 +3345,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">â¨ Top 10 Experiences</div>
+                        <div class="top-list-title">✨ Top 10 Experiences</div>
                         <div class="top-list-items">
                             ${experiences.map((e, i) => `
                                 <div class="list-item">
@@ -3398,7 +3398,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i data-lucide="globe" style="width:18px;height:18px;"></i></div><div class="empty-state-title">No trips found</div><div class="empty-state-text">Try a different filter or add a new trip.</div></div>';
                 return;
             }
-            var flags = {"USA":"ðºð¸","Belize":"ð§ð¿","Mexico":"ð²ð½","South Africa":"ð¿ð¦","Japan":"ð¯ðµ","Portugal":"ðµð¹","Thailand":"ð¹ð­","Greece":"ð¬ð·","Peru":"ðµðª","Italy":"ð®ð¹"};
+            var flags = {"USA":"🇺🇸","Belize":"🇧🇿","Mexico":"🇲🇽","South Africa":"🇿🇦","Japan":"🇯🇵","Portugal":"🇵🇹","Thailand":"🇹🇭","Greece":"🇬🇷","Peru":"🇵🇪","Italy":"🇮🇹"};
             var self = this;
             grid.innerHTML = trips.map(function(t) {
                 var country = (t.destination || "").split(",").pop().trim();
@@ -3409,7 +3409,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">â Edit</button></div></div>';
+return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -3882,7 +3882,7 @@ this.updateDashboardStats();
             </div>
             <div>
                 <div class="current-trip-itinerary"><div class="itinerary-title">Today's Itinerary</div>${flightsHTML}
-                <div class="weather-widget">âï¸ 24Â°C | ð ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+                <div class="weather-widget">☀️ 24°C | 🕒 ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
                 </div>
             </div>
         </div>`;
@@ -4245,7 +4245,7 @@ this.updateDashboardStats();
         }
 
 
-        // confirmDeleteTrip â UI-facing delete with confirm dialog (calls the core deleteTrip)
+        // confirmDeleteTrip — UI-facing delete with confirm dialog (calls the core deleteTrip)
         TravelFloApp.prototype.confirmDeleteTrip = function(id) {
             const trip = this.trips.find(t => t.id === id);
             if (!trip) return;

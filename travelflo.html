@@ -2047,9 +2047,12 @@
 
 
 
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Trip</button>
+                <div class="form-actions" style="display:flex;justify-content:space-between;align-items:center;">
+                    <button type="button" class="btn btn-danger" id="deleteTripBtn" style="display:none;" onclick="app.deleteTripFromModal()"><i data-lucide="trash-2" style="width:14px;height:14px;vertical-align:middle;"></i> Delete Trip</button>
+                    <div style="display:flex;gap:12px;margin-left:auto;">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Trip</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -2500,6 +2503,7 @@
                     // Edit mode
                     document.getElementById('modalTitle').innerHTML = '<i data-lucide="pencil" style="width:20px;vertical-align:middle"></i> Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
+                    var _delBtn = document.getElementById('deleteTripBtn'); if (_delBtn) _delBtn.style.display = '';
                     this.populateTripForm(this.currentEditingTrip);
                 var modalPhoto = document.getElementById("modalPhoto");
             if (modalPhoto) {
@@ -2515,6 +2519,7 @@
                 } else {
                     // Create mode - show templates
                     document.getElementById('modalTitle').innerHTML = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
+                    var _delBtn2 = document.getElementById('deleteTripBtn'); if (_delBtn2) _delBtn2.style.display = 'none';
                     this.renderTemplateSelection();
                 }
 
@@ -4245,6 +4250,24 @@ this.updateDashboardStats();
     }
         }
 
+
+        // deleteTripFromModal — delete trip from within the edit modal
+        TravelFloApp.prototype.deleteTripFromModal = function() {
+            if (!this.currentEditingTrip) return;
+            const trip = this.currentEditingTrip;
+            if (confirm('Are you sure you want to delete this trip?')) {
+                this.closeModal();
+                this.trips = this.trips.filter(t => t.id !== trip.id);
+                try {
+                    const userEdits = JSON.parse(localStorage.getItem('travelflow-user-edits') || '{}');
+                    delete userEdits[trip.id];
+                    localStorage.setItem('travelflow-user-edits', JSON.stringify(userEdits));
+                } catch(e) {}
+                this.saveTrips();
+                this.showToast('Trip deleted', 'success');
+                this.renderAllViews();
+            }
+        };
 
         // confirmDeleteTrip — UI-facing delete with confirm dialog (calls the core deleteTrip)
         TravelFloApp.prototype.confirmDeleteTrip = function(id) {

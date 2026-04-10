@@ -2889,6 +2889,24 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             return Object.keys(merged).map(function(k) { return merged[k]; });
         }
 
+    // === Pin persistence via localStorage (fallback when GitHub token is missing) ===
+    function savePinnedToLocal() {
+        try {
+            var pinnedIds = tasks.filter(function(t) { return t.pinned; }).map(function(t) { return t.id; });
+            localStorage.setItem('taskflo_pinned', JSON.stringify(pinnedIds));
+        } catch(e) {}
+    }
+    function loadPinnedFromLocal() {
+        try {
+            var pinnedIds = JSON.parse(localStorage.getItem('taskflo_pinned') || '[]');
+            if (pinnedIds.length > 0) {
+                tasks.forEach(function(t) {
+                    if (pinnedIds.indexOf(t.id) !== -1) t.pinned = true;
+                });
+            }
+        } catch(e) {}
+    }
+
         // ===== v4.1: OFFLINE QUEUE =====
         function addToOfflineQueue(reason) {
             _offlineQueue.push({ tasks: JSON.parse(JSON.stringify(tasks)), reason: reason, timestamp: Date.now() });
@@ -3339,6 +3357,7 @@ function getGithubToken() {
             document.getElementById('loadingOverlay').style.display = 'flex';
             try {
                 tasks = await fetchTasksFromGithub();
+                loadPinnedFromLocal();
                 detectProjects();
                 updateAllLabels();
                 filterTasks();
@@ -5814,13 +5833,15 @@ function updateNavArrows() {
             return;
         }
         task.pinned = !task.pinned;
-        btnEl.innerHTML = task.pinned ? '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:14px;height:14px;"></i>';
+        btnEl.innerHTML = task.pinned ? '<i data-lucide="star" style="width:16px;height:16px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:16px;height:16px;"></i>';
         btnEl.className = 'task-pin-btn' + (task.pinned ? ' pinned' : '');
         btnEl.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
+        if (typeof lucide !== 'undefined') lucide.createIcons({elements: btnEl.querySelectorAll('i[data-lucide]')});
         btnEl.classList.add('pop');
         setTimeout(() => btnEl.classList.remove('pop'), 300);
         renderPriorityStrip();
         saveTasksToGithub(tasks, 'Toggle pin: ' + task.title.substring(0, 30));
+        savePinnedToLocal();
     }
 
     // Event delegation for star toggle — robust against DOM re-creation by Lucide
@@ -5880,6 +5901,7 @@ function updateNavArrows() {
             unpin.onclick = (e) => {
                 e.stopPropagation();
                 task.pinned = false;
+                savePinnedToLocal();
                 const taskCard = document.getElementById('task-' + task.id);
                 if (taskCard) {
                     const btn = taskCard.querySelector('.task-pin-btn');

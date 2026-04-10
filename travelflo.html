@@ -1894,7 +1894,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
-    <div class="offline-banner" id="offlineBanner">You are offline — changes will sync when connection returns</div>
+    <div class="offline-banner" id="offlineBanner">You are offline â changes will sync when connection returns</div>
 
     <div class="container">
         <!-- Header -->
@@ -1902,7 +1902,7 @@
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs><path d="M33.5 2.5L16 14l-8-2L2 14.5l10 5.5 5.5 10L20 24l-2-8L33.5 2.5z" fill="url(#logoGrad)"/><path d="M12 24l-3.5 3.5M14.5 21.5L10 26" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/></svg> TravelFlo</div>
                     <div class="version-badge">v3.0</div>
-                <a href="index.html" class="taskflo-link">→ TaskFlo</a>
+                <a href="index.html" class="taskflo-link">â TaskFlo</a>
             </div>
             <div class="header-right">
                 <button class="icon-btn" id="shareBtn" title="Share"><i data-lucide="share-2" style="width:20px;height:20px"></i></button>
@@ -2008,7 +2008,7 @@
                     </div>
 
                     <div class="discover-section">
-                        <div class="discover-title">🌟 Top Recommendations</div>
+                        <div class="discover-title">ð Top Recommendations</div>
                         <div class="top-lists" id="topListsContainer"></div>
                     </div>
                 </div>
@@ -2047,7 +2047,7 @@
                 <div class="trip-detail-header">
                     <h2 id="tripDetailTitle">Trip Details</h2>
                     <div style="display:flex;gap:.5rem;align-items:center">
-                        <button class="trip-action-btn" onclick="app.editFromDetail()">✎ Edit</button>
+                        <button class="trip-action-btn" onclick="app.editFromDetail()">â Edit</button>
                         <button class="close-btn" onclick="app.closeTripDetail()">&times;</button>
                     </div>
                 </div>
@@ -2262,7 +2262,7 @@
             <div class="modal-title">Update Flight Status</div>
             <div class="form-group"><label>Flight</label><div id="statusFlightInfo" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
             <div class="form-group"><label>Status</label>
-                <select id="statusSelect"><option value="on-time">✓ On Time</option><option value="delayed">⏱️ Delayed</option><option value="cancelled">✗ Cancelled</option></select>
+                <select id="statusSelect"><option value="on-time">â On Time</option><option value="delayed">â±ï¸ Delayed</option><option value="cancelled">â Cancelled</option></select>
             </div>
             <div class="form-group"><label>Gate / Terminal</label><input type="text" id="gateInput" placeholder="e.g. Gate 12A, Terminal 3"></div>
             <div class="form-group"><label>Notes</label><textarea id="statusNotesInput" rows="2" placeholder="Additional status info..."></textarea></div>
@@ -2275,7 +2275,7 @@
         <div class="modal-content" style="max-height:90vh;overflow-y:auto;max-width:750px;">
             <span class="close" onclick="document.getElementById('shareboardModal').style.display='none'">&times;</span>
             <div style="text-align:right;margin-bottom:16px;">
-                <button class="modal-btn" onclick="window.print()">🖨️ Print</button>
+                <button class="modal-btn" onclick="window.print()">ð¨ï¸ Print</button>
                 <button class="modal-btn" onclick="app.copyShareboardToClipboard()"><i data-lucide="list-checks" style="width:14px;height:14px;"></i> Copy</button>
             </div>
             <div class="shareboard-container" id="shareboardContent"></div>
@@ -2300,10 +2300,10 @@
     <div id="debriefModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('debriefModal').style.display='none'">&times;</span>
-            <div class="modal-title">🧳 Trip Debrief</div>
+            <div class="modal-title">ð§³ Trip Debrief</div>
             <div class="form-group"><label>Trip</label><div id="debriefTripName" style="padding:10px;background:var(--bg-tertiary,#25293d);border-radius:6px;"></div></div>
             <div class="form-group"><label>What went well? Follow-ups needed?</label>
-                <textarea id="debriefNotesInput" rows="5" placeholder="Enter notes... Use - or • at the start of a line to auto-create follow-up tasks."></textarea>
+                <textarea id="debriefNotesInput" rows="5" placeholder="Enter notes... Use - or â¢ at the start of a line to auto-create follow-up tasks."></textarea>
             </div>
             <div class="form-group"><label><input type="checkbox" id="generateFollowupCheckbox" checked> Generate follow-up tasks from bullet points</label></div>
             <button class="modal-btn" onclick="app.saveDebrief()" style="width:100%;">Save Debrief</button>
@@ -2318,16 +2318,16 @@
                 this.currentModal = null;
             window.app = this;
                 this.allDestinations = [
-                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: '🗼' },
-                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: '🏯' },
-                    { name: 'New York', country: 'USA', tag: 'City', emoji: '🗽' },
+                    { name: 'Paris', country: 'France', tag: 'Romance', emoji: 'ð¼' },
+                    { name: 'Tokyo', country: 'Japan', tag: 'Culture', emoji: 'ð¯' },
+                    { name: 'New York', country: 'USA', tag: 'City', emoji: 'ð½' },
                     { name: 'Bali', country: 'Indonesia', tag: 'Beach', emoji: '<i data-lucide="umbrella" style="width:24px;height:24px;margin:0 auto"></i>' },
                     { name: 'Dubai', country: 'UAE', tag: 'Luxury', emoji: '<i data-lucide="building" style="width:24px;height:24px;margin:0 auto"></i>' },
-                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: '🎨' },
+                    { name: 'Barcelona', country: 'Spain', tag: 'Architecture', emoji: 'ð¨' },
                     { name: 'Bangkok', country: 'Thailand', tag: 'Adventure', emoji: '<i data-lucide="palmtree" style="width:24px;height:24px;margin:0 auto"></i>' },
-                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: '🦘' },
-                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: '🏛️' },
-                    { name: 'London', country: 'UK', tag: 'Culture', emoji: '🫖' }
+                    { name: 'Sydney', country: 'Australia', tag: 'Nature', emoji: 'ð¦' },
+                    { name: 'Rome', country: 'Italy', tag: 'History', emoji: 'ðï¸' },
+                    { name: 'London', country: 'UK', tag: 'Culture', emoji: 'ð«' }
                 ];
                 this.loadTrips();
                 this.initializeEventListeners();
@@ -2839,7 +2839,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     <div class="flight-segment" data-segment-index="${segNum - 1}">
                         <div class="flight-segment-header">
                             <div class="segment-num">Flight ${segNum}</div>
-                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">✕</button>
+                            <button type="button" class="remove-flight-btn" onclick="document.querySelector('[data-segment-index=\\\"${segNum - 1}\\\"\"]').remove();">â</button>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -2937,7 +2937,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                             <div class="expense-category">${categoryEmojis[expense.category] || '<i data-lucide="receipt" style="width:16px;vertical-align:middle"></i>'} ${expense.category}</div>
                         </div>
                         <div class="expense-amount">$${parseFloat(expense.amount).toFixed(2)}</div>
-                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">✕</button>
+                        <button type="button" class="remove-expense-btn" onclick="this.parentElement.remove();">â</button>
                     </div>
                 `;
                 list.insertAdjacentHTML('beforeend', html);
@@ -3212,7 +3212,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 if (trips.length === 0) {
                     grid.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">🏁</div>
+                            <div class="empty-state-icon">ð</div>
                             <div class="empty-state-title">No past trips</div>
                             <div class="empty-state-text">Your completed trips will appear here</div>
                         </div>
@@ -3270,7 +3270,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                                 <div style="font-weight: 600; margin-bottom: 0.5rem;">Flight ${idx + 1}</div>
                                 <div style="font-size: 0.875rem; color: var(--text-secondary);">
                                     ${flight.airline} ${flight.number}<br>
-                                    ${flight.depAirport} → ${flight.arrAirport}<br>
+                                    ${flight.depAirport} â ${flight.arrAirport}<br>
                                     ${flight.depTime ? `Departs: ${this.formatDateTime(flight.depTime)}<br>` : ''}
                                     ${flight.arrTime ? `Arrives: ${this.formatDateTime(flight.arrTime)}` : ''}
                                 </div>
@@ -3287,7 +3287,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
                         <div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodation</div>
                         <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
-                        ${_accomUrl ? `<button class="action-btn" onclick="window.open('${_accomUrl}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>` : ''}
+                        ${_accomUrl ? `<button class="action-btn" onclick="window.open('${_accomUrl}', '_blank'); return false;" style="width: 100%; flex: none;">ð Open Link</button>` : ''}
                     </div>`;
                 }
 
@@ -3392,7 +3392,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         items.forEach(item => {
                             const itemName = typeof item === 'string' ? item : item.item;
                             const isChecked = typeof item === 'string' ? false : item.checked;
-                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">✓ ${itemName}</div>`;
+                            html += `<div style="font-size: 0.875rem; color: ${isChecked ? 'var(--text-muted)' : 'var(--text-primary)'}; text-decoration: ${isChecked ? 'line-through' : 'none'}; margin-bottom: 0.25rem;">â ${itemName}</div>`;
                         });
                         html += `</div>`;
                     }
@@ -3455,16 +3455,16 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 
             renderTopLists() {
                 const restaurants = [
-                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
-                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
+                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: 'â­â­â­â­â­' },
+                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: 'â­â­â­â­' },
+                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: 'â­â­â­â­' },
+                    { name: 'Beachfront CafÃ©', cuisine: 'Seafood', price: '$$', rating: 'â­â­â­â­' },
+                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: 'â­â­â­â­' },
+                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: 'â­â­â­â­â­' },
+                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: 'â­â­â­â­' },
+                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: 'â­â­â­' },
+                    { name: 'Vegetarian CafÃ©', cuisine: 'Vegan', price: '$$', rating: 'â­â­â­â­' },
+                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: 'â­â­â­â­â­' }
                 ];
 
                 const attractions = [
@@ -3529,7 +3529,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     </div>
 
                     <div class="top-list">
-                        <div class="top-list-title">✨ Top 10 Experiences</div>
+                        <div class="top-list-title">â¨ Top 10 Experiences</div>
                         <div class="top-list-items">
                             ${experiences.map((e, i) => `
                                 <div class="list-item">
@@ -3582,7 +3582,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i data-lucide="globe" style="width:18px;height:18px;"></i></div><div class="empty-state-title">No trips found</div><div class="empty-state-text">Try a different filter or add a new trip.</div></div>';
                 return;
             }
-            var flags = {"USA":"🇺🇸","Belize":"🇧🇿","Mexico":"🇲🇽","South Africa":"🇿🇦","Japan":"🇯🇵","Portugal":"🇵🇹","Thailand":"🇹🇭","Greece":"🇬🇷","Peru":"🇵🇪","Italy":"🇮🇹"};
+            var flags = {"USA":"ðºð¸","Belize":"ð§ð¿","Mexico":"ð²ð½","South Africa":"ð¿ð¦","Japan":"ð¯ðµ","Portugal":"ðµð¹","Thailand":"ð¹ð­","Greece":"ð¬ð·","Peru":"ðµðª","Italy":"ð®ð¹"};
             var self = this;
             grid.innerHTML = trips.map(function(t) {
                 var country = (t.destination || "").split(",").pop().trim();
@@ -3593,7 +3593,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
+return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">â Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -4106,7 +4106,7 @@ this.updateDashboardStats();
             </div>
             <div>
                 <div class="current-trip-itinerary"><div class="itinerary-title">Today's Itinerary</div>${flightsHTML}
-                <div class="weather-widget">☀️ 24°C | 🕒 ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+                <div class="weather-widget">âï¸ 24Â°C | ð ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
                 </div>
             </div>
         </div>`;
@@ -4469,7 +4469,7 @@ this.updateDashboardStats();
         }
 
 
-        // deleteTripFromModal — delete trip from within the edit modal
+        // deleteTripFromModal â delete trip from within the edit modal
         TravelFloApp.prototype.deleteTripFromModal = function() {
             if (!this.currentEditingTrip) return;
             const trip = this.currentEditingTrip;
@@ -4487,7 +4487,7 @@ this.updateDashboardStats();
             }
         };
 
-        // confirmDeleteTrip — UI-facing delete with confirm dialog (calls the core deleteTrip)
+        // confirmDeleteTrip â UI-facing delete with confirm dialog (calls the core deleteTrip)
         TravelFloApp.prototype.confirmDeleteTrip = function(id) {
             const trip = this.trips.find(t => t.id === id);
             if (!trip) return;
@@ -4509,9 +4509,9 @@ this.updateDashboardStats();
         
 
         // ===== FEATURE 1: MAP VIEW =====
-        _geocodeCache = {};
+        TravelFloApp.prototype._geocodeCache = {};
 
-        async geocodeDestination(destination) {
+        TravelFloApp.prototype.geocodeDestination = async function(destination) {
             if (this._geocodeCache[destination]) return this._geocodeCache[destination];
             // Known coordinates for common destinations
             const knownCoords = {
@@ -4557,9 +4557,9 @@ this.updateDashboardStats();
                 }
             } catch(e) { console.warn('Geocode failed:', e); }
             return null;
-        }
+        };
 
-        async renderMapView() {
+        TravelFloApp.prototype.renderMapView = async function() {
             const container = document.getElementById('mapContainer');
             if (!container) return;
             if (!window.L) { container.innerHTML = '<div class="map-empty"><i data-lucide="map-pin-off" style="width:48px;height:48px"></i><p>Map library not loaded</p></div>'; return; }
@@ -4613,7 +4613,7 @@ this.updateDashboardStats();
                 const popupHtml = '<div class="map-popup"><h4>'+(dest)+'</h4>'
                     + '<p>'+self.formatDate(trip.startDate)+' - '+self.formatDate(trip.endDate)+'</p>'
                     + '<p style="color:'+color+';font-weight:500">'+status+(isRace ? ' (Race)' : '')+'</p>'
-                    + '<a class="map-popup-link" onclick="window.app.showTripDetail(\''+trip.id+'\')">View Details →</a></div>';
+                    + '<a class="map-popup-link" onclick="window.app.showTripDetail(\''+trip.id+'\')">View Details â</a></div>';
                 marker.bindPopup(popupHtml);
             }
 
@@ -4622,11 +4622,11 @@ this.updateDashboardStats();
             }
             document.getElementById('mapLegend').style.display = 'block';
             setTimeout(() => map.invalidateSize(), 100);
-        }
+        };
 
 
         // ===== FEATURE 2: RACE EVENT INTEGRATION =====
-        getRaceFieldsHTML(trip = null) {
+        TravelFloApp.prototype.getRaceFieldsHTML = function(trip = null) {
             const rd = trip && trip.raceData ? trip.raceData : {};
             return '<div class="race-fields" id="raceFieldsSection" style="display:none">'
                 + '<h4><i data-lucide="trophy" style="width:16px;height:16px"></i> Race Details</h4>'
@@ -4637,9 +4637,9 @@ this.updateDashboardStats();
                 + '<div class="form-group"><label>Drop Bag Notes</label><textarea id="raceDropBagsInput" class="form-control" rows="2" placeholder="e.g. Mile 30: warm layers, Mile 60: fresh shoes">'+(rd.dropBags||'')+'</textarea></div>'
                 + '<div class="form-group"><label>Crew Meeting Points</label><textarea id="raceCrewInput" class="form-control" rows="2" placeholder="e.g. Aid 3 (Mile 24), Aid 7 (Mile 62)">'+(rd.crewPoints||'')+'</textarea></div>'
                 + '</div>';
-        }
+        };
 
-        renderRaceDetailCard(trip) {
+        TravelFloApp.prototype.renderRaceDetailCard = function(trip) {
             const rd = trip.raceData;
             if (!rd || !rd.raceName) return '';
             let html = '<div class="race-detail-card"><h4><i data-lucide="trophy" style="width:16px;height:16px;vertical-align:middle"></i> ' + (rd.raceName || 'Race') + '</h4>';
@@ -4650,12 +4650,12 @@ this.updateDashboardStats();
             if (rd.crewPoints) html += '<div class="race-detail-row"><span>Crew Points</span><span>' + rd.crewPoints.replace(/\n/g, '<br>') + '</span></div>';
             html += '</div>';
             return html;
-        }
+        };
 
         // ===== FEATURE 3: DOCUMENT VAULT =====
-        renderDocumentVault(trip) {
+        TravelFloApp.prototype.renderDocumentVault = function(trip) {
             const docs = trip.documents || [];
-            const docIcons = { 'passport': '🛂', 'ticket': '🎫', 'insurance': '🛡️', 'visa': '📋', 'hotel': '🏨', 'flight': '✈️', 'car': '🚗', 'other': '📄', 'race': '🏁', 'medical': '🏥', 'id': '🪪' };
+            const docIcons = { 'passport': 'ð', 'ticket': 'ð«', 'insurance': 'ð¡ï¸', 'visa': 'ð', 'hotel': 'ð¨', 'flight': 'âï¸', 'car': 'ð', 'other': 'ð', 'race': 'ð', 'medical': 'ð¥', 'id': 'ðªª' };
             let html = '<div class="doc-vault"><div class="doc-vault-title"><i data-lucide="folder-open" style="width:16px;height:16px"></i> Documents</div>';
             html += '<div class="doc-list">';
             if (docs.length === 0) {
@@ -4673,9 +4673,9 @@ this.updateDashboardStats();
             html += '<button class="doc-add-btn" onclick="window.app.addDocumentToTrip(\'' + trip.id + '\')"><i data-lucide="plus" style="width:14px;height:14px"></i> Add Document</button>';
             html += '</div>';
             return html;
-        }
+        };
 
-        addDocumentToTrip(tripId) {
+        TravelFloApp.prototype.addDocumentToTrip = function(tripId) {
             const name = prompt('Document name (e.g. "Boarding Pass"):');
             if (!name) return;
             const typeOptions = 'passport, ticket, insurance, visa, hotel, flight, car, race, medical, id, other';
@@ -4689,10 +4689,10 @@ this.updateDashboardStats();
             this.saveTrips();
             this.showTripDetail(tripId);
             this.showToast('Document added!', 'success');
-        }
+        };
 
         // ===== FEATURE 4: COUNTDOWN TIMERS =====
-        renderCountdownBanners() {
+        TravelFloApp.prototype.renderCountdownBanners = function() {
             const today = new Date(); today.setHours(0,0,0,0);
             const upcoming = this.trips
                 .filter(function(t) { var s = new Date(t.startDate + 'T00:00:00'); return s > today; })
@@ -4722,9 +4722,9 @@ this.updateDashboardStats();
                 html += '</div></div>';
             }
             return html;
-        }
+        };
 
-        renderTripTimeline(trip) {
+        TravelFloApp.prototype.renderTripTimeline = function(trip) {
             const start = this.parseLocalDate(trip.startDate);
             const end = this.parseLocalDate(trip.endDate);
             if (!start || !end) return '';
@@ -4758,10 +4758,10 @@ this.updateDashboardStats();
             });
             html += '</div></div>';
             return html;
-        }
+        };
 
         // ===== FEATURE 5: WEATHER FORECAST =====
-        async fetchWeather(trip) {
+        TravelFloApp.prototype.fetchWeather = async function(trip) {
             const dest = trip.title || trip.destination;
             const coords = await this.geocodeDestination(dest);
             if (!coords) return null;
@@ -4788,13 +4788,13 @@ this.updateDashboardStats();
                     return { type: 'historical', data: data.daily };
                 }
             } catch(e) { console.warn('Weather fetch failed:', e); return null; }
-        }
+        };
 
-        renderWeatherHTML(weatherResult) {
+        TravelFloApp.prototype.renderWeatherHTML = function(weatherResult) {
             if (!weatherResult || !weatherResult.data) return '<div class="weather-notice">Weather data unavailable</div>';
             const d = weatherResult.data;
             const isHistorical = weatherResult.type === 'historical';
-            const weatherIcons = { 0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️', 45:'🌫️', 48:'🌫️', 51:'🌦️', 53:'🌦️', 55:'🌧️', 61:'🌧️', 63:'🌧️', 65:'🌧️', 71:'🌨️', 73:'🌨️', 75:'🌨️', 80:'🌧️', 81:'🌧️', 82:'🌧️', 85:'🌨️', 86:'🌨️', 95:'⛈️', 96:'⛈️', 99:'⛈️' };
+            const weatherIcons = { 0:'âï¸', 1:'ð¤ï¸', 2:'â', 3:'âï¸', 45:'ð«ï¸', 48:'ð«ï¸', 51:'ð¦ï¸', 53:'ð¦ï¸', 55:'ð§ï¸', 61:'ð§ï¸', 63:'ð§ï¸', 65:'ð§ï¸', 71:'ð¨ï¸', 73:'ð¨ï¸', 75:'ð¨ï¸', 80:'ð§ï¸', 81:'ð§ï¸', 82:'ð§ï¸', 85:'ð¨ï¸', 86:'ð¨ï¸', 95:'âï¸', 96:'âï¸', 99:'âï¸' };
             const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
             let html = '<div class="weather-section"><div class="detail-section-title"><i data-lucide="cloud-sun" style="width:16px;vertical-align:middle"></i> ' + (isHistorical ? 'Historical Weather (avg)' : '7-Day Forecast') + '</div>';
             html += '<div class="weather-grid">';
@@ -4807,26 +4807,26 @@ this.updateDashboardStats();
                 const precip = d.precipitation_sum ? d.precipitation_sum[i] : 0;
                 html += '<div class="weather-day">';
                 html += '<div class="weather-day-name">' + dayNames[date.getDay()] + '</div>';
-                html += '<div class="weather-icon">' + (weatherIcons[code] || '🌡️') + '</div>';
-                html += '<div class="weather-temp">' + hi + '°</div>';
-                html += '<div class="weather-temp-low">' + lo + '°</div>';
-                if (precip > 0) html += '<div class="weather-precip">💧 ' + precip.toFixed(1) + 'mm</div>';
+                html += '<div class="weather-icon">' + (weatherIcons[code] || 'ð¡ï¸') + '</div>';
+                html += '<div class="weather-temp">' + hi + 'Â°</div>';
+                html += '<div class="weather-temp-low">' + lo + 'Â°</div>';
+                if (precip > 0) html += '<div class="weather-precip">ð§ ' + precip.toFixed(1) + 'mm</div>';
                 html += '</div>';
             }
             html += '</div></div>';
             return html;
-        }
+        };
 
         // ===== FEATURE 6: PACKING LIST TEMPLATES =====
-        packingTemplates = {
-            'race_domestic': { name: 'Race Domestic', icon: '🏃', items: {
+        TravelFloApp.prototype.packingTemplates = {
+            'race_domestic': { name: 'Race Domestic', icon: 'ð', items: {
                 'Race Gear': ['Race bib & pins','Headlamp + spare batteries','Hydration vest/pack','Water bottles/flasks','GPS watch + charger','Trekking poles','Drop bags (labeled)','Crew bags'],
                 'Clothing': ['Race shoes (broken in)','Backup shoes','Race socks (2+ pairs)','Shorts','Race top','Arm sleeves','Rain jacket','Warm mid-layer','Gloves','Buff/bandana','Hat/visor'],
                 'Nutrition': ['Gels (calculated for distance)','Electrolyte mix','Salt tabs','Real food (PB sandwiches etc)','Caffeine pills','Spare calories'],
                 'Medical': ['Body glide/anti-chafe','Blister kit','KT tape','Pain relief','Prescription meds','Sunscreen','Lip balm SPF'],
                 'Recovery': ['Compression socks','Foam roller/ball','Ice packs','Recovery sandals','Clean clothes for after']
             }},
-            'race_international': { name: 'Race International', icon: '🌍🏃', items: {
+            'race_international': { name: 'Race International', icon: 'ðð', items: {
                 'Documents': ['Passport','Race registration confirmation','Travel insurance docs','Medical certificate','Emergency contacts card','Visa (if required)','International health card'],
                 'Race Gear': ['Race bib & pins','Headlamp + spare batteries','Hydration vest/pack','GPS watch + charger','Trekking poles','Required mandatory kit'],
                 'Clothing': ['Race shoes (primary)','Backup shoes','Race socks (3+ pairs)','Shorts','Race top','Full-length tights','Rain jacket (race legal)','Warm layer','Gloves','Hat'],
@@ -4834,14 +4834,14 @@ this.updateDashboardStats();
                 'Medical': ['Body glide','Blister kit','First aid basics','Prescription meds','Altitude meds (if needed)','Sunscreen SPF50+'],
                 'Travel': ['Power adapter','Phone charger','Offline maps downloaded','Translation app','Local currency/cards','SIM card/eSIM']
             }},
-            'vacation_beach': { name: 'Vacation Beach', icon: '🏖️', items: {
+            'vacation_beach': { name: 'Vacation Beach', icon: 'ðï¸', items: {
                 'Clothing': ['Swimsuits (2+)','Cover-up/sarong','Casual shorts','T-shirts/tanks','Sundress/linen outfit','Evening outfit','Sandals','Sneakers/walking shoes'],
                 'Beach': ['Sunscreen SPF 50+','Sunglasses','Beach towel','Waterproof phone case','Snorkel gear','Book/Kindle','Beach bag'],
                 'Toiletries': ['Aloe vera gel','Insect repellent','Shampoo/conditioner','Toothbrush/paste','Deodorant','Razor','Medications'],
                 'Tech': ['Phone + charger','Camera','Portable battery','Headphones','Travel adapter'],
                 'Other': ['Daypack','Reusable water bottle','Passport/ID','Travel insurance card','Cash/cards']
             }},
-            'vacation_city': { name: 'Vacation City', icon: '🏙️', items: {
+            'vacation_city': { name: 'Vacation City', icon: 'ðï¸', items: {
                 'Clothing': ['Walking shoes (comfortable!)','Dress shoes','Jeans/pants (2)','Shorts','T-shirts/tops','Nice dinner outfit','Light jacket/layer','Rain jacket','Underwear/socks'],
                 'Day Bag': ['Daypack/crossbody','Reusable water bottle','Sunglasses','Umbrella','Guidebook/map','Snacks'],
                 'Toiletries': ['Sunscreen','Hand sanitizer','Toiletries bag','Medications','Pain relief'],
@@ -4850,7 +4850,7 @@ this.updateDashboardStats();
             }}
         };
 
-        getPackingTemplateHTML() {
+        TravelFloApp.prototype.getPackingTemplateHTML = function() {
             let html = '<div class="template-grid">';
             const self = this;
             Object.keys(this.packingTemplates).forEach(function(key) {
@@ -4864,9 +4864,9 @@ this.updateDashboardStats();
             });
             html += '</div>';
             return html;
-        }
+        };
 
-        applyPackingTemplate(templateKey) {
+        TravelFloApp.prototype.applyPackingTemplate = function(templateKey) {
             const template = this.packingTemplates[templateKey];
             if (!template) return;
             const packingList = {};
@@ -4876,20 +4876,20 @@ this.updateDashboardStats();
             // Render into the packing section of the current form
             this.renderPackingSection(packingList);
             this.showToast(template.name + ' template applied!', 'success');
-        }
+        };
 
         // ===== FEATURE 7: BUDGET TRACKER WITH MULTI-CURRENCY =====
-        currencyRates = { 'USD':1, 'EUR':0.92, 'GBP':0.79, 'JPY':149.5, 'MXN':17.1, 'BRL':4.97, 'ARS':870, 'COP':3950, 'THB':35.5, 'AUD':1.53, 'CAD':1.36, 'ZAR':18.6, 'GEL':2.65, 'IDR':15400, 'PHP':55.8, 'CRC':525, 'PEN':3.72, 'CLP':890, 'NZD':1.63, 'CHF':0.88, 'NOK':10.5, 'SEK':10.4, 'DKK':6.87, 'ISK':137, 'HRK':7.1, 'CZK':22.8, 'PLN':4.05, 'HUF':355, 'RON':4.57, 'TRY':30.2, 'AED':3.67, 'SGD':1.34, 'HKD':7.83, 'KRW':1310, 'TWD':31.2, 'INR':83.1, 'MAD':10.1, 'EGP':30.9, 'KES':153, 'FJD':2.24 };
+        TravelFloApp.prototype.currencyRates = { 'USD':1, 'EUR':0.92, 'GBP':0.79, 'JPY':149.5, 'MXN':17.1, 'BRL':4.97, 'ARS':870, 'COP':3950, 'THB':35.5, 'AUD':1.53, 'CAD':1.36, 'ZAR':18.6, 'GEL':2.65, 'IDR':15400, 'PHP':55.8, 'CRC':525, 'PEN':3.72, 'CLP':890, 'NZD':1.63, 'CHF':0.88, 'NOK':10.5, 'SEK':10.4, 'DKK':6.87, 'ISK':137, 'HRK':7.1, 'CZK':22.8, 'PLN':4.05, 'HUF':355, 'RON':4.57, 'TRY':30.2, 'AED':3.67, 'SGD':1.34, 'HKD':7.83, 'KRW':1310, 'TWD':31.2, 'INR':83.1, 'MAD':10.1, 'EGP':30.9, 'KES':153, 'FJD':2.24 };
 
-        convertToUSD(amount, currency) {
+        TravelFloApp.prototype.convertToUSD = function(amount, currency) {
             const rate = this.currencyRates[currency] || 1;
             return amount / rate;
-        }
+        };
 
-        renderBudgetTracker(trip) {
+        TravelFloApp.prototype.renderBudgetTracker = function(trip) {
             const expenses = trip.expenses || [];
             const budget = trip.budget || 0;
-            const catEmojis = { 'flights':'✈️', 'hotel':'🏨', 'food':'🍽️', 'activities':'🎯', 'transport':'🚗', 'shopping':'🛍️', 'race_entry':'🏁', 'other':'📦' };
+            const catEmojis = { 'flights':'âï¸', 'hotel':'ð¨', 'food':'ð½ï¸', 'activities':'ð¯', 'transport':'ð', 'shopping':'ðï¸', 'race_entry':'ð', 'other':'ð¦' };
             const categories = {};
             let totalUSD = 0;
             expenses.forEach(function(exp) {
@@ -4913,7 +4913,7 @@ this.updateDashboardStats();
             }
 
             Object.keys(categories).sort().forEach(function(cat) {
-                html += '<div class="budget-cat-row"><span>' + (catEmojis[cat] || '📦') + ' ' + cat.charAt(0).toUpperCase() + cat.slice(1).replace('_', ' ') + '</span><span>$' + categories[cat].toFixed(2) + '</span></div>';
+                html += '<div class="budget-cat-row"><span>' + (catEmojis[cat] || 'ð¦') + ' ' + cat.charAt(0).toUpperCase() + cat.slice(1).replace('_', ' ') + '</span><span>$' + categories[cat].toFixed(2) + '</span></div>';
             });
 
             // Add expense form
@@ -4927,9 +4927,9 @@ this.updateDashboardStats();
             html += '<button onclick="window.app.addExpenseToTrip(\'' + trip.id + '\')" style="padding:8px 16px;border-radius:8px;background:var(--accent-primary);color:white;border:none;cursor:pointer;font-size:13px">Add</button>';
             html += '</div></div>';
             return html;
-        }
+        };
 
-        addExpenseToTrip(tripId) {
+        TravelFloApp.prototype.addExpenseToTrip = function(tripId) {
             const desc = document.getElementById('expDescInput');
             const amt = document.getElementById('expAmtInput');
             const curr = document.getElementById('expCurrInput');
@@ -4945,10 +4945,10 @@ this.updateDashboardStats();
             this.saveTrips();
             this.showTripDetail(tripId);
             this.showToast('Expense added!', 'success');
-        }
+        };
 
         // ===== FEATURE 8: CREW/COMPANION SHARING =====
-        generateShareURL(tripId) {
+        TravelFloApp.prototype.generateShareURL = function(tripId) {
             const trip = this.trips.find(function(t) { return t.id === tripId; });
             if (!trip) return '';
             const shareData = {
@@ -4962,9 +4962,9 @@ this.updateDashboardStats();
             };
             const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(shareData))));
             return window.location.origin + window.location.pathname + '#share=' + encoded;
-        }
+        };
 
-        renderShareSection(trip) {
+        TravelFloApp.prototype.renderShareSection = function(trip) {
             let html = '<div class="share-section"><div class="detail-section-title"><i data-lucide="share-2" style="width:16px;vertical-align:middle"></i> Share Trip</div>';
             html += '<p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px">Generate a read-only link for crew or travel companions</p>';
             html += '<div class="share-url-box">';
@@ -4972,9 +4972,9 @@ this.updateDashboardStats();
             html += '<button class="share-copy-btn" onclick="window.app.generateAndCopyShareLink(\'' + trip.id + '\')">Generate & Copy</button>';
             html += '</div></div>';
             return html;
-        }
+        };
 
-        generateAndCopyShareLink(tripId) {
+        TravelFloApp.prototype.generateAndCopyShareLink = function(tripId) {
             const url = this.generateShareURL(tripId);
             const input = document.getElementById('shareUrlInput_' + tripId);
             if (input) input.value = url;
@@ -4982,28 +4982,28 @@ this.updateDashboardStats();
                 window.app.showToast('Share link copied!', 'success');
             }).catch(function() {
                 if (input) { input.select(); document.execCommand('copy'); }
-                window.app.showToast('Link generated — copy from the field', 'success');
+                window.app.showToast('Link generated â copy from the field', 'success');
             });
-        }
+        };
 
-        loadSharedTrip() {
+        TravelFloApp.prototype.loadSharedTrip = function() {
             const hash = window.location.hash;
             if (!hash.startsWith('#share=')) return;
             try {
                 const data = JSON.parse(decodeURIComponent(escape(atob(hash.substring(7)))));
                 document.querySelector('.container').innerHTML = '<div style="padding:20px;max-width:600px;margin:0 auto">'
                     + '<h2 style="margin-bottom:4px">' + (data.d || 'Shared Trip') + '</h2>'
-                    + '<p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">' + (data.s || '') + ' → ' + (data.e || '') + '</p>'
+                    + '<p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">' + (data.s || '') + ' â ' + (data.e || '') + '</p>'
                     + (data.n ? '<div class="detail-section"><div class="detail-section-title">Notes</div><p>' + data.n + '</p></div>' : '')
-                    + (data.f && data.f.length ? '<div class="detail-section"><div class="detail-section-title">✈️ Flights</div>' + data.f.map(function(f) { var p = f.split('|'); return '<p>' + p[0] + (p[1] ? ' — ' + p[1] : '') + '</p>'; }).join('') + '</div>' : '')
-                    + (data.a ? '<div class="detail-section"><div class="detail-section-title">🏨 Accommodation</div><p>' + data.a + '</p></div>' : '')
-                    + (data.r ? '<div class="detail-section"><div class="detail-section-title">🏁 Race Details</div><pre style="font-size:12px;white-space:pre-wrap">' + data.r + '</pre></div>' : '')
+                    + (data.f && data.f.length ? '<div class="detail-section"><div class="detail-section-title">âï¸ Flights</div>' + data.f.map(function(f) { var p = f.split('|'); return '<p>' + p[0] + (p[1] ? ' â ' + p[1] : '') + '</p>'; }).join('') + '</div>' : '')
+                    + (data.a ? '<div class="detail-section"><div class="detail-section-title">ð¨ Accommodation</div><p>' + data.a + '</p></div>' : '')
+                    + (data.r ? '<div class="detail-section"><div class="detail-section-title">ð Race Details</div><pre style="font-size:12px;white-space:pre-wrap">' + data.r + '</pre></div>' : '')
                     + '<p style="text-align:center;margin-top:30px;color:var(--text-muted);font-size:12px">Shared via TravelFlo</p></div>';
             } catch(e) { console.warn('Failed to parse shared trip:', e); }
-        }
+        };
 
         // ===== FEATURE 9: CALENDAR SYNC (.ics EXPORT) =====
-        generateICS(tripId) {
+        TravelFloApp.prototype.generateICS = function(tripId) {
             const trip = this.trips.find(function(t) { return t.id === tripId; });
             if (!trip) return;
             const dest = trip.title || trip.destination;
@@ -5058,7 +5058,7 @@ this.updateDashboardStats();
             link.click();
             URL.revokeObjectURL(link.href);
             this.showToast('Calendar file downloaded!', 'success');
-        }
+        };
 
 // Initialize app
         window.app = new TravelFloApp();

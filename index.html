@@ -130,7 +130,7 @@
             border-bottom: 1px solid #e5e5e7;
             padding: 8px 16px;
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
             flex-wrap: nowrap;
             overflow: hidden;
@@ -222,13 +222,36 @@
             gap: 6px;
             flex-wrap: nowrap;
             align-items: center;
-            overflow-x: auto;
+            overflow: hidden;
             flex: 1;
             min-width: 0;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            margin-left: 4px;
+            border-left: 1px solid #e5e5e7;
+            padding-left: 12px;
         }
         .label-filters::-webkit-scrollbar { display: none; }
+
+        .label-more-btn {
+            padding: 4px 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            border-radius: 20px;
+            border: 1px dashed #d0d0d5;
+            background-color: #ffffff;
+            font-size: 12px;
+            color: #6e6e73;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .label-more-btn:hover {
+            border-color: #007aff;
+            color: #007aff;
+            background-color: rgba(0, 122, 255, 0.04);
+        }
+        .label-filters.expanded {
+            flex-wrap: wrap;
+            overflow: visible;
+        }
 
         .label-pill {
             padding: 4px 10px;
@@ -280,7 +303,7 @@
         }
 
         .column {
-            flex: 0 0 calc(16.666% - 13.3px);
+            flex: 0 0 calc(20% - 12.8px);
             min-width: 280px;
             background-color: #f5f5f7;
             border-radius: 12px;
@@ -2255,118 +2278,121 @@
 
 /* ===== PINNED PRIORITY STRIP ===== */
 .priority-strip-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(26, 26, 36, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding: 12px 16px;
-    margin: 0 -8px 12px -8px;
-    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
+    padding: 16px 24px 0 24px;
+    margin: 0;
 }
-.priority-strip-wrapper.collapsed {
-    max-height: 40px;
-    padding-bottom: 8px;
+.priority-strip-wrapper.collapsed .priority-strip-scroll {
+    display: flex;
 }
 .priority-strip-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
-    user-select: none;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 .priority-strip-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #D4A574;
+    color: #86868b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 .priority-strip-toggle {
-    color: #9CA3AF;
-    font-size: 12px;
-    transition: transform 0.3s ease;
+    display: none;
 }
 .priority-strip-wrapper.collapsed .priority-strip-toggle {
-    transform: rotate(-90deg);
+    transform: none;
 }
 .priority-strip-scroll {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 4px;
+    padding-bottom: 16px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid #e5e5e7;
 }
 .priority-strip-scroll::-webkit-scrollbar {
-    height: 4px;
+    height: 0;
+    display: none;
 }
 .priority-strip-scroll::-webkit-scrollbar-track {
     background: transparent;
 }
 .priority-strip-scroll::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
+    background: transparent;
 }
 .priority-strip-empty {
-    color: #6B7280;
+    color: #8e8e93;
     font-size: 13px;
-    font-style: italic;
-    padding: 4px 0;
+    font-style: normal;
+    padding: 12px 0;
 }
 .pinned-card {
     flex-shrink: 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid #e5e5e7;
+    border-radius: 12px;
+    padding: 12px 16px;
+    min-width: 200px;
+    max-width: 280px;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
     cursor: pointer;
-    opacity: 1;
-    transition: background 0.2s ease, transform 0.3s ease;
+    position: relative;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
     animation: pinSlideIn 0.3s ease forwards;
-    max-width: 240px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 .pinned-card:hover {
-    background: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
 }
 @keyframes pinSlideIn {
-    from { transform: translateX(-12px) scale(0.95); }
-    to { transform: translateX(0) scale(1); }
+    from { transform: translateX(-12px) scale(0.95); opacity: 0; }
+    to { transform: translateX(0) scale(1); opacity: 1; }
 }
 .pinned-card-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
+    display: none;
 }
 .pinned-card-title {
     font-size: 14px;
-    color: #F9FAFB;
+    font-weight: 500;
+    color: #1d1d1f;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    padding-right: 24px;
+}
+.pinned-card-due {
+    font-size: 12px;
+    color: #86868b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 .pinned-card-unpin {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    color: #6B7280;
-    font-size: 12px;
-    opacity: 0;
+    border-radius: 6px;
+    color: #D4A574;
+    font-size: 14px;
+    opacity: 0.6;
     transition: opacity 0.2s ease, background 0.2s ease;
     cursor: pointer;
 }
@@ -2374,8 +2400,8 @@
     opacity: 1;
 }
 .pinned-card-unpin:hover {
-    background: rgba(255,255,255,0.1);
-    color: #F9FAFB;
+    background: rgba(212,165,116,0.1);
+    color: #D4A574;
 }
 /* Star/Pin button on task cards */
 .task-pin-btn {
@@ -2552,9 +2578,9 @@
 
         <div class="mobile-column-nav" id="mobileColumnNav"><button class="nav-arrow" id="navLeft" onclick="mobileNavColumn(-1)">&lsaquo;</button><div class="mobile-tabs" id="mobileTabs"></div><button class="nav-arrow" id="navRight" onclick="mobileNavColumn(1)">&rsaquo;</button></div>
         <div class="priority-strip-wrapper" id="priorityStrip">
-          <div class="priority-strip-header" onclick="togglePriorityStrip()">
-            <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
-            <span class="priority-strip-toggle">â¼</span>
+          <div class="priority-strip-header" >
+            <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:13px;height:13px;fill:currentColor;stroke:currentColor;"></i> Priorities</span>
+            <span class="priority-strip-toggle" style="display:none;">â¼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
@@ -2610,10 +2636,9 @@
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="todo">To Do</option>
-                    <option value="christopher">Christopher</option>
+                    <option value="christopher-todo">Christopher — To Do</option>
+                    <option value="christopher-ip">Christopher — In Progress</option>
                     <option value="claude">Claude</option>
-                    <option value="assistance">Assistance</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
                 </select>
@@ -2735,7 +2760,7 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">â Christopher</button>
+        <button onclick="batchMove('christopher-ip')">â Christopher</button>
         <button onclick="batchMove('claude')">â Claude</button>
         <button onclick="batchMove('completed')">â Complete</button>
         <button onclick="batchMove('parking')">â¸ Park</button>
@@ -2770,7 +2795,7 @@
         let allLabels = [];
         let selectedPriority = '';
         let selectedOwner = '';
-        let mobileActiveColumn = 'todo';
+        let mobileActiveColumn = 'christopher-todo';
         let batchSelectedIds = [];
         let batchMode = false;
         let timelineVisible = false;
@@ -3200,7 +3225,7 @@ function getGithubToken() {
         }
 
         function createTask(title, description, priority, labels, column, dueDate, recurrence, subtasks) {
-            const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : (column === 'todo' ? 'pending' : 'in_progress'));
+            const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : (column === 'christopher-todo' ? 'pending' : 'in_progress'));
             const mode = column === 'claude' ? 'auto' : (column === 'assistance' ? 'assistance' : 'manual');
             const taskLabels = [...labels];
             if (column === 'parking') {
@@ -3245,13 +3270,12 @@ function getGithubToken() {
             if (task.status === 'in_progress') {
                 if (task.mode === 'auto') {
                     return 'claude';
-                } else if (task.mode === 'assistance') {
-                    return 'assistance';
                 } else {
-                    return 'christopher';
+                    return 'christopher-ip';
                 }
             }
-            return 'todo';
+            // All pending/unstarted tasks go to Christopher — To Do
+            return 'christopher-todo';
         }
 
         function filterTasks() {
@@ -3385,6 +3409,15 @@ function getGithubToken() {
         function renderLabelFilters() {
             const container = document.getElementById('labelFilters');
             container.innerHTML = '';
+            container.classList.remove('expanded');
+
+            // Count label usage for sorting
+            const labelCounts = {};
+            tasks.forEach(t => {
+                if (t.labels) t.labels.forEach(l => {
+                    labelCounts[l] = (labelCounts[l] || 0) + 1;
+                });
+            });
 
             // All label
             const allBtn = document.createElement('button');
@@ -3399,35 +3432,41 @@ function getGithubToken() {
             };
             container.appendChild(allBtn);
 
-            // High Priority label
-            const highPriorityBtn = document.createElement('button');
-            highPriorityBtn.className = 'label-pill';
-            highPriorityBtn.textContent = 'High Priority';
-            highPriorityBtn.onclick = () => {
-                toggleLabelFilter(highPriorityBtn, 'High Priority');
-            };
-            container.appendChild(highPriorityBtn);
+            // Build ordered label list: High Priority, Parking Lot, then by usage count
+            const fixedLabels = ['High Priority', 'Parking Lot'];
+            const customLabels = allLabels
+                .filter(l => !fixedLabels.includes(l))
+                .sort((a, b) => (labelCounts[b] || 0) - (labelCounts[a] || 0));
+            const orderedLabels = [...fixedLabels, ...customLabels];
 
-            // Parking Lot label
-            const parkingBtn = document.createElement('button');
-            parkingBtn.className = 'label-pill';
-            parkingBtn.textContent = 'Parking Lot';
-            parkingBtn.onclick = () => {
-                toggleLabelFilter(parkingBtn, 'Parking Lot');
-            };
-            container.appendChild(parkingBtn);
+            const MAX_VISIBLE = 5;
+            const allLabelBtns = [];
 
-            // Custom labels
-            allLabels.forEach(label => {
-                if (label === 'High Priority' || label === 'Parking Lot') return;
+            orderedLabels.forEach((label, i) => {
                 const btn = document.createElement('button');
                 btn.className = 'label-pill';
                 btn.textContent = label;
-                btn.onclick = () => {
-                    toggleLabelFilter(btn, label);
-                };
+                btn.dataset.label = label;
+                btn.onclick = () => { toggleLabelFilter(btn, label); };
+                if (i >= MAX_VISIBLE) btn.style.display = 'none';
+                btn.dataset.labelIndex = i;
                 container.appendChild(btn);
+                allLabelBtns.push(btn);
             });
+
+            // "+N more" button
+            const hiddenCount = orderedLabels.length - MAX_VISIBLE;
+            if (hiddenCount > 0) {
+                const moreBtn = document.createElement('button');
+                moreBtn.className = 'label-more-btn';
+                moreBtn.textContent = '+' + hiddenCount + ' more';
+                moreBtn.onclick = () => {
+                    container.classList.add('expanded');
+                    allLabelBtns.forEach(b => b.style.display = '');
+                    moreBtn.style.display = 'none';
+                };
+                container.appendChild(moreBtn);
+            }
         }
 
         function toggleLabelFilter(btn, label) {
@@ -3466,10 +3505,9 @@ function getGithubToken() {
             kanban.innerHTML = '';
 
             const columns = [
-                { id: 'todo', title: 'To Do', dot: '#5856d6', getColor: () => '#5856d6' },
-                { id: 'christopher', title: 'Christopher', dot: '#007aff', getColor: () => '#007aff' },
+                { id: 'christopher-todo', title: 'Christopher \u2014 To Do', dot: '#5856d6', getColor: () => '#5856d6' },
+                { id: 'christopher-ip', title: 'Christopher \u2014 In Progress', dot: '#007aff', getColor: () => '#007aff' },
                 { id: 'claude', title: 'Claude', dot: '#af52de', getColor: () => '#af52de' },
-                { id: 'assistance', title: 'Assistance', dot: '#ff9f0a', getColor: () => '#ff9f0a' },
                 { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared Sundays' },
                 { id: 'parking', title: 'Parking Lot', dot: '#8e8e93', getColor: () => '#8e8e93' }
             ];
@@ -3817,7 +3855,7 @@ function getGithubToken() {
                     };
                     const moveMenu = document.createElement('div');
                     moveMenu.className = 'move-to-menu';
-                    [{id:'todo',title:'To Do',color:'#5856d6'},{id:'christopher',title:'Christopher',color:'#007aff'},{id:'claude',title:'Claude',color:'#af52de'},{id:'assistance',title:'Assistance',color:'#ff9f0a'},{id:'completed',title:'Completed',color:'#34c759'},{id:'parking',title:'Parking Lot',color:'#8e8e93'}].forEach(function(col) {
+                    [{id:'christopher-todo',title:'Christopher \u2014 To Do',color:'#5856d6'},{id:'christopher-ip',title:'Christopher \u2014 In Progress',color:'#007aff'},{id:'claude',title:'Claude',color:'#af52de'},{id:'completed',title:'Completed',color:'#34c759'},{id:'parking',title:'Parking Lot',color:'#8e8e93'}].forEach(function(col) {
                         if (getTaskColumn(task) === col.id) return;
                         const opt = document.createElement('button');
                         opt.className = 'move-to-option';
@@ -3826,7 +3864,7 @@ function getGithubToken() {
                             ev.stopPropagation();
                             moveMenu.classList.remove('open');
                             if (col.id === 'completed') { task.status = 'completed'; }
-                            else if (col.id === 'todo' || col.id === 'parking') { task.status = 'pending'; }
+                            else if (col.id === 'christopher-todo' || col.id === 'parking') { task.status = 'pending'; }
                             else { task.status = 'in_progress'; }
                             if (col.id === 'christopher') { task.mode = 'manual'; }
                             else if (col.id === 'claude') { task.mode = 'auto'; }
@@ -3915,10 +3953,9 @@ function getGithubToken() {
             if (!task) return;
 
             const columnMapping = {
-                'todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
-                'christopher': { status: 'in_progress', mode: 'manual' },
+                'christopher-todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
+                'christopher-ip': { status: 'in_progress', mode: 'manual' },
                 'claude': { status: 'in_progress', mode: 'auto' },
-                'assistance': { status: 'in_progress', mode: 'assistance' },
                 'completed': { status: 'completed', mode: 'manual', completedAt: new Date().toISOString() },
                 'parking': { status: 'pending', mode: 'manual', addLabel: 'Parking Lot' }
             };
@@ -4174,7 +4211,7 @@ function getGithubToken() {
             document.getElementById('modalTitle').textContent = 'Add Task';
             document.getElementById('taskTitle').value = '';
             document.getElementById('taskDescription').value = '';
-            document.getElementById('taskColumn').value = 'todo';
+            document.getElementById('taskColumn').value = 'christopher-todo';
             document.getElementById('taskDelegationNotes').value = '';
             document.getElementById('taskProject').value = '';
             if (document.getElementById('cfClient')) document.getElementById('cfClient').value = '';
@@ -4249,8 +4286,9 @@ function getGithubToken() {
 
                     // Update column/status/mode based on selected column
                     const columnMapping = {
-                        'todo': { status: 'pending', mode: 'manual' },
-                        'christopher': { status: 'in_progress', mode: 'manual' },
+                        'christopher-todo': { status: 'pending', mode: 'manual' },
+                        'christopher-ip': { status: 'in_progress', mode: 'manual' },
+
                         'claude': { status: 'in_progress', mode: 'auto' },
                         'assistance': { status: 'in_progress', mode: 'assistance' },
                         'completed': { status: 'completed', mode: task.mode },
@@ -4405,7 +4443,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'todo': 'To Do', 'christopher': 'Christopher', 'claude': 'Claude', 'assistance': 'Assistance', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher \u2014 To Do', 'christopher-ip': 'Christopher \u2014 In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -5826,8 +5864,8 @@ function updateNavArrows() {
 
     // ===== PINNED PRIORITY STRIP =====
     const COLUMN_COLORS = {
-        'todo': '#5856d6',
-        'christopher': '#007aff', 
+        'christopher-todo': '#5856d6',
+        'christopher-ip': '#007aff',
         'claude': '#af52de',
         'assistance': '#ff9f0a',
         'completed': '#34c759',
@@ -5874,41 +5912,41 @@ function updateNavArrows() {
         const empty = document.getElementById('priorityStripEmpty');
         const wrapper = document.getElementById('priorityStrip');
         if (!strip || !title) return;
-        
+
         const pinnedTasks = tasks.filter(t => t.pinned);
-        title.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;display:inline;vertical-align:-2px;margin-right:4px;"></i>Priorities (' + pinnedTasks.length + ')';
-        
-        // Clear existing pinned cards (keep empty message)
+        title.innerHTML = '<i data-lucide="star" style="width:13px;height:13px;fill:currentColor;display:inline;vertical-align:-2px;margin-right:4px;"></i> Priorities' + (pinnedTasks.length > 0 ? ' (' + pinnedTasks.length + ')' : '');
+
         strip.querySelectorAll('.pinned-card').forEach(el => el.remove());
-        
+
         if (pinnedTasks.length === 0) {
-            if (empty) empty.style.display = '';
+            if (empty) { empty.style.display = ''; empty.textContent = 'Star tasks to pin them here'; }
             lucide.createIcons();
             return;
         }
         if (empty) empty.style.display = 'none';
-        // Auto-expand strip when tasks are pinned
-        if (wrapper) wrapper.classList.remove('collapsed');
-        priorityStripCollapsed = false;
 
         pinnedTasks.forEach(task => {
             const card = document.createElement('div');
             card.className = 'pinned-card';
             card.onclick = () => scrollToTask(task.id);
-            
-            const dot = document.createElement('div');
-            dot.className = 'pinned-card-dot';
-            dot.style.background = COLUMN_COLORS[task.status] || '#6B7280';
-            card.appendChild(dot);
-            
-            const titleEl = document.createElement('span');
+
+            const titleEl = document.createElement('div');
             titleEl.className = 'pinned-card-title';
             titleEl.textContent = task.title;
             card.appendChild(titleEl);
-            
+
+            if (task.due_date) {
+                const dueEl = document.createElement('div');
+                dueEl.className = 'pinned-card-due';
+                const d = new Date(task.due_date + 'T00:00:00');
+                const opts = { month: 'short', day: 'numeric' };
+                dueEl.innerHTML = '<i data-lucide="calendar" style="width:12px;height:12px;"></i> ' + d.toLocaleDateString('en-US', opts);
+                card.appendChild(dueEl);
+            }
+
             const unpin = document.createElement('span');
             unpin.className = 'pinned-card-unpin';
-            unpin.innerHTML = '<i data-lucide="x" style="width:14px;height:14px;"></i>';
+            unpin.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;"></i>';
             unpin.title = 'Unpin';
             unpin.onclick = (e) => {
                 e.stopPropagation();
@@ -5931,14 +5969,13 @@ function updateNavArrows() {
                 }, 200);
             };
             card.appendChild(unpin);
-            
+
             strip.appendChild(card);
         });
-        // Call createIcons AFTER all elements are in the DOM
         lucide.createIcons();
     }
 
-    function scrollToTask(taskId) {
+        function scrollToTask(taskId) {
         const el = document.getElementById('task-' + taskId);
         if (!el) return;
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });

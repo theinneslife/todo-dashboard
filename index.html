@@ -496,7 +496,7 @@
         }
 
         .task-due-date::before {
-            content: '<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>';
+            content: '\01F4C5';
             font-size: 10px;
         }
 
@@ -3049,7 +3049,7 @@ function getGithubToken() {
 
         async function saveTasksToGithub(tasksData, reason) {
             reason = reason || 'Update tasks';
-            if (Array.isArray(tasksData)) { tasksData.forEach(function(t){ if (t && t.status === 'completed') { t.pinned = false; } }); }
+            // Note: completed tasks have pinned stripped during serialization in commitTasksToGithub, not here
             if (!githubToken) {
                 showToast('Not authenticated - changes are local only', 'warning');
                 return false;
@@ -3102,7 +3102,15 @@ function getGithubToken() {
                     }
                 }
 
-                var content = utf8ToBase64(JSON.stringify(tasks, null, 2));
+                var tasksToSave = tasks.map(function(t) {
+                    if (t && t.status === 'completed') {
+                        var copy = Object.assign({}, t);
+                        copy.pinned = false;
+                        return copy;
+                    }
+                    return t;
+                });
+                var content = utf8ToBase64(JSON.stringify(tasksToSave, null, 2));
                 var response = await fetch(GITHUB_API_URL, {
                     method: 'PUT',
                     headers: {
@@ -5846,7 +5854,10 @@ function updateNavArrows() {
             return;
         }
         if (empty) empty.style.display = 'none';
-        
+        // Auto-expand strip when tasks are pinned
+        if (wrapper) wrapper.classList.remove('collapsed');
+        priorityStripCollapsed = false;
+
         pinnedTasks.forEach(task => {
             const card = document.createElement('div');
             card.className = 'pinned-card';

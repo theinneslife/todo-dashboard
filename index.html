@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlo — Action Items Dashboard</title>
+    <title>TaskFlo â Action Items Dashboard</title>
     <style>html,body{background-color:#f5f5f7;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -384,7 +384,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -500,15 +500,15 @@
         }
 
         .task-due-date.overdue::before {
-            content: '🔴';
+            content: 'ð´';
         }
 
         .task-due-date.today::before {
-            content: '🟠';
+            content: 'ð ';
         }
 
         .task-due-date.due-soon::before {
-            content: '🟡';
+            content: 'ð¡';
         }
 
         .task-subtasks {
@@ -892,7 +892,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1404,7 +1404,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: '✓';
+            content: 'â';
             color: white;
             font-size: 10px;
             display: flex;
@@ -2176,7 +2176,7 @@
         .skeleton-line.medium { width: 80%; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        /* ── Hamburger Menu for Mobile ── */
+        /* ââ Hamburger Menu for Mobile ââ */
         .hamburger-menu-btn {
             display: none;
             align-items: center;
@@ -2461,7 +2461,7 @@
                 <div class="view-toggle">
                     <button class="view-toggle-btn active" data-view="board"><i data-lucide="square-kanban" style="width:14px;vertical-align:middle;margin-right:6px"></i>Board</button>
                     <button class="view-toggle-btn" data-view="my-tasks">My Tasks</button>
-            <button class="view-tab" data-view="habits" onclick="switchView('habits')"><i data-lucide="repeat" style="width:14px;vertical-align:middle;margin-right:6px"></i>Habits</button>
+            <button class="view-toggle-btn" data-view="habits"><i data-lucide="repeat" style="width:14px;vertical-align:middle;margin-right:6px"></i>Habits</button>
                 </div>
                 <div class="token-status" id="tokenStatus">Read-only</div>
                 <div class="button-group">
@@ -2509,15 +2509,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">✕</button>
+                <button class="search-clear" id="searchClear">â</button>
             </div>
             <div class="search-result-count" id="searchCount" style="display:none;"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter" style="display:none;">
                 <option value="">All Priorities</option>
-                <option value="1">🔴 High</option>
-                <option value="2">🟡 Medium</option>
-                <option value="3">🟢 Low</option>
+                <option value="1">ð´ High</option>
+                <option value="2">ð¡ Medium</option>
+                <option value="3">ð¢ Low</option>
             </select>
             <select class="filter-select" id="ownerFilter" style="display:none;">
                 <option value="">All Owners</option>
@@ -2547,7 +2547,7 @@
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
             <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
-            <span class="priority-strip-toggle">▼</span>
+            <span class="priority-strip-toggle">â¼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
@@ -2569,7 +2569,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">✕</button>
+                <button class="modal-close" id="addTaskClose">â</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2659,7 +2659,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">✕</button>
+                <button class="modal-close" id="detailClose">â</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2670,7 +2670,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">✕</button>
+                <button class="modal-close" id="statsClose">â</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2699,7 +2699,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">✕</button>
+                <button class="modal-close" id="activityClose">â</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2719,7 +2719,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">✕</button>
+                <button class="modal-close" id="templateClose">â</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2728,11 +2728,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">→ Christopher</button>
-        <button onclick="batchMove('claude')">→ Claude</button>
-        <button onclick="batchMove('completed')">✓ Complete</button>
-        <button onclick="batchMove('parking')">⏸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">✕</button>
+        <button onclick="batchMove('christopher')">â Christopher</button>
+        <button onclick="batchMove('claude')">â Claude</button>
+        <button onclick="batchMove('completed')">â Complete</button>
+        <button onclick="batchMove('parking')">â¸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">â</button>
     </div>
 
 
@@ -3314,7 +3314,7 @@ function getGithubToken() {
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = '✓ Authenticated';
+                status.textContent = 'â Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3337,6 +3337,7 @@ function getGithubToken() {
                 if (timelineVisible) renderTimeline();
                 // Feature 3 (v3): Update my tasks if active
                 if (currentView === 'my-tasks') renderMyTasksView();
+                if (currentView === 'habits' && typeof renderHabitsView === 'function') renderHabitsView();
             } catch (error) {
                 console.error('Error loading tasks:', error);
             } finally {
@@ -3632,7 +3633,7 @@ function getGithubToken() {
             if (task.delegation_notes && task.mode === 'auto') {
                 const delegationDiv = document.createElement('div');
                 delegationDiv.className = 'delegation-notes';
-                delegationDiv.innerHTML = '<div class="delegation-notes-title">🤖 Delegation Notes</div>' +
+                delegationDiv.innerHTML = '<div class="delegation-notes-title">ð¤ Delegation Notes</div>' +
                     '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 meta.appendChild(delegationDiv);
             }
@@ -3932,7 +3933,7 @@ function getGithubToken() {
             // Action buttons
             {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">✎ Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">â Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -3963,7 +3964,7 @@ function getGithubToken() {
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -4165,7 +4166,7 @@ function getGithubToken() {
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">×</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">Ã</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -4176,7 +4177,7 @@ function getGithubToken() {
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : '×', '').trim();
+                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'Ã', '').trim();
                 tags.push(text);
             });
             return tags;
@@ -4959,11 +4960,11 @@ document.addEventListener('keydown', (e) => {
             }
 
             const iconMap = {
-                created: '➕',
-                completed: '✓',
-                moved: '→',
-                edited: '✎',
-                commented: '💬',
+                created: 'â',
+                completed: 'â',
+                moved: 'â',
+                edited: 'â',
+                commented: 'ð¬',
                 attempted: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>',
                 assigned: '<i data-lucide="user" style="width:14px;height:14px;vertical-align:-2px;"></i>',
                 recurrence_spawned: '<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i>'
@@ -4971,10 +4972,10 @@ document.addEventListener('keydown', (e) => {
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || '•'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'â¢'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} — by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} â by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -5079,8 +5080,9 @@ document.addEventListener('keydown', (e) => {
         // FEATURE 3 (v3): My Tasks View
         // ============================================
         function switchView(view) {
-      document.querySelectorAll('.view-tab').forEach(function(t) { t.classList.remove('active'); });
-      var activeTab = document.querySelector('.view-tab[data-view="' + view + '"]');
+      currentView = view;
+      document.querySelectorAll('.view-toggle-btn').forEach(function(t) { t.classList.remove('active'); });
+      var activeTab = document.querySelector('.view-toggle-btn[data-view="' + view + '"]');
       if (activeTab) activeTab.classList.add('active');
       
       var kanban = document.getElementById('kanban');
@@ -5165,7 +5167,7 @@ document.addEventListener('keydown', (e) => {
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today — nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today â nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -5190,7 +5192,7 @@ document.addEventListener('keydown', (e) => {
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: '🔴', 2: '🟡', 3: '🟢' };
+                        const priNames = { 1: 'ð´', 2: 'ð¡', 3: 'ð¢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -5261,7 +5263,7 @@ document.addEventListener('keydown', (e) => {
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks • P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks â¢ P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5296,7 +5298,7 @@ document.addEventListener('keydown', (e) => {
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">✕</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">â</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5372,7 +5374,7 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
+            var icons = { overdue: 'ð¨', approaching: 'â°', unblocked: 'ð', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
                 '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '<i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i>') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
@@ -5499,11 +5501,11 @@ function init() {
     }
     function getDeliverableType(task) {
         var cat = categorizeTask(task);
-        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'🔍'};
-        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'📝'};
-        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'✉'};
-        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'📄'};
-        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'🌐'};
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'ð'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'ð'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'â'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'ð'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'ð'};
         if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>'};
         return null;
     }
@@ -5547,8 +5549,8 @@ function init() {
             swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
             var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
             var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
-            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='✅ Done'; swipeState.taskEl.appendChild(ri); }
-            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park 🅿'; swipeState.taskEl.appendChild(li); }
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='â Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park ð¿'; swipeState.taskEl.appendChild(li); }
             ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
             li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
         }, {passive:false});
@@ -5725,7 +5727,7 @@ function init() {
     });
 
     
-        // ── Hamburger Menu Toggle ──
+        // ââ Hamburger Menu Toggle ââ
         function closeHamburgerMenu() {
     var btn = document.getElementById('hamburgerBtn');
     var dd = document.getElementById('hamburgerDropdown');

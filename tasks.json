@@ -1150,7 +1150,7 @@
       "sprint": ""
     },
     "delegation_notes": "Please research what to do, post the notes as comments on this task and assign back to me",
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "cf1f1ba6-2304-4819-bb4d-4558b7b711c2",
@@ -1367,7 +1367,7 @@
     "title": "Review 50-Mile Race Nutrition & Hydration Plan",
     "description": "## 50-MILE RACE NUTRITION PLAN — HOT & HUMID CONDITIONS (90°F)\n\n### HOURLY TARGETS\n- Carbs: 60-80g per hour (higher end due to heat increasing glycogen burn)\n- Calories: 250-320 cal per hour\n- Sodium: 800-1200mg per hour (critical in heat/humidity — sweat losses can exceed 1500mg/hr)\n- Water: 800-1000ml per hour (20-30oz). Drink to thirst but don't fall behind. In 90°F humidity you'll lose 1-2 liters/hour through sweat.\n\n### HOUR-BY-HOUR FOOD PLAN\n\n**Miles 1-15 (Hours 0-2.5) — Start Early, Stay Ahead**\n- Every 30 min: 1 gel (25g carbs, ~100 cal) + 2-3 sips sports drink\n- Every hour: 1 SaltStick cap (215mg sodium) or 2 if sweating heavy\n- Water: alternate sips between plain water and sports drink mix\n- DON'T skip fueling because you feel good — heat catches up fast\n\n**Miles 15-30 (Hours 2.5-5) — Mix It Up**\n- Alternate gels with real food every other feeding:\n  - PB&J squares (cut into 2-inch pieces, wrapped in foil): ~150 cal, 20g carbs each\n  - Boiled baby potatoes dipped in salt: ~80 cal, easy on stomach\n  - Rice balls with salt: ~120 cal, 25g carbs\n- Continue 1 electrolyte cap every 30-45 min\n- Add a LMNT or similar high-sodium drink packet to one flask\n- If stomach feels off: switch to liquid calories only (Tailwind, Maurten mix)\n\n**Miles 30-40 (Hours 5-7) — The Grind**\n- Whatever sounds good — sweet or savory, just keep eating\n- Deploy caffeine: 100mg caffeinated gel at mile 30, another at mile 38\n- Cola at aid stations: easy caffeine + sugar + settles stomach\n- Broth: warm sodium bomb, surprisingly easy to stomach\n- Watermelon: hydration + sugar + potassium (grab at every aid station offering it)\n- Continue electrolyte caps religiously\n\n**Miles 40-50 (Hours 7-9+) — Bring It Home**\n- Liquid calories are fine if solids won't stay down\n- Second caffeine push if needed (stay under 400mg total race)\n- Cola, broth, ginger ale are your friends\n- Keep sipping water — dehydration compounds exponentially in the final miles\n\n### HYDRATION STRATEGY FOR EXTREME HEAT\n- Pre-load: drink 500ml with electrolytes 2 hours before start\n- Carry: 2 x 500ml soft flasks (one water, one sports drink)\n- Refill at EVERY aid station even if flasks aren't empty\n- Ice: stuff ice in hat, bandana around neck, and down shirt at aid stations — cooling is as important as hydration\n- Pour water on head and wrists at every opportunity\n- Monitor urine: if you haven't peed in 3+ hours or it's very dark, increase intake immediately\n\n### SODIUM IS KING IN THE HEAT\n- Target 800-1200mg/hour (vs normal 500-700mg in cool weather)\n- Sources: SaltStick caps (215mg each = take 4-5/hour), LMNT packets (1000mg), salty food at aid stations, sports drink mix\n- Signs you're low: bloating, nausea, swollen fingers, confusion, muscle cramps\n- Carry extra salt caps in a ziplock in your vest — do not run out\n\n### WHAT TO BUY (SHOPPING LIST)\n- 15-20 gels (mix flavors: some caffeinated for miles 30+)\n- 2 boxes energy chews as backup\n- SaltStick caps (full bottle of 100 — you'll use 40-50)\n- LMNT or Liquid IV packets (6-8)\n- Sports drink powder (Tailwind, Skratch, or Maurten)\n- PB&J supplies (white bread, smooth PB, jam)\n- Baby potatoes + salt\n- Sushi rice + salt for rice balls\n- Ginger chews (nausea backup)\n- Body glide (chafing is worse in humidity)\n- Cooling bandana or ice bandana\n- Spare hat (white/light colored)\n\n### HEAT-SPECIFIC WARNINGS\n- Start 15-20% slower than cool-weather goal pace — heat costs you, period\n- Walk all uphills from mile 1 — save energy for thermoregulation\n- If you stop sweating, feel confused, or get chills: STOP, cool down, seek medical. These are heat illness red flags.\n- Avoid NSAIDs (ibuprofen/Advil) — they impair kidney function and worsen heat illness risk\n- Pre-cool: cold towel on neck before start, cold water in flasks",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": "2026-04-09",
@@ -1387,12 +1387,19 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-10T12:54:37.788Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "project": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": false
+    "pinned": false,
+    "completed_at": "2026-04-10T12:54:37.788Z"
   },
   {
     "id": "9720b6fa-2205-4e22-986a-54b51768af33",
@@ -1442,7 +1449,7 @@
       "corpdev-targets-003"
     ],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "17979cf4-59a5-499f-9837-9725fe681d83",
@@ -1476,7 +1483,8 @@
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
     "completed_at": "2026-04-07T00:29:37.306Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "pinned": false
   },
   {
     "id": "2e2203f5-86e9-4428-9b61-c469c1706fcd",
@@ -1510,7 +1518,8 @@
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
     "completed_at": "2026-04-07T00:29:41.045Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "pinned": false
   },
   {
     "id": "95066609-cd2f-4a27-991b-e41f08eda3ea",
@@ -1544,7 +1553,8 @@
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
     "completed_at": "2026-04-07T00:29:48.375Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "pinned": false
   },
   {
     "id": "39137d6e-d77b-4633-9553-ed08b1c7d6f2",
@@ -1578,7 +1588,8 @@
     ],
     "created_at": "2026-04-06T20:11:18.482055+00:00",
     "completed_at": "2026-04-07T00:29:53.129Z",
-    "completion_notes": null
+    "completion_notes": null,
+    "pinned": false
   },
   {
     "id": "85556c98-7d2b-4314-9c12-16f5f0a60251",
@@ -1613,7 +1624,8 @@
     "depends_on": [],
     "collaborators": [
       "christopher"
-    ]
+    ],
+    "pinned": false
   },
   {
     "id": "f4ec8c54-daf9-48f9-a0f0-0730f9857159",
@@ -1648,7 +1660,8 @@
     "depends_on": [],
     "collaborators": [
       "christopher"
-    ]
+    ],
+    "pinned": false
   },
   {
     "id": "9b94aa52-b1ec-4280-b42b-fbd8a1bde804",
@@ -1682,7 +1695,7 @@
     "project": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "53e65a02-d779-428f-9153-56cd8f7892e2",
@@ -1715,7 +1728,8 @@
     "completion_notes": null,
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "27f41ea1-7c34-4aa5-a3ec-9a6873f1fab6",

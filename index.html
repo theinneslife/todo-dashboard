@@ -2330,8 +2330,9 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    opacity: 1;
     transition: background 0.2s ease, transform 0.3s ease, opacity 0.3s ease;
-    animation: pinSlideIn 0.3s ease;
+    animation: pinSlideIn 0.3s ease forwards;
     max-width: 240px;
 }
 .pinned-card:hover {
@@ -2396,6 +2397,11 @@
     z-index: 5;
     padding: 0;
     line-height: 1;
+}
+.task-pin-btn svg,
+.task-pin-btn i,
+.task-pin-btn path {
+    pointer-events: none;
 }
 .task-pin-btn:hover {
     background: rgba(255,255,255,0.06);
@@ -3570,6 +3576,12 @@ function getGithubToken() {
             pinBtn.innerHTML = task.pinned ? '<i data-lucide="star" style="width:16px;height:16px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:16px;height:16px;"></i>';
             pinBtn.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
             pinBtn.dataset.taskId = task.id;
+            pinBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var t = tasks.find(function(x) { return x.id === task.id; });
+                if (t) toggleTaskPin(t, pinBtn);
+            });
             card.appendChild(pinBtn);
             // Feature 7: Batch selection on shift-click
             card.addEventListener('click', (e) => {

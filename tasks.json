@@ -1692,7 +1692,8 @@
     "completion_notes": null,
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
   },
   {
     "id": "dd78ab15-a261-4fdc-86c6-da8f99279177",
@@ -1726,7 +1727,7 @@
     "project": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": false
+    "pinned": true
   },
   {
     "id": "9fab9ddc-28c7-4e14-88f7-972e54808168",
@@ -1759,6 +1760,7 @@
     "completion_notes": null,
     "project": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   }
 ]

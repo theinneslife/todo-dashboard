@@ -130,7 +130,7 @@
             border-bottom: 1px solid #e5e5e7;
             padding: 8px 16px;
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
             flex-wrap: nowrap;
             overflow: hidden;
@@ -222,11 +222,32 @@
             gap: 6px;
             flex-wrap: nowrap;
             align-items: center;
-            overflow-x: auto;
+            overflow: hidden;
             flex: 1;
             min-width: 0;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            border-left: 1px solid #e5e5e7;
+            padding-left: 12px;
+            margin-left: 4px;
+        }
+        .label-filters.expanded {
+            flex-wrap: wrap;
+            overflow: visible;
+        }
+        .label-more-btn {
+            flex-shrink: 0;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px dashed #c7c7cc;
+            background: transparent;
+            color: #86868b;
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .label-more-btn:hover {
+            border-color: #007aff;
+            color: #007aff;
         }
         .label-filters::-webkit-scrollbar { display: none; }
 
@@ -280,7 +301,7 @@
         }
 
         .column {
-            flex: 0 0 calc(16.666% - 13.3px);
+            flex: 0 0 calc(20% - 12.8px);
             min-width: 280px;
             background-color: #f5f5f7;
             border-radius: 12px;
@@ -2255,17 +2276,8 @@
 
 /* ===== PINNED PRIORITY STRIP ===== */
 .priority-strip-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(26, 26, 36, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding: 12px 16px;
-    margin: 0 -8px 12px -8px;
-    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
+    padding: 16px 24px 0 24px;
+    overflow: visible;
 }
 .priority-strip-wrapper.collapsed {
     max-height: 40px;
@@ -2280,30 +2292,31 @@
     margin-bottom: 8px;
 }
 .priority-strip-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #D4A574;
+    color: #86868b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
-.priority-strip-toggle {
-    color: #9CA3AF;
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
+.priority-strip-toggle { display: none; }
 .priority-strip-wrapper.collapsed .priority-strip-toggle {
     transform: rotate(-90deg);
 }
 .priority-strip-scroll {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e5e7;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
+.priority-strip-scroll::-webkit-scrollbar { height: 0; display: none; }
 .priority-strip-scroll::-webkit-scrollbar {
     height: 4px;
 }
@@ -2322,53 +2335,57 @@
 }
 .pinned-card {
     flex-shrink: 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid #e5e5e7;
+    border-radius: 12px;
+    padding: 14px 16px;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
     cursor: pointer;
     opacity: 1;
-    transition: background 0.2s ease, transform 0.3s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
     animation: pinSlideIn 0.3s ease forwards;
-    max-width: 240px;
+    min-width: 200px;
+    max-width: 280px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    position: relative;
 }
 .pinned-card:hover {
-    background: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
 }
 @keyframes pinSlideIn {
     from { transform: translateX(-12px) scale(0.95); }
     to { transform: translateX(0) scale(1); }
 }
-.pinned-card-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
+.pinned-card-dot { display: none; }
 .pinned-card-title {
     font-size: 14px;
-    color: #F9FAFB;
+    font-weight: 500;
+    color: #1d1d1f;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 220px;
+    padding-right: 24px;
 }
 .pinned-card-unpin {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    color: #ff9f0a;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.pinned-card-unpin:hover { opacity: 1; }
+.pinned-card-due {
+    font-size: 12px;
+    color: #86868b;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    color: #6B7280;
-    font-size: 12px;
-    opacity: 0;
-    transition: opacity 0.2s ease, background 0.2s ease;
-    cursor: pointer;
+    gap: 4px;
 }
 .pinned-card:hover .pinned-card-unpin {
     opacity: 1;
@@ -2758,10 +2775,9 @@
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="todo">To Do</option>
-                    <option value="christopher">Christopher</option>
+                    <option value="christopher-todo">Christopher — To Do</option>
+                    <option value="christopher-ip">Christopher — In Progress</option>
                     <option value="claude">Claude</option>
-                    <option value="assistance">Assistance</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
                 </select>
@@ -2889,7 +2905,7 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher')">â Christopher</button>
+        <button onclick="batchMove('christopher-ip')">â Christopher</button>
         <button onclick="batchMove('claude')">â Claude</button>
         <button onclick="batchMove('completed')">â Complete</button>
         <button onclick="batchMove('parking')">â¸ Park</button>
@@ -2924,7 +2940,7 @@
         let allLabels = [];
         let selectedPriority = '';
         let selectedOwner = '';
-        let mobileActiveColumn = 'todo';
+        let mobileActiveColumn = 'christopher-todo';
         let batchSelectedIds = [];
         let batchMode = false;
         let timelineVisible = false;
@@ -3399,13 +3415,11 @@ function getGithubToken() {
             if (task.status === 'in_progress') {
                 if (task.mode === 'auto') {
                     return 'claude';
-                } else if (task.mode === 'assistance') {
-                    return 'assistance';
                 } else {
-                    return 'christopher';
+                    return 'christopher-ip';
                 }
             }
-            return 'todo';
+            return 'christopher-todo';
         }
 
         function filterTasks() {
@@ -3539,11 +3553,21 @@ function getGithubToken() {
         function renderLabelFilters() {
             const container = document.getElementById('labelFilters');
             container.innerHTML = '';
+            container.classList.remove('expanded');
+            const MAX_VISIBLE = 5;
 
-            // All label
+            // Count label usage
+            const labelCounts = {};
+            tasks.forEach(t => {
+                if (t.labels) t.labels.forEach(l => {
+                    labelCounts[l] = (labelCounts[l] || 0) + 1;
+                });
+            });
+
+            // All button
             const allBtn = document.createElement('button');
             allBtn.className = 'label-pill active';
-            allBtn.textContent = 'All';
+            allBtn.innerHTML = 'All <span style="background:rgba(0,122,255,0.15);color:#007aff;border-radius:99px;padding:1px 6px;font-size:11px;margin-left:4px;">' + tasks.length + '</span>';
             allBtn.id = 'allPillBtn';
             allBtn.onclick = () => {
                 selectedLabels = [];
@@ -3553,35 +3577,56 @@ function getGithubToken() {
             };
             container.appendChild(allBtn);
 
-            // High Priority label
-            const highPriorityBtn = document.createElement('button');
-            highPriorityBtn.className = 'label-pill';
-            highPriorityBtn.textContent = 'High Priority';
-            highPriorityBtn.onclick = () => {
-                toggleLabelFilter(highPriorityBtn, 'High Priority');
-            };
-            container.appendChild(highPriorityBtn);
-
-            // Parking Lot label
-            const parkingBtn = document.createElement('button');
-            parkingBtn.className = 'label-pill';
-            parkingBtn.textContent = 'Parking Lot';
-            parkingBtn.onclick = () => {
-                toggleLabelFilter(parkingBtn, 'Parking Lot');
-            };
-            container.appendChild(parkingBtn);
-
-            // Custom labels
-            allLabels.forEach(label => {
-                if (label === 'High Priority' || label === 'Parking Lot') return;
+            // Fixed labels first
+            const fixedLabels = ['High Priority', 'Parking Lot'];
+            fixedLabels.forEach(label => {
                 const btn = document.createElement('button');
                 btn.className = 'label-pill';
                 btn.textContent = label;
-                btn.onclick = () => {
-                    toggleLabelFilter(btn, label);
-                };
+                btn.onclick = () => { toggleLabelFilter(btn, label); };
                 container.appendChild(btn);
             });
+
+            // Custom labels sorted by frequency
+            const customLabels = allLabels
+                .filter(l => l !== 'High Priority' && l !== 'Parking Lot')
+                .sort((a, b) => (labelCounts[b] || 0) - (labelCounts[a] || 0));
+
+            const visibleCustom = customLabels.slice(0, MAX_VISIBLE - fixedLabels.length);
+            const hiddenCustom = customLabels.slice(MAX_VISIBLE - fixedLabels.length);
+
+            visibleCustom.forEach(label => {
+                const btn = document.createElement('button');
+                btn.className = 'label-pill';
+                btn.textContent = label;
+                btn.onclick = () => { toggleLabelFilter(btn, label); };
+                container.appendChild(btn);
+            });
+
+            if (hiddenCustom.length > 0) {
+                const moreBtn = document.createElement('button');
+                moreBtn.className = 'label-more-btn';
+                moreBtn.textContent = '+' + hiddenCustom.length + ' more';
+                moreBtn.onclick = () => {
+                    container.classList.toggle('expanded');
+                    if (container.classList.contains('expanded')) {
+                        moreBtn.textContent = 'Show less';
+                        hiddenCustom.forEach(label => {
+                            const btn = document.createElement('button');
+                            btn.className = 'label-pill';
+                            btn.textContent = label;
+                            btn.onclick = () => { toggleLabelFilter(btn, label); };
+                            container.insertBefore(btn, moreBtn);
+                        });
+                    } else {
+                        container.querySelectorAll('.label-pill').forEach((btn, i) => {
+                            if (i > MAX_VISIBLE) btn.remove();
+                        });
+                        moreBtn.textContent = '+' + hiddenCustom.length + ' more';
+                    }
+                };
+                container.appendChild(moreBtn);
+            }
         }
 
         function toggleLabelFilter(btn, label) {
@@ -3620,10 +3665,9 @@ function getGithubToken() {
             kanban.innerHTML = '';
 
             const columns = [
-                { id: 'todo', title: 'To Do', dot: '#5856d6', getColor: () => '#5856d6' },
-                { id: 'christopher', title: 'Christopher', dot: '#007aff', getColor: () => '#007aff' },
+                { id: 'christopher-todo', title: 'Christopher \u2014 To Do', dot: '#5856d6', getColor: () => '#5856d6' },
+                { id: 'christopher-ip', title: 'Christopher \u2014 In Progress', dot: '#007aff', getColor: () => '#007aff' },
                 { id: 'claude', title: 'Claude', dot: '#af52de', getColor: () => '#af52de' },
-                { id: 'assistance', title: 'Assistance', dot: '#ff9f0a', getColor: () => '#ff9f0a' },
                 { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared Sundays' },
                 { id: 'parking', title: 'Parking Lot', dot: '#8e8e93', getColor: () => '#8e8e93' }
             ];
@@ -4077,10 +4121,9 @@ function getGithubToken() {
             if (!task) return;
 
             const columnMapping = {
-                'todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
-                'christopher': { status: 'in_progress', mode: 'manual' },
+                'christopher-todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
+                'christopher-ip': { status: 'in_progress', mode: 'manual' },
                 'claude': { status: 'in_progress', mode: 'auto' },
-                'assistance': { status: 'in_progress', mode: 'assistance' },
                 'completed': { status: 'completed', mode: 'manual', completedAt: new Date().toISOString() },
                 'parking': { status: 'pending', mode: 'manual', addLabel: 'Parking Lot' }
             };
@@ -4578,7 +4621,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'todo': 'To Do', 'christopher': 'Christopher', 'claude': 'Claude', 'assistance': 'Assistance', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher — To Do', 'christopher-ip': 'Christopher — In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -6007,10 +6050,9 @@ function updateNavArrows() {
 
     // ===== PINNED PRIORITY STRIP =====
     const COLUMN_COLORS = {
-        'todo': '#5856d6',
-        'christopher': '#007aff', 
+        'christopher-todo': '#5856d6',
+        'christopher-ip': '#007aff', 
         'claude': '#af52de',
-        'assistance': '#ff9f0a',
         'completed': '#34c759',
         'in_progress': '#007aff',
         'review': '#ff9f0a',
@@ -6055,20 +6097,19 @@ function updateNavArrows() {
         const empty = document.getElementById('priorityStripEmpty');
         const wrapper = document.getElementById('priorityStrip');
         if (!strip || !title) return;
-        
+
         const pinnedTasks = tasks.filter(t => t.pinned);
-        title.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;display:inline;vertical-align:-2px;margin-right:4px;"></i>Priorities (' + pinnedTasks.length + ')';
-        
+        title.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;display:inline;vertical-align:-2px;margin-right:4px;"></i>PRIORITIES (' + pinnedTasks.length + ')';
+
         // Clear existing pinned cards (keep empty message)
         strip.querySelectorAll('.pinned-card').forEach(el => el.remove());
-        
+
         if (pinnedTasks.length === 0) {
-            if (empty) empty.style.display = '';
+            if (empty) { empty.style.display = ''; empty.textContent = 'Star tasks to pin them here.'; }
             lucide.createIcons();
             return;
         }
         if (empty) empty.style.display = 'none';
-        // Auto-expand strip when tasks are pinned
         if (wrapper) wrapper.classList.remove('collapsed');
         priorityStripCollapsed = false;
 
@@ -6076,20 +6117,24 @@ function updateNavArrows() {
             const card = document.createElement('div');
             card.className = 'pinned-card';
             card.onclick = () => scrollToTask(task.id);
-            
-            const dot = document.createElement('div');
-            dot.className = 'pinned-card-dot';
-            dot.style.background = COLUMN_COLORS[task.status] || '#6B7280';
-            card.appendChild(dot);
-            
+
             const titleEl = document.createElement('span');
             titleEl.className = 'pinned-card-title';
             titleEl.textContent = task.title;
             card.appendChild(titleEl);
-            
+
+            // Due date
+            if (task.due_date) {
+                const dueEl = document.createElement('div');
+                dueEl.className = 'pinned-card-due';
+                const d = new Date(task.due_date);
+                dueEl.innerHTML = '<i data-lucide="calendar" style="width:12px;height:12px;"></i>' + d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+                card.appendChild(dueEl);
+            }
+
             const unpin = document.createElement('span');
             unpin.className = 'pinned-card-unpin';
-            unpin.innerHTML = '<i data-lucide="x" style="width:14px;height:14px;"></i>';
+            unpin.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;fill:currentColor;"></i>';
             unpin.title = 'Unpin';
             unpin.onclick = (e) => {
                 e.stopPropagation();
@@ -6112,1053 +6157,8 @@ function updateNavArrows() {
                 }, 200);
             };
             card.appendChild(unpin);
-            
+
             strip.appendChild(card);
         });
-        // Call createIcons AFTER all elements are in the DOM
         lucide.createIcons();
-    }
-
-    function scrollToTask(taskId) {
-        const el = document.getElementById('task-' + taskId);
-        if (!el) return;
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.add('highlight-pulse');
-        setTimeout(() => el.classList.remove('highlight-pulse'), 2000);
-    }
-
-    function togglePriorityStrip() {
-        const wrapper = document.getElementById('priorityStrip');
-        if (!wrapper) return;
-        priorityStripCollapsed = !priorityStripCollapsed;
-        wrapper.classList.toggle('collapsed', priorityStripCollapsed);
-    }
-
-    // Hook into renderBoard to also render the priority strip
-    const _origRenderBoard = typeof renderBoard === 'function' ? renderBoard : null;
-    
-    // Patch: after tasks load, render the strip
-    const _origLoadTasks = typeof loadTasks === 'function' ? loadTasks : null;
-    
-    // Use a MutationObserver on #kanban to detect when board re-renders
-    (function initPriorityStrip() {
-        const kanban = document.getElementById('kanban');
-        if (kanban) {
-            const observer = new MutationObserver(() => {
-                setTimeout(renderPriorityStrip, 50);
-            });
-            observer.observe(kanban, { childList: true, subtree: true });
         }
-        // Initial render
-        setTimeout(renderPriorityStrip, 500);
-    })();
-
-    </script>
-
-    <!-- v4.2 Mobile Filter FAB + Bottom Sheet -->
-    <button class="mobile-filter-fab" id="mobileFilterFab" aria-label="Open filters">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-        <span class="filter-badge" id="filterBadge"></span>
-    </button>
-    <div class="mobile-filter-overlay" id="mobileFilterOverlay"></div>
-    <div class="mobile-filter-sheet" id="mobileFilterSheet">
-        <div class="sheet-handle"></div>
-        <div class="sheet-header">
-            <h3>Filters &amp; Sort</h3>
-            <button class="sheet-close" id="mobileFilterClose">&times;</button>
-        </div>
-        <div class="sheet-body">
-            <div class="filter-group">
-                <label>Search</label>
-                <input type="text" id="mobileSearchInput" placeholder="Search tasks..." style="width:100%;padding:10px 12px;border:1.5px solid #e5e5e7;border-radius:10px;font-size:15px;font-family:inherit;background:#f9f9fb;">
-            </div>
-            <div class="filter-group">
-                <label>Tags</label>
-                <div class="label-filters" id="mobileLabelFilters" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
-            </div>
-            <div class="filter-group">
-                <label>Priority</label>
-                <select id="mobilePriorityFilter"><option value="">All Priorities</option><option value="1">High</option><option value="2">Medium</option><option value="3">Low</option></select>
-            </div>
-            <div class="filter-group">
-                <label>Owner</label>
-                <select id="mobileOwnerFilter"><option value="">All Owners</option><option value="manual">Christopher</option><option value="auto">Claude</option><option value="assistance">Assistance</option></select>
-            </div>
-            <div class="filter-group">
-                <label>Sort By</label>
-                <select id="mobileSortSelect"><option value="date">Date</option><option value="priority">Priority</option><option value="label">Label</option><option value="due-date">Due Date</option></select>
-            </div>
-            <div class="filter-group">
-                <button class="reset-filters-btn" id="mobileResetFilters">Reset All Filters</button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Mobile Add Task FAB -->
-    
-
-<!-- Feature 2: Calendar View -->
-<div class="calendar-view" id="calendarView">
-  <div class="calendar-nav">
-    <button onclick="calendarPrevMonth()">← Prev</button>
-    <h2 id="calendarTitle">April 2026</h2>
-    <button onclick="calendarNextMonth()">Next →</button>
-  </div>
-  <div class="calendar-grid" id="calendarGrid"></div>
-</div>
-
-<!-- Feature 7: Timeline / Gantt View -->
-<div class="timeline-view" id="timelineView">
-  <div class="timeline-header">
-    <h2>Timeline</h2>
-    <div style="display:flex;gap:8px;">
-      <button onclick="timelineScrollLeft()">← Earlier</button>
-      <button onclick="timelineScrollRight()">Later →</button>
-    </div>
-  </div>
-  <div class="gantt-container" id="ganttContainer"></div>
-</div>
-
-
-<!-- Feature 9: Keyboard Shortcuts Overlay -->
-<div class="shortcut-overlay" id="shortcutOverlay">
-  <div class="shortcut-panel">
-    <h2>⌨ Keyboard Shortcuts</h2>
-    <div class="shortcut-group">
-      <h3>Navigation</h3>
-      <div class="shortcut-row"><span class="shortcut-desc">Move selection down</span><span class="shortcut-key"><kbd>J</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Move selection up</span><span class="shortcut-key"><kbd>K</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Open selected task</span><span class="shortcut-key"><kbd>Enter</kbd></span></div>
-    </div>
-    <div class="shortcut-group">
-      <h3>Actions</h3>
-      <div class="shortcut-row"><span class="shortcut-desc">Quick add task</span><span class="shortcut-key"><kbd>N</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Edit selected task</span><span class="shortcut-key"><kbd>E</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Toggle star/pin</span><span class="shortcut-key"><kbd>S</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Complete selected task</span><span class="shortcut-key"><kbd>X</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Search tasks</span><span class="shortcut-key"><kbd>/</kbd></span></div>
-    </div>
-    <div class="shortcut-group">
-      <h3>Views</h3>
-      <div class="shortcut-row"><span class="shortcut-desc">Board view</span><span class="shortcut-key"><kbd>1</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">My Tasks view</span><span class="shortcut-key"><kbd>2</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Calendar view</span><span class="shortcut-key"><kbd>3</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Timeline view</span><span class="shortcut-key"><kbd>4</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Habits view</span><span class="shortcut-key"><kbd>5</kbd></span></div>
-      <div class="shortcut-row"><span class="shortcut-desc">Show this help</span><span class="shortcut-key"><kbd>?</kbd></span></div>
-    </div>
-    <div style="text-align:center;margin-top:12px;"><button onclick="document.getElementById('shortcutOverlay').classList.remove('active')">Close</button></div>
-  </div>
-</div>
-
-<!-- Feature 9: Quick Add Modal -->
-<div class="quick-add-modal" id="quickAddModal">
-  <h3 style="margin-bottom:12px;font-size:16px;font-weight:600;">Quick Add Task</h3>
-  <input type="text" id="quickAddTitle" placeholder="Task title..." autofocus>
-  <div style="display:flex;gap:8px;">
-    <select id="quickAddColumn" style="flex:1;">
-      <option value="todo">To Do</option>
-      <option value="christopher">Christopher</option>
-      <option value="claude">Claude</option>
-      <option value="assistance">Assistance</option>
-    </select>
-    <input type="date" id="quickAddDue" style="flex:1;">
-  </div>
-  <div class="quick-add-actions">
-    <button onclick="closeQuickAdd()">Cancel</button>
-    <button class="primary" onclick="submitQuickAdd()">Add Task</button>
-  </div>
-</div>
-
-<!-- Feature 10: Offline Indicator -->
-<div class="offline-indicator" id="offlineIndicator">You are offline — changes saved locally</div>
-
-<button class="mobile-add-fab" id="mobileAddFab" onclick="showAddTaskModal()" title="Add Task"><i data-lucide="plus" style="width:28px;height:28px"></i></button>
-
-
-
-
-<script>
-  function renderIcons() {
-    if (!window.lucide) return;
-    document.querySelectorAll('i[data-lucide]').forEach(el => {
-      try {
-        let name = el.getAttribute('data-lucide');
-        if(name==='kanban-square') name='square-kanban';
-        if(name==='check-circle-2') name='circle-check';
-        if(name==='x-circle') name='circle-x';
-        if(name==='bar-chart-2') name='chart-bar';
-        if(name==='plus-circle') name='circle-plus';
-        if(name==='play-circle') name='circle-play';
-        if(name==='clock-4') name='clock';
-        if(name==='building-2') name='building';
-        el.setAttribute('data-lucide', name);
-        lucide.createIcons({ elements: [el] });
-      } catch(e) { console.warn(e); }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', renderIcons);
-</script>
-
-<script>
-
-// ============================================
-// FEATURE BATCH: 10 New Features JavaScript
-// ============================================
-
-// === Feature 1: Enhanced Subtasks on Cards ===
-function renderCardSubtasks(task, container) {
-  if (!task.subtasks || task.subtasks.length === 0) return;
-  var wrapper = document.createElement('div');
-  wrapper.className = 'card-subtasks';
-
-  var done = task.subtasks.filter(function(s) { return s.done; }).length;
-  var total = task.subtasks.length;
-
-  // Progress bar
-  var prog = document.createElement('div');
-  prog.className = 'subtask-progress';
-  prog.innerHTML = '<div class="subtask-progress-bar"><div class="subtask-progress-fill" style="width:' + (total ? Math.round(done/total*100) : 0) + '%"></div></div>' +
-    '<span class="subtask-progress-text">' + done + '/' + total + '</span>';
-  wrapper.appendChild(prog);
-
-  // Collapsible subtask list
-  var collapsed = true;
-  var listEl = document.createElement('div');
-  listEl.style.display = 'none';
-
-  task.subtasks.forEach(function(sub, idx) {
-    var row = document.createElement('div');
-    row.className = 'card-subtask-row';
-    var check = document.createElement('div');
-    check.className = 'mini-check' + (sub.done ? ' done' : '');
-    check.onclick = function(e) {
-      e.stopPropagation();
-      sub.done = !sub.done;
-      saveTasksToGithub(tasks, 'Toggle subtask');
-      filterTasks();
-    };
-    var text = document.createElement('span');
-    text.className = 'st-text' + (sub.done ? ' done' : '');
-    text.textContent = sub.title;
-    if (sub.due_date) {
-      var sDue = document.createElement('span');
-      sDue.style.cssText = 'font-size:10px;color:#8e8e93;margin-left:4px;';
-      sDue.textContent = sub.due_date;
-      text.appendChild(sDue);
-    }
-    row.appendChild(check);
-    row.appendChild(text);
-    listEl.appendChild(row);
-  });
-
-  var toggle = document.createElement('div');
-  toggle.className = 'card-subtasks-toggle';
-  toggle.textContent = '▸ ' + total + ' subtask' + (total !== 1 ? 's' : '');
-  toggle.onclick = function(e) {
-    e.stopPropagation();
-    collapsed = !collapsed;
-    listEl.style.display = collapsed ? 'none' : 'block';
-    toggle.textContent = (collapsed ? '▸ ' : '▾ ') + total + ' subtask' + (total !== 1 ? 's' : '');
-  };
-
-  wrapper.appendChild(toggle);
-  wrapper.appendChild(listEl);
-
-  // Quick add subtask button
-  var addBtn = document.createElement('div');
-  addBtn.className = 'card-subtask-add';
-  addBtn.style.display = 'none';
-  addBtn.innerHTML = '<input type="text" placeholder="New subtask..." onclick="event.stopPropagation()"><button onclick="event.stopPropagation()">+</button>';
-  addBtn.querySelector('button').addEventListener('click', function() {
-    var inp = addBtn.querySelector('input');
-    var val = inp.value.trim();
-    if (!val) return;
-    task.subtasks = task.subtasks || [];
-    task.subtasks.push({ title: val, done: false });
-    inp.value = '';
-    saveTasksToGithub(tasks, 'Add subtask');
-    filterTasks();
-  });
-  addBtn.querySelector('input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') { addBtn.querySelector('button').click(); }
-  });
-
-  // Show add button when expanded
-  var origToggle = toggle.onclick;
-  toggle.onclick = function(e) {
-    origToggle(e);
-    addBtn.style.display = collapsed ? 'none' : 'flex';
-  };
-
-  wrapper.appendChild(addBtn);
-  container.appendChild(wrapper);
-}
-
-// === Feature 2: Calendar View ===
-var calendarMonth = new Date().getMonth();
-var calendarYear = new Date().getFullYear();
-
-function calendarPrevMonth() {
-  calendarMonth--;
-  if (calendarMonth < 0) { calendarMonth = 11; calendarYear--; }
-  renderCalendarView();
-}
-
-function calendarNextMonth() {
-  calendarMonth++;
-  if (calendarMonth > 11) { calendarMonth = 0; calendarYear++; }
-  renderCalendarView();
-}
-
-function renderCalendarView() {
-  var titleEl = document.getElementById('calendarTitle');
-  var gridEl = document.getElementById('calendarGrid');
-  if (!titleEl || !gridEl) return;
-
-  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  titleEl.textContent = months[calendarMonth] + ' ' + calendarYear;
-  gridEl.innerHTML = '';
-
-  // Day headers
-  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(function(d) {
-    var hdr = document.createElement('div');
-    hdr.className = 'calendar-day-header';
-    hdr.textContent = d;
-    gridEl.appendChild(hdr);
-  });
-
-  var firstDay = new Date(calendarYear, calendarMonth, 1).getDay();
-  var daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
-  var today = new Date(); today.setHours(0,0,0,0);
-
-  // Build task map by date
-  var tasksByDate = {};
-  tasks.forEach(function(t) {
-    if (t.due_date) {
-      tasksByDate[t.due_date] = tasksByDate[t.due_date] || [];
-      tasksByDate[t.due_date].push(t);
-    }
-    if (t.start_date) {
-      var key = t.start_date;
-      if (!tasksByDate[key]) tasksByDate[key] = [];
-      // Only add if not already there via due_date
-      if (!tasksByDate[key].find(function(x) { return x.id === t.id; })) {
-        tasksByDate[key].push(t);
-      }
-    }
-  });
-
-  // Previous month padding
-  var prevDays = new Date(calendarYear, calendarMonth, 0).getDate();
-  for (var p = firstDay - 1; p >= 0; p--) {
-    var cell = document.createElement('div');
-    cell.className = 'calendar-day other-month';
-    cell.innerHTML = '<div class="cal-date">' + (prevDays - p) + '</div>';
-    gridEl.appendChild(cell);
-  }
-
-  // Current month days
-  for (var d = 1; d <= daysInMonth; d++) {
-    var cell = document.createElement('div');
-    cell.className = 'calendar-day';
-    var dateStr = calendarYear + '-' + String(calendarMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-    var cellDate = new Date(calendarYear, calendarMonth, d);
-
-    if (cellDate.getTime() === today.getTime()) cell.classList.add('today');
-
-    var dateDiv = document.createElement('div');
-    dateDiv.className = 'cal-date';
-    dateDiv.textContent = d;
-    cell.appendChild(dateDiv);
-
-    var dayTasks = tasksByDate[dateStr] || [];
-    var maxShow = 3;
-    dayTasks.slice(0, maxShow).forEach(function(t) {
-      var taskEl = document.createElement('div');
-      var pClass = t.priority ? 'priority-' + t.priority : 'no-priority';
-      taskEl.className = 'cal-task ' + pClass + (t.status === 'completed' ? ' completed' : '');
-      taskEl.textContent = t.title;
-      taskEl.title = t.title;
-      taskEl.onclick = function(e) { e.stopPropagation(); showTaskDetail(t); };
-      cell.appendChild(taskEl);
-    });
-
-    if (dayTasks.length > maxShow) {
-      var more = document.createElement('div');
-      more.className = 'cal-more';
-      more.textContent = '+' + (dayTasks.length - maxShow) + ' more';
-      cell.appendChild(more);
-    }
-
-    gridEl.appendChild(cell);
-  }
-
-  // Next month padding
-  var totalCells = firstDay + daysInMonth;
-  var remaining = (7 - (totalCells % 7)) % 7;
-  for (var n = 1; n <= remaining; n++) {
-    var cell = document.createElement('div');
-    cell.className = 'calendar-day other-month';
-    cell.innerHTML = '<div class="cal-date">' + n + '</div>';
-    gridEl.appendChild(cell);
-  }
-}
-
-// === Feature 3: Start Dates ===
-// Extend createTask to support start_date
-var _origCreateTask = createTask;
-function createTaskExtended(title, description, priority, labels, column, dueDate, recurrence, subtasks) {
-  var t = _origCreateTask(title, description, priority, labels, column, dueDate, recurrence, subtasks);
-  t.start_date = null;
-  t.category = null;
-  t.effort = null;
-  return t;
-}
-
-// === Feature 4: Rules / Simple Automation ===
-var automationRules = JSON.parse(localStorage.getItem('taskflo_rules') || 'null') || {
-  autoCompleteDate: true,
-  autoMoveStarredDue: true,
-  autoMoveClaudeResponse: true
-};
-
-function saveRules() {
-  localStorage.setItem('taskflo_rules', JSON.stringify(automationRules));
-}
-
-function runAutomationRules() {
-  if (!automationRules.autoCompleteDate && !automationRules.autoMoveStarredDue) return;
-  var changed = false;
-  var today = new Date().toISOString().split('T')[0];
-  var twoDaysFromNow = new Date(Date.now() + 2 * 86400000).toISOString().split('T')[0];
-
-  tasks.forEach(function(task) {
-    // Rule 1: Auto-set completed date
-    if (automationRules.autoCompleteDate && task.status === 'completed' && !task.completed_at) {
-      task.completed_at = new Date().toISOString();
-      changed = true;
-    }
-
-    // Rule 2: Auto-move starred tasks due within 2 days to In Progress
-    if (automationRules.autoMoveStarredDue && task.pinned && task.due_date && task.due_date <= twoDaysFromNow && task.due_date >= today) {
-      if (getTaskColumn(task) === 'todo') {
-        task.status = 'in_progress';
-        task.mode = 'manual';
-        task.activity_log = task.activity_log || [];
-        task.activity_log.push({ timestamp: new Date().toISOString(), action: 'auto-moved', by: 'Automation', details: 'Starred task due soon - moved to In Progress' });
-        changed = true;
-      }
-    }
-  });
-
-  if (changed) {
-    saveTasksToGithub(tasks, 'Automation rules applied');
-    filterTasks();
-  }
-}
-
-function renderRulesPanel() {
-  var panel = document.getElementById('rulesPanel');
-  if (!panel) return;
-  panel.innerHTML = '<h3>⚡ Automation Rules</h3>';
-
-  var rules = [
-    { key: 'autoCompleteDate', name: 'Auto-set completed date', desc: 'When task moves to Completed, set completion timestamp' },
-    { key: 'autoMoveStarredDue', name: 'Auto-move starred due tasks', desc: 'Starred tasks due within 2 days auto-move to Christopher — In Progress' },
-    { key: 'autoMoveClaudeResponse', name: 'Auto-move Claude responses', desc: 'When Claude lane task gets a response, move to To Do for review' }
-  ];
-
-  rules.forEach(function(rule) {
-    var row = document.createElement('div');
-    row.className = 'rule-row';
-    row.innerHTML = '<div class="rule-info"><div class="rule-name">' + rule.name + '</div><div class="rule-desc">' + rule.desc + '</div></div>' +
-      '<label class="rule-toggle"><input type="checkbox" ' + (automationRules[rule.key] ? 'checked' : '') + '><span class="slider"></span></label>';
-    row.querySelector('input').onchange = function() {
-      automationRules[rule.key] = this.checked;
-      saveRules();
-      showToast('Rule ' + (this.checked ? 'enabled' : 'disabled'), 'success');
-    };
-    panel.appendChild(row);
-  });
-}
-
-
-// === Feature 5: Custom Fields ===
-var CATEGORIES = ['Work', 'Personal', 'Race', 'MNTN', 'Side Project'];
-var categoryClassMap = { 'Work': 'work', 'Personal': 'personal', 'Race': 'race', 'MNTN': 'mntn', 'Side Project': 'side-project' };
-
-function renderCustomFieldBadges(task, container) {
-  if (!task.category && !task.effort) return;
-  var row = document.createElement('div');
-  row.className = 'custom-fields-row';
-
-  if (task.category) {
-    var catBadge = document.createElement('span');
-    catBadge.className = 'custom-field-badge cf-category ' + (categoryClassMap[task.category] || '');
-    catBadge.textContent = task.category;
-    row.appendChild(catBadge);
-  }
-
-  if (task.effort) {
-    var effortBadge = document.createElement('span');
-    effortBadge.className = 'custom-field-badge cf-effort';
-    var dots = '';
-    for (var i = 1; i <= 5; i++) {
-      dots += '<span class="dot' + (i <= task.effort ? ' filled' : '') + '"></span>';
-    }
-    effortBadge.innerHTML = 'Effort <span class="dots">' + dots + '</span>';
-    row.appendChild(effortBadge);
-  }
-
-  container.appendChild(row);
-}
-
-// === Feature 6: Enhanced Dependencies ===
-function isTaskBlocked(task) {
-  if (!task.depends_on || task.depends_on.length === 0) return false;
-  return task.depends_on.some(function(depId) {
-    var dep = tasks.find(function(t) { return t.id === depId; });
-    return dep && dep.status !== 'completed';
-  });
-}
-
-function renderBlockedBadge(task, container) {
-  if (!isTaskBlocked(task)) return;
-  var badge = document.createElement('span');
-  badge.className = 'blocked-lock';
-  var blockers = task.depends_on.map(function(id) { return tasks.find(function(t) { return t.id === id; }); }).filter(function(t) { return t && t.status !== 'completed'; });
-  badge.innerHTML = '🔒 Blocked by ' + blockers.length;
-  badge.title = blockers.map(function(t) { return t.title; }).join(', ');
-  container.appendChild(badge);
-}
-
-function checkUnblockedNotifications() {
-  tasks.forEach(function(t) {
-    if (t.depends_on && t.depends_on.length > 0 && !isTaskBlocked(t)) {
-      var key = 'unblocked_notif_' + t.id;
-      if (!localStorage.getItem(key)) {
-        showToast('🔓 Unblocked: ' + t.title, 'success');
-        localStorage.setItem(key, '1');
-      }
-    }
-  });
-}
-
-// === Feature 7: Timeline / Gantt View ===
-var ganttWeekOffset = 0;
-
-function timelineScrollLeft() { ganttWeekOffset--; renderTimelineView(); }
-function timelineScrollRight() { ganttWeekOffset++; renderTimelineView(); }
-
-function renderTimelineView() {
-  var container = document.getElementById('ganttContainer');
-  if (!container) return;
-  container.innerHTML = '';
-
-  // Calculate date range: 8 weeks centered around today
-  var baseDate = new Date();
-  baseDate.setDate(baseDate.getDate() + (ganttWeekOffset * 7));
-  var startDate = new Date(baseDate);
-  startDate.setDate(startDate.getDate() - startDate.getDay()); // Start of week
-
-  var weeks = [];
-  for (var w = 0; w < 8; w++) {
-    var weekStart = new Date(startDate);
-    weekStart.setDate(weekStart.getDate() + (w * 7));
-    var weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate() + 6);
-    weeks.push({ start: weekStart, end: weekEnd, label: formatShortDate(weekStart) + ' - ' + formatShortDate(weekEnd) });
-  }
-
-  var totalDays = 8 * 7;
-  var dayWidth = 120 / 7; // px per day within a week column
-
-  // Header
-  var header = document.createElement('div');
-  header.className = 'gantt-header';
-  var labelCol = document.createElement('div');
-  labelCol.className = 'gantt-label-col';
-  labelCol.textContent = 'Task';
-  header.appendChild(labelCol);
-
-  var timeCols = document.createElement('div');
-  timeCols.className = 'gantt-time-cols';
-  weeks.forEach(function(wk) {
-    var col = document.createElement('div');
-    col.className = 'gantt-week-col';
-    col.textContent = wk.label;
-    timeCols.appendChild(col);
-  });
-  header.appendChild(timeCols);
-  container.appendChild(header);
-
-  // Group tasks by lane (column)
-  var lanes = [
-    { id: 'christopher', title: 'CHRISTOPHER' },
-    { id: 'claude', title: 'CLAUDE' },
-    { id: 'assistance', title: 'ASSISTANCE' },
-    { id: 'todo', title: 'TO DO' }
-  ];
-
-  lanes.forEach(function(lane) {
-    var laneTasks = tasks.filter(function(t) {
-      return getTaskColumn(t) === lane.id && (t.due_date || t.start_date) && t.status !== 'completed';
-    });
-    if (laneTasks.length === 0) return;
-
-    // Lane header
-    var laneHeader = document.createElement('div');
-    laneHeader.className = 'gantt-lane-header';
-    laneHeader.innerHTML = '<div class="gantt-label-col">' + lane.title + '</div><div class="gantt-time-cols">' + weeks.map(function() { return '<div class="gantt-week-col"></div>'; }).join('') + '</div>';
-    container.appendChild(laneHeader);
-
-    // Task rows
-    laneTasks.forEach(function(task) {
-      var row = document.createElement('div');
-      row.className = 'gantt-row';
-
-      var label = document.createElement('div');
-      label.className = 'gantt-row-label';
-      label.textContent = task.title;
-      label.title = task.title;
-      label.onclick = function() { showTaskDetail(task); };
-      row.appendChild(label);
-
-      var track = document.createElement('div');
-      track.className = 'gantt-row-track';
-      track.style.position = 'relative';
-
-      // Background cells
-      weeks.forEach(function() {
-        var cell = document.createElement('div');
-        cell.className = 'gantt-cell';
-        track.appendChild(cell);
-      });
-
-      // Calculate bar position
-      var taskStart = task.start_date ? new Date(task.start_date + 'T00:00:00') : (task.due_date ? new Date(task.due_date + 'T00:00:00') : null);
-      var taskEnd = task.due_date ? new Date(task.due_date + 'T00:00:00') : taskStart;
-
-      if (taskStart && taskEnd) {
-        var rangeStart = weeks[0].start;
-        var rangeEnd = weeks[weeks.length - 1].end;
-
-        if (taskEnd >= rangeStart && taskStart <= rangeEnd) {
-          var clampedStart = taskStart < rangeStart ? rangeStart : taskStart;
-          var clampedEnd = taskEnd > rangeEnd ? rangeEnd : taskEnd;
-
-          var startOffset = Math.floor((clampedStart - rangeStart) / 86400000);
-          var endOffset = Math.floor((clampedEnd - rangeStart) / 86400000) + 1;
-
-          var pxPerDay = 120 / 7;
-          var left = startOffset * pxPerDay;
-          var width = Math.max((endOffset - startOffset) * pxPerDay, 20);
-
-          var bar = document.createElement('div');
-          var pClass = task.priority ? 'p' + task.priority : 'default';
-          bar.className = 'gantt-bar ' + pClass;
-          bar.style.left = left + 'px';
-          bar.style.width = width + 'px';
-          bar.textContent = task.title;
-          bar.title = task.title + ' (' + (task.start_date || task.due_date) + ' → ' + (task.due_date || task.start_date) + ')';
-          bar.onclick = function() { showTaskDetail(task); };
-          track.appendChild(bar);
-        }
-      }
-
-      row.appendChild(track);
-      container.appendChild(row);
-    });
-  });
-
-  // Today line
-  var todayDate = new Date();
-  var daysSinceStart = Math.floor((todayDate - weeks[0].start) / 86400000);
-  if (daysSinceStart >= 0 && daysSinceStart < totalDays) {
-    var todayLine = document.createElement('div');
-    todayLine.className = 'gantt-today-line';
-    todayLine.style.left = (180 + daysSinceStart * (120/7)) + 'px';
-    container.appendChild(todayLine);
-  }
-}
-
-function formatShortDate(d) {
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return months[d.getMonth()] + ' ' + d.getDate();
-}
-
-// === Feature 8: Recurring Tasks (Enhanced) ===
-function handleRecurringTaskCompletion(task) {
-  if (!task.recurrence || task.status !== 'completed') return;
-
-  var nextDate = calculateNextRecurrence(task.due_date, task.recurrence);
-
-  // Create next occurrence
-  var nextTask = {
-    id: generateUUID(),
-    title: task.title,
-    description: task.description || '',
-    priority: task.priority,
-    status: 'pending',
-    mode: task.mode,
-    labels: (task.labels || []).slice(),
-    due_date: nextDate,
-    start_date: task.start_date ? calculateNextRecurrence(task.start_date, task.recurrence) : null,
-    recurrence: task.recurrence,
-    subtasks: (task.subtasks || []).map(function(s) { return { title: s.title, done: false, due_date: s.due_date || null }; }),
-    comments: [],
-    activity_log: [{ timestamp: new Date().toISOString(), action: 'created', by: 'Automation', details: 'Recurring task - next occurrence' }],
-    created_at: new Date().toISOString(),
-    completed_at: null,
-    completion_notes: null,
-    category: task.category || null,
-    effort: task.effort || null,
-    depends_on: [],
-    project: task.project || null,
-    pinned: false,
-    collaborators: task.collaborators || []
-  };
-
-  tasks.push(nextTask);
-  showToast('🔄 Next occurrence created: ' + task.title, 'success');
-  return nextTask;
-}
-
-function calculateNextRecurrence(dateStr, recurrence) {
-  if (!dateStr) {
-    // Use today as base
-    var today = new Date();
-    dateStr = today.toISOString().split('T')[0];
-  }
-  var d = new Date(dateStr + 'T12:00:00');
-  switch (recurrence) {
-    case 'daily': d.setDate(d.getDate() + 1); break;
-    case 'weekly': d.setDate(d.getDate() + 7); break;
-    case 'biweekly': d.setDate(d.getDate() + 14); break;
-    case 'monthly': d.setMonth(d.getMonth() + 1); break;
-    case 'quarterly': d.setMonth(d.getMonth() + 3); break;
-    default: d.setDate(d.getDate() + 7); break;
-  }
-  return d.toISOString().split('T')[0];
-}
-
-
-// === Feature 9: Keyboard Shortcuts & Quick Add ===
-var kbSelectedIndex = -1;
-var kbSelectedTaskId = null;
-
-function initKeyboardShortcuts() {
-  document.addEventListener('keydown', function(e) {
-    // Don't capture if typing in an input/textarea/select
-    var tag = e.target.tagName.toLowerCase();
-    if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
-
-    // Don't capture if a modal is open (except shortcut overlay)
-    var openModal = document.querySelector('.modal-backdrop.active');
-    if (openModal && openModal.id !== 'shortcutOverlay') return;
-
-    switch (e.key) {
-      case '?':
-        e.preventDefault();
-        document.getElementById('shortcutOverlay').classList.toggle('active');
-        break;
-      case 'n':
-      case 'N':
-        e.preventDefault();
-        openQuickAdd();
-        break;
-      case 'j':
-        e.preventDefault();
-        moveKbSelection(1);
-        break;
-      case 'k':
-        e.preventDefault();
-        moveKbSelection(-1);
-        break;
-      case 'Enter':
-        if (kbSelectedTaskId) {
-          e.preventDefault();
-          var t = tasks.find(function(x) { return x.id === kbSelectedTaskId; });
-          if (t) showTaskDetail(t);
-        }
-        break;
-      case 'e':
-        if (kbSelectedTaskId) {
-          e.preventDefault();
-          showEditTaskModal(kbSelectedTaskId);
-        }
-        break;
-      case 's':
-        if (kbSelectedTaskId) {
-          e.preventDefault();
-          var t = tasks.find(function(x) { return x.id === kbSelectedTaskId; });
-          if (t) {
-            t.pinned = !t.pinned;
-            saveTasksToGithub(tasks, 'Toggle pin');
-            filterTasks();
-          }
-        }
-        break;
-      case 'x':
-        if (kbSelectedTaskId) {
-          e.preventDefault();
-          var t = tasks.find(function(x) { return x.id === kbSelectedTaskId; });
-          if (t) toggleTaskComplete(t);
-        }
-        break;
-      case '/':
-        e.preventDefault();
-        var searchEl = document.querySelector('.search-input');
-        if (searchEl) searchEl.focus();
-        break;
-      case '1':
-        e.preventDefault(); switchView('board'); break;
-      case '2':
-        e.preventDefault(); switchView('my-tasks'); break;
-      case '3':
-        e.preventDefault(); switchView('calendar'); break;
-      case '4':
-        e.preventDefault(); switchView('timeline'); break;
-      case '5':
-        e.preventDefault(); switchView('habits'); break;
-      case 'Escape':
-        closeQuickAdd();
-        document.getElementById('shortcutOverlay').classList.remove('active');
-        clearKbSelection();
-        break;
-    }
-  });
-}
-
-function moveKbSelection(dir) {
-  var cards = Array.from(document.querySelectorAll('.task-card'));
-  if (cards.length === 0) return;
-
-  clearKbSelection();
-  kbSelectedIndex += dir;
-  if (kbSelectedIndex < 0) kbSelectedIndex = cards.length - 1;
-  if (kbSelectedIndex >= cards.length) kbSelectedIndex = 0;
-
-  cards[kbSelectedIndex].classList.add('kb-selected');
-  cards[kbSelectedIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  kbSelectedTaskId = cards[kbSelectedIndex].id.replace('task-', '');
-}
-
-function clearKbSelection() {
-  document.querySelectorAll('.task-card.kb-selected').forEach(function(c) { c.classList.remove('kb-selected'); });
-  kbSelectedTaskId = null;
-}
-
-function openQuickAdd() {
-  var modal = document.getElementById('quickAddModal');
-  if (!modal) return;
-  modal.classList.add('active');
-  document.getElementById('quickAddTitle').value = '';
-  document.getElementById('quickAddColumn').value = 'todo';
-  document.getElementById('quickAddDue').value = '';
-  setTimeout(function() { document.getElementById('quickAddTitle').focus(); }, 50);
-
-  // ESC and Enter handlers
-  document.getElementById('quickAddTitle').onkeydown = function(e) {
-    if (e.key === 'Enter') { e.preventDefault(); submitQuickAdd(); }
-    if (e.key === 'Escape') { e.preventDefault(); closeQuickAdd(); }
-  };
-}
-
-function closeQuickAdd() {
-  var modal = document.getElementById('quickAddModal');
-  if (modal) modal.classList.remove('active');
-}
-
-function submitQuickAdd() {
-  var title = document.getElementById('quickAddTitle').value.trim();
-  if (!title) return;
-  var column = document.getElementById('quickAddColumn').value;
-  var due = document.getElementById('quickAddDue').value;
-
-  var newTask = createTask(title, '', '2', [], column, due, '', []);
-  tasks.push(newTask);
-  saveTasksToGithub(tasks, 'Quick add: ' + title);
-  filterTasks();
-  closeQuickAdd();
-  showToast('Task added: ' + title, 'success');
-}
-
-// === Feature 10: Offline / Service Worker ===
-function initOfflineMode() {
-  // Register service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(function(err) {
-      console.log('SW registration skipped (expected for GitHub Pages without sw.js):', err.message);
-    });
-  }
-
-  // Online/offline detection
-  window.addEventListener('online', function() {
-    var indicator = document.getElementById('offlineIndicator');
-    if (indicator) {
-      indicator.textContent = 'Back online — syncing changes...';
-      indicator.className = 'offline-indicator active online-restored';
-      setTimeout(function() {
-        indicator.classList.remove('active');
-        // Re-sync tasks
-        saveTasksToGithub(tasks, 'Sync after reconnect');
-      }, 2000);
-    }
-  });
-
-  window.addEventListener('offline', function() {
-    var indicator = document.getElementById('offlineIndicator');
-    if (indicator) {
-      indicator.textContent = 'You are offline — changes saved locally';
-      indicator.className = 'offline-indicator active';
-    }
-  });
-
-  // Cache task data locally for offline access
-  try {
-    localStorage.setItem('taskflo_offline_cache', JSON.stringify(tasks));
-  } catch(e) {}
-}
-
-// Web App Manifest injection
-function injectWebManifest() {
-  var manifest = {
-    name: 'TaskFlo',
-    short_name: 'TaskFlo',
-    description: 'Action Items Dashboard',
-    start_url: '.',
-    display: 'standalone',
-    background_color: '#f5f5f7',
-    theme_color: '#007aff',
-    icons: [{
-      src: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 24 24" fill="none" stroke="%2334c759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'),
-      sizes: '192x192',
-      type: 'image/svg+xml'
-    }]
-  };
-  var blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-  var link = document.createElement('link');
-  link.rel = 'manifest';
-  link.href = URL.createObjectURL(blob);
-  document.head.appendChild(link);
-}
-
-// === Updated switchView to handle new views ===
-var _origSwitchView = switchView;
-function switchViewExtended(view) {
-  currentView = view;
-  document.querySelectorAll('.view-toggle-btn').forEach(function(t) { t.classList.remove('active'); });
-  var activeTab = document.querySelector('.view-toggle-btn[data-view="' + view + '"]');
-  if (activeTab) activeTab.classList.add('active');
-
-  var kanban = document.getElementById('kanban');
-  var myTasks = document.getElementById('myTasksView');
-  var habits = document.getElementById('habitsView');
-  var calendar = document.getElementById('calendarView');
-  var timeline = document.getElementById('timelineView');
-
-  // Hide all
-  if (kanban) kanban.style.display = 'none';
-  if (myTasks) { myTasks.style.display = 'none'; myTasks.classList.remove('active'); }
-  if (habits) habits.style.display = 'none';
-  if (calendar) { calendar.style.display = 'none'; calendar.classList.remove('active'); }
-  if (timeline) { timeline.style.display = 'none'; timeline.classList.remove('active'); }
-
-  // Show selected
-  if (view === 'board') {
-    if (kanban) kanban.style.display = 'flex';
-  } else if (view === 'my-tasks') {
-    if (myTasks) { myTasks.style.display = 'block'; myTasks.classList.add('active'); }
-    if (typeof renderMyTasksView === 'function') renderMyTasksView();
-  } else if (view === 'habits') {
-    if (habits) habits.style.display = 'block';
-    if (typeof renderHabitsView === 'function') renderHabitsView();
-  } else if (view === 'calendar') {
-    if (calendar) { calendar.style.display = 'block'; calendar.classList.add('active'); }
-    renderCalendarView();
-  } else if (view === 'timeline') {
-    if (timeline) { timeline.style.display = 'block'; timeline.classList.add('active'); }
-    renderTimelineView();
-  }
-
-  // Toggle controls visibility
-  var controls = document.querySelector('.controls');
-  var containerEl = document.querySelector('.container');
-  if (view === 'board') {
-    if (containerEl) containerEl.style.height = '100vh';
-    if (controls) controls.style.display = '';
-  } else {
-    if (containerEl) containerEl.style.height = 'auto';
-    if (controls) controls.style.display = 'none';
-  }
-  window.scrollTo(0, 0);
-}
-
-// Override switchView globally
-switchView = switchViewExtended;
-
-// === Enhanced toggleTaskComplete to handle recurring ===
-var _origToggleComplete = toggleTaskComplete;
-async function toggleTaskCompleteExtended(task) {
-  var wasPending = task.status !== 'completed';
-  task.status = task.status === 'completed' ? 'pending' : 'completed';
-  if (task.status === 'completed') {
-    task.completed_at = new Date().toISOString();
-  } else {
-    task.completed_at = null;
-  }
-
-  task.activity_log = task.activity_log || [];
-  task.activity_log.push({
-    timestamp: new Date().toISOString(),
-    action: 'completed',
-    by: 'Christopher',
-    details: task.status === 'completed' ? 'Task completed' : 'Task reopened'
-  });
-
-  // Feature 8: Handle recurring task completion
-  if (task.status === 'completed' && task.recurrence) {
-    handleRecurringTaskCompletion(task);
-  }
-
-  // Feature 6: Check unblocked notifications
-  checkUnblockedNotifications();
-
-  // Feature 4: Run automation rules
-  runAutomationRules();
-
-  await saveTasksToGithub(tasks, 'Update tasks');
-  filterTasks();
-}
-toggleTaskComplete = toggleTaskCompleteExtended;
-
-// === Init all new features ===
-function initNewFeatures() {
-  initKeyboardShortcuts();
-  initOfflineMode();
-  injectWebManifest();
-
-  // Run automation rules on load
-  setTimeout(function() { runAutomationRules(); }, 2000);
-
-  // Cache offline data periodically
-  setInterval(function() {
-    try { localStorage.setItem('taskflo_offline_cache', JSON.stringify(tasks)); } catch(e) {}
-  }, 30000);
-}
-
-// Call init after DOM load
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initNewFeatures);
-} else {
-  initNewFeatures();
-}
-
-</script>
-</body>
-
-</html>

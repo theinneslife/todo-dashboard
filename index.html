@@ -3542,10 +3542,7 @@ function getGithubToken() {
             pinBtn.className = 'task-pin-btn' + (task.pinned ? ' pinned' : '');
             pinBtn.innerHTML = task.pinned ? '<i data-lucide="star" style="width:16px;height:16px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:16px;height:16px;"></i>';
             pinBtn.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
-            pinBtn.onclick = (e) => {
-                e.stopPropagation();
-                toggleTaskPin(task, pinBtn);
-            };
+            pinBtn.dataset.taskId = task.id;
             card.appendChild(pinBtn);
             // Feature 7: Batch selection on shift-click
             card.addEventListener('click', (e) => {
@@ -5817,6 +5814,18 @@ function updateNavArrows() {
         renderPriorityStrip();
         saveTasksToGithub(tasks, 'Toggle pin: ' + task.title.substring(0, 30));
     }
+
+    // Event delegation for star toggle — robust against DOM re-creation by Lucide
+    document.addEventListener('click', function(e) {
+        var pinBtn = e.target.closest('.task-pin-btn');
+        if (!pinBtn) return;
+        e.stopPropagation();
+        var card = pinBtn.closest('.task-card');
+        if (!card) return;
+        var taskId = card.id.replace('task-', '');
+        var task = tasks.find(function(t) { return t.id === taskId; });
+        if (task) toggleTaskPin(task, pinBtn);
+    });
 
     function renderPriorityStrip() {
         const strip = document.getElementById('priorityStripScroll');

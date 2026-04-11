@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%2334c759' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlo â Action Items Dashboard</title>
+    <title>TaskFlo Ã¢ÂÂ Action Items Dashboard</title>
     <style>html,body{background-color:#f5f5f7;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -406,7 +406,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -522,15 +522,15 @@
         }
 
         .task-due-date.overdue::before {
-            content: 'ð´';
+            content: 'Ã°ÂÂÂ´';
         }
 
         .task-due-date.today::before {
-            content: 'ð ';
+            content: 'Ã°ÂÂÂ ';
         }
 
         .task-due-date.due-soon::before {
-            content: 'ð¡';
+            content: 'Ã°ÂÂÂ¡';
         }
 
         .task-subtasks {
@@ -914,7 +914,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1426,7 +1426,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: 'â';
+            content: 'Ã¢ÂÂ';
             color: white;
             font-size: 10px;
             display: flex;
@@ -2198,7 +2198,7 @@
         .skeleton-line.medium { width: 80%; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        /* ââ Hamburger Menu for Mobile ââ */
+        /* Ã¢ÂÂÃ¢ÂÂ Hamburger Menu for Mobile Ã¢ÂÂÃ¢ÂÂ */
         .hamburger-menu-btn {
             display: none;
             align-items: center;
@@ -2477,7 +2477,7 @@
 .card-subtask-row { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 12px; color: #6e6e73; }
 .card-subtask-row .mini-check { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #c7c7cc; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
 .card-subtask-row .mini-check.done { background: #34c759; border-color: #34c759; }
-.card-subtask-row .mini-check.done::after { content: '✓'; color: #fff; font-size: 9px; font-weight: 700; }
+.card-subtask-row .mini-check.done::after { content: 'â'; color: #fff; font-size: 9px; font-weight: 700; }
 .card-subtask-row .st-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-subtask-row .st-text.done { text-decoration: line-through; opacity: 0.5; }
 .card-subtasks-toggle { font-size: 11px; color: #007aff; cursor: pointer; padding: 2px 0; display: flex; align-items: center; gap: 4px; }
@@ -2524,19 +2524,24 @@
 .sort-header .sort-icon { font-size: 10px; }
 
 /* === Feature 4: Rules / Simple Automation === */
-.rules-panel { background: #fff; border-radius: 12px; padding: 16px; margin: 16px 0; border: 1px solid #e5e5e7; }
-.rules-panel h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.rule-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f7; }
-.rule-row:last-child { border-bottom: none; }
-.rule-info { flex: 1; }
-.rule-name { font-size: 13px; font-weight: 500; color: #1d1d1f; }
-.rule-desc { font-size: 11px; color: #8e8e93; margin-top: 2px; }
-.rule-toggle { position: relative; width: 40px; height: 22px; }
+.rules-panel { background: #1c1c1e; border-radius: 16px; padding: 20px; border: 1px solid #38383a; }
+.rules-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rules-panel-header h3 { font-size: 15px; font-weight: 600; color: #f5f5f7; display: flex; align-items: center; gap: 8px; margin: 0; }
+.rules-panel-close { background: none; border: none; color: #8e8e93; cursor: pointer; padding: 4px; border-radius: 6px; }
+.rules-panel-close:hover { background: #2c2c2e; color: #f5f5f7; }
+.rule-row { display: flex; align-items: center; justify-content: space-between; padding: 12px; border-radius: 10px; background: #2c2c2e; margin-bottom: 8px; }
+.rule-row:last-child { margin-bottom: 0; }
+.rule-info { flex: 1; margin-right: 12px; }
+.rule-name { font-size: 13px; font-weight: 500; color: #f5f5f7; }
+.rule-desc { font-size: 11px; color: #8e8e93; margin-top: 3px; line-height: 1.4; }
+.rule-toggle { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
 .rule-toggle input { opacity: 0; width: 0; height: 0; }
-.rule-toggle .slider { position: absolute; cursor: pointer; inset: 0; background: #e5e5e7; border-radius: 11px; transition: 0.2s; }
-.rule-toggle .slider::before { content: ''; position: absolute; height: 18px; width: 18px; left: 2px; bottom: 2px; background: #fff; border-radius: 50%; transition: 0.2s; }
+.rule-toggle .slider { position: absolute; cursor: pointer; inset: 0; background: #48484a; border-radius: 12px; transition: 0.2s; }
+.rule-toggle .slider::before { content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px; background: #fff; border-radius: 50%; transition: 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
 .rule-toggle input:checked + .slider { background: #34c759; }
-.rule-toggle input:checked + .slider::before { transform: translateX(18px); }
+.rule-toggle input:checked + .slider::before { transform: translateX(20px); }
+.rules-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 9998; display: none; }
+.rules-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; width: 90%; max-width: 420px; display: none; }
 
 /* === Feature 5: Custom Fields === */
 .custom-field-badge { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; padding: 2px 6px; border-radius: 10px; font-weight: 500; }
@@ -2659,6 +2664,9 @@
                             <button class="hamburger-dropdown-item" onclick="downloadICS(); toggleHamburgerMenu();">
                                 <span class="menu-icon"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i></span><span class="menu-label">Download .ics</span>
                             </button>
+                            <button class="hamburger-dropdown-item" onclick="openRulesPanel(); toggleHamburgerMenu();">
+                                <span class="menu-icon"><i data-lucide="settings" style="width:14px;height:14px;vertical-align:-2px;"></i></span><span class="menu-label">Automation Rules</span>
+                            </button>
                         </div>
                     </div>
                     <button class="secondary toolbar-hideable" id="refreshBtn"><i data-lucide="refresh-cw" style="width:14px;height:14px;"></i> Refresh</button>
@@ -2666,6 +2674,7 @@
                     <button class="secondary toolbar-hideable" id="activityBtn"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i> Activity</button>
                     <button class="secondary toolbar-hideable" id="timelineBtn"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> Timeline</button>
                     <button class="secondary toolbar-hideable" id="templateBtn"><i data-lucide="clipboard-list" style="width:14px;height:14px;vertical-align:-2px;"></i> Template</button>
+                    <button class="secondary toolbar-hideable" id="rulesBtn" onclick="openRulesPanel()" title="Automation Rules"><i data-lucide="settings" style="width:14px;height:14px;vertical-align:-2px;"></i> Rules</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
             <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i><span id="notifBadge" class="badge" style="display:none">0</span></button>
             <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> .ics</button>
@@ -2681,15 +2690,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">â</button>
+                <button class="search-clear" id="searchClear">Ã¢ÂÂ</button>
             </div>
             <div class="search-result-count" id="searchCount" style="display:none;"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter" style="display:none;">
                 <option value="">All Priorities</option>
-                <option value="1">ð´ High</option>
-                <option value="2">ð¡ Medium</option>
-                <option value="3">ð¢ Low</option>
+                <option value="1">Ã°ÂÂÂ´ High</option>
+                <option value="2">Ã°ÂÂÂ¡ Medium</option>
+                <option value="3">Ã°ÂÂÂ¢ Low</option>
             </select>
             <select class="filter-select" id="ownerFilter" style="display:none;">
                 <option value="">All Owners</option>
@@ -2719,7 +2728,7 @@
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
             <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
-            <span class="priority-strip-toggle">â¼</span>
+            <span class="priority-strip-toggle">Ã¢ÂÂ¼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
@@ -2737,11 +2746,52 @@
         
         <div id="notificationPanel" class="notification-panel"><div class="np-header"><span>Notifications</span><button onclick="clearNotifications()" style="background:none;border:none;color:#888;cursor:pointer;font-size:12px;">Clear all</button></div><div id="digestSummary" class="digest-summary" style="display:none;"></div><div class="np-body" id="notifList"></div></div>
 
+    <!-- Automation Rules Panel -->
+    <div class="rules-backdrop" id="rulesBackdrop" onclick="closeRulesPanel()"></div>
+    <div class="rules-modal" id="rulesModal">
+        <div class="rules-panel">
+            <div class="rules-panel-header">
+                <h3><i data-lucide="zap" style="width:16px;height:16px;color:#ff9f0a;"></i> Automation Rules</h3>
+                <button class="rules-panel-close" onclick="closeRulesPanel()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+            </div>
+            <div class="rule-row">
+                <div class="rule-info">
+                    <div class="rule-name">Auto-set completion date</div>
+                    <div class="rule-desc">Automatically record the completion date when a task is moved to Completed</div>
+                </div>
+                <label class="rule-toggle">
+                    <input type="checkbox" id="ruleAutoComplete" onchange="toggleRule('autoCompleteDate', this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="rule-row">
+                <div class="rule-info">
+                    <div class="rule-name">Auto-move starred tasks</div>
+                    <div class="rule-desc">Starring a task automatically moves it to In Progress</div>
+                </div>
+                <label class="rule-toggle">
+                    <input type="checkbox" id="ruleAutoStar" onchange="toggleRule('autoMoveStarred', this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="rule-row">
+                <div class="rule-info">
+                    <div class="rule-name">Auto-route Claude responses</div>
+                    <div class="rule-desc">Tasks created by Claude are automatically placed in the Claude column</div>
+                </div>
+                <label class="rule-toggle">
+                    <input type="checkbox" id="ruleAutoClaude" onchange="toggleRule('autoMoveClaude', this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-backdrop" id="addTaskModal">
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">â</button>
+                <button class="modal-close" id="addTaskClose">Ã¢ÂÂ</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2775,8 +2825,8 @@
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="christopher-todo">Christopher — To Do</option>
-                    <option value="christopher-ip">Christopher — In Progress</option>
+                    <option value="christopher-todo">Christopher â To Do</option>
+                    <option value="christopher-ip">Christopher â In Progress</option>
                     <option value="claude">Claude</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
@@ -2836,7 +2886,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">â</button>
+                <button class="modal-close" id="detailClose">Ã¢ÂÂ</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2847,7 +2897,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">â</button>
+                <button class="modal-close" id="statsClose">Ã¢ÂÂ</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2876,7 +2926,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">â</button>
+                <button class="modal-close" id="activityClose">Ã¢ÂÂ</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2896,7 +2946,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">â</button>
+                <button class="modal-close" id="templateClose">Ã¢ÂÂ</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2905,11 +2955,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher-ip')">â Christopher</button>
-        <button onclick="batchMove('claude')">â Claude</button>
-        <button onclick="batchMove('completed')">â Complete</button>
-        <button onclick="batchMove('parking')">â¸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">â</button>
+        <button onclick="batchMove('christopher-ip')">Ã¢ÂÂ Christopher</button>
+        <button onclick="batchMove('claude')">Ã¢ÂÂ Claude</button>
+        <button onclick="batchMove('completed')">Ã¢ÂÂ Complete</button>
+        <button onclick="batchMove('parking')">Ã¢ÂÂ¸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">Ã¢ÂÂ</button>
     </div>
 
 
@@ -3255,6 +3305,52 @@ function getGithubToken() {
             });
         }
 
+
+        // ========== AUTOMATION RULES ENGINE ==========
+        const defaultRules = { autoCompleteDate: true, autoMoveStarred: false, autoMoveClaude: true };
+        let automationRules = Object.assign({}, defaultRules, JSON.parse(localStorage.getItem('taskflo-rules') || '{}'));
+
+        function openRulesPanel() {
+            document.getElementById('rulesBackdrop').style.display = 'block';
+            document.getElementById('rulesModal').style.display = 'block';
+            // Sync toggle states
+            document.getElementById('ruleAutoComplete').checked = automationRules.autoCompleteDate;
+            document.getElementById('ruleAutoStar').checked = automationRules.autoMoveStarred;
+            document.getElementById('ruleAutoClaude').checked = automationRules.autoMoveClaude;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function closeRulesPanel() {
+            document.getElementById('rulesBackdrop').style.display = 'none';
+            document.getElementById('rulesModal').style.display = 'none';
+        }
+
+        function toggleRule(ruleKey, enabled) {
+            automationRules[ruleKey] = enabled;
+            localStorage.setItem('taskflo-rules', JSON.stringify(automationRules));
+            // Apply rules immediately
+            applyAutomationRules();
+            renderBoard();
+        }
+
+        function applyAutomationRules() {
+            tasks.forEach(task => {
+                // Rule 1: Auto-set completion date
+                if (automationRules.autoCompleteDate && task.status === 'completed' && !task.completed_at) {
+                    task.completed_at = new Date().toISOString();
+                }
+                // Rule 2: Auto-move starred to In Progress
+                if (automationRules.autoMoveStarred && task.pinned && task.status !== 'completed' && task.status !== 'in_progress') {
+                    task.status = 'in_progress';
+                    task.mode = 'manual';
+                }
+                // Rule 3: Auto-route Claude tasks
+                if (automationRules.autoMoveClaude && task.mode === 'auto' && task.status !== 'completed') {
+                    task.status = 'in_progress';
+                }
+            });
+        }
+
         async function flushSave() {
             if (_isSaving) {
                 _saveTimer = setTimeout(function() { flushSave(); }, 500);
@@ -3516,7 +3612,7 @@ function getGithubToken() {
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = 'â Authenticated';
+                status.textContent = 'Ã¢ÂÂ Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3660,7 +3756,7 @@ function getGithubToken() {
             if (allPill) { allPill.textContent = 'All ' + filteredTasks.length; }
         }
 
-        function renderBoard() { setTimeout(function(){if(typeof lucide!=='undefined')lucide.createIcons();},0);
+        function renderBoard() { setTimeout(function(){if(typeof lucide!=='undefined')lucide.createIcons();},0); if(typeof applyAutomationRules==='function') applyAutomationRules();
             const kanban = document.getElementById('kanban');
             kanban.innerHTML = '';
 
@@ -3870,7 +3966,7 @@ function getGithubToken() {
             if (task.delegation_notes && task.mode === 'auto') {
                 const delegationDiv = document.createElement('div');
                 delegationDiv.className = 'delegation-notes';
-                delegationDiv.innerHTML = '<div class="delegation-notes-title">ð¤ Delegation Notes</div>' +
+                delegationDiv.innerHTML = '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes</div>' +
                     '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 meta.appendChild(delegationDiv);
             }
@@ -4176,7 +4272,7 @@ function getGithubToken() {
             // Action buttons
             {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">â Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">Ã¢ÂÂ Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -4207,7 +4303,7 @@ function getGithubToken() {
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">ð¤ Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -4412,7 +4508,7 @@ function getGithubToken() {
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">Ã</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂ</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -4423,7 +4519,7 @@ function getGithubToken() {
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'Ã', '').trim();
+                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'ÃÂ', '').trim();
                 tags.push(text);
             });
             return tags;
@@ -4621,7 +4717,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'christopher-todo': 'Christopher — To Do', 'christopher-ip': 'Christopher — In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher â To Do', 'christopher-ip': 'Christopher â In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -5222,11 +5318,11 @@ document.addEventListener('keydown', (e) => {
             }
 
             const iconMap = {
-                created: 'â',
-                completed: 'â',
-                moved: 'â',
-                edited: 'â',
-                commented: 'ð¬',
+                created: 'Ã¢ÂÂ',
+                completed: 'Ã¢ÂÂ',
+                moved: 'Ã¢ÂÂ',
+                edited: 'Ã¢ÂÂ',
+                commented: 'Ã°ÂÂÂ¬',
                 attempted: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>',
                 assigned: '<i data-lucide="user" style="width:14px;height:14px;vertical-align:-2px;"></i>',
                 recurrence_spawned: '<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i>'
@@ -5234,10 +5330,10 @@ document.addEventListener('keydown', (e) => {
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'â¢'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'Ã¢ÂÂ¢'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} â by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} Ã¢ÂÂ by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -5429,7 +5525,7 @@ document.addEventListener('keydown', (e) => {
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today â nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today Ã¢ÂÂ nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -5454,7 +5550,7 @@ document.addEventListener('keydown', (e) => {
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: 'ð´', 2: 'ð¡', 3: 'ð¢' };
+                        const priNames = { 1: 'Ã°ÂÂÂ´', 2: 'Ã°ÂÂÂ¡', 3: 'Ã°ÂÂÂ¢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -5525,7 +5621,7 @@ document.addEventListener('keydown', (e) => {
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks â¢ P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks Ã¢ÂÂ¢ P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5560,7 +5656,7 @@ document.addEventListener('keydown', (e) => {
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">â</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">Ã¢ÂÂ</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5636,7 +5732,7 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: 'ð¨', approaching: 'â°', unblocked: 'ð', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
+            var icons = { overdue: 'Ã°ÂÂÂ¨', approaching: 'Ã¢ÂÂ°', unblocked: 'Ã°ÂÂÂ', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
                 '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '<i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i>') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
@@ -5763,11 +5859,11 @@ function init() {
     }
     function getDeliverableType(task) {
         var cat = categorizeTask(task);
-        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'ð'};
-        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'ð'};
-        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'â'};
-        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'ð'};
-        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'ð'};
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'Ã°ÂÂÂ'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'Ã°ÂÂÂ'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'Ã¢ÂÂ'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'Ã°ÂÂÂ'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'Ã°ÂÂÂ'};
         if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>'};
         return null;
     }
@@ -5811,8 +5907,8 @@ function init() {
             swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
             var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
             var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
-            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='â Done'; swipeState.taskEl.appendChild(ri); }
-            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park ð¿'; swipeState.taskEl.appendChild(li); }
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='Ã¢ÂÂ Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park Ã°ÂÂÂ¿'; swipeState.taskEl.appendChild(li); }
             ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
             li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
         }, {passive:false});
@@ -5989,7 +6085,7 @@ function init() {
     });
 
     
-        // ââ Hamburger Menu Toggle ââ
+        // Ã¢ÂÂÃ¢ÂÂ Hamburger Menu Toggle Ã¢ÂÂÃ¢ÂÂ
         function closeHamburgerMenu() {
     var btn = document.getElementById('hamburgerBtn');
     var dd = document.getElementById('hamburgerDropdown');
@@ -6079,7 +6175,7 @@ function updateNavArrows() {
         savePinnedToLocal();
     }
 
-    // Event delegation for star toggle — robust against DOM re-creation by Lucide
+    // Event delegation for star toggle â robust against DOM re-creation by Lucide
     document.addEventListener('click', function(e) {
         var pinBtn = e.target.closest('.task-pin-btn');
         if (!pinBtn) return;

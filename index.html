@@ -3310,41 +3310,36 @@ function getGithubToken() {
         const defaultRules = { autoCompleteDate: true, autoMoveStarred: false, autoMoveClaude: true };
         let automationRules = Object.assign({}, defaultRules, JSON.parse(localStorage.getItem('taskflo-rules') || '{}'));
 
-        function openRulesPanel() {
+        window.openRulesPanel = function() {
             document.getElementById('rulesBackdrop').style.display = 'block';
             document.getElementById('rulesModal').style.display = 'block';
-            // Sync toggle states
             document.getElementById('ruleAutoComplete').checked = automationRules.autoCompleteDate;
             document.getElementById('ruleAutoStar').checked = automationRules.autoMoveStarred;
             document.getElementById('ruleAutoClaude').checked = automationRules.autoMoveClaude;
             if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
+        };
 
-        function closeRulesPanel() {
+        window.closeRulesPanel = function() {
             document.getElementById('rulesBackdrop').style.display = 'none';
             document.getElementById('rulesModal').style.display = 'none';
-        }
+        };
 
-        function toggleRule(ruleKey, enabled) {
+        window.toggleRule = function(ruleKey, enabled) {
             automationRules[ruleKey] = enabled;
             localStorage.setItem('taskflo-rules', JSON.stringify(automationRules));
-            // Apply rules immediately
             applyAutomationRules();
             renderBoard();
-        }
+        };
 
         function applyAutomationRules() {
             tasks.forEach(task => {
-                // Rule 1: Auto-set completion date
                 if (automationRules.autoCompleteDate && task.status === 'completed' && !task.completed_at) {
                     task.completed_at = new Date().toISOString();
                 }
-                // Rule 2: Auto-move starred to In Progress
                 if (automationRules.autoMoveStarred && task.pinned && task.status !== 'completed' && task.status !== 'in_progress') {
                     task.status = 'in_progress';
                     task.mode = 'manual';
                 }
-                // Rule 3: Auto-route Claude tasks
                 if (automationRules.autoMoveClaude && task.mode === 'auto' && task.status !== 'completed') {
                     task.status = 'in_progress';
                 }

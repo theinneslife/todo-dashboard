@@ -1805,12 +1805,22 @@
     "title": "Prepare for IPO on NYSE",
     "description": "From MNTN Company Meeting (May 14, 2025): Prepare for the IPO on the New York Stock Exchange. S-1 filing is now public, IPO set to go live the day before Memorial Day weekend with bell-ringing ceremony at NYSE.",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "labels": [
       "otter-ai"
     ],
     "assignee": "Christopher",
-    "created": "2026-04-11"
+    "created": "2026-04-11",
+    "completed_at": "2026-04-12T23:10:49.205Z",
+    "activity_log": [
+      {
+        "timestamp": "2026-04-12T23:10:49.205Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      }
+    ],
+    "pinned": false
   },
   {
     "id": "bf45ba64-ecc9-4685-b402-12fde02a81ec",

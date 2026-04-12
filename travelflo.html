@@ -5279,7 +5279,7 @@ this.updateDashboardStats();
         };
 
         // ===== FEATURE: Drag-to-Reorder Trips =====
-        initDragReorder(containerId, tripIdExtractor) {
+        TravelFloApp.prototype.initDragReorder = function(containerId, tripIdExtractor) {
             const container = document.getElementById(containerId);
             if (!container) return;
             let draggedEl = null;
@@ -5322,7 +5322,7 @@ this.updateDashboardStats();
             });
         }
 
-        reorderTrips(fromId, toId) {
+        TravelFloApp.prototype.reorderTrips = function(fromId, toId) {
             const fromIdx = this.trips.findIndex(t => t.id === fromId);
             const toIdx = this.trips.findIndex(t => t.id === toId);
             if (fromIdx === -1 || toIdx === -1) return;
@@ -5336,7 +5336,7 @@ this.updateDashboardStats();
             this.initDashboard();
         }
 
-        applySavedTripOrder() {
+        TravelFloApp.prototype.applySavedTripOrder = function() {
             try {
                 const saved = localStorage.getItem('travelFloTripOrder');
                 if (!saved) return;
@@ -5353,7 +5353,7 @@ this.updateDashboardStats();
         }
 
         // ===== FEATURE: Trip Templates (User-created) =====
-        getBuiltInTemplates() {
+        TravelFloApp.prototype.getBuiltInTemplates = function() {
             return [
                 {
                     id: '__builtin_race_domestic',
@@ -5413,18 +5413,18 @@ this.updateDashboardStats();
             ];
         }
 
-        getUserTemplates() {
+        TravelFloApp.prototype.getUserTemplates = function() {
             try {
                 const stored = localStorage.getItem('travelFloUserTemplates');
                 return stored ? JSON.parse(stored) : [];
             } catch(e) { return []; }
         }
 
-        saveUserTemplates(templates) {
+        TravelFloApp.prototype.saveUserTemplates = function(templates) {
             localStorage.setItem('travelFloUserTemplates', JSON.stringify(templates));
         }
 
-        saveCurrentTripAsTemplate() {
+        TravelFloApp.prototype.saveCurrentTripAsTemplate = function() {
             const trip = this.currentEditingTrip;
             if (!trip) { this.showToast('Open a trip to save as template', 'error'); return; }
             const name = prompt('Template name:', (trip.destination || 'My Template') + ' Template');
@@ -5449,13 +5449,13 @@ this.updateDashboardStats();
             this.showToast('Template "' + name.trim() + '" saved!', 'success');
         }
 
-        deleteUserTemplate(templateId) {
+        TravelFloApp.prototype.deleteUserTemplate = function(templateId) {
             const templates = this.getUserTemplates().filter(t => t.id !== templateId);
             this.saveUserTemplates(templates);
             this.renderTemplateSelection();
         }
 
-        applyUserTemplate(templateId) {
+        TravelFloApp.prototype.applyUserTemplate = function(templateId) {
             const allTemplates = [...this.getBuiltInTemplates(), ...this.getUserTemplates()];
             const tmpl = allTemplates.find(t => t.id === templateId);
             if (!tmpl || !tmpl.data) return;
@@ -5474,7 +5474,7 @@ this.updateDashboardStats();
         }
 
         // ===== FEATURE: Multi-Leg Itinerary =====
-        renderLegsSection(trip) {
+        TravelFloApp.prototype.renderLegsSection = function(trip) {
             const legs = (trip && trip.legs) || [];
             let html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="route" style="width:16px;vertical-align:middle"></i> Trip Legs</div>';
             if (legs.length === 0) {
@@ -5502,7 +5502,7 @@ this.updateDashboardStats();
             return html;
         }
 
-        renderLegDetail(leg, idx, tripId) {
+        TravelFloApp.prototype.renderLegDetail = function(leg, idx, tripId) {
             return '<div class="leg-details">' +
                 '<div style="font-weight:600;margin-bottom:0.5rem;">Leg ' + (idx+1) + ': ' + (leg.destination || '') + '</div>' +
                 '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">' + (leg.startDate || '') + ' to ' + (leg.endDate || '') + '</span></div>' +
@@ -5515,7 +5515,7 @@ this.updateDashboardStats();
                 '</div></div>';
         }
 
-        expandLeg(idx, tripId) {
+        TravelFloApp.prototype.expandLeg = function(idx, tripId) {
             const trip = this.trips.find(t => t.id === tripId);
             if (!trip || !trip.legs || !trip.legs[idx]) return;
             const container = document.getElementById('legDetailsContainer');
@@ -5525,20 +5525,20 @@ this.updateDashboardStats();
             });
         }
 
-        openAddLegModal(tripId) {
+        TravelFloApp.prototype.openAddLegModal = function(tripId) {
             const trip = this.trips.find(t => t.id === tripId);
             if (!trip) { this.showToast('Save trip first before adding legs', 'error'); return; }
             if (!trip.legs) trip.legs = [];
             this._showLegFormModal(tripId, null);
         }
 
-        openEditLegModal(tripId, legIdx) {
+        TravelFloApp.prototype.openEditLegModal = function(tripId, legIdx) {
             const trip = this.trips.find(t => t.id === tripId);
             if (!trip || !trip.legs || !trip.legs[legIdx]) return;
             this._showLegFormModal(tripId, legIdx);
         }
 
-        _showLegFormModal(tripId, legIdx) {
+        TravelFloApp.prototype._showLegFormModal = function(tripId, legIdx) {
             const trip = this.trips.find(t => t.id === tripId);
             const leg = legIdx !== null ? trip.legs[legIdx] : {};
             const isEdit = legIdx !== null;
@@ -5563,7 +5563,7 @@ this.updateDashboardStats();
             document.body.appendChild(modal);
         }
 
-        _saveLeg(tripId, legIdx) {
+        TravelFloApp.prototype._saveLeg = function(tripId, legIdx) {
             const trip = this.trips.find(t => t.id === tripId);
             if (!trip) return;
             if (!trip.legs) trip.legs = [];
@@ -5589,7 +5589,7 @@ this.updateDashboardStats();
             if (this._detailTripId === tripId) this.showTripDetail(tripId);
         }
 
-        removeLeg(tripId, legIdx) {
+        TravelFloApp.prototype.removeLeg = function(tripId, legIdx) {
             if (!confirm('Remove this leg?')) return;
             const trip = this.trips.find(t => t.id === tripId);
             if (!trip || !trip.legs) return;
@@ -5599,7 +5599,7 @@ this.updateDashboardStats();
             this.showToast('Leg removed', 'success');
         }
 
-        renderLegsFormSection(trip) {
+        TravelFloApp.prototype.renderLegsFormSection = function(trip) {
             // For the trip edit modal - shows legs management
             const legs = (trip && trip.legs) || [];
             let html = '<div id="legsFormSection" style="margin-top:1rem;border-top:1px solid var(--border-color);padding-top:1rem;">';

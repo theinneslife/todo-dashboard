@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%2334c759' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlo Ã¢ÂÂ Action Items Dashboard</title>
+    <title>TaskFlo ÃÂ¢ÃÂÃÂ Action Items Dashboard</title>
     <style>html,body{background-color:#f5f5f7;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -406,7 +406,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: 'ÃÂ¢ÃÂÃÂ';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -522,15 +522,15 @@
         }
 
         .task-due-date.overdue::before {
-            content: 'Ã°ÂÂÂ´';
+            content: 'ÃÂ°ÃÂÃÂÃÂ´';
         }
 
         .task-due-date.today::before {
-            content: 'Ã°ÂÂÂ ';
+            content: 'ÃÂ°ÃÂÃÂÃÂ ';
         }
 
         .task-due-date.due-soon::before {
-            content: 'Ã°ÂÂÂ¡';
+            content: 'ÃÂ°ÃÂÃÂÃÂ¡';
         }
 
         .task-subtasks {
@@ -914,7 +914,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: 'ÃÂ¢ÃÂÃÂ';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1426,7 +1426,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: 'Ã¢ÂÂ';
+            content: 'ÃÂ¢ÃÂÃÂ';
             color: white;
             font-size: 10px;
             display: flex;
@@ -2198,7 +2198,7 @@
         .skeleton-line.medium { width: 80%; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        /* Ã¢ÂÂÃ¢ÂÂ Hamburger Menu for Mobile Ã¢ÂÂÃ¢ÂÂ */
+        /* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Hamburger Menu for Mobile ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
         .hamburger-menu-btn {
             display: none;
             align-items: center;
@@ -2477,7 +2477,7 @@
 .card-subtask-row { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 12px; color: #6e6e73; }
 .card-subtask-row .mini-check { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #c7c7cc; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
 .card-subtask-row .mini-check.done { background: #34c759; border-color: #34c759; }
-.card-subtask-row .mini-check.done::after { content: 'â'; color: #fff; font-size: 9px; font-weight: 700; }
+.card-subtask-row .mini-check.done::after { content: 'Ã¢ÂÂ'; color: #fff; font-size: 9px; font-weight: 700; }
 .card-subtask-row .st-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-subtask-row .st-text.done { text-decoration: line-through; opacity: 0.5; }
 .card-subtasks-toggle { font-size: 11px; color: #007aff; cursor: pointer; padding: 2px 0; display: flex; align-items: center; gap: 4px; }
@@ -2690,15 +2690,15 @@
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">Ã¢ÂÂ</button>
+                <button class="search-clear" id="searchClear">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div class="search-result-count" id="searchCount" style="display:none;"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter" style="display:none;">
                 <option value="">All Priorities</option>
-                <option value="1">Ã°ÂÂÂ´ High</option>
-                <option value="2">Ã°ÂÂÂ¡ Medium</option>
-                <option value="3">Ã°ÂÂÂ¢ Low</option>
+                <option value="1">ÃÂ°ÃÂÃÂÃÂ´ High</option>
+                <option value="2">ÃÂ°ÃÂÃÂÃÂ¡ Medium</option>
+                <option value="3">ÃÂ°ÃÂÃÂÃÂ¢ Low</option>
             </select>
             <select class="filter-select" id="ownerFilter" style="display:none;">
                 <option value="">All Owners</option>
@@ -2715,6 +2715,10 @@
         </div>
 
         
+        
+        <div class="calendar-view" id="calendarView"></div>
+        <div class="timeline-view" id="timelineView"></div>
+
         <!-- Feature 2: Timeline Strip -->
         <div class="timeline-strip" id="timelineStrip">
             <div class="timeline-header">
@@ -2728,7 +2732,7 @@
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
             <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
-            <span class="priority-strip-toggle">Ã¢ÂÂ¼</span>
+            <span class="priority-strip-toggle">ÃÂ¢ÃÂÃÂ¼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
@@ -2791,7 +2795,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Add Task</div>
-                <button class="modal-close" id="addTaskClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="addTaskClose">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div id="modalMessage"></div>
             <div class="form-group">
@@ -2825,8 +2829,8 @@
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="christopher-todo">Christopher â To Do</option>
-                    <option value="christopher-ip">Christopher â In Progress</option>
+                    <option value="christopher-todo">Christopher Ã¢ÂÂ To Do</option>
+                    <option value="christopher-ip">Christopher Ã¢ÂÂ In Progress</option>
                     <option value="claude">Claude</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
@@ -2886,7 +2890,7 @@
         <div class="modal detail-modal">
             <div class="modal-header">
                 <div class="modal-title" id="detailTitle"></div>
-                <button class="modal-close" id="detailClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="detailClose">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div id="detailContent"></div>
         </div>
@@ -2897,7 +2901,7 @@
         <div class="modal stats-modal">
             <div class="modal-header">
                 <div class="modal-title">Statistics</div>
-                <button class="modal-close" id="statsClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="statsClose">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="velocity">Velocity</button>
@@ -2926,7 +2930,7 @@
         <div class="modal activity-modal">
             <div class="modal-header">
                 <div class="modal-title">Activity Feed</div>
-                <button class="modal-close" id="activityClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="activityClose">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div class="activity-filters" id="activityFilters">
                 <button class="activity-filter-btn active" data-filter="all">All</button>
@@ -2946,7 +2950,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Create from Template</div>
-                <button class="modal-close" id="templateClose">Ã¢ÂÂ</button>
+                <button class="modal-close" id="templateClose">ÃÂ¢ÃÂÃÂ</button>
             </div>
             <div class="template-list" id="templateList"></div>
         </div>
@@ -2955,11 +2959,11 @@
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher-ip')">Ã¢ÂÂ Christopher</button>
-        <button onclick="batchMove('claude')">Ã¢ÂÂ Claude</button>
-        <button onclick="batchMove('completed')">Ã¢ÂÂ Complete</button>
-        <button onclick="batchMove('parking')">Ã¢ÂÂ¸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">Ã¢ÂÂ</button>
+        <button onclick="batchMove('christopher-ip')">ÃÂ¢ÃÂÃÂ Christopher</button>
+        <button onclick="batchMove('claude')">ÃÂ¢ÃÂÃÂ Claude</button>
+        <button onclick="batchMove('completed')">ÃÂ¢ÃÂÃÂ Complete</button>
+        <button onclick="batchMove('parking')">ÃÂ¢ÃÂÃÂ¸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">ÃÂ¢ÃÂÃÂ</button>
     </div>
 
 
@@ -3607,7 +3611,7 @@ function getGithubToken() {
             const addBtn = document.getElementById('addTaskBtn');
 
             if (githubToken) {
-                status.textContent = 'Ã¢ÂÂ Authenticated';
+                status.textContent = 'ÃÂ¢ÃÂÃÂ Authenticated';
                 status.classList.add('active');
                 addBtn.disabled = false;
             } else {
@@ -3961,7 +3965,7 @@ function getGithubToken() {
             if (task.delegation_notes && task.mode === 'auto') {
                 const delegationDiv = document.createElement('div');
                 delegationDiv.className = 'delegation-notes';
-                delegationDiv.innerHTML = '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes</div>' +
+                delegationDiv.innerHTML = '<div class="delegation-notes-title">ÃÂ°ÃÂÃÂ¤ÃÂ Delegation Notes</div>' +
                     '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 meta.appendChild(delegationDiv);
             }
@@ -4267,7 +4271,7 @@ function getGithubToken() {
             // Action buttons
             {
                 html += `<div class="detail-actions">`;
-                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">Ã¢ÂÂ Edit Task</button>`;
+                html += `<button class="primary-action" onclick="showEditTaskModal('${task.id}')">ÃÂ¢ÃÂÃÂ Edit Task</button>`;
                 html += `</div>`;
             }
 
@@ -4298,7 +4302,7 @@ function getGithubToken() {
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">Ã°ÂÂ¤Â Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">ÃÂ°ÃÂÃÂ¤ÃÂ Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -4503,7 +4507,7 @@ function getGithubToken() {
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂ</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂÃÂ</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -4514,7 +4518,7 @@ function getGithubToken() {
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'ÃÂ', '').trim();
+                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'ÃÂÃÂ', '').trim();
                 tags.push(text);
             });
             return tags;
@@ -4712,7 +4716,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'christopher-todo': 'Christopher â To Do', 'christopher-ip': 'Christopher â In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher Ã¢ÂÂ To Do', 'christopher-ip': 'Christopher Ã¢ÂÂ In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -5022,9 +5026,29 @@ function getGithubToken() {
 
         // Feature 8: Quick capture
 document.addEventListener('keydown', (e) => {
-            
+            // Skip shortcuts if user is typing in an input
+            var tag = (document.activeElement || {}).tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') {
+                if (e.key === 'Escape') { document.activeElement.blur(); }
+                return;
+            }
+            // ? - Toggle keyboard shortcuts overlay
+            if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+                var overlay = document.getElementById('shortcutOverlay');
+                if (overlay) overlay.classList.toggle('active');
+                e.preventDefault(); return;
+            }
+            if (e.key === '1') { switchView('board'); return; }
+            if (e.key === '2') { switchView('my-tasks'); return; }
+            if (e.key === '3') { switchView('habits'); return; }
+            if (e.key === '4') { switchView('calendar'); return; }
+            if (e.key === '5') { switchView('timeline'); return; }
+            if (e.key === 'n' || e.key === 'N') { document.getElementById('addTaskModal').classList.add('active'); e.preventDefault(); return; }
+            if (e.key === '/' && !e.shiftKey) { var si = document.querySelector('.search-input'); if (si) { si.focus(); e.preventDefault(); } return; }
             // Escape to close modals and clear batch selection
             if (e.key === 'Escape') {
+                var scOvl = document.getElementById('shortcutOverlay');
+                if (scOvl && scOvl.classList.contains('active')) { scOvl.classList.remove('active'); return; }
                 // Close any open modals
                 var openModals = ['detailModal','addTaskModal','statsModal','activityModal','templateModal'];
                 var closedModal = false;
@@ -5174,6 +5198,109 @@ document.addEventListener('keydown', (e) => {
         // Initialize
         
         // ============================================
+
+        // === Calendar View ===
+        var calendarMonth = new Date().getMonth();
+        var calendarYear = new Date().getFullYear();
+
+        function renderCalendarView() {
+            var container = document.getElementById('calendarView');
+            if (!container) return;
+            var d = new Date(calendarYear, calendarMonth, 1);
+            var monthName = d.toLocaleString('default', { month: 'long', year: 'numeric' });
+            var html = '<div class="calendar-nav">';
+            html += '<button onclick="calendarYear=(calendarMonth===0?calendarYear-1:calendarYear);calendarMonth=(calendarMonth===0?11:calendarMonth-1);renderCalendarView();">&larr;</button>';
+            html += '<h2>' + monthName + '</h2>';
+            html += '<button onclick="calendarYear=(calendarMonth===11?calendarYear+1:calendarYear);calendarMonth=(calendarMonth===11?0:calendarMonth+1);renderCalendarView();">&rarr;</button>';
+            html += '</div>';
+            html += '<div class="calendar-grid">';
+            var dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            dayNames.forEach(function(dn) { html += '<div class="calendar-day-header">' + dn + '</div>'; });
+            var firstDay = new Date(calendarYear, calendarMonth, 1).getDay();
+            var daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+            var prevMonthDays = new Date(calendarYear, calendarMonth, 0).getDate();
+            var today = new Date(); today.setHours(0,0,0,0);
+            var tasksByDate = {};
+            (filteredTasks || tasks || []).forEach(function(t) {
+                if (t.due_date) { var key = t.due_date.substring(0,10); if (!tasksByDate[key]) tasksByDate[key] = []; tasksByDate[key].push(t); }
+            });
+            for (var i = firstDay - 1; i >= 0; i--) {
+                html += '<div class="calendar-day other-month"><div class="cal-date">' + (prevMonthDays - i) + '</div></div>';
+            }
+            for (var day = 1; day <= daysInMonth; day++) {
+                var cellDate = new Date(calendarYear, calendarMonth, day);
+                var isToday = cellDate.getTime() === today.getTime();
+                var cls = 'calendar-day' + (isToday ? ' today' : '');
+                var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+                var dateKey = calendarYear + '-' + pad(calendarMonth + 1) + '-' + pad(day);
+                var dayTasks = tasksByDate[dateKey] || [];
+                html += '<div class="' + cls + '">';
+                html += '<div class="cal-date">' + day + '</div>';
+                dayTasks.forEach(function(t) {
+                    var pColor = t.priority === 'p1' ? '#ff3b30' : t.priority === 'p2' ? '#ff9f0a' : t.priority === 'p3' ? '#007aff' : '#8e8e93';
+                    var isDone = t.status === 'completed';
+                    html += '<div style="font-size:10px;padding:1px 4px;margin:1px 0;border-radius:3px;background:' + pColor + '20;color:' + pColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;' + (isDone ? 'text-decoration:line-through;opacity:0.5;' : '') + '" onclick="openDetail(\'' + t.id + '\')" title="' + (t.title||'').replace(/"/g,'&quot;') + '">' + (t.title||'Untitled').substring(0,20) + '</div>';
+                });
+                html += '</div>';
+            }
+            var totalCells = firstDay + daysInMonth;
+            var remaining = (7 - (totalCells % 7)) % 7;
+            for (var r = 1; r <= remaining; r++) {
+                html += '<div class="calendar-day other-month"><div class="cal-date">' + r + '</div></div>';
+            }
+            html += '</div>';
+            container.innerHTML = html;
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // === Timeline / Gantt View ===
+        function renderTimelineView() {
+            var container = document.getElementById('timelineView');
+            if (!container) return;
+            var today = new Date(); today.setHours(0,0,0,0);
+            var weeksToShow = 8;
+            var startDate = new Date(today); startDate.setDate(startDate.getDate() - startDate.getDay());
+            var endDate = new Date(startDate); endDate.setDate(endDate.getDate() + weeksToShow * 7);
+            var totalDays = weeksToShow * 7;
+            var tasksWithDue = (filteredTasks || tasks || []).filter(function(t) { return t.due_date && t.status !== 'completed'; });
+            tasksWithDue.sort(function(a, b) { return a.due_date.localeCompare(b.due_date); });
+            var html = '<div class="timeline-header"><h2>Timeline</h2></div>';
+            html += '<div class="gantt-container">';
+            html += '<div class="gantt-header"><div class="gantt-label-col">Task</div><div class="gantt-time-cols">';
+            for (var w = 0; w < weeksToShow; w++) {
+                var weekStart = new Date(startDate); weekStart.setDate(weekStart.getDate() + w * 7);
+                var label = weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                html += '<div class="gantt-week-col">' + label + '</div>';
+            }
+            html += '</div></div>';
+            var todayOffset = Math.floor((today - startDate) / 86400000);
+            if (tasksWithDue.length === 0) {
+                html += '<div style="padding:40px;text-align:center;color:#8e8e93;">No tasks with due dates</div>';
+            }
+            tasksWithDue.forEach(function(t) {
+                var dueDate = new Date(t.due_date + 'T00:00:00');
+                var dueOffset = Math.floor((dueDate - startDate) / 86400000);
+                if (dueOffset < 0 || dueOffset >= totalDays) return;
+                var barStart = Math.max(0, dueOffset - 3);
+                var barEnd = dueOffset;
+                var barLeftPct = (barStart / totalDays * 100).toFixed(2);
+                var barWidthPct = Math.max(((barEnd - barStart + 1) / totalDays * 100), 2).toFixed(2);
+                var pClass = t.priority === 'p1' ? 'p1' : t.priority === 'p2' ? 'p2' : t.priority === 'p3' ? 'p3' : 'default';
+                html += '<div class="gantt-row">';
+                html += '<div class="gantt-row-label" title="' + (t.title||'').replace(/"/g,'&quot;') + '">' + (t.title||'Untitled').substring(0,22) + '</div>';
+                html += '<div class="gantt-row-track" style="position:relative;">';
+                for (var w2 = 0; w2 < weeksToShow; w2++) { html += '<div class="gantt-cell"></div>'; }
+                html += '<div class="gantt-bar ' + pClass + '" style="left:' + barLeftPct + '%;width:' + barWidthPct + '%;"></div>';
+                html += '</div></div>';
+            });
+            if (todayOffset >= 0 && todayOffset < totalDays) {
+                var todayPct = (todayOffset / totalDays * 100).toFixed(2);
+                html += '<div class="gantt-today-line" style="left:calc(180px + ' + todayPct + '% * (100% - 180px) / 100);"></div>';
+            }
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
         // FEATURE 2: Timeline / Calendar Strip
         // ============================================
         function renderTimeline() {
@@ -5313,11 +5440,11 @@ document.addEventListener('keydown', (e) => {
             }
 
             const iconMap = {
-                created: 'Ã¢ÂÂ',
-                completed: 'Ã¢ÂÂ',
-                moved: 'Ã¢ÂÂ',
-                edited: 'Ã¢ÂÂ',
-                commented: 'Ã°ÂÂÂ¬',
+                created: 'ÃÂ¢ÃÂÃÂ',
+                completed: 'ÃÂ¢ÃÂÃÂ',
+                moved: 'ÃÂ¢ÃÂÃÂ',
+                edited: 'ÃÂ¢ÃÂÃÂ',
+                commented: 'ÃÂ°ÃÂÃÂÃÂ¬',
                 attempted: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>',
                 assigned: '<i data-lucide="user" style="width:14px;height:14px;vertical-align:-2px;"></i>',
                 recurrence_spawned: '<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i>'
@@ -5325,10 +5452,10 @@ document.addEventListener('keydown', (e) => {
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'Ã¢ÂÂ¢'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'ÃÂ¢ÃÂÃÂ¢'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} Ã¢ÂÂ by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} ÃÂ¢ÃÂÃÂ by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -5446,6 +5573,11 @@ document.addEventListener('keydown', (e) => {
       if (myTasks) { myTasks.style.display = 'none'; myTasks.classList.remove('active'); }
       if (habits) habits.style.display = 'none';
       
+      var calView = document.getElementById('calendarView');
+      var tlView = document.getElementById('timelineView');
+      if (calView) { calView.style.display = 'none'; calView.classList.remove('active'); }
+      if (tlView) { tlView.style.display = 'none'; tlView.classList.remove('active'); }
+
       if (view === 'board') {
         if (kanban) kanban.style.display = 'flex';
       } else if (view === 'my-tasks') {
@@ -5454,6 +5586,12 @@ document.addEventListener('keydown', (e) => {
       } else if (view === 'habits') {
         if (habits) habits.style.display = 'block';
         if (typeof renderHabitsView === 'function') renderHabitsView();
+      } else if (view === 'calendar') {
+        if (calView) { calView.style.display = 'block'; calView.classList.add('active'); }
+        if (typeof renderCalendarView === 'function') renderCalendarView();
+      } else if (view === 'timeline') {
+        if (tlView) { tlView.style.display = 'block'; tlView.classList.add('active'); }
+        if (typeof renderTimelineView === 'function') renderTimelineView();
       }
       // Toggle controls visibility for non-board views
         var controls = document.querySelector('.controls');
@@ -5520,7 +5658,7 @@ document.addEventListener('keydown', (e) => {
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today Ã¢ÂÂ nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today ÃÂ¢ÃÂÃÂ nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -5545,7 +5683,7 @@ document.addEventListener('keydown', (e) => {
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: 'Ã°ÂÂÂ´', 2: 'Ã°ÂÂÂ¡', 3: 'Ã°ÂÂÂ¢' };
+                        const priNames = { 1: 'ÃÂ°ÃÂÃÂÃÂ´', 2: 'ÃÂ°ÃÂÃÂÃÂ¡', 3: 'ÃÂ°ÃÂÃÂÃÂ¢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -5616,7 +5754,7 @@ document.addEventListener('keydown', (e) => {
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks Ã¢ÂÂ¢ P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks ÃÂ¢ÃÂÃÂ¢ P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5651,7 +5789,7 @@ document.addEventListener('keydown', (e) => {
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">Ã¢ÂÂ</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">ÃÂ¢ÃÂÃÂ</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -5727,7 +5865,7 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: 'Ã°ÂÂÂ¨', approaching: 'Ã¢ÂÂ°', unblocked: 'Ã°ÂÂÂ', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
+            var icons = { overdue: 'ÃÂ°ÃÂÃÂÃÂ¨', approaching: 'ÃÂ¢ÃÂÃÂ°', unblocked: 'ÃÂ°ÃÂÃÂÃÂ', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
                 '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '<i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i>') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
@@ -5854,11 +5992,11 @@ function init() {
     }
     function getDeliverableType(task) {
         var cat = categorizeTask(task);
-        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'Ã°ÂÂÂ'};
-        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'Ã°ÂÂÂ'};
-        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'Ã¢ÂÂ'};
-        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'Ã°ÂÂÂ'};
-        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'Ã°ÂÂÂ'};
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'ÃÂ°ÃÂÃÂÃÂ'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'ÃÂ°ÃÂÃÂÃÂ'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'ÃÂ¢ÃÂÃÂ'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'ÃÂ°ÃÂÃÂÃÂ'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'ÃÂ°ÃÂÃÂÃÂ'};
         if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>'};
         return null;
     }
@@ -5902,8 +6040,8 @@ function init() {
             swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
             var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
             var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
-            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='Ã¢ÂÂ Done'; swipeState.taskEl.appendChild(ri); }
-            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park Ã°ÂÂÂ¿'; swipeState.taskEl.appendChild(li); }
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='ÃÂ¢ÃÂÃÂ Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park ÃÂ°ÃÂÃÂÃÂ¿'; swipeState.taskEl.appendChild(li); }
             ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
             li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
         }, {passive:false});
@@ -6080,7 +6218,7 @@ function init() {
     });
 
     
-        // Ã¢ÂÂÃ¢ÂÂ Hamburger Menu Toggle Ã¢ÂÂÃ¢ÂÂ
+        // ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Hamburger Menu Toggle ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
         function closeHamburgerMenu() {
     var btn = document.getElementById('hamburgerBtn');
     var dd = document.getElementById('hamburgerDropdown');
@@ -6170,7 +6308,7 @@ function updateNavArrows() {
         savePinnedToLocal();
     }
 
-    // Event delegation for star toggle â robust against DOM re-creation by Lucide
+    // Event delegation for star toggle Ã¢ÂÂ robust against DOM re-creation by Lucide
     document.addEventListener('click', function(e) {
         var pinBtn = e.target.closest('.task-pin-btn');
         if (!pinBtn) return;
@@ -6255,5 +6393,27 @@ function updateNavArrows() {
         }
 
     </script>
+
+    <div class="shortcut-overlay" id="shortcutOverlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="shortcut-panel">
+            <h2><i data-lucide="keyboard" style="width:20px;height:20px"></i> Keyboard Shortcuts</h2>
+            <div class="shortcut-group">
+                <h3>Navigation</h3>
+                <div class="shortcut-row"><span class="shortcut-desc">Show shortcuts</span><span class="shortcut-key"><kbd>?</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Board view</span><span class="shortcut-key"><kbd>1</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">My Tasks view</span><span class="shortcut-key"><kbd>2</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Habits view</span><span class="shortcut-key"><kbd>3</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Calendar view</span><span class="shortcut-key"><kbd>4</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Timeline view</span><span class="shortcut-key"><kbd>5</kbd></span></div>
+            </div>
+            <div class="shortcut-group">
+                <h3>Actions</h3>
+                <div class="shortcut-row"><span class="shortcut-desc">New task</span><span class="shortcut-key"><kbd>N</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Search tasks</span><span class="shortcut-key"><kbd>/</kbd></span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Close / Cancel</span><span class="shortcut-key"><kbd>Esc</kbd></span></div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

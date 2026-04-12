@@ -1283,7 +1283,7 @@
     "title": "Buy a battery for race",
     "description": "",
     "priority": 2,
-    "status": "in_progress",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1302,6 +1302,12 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-12T22:05:44.731Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to christopher-todo"
       }
     ],
     "created_at": "2026-04-06T01:52:21.775Z",

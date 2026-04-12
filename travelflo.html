@@ -1880,7 +1880,148 @@
 /* ===== OFFLINE INDICATOR ===== */
 .offline-banner { position: fixed; top: 0; left: 0; right: 0; background: #f59e0b; color: #1a1a2e; text-align: center; padding: 4px; font-size: 12px; font-weight: 500; z-index: 10000; transform: translateY(-100%); transition: transform 0.3s; }
 .offline-banner.visible { transform: translateY(0); }
-</style>
+
+        /* ===== FEATURE: Drag-to-Reorder ===== */
+        .all-trip-card[draggable="true"] { cursor: grab; }
+        .all-trip-card[draggable="true"]:active { cursor: grabbing; }
+        .all-trip-card.dragging {
+            opacity: 0.4;
+            transform: scale(0.98);
+            box-shadow: 0 8px 32px rgba(96, 165, 250, 0.3);
+            transition: opacity 0.15s, transform 0.15s;
+        }
+        .all-trip-card.drag-over {
+            border-top: 3px solid var(--accent-blue);
+            margin-top: -3px;
+        }
+        .timeline-trip-card[draggable="true"] { cursor: grab; }
+        .timeline-trip-card[draggable="true"]:active { cursor: grabbing; }
+        .timeline-trip-card.dragging { opacity: 0.4; transform: scale(0.95); }
+        .timeline-trip-card.drag-over { border-top: 3px solid var(--accent-blue); }
+        .drag-placeholder {
+            min-height: 60px;
+            border: 2px dashed var(--accent-blue);
+            border-radius: 12px;
+            background: rgba(96, 165, 250, 0.08);
+            margin: 4px 0;
+            transition: all 0.2s;
+        }
+
+        /* ===== FEATURE: Trip Templates ===== */
+        .save-template-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .save-template-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(167,139,250,0.3); }
+        .user-template-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.75rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+            position: relative;
+        }
+        .user-template-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+        .user-template-card .template-delete-btn {
+            position: absolute; top: 4px; right: 6px;
+            background: none; border: none; color: var(--text-muted);
+            cursor: pointer; font-size: 0.75rem; padding: 2px 4px; border-radius: 4px;
+        }
+        .user-template-card .template-delete-btn:hover { color: var(--accent-red); background: rgba(248,113,113,0.1); }
+        .template-divider {
+            display: flex; align-items: center; gap: 0.75rem;
+            color: var(--text-muted); font-size: 0.75rem; margin: 0.75rem 0;
+        }
+        .template-divider::before, .template-divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--border-color);
+        }
+
+        /* ===== FEATURE: Multi-Leg Itinerary ===== */
+        .legs-stepper {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+        }
+        .leg-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            padding: 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            flex-shrink: 0;
+        }
+        .leg-step:hover { border-color: var(--accent-blue); }
+        .leg-step.active { border-color: var(--accent-blue); background: rgba(96,165,250,0.1); }
+        .leg-step-dest { font-weight: 600; font-size: 0.85rem; color: var(--text-primary); white-space: nowrap; }
+        .leg-step-dates { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+        .leg-arrow {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            padding: 0 0.25rem;
+            flex-shrink: 0;
+        }
+        .leg-details {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
+        .leg-details .detail-row { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.85rem; }
+        .leg-details .detail-label { color: var(--text-muted); }
+        .leg-details .detail-value { color: var(--text-primary); font-weight: 500; }
+        .add-leg-btn {
+            background: transparent;
+            border: 2px dashed var(--border-color);
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: border-color 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            min-width: 100px;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .add-leg-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+        .leg-form-group { margin-bottom: 0.75rem; }
+        .leg-form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+        .leg-form-group input, .leg-form-group textarea {
+            width: 100%; padding: 0.5rem; background: var(--bg-secondary);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            color: var(--text-primary); font-size: 0.85rem;
+        }
+        .remove-leg-btn {
+            background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3);
+            color: var(--accent-red); padding: 0.4rem 0.8rem; border-radius: 6px;
+            cursor: pointer; font-size: 0.75rem; margin-top: 0.5rem;
+        }
+        .remove-leg-btn:hover { background: rgba(248,113,113,0.2); }
+
+        </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Leaflet.js for Map View -->
@@ -2340,6 +2481,7 @@
             loadTrips() {
             const stored = localStorage.getItem('travelFloTrips');
             this.trips = stored ? JSON.parse(stored) : [];
+            this.applySavedTripOrder();
             // Async fetch from trips.json to get authoritative data
             this.loadTripsFromJson();
         }
@@ -2463,6 +2605,7 @@
                 trip.budget = trip.budget || 0;
                 trip.expenses = trip.expenses || [];
                 trip.packingList = trip.packingList || {};
+                trip.legs = trip.legs || [];
                 this.trips.push(trip);
                 this.saveTrips();
                 return trip;
@@ -2668,6 +2811,30 @@
                 } else { modalPhoto.style.display = "none";
             } }
 
+                    // Add "Save as Template" button in edit mode
+                    var saveTemplateArea = document.getElementById('saveTemplateArea');
+                    if (!saveTemplateArea) {
+                        saveTemplateArea = document.createElement('div');
+                        saveTemplateArea.id = 'saveTemplateArea';
+                        saveTemplateArea.style.cssText = 'margin:0.75rem 0;';
+                        var modalTitle = document.getElementById('modalTitle');
+                        if (modalTitle && modalTitle.parentNode) modalTitle.parentNode.insertBefore(saveTemplateArea, modalTitle.nextSibling);
+                    }
+                    if (saveTemplateArea) {
+                        saveTemplateArea.innerHTML = '<button type="button" class="save-template-btn" onclick="app.saveCurrentTripAsTemplate()"><i data-lucide="bookmark-plus" style="width:14px;height:14px"></i> Save as Template</button>';
+                    }
+                    // Show legs section in edit mode
+                    var legsArea = document.getElementById('legsFormArea');
+                    if (!legsArea) {
+                        legsArea = document.createElement('div');
+                        legsArea.id = 'legsFormArea';
+                        var tripForm = document.getElementById('tripForm');
+                        var saveBtn = document.getElementById('saveBtn') || tripForm.querySelector('button[type="submit"]');
+                        if (saveBtn && saveBtn.parentNode) saveBtn.parentNode.insertBefore(legsArea, saveBtn);
+                    }
+                    if (legsArea && this.currentEditingTrip) {
+                        legsArea.innerHTML = this.renderLegsFormSection(this.currentEditingTrip);
+                    }
                 } else {
                     // Create mode - show templates
                     document.getElementById('modalTitle').innerHTML = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
@@ -2690,13 +2857,40 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     { id: 'adventure', name: 'Adventure Trip', icon: '<i data-lucide="mountain" style="width:24px;height:24px;margin:0 auto"></i>', desc: 'Outdoor activities', packingCategories: ['Essentials', 'Clothing', 'Electronics', 'Documents'] }
                 ];
 
-                const html = templates.map(t => `
+                // Built-in race/vacation templates
+                const builtInTemplates = this.getBuiltInTemplates();
+                const userTemplates = this.getUserTemplates();
+
+                let html = templates.map(t => `
                     <div class="template-card" onclick="app.selectTemplate('${t.id}')">
                         <div class="template-icon">${t.icon}</div>
                         <div class="template-name">${t.name}</div>
                         <div class="template-desc">${t.desc}</div>
                     </div>
                 `).join('');
+
+                // Add built-in race/vacation templates
+                html += '<div class="template-divider">Built-in Templates</div>';
+                html += builtInTemplates.map(t => `
+                    <div class="template-card" onclick="app.applyUserTemplate('${t.id}')">
+                        <div class="template-icon">${t.icon}</div>
+                        <div class="template-name">${t.name}</div>
+                        <div class="template-desc">${t.desc}</div>
+                    </div>
+                `).join('');
+
+                // User-saved templates
+                if (userTemplates.length > 0) {
+                    html += '<div class="template-divider">Your Saved Templates</div>';
+                    html += userTemplates.map(t => `
+                        <div class="user-template-card" onclick="app.applyUserTemplate('${t.id}')">
+                            <button class="template-delete-btn" onclick="event.stopPropagation(); app.deleteUserTemplate('${t.id}')">✕</button>
+                            <div class="template-icon">${t.icon || '<i data-lucide="bookmark" style="width:24px;height:24px;margin:0 auto"></i>'}</div>
+                            <div class="template-name">${t.name}</div>
+                            <div class="template-desc">${t.desc || 'Custom template'}</div>
+                        </div>
+                    `).join('');
+                }
 
                 document.getElementById('templatesGrid').innerHTML = html;
 if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
@@ -3034,7 +3228,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         dropBags: document.getElementById('raceDropBagsInput') ? document.getElementById('raceDropBagsInput').value : '',
                         crewPoints: document.getElementById('raceCrewInput') ? document.getElementById('raceCrewInput').value : ''
                     } : null,
-                    documents: this.currentEditingTrip ? (this.currentEditingTrip.documents || []) : []
+                    documents: this.currentEditingTrip ? (this.currentEditingTrip.documents || []) : [],
+                    legs: this.currentEditingTrip ? (this.currentEditingTrip.legs || []) : []
                 };
 
                 if (this.currentEditingTrip) {
@@ -3599,6 +3794,15 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
             });
+            // Init drag-to-reorder on allTrips grid
+            setTimeout(() => {
+                this.initDragReorder('allTripsGrid', (card) => {
+                    const onclick = card.getAttribute('onclick') || '';
+                    const m = onclick.match(/showTripDetail\(['\\x27]+(.*?)['\\x27]+\)/);
+                    return m ? m[1] : '';
+                });
+            }, 100);
+            if (window.lucide) setTimeout(() => lucide.createIcons(), 50);
         }
 
         filterAllTrips(filter) { this.renderAllTrips(filter); }
@@ -3850,6 +4054,9 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             // Add Share Section (Feature 8)
             html += '<div class="detail-section">' + self.renderShareSection(trip) + '</div>';
 
+            // Add Multi-Leg Itinerary section
+            html += self.renderLegsSection(trip);
+
             // Add Calendar Export (Feature 9)
             html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="calendar-days" style="width:16px;vertical-align:middle"></i> Calendar</div>';
             html += '<button class="cal-export-btn" onclick="window.app.generateICS(\'' + trip.id + '\')"><i data-lucide="download" style="width:14px;height:14px"></i> Export to Calendar (.ics)</button>';
@@ -3900,7 +4107,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                         // Preserve all app-level fields so they survive round-trips
                         flights: t.flights||[], accommodation: t.accommodation||null,
                         budget: t.budget||0, expenses: t.expenses||[],
-                        packingList: t.packingList||{}, colorIndex: t.colorIndex||0 };
+                        packingList: t.packingList||{}, colorIndex: t.colorIndex||0, legs: t.legs||[] };
                 }), templates: [], settings: {} };
                 var content = btoa(unescape(encodeURIComponent(JSON.stringify(tripsJson, null, 2))));
                 await fetch("https://api.github.com/repos/theinneslife/todo-dashboard/contents/trips.json", {
@@ -4138,6 +4345,14 @@ this.updateDashboardStats();
                 <div class="timeline-trip-countdown">${label}</div>
             </div>`;
         }).join('');
+        // Init drag-to-reorder on dashboard upcoming timeline
+        setTimeout(() => {
+            this.initDragReorder('upcomingTripsTimeline', (card) => {
+                const onclick = card.getAttribute('onclick') || '';
+                const m = onclick.match(/showTripDetail\(['"]+(.*?)['"]+\)/);
+                return m ? m[1] : '';
+            });
+        }, 100);
     }
 
     updateExpenseOverview() {
@@ -5113,6 +5328,353 @@ this.updateDashboardStats();
 
             sampleTrips.forEach(trip => app.addTrip(trip));
 
+
+
+        // ===== FEATURE: Drag-to-Reorder Trips =====
+        initDragReorder(containerId, tripIdExtractor) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            let draggedEl = null;
+            let draggedId = null;
+            const cards = container.querySelectorAll('.all-trip-card, .timeline-trip-card');
+            cards.forEach(card => {
+                card.setAttribute('draggable', 'true');
+                card.addEventListener('dragstart', (e) => {
+                    draggedEl = card;
+                    draggedId = tripIdExtractor(card);
+                    card.classList.add('dragging');
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData('text/plain', draggedId);
+                });
+                card.addEventListener('dragend', () => {
+                    card.classList.remove('dragging');
+                    container.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+                    container.querySelectorAll('.drag-placeholder').forEach(el => el.remove());
+                    draggedEl = null;
+                    draggedId = null;
+                });
+                card.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    if (card !== draggedEl) {
+                        container.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+                        card.classList.add('drag-over');
+                    }
+                });
+                card.addEventListener('dragleave', () => {
+                    card.classList.remove('drag-over');
+                });
+                card.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    card.classList.remove('drag-over');
+                    if (!draggedEl || card === draggedEl) return;
+                    const targetId = tripIdExtractor(card);
+                    this.reorderTrips(draggedId, targetId);
+                });
+            });
+        }
+
+        reorderTrips(fromId, toId) {
+            const fromIdx = this.trips.findIndex(t => t.id === fromId);
+            const toIdx = this.trips.findIndex(t => t.id === toId);
+            if (fromIdx === -1 || toIdx === -1) return;
+            const [moved] = this.trips.splice(fromIdx, 1);
+            this.trips.splice(toIdx, 0, moved);
+            // Save custom order
+            const orderArr = this.trips.map(t => t.id);
+            localStorage.setItem('travelFloTripOrder', JSON.stringify(orderArr));
+            this.saveTrips();
+            this.renderAllTrips();
+            this.initDashboard();
+        }
+
+        applySavedTripOrder() {
+            try {
+                const saved = localStorage.getItem('travelFloTripOrder');
+                if (!saved) return;
+                const order = JSON.parse(saved);
+                if (!Array.isArray(order) || order.length === 0) return;
+                const orderMap = {};
+                order.forEach((id, idx) => { orderMap[id] = idx; });
+                this.trips.sort((a, b) => {
+                    const aIdx = orderMap[a.id] !== undefined ? orderMap[a.id] : 9999;
+                    const bIdx = orderMap[b.id] !== undefined ? orderMap[b.id] : 9999;
+                    return aIdx - bIdx;
+                });
+            } catch(e) { console.log('Order restore error:', e); }
+        }
+
+        // ===== FEATURE: Trip Templates (User-created) =====
+        getBuiltInTemplates() {
+            return [
+                {
+                    id: '__builtin_race_domestic',
+                    name: 'Race Domestic',
+                    icon: '<i data-lucide="trophy" style="width:24px;height:24px;margin:0 auto"></i>',
+                    desc: 'Domestic ultra/race trip',
+                    builtin: true,
+                    data: {
+                        packingList: {
+                            'Race Gear': ['Race bib & pins', 'GPS watch', 'Headlamp + backup', 'Hydration vest', 'Handheld bottles', 'Trekking poles'],
+                            'Nutrition': ['Gels (10+)', 'Chews/bars', 'Electrolyte tabs', 'Salt capsules', 'Real food (PB sandwiches)'],
+                            'Clothing': ['Race shoes', 'Backup shoes', 'Socks (3 pair)', 'Shorts', 'Shirt', 'Arm sleeves', 'Rain jacket', 'Warm layer'],
+                            'Drop Bags': ['Change of socks', 'Extra nutrition', 'Headlamp batteries', 'Body glide', 'Sunscreen'],
+                            'Documents': ['Race confirmation', 'ID', 'Insurance card', 'Emergency contacts']
+                        },
+                        documents: ['Race waiver', 'Course map', 'Crew instructions', 'Aid station chart'],
+                        budgetCategories: ['Registration', 'Travel', 'Accommodation', 'Gear', 'Nutrition']
+                    }
+                },
+                {
+                    id: '__builtin_race_international',
+                    name: 'Race International',
+                    icon: '<i data-lucide="globe" style="width:24px;height:24px;margin:0 auto"></i>',
+                    desc: 'International race trip',
+                    builtin: true,
+                    data: {
+                        packingList: {
+                            'Race Gear': ['Race bib & pins', 'GPS watch', 'Headlamp + backup', 'Hydration vest', 'Handheld bottles', 'Trekking poles', 'Emergency whistle', 'Survival blanket'],
+                            'Nutrition': ['Gels (15+)', 'Chews/bars', 'Electrolyte tabs', 'Salt capsules', 'Real food'],
+                            'Clothing': ['Race shoes', 'Backup shoes', 'Trail shoes', 'Socks (5 pair)', 'Shorts (2)', 'Shirts (2)', 'Rain jacket', 'Warm layer', 'Compression tights'],
+                            'Travel Essentials': ['Passport', 'Visa docs', 'Travel insurance', 'Power adapter', 'Phone charger', 'Offline maps'],
+                            'Medical': ['Prescription meds', 'Blister kit', 'Tape/KT tape', 'Pain relievers', 'Anti-diarrheal', 'Sunscreen SPF50'],
+                            'Documents': ['Race confirmation', 'Passport copy', 'Insurance card', 'Emergency contacts', 'Embassy info']
+                        },
+                        documents: ['Passport', 'Race waiver', 'Travel insurance', 'Course map', 'Visa confirmation'],
+                        budgetCategories: ['Registration', 'Flights', 'Accommodation', 'Gear', 'Nutrition', 'Visa/Fees']
+                    }
+                },
+                {
+                    id: '__builtin_vacation_beach',
+                    name: 'Vacation Beach',
+                    icon: '<i data-lucide="sun" style="width:24px;height:24px;margin:0 auto"></i>',
+                    desc: 'Beach/resort vacation',
+                    builtin: true,
+                    data: {
+                        packingList: {
+                            'Clothing': ['Swimsuits (3)', 'Cover-ups', 'Sundresses/shorts', 'Sandals', 'Nice dinner outfit', 'Hat', 'Sunglasses'],
+                            'Beach Essentials': ['Sunscreen SPF50+', 'After-sun aloe', 'Beach towel', 'Waterproof phone pouch', 'Snorkel gear', 'Beach bag'],
+                            'Toiletries': ['Toothbrush', 'Shampoo/conditioner', 'Deodorant', 'Moisturizer', 'Insect repellent'],
+                            'Electronics': ['Phone charger', 'Portable battery', 'Camera', 'Kindle/book'],
+                            'Documents': ['Passport/ID', 'Hotel confirmation', 'Travel insurance']
+                        },
+                        documents: ['Hotel confirmation', 'Travel insurance', 'Restaurant reservations'],
+                        budgetCategories: ['Flights', 'Hotel', 'Food & Drinks', 'Activities', 'Shopping']
+                    }
+                }
+            ];
+        }
+
+        getUserTemplates() {
+            try {
+                const stored = localStorage.getItem('travelFloUserTemplates');
+                return stored ? JSON.parse(stored) : [];
+            } catch(e) { return []; }
+        }
+
+        saveUserTemplates(templates) {
+            localStorage.setItem('travelFloUserTemplates', JSON.stringify(templates));
+        }
+
+        saveCurrentTripAsTemplate() {
+            const trip = this.currentEditingTrip;
+            if (!trip) { this.showToast('Open a trip to save as template', 'error'); return; }
+            const name = prompt('Template name:', (trip.destination || 'My Template') + ' Template');
+            if (!name || !name.trim()) return;
+            const template = {
+                id: 'user_' + Date.now(),
+                name: name.trim(),
+                icon: '<i data-lucide="bookmark" style="width:24px;height:24px;margin:0 auto"></i>',
+                desc: 'Custom template',
+                builtin: false,
+                data: {
+                    packingList: JSON.parse(JSON.stringify(trip.packingList || {})),
+                    documents: (trip.documents || []).slice(),
+                    budgetCategories: (trip.expenses || []).map(e => e.category).filter((v,i,a) => a.indexOf(v) === i),
+                    tripType: trip.tripType || trip.type || 'vacation',
+                    budget: trip.budget || 0
+                }
+            };
+            const templates = this.getUserTemplates();
+            templates.push(template);
+            this.saveUserTemplates(templates);
+            this.showToast('Template "' + name.trim() + '" saved!', 'success');
+        }
+
+        deleteUserTemplate(templateId) {
+            const templates = this.getUserTemplates().filter(t => t.id !== templateId);
+            this.saveUserTemplates(templates);
+            this.renderTemplateSelection();
+        }
+
+        applyUserTemplate(templateId) {
+            const allTemplates = [...this.getBuiltInTemplates(), ...this.getUserTemplates()];
+            const tmpl = allTemplates.find(t => t.id === templateId);
+            if (!tmpl || !tmpl.data) return;
+            document.getElementById('templateSelection').style.display = 'none';
+            this.currentTemplatePackingList = tmpl.data.packingList || {};
+            this.renderPackingSection();
+            if (tmpl.data.budget) {
+                document.getElementById('budgetInput').value = tmpl.data.budget;
+                this.showExpensesSection();
+            }
+            if (tmpl.data.tripType) {
+                const typeInput = document.getElementById('tripTypeInput');
+                if (typeInput) typeInput.value = tmpl.data.tripType;
+            }
+            this.showToast('Template "' + tmpl.name + '" applied', 'success');
+        }
+
+        // ===== FEATURE: Multi-Leg Itinerary =====
+        renderLegsSection(trip) {
+            const legs = (trip && trip.legs) || [];
+            let html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="route" style="width:16px;vertical-align:middle"></i> Trip Legs</div>';
+            if (legs.length === 0) {
+                html += '<div style="color:var(--text-muted);font-size:0.85rem;">No legs added. Click below to add stops.</div>';
+            } else {
+                // Stepper
+                html += '<div class="legs-stepper">';
+                legs.forEach((leg, idx) => {
+                    if (idx > 0) html += '<div class="leg-arrow">→</div>';
+                    const startD = leg.startDate ? new Date(leg.startDate + 'T00:00:00').toLocaleDateString([], {month:'short',day:'numeric'}) : '';
+                    const endD = leg.endDate ? new Date(leg.endDate + 'T00:00:00').toLocaleDateString([], {month:'short',day:'numeric'}) : '';
+                    html += '<div class="leg-step' + (idx === 0 ? ' active' : '') + '" data-leg-idx="' + idx + '" onclick="app.expandLeg(' + idx + ', \'' + (trip.id || '') + '\')">';
+                    html += '<div class="leg-step-dest">' + (leg.destination || 'Leg ' + (idx+1)) + '</div>';
+                    html += '<div class="leg-step-dates">' + startD + (endD ? ' - ' + endD : '') + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+                // Expanded leg details (show first by default)
+                html += '<div id="legDetailsContainer">';
+                if (legs.length > 0) html += this.renderLegDetail(legs[0], 0, trip.id);
+                html += '</div>';
+            }
+            html += '<button class="add-leg-btn" style="margin-top:0.75rem;" onclick="app.openAddLegModal(\'' + (trip ? trip.id : '') + '\')">+ Add Leg</button>';
+            html += '</div>';
+            return html;
+        }
+
+        renderLegDetail(leg, idx, tripId) {
+            return '<div class="leg-details">' +
+                '<div style="font-weight:600;margin-bottom:0.5rem;">Leg ' + (idx+1) + ': ' + (leg.destination || '') + '</div>' +
+                '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">' + (leg.startDate || '') + ' to ' + (leg.endDate || '') + '</span></div>' +
+                '<div class="detail-row"><span class="detail-label">Accommodation</span><span class="detail-value">' + (leg.accommodation || 'Not set') + '</span></div>' +
+                '<div class="detail-row"><span class="detail-label">Flight</span><span class="detail-value">' + (leg.flight || 'Not set') + '</span></div>' +
+                '<div class="detail-row"><span class="detail-label">Activities</span><span class="detail-value">' + (leg.activities || 'None') + '</span></div>' +
+                '<div style="display:flex;gap:0.5rem;margin-top:0.75rem;">' +
+                '<button class="add-leg-btn" style="font-size:0.75rem;" onclick="app.openEditLegModal(\'' + tripId + '\', ' + idx + ')">✎ Edit</button>' +
+                '<button class="remove-leg-btn" onclick="app.removeLeg(\'' + tripId + '\', ' + idx + ')">Remove</button>' +
+                '</div></div>';
+        }
+
+        expandLeg(idx, tripId) {
+            const trip = this.trips.find(t => t.id === tripId);
+            if (!trip || !trip.legs || !trip.legs[idx]) return;
+            const container = document.getElementById('legDetailsContainer');
+            if (container) container.innerHTML = this.renderLegDetail(trip.legs[idx], idx, tripId);
+            document.querySelectorAll('.leg-step').forEach((el, i) => {
+                el.classList.toggle('active', i === idx);
+            });
+        }
+
+        openAddLegModal(tripId) {
+            const trip = this.trips.find(t => t.id === tripId);
+            if (!trip) { this.showToast('Save trip first before adding legs', 'error'); return; }
+            if (!trip.legs) trip.legs = [];
+            this._showLegFormModal(tripId, null);
+        }
+
+        openEditLegModal(tripId, legIdx) {
+            const trip = this.trips.find(t => t.id === tripId);
+            if (!trip || !trip.legs || !trip.legs[legIdx]) return;
+            this._showLegFormModal(tripId, legIdx);
+        }
+
+        _showLegFormModal(tripId, legIdx) {
+            const trip = this.trips.find(t => t.id === tripId);
+            const leg = legIdx !== null ? trip.legs[legIdx] : {};
+            const isEdit = legIdx !== null;
+            const modal = document.createElement('div');
+            modal.className = 'modal active';
+            modal.id = 'legFormModal';
+            modal.style.cssText = 'position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);';
+            modal.innerHTML = '<div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:16px;padding:1.5rem;width:90%;max-width:420px;max-height:80vh;overflow-y:auto;">' +
+                '<div style="font-weight:700;font-size:1.1rem;margin-bottom:1rem;">' + (isEdit ? 'Edit Leg' : 'Add New Leg') + '</div>' +
+                '<div class="leg-form-group"><label>Destination</label><input id="legDestInput" value="' + (leg.destination || '') + '" placeholder="e.g., New York City"></div>' +
+                '<div style="display:flex;gap:0.75rem;">' +
+                '<div class="leg-form-group" style="flex:1"><label>Start Date</label><input type="date" id="legStartInput" value="' + (leg.startDate || '') + '"></div>' +
+                '<div class="leg-form-group" style="flex:1"><label>End Date</label><input type="date" id="legEndInput" value="' + (leg.endDate || '') + '"></div></div>' +
+                '<div class="leg-form-group"><label>Accommodation</label><input id="legAccomInput" value="' + (leg.accommodation || '') + '" placeholder="Hotel name or Airbnb link"></div>' +
+                '<div class="leg-form-group"><label>Flight</label><input id="legFlightInput" value="' + (leg.flight || '') + '" placeholder="e.g., UA 123 JFK→LAX"></div>' +
+                '<div class="leg-form-group"><label>Activities</label><textarea id="legActivitiesInput" rows="2" placeholder="Activities for this leg">' + (leg.activities || '') + '</textarea></div>' +
+                '<div style="display:flex;gap:0.75rem;margin-top:1rem;">' +
+                '<button style="flex:1;padding:0.6rem;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-tertiary);color:var(--text-primary);cursor:pointer;" onclick="document.getElementById(\x27legFormModal\x27).remove()">Cancel</button>' +
+                '<button style="flex:1;padding:0.6rem;border-radius:8px;border:none;background:var(--accent-blue);color:white;cursor:pointer;font-weight:600;" onclick="app._saveLeg(\'' + tripId + '\', ' + (isEdit ? legIdx : 'null') + ')">Save Leg</button>' +
+                '</div></div>';
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+            document.body.appendChild(modal);
+        }
+
+        _saveLeg(tripId, legIdx) {
+            const trip = this.trips.find(t => t.id === tripId);
+            if (!trip) return;
+            if (!trip.legs) trip.legs = [];
+            const leg = {
+                destination: document.getElementById('legDestInput').value.trim(),
+                startDate: document.getElementById('legStartInput').value,
+                endDate: document.getElementById('legEndInput').value,
+                accommodation: document.getElementById('legAccomInput').value.trim(),
+                flight: document.getElementById('legFlightInput').value.trim(),
+                activities: document.getElementById('legActivitiesInput').value.trim()
+            };
+            if (!leg.destination) { this.showToast('Destination required', 'error'); return; }
+            if (legIdx !== null && legIdx !== undefined && legIdx !== 'null') {
+                trip.legs[legIdx] = leg;
+            } else {
+                trip.legs.push(leg);
+            }
+            this.updateTrip(tripId, { legs: trip.legs });
+            const modal = document.getElementById('legFormModal');
+            if (modal) modal.remove();
+            this.showToast('Leg saved!', 'success');
+            // Refresh the trip detail view if open
+            if (this._detailTripId === tripId) this.showTripDetail(tripId);
+        }
+
+        removeLeg(tripId, legIdx) {
+            if (!confirm('Remove this leg?')) return;
+            const trip = this.trips.find(t => t.id === tripId);
+            if (!trip || !trip.legs) return;
+            trip.legs.splice(legIdx, 1);
+            this.updateTrip(tripId, { legs: trip.legs });
+            if (this._detailTripId === tripId) this.showTripDetail(tripId);
+            this.showToast('Leg removed', 'success');
+        }
+
+        renderLegsFormSection(trip) {
+            // For the trip edit modal - shows legs management
+            const legs = (trip && trip.legs) || [];
+            let html = '<div id="legsFormSection" style="margin-top:1rem;border-top:1px solid var(--border-color);padding-top:1rem;">';
+            html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">';
+            html += '<div style="font-weight:600;font-size:0.95rem;"><i data-lucide="route" style="width:16px;vertical-align:middle"></i> Trip Legs (' + legs.length + ')</div>';
+            if (trip && trip.id) {
+                html += '<button type="button" class="add-leg-btn" style="padding:0.3rem 0.6rem;font-size:0.75rem;" onclick="app.openAddLegModal(\'' + trip.id + '\')">+ Add Leg</button>';
+            }
+            html += '</div>';
+            if (legs.length > 0) {
+                html += '<div class="legs-stepper" style="padding:0.5rem 0;">';
+                legs.forEach((leg, idx) => {
+                    if (idx > 0) html += '<div class="leg-arrow">→</div>';
+                    html += '<div class="leg-step" style="min-width:90px;padding:0.5rem;">';
+                    html += '<div class="leg-step-dest" style="font-size:0.8rem;">' + (leg.destination || 'Leg ' + (idx+1)) + '</div>';
+                    html += '<div class="leg-step-dates">' + (leg.startDate || '') + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+            }
+            html += '</div>';
+            return html;
+        }
 
         }
     </script>

@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<script>
+(function(){var t=localStorage.getItem('taskflo_theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%2334c759' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlo ÃÂ¢ÃÂÃÂ Action Items Dashboard</title>
@@ -2617,7 +2620,102 @@
 @keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
 @keyframes fadeOut { to { opacity: 0; } }
 
-</style>
+
+/* ===== DARK MODE ===== */
+html[data-theme="dark"] {
+    --dm-bg: #1A1A2E;
+    --dm-card: #16213E;
+    --dm-text: #E0E0E0;
+    --dm-border: #2A2A4A;
+    --dm-surface: #1e1e3a;
+    --dm-header: #12122a;
+    --dm-muted: #8888aa;
+    --dm-input-bg: #1e1e3a;
+}
+html[data-theme="dark"] body { background: var(--dm-bg); color: var(--dm-text); }
+html[data-theme="dark"] .container { background: var(--dm-bg); }
+html[data-theme="dark"] header { background: var(--dm-header); border-color: var(--dm-border); }
+html[data-theme="dark"] .column { background: var(--dm-surface); border-color: var(--dm-border); }
+html[data-theme="dark"] .column.drag-over { background-color: #1e2d4a; border-color: #007aff; }
+html[data-theme="dark"] .task-card { background: var(--dm-card); border-color: var(--dm-border); color: var(--dm-text); }
+html[data-theme="dark"] .task-card:hover { background: #1a2844; }
+html[data-theme="dark"] .task-title { color: var(--dm-text); }
+html[data-theme="dark"] .task-description { color: var(--dm-muted); }
+html[data-theme="dark"] .task-meta { color: var(--dm-muted); }
+html[data-theme="dark"] .column-title { color: var(--dm-text); }
+html[data-theme="dark"] .column-count { color: var(--dm-muted); background: rgba(255,255,255,0.08); }
+html[data-theme="dark"] .controls { background: var(--dm-bg); }
+html[data-theme="dark"] .search-input { background: var(--dm-input-bg); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .filter-select, html[data-theme="dark"] .sort-select { background: var(--dm-input-bg); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .modal-backdrop { background: rgba(0,0,0,0.7); }
+html[data-theme="dark"] .modal { background: var(--dm-card); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .modal-header { border-color: var(--dm-border); }
+html[data-theme="dark"] .modal-title { color: var(--dm-text); }
+html[data-theme="dark"] .detail-section { border-color: var(--dm-border); }
+html[data-theme="dark"] .detail-title { color: var(--dm-muted); }
+html[data-theme="dark"] .form-input, html[data-theme="dark"] textarea { background: var(--dm-input-bg); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .label-pill { background: rgba(255,255,255,0.06); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .label-pill.active { background: #007aff; color: #fff; }
+html[data-theme="dark"] .hamburger-dropdown { background: var(--dm-card); border-color: var(--dm-border); }
+html[data-theme="dark"] .hamburger-dropdown-item:hover { background: rgba(255,255,255,0.06); }
+html[data-theme="dark"] .notification-panel { background: var(--dm-card); border-color: var(--dm-border); color: var(--dm-text); }
+html[data-theme="dark"] .notification-item.unread { background: rgba(0,122,255,0.08); }
+html[data-theme="dark"] .rules-modal { background: var(--dm-card); color: var(--dm-text); }
+html[data-theme="dark"] .stats-modal { background: var(--dm-card); color: var(--dm-text); }
+html[data-theme="dark"] .priority-strip-wrapper { background: var(--dm-surface); border-color: var(--dm-border); }
+html[data-theme="dark"] .timeline-strip { background: var(--dm-surface); border-color: var(--dm-border); }
+html[data-theme="dark"] .mobile-tab { background: rgba(255,255,255,0.06); color: var(--dm-text); }
+html[data-theme="dark"] .mobile-tab.active { background: #007aff; color: #fff; }
+html[data-theme="dark"] .view-toggle-btn { color: var(--dm-text); }
+html[data-theme="dark"] .view-toggle-btn.active { background: #007aff; color: #fff; }
+html[data-theme="dark"] .token-status { color: var(--dm-muted); }
+html[data-theme="dark"] .secondary { background: rgba(255,255,255,0.06); color: var(--dm-text); border-color: var(--dm-border); }
+html[data-theme="dark"] .secondary:hover { background: rgba(255,255,255,0.12); }
+html[data-theme="dark"] .version-badge { background: rgba(255,255,255,0.1); color: var(--dm-muted); }
+html[data-theme="dark"] .comment-item { background: var(--dm-surface); border-color: var(--dm-border); }
+html[data-theme="dark"] .activity-item { border-color: var(--dm-border); }
+html[data-theme="dark"] select option { background: var(--dm-card); color: var(--dm-text); }
+html[data-theme="dark"] .my-tasks-view { background: var(--dm-bg); color: var(--dm-text); }
+html[data-theme="dark"] .my-tasks-row { border-color: var(--dm-border); }
+html[data-theme="dark"] .my-tasks-row:hover { background: rgba(255,255,255,0.04); }
+
+/* Dark mode toggle button */
+.dark-mode-toggle { background: none; border: none; cursor: pointer; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.dark-mode-toggle:hover { background: rgba(0,0,0,0.06); }
+html[data-theme="dark"] .dark-mode-toggle:hover { background: rgba(255,255,255,0.08); }
+
+/* ===== DRAG AND DROP ENHANCEMENTS ===== */
+.task-card.dragging { opacity: 0.4; transform: rotate(2deg); transition: opacity 0.15s, transform 0.15s; }
+.column.drag-over .task-list { min-height: 60px; border: 2px dashed #007aff; border-radius: 8px; background: rgba(0,122,255,0.04); transition: all 0.2s; }
+html[data-theme="dark"] .column.drag-over .task-list { background: rgba(0,122,255,0.08); }
+
+/* ===== QUICK FILTERS ===== */
+.quick-filters { display: flex; gap: 6px; padding: 8px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.quick-filters::-webkit-scrollbar { display: none; }
+.quick-filter-btn { white-space: nowrap; padding: 5px 14px; border-radius: 99px; border: 1px solid #e5e5ea; background: #fff; color: #1a1a2e; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+.quick-filter-btn:hover { background: #f5f5f7; }
+.quick-filter-btn.active { background: #007aff; color: #fff; border-color: #007aff; }
+html[data-theme="dark"] .quick-filter-btn { background: rgba(255,255,255,0.06); color: #E0E0E0; border-color: #2A2A4A; }
+html[data-theme="dark"] .quick-filter-btn:hover { background: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .quick-filter-btn.active { background: #007aff; color: #fff; border-color: #007aff; }
+
+/* ===== ENHANCED TASK DETAIL MODAL ===== */
+.detail-editable-title { font-size: 20px; font-weight: 700; border: none; background: transparent; width: 100%; padding: 4px 0; color: inherit; outline: none; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+.detail-editable-title:focus { border-bottom-color: #007aff; }
+.detail-editable-desc { width: 100%; min-height: 60px; border: 1px solid #e5e5ea; border-radius: 8px; padding: 10px; font-size: 14px; font-family: inherit; resize: vertical; background: #fafafa; transition: border-color 0.2s; }
+.detail-editable-desc:focus { border-color: #007aff; outline: none; }
+html[data-theme="dark"] .detail-editable-title { color: #E0E0E0; }
+html[data-theme="dark"] .detail-editable-desc { background: #1e1e3a; border-color: #2A2A4A; color: #E0E0E0; }
+.detail-save-bar { display: flex; gap: 8px; padding: 12px 0; border-top: 1px solid #e5e5ea; margin-top: 12px; }
+html[data-theme="dark"] .detail-save-bar { border-color: #2A2A4A; }
+.detail-save-btn { padding: 8px 20px; border-radius: 8px; border: none; background: #007aff; color: #fff; font-weight: 600; cursor: pointer; font-size: 14px; }
+.detail-save-btn:hover { background: #0056cc; }
+.detail-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+.detail-field-row label { font-size: 12px; color: #6e6e73; font-weight: 500; display: block; margin-bottom: 4px; }
+.detail-field-row input, .detail-field-row select { width: 100%; padding: 6px 10px; border: 1px solid #e5e5ea; border-radius: 6px; font-size: 13px; background: #fff; }
+html[data-theme="dark"] .detail-field-row input, html[data-theme="dark"] .detail-field-row select { background: #1e1e3a; border-color: #2A2A4A; color: #E0E0E0; }
+
+    </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -2676,6 +2774,7 @@
                     <button class="secondary toolbar-hideable" id="templateBtn"><i data-lucide="clipboard-list" style="width:14px;height:14px;vertical-align:-2px;"></i> Template</button>
                     <button class="secondary toolbar-hideable" id="rulesBtn" onclick="openRulesPanel()" title="Automation Rules"><i data-lucide="settings" style="width:14px;height:14px;vertical-align:-2px;"></i> Rules</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
+            <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode"><i data-lucide="moon" style="width:16px;height:16px;"></i></button>
             <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i><span id="notifBadge" class="badge" style="display:none">0</span></button>
             <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> .ics</button>
                 </div>
@@ -2737,6 +2836,14 @@
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
           </div>
+        </div>
+        <div class="quick-filters" id="quickFilters">
+            <button class="quick-filter-btn active" data-qf="all" onclick="applyQuickFilter('all')">All</button>
+            <button class="quick-filter-btn" data-qf="overdue" onclick="applyQuickFilter('overdue')">Overdue</button>
+            <button class="quick-filter-btn" data-qf="due-week" onclick="applyQuickFilter('due-week')">Due This Week</button>
+            <button class="quick-filter-btn" data-qf="starred" onclick="applyQuickFilter('starred')">Starred</button>
+            <button class="quick-filter-btn" data-qf="no-date" onclick="applyQuickFilter('no-date')">No Date</button>
+            <button class="quick-filter-btn" data-qf="my-tasks" onclick="applyQuickFilter('my-tasks')">My Tasks</button>
         </div>
         <div class="kanban" id="kanban"></div>
       <div id="habitsView" style="display:none;padding:20px;"><div class="habits-view"><div class="habit-stats-grid" id="habitStatsGrid"></div><div id="slippingAlerts"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Weekly Patterns</h3><div class="pattern-chart" id="weeklyPattern"></div><h3 style="color:#e0e0e0;margin:16px 0 10px;">Recurring Tasks</h3><div id="habitCards"></div></div></div>
@@ -3908,7 +4015,7 @@ function getGithubToken() {
             const title = document.createElement('div');
             title.className = 'task-title';
             title.textContent = task.title;
-            title.onclick = () => showTaskDetail(task);
+            title.onclick = () => { if (typeof showEnhancedTaskDetail === 'function') showEnhancedTaskDetail(task); else showTaskDetail(task); };
             content.appendChild(title);
 
             // Description
@@ -4159,6 +4266,11 @@ function getGithubToken() {
             card.ondragstart = (e) => {
                 e.dataTransfer.effectAllowed = 'move';
                 e.dataTransfer.setData('taskId', task.id);
+                requestAnimationFrame(() => card.classList.add('dragging'));
+            };
+            card.ondragend = () => {
+                card.classList.remove('dragging');
+                document.querySelectorAll('.column.drag-over').forEach(c => c.classList.remove('drag-over'));
             };
 
             return card;
@@ -4211,6 +4323,8 @@ function getGithubToken() {
         }
 
         async function handleDrop(e, columnId) {
+            // Remove all drag-over highlights
+            document.querySelectorAll('.column.drag-over').forEach(c => c.classList.remove('drag-over'));
             const taskId = e.dataTransfer.getData('taskId');
             const task = tasks.find(t => t.id === taskId);
             if (!task) return;
@@ -5884,7 +5998,7 @@ function init() {
             if (n.type === 'digest') {
                 showStatsModal();
             } else if (n.taskId) {
-                showTaskDetail(n.taskId);
+                var nt = tasks.find(function(x){return x.id === n.taskId;}); if(nt) { if(typeof showEnhancedTaskDetail==='function') showEnhancedTaskDetail(nt); else showTaskDetail(nt); }
             }
         }
     }
@@ -6414,6 +6528,298 @@ function updateNavArrows() {
             </div>
         </div>
     </div>
+
+
+<script>
+// ===== FEATURE 5: DARK MODE TOGGLE =====
+function toggleDarkMode() {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('taskflo_theme', next);
+    updateDarkModeIcon();
+}
+
+function updateDarkModeIcon() {
+    var btn = document.getElementById('darkModeToggle');
+    if (!btn) return;
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = isDark
+        ? '<i data-lucide="sun" style="width:16px;height:16px;color:#ffcc00;"></i>'
+        : '<i data-lucide="moon" style="width:16px;height:16px;"></i>';
+    if (typeof lucide !== 'undefined') setTimeout(function(){ lucide.createIcons(); }, 10);
+}
+
+// Initialize dark mode icon on load
+document.addEventListener('DOMContentLoaded', function() {
+    updateDarkModeIcon();
+});
+
+// ===== FEATURE 4: QUICK FILTERS =====
+var activeQuickFilter = localStorage.getItem('taskflo_quick_filter') || 'all';
+
+function applyQuickFilter(filter) {
+    activeQuickFilter = filter;
+    localStorage.setItem('taskflo_quick_filter', filter);
+
+    // Update button states
+    document.querySelectorAll('.quick-filter-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-qf') === filter);
+    });
+
+    filterTasks();
+}
+
+// Monkey-patch filterTasks to include quick filter logic
+var _originalFilterTasks = typeof filterTasks === 'function' ? filterTasks : null;
+
+function applyQuickFilterToTasks(taskList) {
+    if (!activeQuickFilter || activeQuickFilter === 'all') return taskList;
+
+    var now = new Date();
+    var today = now.toISOString().split('T')[0];
+    var endOfWeek = new Date(now);
+    endOfWeek.setDate(endOfWeek.getDate() + (7 - endOfWeek.getDay()));
+    var weekEnd = endOfWeek.toISOString().split('T')[0];
+
+    return taskList.filter(function(task) {
+        switch (activeQuickFilter) {
+            case 'overdue':
+                return task.due_date && task.due_date < today && task.status !== 'completed';
+            case 'due-week':
+                return task.due_date && task.due_date >= today && task.due_date <= weekEnd && task.status !== 'completed';
+            case 'starred':
+                return task.pinned === true;
+            case 'no-date':
+                return !task.due_date;
+            case 'my-tasks':
+                return task.mode === 'manual' && task.status !== 'completed';
+            default:
+                return true;
+        }
+    });
+}
+
+// Hook into the existing filterTasks flow by patching filteredTasks after filterTasks runs
+(function() {
+    var origRenderBoard = typeof renderBoard === 'function' ? renderBoard : null;
+    if (origRenderBoard) {
+        var patchedRender = function() {
+            // Apply quick filter to filteredTasks before rendering
+            if (typeof filteredTasks !== 'undefined' && activeQuickFilter && activeQuickFilter !== 'all') {
+                filteredTasks = applyQuickFilterToTasks(filteredTasks);
+            }
+            origRenderBoard.apply(this, arguments);
+        };
+        // We can't easily override renderBoard since it's called by reference
+        // Instead, we'll patch filterTasks
+    }
+})();
+
+// Restore quick filter state on load
+document.addEventListener('DOMContentLoaded', function() {
+    var saved = localStorage.getItem('taskflo_quick_filter') || 'all';
+    if (saved !== 'all') {
+        activeQuickFilter = saved;
+        document.querySelectorAll('.quick-filter-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-qf') === saved);
+        });
+    }
+});
+
+// ===== FEATURE 2: ENHANCED TASK DETAIL MODAL =====
+function showEnhancedTaskDetail(task) {
+    if (window.lucide) setTimeout(function(){ lucide.createIcons(); }, 50);
+    var modal = document.getElementById('detailModal');
+    var title = document.getElementById('detailTitle');
+    var contentEl = document.getElementById('detailContent');
+    currentDetailTaskId = task.id;
+
+    // Editable title
+    title.innerHTML = '<input class="detail-editable-title" id="detailEditTitle" value="' + escapeHtml(task.title) + '" />';
+
+    var html = '';
+
+    // Save bar at top
+    html += '<div class="detail-save-bar" style="border-top:none;margin-top:0;padding-top:0;">';
+    html += '<button class="detail-save-btn" onclick="saveDetailChanges(\'' + task.id + '\')"><i data-lucide="save" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;"></i> Save Changes</button>';
+    html += '<button class="primary-action" onclick="showEditTaskModal(\'' + task.id + '\')">Full Edit</button>';
+    html += '</div>';
+
+    // Editable description
+    html += '<div class="detail-section"><div class="detail-title">Description</div>';
+    html += '<textarea class="detail-editable-desc" id="detailEditDesc" placeholder="Add a description...">' + escapeHtml(task.description || '') + '</textarea>';
+    html += '</div>';
+
+    // Editable fields row
+    html += '<div class="detail-section"><div class="detail-title">Details</div>';
+    html += '<div class="detail-field-row">';
+    html += '<div><label>Due Date</label><input type="date" id="detailEditDue" value="' + (task.due_date || '') + '" /></div>';
+    html += '<div><label>Start Date</label><input type="date" id="detailEditStart" value="' + (task.start_date || '') + '" /></div>';
+    html += '</div>';
+    html += '<div class="detail-field-row">';
+    html += '<div><label>Category</label><input type="text" id="detailEditCategory" value="' + escapeHtml(task.category || '') + '" placeholder="e.g. Engineering" /></div>';
+    html += '<div><label>Effort</label><select id="detailEditEffort"><option value="">—</option><option value="small"' + (task.effort === 'small' ? ' selected' : '') + '>Small</option><option value="medium"' + (task.effort === 'medium' ? ' selected' : '') + '>Medium</option><option value="large"' + (task.effort === 'large' ? ' selected' : '') + '>Large</option></select></div>';
+    html += '</div>';
+    html += '<div class="detail-field-row">';
+    var ownerNames = { 'manual': 'Christopher', 'auto': 'Claude', 'assistance': 'Assistance' };
+    html += '<div><label>Owner</label><span style="font-size:14px;font-weight:500;">' + (ownerNames[task.mode] || 'Christopher') + '</span></div>';
+    var prioNames = { '1': 'High', '2': 'Medium', '3': 'Low' };
+    html += '<div><label>Priority</label><span style="font-size:14px;font-weight:500;">' + (prioNames[task.priority] || 'None') + '</span></div>';
+    html += '</div>';
+    html += '</div>';
+
+    // Labels/Tags
+    html += '<div class="detail-section"><div class="detail-title">Labels</div>';
+    html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;" id="detailLabels">';
+    if (task.labels && task.labels.length > 0) {
+        task.labels.forEach(function(label) {
+            html += '<span class="task-label">' + escapeHtml(label) + '</span>';
+        });
+    } else {
+        html += '<span style="color:#8e8e93;font-size:13px;">No labels</span>';
+    }
+    html += '</div></div>';
+
+    // Subtasks
+    if (task.subtasks && task.subtasks.length > 0) {
+        var doneCount = task.subtasks.filter(function(s){ return s.done; }).length;
+        html += '<div class="detail-section"><div class="detail-title">Subtasks (' + doneCount + '/' + task.subtasks.length + ')</div><div class="subtasks-list">';
+        task.subtasks.forEach(function(subtask, idx) {
+            html += '<div class="subtask-item ' + (subtask.done ? 'done' : '') + '">';
+            html += '<div class="subtask-checkbox ' + (subtask.done ? 'checked' : '') + '" onclick="toggleSubtask(\'' + task.id + '\', ' + idx + ')"></div>';
+            html += '<span class="subtask-text">' + escapeHtml(subtask.title) + '</span>';
+            html += '</div>';
+        });
+        html += '</div></div>';
+    }
+
+    // Comments
+    html += '<div class="detail-section"><div class="detail-title">Comments</div>';
+    html += '<div class="comments-section">';
+    var comments = task.comments || [];
+    if (comments.length === 0) {
+        html += '<div class="no-comments">No comments yet</div>';
+    } else {
+        comments.forEach(function(comment) {
+            html += '<div class="comment-item"><div class="comment-meta"><span class="comment-author">' + escapeHtml(comment.by) + '</span><span class="comment-time">' + getRelativeTime(comment.timestamp) + '</span></div><div class="comment-text">' + escapeHtml(comment.text) + '</div></div>';
+        });
+    }
+    html += '<div class="comment-input-wrapper"><textarea id="commentInput" placeholder="Add a comment..." rows="1"></textarea><button onclick="addComment(\'' + task.id + '\')">Post</button></div>';
+    html += '</div></div>';
+
+    // Activity log
+    if (task.activity_log && task.activity_log.length > 0) {
+        html += '<div class="detail-section"><div class="detail-title">Activity</div><div class="activity-timeline">';
+        var log = task.activity_log.slice().reverse();
+        log.forEach(function(entry) {
+            var icons = { 'created': '\u2713', 'moved': '\u2192', 'completed': '\u2713', 'assigned': '\ud83d\udc64', 'edited': '\u270e', 'commented': '\ud83d\udcac' };
+            var icon = icons[entry.action] || '\u2022';
+            html += '<div class="activity-item"><div class="activity-icon">' + icon + '</div><div class="activity-content"><div class="activity-action">' + escapeHtml(entry.details) + '</div><div class="activity-time">' + getRelativeTime(entry.timestamp) + '</div></div></div>';
+        });
+        html += '</div></div>';
+    }
+
+    contentEl.innerHTML = html;
+    modal.classList.add('active');
+    if (window.lucide) setTimeout(function(){ lucide.createIcons(); }, 50);
+}
+
+function saveDetailChanges(taskId) {
+    var task = tasks.find(function(t) { return t.id === taskId; });
+    if (!task) return;
+
+    var newTitle = document.getElementById('detailEditTitle');
+    var newDesc = document.getElementById('detailEditDesc');
+    var newDue = document.getElementById('detailEditDue');
+    var newStart = document.getElementById('detailEditStart');
+    var newCategory = document.getElementById('detailEditCategory');
+    var newEffort = document.getElementById('detailEditEffort');
+
+    if (newTitle && newTitle.value.trim()) task.title = newTitle.value.trim();
+    if (newDesc) task.description = newDesc.value.trim();
+    if (newDue) task.due_date = newDue.value || null;
+    if (newStart) task.start_date = newStart.value || null;
+    if (newCategory) task.category = newCategory.value.trim() || null;
+    if (newEffort) task.effort = newEffort.value || null;
+
+    task.activity_log = task.activity_log || [];
+    task.activity_log.push({
+        timestamp: new Date().toISOString(),
+        action: 'edited',
+        by: 'Christopher',
+        details: 'Task details updated'
+    });
+
+    saveTasksToGithub(tasks, 'Update task details').then(function() {
+        filterTasks();
+        showEnhancedTaskDetail(task);
+    });
+}
+
+// ===== FEATURE 3: ENHANCED NOTIFICATION CENTER =====
+function enhancedCheckNotifications() {
+    if (!tasks || !tasks.length) return;
+
+    var lastVisit = localStorage.getItem('taskflo_last_visit');
+    var now = new Date().toISOString();
+    var today = now.split('T')[0];
+
+    // Tasks completed since last visit
+    if (lastVisit) {
+        tasks.forEach(function(t) {
+            if (t.status === 'completed' && t.completed_at && t.completed_at > lastVisit) {
+                var key = 'notif_completed_' + t.id + '_' + today;
+                if (!localStorage.getItem(key)) {
+                    addNotification('Completed: ' + t.title, 'Task was completed', 'completed', t.id);
+                    localStorage.setItem(key, '1');
+                }
+            }
+        });
+
+        // New tasks added since last visit
+        tasks.forEach(function(t) {
+            if (t.created_at && t.created_at > lastVisit && t.status !== 'completed') {
+                var key = 'notif_new_' + t.id + '_' + today;
+                if (!localStorage.getItem(key)) {
+                    addNotification('New task: ' + t.title, 'Added since your last visit', 'new', t.id);
+                    localStorage.setItem(key, '1');
+                }
+            }
+        });
+    }
+
+    // Overdue tasks
+    tasks.forEach(function(t) {
+        if (t.status === 'completed' || !t.due_date) return;
+        if (t.due_date < today) {
+            var key = 'notif_overdue_' + t.id + '_' + today;
+            if (!localStorage.getItem(key)) {
+                addNotification('Overdue: ' + t.title, 'Was due ' + t.due_date, 'overdue', t.id);
+                localStorage.setItem(key, '1');
+            }
+        } else if (t.due_date === today) {
+            var key2 = 'notif_today_' + t.id + '_' + today;
+            if (!localStorage.getItem(key2)) {
+                addNotification('Due today: ' + t.title, 'Task is due today!', 'approaching', t.id);
+                localStorage.setItem(key2, '1');
+            }
+        }
+    });
+
+    // Update last visit timestamp
+    localStorage.setItem('taskflo_last_visit', now);
+    updateNotifBadge();
+}
+
+// Run enhanced notifications after tasks load
+var _origLoadTasks = typeof loadTasks === 'function' ? loadTasks : null;
+document.addEventListener('DOMContentLoaded', function() {
+    // Run enhanced notifications 3s after page load to let tasks load
+    setTimeout(function() { enhancedCheckNotifications(); }, 3000);
+});
+</script>
 
 </body>
 </html>

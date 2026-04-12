@@ -6601,20 +6601,15 @@ function applyQuickFilterToTasks(taskList) {
     });
 }
 
-// Hook into the existing filterTasks flow by patching filteredTasks after filterTasks runs
+// Wrap renderBoard to apply quick filter before every render
 (function() {
-    var origRenderBoard = typeof renderBoard === 'function' ? renderBoard : null;
-    if (origRenderBoard) {
-        var patchedRender = function() {
-            // Apply quick filter to filteredTasks before rendering
-            if (typeof filteredTasks !== 'undefined' && activeQuickFilter && activeQuickFilter !== 'all') {
-                filteredTasks = applyQuickFilterToTasks(filteredTasks);
-            }
-            origRenderBoard.apply(this, arguments);
-        };
-        // We can't easily override renderBoard since it's called by reference
-        // Instead, we'll patch filterTasks
-    }
+    var _origRenderBoard = renderBoard;
+    renderBoard = function() {
+        if (typeof activeQuickFilter !== 'undefined' && activeQuickFilter && activeQuickFilter !== 'all' && typeof applyQuickFilterToTasks === 'function') {
+            filteredTasks = applyQuickFilterToTasks(filteredTasks);
+        }
+        _origRenderBoard.apply(this, arguments);
+    };
 })();
 
 // Restore quick filter state on load

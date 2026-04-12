@@ -237,7 +237,7 @@
     "title": "Evan - when is stock transfer?",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -255,6 +255,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from todo to christopher"
+      },
+      {
+        "timestamp": "2026-04-12T22:06:05.998Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to christopher-todo"
       }
     ],
     "created_at": "2026-04-03T18:09:10.054Z",

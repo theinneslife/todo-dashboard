@@ -5278,58 +5278,6 @@ this.updateDashboardStats();
             this.showToast('Calendar file downloaded!', 'success');
         };
 
-// Initialize app
-        window.app = new TravelFloApp();
-        // Load shared trip if URL has share hash (Feature 8)
-        if (window.location.hash.startsWith('#share=')) {
-            window.app.loadSharedTrip();
-        }
-
-        // Sample data for demo
-        if (app.trips.length === 0) {
-            const sampleTrips = [
-                {
-                    destination: 'Paris, France',
-                    startDate: '2026-05-15',
-                    endDate: '2026-05-22',
-                    notes: 'Summer vacation - visit museums and enjoy wine',
-                    flights: [],
-                    accommodation: 'https://www.airbnb.com',
-                    budget: 3000,
-                    expenses: [],
-                    packingList: {},
-                    colorIndex: 0
-                },
-                {
-                    destination: 'Tokyo, Japan',
-                    startDate: '2026-06-01',
-                    endDate: '2026-06-15',
-                    notes: 'Cherry blossoms and cultural exploration',
-                    flights: [],
-                    accommodation: 'https://www.booking.com',
-                    budget: 4500,
-                    expenses: [],
-                    packingList: {},
-                    colorIndex: 1
-                },
-                {
-                    destination: 'Bali, Indonesia',
-                    startDate: '2026-03-10',
-                    endDate: '2026-03-18',
-                    notes: 'Beach relaxation and temple visits',
-                    flights: [],
-                    accommodation: null,
-                    budget: 2500,
-                    expenses: [],
-                    packingList: {},
-                    colorIndex: 2
-                }
-            ];
-
-            sampleTrips.forEach(trip => app.addTrip(trip));
-
-
-
         // ===== FEATURE: Drag-to-Reorder Trips =====
         initDragReorder(containerId, tripIdExtractor) {
             const container = document.getElementById(containerId);
@@ -5675,6 +5623,61 @@ this.updateDashboardStats();
             html += '</div>';
             return html;
         }
+
+
+
+// Initialize app
+        window.app = new TravelFloApp();
+        // Load shared trip if URL has share hash (Feature 8)
+        if (window.location.hash.startsWith('#share=')) {
+            window.app.loadSharedTrip();
+        }
+
+        // Sample data for demo
+        if (app.trips.length === 0) {
+            const sampleTrips = [
+                {
+                    destination: 'Paris, France',
+                    startDate: '2026-05-15',
+                    endDate: '2026-05-22',
+                    notes: 'Summer vacation - visit museums and enjoy wine',
+                    flights: [],
+                    accommodation: 'https://www.airbnb.com',
+                    budget: 3000,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 0
+                },
+                {
+                    destination: 'Tokyo, Japan',
+                    startDate: '2026-06-01',
+                    endDate: '2026-06-15',
+                    notes: 'Cherry blossoms and cultural exploration',
+                    flights: [],
+                    accommodation: 'https://www.booking.com',
+                    budget: 4500,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 1
+                },
+                {
+                    destination: 'Bali, Indonesia',
+                    startDate: '2026-03-10',
+                    endDate: '2026-03-18',
+                    notes: 'Beach relaxation and temple visits',
+                    flights: [],
+                    accommodation: null,
+                    budget: 2500,
+                    expenses: [],
+                    packingList: {},
+                    colorIndex: 2
+                }
+            ];
+
+            sampleTrips.forEach(trip => app.addTrip(trip));
+
+
+
 
         }
     </script>

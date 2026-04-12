@@ -972,7 +972,7 @@
     "title": "Read: Non-Equity Deal Structures Playbook",
     "description": "Comprehensive guide on 10 deal types MNTN can use without diluting shareholders. Key insight: ~$250M-$350M deal capacity from cash + debt alone. Covers all-cash acquisitions, debt financing, earnouts, asset vs stock purchases, licensing, JVs, minority investments, seller financing. Includes MNTN-specific context and peer examples like Magnite/SpotX.",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "Corp Dev",
@@ -993,6 +993,12 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-12T22:06:10.077Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-04T12:00:00Z",
@@ -1001,7 +1007,8 @@
     "project": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": false
+    "pinned": false,
+    "completed_at": "2026-04-12T22:06:10.077Z"
   },
   {
     "id": "corpdev-targets-003",

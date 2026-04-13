@@ -892,6 +892,45 @@
             background-color: #3b82f6;
         }
 
+        /* Multi-Accommodation */
+        .accom-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+        .accom-row {
+            background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px;
+            padding: 12px; position: relative;
+        }
+        .accom-row-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .accom-row-title { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
+        .accom-type-badge {
+            font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;
+            background: rgba(99,102,241,0.15); color: #818cf8;
+        }
+        .accom-type-badge.hotel { background: rgba(20,184,166,0.15); color: #14b8a6; }
+        .accom-type-badge.hostel { background: rgba(249,115,22,0.15); color: #f97316; }
+        .accom-type-badge.other { background: rgba(156,163,175,0.15); color: #9ca3af; }
+        .accom-row-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .accom-row-fields .form-input { font-size: 0.8rem; padding: 6px 8px; }
+        .accom-row-fields label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 2px; display: block; }
+        .accom-remove-btn {
+            position: absolute; top: 8px; right: 8px; background: none; border: none;
+            color: var(--text-muted); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 2px 6px;
+            border-radius: 4px; transition: all 0.2s;
+        }
+        .accom-remove-btn:hover { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .add-accom-btn {
+            width: 100%; padding: 10px; border: 2px dashed var(--border-color); border-radius: 8px;
+            background: transparent; color: var(--text-secondary); cursor: pointer; font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .add-accom-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(99,102,241,0.05); }
+        .accom-detail-card {
+            background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 10px;
+            padding: 1rem; margin-bottom: 10px;
+        }
+        .accom-detail-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .accom-detail-name { font-weight: 600; font-size: 0.95rem; }
+        .accom-detail-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; font-size: 0.85rem; color: var(--text-secondary); }
+        .accom-detail-meta span { display: flex; align-items: center; gap: 4px; }
+
         /* Budget */
         .budget-section {
             background-color: var(--bg-tertiary);
@@ -2310,11 +2349,13 @@
                     <button type="button" class="add-flight-btn" id="addFlightBtn">+ Add Flight Segment</button>
                 </div>
 
-                <!-- Accommodation -->
+                <!-- Accommodations (Multiple) -->
                 <div class="form-group">
-                    <label class="form-label"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodation</label>
+                    <label class="form-label"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodations</label>
                     <div id="accommodationDisplay" style="display: none;"></div>
-                    <input type="text" class="form-input" id="accommodationInput" placeholder="Paste Airbnb or hotel booking link...">
+                    <input type="hidden" id="accommodationInput" value="">
+                    <div id="accomList" class="accom-list"></div>
+                    <button type="button" class="add-accom-btn" id="addAccomBtn">+ Add Accommodation</button>
                 </div>
 
                 <!-- Budget -->
@@ -2729,8 +2770,8 @@
                 // Budget and Expenses
                 document.getElementById('budgetInput').addEventListener('change', () => this.showExpensesSection());
 
-                // Accommodation
-                document.getElementById('accommodationInput').addEventListener('change', () => this.handleAccommodationInput());
+                // Accommodations (Multiple)
+                document.getElementById('addAccomBtn').addEventListener('click', () => this.addAccommodationRow());
 
                 // Expense modal
                 document.getElementById('expenseForm').addEventListener('submit', (e) => this.handleExpenseSubmit(e));
@@ -2792,6 +2833,7 @@
                 if (rfContainer) rfContainer.innerHTML = this.getRaceFieldsHTML(this.currentEditingTrip);
                 document.getElementById('accommodationDisplay').style.display = 'none';
                 document.getElementById('accommodationInput').value = '';
+                document.getElementById('accomList').innerHTML = '';
                 document.getElementById('expensesList').innerHTML = '';
                 document.getElementById('expensesSection').style.display = 'none';
                 var _plc = document.getElementById('packingListContent'); if (_plc) _plc.innerHTML = '';
@@ -2997,6 +3039,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 }
                 document.getElementById('notesInput').value = trip.notes || '';
                 document.getElementById('budgetInput').value = trip.budget || 0;
+                // Backward compat: old single string -> convert to array
+                const accomData = trip.accommodations || (trip.accommodation ? [{ name: trip.accommodation, type: 'Airbnb', url: trip.accommodation, checkin: '', checkout: '', price: '', notes: '' }] : []);
                 document.getElementById('accommodationInput').value = trip.accommodation || '';
 
                 // Render flights
@@ -3006,10 +3050,9 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     });
                 }
 
-                // Render accommodation
-                if (trip.accommodation) {
-                    this.renderAccommodationDisplay(trip.accommodation);
-                }
+                // Render accommodations
+                document.getElementById('accomList').innerHTML = '';
+                accomData.forEach(a => this.addAccommodationRow(a));
 
                 // Render expenses
                 if (trip.budget > 0) {
@@ -3075,38 +3118,78 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             }
 
             handleAccommodationInput() {
-                const url = document.getElementById('accommodationInput').value.trim();
-                if (url) {
-                    this.renderAccommodationDisplay(url);
-                } else {
-                    document.getElementById('accommodationDisplay').style.display = 'none';
-                }
+                // Legacy — no-op, kept for backward compat
             }
 
             renderAccommodationDisplay(url) {
-                const isAirbnb = url.includes('airbnb');
-                const isBooking = url.includes('booking.com');
-                const isHotel = url.includes('hotels.com') || url.includes('hotel');
-                let icon = '<i data-lucide="building" style="width:20px;height:20px;vertical-align:middle"></i>';
-                let name = 'Accommodation';
-                let color = 'var(--accent-blue)';
-                if (isAirbnb) { icon = '<i data-lucide="home" style="width:20px;height:20px;vertical-align:middle"></i>'; name = 'Airbnb'; color = '#FF5A5F'; }
-                else if (isBooking) { icon = '<i data-lucide="bed" style="width:20px;height:20px;vertical-align:middle"></i>'; name = 'Booking.com'; color = '#003580'; }
-                else if (isHotel) { icon = '<i data-lucide="building" style="width:20px;height:20px;vertical-align:middle"></i>'; name = 'Hotel'; color = '#1a73e8'; }
-                const display = document.getElementById('accommodationDisplay');
-                display.innerHTML = `
-                    <div class="accommodation-display" style="border-left:3px solid ${color};">
-                        <div class="accommodation-icon" style="color:${color}">${icon}</div>
-                        <div class="accommodation-info">
-                            <div style="font-weight:600;font-size:0.875rem;">${name}</div>
-                            <div class="accommodation-url">${url.length > 50 ? url.substring(0, 50) + '...' : url}</div>
+                // Legacy — no-op, kept for backward compat
+            }
+
+            addAccommodationRow(data) {
+                const list = document.getElementById('accomList');
+                const idx = list.querySelectorAll('.accom-row').length;
+                const d = data || {};
+                const row = document.createElement('div');
+                row.className = 'accom-row';
+                row.innerHTML = `
+                    <button type="button" class="accom-remove-btn" title="Remove">&times;</button>
+                    <div class="accom-row-fields">
+                        <div style="grid-column:1/-1">
+                            <label>Property Name</label>
+                            <input type="text" class="form-input accom-name" value="${(d.name || '').replace(/"/g, '&quot;')}" placeholder="e.g. Oceanview Villa">
                         </div>
-                        <button type="button" class="open-accommodation-btn" onclick="window.open('${url}', '_blank')">
-                            <i data-lucide="external-link" style="width:14px;height:14px;vertical-align:middle"></i> Open
-                        </button>
-                    </div>`;
-                display.style.display = 'block';
+                        <div>
+                            <label>Type</label>
+                            <select class="form-input accom-type">
+                                <option value="Airbnb" ${d.type === 'Airbnb' ? 'selected' : ''}>Airbnb</option>
+                                <option value="Hotel" ${d.type === 'Hotel' ? 'selected' : ''}>Hotel</option>
+                                <option value="Hostel" ${d.type === 'Hostel' ? 'selected' : ''}>Hostel</option>
+                                <option value="Other" ${d.type === 'Other' ? 'selected' : ''}>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>URL / Link</label>
+                            <input type="text" class="form-input accom-url" value="${(d.url || '').replace(/"/g, '&quot;')}" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label>Check-in</label>
+                            <input type="date" class="form-input accom-checkin" value="${d.checkin || ''}">
+                        </div>
+                        <div>
+                            <label>Check-out</label>
+                            <input type="date" class="form-input accom-checkout" value="${d.checkout || ''}">
+                        </div>
+                        <div>
+                            <label>Price / Night</label>
+                            <input type="text" class="form-input accom-price" value="${(d.price || '').toString().replace(/"/g, '&quot;')}" placeholder="$0">
+                        </div>
+                        <div>
+                            <label>Notes</label>
+                            <input type="text" class="form-input accom-notes" value="${(d.notes || '').replace(/"/g, '&quot;')}" placeholder="Pool, late check-in...">
+                        </div>
+                    </div>
+                `;
+                row.querySelector('.accom-remove-btn').addEventListener('click', () => row.remove());
+                list.appendChild(row);
                 if (window.lucide) lucide.createIcons();
+            }
+
+            getAccommodationsFromForm() {
+                const rows = document.querySelectorAll('#accomList .accom-row');
+                const result = [];
+                rows.forEach(row => {
+                    const name = row.querySelector('.accom-name')?.value?.trim() || '';
+                    const type = row.querySelector('.accom-type')?.value || 'Other';
+                    const url = row.querySelector('.accom-url')?.value?.trim() || '';
+                    const checkin = row.querySelector('.accom-checkin')?.value || '';
+                    const checkout = row.querySelector('.accom-checkout')?.value || '';
+                    const price = row.querySelector('.accom-price')?.value?.trim() || '';
+                    const notes = row.querySelector('.accom-notes')?.value?.trim() || '';
+                    if (name || url) {
+                        result.push({ name, type, url, checkin, checkout, price, notes });
+                    }
+                });
+                return result;
             }
 
             showExpensesSection() {
@@ -3219,6 +3302,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     notes: document.getElementById('notesInput').value,
                     flights: flights,
                     accommodation: document.getElementById('accommodationInput').value || null,
+                    accommodations: this.getAccommodationsFromForm(),
                     budget: parseFloat(document.getElementById('budgetInput').value) || 0,
                     expenses: expenses,
                     packingList: packingList,
@@ -3479,15 +3563,31 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     html += `</div>`;
                 }
 
-                // Accommodation
-                if (trip.accommodation) {
-                    const _isAccomUrl = typeof trip.accommodation === 'string' && trip.accommodation.match(/^https?:\/\//);
-                    const _accomUrl = trip.accommodationUrl || (_isAccomUrl ? trip.accommodation : '');
-                    html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodation</div>
-                        <div style="font-size: 0.875rem; word-break: break-all; color: var(--text-secondary); margin-bottom: 0.5rem;">${trip.accommodation}</div>
-                        ${_accomUrl ? `<button class="action-btn" onclick="window.open('${_accomUrl}', '_blank'); return false;" style="width: 100%; flex: none;">🔗 Open Link</button>` : ''}
-                    </div>`;
+                // Accommodations (Multiple)
+                const _accoms = trip.accommodations || (trip.accommodation ? [{ name: trip.accommodation, type: 'Airbnb', url: trip.accommodation }] : []);
+                if (_accoms.length > 0) {
+                    html += '<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">';
+                    html += '<div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodations (' + _accoms.length + ')</div>';
+                    _accoms.forEach(a => {
+                        const typeClass = (a.type || '').toLowerCase();
+                        const typeColor = typeClass === 'hotel' ? '#14b8a6' : typeClass === 'hostel' ? '#f97316' : typeClass === 'other' ? '#9ca3af' : '#818cf8';
+                        html += '<div class="accom-detail-card">';
+                        html += '<div class="accom-detail-header">';
+                        html += '<span class="accom-detail-name">' + (a.name || 'Accommodation') + '</span>';
+                        html += '<span class="accom-type-badge ' + typeClass + '">' + (a.type || 'Other') + '</span>';
+                        html += '</div>';
+                        html += '<div class="accom-detail-meta">';
+                        if (a.checkin) html += '<span>📅 Check-in: ' + a.checkin + '</span>';
+                        if (a.checkout) html += '<span>📅 Check-out: ' + a.checkout + '</span>';
+                        if (a.price) html += '<span>💰 ' + a.price + ' / night</span>';
+                        if (a.notes) html += '<span style="grid-column:1/-1">📝 ' + a.notes + '</span>';
+                        html += '</div>';
+                        if (a.url && a.url.match(/^https?:\/\//)) {
+                            html += '<a href="' + a.url + '" target="_blank" style="display:inline-block;margin-top:8px;padding:6px 14px;background:rgba(99,102,241,0.15);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:600;">🔗 View Booking</a>';
+                        }
+                        html += '</div>';
+                    });
+                    html += '</div>';
                 }
 
                 // Budget & Expenses
@@ -4754,8 +4854,27 @@ this.updateDashboardStats();
         TravelFloApp.prototype.deleteTripFromModal = function() {
             if (!this.currentEditingTrip) return;
             const trip = this.currentEditingTrip;
-            if (confirm('Are you sure you want to delete this trip?')) {
-                this.closeModal();
+            // Use custom confirm UI instead of blocking confirm() dialog
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:center;justify-content:center;';
+            overlay.innerHTML = `
+                <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:2rem;max-width:400px;width:90%;text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:1rem;">🗑️</div>
+                    <h3 style="margin:0 0 0.5rem;color:var(--text-primary);">Delete Trip?</h3>
+                    <p style="color:var(--text-secondary);margin:0 0 1.5rem;font-size:0.9rem;">Are you sure you want to delete <strong>${trip.destination}</strong>? This cannot be undone.</p>
+                    <div style="display:flex;gap:12px;justify-content:center;">
+                        <button id="confirmDeleteCancel" style="padding:0.6rem 1.5rem;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-tertiary);color:var(--text-primary);cursor:pointer;font-size:0.9rem;">Cancel</button>
+                        <button id="confirmDeleteYes" style="padding:0.6rem 1.5rem;border-radius:8px;border:none;background:#ef4444;color:white;cursor:pointer;font-weight:600;font-size:0.9rem;">Delete</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            overlay.querySelector('#confirmDeleteCancel').addEventListener('click', () => {
+                overlay.remove();
+            });
+            overlay.querySelector('#confirmDeleteYes').addEventListener('click', () => {
+                overlay.remove();
+                this.closeAllModals();
                 this.trips = this.trips.filter(t => t.id !== trip.id);
                 try {
                     const userEdits = JSON.parse(localStorage.getItem('travelflow-user-edits') || '{}');
@@ -4765,7 +4884,7 @@ this.updateDashboardStats();
                 this.saveTrips();
                 this.showToast('Trip deleted', 'success');
                 this.renderAllViews();
-            }
+            });
         };
 
         // confirmDeleteTrip — UI-facing delete with confirm dialog (calls the core deleteTrip)

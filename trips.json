@@ -137,6 +137,91 @@
       "legs": []
     },
     {
+      "id": "2",
+      "title": "Belize",
+      "destination": {
+        "city": "Belize",
+        "country": "Belize",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-04-11",
+        "end": "2026-04-19"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_2_1",
+          "type": "flight",
+          "title": "Delta Air Lines",
+          "details": {
+            "bRoute": "EWR > BZE",
+            "bDepDate": "Apr 11, 2026",
+            "bNotes": "Newark to Belize City"
+          }
+        },
+        {
+          "id": "b_2_2",
+          "type": "flight",
+          "title": "Delta Air Lines",
+          "details": {
+            "bRoute": "BZE > ATL > MEX > SJD",
+            "bDepDate": "Apr 19, 2026",
+            "bArrDate": "Apr 19, 2026 10:30 PM",
+            "bNotes": "Belize City to Los Cabos via Atlanta and Mexico City"
+          }
+        },
+        {
+          "id": "b_2_acc",
+          "type": "accommodation",
+          "title": "Airbnb",
+          "details": {
+            "bProvider": "Airbnb",
+            "bNotes": "Suggestions received for Apr 10-17 stays near Belize City; no confirmed reservation found"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines",
+          "route": "EWR > BZE",
+          "departure": "Apr 11, 2026",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "Newark to Belize City",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines",
+          "route": "BZE > ATL > MEX > SJD",
+          "departure": "Apr 19, 2026",
+          "arrival": "Apr 19, 2026 10:30 PM",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "Belize City to Los Cabos via Atlanta and Mexico City",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "Airbnb",
+      "budget": 0,
+      "expenses": [],
+      "packingList": [],
+      "colorIndex": 1,
+      "legs": []
+    },
+    {
       "id": "3",
       "title": "Los Cabos",
       "destination": {

@@ -1015,7 +1015,7 @@
     "title": "Read: MNTN Strategic Landscape & Acquisition Targets",
     "description": "590-line strategic landscape report with 25+ potential acquisition targets across 7 categories, 12+ competitor profiles, 19 recent deals with valuations. Top priority targets: measurement/attribution (EDO, Samba TV, iSpot), creative tools (Celtra, Waymark), data/commerce (Attain, Affinity Solutions). Prioritized recommendation stack included.",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "Corp Dev",
@@ -1036,6 +1036,12 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-04-13T18:24:56.056Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-04T12:00:00Z",
@@ -1044,7 +1050,8 @@
     "project": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": false
+    "pinned": false,
+    "completed_at": "2026-04-13T18:24:56.056Z"
   },
   {
     "id": "corpdev-install-004",

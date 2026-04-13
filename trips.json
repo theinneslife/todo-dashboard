@@ -133,7 +133,8 @@
           }
         ]
       },
-      "colorIndex": 0
+      "colorIndex": 0,
+      "legs": []
     },
     {
       "id": "2",
@@ -217,7 +218,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 1
+      "colorIndex": 1,
+      "legs": []
     },
     {
       "id": "3",
@@ -271,7 +273,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 2
+      "colorIndex": 2,
+      "legs": []
     },
     {
       "id": "4",
@@ -329,7 +332,8 @@
       "budget": 22397.8,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 3
+      "colorIndex": 3,
+      "legs": []
     },
     {
       "id": "5",
@@ -385,7 +389,8 @@
       "budget": 652.29,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 4
+      "colorIndex": 4,
+      "legs": []
     },
     {
       "id": "6",
@@ -482,7 +487,8 @@
       "budget": 57639.91,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 5
+      "colorIndex": 5,
+      "legs": []
     },
     {
       "id": "7",
@@ -512,7 +518,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 6
+      "colorIndex": 6,
+      "legs": []
     },
     {
       "id": "8",
@@ -586,7 +593,8 @@
       "budget": 22414.12,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 7
+      "colorIndex": 7,
+      "legs": []
     },
     {
       "id": "9",
@@ -628,7 +636,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 8
+      "colorIndex": 8,
+      "legs": []
     },
     {
       "id": "10",
@@ -692,7 +701,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 9
+      "colorIndex": 9,
+      "legs": []
     },
     {
       "id": "11",
@@ -759,7 +769,8 @@
       "budget": 3014,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 0
+      "colorIndex": 0,
+      "legs": []
     },
     {
       "id": "12",
@@ -823,7 +834,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 1
+      "colorIndex": 1,
+      "legs": []
     },
     {
       "id": "13",
@@ -897,7 +909,8 @@
       "budget": 6323.09,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 2
+      "colorIndex": 2,
+      "legs": []
     },
     {
       "id": "14",
@@ -927,7 +940,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 3
+      "colorIndex": 3,
+      "legs": []
     },
     {
       "id": "15",
@@ -957,7 +971,8 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 4
+      "colorIndex": 4,
+      "legs": []
     },
     {
       "id": "1775582430454",
@@ -982,7 +997,8 @@
       "budget": 3000,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 5
+      "colorIndex": 5,
+      "legs": []
     }
   ],
   "templates": [],

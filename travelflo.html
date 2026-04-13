@@ -4097,7 +4097,31 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                 });
                 html += "</div>";
             }
-            // ===== ACCOMMODATION with Listing Links =====
+            // ===== ACCOMMODATIONS (Multiple) - new format =====
+            var userAccoms = trip.accommodations || [];
+            if (userAccoms.length > 0) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="bed" style="width:16px;vertical-align:middle"></i> Accommodations (' + userAccoms.length + ')</div>';
+                userAccoms.forEach(function(a) {
+                    var typeClass = (a.type || '').toLowerCase();
+                    html += '<div class="accom-detail-card">';
+                    html += '<div class="accom-detail-header">';
+                    html += '<span class="accom-detail-name">' + (a.name || 'Accommodation') + '</span>';
+                    html += '<span class="accom-type-badge ' + typeClass + '">' + (a.type || 'Other') + '</span>';
+                    html += '</div>';
+                    html += '<div class="accom-detail-meta">';
+                    if (a.checkin) html += '<span>\u{1F4C5} Check-in: ' + a.checkin + '</span>';
+                    if (a.checkout) html += '<span>\u{1F4C5} Check-out: ' + a.checkout + '</span>';
+                    if (a.price) html += '<span>\u{1F4B0} ' + a.price + ' / night</span>';
+                    if (a.notes) html += '<span style="grid-column:1/-1">\u{1F4DD} ' + a.notes + '</span>';
+                    html += '</div>';
+                    if (a.url && a.url.match(/^https?:\/\//)) {
+                        html += '<a href="' + a.url + '" target="_blank" style="display:inline-block;margin-top:10px;padding:6px 14px;background:rgba(99,102,241,0.15);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:600;">\u{1F517} View Booking</a>';
+                    }
+                    html += '</div>';
+                });
+                html += '</div>';
+            }
+            // ===== ACCOMMODATION with Listing Links (legacy bookings format) =====
             if (accoms.length > 0) {
                 html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div>';
                 accoms.forEach(function(a) {

@@ -978,32 +978,9 @@
         .accom-detail-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; font-size: 0.85rem; color: var(--text-secondary); }
         .accom-detail-meta span { display: flex; align-items: center; gap: 4px; }
 
-        /* Budget */
-        .budget-section {
-            background-color: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
 
-        .budget-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
 
-        .budget-amount {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-        }
 
-        .budget-info {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
 
         .progress-bar {
             width: 100%;
@@ -1938,44 +1915,6 @@
 .template-card-name { font-size: 13px; font-weight: 500; color: var(--text-primary); }
 .template-card-count { font-size: 11px; color: var(--text-muted); }
 
-/* ===== BUDGET TRACKER STYLES ===== */
-.budget-tracker { margin-top: 12px; }
-.budget-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
-.budget-stat { padding: 12px; background: var(--bg-tertiary); border-radius: 10px; border: 1px solid var(--border-color); text-align: center; }
-.budget-stat-value { font-size: 20px; font-weight: 700; color: var(--accent-primary); }
-.budget-stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-.budget-cat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; }
-.budget-cat-row:last-child { border-bottom: none; }
-.budget-bar { height: 6px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; margin-top: 8px; }
-.budget-bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
-.currency-badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: var(--bg-tertiary); color: var(--text-muted); margin-left: 4px; }
-.expense-log-form { display: grid; grid-template-columns: 1fr 80px 70px; gap: 8px; margin-top: 10px; align-items: end; }
-.expense-log-form input, .expense-log-form select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); font-size: 13px; }
-
-/* ===== SHARE LINK STYLES ===== */
-.share-section { margin-top: 12px; }
-.share-url-box { display: flex; gap: 8px; margin-top: 8px; }
-.share-url-input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-primary); font-size: 12px; font-family: monospace; }
-.share-copy-btn { padding: 10px 16px; border-radius: 8px; background: var(--accent-primary); color: white; border: none; cursor: pointer; font-size: 13px; font-weight: 500; white-space: nowrap; }
-.share-copy-btn:hover { opacity: 0.9; }
-
-/* ===== CALENDAR EXPORT STYLES ===== */
-.cal-export-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; font-size: 13px; transition: all 0.2s; }
-.cal-export-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
-
-/* ===== OFFLINE INDICATOR ===== */
-.offline-banner { position: fixed; top: 0; left: 0; right: 0; background: #f59e0b; color: #1a1a2e; text-align: center; padding: 4px; font-size: 12px; font-weight: 500; z-index: 10000; transform: translateY(-100%); transition: transform 0.3s; }
-.offline-banner.visible { transform: translateY(0); }
-
-        /* ===== FEATURE: Drag-to-Reorder ===== */
-        .all-trip-card[draggable="true"] { cursor: grab; }
-        .all-trip-card[draggable="true"]:active { cursor: grabbing; }
-        .all-trip-card.dragging {
-            opacity: 0.4;
-            transform: scale(0.98);
-            box-shadow: 0 8px 32px rgba(96, 165, 250, 0.3);
-            transition: opacity 0.15s, transform 0.15s;
-        }
         .all-trip-card.drag-over {
             border-top: 3px solid var(--accent-blue);
             margin-top: -3px;
@@ -2391,29 +2330,12 @@
                 </div>
 
                 <!-- Accommodations (Multiple) -->
-                <div class="form-group">
-                    <label class="form-label"><i data-lucide="bed" style="width:14px;height:14px;vertical-align:-2px;"></i> Accommodations</label>
-                    <div id="accommodationDisplay" style="display: none;"></div>
-                    <input type="hidden" id="accommodationInput" value="">
-                    <div id="accomList" class="accom-list"></div>
-                    <button type="button" class="add-accom-btn" id="addAccomBtn">+ Add Accommodation</button>
-                </div>
-
-                <!-- Budget -->
-                <div class="form-group">
-                    <label class="form-label"><i data-lucide="wallet" style="width:14px;height:14px;vertical-align:-2px;"></i> Total Budget</label>
-                    <div class="form-row">
-                        <div>
-                            <input type="number" class="form-input" id="budgetInput" placeholder="0" min="0">
-                        </div>
+                
                     </div>
                 </div>
 
                 <!-- Expenses -->
-                <div id="expensesSection" style="display: none;">
-                    <label class="form-label">Expenses</label>
-                    <div id="expensesList"></div>
-                    <button type="button" class="add-flight-btn" id="addExpenseBtn">+ Add Expense</button>
+                <button type="button" class="add-flight-btn" id="addExpenseBtn">+ Add Expense</button>
                 </div>
 
 
@@ -2598,13 +2520,6 @@
                     const accBooking = bookings.find(b => b.type === 'accommodation');
                     const accommodation = accBooking ? accBooking.title || '' : (t.accommodation || '');
                     const accommodationUrl = accBooking && accBooking.details ? accBooking.details.bListingUrl || '' : '';
-                    let budget = 0;
-                    bookings.forEach(b => {
-                        if (b.details && b.details.bCost) {
-                            const m = b.details.bCost.match(/[\d,.]+/);
-                            if (m) budget += parseFloat(m[0].replace(/,/g, '')) || 0;
-                        }
-                    });
                     return {
                         id: t.id || String(Date.now() + i),
                         destination: destStr,
@@ -2614,8 +2529,6 @@
                         flights: flights,
                         accommodation: accommodation,
                         accommodationUrl: accommodationUrl,
-                        budget: budget,
-                        expenses: t.expenses || [],
                         packingList: (Array.isArray(t.packingList) ? t.packingList : (t.packingList || [])),
                         colorIndex: i % 10,
                         status: t.status || 'upcoming',
@@ -2684,8 +2597,6 @@
                 trip.colorIndex = Math.floor(Math.random() * 5);
                 trip.flights = trip.flights || [];
                 trip.accommodation = trip.accommodation || null;
-                trip.budget = trip.budget || 0;
-                trip.expenses = trip.expenses || [];
                 trip.packingList = trip.packingList || {};
                 trip.legs = trip.legs || [];
                 this.trips.push(trip);
@@ -2808,20 +2719,7 @@
                     this.addFlightSegment();
                 });
 
-                // Budget and Expenses
-                document.getElementById('budgetInput').addEventListener('change', () => this.showExpensesSection());
-
-                // Accommodations (Multiple)
-                document.getElementById('addAccomBtn').addEventListener('click', () => this.addAccommodationRow());
-
-                // Expense modal
-                document.getElementById('expenseForm').addEventListener('submit', (e) => this.handleExpenseSubmit(e));
-                document.getElementById('expenseCancelBtn').addEventListener('click', () => this.closeAllModals());
-
-                // Skip template button
-                document.getElementById('skipTemplateBtn').addEventListener('click', () => {
-                    document.getElementById('templateSelection').style.display = 'none';
-                });
+                //.style.display = 'none';
 
                 // Modal backdrop click
                 document.getElementById('tripModal').addEventListener('click', (e) => {
@@ -2876,7 +2774,6 @@
                 document.getElementById('accommodationInput').value = '';
                 document.getElementById('accomList').innerHTML = '';
                 document.getElementById('expensesList').innerHTML = '';
-                document.getElementById('expensesSection').style.display = 'none';
                 var _plc = document.getElementById('packingListContent'); if (_plc) _plc.innerHTML = '';
                 var _ps = document.getElementById('packingSection'); if (_ps) _ps.style.display = 'none';
 
@@ -3079,7 +2976,6 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     }
                 }
                 document.getElementById('notesInput').value = trip.notes || '';
-                document.getElementById('budgetInput').value = trip.budget || 0;
                 // Backward compat: old single string -> convert to array
                 const accomData = trip.accommodations || (trip.accommodation ? [{ name: trip.accommodation, type: 'Airbnb', url: trip.accommodation, checkin: '', checkout: '', price: '', notes: '' }] : []);
                 document.getElementById('accommodationInput').value = trip.accommodation || '';
@@ -3096,9 +2992,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 accomData.forEach(a => this.addAccommodationRow(a));
 
                 // Render expenses
-                if (trip.budget > 0) {
-                    this.showExpensesSection();
-                    if (trip.expenses && trip.expenses.length > 0) {
+                if (tripif (trip.expenses && trip.expenses.length > 0) {
                         trip.expenses.forEach(exp => {
                             this.addExpenseToList(exp);
                         });
@@ -3233,11 +3127,6 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 return result;
             }
 
-            showExpensesSection() {
-                const budget = document.getElementById('budgetInput').value;
-                if (budget > 0) {
-                    document.getElementById('expensesSection').style.display = 'block';
-                }
             }
 
             addExpenseToList(expense) {
@@ -3343,24 +3232,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     notes: document.getElementById('notesInput').value,
                     flights: flights,
                     accommodation: document.getElementById('accommodationInput').value || null,
-                    accommodations: this.getAccommodationsFromForm(),
-                    budget: parseFloat(document.getElementById('budgetInput').value) || 0,
-                    expenses: expenses,
-                    packingList: packingList,
-                    tripType: document.getElementById('tripTypeInput') ? document.getElementById('tripTypeInput').value : 'vacation',
-                    raceData: (document.getElementById('tripTypeInput') && document.getElementById('tripTypeInput').value === 'race') ? {
-                        raceName: document.getElementById('raceNameInput') ? document.getElementById('raceNameInput').value : '',
-                        packetPickup: document.getElementById('racePickupInput') ? document.getElementById('racePickupInput').value : '',
-                        raceStart: document.getElementById('raceStartInput') ? document.getElementById('raceStartInput').value : '',
-                        cutoffs: document.getElementById('raceCutoffsInput') ? document.getElementById('raceCutoffsInput').value : '',
-                        dropBags: document.getElementById('raceDropBagsInput') ? document.getElementById('raceDropBagsInput').value : '',
-                        crewPoints: document.getElementById('raceCrewInput') ? document.getElementById('raceCrewInput').value : ''
-                    } : null,
-                    documents: this.currentEditingTrip ? (this.currentEditingTrip.documents || []) : [],
-                    legs: this.currentEditingTrip ? (this.currentEditingTrip.legs || []) : []
-                };
-
-                if (this.currentEditingTrip) {
+                    accommodations: this.getAccommodationsFromForm()
                     this.updateTrip(this.currentEditingTrip.id, trip);
                     this.showToast('Trip updated successfully!', 'success');
                 } else {
@@ -3564,18 +3436,14 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             }
 
             createDetailedTripHTML(trip) {
-                const budget = trip.budget || 0;
-                const expenses = trip.expenses || [];
+                constconst expenses = trip.expenses || [];
                 const totalSpent = expenses.reduce((sum, e) => sum + e.amount, 0);
-                const remaining = budget - totalSpent;
-                const percentSpent = budget > 0 ? Math.min((totalSpent / budget) * 100, 100) : 0;
-
-                let html = `
+                const remaining =const percentSpent =let html = `
                     <div class="trip-card" style="border: none; cursor: auto;">
                         <div class="trip-header">
                             <div style="flex: 1;">
                                 <div class="trip-destination">${trip.destination}</div>
-                                <div class="trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                                <div class="trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> ${(() => { const r = this.getTripDateRange(trip); return this.formatDate(r.start) + " to " + this.formatDate(r.end); })()}</div>
                                 <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                             </div>
                             <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;"><i data-lucide="pencil" style="width:14px;height:14px;vertical-align:-2px;"></i> Edit</button>
@@ -3631,9 +3499,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     html += '</div>';
                 }
 
-                // Budget & Expenses
-                if (budget > 0) {
-                    const categoryBreakdown = {};
+                //if const categoryBreakdown = {};
                     expenses.forEach(e => {
                         if (!categoryBreakdown[e.category]) categoryBreakdown[e.category] = 0;
                         categoryBreakdown[e.category] += e.amount;
@@ -3650,13 +3516,10 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     };
 
                     html += `<div style="margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="wallet" style="width:14px;height:14px;vertical-align:-2px;"></i> Budget Tracking</div>
-                        <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                        <div style="font-weight: 600; margin-bottom: 1rem;"><i data-lucide="wallet" style="width:14px;height:14px;vertical-align:-2px;"></i><div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                                 <div>
-                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">Total Budget</div>
-                                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$${budget.toFixed(2)}</div>
-                                </div>
+                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">Total<div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$$</div>
                                 <div style="text-align: right;">
                                     <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">Spent / Remaining</div>
                                     <div style="font-size: 0.875rem; font-weight: 600;">
@@ -3678,8 +3541,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     if (Object.keys(categoryBreakdown).length > 0) {
                         html += `<div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem;">Spending by Category</div>`;
                         for (const [category, amount] of Object.entries(categoryBreakdown)) {
-                            const categoryPercent = (amount / budget) * 100;
-                            html += `
+                            const categoryPercent = (amount /html += `
                                 <div class="category-bar" style="margin-bottom: 0.75rem;">
                                     <div class="category-label">${categoryEmojis[category]} ${category}</div>
                                     <div class="category-visual">
@@ -3759,7 +3621,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         <div class="trip-header">
                             <div class="trip-destination">${trip.destination}</div>
                         </div>
-                        <div class="trip-dates">${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
+                        <div class="trip-dates">${(() => { const r = this.getTripDateRange(trip); return this.formatDate(r.start) + " to " + this.formatDate(r.end); })()}</div>
                         <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
                     </div>
                 `;
@@ -4210,29 +4072,8 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                 });
                 html += "</div>";
             }
-            // ===== BUDGET =====
-            if (trip.budget > 0) {
-                var spent = (trip.expenses||[]).reduce(function(s,e){return s+(e.amount||0);}, 0);
-                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div>';
-                html += '<div class="detail-row"><span class="detail-label">Budget</span><span class="detail-value">$'+trip.budget.toLocaleString()+'</span></div>';
-                html += '<div class="detail-row"><span class="detail-label">Spent</span><span class="detail-value">$'+spent.toLocaleString()+'</span></div></div>';
-            }
-
-            // ===== LOCATION RESEARCH ENGINE (Feature 4) =====
-            var destCity = (trip.destination || "").split(",")[0].trim();
-            html += this._renderResearchEngine(destCity);
-
-            
-            // Add Race Detail Card (Feature 2)
-            if (trip.raceData && trip.raceData.raceName) {
-                html += self.renderRaceDetailCard(trip);
-            }
-
-            // Add Trip Timeline (Feature 4)
-            html += self.renderTripTimeline(trip);
-
-            // Add Budget Tracker (Feature 7)
-            html += '<div class="detail-section">' + self.renderBudgetTracker(trip) + '</div>';
+            // =====if (tripvar spent = (trip.expenses||[]).reduce(function(s,e){return s+(e.amount||0);}, 0);
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i>html += '<div class="detail-row"><span class="detail-label"html += '';
 
             // Add Document Vault (Feature 3)
             html += '<div class="detail-section">' + self.renderDocumentVault(trip) + '</div>';
@@ -4291,8 +4132,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                         bookings: t.bookings||[], tasks: t.tasks||[],
                         companions: t.companions||[], notes: t.notes||"",
                         // Preserve all app-level fields so they survive round-trips
-                        flights: t.flights||[], accommodation: t.accommodation||null,
-                        budget: t.budget||0, expenses: t.expenses||[],
+                        flights: t.flights||[], accommodation: t.accommodation||null
                         packingList: t.packingList||{}, colorIndex: t.colorIndex||0, legs: t.legs||[] };
                 }), templates: [], settings: {} };
                 var content = btoa(unescape(encodeURIComponent(JSON.stringify(tripsJson, null, 2))));
@@ -4314,21 +4154,28 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
 
 formatDate(dateStr) {
                 const date = this.parseLocalDate(dateStr);
-                return date.toLocaleDate// Multi-leg trip date aggregation helper
-            getTripDateRange(trip) {
-                const legs = Array.isArray(trip && trip.legs) ? trip.legs.filter(l => l && (l.startDate || l.endDate)) : [];
-                if (legs.length === 0) {
-                    return { start: trip && trip.startDate ? trip.startDate : null, end: trip && (trip.endDate || trip.startDate) ? (trip.endDate || trip.startDate) : null };
-                }
-                const startTimes = legs.map(l => l.startDate).filter(Boolean).map(d => new Date(d).getTime());
-                const endTimes = legs.map(l => l.endDate || l.startDate).filter(Boolean).map(d => new Date(d).getTime());
-                const starts = startTimes.length ? startTimes : endTimes;
-                const ends = endTimes.length ? endTimes : startTimes;
-                const toISO = t => { const d = new Date(t); const y = d.getFullYear(); const m = String(d.getMonth()+1).padStart(2,'0'); const day = String(d.getDate()).padStart(2,'0'); return `${y}-${m}-${day}`; };
-                return { start: toISO(Math.min(...starts)), end: toISO(Math.max(...ends)) };
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
             }
 
-            String('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+            // Multi-leg trip date aggregation helper
+            getTripDateRange(trip) {
+                if (!trip) return { start: null, end: null };
+                if (trip.legs && trip.legs.length > 0) {
+                    let earliest = null, latest = null;
+                    for (const leg of trip.legs) {
+                        if (leg.startDate) {
+                            const legStart = new Date(leg.startDate);
+                            if (!earliest || legStart < earliest) earliest = legStart;
+                        }
+                        if (leg.endDate) {
+                            const legEnd = new Date(leg.endDate);
+                            if (!latest || legEnd > latest) latest = legEnd;
+                        }
+                    }
+                    return { start: earliest ? earliest.toISOString().split('T')[0] : trip.startDate, end: latest ? latest.toISOString().split('T')[0] : trip.endDate };
+                }
+                return { start: trip.startDate, end: trip.endDate };
             }
 
             formatDateTime(dateTimeStr) {
@@ -4614,9 +4461,7 @@ this.updateDashboardStats();
             cats[key] += (ex.amount || 0);
         });
         const total = Object.values(cats).reduce((s,v) => s+v, 0);
-        const budget = trip.budget || total * 1.2;
-        const pct = budget > 0 ? Math.min(100, Math.round((total / budget) * 100)) : 0;
-        // Draw burn-down on canvas
+        constconst pct =// Draw burn-down on canvas
         const canvas = document.getElementById('burnDownCanvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -4624,8 +4469,7 @@ this.updateDashboardStats();
             ctx.scale(2, 2);
             const w = canvas.offsetWidth, h = 180;
             ctx.clearRect(0, 0, w, h);
-            // Budget line
-            ctx.strokeStyle = '#3a4452'; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
+            //ctx.strokeStyle = '#3a4452'; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
             ctx.beginPath(); ctx.moveTo(10, 10); ctx.lineTo(w-10, h-10); ctx.stroke();
             // Spend line
             ctx.setLineDash([]); ctx.strokeStyle = '#4a90e2'; ctx.lineWidth = 2;
@@ -4635,20 +4479,17 @@ this.updateDashboardStats();
             pts.forEach((ex, i) => {
                 cumul += (ex.amount || 0);
                 const x = 10 + ((i+1) / pts.length) * (w - 20);
-                const y = h - 10 - (cumul / budget) * (h - 20);
-                ctx.lineTo(x, Math.max(10, y));
+                const y = h - 10 - (cumul /ctx.lineTo(x, Math.max(10, y));
             });
             ctx.stroke();
             // Labels
             ctx.fillStyle = '#cbd5e1'; ctx.font = '11px Inter, sans-serif';
-            ctx.fillText('$' + Math.round(total) + ' / $' + Math.round(budget) + ' (' + pct + '%)', 10, h - 2);
-        }
+            ctx.fillText('$' + Math.round(total) + ' / $' + Math.round}
         // Categories list
         const catsList = document.getElementById('expenseCategoriesList');
         if (catsList) {
             catsList.innerHTML = Object.entries(cats).filter(([,v]) => v > 0).map(([cat, amt]) => {
-                const p = budget > 0 ? Math.round((amt / budget) * 100) : 0;
-                return `<div class="expense-category-item"><div><div class="category-label">${cat}</div><div class="category-bar"><div class="category-bar-fill" style="width:${p}%"></div></div></div><div class="category-amount">$${Math.round(amt)}</div></div>`;
+                const p =return `<div class="expense-category-item"><div><div class="category-label">${cat}</div><div class="category-bar"><div class="category-bar-fill" style="width:${p}%"></div></div></div><div class="category-amount">$${Math.round(amt)}</div></div>`;
             }).join('');
         }
     }
@@ -4899,11 +4740,8 @@ this.updateDashboardStats();
         if (trip.accommodation) {
             html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
         }
-        // Budget
-        if (trip.budget || (trip.expenses?.length > 0)) {
-            const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
-            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
-        }
+        //const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i>}
         // Packing
         if (trip.packingList && ((Array.isArray(trip.packingList) && trip.packingList.length > 0) || (!Array.isArray(trip.packingList) && Object.keys(trip.packingList).length > 0))) {
             const packed = trip.packingList.filter(p=>p.packed).length;
@@ -5357,8 +5195,7 @@ this.updateDashboardStats();
             this.showToast(template.name + ' template applied!', 'success');
         };
 
-        // ===== FEATURE 7: BUDGET TRACKER WITH MULTI-CURRENCY =====
-        TravelFloApp.prototype.currencyRates = { 'USD':1, 'EUR':0.92, 'GBP':0.79, 'JPY':149.5, 'MXN':17.1, 'BRL':4.97, 'ARS':870, 'COP':3950, 'THB':35.5, 'AUD':1.53, 'CAD':1.36, 'ZAR':18.6, 'GEL':2.65, 'IDR':15400, 'PHP':55.8, 'CRC':525, 'PEN':3.72, 'CLP':890, 'NZD':1.63, 'CHF':0.88, 'NOK':10.5, 'SEK':10.4, 'DKK':6.87, 'ISK':137, 'HRK':7.1, 'CZK':22.8, 'PLN':4.05, 'HUF':355, 'RON':4.57, 'TRY':30.2, 'AED':3.67, 'SGD':1.34, 'HKD':7.83, 'KRW':1310, 'TWD':31.2, 'INR':83.1, 'MAD':10.1, 'EGP':30.9, 'KES':153, 'FJD':2.24 };
+        // ===== FEATURE 7:TravelFloApp.prototype.currencyRates = { 'USD':1, 'EUR':0.92, 'GBP':0.79, 'JPY':149.5, 'MXN':17.1, 'BRL':4.97, 'ARS':870, 'COP':3950, 'THB':35.5, 'AUD':1.53, 'CAD':1.36, 'ZAR':18.6, 'GEL':2.65, 'IDR':15400, 'PHP':55.8, 'CRC':525, 'PEN':3.72, 'CLP':890, 'NZD':1.63, 'CHF':0.88, 'NOK':10.5, 'SEK':10.4, 'DKK':6.87, 'ISK':137, 'HRK':7.1, 'CZK':22.8, 'PLN':4.05, 'HUF':355, 'RON':4.57, 'TRY':30.2, 'AED':3.67, 'SGD':1.34, 'HKD':7.83, 'KRW':1310, 'TWD':31.2, 'INR':83.1, 'MAD':10.1, 'EGP':30.9, 'KES':153, 'FJD':2.24 };
 
         TravelFloApp.prototype.convertToUSD = function(amount, currency) {
             const rate = this.currencyRates[currency] || 1;
@@ -5367,8 +5204,7 @@ this.updateDashboardStats();
 
         TravelFloApp.prototype.renderBudgetTracker = function(trip) {
             const expenses = trip.expenses || [];
-            const budget = trip.budget || 0;
-            const catEmojis = { 'flights':'✈️', 'hotel':'🏨', 'food':'🍽️', 'activities':'🎯', 'transport':'🚗', 'shopping':'🛍️', 'race_entry':'🏁', 'other':'📦' };
+            constconst catEmojis = { 'flights':'✈️', 'hotel':'🏨', 'food':'🍽️', 'activities':'🎯', 'transport':'🚗', 'shopping':'🛍️', 'race_entry':'🏁', 'other':'📦' };
             const categories = {};
             let totalUSD = 0;
             expenses.forEach(function(exp) {
@@ -5379,21 +5215,14 @@ this.updateDashboardStats();
                 totalUSD += amt;
             }.bind(this));
 
-            let html = '<div class="budget-tracker"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div>';
-            html += '<div class="budget-summary">';
-            html += '<div class="budget-stat"><div class="budget-stat-value">$' + totalUSD.toFixed(0) + '</div><div class="budget-stat-label">Spent</div></div>';
-            html += '<div class="budget-stat"><div class="budget-stat-value"' + (budget > 0 && totalUSD > budget ? ' style="color:#ef4444"' : '') + '>$' + (budget > 0 ? (budget - totalUSD).toFixed(0) : '--') + '</div><div class="budget-stat-label">' + (budget > 0 ? 'Remaining' : 'No Budget Set') + '</div></div>';
-            html += '</div>';
+            let html = '<div class=vertical-align:middle"></i>html += '<div class=html += '<div class=html += '<div class=html += '</div>';
 
-            if (budget > 0) {
-                const pct = Math.min((totalUSD / budget) * 100, 100);
-                const color = pct > 90 ? '#ef4444' : pct > 70 ? '#f59e0b' : '#10b981';
-                html += '<div class="budget-bar"><div class="budget-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>';
+            if const pct = Math.min((totalUSD /const color = pct > 90 ? '#ef4444' : pct > 70 ? '#f59e0b' : '#10b981';
+                html += '<div class=background:' + color + '"></div></div>';
             }
 
             Object.keys(categories).sort().forEach(function(cat) {
-                html += '<div class="budget-cat-row"><span>' + (catEmojis[cat] || '📦') + ' ' + cat.charAt(0).toUpperCase() + cat.slice(1).replace('_', ' ') + '</span><span>$' + categories[cat].toFixed(2) + '</span></div>';
-            });
+                html += '<div class=});
 
             // Add expense form
             html += '<div class="expense-log-form">';
@@ -5700,8 +5529,7 @@ this.updateDashboardStats();
                     packingList: JSON.parse(JSON.stringify(trip.packingList || {})),
                     documents: (trip.documents || []).slice(),
                     budgetCategories: (trip.expenses || []).map(e => e.category).filter((v,i,a) => a.indexOf(v) === i),
-                    tripType: trip.tripType || trip.type || 'vacation',
-                    budget: trip.budget || 0
+                    tripType: trip.tripType || trip.type || 'vacation'
                 }
             };
             const templates = this.getUserTemplates();
@@ -5723,10 +5551,7 @@ this.updateDashboardStats();
             document.getElementById('templateSelection').style.display = 'none';
             this.currentTemplatePackingList = tmpl.data.packingList || {};
             this.renderPackingSection();
-            if (tmpl.data.budget) {
-                document.getElementById('budgetInput').value = tmpl.data.budget;
-                this.showExpensesSection();
-            }
+            if (tmpl.data}
             if (tmpl.data.tripType) {
                 const typeInput = document.getElementById('tripTypeInput');
                 if (typeInput) typeInput.value = tmpl.data.tripType;
@@ -5975,9 +5800,7 @@ this.updateDashboardStats();
                     endDate: '2026-05-22',
                     notes: 'Summer vacation - visit museums and enjoy wine',
                     flights: [],
-                    accommodation: 'https://www.airbnb.com',
-                    budget: 3000,
-                    expenses: [],
+                    accommodation: 'https://www.airbnb.com'
                     packingList: {},
                     colorIndex: 0
                 },
@@ -5987,9 +5810,7 @@ this.updateDashboardStats();
                     endDate: '2026-06-15',
                     notes: 'Cherry blossoms and cultural exploration',
                     flights: [],
-                    accommodation: 'https://www.booking.com',
-                    budget: 4500,
-                    expenses: [],
+                    accommodation: 'https://www.booking.com'
                     packingList: {},
                     colorIndex: 1
                 },
@@ -5999,9 +5820,7 @@ this.updateDashboardStats();
                     endDate: '2026-03-18',
                     notes: 'Beach relaxation and temple visits',
                     flights: [],
-                    accommodation: null,
-                    budget: 2500,
-                    expenses: [],
+                    accommodation: null
                     packingList: {},
                     colorIndex: 2
                 }

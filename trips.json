@@ -186,7 +186,16 @@
       "expenses": [],
       "packingList": {},
       "colorIndex": 2,
-      "legs": []
+      "legs": [
+        {
+          "destination": "Cabo",
+          "startDate": "2026-04-20",
+          "endDate": "2026-04-24",
+          "accommodation": "https://www.airbnb.com/rooms/54162491?source_impression_id=p3_1776179142_P3E3kFtpNwRVswUq",
+          "flight": "",
+          "activities": ""
+        }
+      ]
     },
     {
       "id": "4",

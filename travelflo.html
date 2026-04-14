@@ -4097,7 +4097,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     if (a.url && a.url.match(/^https?:\/\//)) {
                         var _imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(a.url) + '&screenshot=true&meta=false&embed=screenshot.url';
                         html += '<a href="' + a.url + '" target="_blank" rel="noopener" class="accom-photo-link" style="display:block;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">';
-                        html += '<img src="' + _imgUrl + '" alt="' + (a.name || 'Accommodation') + '" loading="lazy" style="width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-tertiary);" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">';
+                        html += '<img src="' + _imgUrl + '" alt="' + (a.name || 'Accommodation') + '" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-tertiary);" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">';
                         html += '</a>';
                     }
                     html += '<div class="accom-detail-meta">';
@@ -5654,7 +5654,7 @@ this.updateDashboardStats();
                     var urlMatch = (l.accommodation || '').match(/https?:\/\/\S+/);
                     if (urlMatch) {
                         var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(urlMatch[0]) + '&screenshot=true&meta=false&embed=screenshot.url';
-                        html += '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="display:block;margin:-4px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);"><img src="' + imgUrl + '" loading="lazy" alt="Accommodation" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.parentNode.style.display=\'none\';"></a>';
+                        html += '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="display:block;margin:-4px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);"><img src="' + imgUrl + '" loading="eager" alt="Accommodation" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.parentNode.style.display=\'none\';"></a>';
                     }
                 });
                 html += '</div>';
@@ -5992,7 +5992,7 @@ this.updateDashboardStats();
             if (accomUrl) {
                 var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(accomUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
                 photoHtml = '<a href="' + accomUrl + '" target="_blank" rel="noopener" style="display:block;margin:8px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">' +
-                    '<img src="' + imgUrl + '" alt="Accommodation preview" loading="lazy" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">' +
+                    '<img src="' + imgUrl + '" alt="Accommodation preview" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">' +
                     '</a>';
             }
             return '<div class="leg-details">' +

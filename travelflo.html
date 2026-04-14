@@ -5177,7 +5177,25 @@ this.updateDashboardStats();
                 // YYYY-MM-DD[ T]HH:MM
                 var m = s.match(/^(\d{4}-\d{2}-\d{2})[T\s]?(\d{2}:\d{2})?/);
                 if (m) return { dateStr: m[1], timeStr: m[2] || '' };
-                return { dateStr: s.slice(0,10), timeStr: '' };
+                // Human-readable fallback: "Apr 24, 2026 4:43 PM"
+                var d = new Date(s);
+                if (!isNaN(d.getTime())) {
+                    var yyyy = d.getFullYear();
+                    var mm = String(d.getMonth() + 1).padStart(2, '0');
+                    var dd = String(d.getDate()).padStart(2, '0');
+                    var tm = '';
+                    var tMatch = s.match(/(\d{1,2}):(\d{2})\s*(AM|PM|am|pm)?/);
+                    if (tMatch) {
+                        var h = parseInt(tMatch[1], 10);
+                        var mn = tMatch[2];
+                        var ap = (tMatch[3] || '').toUpperCase();
+                        if (ap === 'PM' && h < 12) h += 12;
+                        if (ap === 'AM' && h === 12) h = 0;
+                        tm = String(h).padStart(2, '0') + ':' + mn;
+                    }
+                    return { dateStr: yyyy + '-' + mm + '-' + dd, timeStr: tm };
+                }
+                return { dateStr: '', timeStr: '' };
             };
             var _push = function(dateStr, timeStr, icon, title, subtitle) {
                 if (!dateStr) return;

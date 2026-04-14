@@ -145,8 +145,8 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-04-19",
-        "end": "2026-04-24"
+        "start": "2026-04-17",
+        "end": "2026-04-20"
       },
       "status": "upcoming",
       "type": "personal",
@@ -174,20 +174,17 @@
       "flights": [
         {
           "airline": "Delta Air Lines",
-          "route": "SJD > LAX",
-          "departure": "Apr 24, 2026",
-          "arrival": "Apr 24, 2026 4:43 PM",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "Los Cabos to Los Angeles",
-          "passengers": ""
+          "number": "DL1315",
+          "depAirport": "iah",
+          "arrAirport": "sjd",
+          "depTime": "2026-04-17T07:00",
+          "arrTime": "2026-04-17T13:02"
         }
       ],
-      "accommodation": null,
+      "accommodation": "https://www.airbnb.com/rooms/950786427645488481?source_impression_id=p3_1776179031_P3tId_trHBOZn16A",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 2,
       "legs": []
     },

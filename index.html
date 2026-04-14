@@ -7,7 +7,7 @@
 </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%2334c759' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlo ÃÂ¢ÃÂÃÂ Action Items Dashboard</title>
+    <title>TaskFlo — Action Items Dashboard</title>
     <style>html,body{background-color:#f5f5f7;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -68,8 +68,35 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
+        .header-icon-cluster {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            padding: 3px;
+            background: #f5f5f7;
+            border-radius: 999px;
+        }
+        html[data-theme="dark"] .header-icon-cluster { background: rgba(255,255,255,0.06); }
+        .header-icon-cluster > button {
+            width: 34px;
+            height: 34px;
+            padding: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: #1d1d1f;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        html[data-theme="dark"] .header-icon-cluster > button { color: #f5f5f7; }
+        .header-icon-cluster > button:hover { background: rgba(0,0,0,0.06); transform: none; }
+        html[data-theme="dark"] .header-icon-cluster > button:hover { background: rgba(255,255,255,0.1); }
+        .header-icon-cluster > button svg { display: block; }
 
         .token-status {
             font-size: 12px;
@@ -409,7 +436,7 @@
         }
 
         .task-checkbox.checked::after {
-            content: 'ÃÂ¢ÃÂÃÂ';
+            content: '✓';
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -525,15 +552,15 @@
         }
 
         .task-due-date.overdue::before {
-            content: 'ÃÂ°ÃÂÃÂÃÂ´';
+            content: '🔴';
         }
 
         .task-due-date.today::before {
-            content: 'ÃÂ°ÃÂÃÂÃÂ ';
+            content: '🟠';
         }
 
         .task-due-date.due-soon::before {
-            content: 'ÃÂ°ÃÂÃÂÃÂ¡';
+            content: '🟡';
         }
 
         .task-subtasks {
@@ -922,7 +949,7 @@
         }
 
         .subtask-checkbox.checked::after {
-            content: 'ÃÂ¢ÃÂÃÂ';
+            content: '✓';
             color: #ffffff;
             font-size: 10px;
             font-weight: 700;
@@ -1434,7 +1461,7 @@
             border-color: #34c759;
         }
         .subtask-checkbox.checked::after {
-            content: 'ÃÂ¢ÃÂÃÂ';
+            content: '✓';
             color: white;
             font-size: 10px;
             display: flex;
@@ -2206,7 +2233,7 @@
         .skeleton-line.medium { width: 80%; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        /* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Hamburger Menu for Mobile ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
+        /* ── Hamburger Menu for Mobile ── */
         .hamburger-menu-btn {
             display: none;
             align-items: center;
@@ -2485,7 +2512,7 @@
 .card-subtask-row { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 12px; color: #6e6e73; }
 .card-subtask-row .mini-check { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #c7c7cc; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
 .card-subtask-row .mini-check.done { background: #34c759; border-color: #34c759; }
-.card-subtask-row .mini-check.done::after { content: 'Ã¢ÂÂ'; color: #fff; font-size: 9px; font-weight: 700; }
+.card-subtask-row .mini-check.done::after { content: '✓'; color: #fff; font-size: 9px; font-weight: 700; }
 .card-subtask-row .st-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-subtask-row .st-text.done { text-decoration: line-through; opacity: 0.5; }
 .card-subtasks-toggle { font-size: 11px; color: #007aff; cursor: pointer; padding: 2px 0; display: flex; align-items: center; gap: 4px; }
@@ -2779,8 +2806,8 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
     <div class="container">
         <header>
             <div class="header-left">
-                <svg viewBox="0 0 148 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><rect x="6" y="10" width="5" height="14" rx="1.5" fill="#fff" opacity=".9"/><rect x="13" y="10" width="5" height="10" rx="1.5" fill="#fff" opacity=".9"/><rect x="20" y="10" width="5" height="18" rx="1.5" fill="#fff" opacity=".9"/><path d="M6 29Q13 25 17 29Q21 33 27 29" stroke="#fff" stroke-width="1.5" fill="none" opacity=".7"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Task</text><text x="90" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M90 33Q102 28 114 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg>
-                <span class="version-badge">v4.1</span>
+                <svg viewBox="0 0 148 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><rect x="6" y="10" width="5" height="14" rx="1.5" fill="#fff" opacity=".9"/><rect x="13" y="10" width="5" height="10" rx="1.5" fill="#fff" opacity=".9"/><rect x="20" y="10" width="5" height="18" rx="1.5" fill="#fff" opacity=".9"/><path d="M6 29Q13 25 17 29Q21 33 27 29" stroke="#fff" stroke-width="1.5" fill="none" opacity=".7"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Task</text><text x="83" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M83 33Q95 28 107 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg>
+                <span class="version-badge">v4.2</span>
             </div>
             <a href="travelflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <div class="header-right">
@@ -2827,9 +2854,11 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
                     <button class="secondary toolbar-hideable" id="templateBtn"><i data-lucide="clipboard-list" style="width:14px;height:14px;vertical-align:-2px;"></i> Template</button>
                     <button class="secondary toolbar-hideable" id="rulesBtn" onclick="openRulesPanel()" title="Automation Rules"><i data-lucide="settings" style="width:14px;height:14px;vertical-align:-2px;"></i> Rules</button>
                     <button class="primary" id="addTaskBtn">+ Add Task</button>
-            <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode"><i data-lucide="moon" style="width:16px;height:16px;"></i></button>
-            <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications"><i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i><span id="notifBadge" class="badge" style="display:none">0</span></button>
-            <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics"><i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i> .ics</button>
+                    <div class="header-icon-cluster">
+                        <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode"><i data-lucide="moon" style="width:16px;height:16px;"></i></button>
+                        <button id="notifBellBtn" class="notification-bell" onclick="toggleNotificationPanel()" title="Notifications" aria-label="Notifications"><i data-lucide="bell" style="width:16px;height:16px;"></i><span id="notifBadge" class="badge" style="display:none">0</span></button>
+                        <button class="ics-download-btn toolbar-hideable" onclick="downloadICS()" title="Download .ics" aria-label="Download .ics"><i data-lucide="calendar" style="width:16px;height:16px;"></i></button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -2842,15 +2871,15 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
                     id="searchInput"
                     placeholder="Search tasks..."
                 >
-                <button class="search-clear" id="searchClear">ÃÂ¢ÃÂÃÂ</button>
+                <button class="search-clear" id="searchClear">✕</button>
             </div>
             <div class="search-result-count" id="searchCount" style="display:none;"></div>
             <div class="label-filters" id="labelFilters"></div>
             <select class="filter-select" id="priorityFilter" style="display:none;">
                 <option value="">All Priorities</option>
-                <option value="1">ÃÂ°ÃÂÃÂÃÂ´ High</option>
-                <option value="2">ÃÂ°ÃÂÃÂÃÂ¡ Medium</option>
-                <option value="3">ÃÂ°ÃÂÃÂÃÂ¢ Low</option>
+                <option value="1">🔴 High</option>
+                <option value="2">🟡 Medium</option>
+                <option value="3">🟢 Low</option>
             </select>
             <select class="filter-select" id="ownerFilter" style="display:none;">
                 <option value="">All Owners</option>
@@ -2884,7 +2913,7 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
             <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
-            <span class="priority-strip-toggle">ÃÂ¢ÃÂÃÂ¼</span>
+            <span class="priority-strip-toggle">▼</span>
           </div>
           <div class="priority-strip-scroll" id="priorityStripScroll">
             <div class="priority-strip-empty" id="priorityStripEmpty">Star tasks to pin them here</div>
@@ -2989,8 +3018,8 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="christopher-todo">Christopher Ã¢ÂÂ To Do</option>
-                    <option value="christopher-ip">Christopher Ã¢ÂÂ In Progress</option>
+                    <option value="christopher-todo">Christopher — To Do</option>
+                    <option value="christopher-ip">Christopher — In Progress</option>
                     <option value="claude">Claude</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
@@ -3119,11 +3148,11 @@ html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher-ip')">ÃÂ¢ÃÂÃÂ Christopher</button>
-        <button onclick="batchMove('claude')">ÃÂ¢ÃÂÃÂ Claude</button>
-        <button onclick="batchMove('completed')">ÃÂ¢ÃÂÃÂ Complete</button>
-        <button onclick="batchMove('parking')">ÃÂ¢ÃÂÃÂ¸ Park</button>
-        <button class="batch-close" onclick="clearBatchSelection()">ÃÂ¢ÃÂÃÂ</button>
+        <button onclick="batchMove('christopher-ip')">→ Christopher</button>
+        <button onclick="batchMove('claude')">→ Claude</button>
+        <button onclick="batchMove('completed')">✓ Complete</button>
+        <button onclick="batchMove('parking')">⏸ Park</button>
+        <button class="batch-close" onclick="clearBatchSelection()">✕</button>
     </div>
 
 
@@ -3924,7 +3953,7 @@ function getGithubToken() {
                 { id: 'christopher-todo', title: 'Christopher \u2014 To Do', dot: '#5856d6', getColor: () => '#5856d6' },
                 { id: 'christopher-ip', title: 'Christopher \u2014 In Progress', dot: '#007aff', getColor: () => '#007aff' },
                 { id: 'claude', title: 'Claude', dot: '#af52de', getColor: () => '#af52de' },
-                { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared Sundays' },
+                { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared every Sunday' },
                 { id: 'parking', title: 'Parking Lot', dot: '#8e8e93', getColor: () => '#8e8e93' }
             ];
 
@@ -3959,7 +3988,18 @@ function getGithubToken() {
                 const count = document.createElement('div');
                 count.className = 'column-count';
 
-                const columnTasks = filteredTasks.filter(t => getTaskColumn(t) === col.id);
+                let columnTasks = filteredTasks.filter(t => getTaskColumn(t) === col.id);
+                // Sunday auto-clear: hide completed tasks completed before the most recent Sunday 00:00 local time
+                if (col.id === 'completed') {
+                    const now = new Date();
+                    const cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
+                    columnTasks = columnTasks.filter(t => {
+                        const ts = t.completed_at || t.updated_at || t.created_at;
+                        if (!ts) return true; // keep if no timestamp (we can't prove it's old)
+                        const d = new Date(ts);
+                        return !isNaN(d) && d >= cutoff;
+                    });
+                }
                 count.textContent = columnTasks.length;
 
                 header.appendChild(dot);
@@ -4126,7 +4166,7 @@ function getGithubToken() {
             if (task.delegation_notes && task.mode === 'auto') {
                 const delegationDiv = document.createElement('div');
                 delegationDiv.className = 'delegation-notes';
-                delegationDiv.innerHTML = '<div class="delegation-notes-title">ÃÂ°ÃÂÃÂ¤ÃÂ Delegation Notes</div>' +
+                delegationDiv.innerHTML = '<div class="delegation-notes-title">🤖 Delegation Notes</div>' +
                     '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 meta.appendChild(delegationDiv);
             }
@@ -4474,7 +4514,7 @@ function getGithubToken() {
             // Feature 10: Delegation Notes display
             if (task.delegation_notes && task.mode === 'auto') {
                 html += '<div class="detail-section"><div class="delegation-notes">';
-                html += '<div class="delegation-notes-title">ÃÂ°ÃÂÃÂ¤ÃÂ Delegation Notes for Claude</div>';
+                html += '<div class="delegation-notes-title">🤖 Delegation Notes for Claude</div>';
                 html += '<div class="delegation-notes-display">' + escapeHtml(task.delegation_notes) + '</div>';
                 html += '</div></div>';
             }
@@ -4680,7 +4720,7 @@ function getGithubToken() {
 
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">ÃÂÃÂ</span>`;
+            tag.innerHTML = `${escapeHtml(label)}<span class="tag-remove">×</span>`;
             tag.querySelector('.tag-remove').onclick = () => tag.remove();
 
             container.insertBefore(tag, input);
@@ -4691,7 +4731,7 @@ function getGithubToken() {
             const container = document.getElementById('labelTagInput');
             const tags = [];
             container.querySelectorAll('.tag').forEach(tag => {
-                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : 'ÃÂÃÂ', '').trim();
+                const removeBtn = tag.querySelector('.tag-remove'); const text = tag.textContent.replace(removeBtn ? removeBtn.textContent : '×', '').trim();
                 tags.push(text);
             });
             return tags;
@@ -4889,7 +4929,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'christopher-todo': 'Christopher Ã¢ÂÂ To Do', 'christopher-ip': 'Christopher Ã¢ÂÂ In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher — To Do', 'christopher-ip': 'Christopher — In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -5613,11 +5653,11 @@ document.addEventListener('keydown', (e) => {
             }
 
             const iconMap = {
-                created: 'ÃÂ¢ÃÂÃÂ',
-                completed: 'ÃÂ¢ÃÂÃÂ',
-                moved: 'ÃÂ¢ÃÂÃÂ',
-                edited: 'ÃÂ¢ÃÂÃÂ',
-                commented: 'ÃÂ°ÃÂÃÂÃÂ¬',
+                created: '➕',
+                completed: '✓',
+                moved: '→',
+                edited: '✎',
+                commented: '💬',
                 attempted: '<i data-lucide="alert-triangle" style="width:12px;height:12px;vertical-align:-1px;"></i>',
                 assigned: '<i data-lucide="user" style="width:14px;height:14px;vertical-align:-2px;"></i>',
                 recurrence_spawned: '<i data-lucide="refresh-cw" style="width:14px;height:14px;"></i>'
@@ -5625,10 +5665,10 @@ document.addEventListener('keydown', (e) => {
 
             container.innerHTML = allActivities.map(a => `
                 <div class="activity-item">
-                    <div class="activity-icon ${a.action}">${iconMap[a.action] || 'ÃÂ¢ÃÂÃÂ¢'}</div>
+                    <div class="activity-icon ${a.action}">${iconMap[a.action] || '•'}</div>
                     <div class="activity-body">
                         <span class="activity-task-title" onclick="showTaskDetail(tasks.find(t => t.id === '${a.taskId}'))">${escapeHtml(a.taskTitle)}</span>
-                        <div class="activity-detail">${escapeHtml(a.details)} ÃÂ¢ÃÂÃÂ by ${escapeHtml(a.by)}</div>
+                        <div class="activity-detail">${escapeHtml(a.details)} — by ${escapeHtml(a.by)}</div>
                     </div>
                     <span class="activity-time">${getRelativeTime(a.timestamp)}</span>
                 </div>
@@ -5831,7 +5871,7 @@ document.addEventListener('keydown', (e) => {
                 if (section.tasks.length === 0) {
                     const empty = document.createElement('div');
                     empty.className = 'my-tasks-empty';
-                    empty.textContent = section.id === 'today' ? 'Nothing due today ÃÂ¢ÃÂÃÂ nice!' : 'No tasks';
+                    empty.textContent = section.id === 'today' ? 'Nothing due today — nice!' : 'No tasks';
                     sectionEl.appendChild(empty);
                 } else {
                     section.tasks.forEach(task => {
@@ -5856,7 +5896,7 @@ document.addEventListener('keydown', (e) => {
                             const proj = projects.find(p => p.id === task.project);
                             if (proj) metaEl.innerHTML += '<span class="project-badge" style="background:' + proj.color + '15;color:' + proj.color + ';font-size:10px;">' + proj.name + '</span>';
                         }
-                        const priNames = { 1: 'ÃÂ°ÃÂÃÂÃÂ´', 2: 'ÃÂ°ÃÂÃÂÃÂ¡', 3: 'ÃÂ°ÃÂÃÂÃÂ¢' };
+                        const priNames = { 1: '🔴', 2: '🟡', 3: '🟢' };
                         metaEl.innerHTML += '<span>' + (priNames[task.priority] || '') + '</span>';
                         if (task.subtasks && task.subtasks.length > 0) {
                             const done = task.subtasks.filter(s => s.done).length;
@@ -5927,7 +5967,7 @@ document.addEventListener('keydown', (e) => {
                 card.className = 'template-card';
                 card.innerHTML = '<div class="template-card-title">' + escapeHtml(tmpl.name) + '</div>' +
                     '<div class="template-card-desc">' + escapeHtml(tmpl.description) + '</div>' +
-                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks ÃÂ¢ÃÂÃÂ¢ P' + tmpl.priority + '</div>';
+                    '<div class="template-card-meta">' + tmpl.subtasks.length + ' subtasks • P' + tmpl.priority + '</div>';
                 card.onclick = () => {
                     applyTemplate(idx);
                     modal.classList.remove('active');
@@ -5962,7 +6002,7 @@ document.addEventListener('keydown', (e) => {
             tmpl.subtasks.forEach(st => {
                 const item = document.createElement('div');
                 item.className = 'subtask-item';
-                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">ÃÂ¢ÃÂÃÂ</button>';
+                item.innerHTML = '<input type="text" class="subtask-input" placeholder="Subtask title" value="' + escapeHtml(st.title) + '"><button type="button" class="subtask-remove" onclick="this.parentElement.remove()">✕</button>';
                 subtasksContainer.appendChild(item);
             });
 
@@ -6038,7 +6078,7 @@ function init() {
         if (!list) return;
         if (notifications.length === 0) { list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">No notifications</div>'; return; }
         list.innerHTML = notifications.slice(0, 20).map(function(n) {
-            var icons = { overdue: 'ÃÂ°ÃÂÃÂÃÂ¨', approaching: 'ÃÂ¢ÃÂÃÂ°', unblocked: 'ÃÂ°ÃÂÃÂÃÂ', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
+            var icons = { overdue: '🚨', approaching: '⏰', unblocked: '🔓', digest: '<i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px;"></i>', completed: '<i data-lucide="circle-check" style="width:16px;vertical-align:middle;color:#34c759;margin-right:6px"></i>' };
             return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="markNotifRead(\'' + n.id + '\')">' +
                 '<div class="ni-title"><span class="ni-icon">' + (icons[n.type] || '<i data-lucide="bell" style="width:14px;height:14px;vertical-align:-2px;"></i>') + '</span> ' + escapeHtml(n.title) + '</div>' +
                 '<div class="ni-time">' + getRelativeTime(n.time) + '</div></div>';
@@ -6165,11 +6205,11 @@ function init() {
     }
     function getDeliverableType(task) {
         var cat = categorizeTask(task);
-        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'ÃÂ°ÃÂÃÂÃÂ'};
-        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'ÃÂ°ÃÂÃÂÃÂ'};
-        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'ÃÂ¢ÃÂÃÂ'};
-        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'ÃÂ°ÃÂÃÂÃÂ'};
-        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'ÃÂ°ÃÂÃÂÃÂ'};
+        if (cat.cm.includes('Research')) return {type:'Research Brief',icon:'🔍'};
+        if (cat.cm.includes('Drafting')) return {type:'Draft Document',icon:'📝'};
+        if (cat.cm.includes('Email Prep')) return {type:'Draft Email',icon:'✉'};
+        if (cat.cm.includes('Document')) return {type:'Document Template',icon:'📄'};
+        if (cat.cm.includes('Web Lookup')) return {type:'Research Summary',icon:'🌐'};
         if (cat.cm.includes('Scheduling')) return {type:'Schedule Proposal',icon:'<i data-lucide="calendar" style="width:13px;height:13px;vertical-align:-2px;"></i>'};
         return null;
     }
@@ -6213,8 +6253,8 @@ function init() {
             swipeState.taskEl.style.transform = 'translateX(' + clamp + 'px)';
             var ri = swipeState.taskEl.querySelector('.swipe-indicator.right');
             var li = swipeState.taskEl.querySelector('.swipe-indicator.left');
-            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='ÃÂ¢ÃÂÃÂ Done'; swipeState.taskEl.appendChild(ri); }
-            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park ÃÂ°ÃÂÃÂÃÂ¿'; swipeState.taskEl.appendChild(li); }
+            if (!ri) { ri = document.createElement('div'); ri.className='swipe-indicator right'; ri.textContent='✅ Done'; swipeState.taskEl.appendChild(ri); }
+            if (!li) { li = document.createElement('div'); li.className='swipe-indicator left'; li.textContent='Park 🅿'; swipeState.taskEl.appendChild(li); }
             ri.classList.toggle('visible', dx > SWIPE_THRESHOLD);
             li.classList.toggle('visible', dx < -SWIPE_THRESHOLD);
         }, {passive:false});
@@ -6391,7 +6431,7 @@ function init() {
     });
 
     
-        // ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Hamburger Menu Toggle ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+        // ── Hamburger Menu Toggle ──
         function closeHamburgerMenu() {
     var btn = document.getElementById('hamburgerBtn');
     var dd = document.getElementById('hamburgerDropdown');
@@ -6481,7 +6521,7 @@ function updateNavArrows() {
         savePinnedToLocal();
     }
 
-    // Event delegation for star toggle Ã¢ÂÂ robust against DOM re-creation by Lucide
+    // Event delegation for star toggle — robust against DOM re-creation by Lucide
     document.addEventListener('click', function(e) {
         var pinBtn = e.target.closest('.task-pin-btn');
         if (!pinBtn) return;

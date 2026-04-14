@@ -215,7 +215,7 @@
       },
       "dates": {
         "start": "2026-04-24",
-        "end": "2026-04-30"
+        "end": "2026-05-01"
       },
       "status": "upcoming",
       "type": "personal",
@@ -246,21 +246,18 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Lufthansa LH457",
-          "route": "LAX > FRA > JNB",
-          "departure": "Apr 30, 2026 3:05 PM",
-          "arrival": "May 2, 2026 8:35 AM",
-          "confirmation": "76XWTD",
-          "class": "First Flex",
-          "cost": "$22,397.80 USD",
-          "notes": "11h 05m layover in Frankfurt",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "airline": "Delta",
+          "number": "DL1876",
+          "depAirport": "sjd",
+          "arrAirport": "lax",
+          "depTime": "2026-04-24T14:00",
+          "arrTime": "2026-04-24T16:45"
         }
       ],
       "accommodation": null,
-      "budget": 22397.8,
+      "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 2,
       "legs": []
     },

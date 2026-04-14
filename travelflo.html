@@ -157,53 +157,6 @@
             background: var(--text-muted);
         }
 
-
-        /* Outer tab-content siblings of .main-content (All Trips) need their own scroll */
-        #allTripsTab.tab-content.active {
-            flex: 1;
-            min-height: 0;
-            overflow-y: auto;
-            padding: 1rem;
-        }
-        #allTripsTab.tab-content.active::-webkit-scrollbar { width: 6px; }
-        #allTripsTab.tab-content.active::-webkit-scrollbar-track { background: var(--bg-secondary); }
-        #allTripsTab.tab-content.active::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
-        #allTripsTab.tab-content.active::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-
-        /* Shared read-only view */
-        body.shared-view .bottom-nav,
-        body.shared-view #shareBtn,
-        body.shared-view #calendarBtn { display: none !important; }
-        body.shared-view #tripDetailModal .trip-action-btn,
-        body.shared-view #tripDetailModal .close-btn { display: none !important; }
-        body.shared-view #tripDetailModal { position: static !important; background: transparent !important; padding: 0 !important; display: block !important; z-index: auto !important; }
-        body.shared-view #tripDetailModal .trip-detail-content { margin: 0 auto !important; max-height: none !important; border: none !important; }
-        body.shared-view .main-content > :not(#tripDetailModal):not(.shared-banner) { display: none !important; }
-        .shared-banner {
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-            color: #fff;
-            padding: 14px 18px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: 0 0 14px 14px;
-            margin: 0 0 12px 0;
-            box-shadow: 0 4px 12px rgba(96,165,250,0.25);
-        }
-        .shared-banner .shared-banner-sub {
-            display: block;
-            font-weight: 400;
-            font-size: 0.8rem;
-            opacity: 0.9;
-            margin-top: 4px;
-        }
-        .trip-action-btn.share-btn {
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-            color: #fff;
-            border: none;
-        }
-        .trip-action-btn.share-btn:hover { filter: brightness(1.1); }
-
         /* Tab Content */
         .tab-content {
             display: none;
@@ -2274,9 +2227,9 @@
                 <div class="trip-detail-header">
                     <h2 id="tripDetailTitle">Trip Details</h2>
                     <div style="display:flex;gap:.5rem;align-items:center">
-                        <button class="trip-action-btn share-btn" onclick="app.shareTrip(app._detailTripId)">🔗 Share</button>
-                        <button class="trip-action-btn" onclick="app.editFromDetail()">✎ Edit</button>
-                        <button class="trip-action-btn" onclick="app.deleteFromDetail()" style="background:var(--accent-red,#ef4444);color:#fff;">🗑 Delete</button>
+                        <button class="trip-action-btn" id="detailShareBtn" onclick="app.shareFromDetail()" style="background:var(--accent-blue,#3b82f6);color:#fff;"><i data-lucide="share-2" style="width:14px;height:14px;vertical-align:-2px;"></i> Share</button>
+                        <button class="trip-action-btn" id="detailEditBtn" onclick="app.editFromDetail()">✎ Edit</button>
+                        <button class="trip-action-btn" id="detailDeleteBtn" onclick="app.deleteFromDetail()" style="background:var(--accent-red,#ef4444);color:#fff;">🗑 Delete</button>
                         <button class="close-btn" onclick="app.closeTripDetail()">&times;</button>
                     </div>
                 </div>
@@ -2399,21 +2352,10 @@
                     <button type="button" class="add-accom-btn" id="addAccomBtn">+ Add Accommodation</button>
                 </div>
 
-                <!-- Budget -->
-                <div class="form-group">
-                    <label class="form-label"><i data-lucide="wallet" style="width:14px;height:14px;vertical-align:-2px;"></i> Total Budget</label>
-                    <div class="form-row">
-                        <div>
-                            <input type="number" class="form-input" id="budgetInput" placeholder="0" min="0">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Expenses -->
+                <!-- Budget/Expenses removed per user preference -->
+                <input type="hidden" id="budgetInput" value="0">
                 <div id="expensesSection" style="display: none;">
-                    <label class="form-label">Expenses</label>
                     <div id="expensesList"></div>
-                    <button type="button" class="add-flight-btn" id="addExpenseBtn">+ Add Expense</button>
                 </div>
 
 
@@ -3575,8 +3517,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         <div class="trip-header">
                             <div style="flex: 1;">
                                 <div class="trip-destination">${trip.destination}</div>
-                                <div class="trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> ${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
-                                <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
+                                <div class="trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> ${(function(e){return this.formatDate(e.startStr)+' to '+this.formatDate(e.endStr);}).call(this, this.effectiveTripDates(trip))}</div>
+                                <div class="trip-countdown">${this.getCountdown(this.effectiveTripDates(trip).startStr || trip.startDate)}</div>
                             </div>
                             <button class="action-btn" onclick="app.openTripModal('${trip.id}'); return false;"><i data-lucide="pencil" style="width:14px;height:14px;vertical-align:-2px;"></i> Edit</button>
                         </div>
@@ -3759,8 +3701,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         <div class="trip-header">
                             <div class="trip-destination">${trip.destination}</div>
                         </div>
-                        <div class="trip-dates">${this.formatDate(trip.startDate)} to ${this.formatDate(trip.endDate)}</div>
-                        <div class="trip-countdown">${this.getCountdown(trip.startDate)}</div>
+                        <div class="trip-dates">${(function(e){return this.formatDate(e.startStr)+' to '+this.formatDate(e.endStr);}).call(this, this.effectiveTripDates(trip))}</div>
+                        <div class="trip-countdown">${this.getCountdown(this.effectiveTripDates(trip).startStr || trip.startDate)}</div>
                     </div>
                 `;
             }
@@ -3927,13 +3869,14 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
             grid.innerHTML = trips.map(function(t) {
                 var country = (t.destination || "").split(",").pop().trim();
                 var flag = flags[country] || '<i data-lucide="plane" style="width:14px;height:14px;"></i>';
-                var dateStr = self.formatDate(t.startDate) + " - " + self.formatDate(t.endDate);
+                var _teff = self.effectiveTripDates(t);
+                var dateStr = self.formatDate(_teff.startStr) + " - " + self.formatDate(_teff.endStr);
                 var bk = (t.bookings || []).length || ((t.flights || []).length + (t.accommodation ? 1 : 0));
                 var cityPhotos={"New York City": "photo-1534430480872-3498386e7856", "Belize": "photo-1544551763-46a013bb70d5", "Los Angeles": "photo-1534190760961-74e8c1c5c3da", "London": "photo-1513635269975-59663e0ac1ad", "Paris": "photo-1502602898657-3e91760cbb34", "Tokyo": "photo-1540959733332-eab4deabeeaf", "Miami": "photo-1533106497176-45ae19e68ba2", "San Francisco": "photo-1501594907352-04cda38ebc29", "Barcelona": "photo-1583422409516-2895a77efded", "Rome": "photo-1552832230-c0197dd311b5", "Amsterdam": "photo-1534351590666-13e3e96b5017", "Dublin": "photo-1549918864-48ac978761a4", "Sydney": "photo-1506973035872-a4ec16b8e8d9", "Cancun": "photo-1552074284-5e88ef1aef18", "Denver": "photo-1546156929-a4c0ac411f47", "Nashville": "photo-1588347818036-558601350947", "Austin": "photo-1531218150217-54595bc2b934", "Seattle": "photo-1502175353174-a7a70e73b362", "Chicago": "photo-1494522855154-9297ac14b55f", "Tulum": "photo-1508739773434-c26b3d09e071", "Aspen": "photo-1483729558449-99ef09a8c325", "Sedona": "photo-1527549993586-dff825b37782", "Lake Tahoe": "photo-1551524559-8af4e6624178", "Napa Valley": "photo-1510812431401-41d2bd2722f3", "Las Vegas": "photo-1605833556294-ea5c7a74f57d", "Scottsdale": "photo-1558645836-e44122a743ee", "Savannah": "photo-1563991655280-cb95c90ca2fb", "Charleston": "photo-1569163139394-de4e5f43e5ca", "Portland": "photo-1505156868547-9b49f4df4e04", "Maui": "photo-1542259009477-d625272157b7", "Honolulu": "photo-1507876466758-bc54f384809c", "Key West": "photo-1578894381163-e72c17f2d45f", "New Orleans": "photo-1568402102990-bc541580b59f", "Palm Springs": "photo-1542401886-65d6c61db217", "Cabo San Lucas": "photo-1510097467424-192d713fd8b2", "Los Cabos": "photo-1510097467424-192d713fd8b2", "Puerto Rico": "photo-1541364983171-a8ba01e95cfc", "Costa Rica": "photo-1565299507177-b0ac66763828", "Jamaica": "photo-1596895111956-bf1cf0599ce5", "Johannesburg": "photo-1577948000111-9c970dfe3743", "Singita Safari": "photo-1516426122078-c23e76319801", "Cape Town": "photo-1580060839134-75a5edca2e99", "Dubrovnik": "photo-1596422846543-75c6fc197f07", "Playa del Carmen": "photo-1552074284-5e88ef1aef18", "Antigua Guatemala": "photo-1526392060635-9d6019884377", "Bogota": "photo-1568632234157-ce7aecd03d0d", "Buenos Aires": "photo-1589909202802-8f4aadce1849", "El Salvador": "photo-1517411032315-54ef2cb783bb", "Atlanta": "photo-1541961017774-22349e4a1262", "Singita Safari (Sabi Sand)": "photo-1516426122078-c23e76319801"};
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"photo-1488646953014-85cb44e25828";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share">🔗 Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
+return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share trip" style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);"><i data-lucide="share-2" style="width:12px;height:12px;vertical-align:-1px;"></i> Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -4096,7 +4039,8 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
 
             var html = '<div class="detail-section"><div class="detail-section-title">\u{1F4CD} Destination</div>';
             html += '<div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">'+trip.destination+'</span></div>';
-            html += '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">'+this.formatDate(trip.startDate)+' \u2192 '+this.formatDate(trip.endDate)+'</span></div>';
+            var _eff = this.effectiveTripDates(trip);
+            html += '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">'+this.formatDate(_eff.startStr)+' \u2192 '+this.formatDate(_eff.endStr)+'</span></div>';
             html += '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value"><span class="trip-badge '+(trip.status||"upcoming")+'">' +(trip.status||"upcoming")+'</span></span></div>';
             if (trip.notes) html += '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">'+trip.notes+'</span></div>';
             if (trip.companions && trip.companions.length > 0) html += '<div class="detail-row"><span class="detail-label">Companions</span><span class="detail-value">'+trip.companions.map(function(c){return c.name;}).join(", ")+'</span></div>';
@@ -4149,6 +4093,13 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     html += '<span class="accom-detail-name">' + (a.name || 'Accommodation') + '</span>';
                     html += '<span class="accom-type-badge ' + typeClass + '">' + (a.type || 'Other') + '</span>';
                     html += '</div>';
+                    // Accommodation photo preview (via thum.io screenshot proxy)
+                    if (a.url && a.url.match(/^https?:\/\//)) {
+                        var _imgUrl = 'https://image.thum.io/get/width/720/crop/420/noanimate/' + a.url;
+                        html += '<a href="' + a.url + '" target="_blank" rel="noopener" class="accom-photo-link" style="display:block;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">';
+                        html += '<img src="' + _imgUrl + '" alt="' + (a.name || 'Accommodation') + '" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-tertiary);" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">';
+                        html += '</a>';
+                    }
                     html += '<div class="accom-detail-meta">';
                     if (a.checkin) html += '<span>\u{1F4C5} Check-in: ' + a.checkin + '</span>';
                     if (a.checkout) html += '<span>\u{1F4C5} Check-out: ' + a.checkout + '</span>';
@@ -4210,13 +4161,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                 });
                 html += "</div>";
             }
-            // ===== BUDGET =====
-            if (trip.budget > 0) {
-                var spent = (trip.expenses||[]).reduce(function(s,e){return s+(e.amount||0);}, 0);
-                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div>';
-                html += '<div class="detail-row"><span class="detail-label">Budget</span><span class="detail-value">$'+trip.budget.toLocaleString()+'</span></div>';
-                html += '<div class="detail-row"><span class="detail-label">Spent</span><span class="detail-value">$'+spent.toLocaleString()+'</span></div></div>';
-            }
+            // Budget section removed per user preference (no budget tracking)
 
             // ===== LOCATION RESEARCH ENGINE (Feature 4) =====
             var destCity = (trip.destination || "").split(",")[0].trim();
@@ -4228,20 +4173,15 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                 html += self.renderRaceDetailCard(trip);
             }
 
-            // Add Trip Timeline (Feature 4)
-            html += self.renderTripTimeline(trip);
+            // Add Multi-Leg Itinerary section (before timeline so timeline can reference legs)
+            html += self.renderLegsSection(trip);
 
-            // Add Budget Tracker (Feature 7)
-            html += '<div class="detail-section">' + self.renderBudgetTracker(trip) + '</div>';
+            // Add Trip Timeline (rebuilt to show each leg, flights, accommodations)
+            html += self.renderTripTimeline(trip);
 
             // Add Document Vault (Feature 3)
             html += '<div class="detail-section">' + self.renderDocumentVault(trip) + '</div>';
-
-            // Add Share Section (Feature 8)
-            html += '<div class="detail-section">' + self.renderShareSection(trip) + '</div>';
-
-            // Add Multi-Leg Itinerary section
-            html += self.renderLegsSection(trip);
+            // Share section removed — use the Share button in the detail header instead
 
             // Add Calendar Export (Feature 9)
             html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="calendar-days" style="width:16px;vertical-align:middle"></i> Calendar</div>';
@@ -4304,6 +4244,39 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
             } catch(e) { console.log("GitHub save error:", e); }
         }
 
+// Compute effective trip start/end by spanning legs + trip-level dates.
+        // Returns { startStr, endStr } as YYYY-MM-DD strings (or falls back to trip.startDate/endDate).
+        effectiveTripDates(trip) {
+            if (!trip) return { startStr: '', endStr: '' };
+            const candStarts = [];
+            const candEnds = [];
+            if (trip.startDate) candStarts.push(trip.startDate);
+            if (trip.endDate) candEnds.push(trip.endDate);
+            (trip.legs || []).forEach(function(l) {
+                if (l && l.startDate) candStarts.push(l.startDate);
+                if (l && l.endDate) candEnds.push(l.endDate);
+            });
+            // Also incorporate bookings (flights dep/arr dates, accommodation checkin/checkout)
+            (trip.bookings || []).forEach(function(b) {
+                var d = (b && b.details) || {};
+                if (d.bDepDate) candStarts.push(String(d.bDepDate).slice(0,10));
+                if (d.bArrDate) candEnds.push(String(d.bArrDate).slice(0,10));
+                if (d.bCheckin) candStarts.push(String(d.bCheckin).slice(0,10));
+                if (d.bCheckout) candEnds.push(String(d.bCheckout).slice(0,10));
+            });
+            (trip.accommodations || []).forEach(function(a) {
+                if (a && a.checkin) candStarts.push(String(a.checkin).slice(0,10));
+                if (a && a.checkout) candEnds.push(String(a.checkout).slice(0,10));
+            });
+            const valid = function(s){ return /^\d{4}-\d{2}-\d{2}$/.test(s); };
+            const starts = candStarts.filter(valid).sort();
+            const ends = candEnds.filter(valid).sort();
+            return {
+                startStr: starts.length ? starts[0] : (trip.startDate || ''),
+                endStr: ends.length ? ends[ends.length - 1] : (trip.endDate || '')
+            };
+        }
+
 // Parse YYYY-MM-DD as local midnight (not UTC) to avoid off-by-one display bugs
         parseLocalDate(dateStr) {
             if (!dateStr) return new Date(NaN);
@@ -4335,50 +4308,6 @@ formatDate(dateStr) {
                 if (diff < 7) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${diff} days`;
                 if (diff < 30) return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 7)} weeks`;
                 return `<i data-lucide="clock" style="width:14px;vertical-align:middle"></i> In ${Math.floor(diff / 30)} months`;
-            }
-
-            getTripDateRange(trip) {
-                if (!trip || !trip.legs || trip.legs.length === 0) {
-                    return {
-                        startDate: trip.startDate,
-                        endDate: trip.endDate
-                    };
-                }
-
-                // Filter legs that have at least a startDate or endDate
-                const validLegs = trip.legs.filter(leg => leg.startDate || leg.endDate);
-
-                if (validLegs.length === 0) {
-                    return {
-                        startDate: trip.startDate,
-                        endDate: trip.endDate
-                    };
-                }
-
-                // Compute start = min of all leg start timestamps (fallback to end timestamps)
-                let minStart = null;
-                validLegs.forEach(leg => {
-                    const date = leg.startDate ? this.parseLocalDate(leg.startDate) : 
-                                 leg.endDate ? this.parseLocalDate(leg.endDate) : null;
-                    if (date && (!minStart || date < minStart)) {
-                        minStart = date;
-                    }
-                });
-
-                // Compute end = max of all leg end timestamps (fallback to start timestamps)
-                let maxEnd = null;
-                validLegs.forEach(leg => {
-                    const date = leg.endDate ? this.parseLocalDate(leg.endDate) : 
-                                 leg.startDate ? this.parseLocalDate(leg.startDate) : null;
-                    if (date && (!maxEnd || date > maxEnd)) {
-                        maxEnd = date;
-                    }
-                });
-
-                return {
-                    startDate: minStart ? minStart.toISOString().split('T')[0] : trip.startDate,
-                    endDate: maxEnd ? maxEnd.toISOString().split('T')[0] : trip.endDate
-                };
             }
 
             showToast(message, type = 'success') {
@@ -5234,35 +5163,108 @@ this.updateDashboardStats();
         };
 
         TravelFloApp.prototype.renderTripTimeline = function(trip) {
-            const start = this.parseLocalDate(trip.startDate);
-            const end = this.parseLocalDate(trip.endDate);
-            if (!start || !end) return '';
-            const today = new Date(); today.setHours(0,0,0,0);
-            const events = [];
-            events.push({ date: trip.startDate, title: 'Trip Starts', type: start <= today ? (end >= today ? 'current' : 'past') : 'future' });
+            var self = this;
+            var eff = this.effectiveTripDates(trip);
+            var start = this.parseLocalDate(eff.startStr || trip.startDate);
+            var end = this.parseLocalDate(eff.endStr || trip.endDate);
+            var today = new Date(); today.setHours(0,0,0,0);
+            var events = [];
 
-            const bookings = trip.bookings || [];
-            bookings.forEach(function(b) {
-                if (b.details && b.details.bDepDate) {
-                    const d = b.details.bDepDate.split(' ')[0] || b.details.bDepDate;
-                    events.push({ date: d, title: (b.title || b.type), type: 'future' });
+            var _esc = function(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); };
+            var _parseTime = function(s) {
+                if (!s) return { dateStr: '', timeStr: '' };
+                s = String(s).trim();
+                // YYYY-MM-DD[ T]HH:MM
+                var m = s.match(/^(\d{4}-\d{2}-\d{2})[T\s]?(\d{2}:\d{2})?/);
+                if (m) return { dateStr: m[1], timeStr: m[2] || '' };
+                return { dateStr: s.slice(0,10), timeStr: '' };
+            };
+            var _push = function(dateStr, timeStr, icon, title, subtitle) {
+                if (!dateStr) return;
+                events.push({ date: dateStr, time: timeStr || '', icon: icon, title: title || '', subtitle: subtitle || '' });
+            };
+
+            // Trip start / end bookends
+            if (eff.startStr) _push(eff.startStr, '', '🛫', 'Trip Starts', '');
+            // Legs
+            (trip.legs || []).forEach(function(l, i) {
+                var label = 'Leg ' + (i+1) + (l.destination ? ' — ' + l.destination : '');
+                if (l.startDate) _push(l.startDate, '', '📍', 'Arrive: ' + (l.destination || ('Leg ' + (i+1))), label);
+                // Flight for this leg (free-text, surface as-is on the start date)
+                if (l.flight) _push(l.startDate || eff.startStr, '', '✈️', 'Flight', l.flight);
+                // Accommodation check-in/out windows inferred from leg dates
+                if (l.accommodation && l.startDate) {
+                    _push(l.startDate, '', '🏨', 'Check-in', (l.accommodation || '').replace(/^https?:\/\/\S+/, '').trim() || 'Accommodation');
                 }
+                if (l.accommodation && l.endDate) {
+                    _push(l.endDate, '', '🧳', 'Check-out', (l.accommodation || '').replace(/^https?:\/\/\S+/, '').trim() || 'Accommodation');
+                }
+                if (l.endDate) _push(l.endDate, '', '🏁', 'Depart: ' + (l.destination || ('Leg ' + (i+1))), '');
+            });
+            // Flight bookings (structured)
+            (trip.bookings || []).filter(function(b){ return b.type === 'flight'; }).forEach(function(b, i) {
+                var d = b.details || {};
+                var dep = _parseTime(d.bDepDate);
+                var arr = _parseTime(d.bArrDate);
+                var title = b.title || (d.bRoute ? ('Flight ' + d.bRoute) : ('Flight ' + (i+1)));
+                if (dep.dateStr) _push(dep.dateStr, dep.timeStr, '✈️', title + ' — Departs' + (dep.timeStr ? ' ' + dep.timeStr : ''), d.bRoute || '');
+                if (arr.dateStr) _push(arr.dateStr, arr.timeStr, '🛬', title + ' — Arrives' + (arr.timeStr ? ' ' + arr.timeStr : ''), d.bRoute || '');
+            });
+            // Accommodation bookings (structured)
+            (trip.bookings || []).filter(function(b){ return b.type === 'accommodation'; }).forEach(function(b, i) {
+                var d = b.details || {};
+                var ci = _parseTime(d.bCheckin);
+                var co = _parseTime(d.bCheckout);
+                var name = b.title || d.bProvider || 'Accommodation';
+                if (ci.dateStr) _push(ci.dateStr, ci.timeStr, '🏨', name + ' — Check-in' + (ci.timeStr ? ' ' + ci.timeStr : ''), d.bAddress || '');
+                if (co.dateStr) _push(co.dateStr, co.timeStr, '🧳', name + ' — Check-out' + (co.timeStr ? ' ' + co.timeStr : ''), '');
+            });
+            // Legacy accommodations array
+            (trip.accommodations || []).forEach(function(a) {
+                if (a.checkin)  _push(String(a.checkin).slice(0,10), '', '🏨', (a.name || 'Accommodation') + ' — Check-in', a.type || '');
+                if (a.checkout) _push(String(a.checkout).slice(0,10), '', '🧳', (a.name || 'Accommodation') + ' — Check-out', '');
+            });
+            // Race start
+            if (trip.raceData && trip.raceData.raceStart) {
+                var rp = _parseTime(trip.raceData.raceStart);
+                _push(rp.dateStr, rp.timeStr, '🏁', 'Race: ' + (trip.raceData.raceName || 'Race') + (rp.timeStr ? ' @ ' + rp.timeStr : ''), '');
+            }
+            if (eff.endStr) _push(eff.endStr, '', '🏠', 'Trip Ends', '');
+
+            if (events.length === 0) return '';
+
+            // Sort by date then time
+            events.sort(function(a,b) {
+                var c = a.date.localeCompare(b.date);
+                if (c !== 0) return c;
+                return (a.time || '').localeCompare(b.time || '');
             });
 
-            if (trip.raceData && trip.raceData.raceStart) {
-                events.push({ date: trip.raceData.raceStart.split('T')[0], title: 'Race Start: ' + (trip.raceData.raceName || 'Race'), type: 'future' });
-            }
-            events.push({ date: trip.endDate, title: 'Trip Ends', type: end < today ? 'past' : 'future' });
+            // De-dup identical rows
+            var seen = {};
+            events = events.filter(function(e){ var k = [e.date,e.time,e.title,e.subtitle].join('|'); if (seen[k]) return false; seen[k]=1; return true; });
 
-            events.sort(function(a,b) { return a.date.localeCompare(b.date); });
+            // Group by date for nicer rendering
+            var byDate = {};
+            events.forEach(function(e){ (byDate[e.date] = byDate[e.date] || []).push(e); });
+            var dates = Object.keys(byDate).sort();
 
-            let html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="git-branch" style="width:16px;vertical-align:middle"></i> Timeline</div>';
+            var html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="git-branch" style="width:16px;vertical-align:middle"></i> Timeline</div>';
             html += '<div class="trip-timeline">';
-            events.forEach(function(ev) {
-                const cls = ev.date === new Date().toISOString().split('T')[0] ? 'current' : (new Date(ev.date + 'T00:00:00') < today ? 'past' : '');
-                html += '<div class="timeline-item ' + cls + '">';
-                html += '<div class="timeline-item-date">' + ev.date + '</div>';
-                html += '<div class="timeline-item-title">' + ev.title + '</div>';
+            dates.forEach(function(dstr){
+                var dateObj = self.parseLocalDate(dstr);
+                var cls = dstr === new Date().toISOString().split('T')[0] ? 'current' : (dateObj < today ? 'past' : '');
+                var fmt = self.formatDate(dstr);
+                html += '<div class="timeline-item ' + cls + '" style="padding-left:16px;">';
+                html += '<div class="timeline-item-date" style="font-weight:600;color:var(--text-primary);margin-bottom:4px;">' + _esc(fmt) + '</div>';
+                byDate[dstr].forEach(function(ev){
+                    html += '<div style="display:flex;align-items:flex-start;gap:8px;padding:4px 0;font-size:13px;color:var(--text-secondary);">';
+                    html += '<span style="width:20px;text-align:center;">' + (ev.icon || '•') + '</span>';
+                    html += '<div style="flex:1;min-width:0;">';
+                    html += '<div style="color:var(--text-primary);">' + _esc(ev.title) + (ev.time ? ' <span style="color:var(--text-muted);font-size:12px;">' + _esc(ev.time) + '</span>' : '') + '</div>';
+                    if (ev.subtitle) html += '<div style="color:var(--text-muted);font-size:12px;word-break:break-word;">' + _esc(ev.subtitle) + '</div>';
+                    html += '</div></div>';
+                });
                 html += '</div>';
             });
             html += '</div></div>';
@@ -5509,6 +5511,178 @@ this.updateDashboardStats();
                     + (data.r ? '<div class="detail-section"><div class="detail-section-title">🏁 Race Details</div><pre style="font-size:12px;white-space:pre-wrap">' + data.r + '</pre></div>' : '')
                     + '<p style="text-align:center;margin-top:30px;color:var(--text-muted);font-size:12px">Shared via TravelFlo</p></div>';
             } catch(e) { console.warn('Failed to parse shared trip:', e); }
+        };
+
+        // ===== Share Trip action (new lightweight #trip= share) =====
+        TravelFloApp.prototype._buildShareTripPayload = function(trip) {
+            var bookings = trip.bookings || [];
+            var flights = bookings.filter(function(b){ return b.type === 'flight'; }).map(function(b){
+                var d = b.details || {};
+                return { title: b.title || 'Flight', route: d.bRoute || '', depart: d.bDepDate || '', arrive: d.bArrDate || '', cls: d.bClass || '' };
+            });
+            if ((!flights || flights.length === 0) && trip.flights && trip.flights.length) {
+                flights = trip.flights.map(function(f){
+                    return { title: f.airline || 'Flight', route: f.route || '', depart: f.departure || '', arrive: f.arrival || '', cls: '' };
+                });
+            }
+            var accoms = (trip.accommodations || []).map(function(a){
+                return { name: a.name || '', type: a.type || '', checkin: a.checkin || '', checkout: a.checkout || '', notes: (a.notes || '').substring(0, 200) };
+            });
+            if ((!accoms || accoms.length === 0) && bookings.length) {
+                accoms = bookings.filter(function(b){ return b.type === 'accommodation'; }).map(function(b){
+                    var d = b.details || {};
+                    return { name: b.title || d.bProvider || 'Accommodation', type: '', checkin: d.bCheckin || '', checkout: d.bCheckout || '', notes: d.bAddress || '' };
+                });
+            }
+            var activities = (trip.activities || trip.timeline || []).slice(0, 20).map(function(ac){
+                return { name: ac.name || ac.title || '', date: ac.date || ac.when || '', notes: (ac.notes || ac.desc || '').substring(0, 160) };
+            });
+            var legs = (trip.legs || []).map(function(l){
+                return {
+                    destination: l.destination || '',
+                    startDate: l.startDate || '',
+                    endDate: l.endDate || '',
+                    accommodation: (l.accommodation || '').substring(0, 400),
+                    flight: (l.flight || '').substring(0, 200),
+                    activities: (l.activities || '').substring(0, 400)
+                };
+            });
+            var eff = this.effectiveTripDates(trip);
+            return {
+                v: 2,
+                name: trip.title || trip.destination || 'Trip',
+                destination: trip.destination || '',
+                startDate: eff.startStr || trip.startDate || '',
+                endDate: eff.endStr || trip.endDate || '',
+                notes: (trip.notes || '').substring(0, 500),
+                accommodations: accoms,
+                flights: flights,
+                legs: legs,
+                activities: activities,
+                owner: 'TravelFlo user'
+            };
+        };
+
+        TravelFloApp.prototype.generateTripShareURL = function(tripId) {
+            var trip = this.trips.find(function(t){ return t.id === tripId; });
+            if (!trip) return '';
+            var payload = this._buildShareTripPayload(trip);
+            var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+            var base = 'https://theinneslife.github.io/todo-dashboard/travelflo.html';
+            return base + '#trip=' + encoded;
+        };
+
+        TravelFloApp.prototype.shareTrip = function(tripId) {
+            var url = this.generateTripShareURL(tripId);
+            if (!url) { this.showToast('Trip not found', 'error'); return; }
+            var self = this;
+            var onSuccess = function(){ self.showToast('Link copied!', 'success'); };
+            var onFail = function(){
+                try {
+                    var ta = document.createElement('textarea');
+                    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                    document.body.appendChild(ta); ta.select();
+                    document.execCommand('copy'); document.body.removeChild(ta);
+                    self.showToast('Link copied!', 'success');
+                } catch(e) {
+                    window.prompt('Copy this share link:', url);
+                }
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(onSuccess, onFail);
+            } else { onFail(); }
+        };
+
+        TravelFloApp.prototype.shareFromDetail = function() {
+            if (!this._detailTripId) return;
+            this.shareTrip(this._detailTripId);
+        };
+
+        TravelFloApp.prototype.loadSharedTripFromHash = function() {
+            var hash = window.location.hash;
+            if (!hash.startsWith('#trip=')) return false;
+            var data;
+            try {
+                data = JSON.parse(decodeURIComponent(escape(atob(hash.substring(6)))));
+            } catch(e) {
+                console.warn('Failed to parse shared trip hash:', e);
+                return false;
+            }
+            var esc = function(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); };
+            var fmtDate = function(d){ try { return this.formatDate ? this.formatDate(d) : d; } catch(e){ return d; } }.bind(this);
+            var html = '';
+            html += '<div class="shared-trip-banner" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;padding:12px 20px;text-align:center;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.2);">';
+            html += '<i data-lucide="share-2" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i>';
+            html += 'You\'re viewing a shared trip from ' + esc(data.owner || 'a TravelFlo user') + ' (read-only)';
+            html += '</div>';
+            html += '<div style="padding:20px;max-width:720px;margin:0 auto;">';
+            html += '<h1 style="margin:0 0 4px;font-size:28px;">' + esc(data.name || 'Shared Trip') + '</h1>';
+            if (data.destination) html += '<p style="color:var(--text-muted);margin:0 0 4px;font-size:15px;"><i data-lucide="map-pin" style="width:14px;height:14px;vertical-align:-2px;"></i> ' + esc(data.destination) + '</p>';
+            html += '<p style="color:var(--text-muted);margin:0 0 20px;font-size:14px;">' + esc(fmtDate(data.startDate)) + ' \u2192 ' + esc(fmtDate(data.endDate)) + '</p>';
+            if (data.notes) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="sticky-note" style="width:16px;vertical-align:middle"></i> Notes</div>';
+                html += '<p style="white-space:pre-wrap;">' + esc(data.notes) + '</p></div>';
+            }
+            if (data.legs && data.legs.length) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="route" style="width:16px;vertical-align:middle"></i> Trip Legs (' + data.legs.length + ')</div>';
+                data.legs.forEach(function(l, i) {
+                    html += '<div class="booking-card-detail" style="margin-bottom:10px;"><div class="booking-title">Leg ' + (i+1) + ': ' + esc(l.destination || '') + '</div><div class="booking-info">';
+                    if (l.startDate || l.endDate) html += 'Dates: ' + esc(fmtDate(l.startDate)) + (l.endDate ? ' \u2192 ' + esc(fmtDate(l.endDate)) : '') + '<br>';
+                    if (l.accommodation) html += 'Accommodation: ' + esc(l.accommodation) + '<br>';
+                    if (l.flight)        html += 'Flight: ' + esc(l.flight) + '<br>';
+                    if (l.activities)    html += 'Activities: ' + esc(l.activities);
+                    html += '</div></div>';
+                    // Accommodation preview image if URL
+                    var urlMatch = (l.accommodation || '').match(/https?:\/\/\S+/);
+                    if (urlMatch) {
+                        var imgUrl = 'https://image.thum.io/get/width/720/crop/420/noanimate/' + urlMatch[0];
+                        html += '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="display:block;margin:-4px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);"><img src="' + imgUrl + '" loading="lazy" referrerpolicy="no-referrer" alt="Accommodation" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.parentNode.style.display=\'none\';"></a>';
+                    }
+                });
+                html += '</div>';
+            }
+            if (data.flights && data.flights.length) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
+                data.flights.forEach(function(f){
+                    html += '<div class="booking-card-detail"><div class="booking-title">' + esc(f.title || 'Flight') + '</div><div class="booking-info">';
+                    if (f.route)  html += 'Route: ' + esc(f.route)  + '<br>';
+                    if (f.depart) html += 'Depart: ' + esc(f.depart) + '<br>';
+                    if (f.arrive) html += 'Arrive: ' + esc(f.arrive) + '<br>';
+                    if (f.cls)    html += 'Class: '  + esc(f.cls)    + '<br>';
+                    html += '</div></div>';
+                });
+                html += '</div>';
+            }
+            if (data.accommodations && data.accommodations.length) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="bed" style="width:16px;vertical-align:middle"></i> Accommodations</div>';
+                data.accommodations.forEach(function(a){
+                    html += '<div class="booking-card-detail"><div class="booking-title">' + esc(a.name || 'Accommodation') + (a.type ? ' <span class="trip-badge upcoming">' + esc(a.type) + '</span>' : '') + '</div><div class="booking-info">';
+                    if (a.checkin)  html += 'Check-in: '  + esc(a.checkin)  + '<br>';
+                    if (a.checkout) html += 'Check-out: ' + esc(a.checkout) + '<br>';
+                    if (a.notes)    html += esc(a.notes);
+                    html += '</div></div>';
+                });
+                html += '</div>';
+            }
+            if (data.activities && data.activities.length) {
+                html += '<div class="detail-section"><div class="detail-section-title"><i data-lucide="map" style="width:16px;vertical-align:middle"></i> Activities</div>';
+                data.activities.forEach(function(ac){
+                    html += '<div class="booking-card-detail"><div class="booking-title">' + esc(ac.name || 'Activity') + '</div><div class="booking-info">';
+                    if (ac.date)  html += esc(ac.date) + '<br>';
+                    if (ac.notes) html += esc(ac.notes);
+                    html += '</div></div>';
+                });
+                html += '</div>';
+            }
+            html += '<p style="text-align:center;margin-top:30px;color:var(--text-muted);font-size:12px;">Shared via TravelFlo \u2014 <a href="' + window.location.origin + window.location.pathname + '" style="color:var(--accent-blue,#3b82f6);">Open TravelFlo</a></p>';
+            html += '</div>';
+            var container = document.querySelector('.container') || document.body;
+            container.innerHTML = html;
+            // Hide bottom nav / any other fixed chrome
+            document.querySelectorAll('.bottom-nav, nav.bottom-nav, .nav-bar').forEach(function(el){ el.style.display = 'none'; });
+            try { if (window.lucide) lucide.createIcons(); } catch(e) {}
+            document.title = (data.name || 'Shared Trip') + ' \u2014 TravelFlo';
+            return true;
         };
 
         // ===== FEATURE 9: CALENDAR SYNC (.ics EXPORT) =====
@@ -5794,10 +5968,20 @@ this.updateDashboardStats();
         }
 
         TravelFloApp.prototype.renderLegDetail = function(leg, idx, tripId) {
+            var accomUrlMatch = (leg.accommodation || '').match(/https?:\/\/\S+/);
+            var accomUrl = accomUrlMatch ? accomUrlMatch[0] : '';
+            var photoHtml = '';
+            if (accomUrl) {
+                var imgUrl = 'https://image.thum.io/get/width/720/crop/420/noanimate/' + accomUrl;
+                photoHtml = '<a href="' + accomUrl + '" target="_blank" rel="noopener" style="display:block;margin:8px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">' +
+                    '<img src="' + imgUrl + '" alt="Accommodation preview" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">' +
+                    '</a>';
+            }
             return '<div class="leg-details">' +
                 '<div style="font-weight:600;margin-bottom:0.5rem;">Leg ' + (idx+1) + ': ' + (leg.destination || '') + '</div>' +
                 '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">' + (leg.startDate || '') + ' to ' + (leg.endDate || '') + '</span></div>' +
                 '<div class="detail-row"><span class="detail-label">Accommodation</span><span class="detail-value">' + (leg.accommodation || 'Not set') + '</span></div>' +
+                photoHtml +
                 '<div class="detail-row"><span class="detail-label">Flight</span><span class="detail-value">' + (leg.flight || 'Not set') + '</span></div>' +
                 '<div class="detail-row"><span class="detail-label">Activities</span><span class="detail-value">' + (leg.activities || 'None') + '</span></div>' +
                 '<div style="display:flex;gap:0.5rem;margin-top:0.75rem;">' +
@@ -5917,83 +6101,15 @@ this.updateDashboardStats();
 
 
 
-// === Share Trip (read-only link) ===
-        TravelFloApp.prototype._encodeTripShare = function(trip) {
-            try {
-                var json = JSON.stringify(trip);
-                return btoa(unescape(encodeURIComponent(json)));
-            } catch(e) { console.error('encode share failed', e); return ''; }
-        };
-        TravelFloApp.prototype._decodeTripShare = function(b64) {
-            try {
-                return JSON.parse(decodeURIComponent(escape(atob(b64))));
-            } catch(e) { console.error('decode share failed', e); return null; }
-        };
-        TravelFloApp.prototype._fallbackCopyText = function(text) {
-            try {
-                var ta = document.createElement('textarea');
-                ta.value = text;
-                ta.style.position = 'fixed';
-                ta.style.top = '-1000px';
-                ta.style.left = '-1000px';
-                ta.setAttribute('readonly','');
-                document.body.appendChild(ta);
-                ta.select();
-                ta.setSelectionRange(0, text.length);
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-                return true;
-            } catch(e) { return false; }
-        };
-        TravelFloApp.prototype.shareTrip = function(tripId) {
-            var trip = this.trips.find(function(t){ return t.id === tripId; });
-            if (!trip) { this.showToast('Trip not found', 'error'); return; }
-            var b64 = this._encodeTripShare(trip);
-            if (!b64) { this.showToast('Could not generate share link', 'error'); return; }
-            var url = 'https://theinneslife.github.io/todo-dashboard/travelflo.html#trip=' + b64;
-            var self = this;
-            var onDone = function() { self.showToast('Link copied!', 'success'); };
-            var onFail = function() {
-                if (self._fallbackCopyText(url)) { onDone(); }
-                else { self.showToast('Could not copy link', 'error'); }
-            };
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(onDone, onFail);
-            } else {
-                onFail();
-            }
-        };
-        TravelFloApp.prototype._initSharedView = function() {
-            var hash = window.location.hash || '';
-            if (hash.indexOf('#trip=') !== 0) return false;
-            var b64 = hash.substring(6);
-            var trip = this._decodeTripShare(b64);
-            if (!trip || !trip.id) return false;
-            var mc = document.querySelector('.main-content');
-            if (mc && !document.querySelector('.shared-banner')) {
-                var banner = document.createElement('div');
-                banner.className = 'shared-banner';
-                banner.innerHTML = "You're viewing a shared trip (read-only)<span class=\"shared-banner-sub\">" + (trip.title || trip.destination || 'Trip') + "</span>";
-                mc.parentNode.insertBefore(banner, mc);
-            }
-            document.body.classList.add('shared-view');
-            if (!this.trips.find(function(t){ return t.id === trip.id; })) {
-                this.trips.push(trip);
-            }
-            var self = this;
-            setTimeout(function() { self.showTripDetail(trip.id); }, 100);
-            return true;
-        };
-
 // Initialize app
         window.app = new TravelFloApp();
-        // Load shared trip read-only view if URL has #trip=... hash
-        if (window.location.hash.indexOf('#trip=') === 0) {
-            setTimeout(function(){ window.app._initSharedView(); }, 150);
-        }
-        // Load shared trip if URL has share hash (Feature 8 legacy)
+        // Load shared trip if URL has share hash (Feature 8)
         if (window.location.hash.startsWith('#share=')) {
             window.app.loadSharedTrip();
+        }
+        // Load shared-trip read-only view if URL has #trip= hash
+        if (window.location.hash.startsWith('#trip=')) {
+            window.app.loadSharedTripFromHash();
         }
 
         // Sample data for demo

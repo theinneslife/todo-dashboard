@@ -5225,8 +5225,8 @@ this.updateDashboardStats();
                 var dep = _parseTime(d.bDepDate);
                 var arr = _parseTime(d.bArrDate);
                 var title = b.title || (d.bRoute ? ('Flight ' + d.bRoute) : ('Flight ' + (i+1)));
-                if (dep.dateStr) _push(dep.dateStr, dep.timeStr, '✈️', title + ' — Departs' + (dep.timeStr ? ' ' + dep.timeStr : ''), d.bRoute || '');
-                if (arr.dateStr) _push(arr.dateStr, arr.timeStr, '🛬', title + ' — Arrives' + (arr.timeStr ? ' ' + arr.timeStr : ''), d.bRoute || '');
+                if (dep.dateStr) _push(dep.dateStr, dep.timeStr, '✈️', title + ' — Departs', d.bRoute || '');
+                if (arr.dateStr) _push(arr.dateStr, arr.timeStr, '🛬', title + ' — Arrives', d.bRoute || '');
             });
             // Accommodation bookings (structured)
             (trip.bookings || []).filter(function(b){ return b.type === 'accommodation'; }).forEach(function(b, i) {
@@ -5234,8 +5234,8 @@ this.updateDashboardStats();
                 var ci = _parseTime(d.bCheckin);
                 var co = _parseTime(d.bCheckout);
                 var name = b.title || d.bProvider || 'Accommodation';
-                if (ci.dateStr) _push(ci.dateStr, ci.timeStr, '🏨', name + ' — Check-in' + (ci.timeStr ? ' ' + ci.timeStr : ''), d.bAddress || '');
-                if (co.dateStr) _push(co.dateStr, co.timeStr, '🧳', name + ' — Check-out' + (co.timeStr ? ' ' + co.timeStr : ''), '');
+                if (ci.dateStr) _push(ci.dateStr, ci.timeStr, '🏨', name + ' — Check-in', d.bAddress || '');
+                if (co.dateStr) _push(co.dateStr, co.timeStr, '🧳', name + ' — Check-out', '');
             });
             // Legacy accommodations array
             (trip.accommodations || []).forEach(function(a) {

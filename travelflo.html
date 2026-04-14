@@ -157,6 +157,53 @@
             background: var(--text-muted);
         }
 
+
+        /* Outer tab-content siblings of .main-content (All Trips) need their own scroll */
+        #allTripsTab.tab-content.active {
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        #allTripsTab.tab-content.active::-webkit-scrollbar { width: 6px; }
+        #allTripsTab.tab-content.active::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        #allTripsTab.tab-content.active::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+        #allTripsTab.tab-content.active::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* Shared read-only view */
+        body.shared-view .bottom-nav,
+        body.shared-view #shareBtn,
+        body.shared-view #calendarBtn { display: none !important; }
+        body.shared-view #tripDetailModal .trip-action-btn,
+        body.shared-view #tripDetailModal .close-btn { display: none !important; }
+        body.shared-view #tripDetailModal { position: static !important; background: transparent !important; padding: 0 !important; display: block !important; z-index: auto !important; }
+        body.shared-view #tripDetailModal .trip-detail-content { margin: 0 auto !important; max-height: none !important; border: none !important; }
+        body.shared-view .main-content > :not(#tripDetailModal):not(.shared-banner) { display: none !important; }
+        .shared-banner {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            color: #fff;
+            padding: 14px 18px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 0 0 14px 14px;
+            margin: 0 0 12px 0;
+            box-shadow: 0 4px 12px rgba(96,165,250,0.25);
+        }
+        .shared-banner .shared-banner-sub {
+            display: block;
+            font-weight: 400;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        .trip-action-btn.share-btn {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            color: #fff;
+            border: none;
+        }
+        .trip-action-btn.share-btn:hover { filter: brightness(1.1); }
+
         /* Tab Content */
         .tab-content {
             display: none;
@@ -2227,6 +2274,7 @@
                 <div class="trip-detail-header">
                     <h2 id="tripDetailTitle">Trip Details</h2>
                     <div style="display:flex;gap:.5rem;align-items:center">
+                        <button class="trip-action-btn share-btn" onclick="app.shareTrip(app._detailTripId)">🔗 Share</button>
                         <button class="trip-action-btn" onclick="app.editFromDetail()">✎ Edit</button>
                         <button class="trip-action-btn" onclick="app.deleteFromDetail()" style="background:var(--accent-red,#ef4444);color:#fff;">🗑 Delete</button>
                         <button class="close-btn" onclick="app.closeTripDetail()">&times;</button>
@@ -3885,7 +3933,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"photo-1488646953014-85cb44e25828";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
+return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share">🔗 Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -5825,9 +5873,81 @@ this.updateDashboardStats();
 
 
 
+// === Share Trip (read-only link) ===
+        TravelFloApp.prototype._encodeTripShare = function(trip) {
+            try {
+                var json = JSON.stringify(trip);
+                return btoa(unescape(encodeURIComponent(json)));
+            } catch(e) { console.error('encode share failed', e); return ''; }
+        };
+        TravelFloApp.prototype._decodeTripShare = function(b64) {
+            try {
+                return JSON.parse(decodeURIComponent(escape(atob(b64))));
+            } catch(e) { console.error('decode share failed', e); return null; }
+        };
+        TravelFloApp.prototype._fallbackCopyText = function(text) {
+            try {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.top = '-1000px';
+                ta.style.left = '-1000px';
+                ta.setAttribute('readonly','');
+                document.body.appendChild(ta);
+                ta.select();
+                ta.setSelectionRange(0, text.length);
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                return true;
+            } catch(e) { return false; }
+        };
+        TravelFloApp.prototype.shareTrip = function(tripId) {
+            var trip = this.trips.find(function(t){ return t.id === tripId; });
+            if (!trip) { this.showToast('Trip not found', 'error'); return; }
+            var b64 = this._encodeTripShare(trip);
+            if (!b64) { this.showToast('Could not generate share link', 'error'); return; }
+            var url = 'https://theinneslife.github.io/todo-dashboard/travelflo.html#trip=' + b64;
+            var self = this;
+            var onDone = function() { self.showToast('Link copied!', 'success'); };
+            var onFail = function() {
+                if (self._fallbackCopyText(url)) { onDone(); }
+                else { self.showToast('Could not copy link', 'error'); }
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(onDone, onFail);
+            } else {
+                onFail();
+            }
+        };
+        TravelFloApp.prototype._initSharedView = function() {
+            var hash = window.location.hash || '';
+            if (hash.indexOf('#trip=') !== 0) return false;
+            var b64 = hash.substring(6);
+            var trip = this._decodeTripShare(b64);
+            if (!trip || !trip.id) return false;
+            var mc = document.querySelector('.main-content');
+            if (mc && !document.querySelector('.shared-banner')) {
+                var banner = document.createElement('div');
+                banner.className = 'shared-banner';
+                banner.innerHTML = "You're viewing a shared trip (read-only)<span class=\"shared-banner-sub\">" + (trip.title || trip.destination || 'Trip') + "</span>";
+                mc.parentNode.insertBefore(banner, mc);
+            }
+            document.body.classList.add('shared-view');
+            if (!this.trips.find(function(t){ return t.id === trip.id; })) {
+                this.trips.push(trip);
+            }
+            var self = this;
+            setTimeout(function() { self.showTripDetail(trip.id); }, 100);
+            return true;
+        };
+
 // Initialize app
         window.app = new TravelFloApp();
-        // Load shared trip if URL has share hash (Feature 8)
+        // Load shared trip read-only view if URL has #trip=... hash
+        if (window.location.hash.indexOf('#trip=') === 0) {
+            setTimeout(function(){ window.app._initSharedView(); }, 150);
+        }
+        // Load shared trip if URL has share hash (Feature 8 legacy)
         if (window.location.hash.startsWith('#share=')) {
             window.app.loadSharedTrip();
         }

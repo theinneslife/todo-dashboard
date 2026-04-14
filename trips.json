@@ -185,7 +185,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 2,
+      "colorIndex": 1,
       "legs": [
         {
           "destination": "Cabo",
@@ -261,7 +261,7 @@
       "budget": 22397.8,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 3,
+      "colorIndex": 2,
       "legs": []
     },
     {
@@ -318,7 +318,7 @@
       "budget": 652.29,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 4,
+      "colorIndex": 3,
       "legs": []
     },
     {
@@ -416,7 +416,7 @@
       "budget": 57639.91,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 5,
+      "colorIndex": 4,
       "legs": []
     },
     {
@@ -447,7 +447,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 6,
+      "colorIndex": 5,
       "legs": []
     },
     {
@@ -522,7 +522,7 @@
       "budget": 22414.12,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 7,
+      "colorIndex": 6,
       "legs": []
     },
     {
@@ -565,7 +565,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 8,
+      "colorIndex": 7,
       "legs": []
     },
     {
@@ -630,7 +630,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 9,
+      "colorIndex": 8,
       "legs": []
     },
     {
@@ -698,7 +698,7 @@
       "budget": 3014,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 0,
+      "colorIndex": 9,
       "legs": []
     },
     {
@@ -763,7 +763,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 1,
+      "colorIndex": 0,
       "legs": []
     },
     {
@@ -838,7 +838,7 @@
       "budget": 6323.09,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 2,
+      "colorIndex": 1,
       "legs": []
     },
     {
@@ -869,7 +869,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 3,
+      "colorIndex": 2,
       "legs": []
     },
     {
@@ -900,7 +900,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": [],
-      "colorIndex": 4,
+      "colorIndex": 3,
       "legs": []
     },
     {
@@ -926,7 +926,7 @@
       "budget": 3000,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 5,
+      "colorIndex": 4,
       "legs": []
     }
   ],

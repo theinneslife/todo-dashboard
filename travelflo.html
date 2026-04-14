@@ -2329,14 +2329,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Trip Type</label>
-                    <select id="tripTypeInput" class="form-control" onchange="if(this.value==='race'){document.getElementById('raceFieldsSection').style.display='block'}else{document.getElementById('raceFieldsSection').style.display='none'}">
-                        <option value="vacation">Vacation</option>
-                        <option value="race">Race</option>
-                    </select>
-                </div>
-                <div id="raceFieldsContainer"></div>
+                <div id="raceFieldsContainer" style="display:none"></div>
                 <div class="form-group">
                     <label class="form-label">Notes</label>
                     <textarea class="form-textarea" id="notesInput" placeholder="Add trip notes..."></textarea>

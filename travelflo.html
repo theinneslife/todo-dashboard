@@ -4093,13 +4093,9 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     html += '<span class="accom-detail-name">' + (a.name || 'Accommodation') + '</span>';
                     html += '<span class="accom-type-badge ' + typeClass + '">' + (a.type || 'Other') + '</span>';
                     html += '</div>';
-                    // Accommodation photo preview (via microlink screenshot API)
+                    // Accommodation link preview card
                     if (a.url && a.url.match(/^https?:\/\//)) {
-                        var _cleanUrl = a.url.split('?')[0];
-                        var _imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(_cleanUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
-                        html += '<a href="' + a.url + '" target="_blank" rel="noopener" class="accom-photo-link" style="display:block;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">';
-                        html += '<img src="' + _imgUrl + '" alt="' + (a.name || 'Accommodation') + '" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-tertiary);" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">';
-                        html += '</a>';
+                        html += self._accomPreviewCard(a.url);
                     }
                     html += '<div class="accom-detail-meta">';
                     if (a.checkin) html += '<span>\u{1F4C5} Check-in: ' + a.checkin + '</span>';
@@ -5651,12 +5647,10 @@ this.updateDashboardStats();
                     if (l.flight)        html += 'Flight: ' + esc(l.flight) + '<br>';
                     if (l.activities)    html += 'Activities: ' + esc(l.activities);
                     html += '</div></div>';
-                    // Accommodation preview image if URL
+                    // Accommodation link preview card
                     var urlMatch = (l.accommodation || '').match(/https?:\/\/\S+/);
                     if (urlMatch) {
-                        var cleanShareUrl = urlMatch[0].split('?')[0];
-                        var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(cleanShareUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
-                        html += '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="display:block;margin:-4px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);"><img src="' + imgUrl + '" loading="eager" alt="Accommodation" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.parentNode.style.display=\'none\';"></a>';
+                        html += this._accomPreviewCard ? this._accomPreviewCard(urlMatch[0]) : '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="color:var(--accent-blue);">View Accommodation</a>';
                     }
                 });
                 html += '</div>';
@@ -5994,18 +5988,28 @@ this.updateDashboardStats();
             return html;
         }
 
+        TravelFloApp.prototype._accomPreviewCard = function(url) {
+            if (!url) return '';
+            try {
+                var hostname = new URL(url).hostname.replace('www.', '');
+            } catch(e) { var hostname = url.substring(0, 30); }
+            var favicon = 'https://www.google.com/s2/favicons?domain=' + hostname + '&sz=32';
+            var label = hostname.charAt(0).toUpperCase() + hostname.slice(1);
+            return '<a href="' + url + '" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;margin:8px 0 12px;padding:14px 16px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-secondary);text-decoration:none;color:inherit;transition:border-color 0.2s;" onmouseover="this.style.borderColor=\'var(--accent-blue,#3b82f6)\'" onmouseout="this.style.borderColor=\'var(--border-color)\'">' +
+                '<img src="' + favicon + '" alt="" style="width:28px;height:28px;border-radius:6px;flex-shrink:0;">' +
+                '<div style="flex:1;min-width:0;">' +
+                '<div style="font-weight:600;font-size:14px;color:var(--text-primary);">View Listing</div>' +
+                '<div style="font-size:12px;color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + label + '</div>' +
+                '</div>' +
+                '<span style="color:var(--accent-blue,#3b82f6);font-size:18px;">→</span>' +
+                '</a>';
+        }
+
         TravelFloApp.prototype.renderLegDetail = function(leg, idx, tripId) {
             var self = this;
             var accomUrlMatch = (leg.accommodation || '').match(/https?:\/\/\S+/);
             var accomUrl = accomUrlMatch ? accomUrlMatch[0] : '';
-            var cleanUrl = accomUrl.split('?')[0]; // strip query params for cleaner screenshot
-            var photoHtml = '';
-            if (cleanUrl) {
-                var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(cleanUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
-                photoHtml = '<a href="' + accomUrl + '" target="_blank" rel="noopener" style="display:block;margin:8px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">' +
-                    '<img src="' + imgUrl + '" alt="Accommodation preview" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">' +
-                    '</a>';
-            }
+            var photoHtml = accomUrl ? this._accomPreviewCard(accomUrl) : '';
             var fmtStart = leg.startDate ? self.formatDate(leg.startDate) : '';
             var fmtEnd = leg.endDate ? self.formatDate(leg.endDate) : '';
             var accomDisplay = leg.accommodation || 'Not set';

@@ -4095,7 +4095,8 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     html += '</div>';
                     // Accommodation photo preview (via microlink screenshot API)
                     if (a.url && a.url.match(/^https?:\/\//)) {
-                        var _imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(a.url) + '&screenshot=true&meta=false&embed=screenshot.url';
+                        var _cleanUrl = a.url.split('?')[0];
+                        var _imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(_cleanUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
                         html += '<a href="' + a.url + '" target="_blank" rel="noopener" class="accom-photo-link" style="display:block;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">';
                         html += '<img src="' + _imgUrl + '" alt="' + (a.name || 'Accommodation') + '" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-tertiary);" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">';
                         html += '</a>';
@@ -5300,7 +5301,7 @@ this.updateDashboardStats();
             const daysTillStart = start ? Math.ceil((start - today) / (1000*60*60*24)) : 999;
             try {
                 if (daysTillStart <= 14 && daysTillStart >= -7) {
-                    const url = 'https://api.open-meteo.com/v1/forecast?latitude='+coords[0]+'&longitude='+coords[1]+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto&forecast_days=7';
+                    const url = 'https://api.open-meteo.com/v1/forecast?latitude='+coords[0]+'&longitude='+coords[1]+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto&forecast_days=7&temperature_unit=fahrenheit';
                     const resp = await fetch(url);
                     const data = await resp.json();
                     return { type: 'forecast', data: data.daily };
@@ -5311,7 +5312,7 @@ this.updateDashboardStats();
                     const startStr = '2024-' + String(month).padStart(2,'0') + '-' + String(day).padStart(2,'0');
                     const endDate = new Date(2024, month-1, day+6);
                     const endStr = '2024-' + String(endDate.getMonth()+1).padStart(2,'0') + '-' + String(endDate.getDate()).padStart(2,'0');
-                    const url = 'https://archive-api.open-meteo.com/v1/archive?latitude='+coords[0]+'&longitude='+coords[1]+'&start_date='+startStr+'&end_date='+endStr+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto';
+                    const url = 'https://archive-api.open-meteo.com/v1/archive?latitude='+coords[0]+'&longitude='+coords[1]+'&start_date='+startStr+'&end_date='+endStr+'&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto&temperature_unit=fahrenheit';
                     const resp = await fetch(url);
                     const data = await resp.json();
                     return { type: 'historical', data: data.daily };
@@ -5653,7 +5654,8 @@ this.updateDashboardStats();
                     // Accommodation preview image if URL
                     var urlMatch = (l.accommodation || '').match(/https?:\/\/\S+/);
                     if (urlMatch) {
-                        var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(urlMatch[0]) + '&screenshot=true&meta=false&embed=screenshot.url';
+                        var cleanShareUrl = urlMatch[0].split('?')[0];
+                        var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(cleanShareUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
                         html += '<a href="' + esc(urlMatch[0]) + '" target="_blank" rel="noopener" style="display:block;margin:-4px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);"><img src="' + imgUrl + '" loading="eager" alt="Accommodation" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.parentNode.style.display=\'none\';"></a>';
                     }
                 });
@@ -5696,6 +5698,9 @@ this.updateDashboardStats();
             html += '</div>';
             var container = document.querySelector('.container') || document.body;
             container.innerHTML = html;
+            container.style.overflowY = 'auto';
+            container.style.height = '100vh';
+            container.style.webkitOverflowScrolling = 'touch';
             // Hide bottom nav / any other fixed chrome
             document.querySelectorAll('.bottom-nav, nav.bottom-nav, .nav-bar').forEach(function(el){ el.style.display = 'none'; });
             try { if (window.lucide) lucide.createIcons(); } catch(e) {}
@@ -5959,25 +5964,29 @@ this.updateDashboardStats();
         // ===== FEATURE: Multi-Leg Itinerary =====
         TravelFloApp.prototype.renderLegsSection = function(trip) {
             const legs = (trip && trip.legs) || [];
+            // Build sorted index so stepper and detail render in chronological order
+            var sortedIdxs = legs.map(function(l, i){ return i; });
+            sortedIdxs.sort(function(a, b){ return (legs[a].startDate || '').localeCompare(legs[b].startDate || ''); });
             let html = '<div class="detail-section"><div class="detail-section-title"><i data-lucide="route" style="width:16px;vertical-align:middle"></i> Trip Legs</div>';
             if (legs.length === 0) {
                 html += '<div style="color:var(--text-muted);font-size:0.85rem;">No legs added. Click below to add stops.</div>';
             } else {
-                // Stepper
+                // Stepper (chronological)
                 html += '<div class="legs-stepper">';
-                legs.forEach((leg, idx) => {
-                    if (idx > 0) html += '<div class="leg-arrow">→</div>';
+                sortedIdxs.forEach((origIdx, pos) => {
+                    var leg = legs[origIdx];
+                    if (pos > 0) html += '<div class="leg-arrow">→</div>';
                     const startD = leg.startDate ? new Date(leg.startDate + 'T00:00:00').toLocaleDateString([], {month:'short',day:'numeric'}) : '';
                     const endD = leg.endDate ? new Date(leg.endDate + 'T00:00:00').toLocaleDateString([], {month:'short',day:'numeric'}) : '';
-                    html += '<div class="leg-step' + (idx === 0 ? ' active' : '') + '" data-leg-idx="' + idx + '" onclick="app.expandLeg(' + idx + ', \'' + (trip.id || '') + '\')">';
-                    html += '<div class="leg-step-dest">' + (leg.destination || 'Leg ' + (idx+1)) + '</div>';
+                    html += '<div class="leg-step' + (pos === 0 ? ' active' : '') + '" data-leg-idx="' + origIdx + '" onclick="app.expandLeg(' + origIdx + ', \'' + (trip.id || '') + '\')">';
+                    html += '<div class="leg-step-dest">' + (leg.destination || 'Leg ' + (origIdx+1)) + '</div>';
                     html += '<div class="leg-step-dates">' + startD + (endD ? ' - ' + endD : '') + '</div>';
                     html += '</div>';
                 });
                 html += '</div>';
-                // Expanded leg details (show first by default)
+                // Expanded leg details (show earliest leg by default)
                 html += '<div id="legDetailsContainer">';
-                if (legs.length > 0) html += this.renderLegDetail(legs[0], 0, trip.id);
+                if (sortedIdxs.length > 0) html += this.renderLegDetail(legs[sortedIdxs[0]], sortedIdxs[0], trip.id);
                 html += '</div>';
             }
             html += '<button class="add-leg-btn" style="margin-top:0.75rem;" onclick="app.openAddLegModal(\'' + (trip ? trip.id : '') + '\')">+ Add Leg</button>';
@@ -5986,19 +5995,27 @@ this.updateDashboardStats();
         }
 
         TravelFloApp.prototype.renderLegDetail = function(leg, idx, tripId) {
+            var self = this;
             var accomUrlMatch = (leg.accommodation || '').match(/https?:\/\/\S+/);
             var accomUrl = accomUrlMatch ? accomUrlMatch[0] : '';
+            var cleanUrl = accomUrl.split('?')[0]; // strip query params for cleaner screenshot
             var photoHtml = '';
-            if (accomUrl) {
-                var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(accomUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
+            if (cleanUrl) {
+                var imgUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(cleanUrl) + '&screenshot=true&meta=false&embed=screenshot.url';
                 photoHtml = '<a href="' + accomUrl + '" target="_blank" rel="noopener" style="display:block;margin:8px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:var(--bg-tertiary);">' +
                     '<img src="' + imgUrl + '" alt="Accommodation preview" loading="eager" style="width:100%;height:180px;object-fit:cover;display:block;" onerror="this.style.display=\'none\';this.parentNode.style.display=\'none\';">' +
                     '</a>';
             }
+            var fmtStart = leg.startDate ? self.formatDate(leg.startDate) : '';
+            var fmtEnd = leg.endDate ? self.formatDate(leg.endDate) : '';
+            var accomDisplay = leg.accommodation || 'Not set';
+            if (accomUrl) {
+                accomDisplay = '<a href="' + accomUrl + '" target="_blank" rel="noopener" style="color:var(--accent-blue,#3b82f6);word-break:break-all;">' + accomUrl + '</a>';
+            }
             return '<div class="leg-details">' +
                 '<div style="font-weight:600;margin-bottom:0.5rem;">Leg ' + (idx+1) + ': ' + (leg.destination || '') + '</div>' +
-                '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">' + (leg.startDate || '') + ' to ' + (leg.endDate || '') + '</span></div>' +
-                '<div class="detail-row"><span class="detail-label">Accommodation</span><span class="detail-value">' + (leg.accommodation || 'Not set') + '</span></div>' +
+                '<div class="detail-row"><span class="detail-label">Dates</span><span class="detail-value">' + fmtStart + ' to ' + fmtEnd + '</span></div>' +
+                '<div class="detail-row"><span class="detail-label">Accommodation</span><span class="detail-value">' + accomDisplay + '</span></div>' +
                 photoHtml +
                 '<div class="detail-row"><span class="detail-label">Flight</span><span class="detail-value">' + (leg.flight || 'Not set') + '</span></div>' +
                 '<div class="detail-row"><span class="detail-label">Activities</span><span class="detail-value">' + (leg.activities || 'None') + '</span></div>' +

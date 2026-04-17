@@ -1930,5 +1930,35 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "d00eba9c-7982-40ac-b7ac-273d0d345d28",
+    "title": "Review Mateo's plan",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-04-17",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-17T11:37:45.503Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-17T11:37:45.503Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

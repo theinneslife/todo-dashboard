@@ -1217,6 +1217,19 @@
         .filter-btn.active{background:var(--accent-blue);color:#fff;border-color:var(--accent-blue)}
         .all-trip-card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:1rem;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:1rem}
         .all-trip-card:hover{border-color:var(--accent-blue);transform:translateY(-1px)}
+        .all-trip-card.verified{border-color:rgba(16,185,129,0.5);background:linear-gradient(135deg,var(--bg-secondary) 0%,rgba(16,185,129,0.06) 100%)}
+        .all-trip-card.verified::after{content:'✓ Verified';position:absolute;top:8px;right:8px;font-size:10px;font-weight:600;color:#10b981;background:rgba(16,185,129,0.15);padding:2px 8px;border-radius:10px;letter-spacing:0.3px}
+        .all-trip-card{position:relative}
+        .verified-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--bg-tertiary);border:1px solid var(--border-color);border-radius:10px;cursor:pointer;transition:all .2s ease;margin-top:4px}
+        .verified-toggle:hover{border-color:rgba(16,185,129,0.5)}
+        .verified-toggle.active{border-color:rgba(16,185,129,0.6);background:rgba(16,185,129,0.1)}
+        .verified-toggle .toggle-track{width:40px;height:22px;border-radius:11px;background:#3a3f50;transition:background .2s;position:relative;flex-shrink:0}
+        .verified-toggle.active .toggle-track{background:#10b981}
+        .verified-toggle .toggle-thumb{width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .2s}
+        .verified-toggle.active .toggle-thumb{transform:translateX(18px)}
+        .verified-toggle .toggle-label{font-size:13px;color:var(--text-secondary);font-weight:500}
+        .verified-toggle.active .toggle-label{color:#10b981}
+        .timeline-trip-card.verified{border-color:rgba(16,185,129,0.5);box-shadow:0 4px 16px rgba(16,185,129,0.1)}
         .all-trip-icon{font-size:2rem;min-width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--bg-tertiary);border-radius:12px}
         .all-trip-info{flex:1;min-width:0}
         .all-trip-dest{font-size:.95rem;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -2357,6 +2370,15 @@
 
 
 
+                <!-- Verified Toggle -->
+                <div class="form-group">
+                    <label class="form-label"><i data-lucide="shield-check" style="width:14px;height:14px;vertical-align:-2px;"></i> Verification Status</label>
+                    <div class="verified-toggle" id="verifiedToggle" onclick="this.classList.toggle('active')">
+                        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                        <span class="toggle-label">Mark trip as verified</span>
+                    </div>
+                </div>
+
                 <div class="form-actions" style="display:flex;justify-content:space-between;align-items:center;">
                     <button type="button" class="btn btn-danger" id="deleteTripBtn" style="display:none;" onclick="app.deleteTripFromModal()"><i data-lucide="trash-2" style="width:14px;height:14px;vertical-align:middle;"></i> Delete Trip</button>
                     <div style="display:flex;gap:12px;margin-left:auto;">
@@ -2814,6 +2836,7 @@
                 document.getElementById('accommodationDisplay').style.display = 'none';
                 document.getElementById('accommodationInput').value = '';
                 document.getElementById('accomList').innerHTML = '';
+                var _vt = document.getElementById('verifiedToggle'); if (_vt) _vt.classList.remove('active');
                 document.getElementById('expensesList').innerHTML = '';
                 document.getElementById('expensesSection').style.display = 'none';
                 var _plc = document.getElementById('packingListContent'); if (_plc) _plc.innerHTML = '';
@@ -3019,6 +3042,9 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 }
                 document.getElementById('notesInput').value = trip.notes || '';
                 document.getElementById('budgetInput').value = trip.budget || 0;
+                // Set verified toggle
+                var _vt = document.getElementById('verifiedToggle');
+                if (_vt && trip.verified) _vt.classList.add('active');
                 // Backward compat: old single string -> convert to array
                 const accomData = trip.accommodations || (trip.accommodation ? [{ name: trip.accommodation, type: 'Airbnb', url: trip.accommodation, checkin: '', checkout: '', price: '', notes: '' }] : []);
                 document.getElementById('accommodationInput').value = trip.accommodation || '';
@@ -3296,7 +3322,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         crewPoints: document.getElementById('raceCrewInput') ? document.getElementById('raceCrewInput').value : ''
                     } : null,
                     documents: this.currentEditingTrip ? (this.currentEditingTrip.documents || []) : [],
-                    legs: this.currentEditingTrip ? (this.currentEditingTrip.legs || []) : []
+                    legs: this.currentEditingTrip ? (this.currentEditingTrip.legs || []) : [],
+                    verified: document.getElementById('verifiedToggle') ? document.getElementById('verifiedToggle').classList.contains('active') : false
                 };
 
                 if (this.currentEditingTrip) {
@@ -3861,7 +3888,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i data-lucide="globe" style="width:18px;height:18px;"></i></div><div class="empty-state-title">No trips found</div><div class="empty-state-text">Try a different filter or add a new trip.</div></div>';
                 return;
             }
-            var flags = {"USA":"🇺🇸","Belize":"🇧🇿","Mexico":"🇲🇽","South Africa":"🇿🇦","Japan":"🇯🇵","Portugal":"🇵🇹","Thailand":"🇹🇭","Greece":"🇬🇷","Peru":"🇵🇪","Italy":"🇮🇹"};
+            var flags = {"USA":"🇺🇸","Belize":"🇧🇿","Mexico":"🇲🇽","South Africa":"🇿🇦","Japan":"🇯🇵","Portugal":"🇵🇹","Thailand":"🇹🇭","Greece":"🇬🇷","Peru":"🇵🇪","Italy":"🇮🇹","Croatia":"🇭🇷","Guatemala":"🇬🇹","Colombia":"🇨🇴","Argentina":"🇦🇷","El Salvador":"🇸🇻","France":"🇫🇷"};
             var self = this;
             grid.innerHTML = trips.map(function(t) {
                 var country = (t.destination || "").split(",").pop().trim();
@@ -3873,7 +3900,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"photo-1488646953014-85cb44e25828";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
-return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share trip" style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);"><i data-lucide="share-2" style="width:12px;height:12px;vertical-align:-1px;"></i> Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
+var verifiedClass = t.verified ? ' verified' : '';
+return '<div class="all-trip-card'+verifiedClass+'" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(t.verified?'<span class="trip-badge" style="background:rgba(16,185,129,0.15);color:#10b981;">✓ Verified</span>':'')+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share trip" style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);"><i data-lucide="share-2" style="width:12px;height:12px;vertical-align:-1px;"></i> Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -4595,7 +4623,7 @@ this.updateDashboardStats();
             const days = _isCurrent ? 0 : Math.ceil((new Date(trip.startDate) - now) / 864e5);
             const label = _isCurrent ? 'Now' : days === 0 ? 'Today!' : days === 1 ? 'Tomorrow' : days + ' days';
             const badge = _isCurrent ? '<div class="timeline-in-progress-badge">In Progress</div>' : '';
-            return `<div class="timeline-trip-card${_isCurrent ? ' timeline-trip-card-current' : ''}" onclick="app.showTripDetail('${trip.id}')">
+            return `<div class="timeline-trip-card${_isCurrent ? ' timeline-trip-card-current' : ''}${trip.verified ? ' verified' : ''}" onclick="app.showTripDetail('${trip.id}')">
                 ${badge}
                 <div class="timeline-trip-destination">${trip.destination}</div>
                 <div class="timeline-trip-date">${this.parseLocalDate(trip.startDate).toLocaleDateString([], {month:'short',day:'numeric'})}</div>

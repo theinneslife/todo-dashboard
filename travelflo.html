@@ -2062,6 +2062,7 @@
 
         </style>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 
     <!-- Leaflet.js for Map View -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -5592,8 +5593,22 @@ this.updateDashboardStats();
             var trip = this.trips.find(function(t){ return t.id === tripId; });
             if (!trip) return '';
             var payload = this._buildShareTripPayload(trip);
-            var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+            payload.v = 3; // compressed format
+            var jsonStr = JSON.stringify(payload);
             var base = 'https://theinneslife.github.io/todo-dashboard/travelflo.html';
+            // Try pako compression for shorter URLs
+            if (typeof pako !== 'undefined') {
+                try {
+                    var compressed = pako.deflate(new TextEncoder().encode(jsonStr));
+                    // base64url encode (URL-safe, no padding)
+                    var b64 = btoa(String.fromCharCode.apply(null, compressed))
+                        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                    return base + '#z=' + b64;
+                } catch(e) { console.warn('Compression failed, falling back to raw', e); }
+            }
+            // Fallback: uncompressed
+            payload.v = 2;
+            var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
             return base + '#trip=' + encoded;
         };
 
@@ -5601,21 +5616,37 @@ this.updateDashboardStats();
             var url = this.generateTripShareURL(tripId);
             if (!url) { this.showToast('Trip not found', 'error'); return; }
             var self = this;
-            var onSuccess = function(){ self.showToast('Link copied!', 'success'); };
-            var onFail = function(){
-                try {
-                    var ta = document.createElement('textarea');
-                    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
-                    document.body.appendChild(ta); ta.select();
-                    document.execCommand('copy'); document.body.removeChild(ta);
-                    self.showToast('Link copied!', 'success');
-                } catch(e) {
-                    window.prompt('Copy this share link:', url);
-                }
+            var copyToClipboard = function(text, msg) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(
+                        function(){ self.showToast(msg || 'Link copied!', 'success'); },
+                        function(){ self._fallbackCopy(text, msg); }
+                    );
+                } else { self._fallbackCopy(text, msg); }
             };
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(onSuccess, onFail);
-            } else { onFail(); }
+            // First copy compressed URL immediately so user has it
+            copyToClipboard(url, 'Compressed link copied! Shortening...');
+            // Then try to shorten via is.gd
+            fetch('https://is.gd/create.php?format=json&url=' + encodeURIComponent(url))
+                .then(function(r){ return r.json(); })
+                .then(function(d){
+                    if (d && d.shorturl) {
+                        copyToClipboard(d.shorturl, 'Short link copied! ' + d.shorturl);
+                    }
+                })
+                .catch(function(){ /* Compressed URL already copied, no action needed */ });
+        };
+
+        TravelFloApp.prototype._fallbackCopy = function(text, msg) {
+            try {
+                var ta = document.createElement('textarea');
+                ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                document.body.appendChild(ta); ta.select();
+                document.execCommand('copy'); document.body.removeChild(ta);
+                this.showToast(msg || 'Link copied!', 'success');
+            } catch(e) {
+                window.prompt('Copy this share link:', text);
+            }
         };
 
         TravelFloApp.prototype.shareFromDetail = function() {
@@ -5625,12 +5656,31 @@ this.updateDashboardStats();
 
         TravelFloApp.prototype.loadSharedTripFromHash = function() {
             var hash = window.location.hash;
-            if (!hash.startsWith('#trip=')) return false;
             var data;
-            try {
-                data = JSON.parse(decodeURIComponent(escape(atob(hash.substring(6)))));
-            } catch(e) {
-                console.warn('Failed to parse shared trip hash:', e);
+            if (hash.startsWith('#z=')) {
+                // Compressed format (v3): pako deflate + base64url
+                try {
+                    var b64 = hash.substring(3).replace(/-/g, '+').replace(/_/g, '/');
+                    // Add padding
+                    while (b64.length % 4) b64 += '=';
+                    var binary = atob(b64);
+                    var bytes = new Uint8Array(binary.length);
+                    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                    var jsonStr = new TextDecoder().decode(pako.inflate(bytes));
+                    data = JSON.parse(jsonStr);
+                } catch(e) {
+                    console.warn('Failed to decompress shared trip:', e);
+                    return false;
+                }
+            } else if (hash.startsWith('#trip=')) {
+                // Legacy uncompressed format (v2)
+                try {
+                    data = JSON.parse(decodeURIComponent(escape(atob(hash.substring(6)))));
+                } catch(e) {
+                    console.warn('Failed to parse shared trip hash:', e);
+                    return false;
+                }
+            } else {
                 return false;
             }
             var esc = function(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); };

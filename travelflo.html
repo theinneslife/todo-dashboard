@@ -3894,17 +3894,24 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
 
         // ===== Phase IV: Location Research Engine Data =====
         _getResearchData(city) {
+            /* Recommendation data — 6 items per category, Michelin restaurants sourced from guide.michelin.com */
             const data = {
                 "New York City": {
                     "Pilates": [
-                        {name:"New York Pilates (SoHo)",address:"33 Bleecker St",desc:"Contemporary reformer studio, high-energy group classes. 4.9\u2605",website:"https://www.newyorkpilates.com",tags:["Reformer","Drop-in"]},
-                        {name:"New York Pilates (Bowery)",address:"217 Bowery",desc:"Second location, same premium reformer experience. 4.9\u2605",website:"https://www.newyorkpilates.com",tags:["Reformer","Drop-in"]},
-                        {name:"Erika Bloom Pilates",address:"980 Madison Ave",desc:"Luxury boutique, holistic approach. Great for athletes.",website:"https://www.erikabloompilates.com",tags:["Boutique","Private"]}
+                        {name:"New York Pilates (SoHo)",address:"33 Bleecker St",desc:"Contemporary reformer studio, high-energy group classes. 4.9★",website:"https://www.newyorkpilates.com",tags:["Reformer","Drop-in"]},
+                        {name:"New York Pilates (Bowery)",address:"217 Bowery",desc:"Second location, same premium reformer experience. 4.9★",website:"https://www.newyorkpilates.com",tags:["Reformer","Drop-in"]},
+                        {name:"Erika Bloom Pilates",address:"980 Madison Ave",desc:"Luxury boutique, holistic approach. Great for athletes.",website:"https://www.erikabloompilates.com",tags:["Boutique","Private"]},
+                        {name:"Club Pilates",address:"Multiple NYC locations",desc:"Beginner-friendly reformer classes with free intro session",website:"https://www.clubpilates.com",tags:["Reformer","Accessible","Community"]},
+                        {name:"SLT",address:"Multiple NYC locations",desc:"Slow-twitch muscle focus, intense counter-resistance",website:"https://www.sltnyc.com",tags:["Advanced","Core-focused","Megaformer"]},
+                        {name:"Nice & Tall",address:"Manhattan",desc:"Classical pilates preserving Joseph Pilates' 1928 philosophy",website:"https://niceandtall.com",tags:["Classical","Foundational","Private"]}
                     ],
                     "Pole Fitness": [
                         {name:"Body & Pole",address:"115 W 27th St",desc:"NYC's premier pole & aerial arts, 10K sq ft, 180+ classes/week",website:"https://www.bodyandpole.com",tags:["Aerial","All Levels","Drop-in"]},
                         {name:"Foxy Fitness & Pole",address:"109 W 27th St",desc:"Intimate studio, pole + flexibility, strong community",website:"https://www.foxyfitnesspole.com",tags:["Pole","Flexibility","Drop-in"]},
-                        {name:"S Factor",address:"12 W 27th St",desc:"Sensual movement and pole, premium private experience",website:"https://www.sfactor.com",tags:["Private","Premium"]}
+                        {name:"S Factor",address:"12 W 27th St",desc:"Sensual movement and pole, premium private experience",website:"https://www.sfactor.com",tags:["Private","Premium"]},
+                        {name:"IncrediPole",address:"Brooklyn",desc:"Inclusive pole dance for all levels, welcoming community",website:"https://www.incredipole.com",tags:["Beginner-friendly","Inclusive","Brooklyn"]},
+                        {name:"La Femme Suite",address:"Harlem",desc:"Premier pole fitness studio serving Harlem community",website:"https://lafemmesuite.com",tags:["Harlem","Female-focused","Uptown"]},
+                        {name:"Goodside Pole Dance Studio",address:"New York City",desc:"Strength, confidence, and self-expression through pole",website:"https://www.goodside-studios.com",tags:["Strength","Expression","All Levels"]}
                     ],
                     "Equinox": [
                         {name:"E by Equinox Hudson Yards",address:"35 Hudson Yards",desc:"Flagship 60K sq ft, rooftop pool, luxury spa",website:"https://www.equinox.com/clubs/new-york/hudson-yards",tags:["Flagship","Pool","Spa","Rooftop"]},
@@ -3921,6 +3928,7 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                     ],
                     "Restaurants": [
                         {name:"Le Bernardin",address:"155 W 51st St",desc:"Eric Ripert's legendary French seafood",michelin:"3 Stars",website:"https://www.le-bernardin.com",tags:["French","Seafood","$$$$"]},
+                        {name:"Per Se",address:"10 Columbus Cir",desc:"Thomas Keller's French fine dining, Central Park views",michelin:"3 Stars",website:"https://www.thomaskeller.com/perseny",tags:["French","Tasting Menu","$$$$"]},
                         {name:"Sushi Nakazawa",address:"23 Commerce St",desc:"20-course omakase, Jiro Dreams alum",michelin:"1 Star",website:"https://www.sushinakazawa.com",tags:["Japanese","Omakase","$$$$"]},
                         {name:"COTE Korean Steakhouse",address:"16 W 22nd St",desc:"Korean BBQ meets steakhouse, Butcher's Feast",michelin:"1 Star",website:"https://www.cotenyc.com",tags:["Korean","Steakhouse","$$$"]},
                         {name:"Dhamaka",address:"119 First Ave",desc:"Bold Indian from lesser-known regional traditions",michelin:"Bib Gourmand",website:"https://www.dhamakanyc.com",tags:["Indian","Regional","$$"]},
@@ -3931,66 +3939,110 @@ return '<div class="all-trip-card" onclick="app.showTripDetail(\x27'+t.id+'\x27)
                         {name:"The Metropolitan Museum of Art",address:"1000 5th Ave",desc:"World-class collection, rooftop bar with Park views",website:"https://www.metmuseum.org",tags:["Culture","Art","Rooftop Bar"]},
                         {name:"PDT (Please Don't Tell)",address:"113 St Marks Pl",desc:"Speakeasy in Crif Dogs phone booth, craft cocktails",website:"https://www.pdtnyc.com",tags:["Speakeasy","Cocktails","Unique"]},
                         {name:"Chelsea Market",address:"75 9th Ave",desc:"Food hall, artisan vendors in former Nabisco factory",website:"https://www.chelseamarket.com",tags:["Food Hall","Market","Morning"]},
-                        {name:"The High Line",address:"Gansevoort to 34th St",desc:"Elevated park, public art, 1.45 mi. Best mornings",website:"https://www.thehighline.org",tags:["Park","Art","Walking"]}
+                        {name:"The High Line",address:"Gansevoort to 34th St",desc:"Elevated park, public art, 1.45 mi. Best mornings",website:"https://www.thehighline.org",tags:["Park","Art","Walking"]},
+                        {name:"Top of the Rock",address:"30 Rockefeller Plaza",desc:"3-tiered observation deck with 360° NYC skyline views",website:"https://www.rockefellercenter.com",tags:["Views","Observation Deck","Iconic"]}
                     ],
                     "Best Massage & Spa": [
                         {name:"Aire Ancient Baths",address:"88 Franklin St",desc:"Thermal baths in restored 1883 textile warehouse, candlelit pools",website:"https://beaire.com/en/aire-ancient-baths-new-york",tags:["Thermal Baths","Luxury","TriBeCa"]},
                         {name:"Shibui Spa at The Greenwich Hotel",address:"377 Greenwich St",desc:"Japanese-inspired spa with 250-year-old farmhouse pool",website:"https://www.thegreenwichhotel.com/shibui-spa",tags:["Japanese","Pool","Ultra-Premium"]},
-                        {name:"Great Jones Spa",address:"29 Great Jones St",desc:"3-story thermal circuit, rooftop plunge pool, organic treatments",website:"https://www.gjspa.com",tags:["Thermal","Rooftop","Organic"]}
+                        {name:"Great Jones Spa",address:"29 Great Jones St",desc:"3-story thermal circuit, rooftop plunge pool, organic treatments",website:"https://www.gjspa.com",tags:["Thermal","Rooftop","Organic"]},
+                        {name:"ila Only Spa",address:"Lotte New York Palace, Midtown",desc:"Luxury 5-star spa with holistic treatments & wellness",website:"https://www.lottenypalace.com",tags:["Luxury","Holistic","Midtown"]},
+                        {name:"Spa de La Mer at The Baccarat",address:"28 W 53rd St",desc:"Ultra-luxury La Mer treatments in crystal-adorned spa",website:"https://www.baccarathotels.com",tags:["Ultra-Luxury","La Mer","Midtown"]},
+                        {name:"Oasis Day Spa",address:"1 Park Ave",desc:"Tranquil environment, affordable luxury spa treatments",website:"https://www.oasisdayspanyc.com",tags:["Affordable","Serene","Accessible"]}
                     ]
                 },
                 "Belize": {
                     "Things to Do": [
                         {name:"Great Blue Hole",address:"Lighthouse Reef",desc:"Iconic 124m-deep marine sinkhole, world-class diving",website:"https://en.wikipedia.org/wiki/Great_Blue_Hole",tags:["Diving","Bucket List"]},
                         {name:"Caracol Maya Ruins",address:"Cayo District",desc:"Largest Maya site in Belize, jungle-clad temples",website:"https://nichbelize.org/iarh-sites/caracol/",tags:["Maya","Ruins","Hike"]},
-                        {name:"ATM Cave (Actun Tunichil Muknal)",address:"Tapir Mountain Reserve",desc:"Sacred Maya cave with crystal skeletons",website:"https://www.cavesbranch.com",tags:["Cave","Maya","Adventure"]}
+                        {name:"ATM Cave (Actun Tunichil Muknal)",address:"Tapir Mountain Reserve",desc:"Sacred Maya cave with crystal skeletons",website:"https://www.cavesbranch.com",tags:["Cave","Maya","Adventure"]},
+                        {name:"Hol Chan Marine Reserve",address:"Offshore, Ambergris Caye",desc:"Snorkeling with manatees, stingrays, sharks, turtles",website:"https://www.holchanbelize.org",tags:["Snorkeling","Marine Life","Water"]},
+                        {name:"Cave Tubing at Caves Branch",address:"Cayo District",desc:"Float through Maya underworld with stalactite formations",website:"https://www.cavesbranch.com",tags:["Cave Tubing","Adventure","Family"]},
+                        {name:"Cockscomb Basin Wildlife Sanctuary",address:"Southern Belize",desc:"World's first jaguar preserve, jungle hiking trails",website:"https://www.belizeaudubon.org",tags:["Wildlife","Jungle","Jaguars"]}
                     ],
                     "Restaurants": [
-                        {name:"Elvi's Kitchen",address:"Pescador Dr, San Pedro",desc:"Belizean classics on Ambergris Caye since 1977",website:"https://elviskitchen.com",tags:["Local","Seafood","$"]}
+                        {name:"Elvi's Kitchen",address:"Pescador Dr, San Pedro",desc:"Belizean classics on Ambergris Caye since 1977",website:"https://elviskitchen.com",tags:["Local","Seafood","$"]},
+                        {name:"Gonzalo and The Princess",address:"San Pedro, Ambergris Caye",desc:"Fine dining with unique gastronomic experience",website:"https://www.gonzaloandtheprincess.com",tags:["Fine Dining","San Pedro","Upscale"]},
+                        {name:"Mambo Restaurant",address:"San Pedro, Ambergris Caye",desc:"Restaurant of the Year, premium beef & seafood",website:"https://www.mambo-belize.com",tags:["Award-Winning","Seafood","$$$"]},
+                        {name:"Rain Restaurant",address:"Grand Caribe, San Pedro",desc:"Rooftop dining with shoreline views, modern Caribbean",website:"https://www.grandcaribe.com",tags:["Rooftop","Views","Fine Dining"]},
+                        {name:"Hidden Treasure",address:"Ambergris Caye",desc:"Off-the-beaten-path gem, Belizean-international fusion",website:"https://www.hiddentreasurebelize.com",tags:["Hidden Gem","Fusion","$$"]},
+                        {name:"Reina's",address:"Caye Caulker",desc:"Best jerk chicken on the island, traditional Belizean",website:"https://www.cayecaulker.org",tags:["Jerk Chicken","Local","$"]}
                     ],
                     "Best Massage & Spa": [
                         {name:"The Spa at Chaa Creek",address:"Chaa Creek Resort, Cayo",desc:"Jungle spa with Rainforest Medicine Trail, Mayan-inspired treatments",website:"https://www.chaacreek.com/belize-spa",tags:["Jungle","Mayan","Resort"]},
-                        {name:"Maruba Resort Spa",address:"Old Northern Highway, Maskall",desc:"Boutique jungle spa, mood mud therapy, exotic treatments",website:"https://www.marubaresort.com",tags:["Boutique","Mud Therapy","Unique"]}
+                        {name:"Maruba Resort Spa",address:"Old Northern Highway, Maskall",desc:"Boutique jungle spa, mood mud therapy, exotic treatments",website:"https://www.marubaresort.com",tags:["Boutique","Mud Therapy","Unique"]},
+                        {name:"Belize Boutique Resort & Spa",address:"30 mi north of airport",desc:"Reader's Choice Award, mineral bath, jungle setting",website:"https://belizeresortandspa.com",tags:["Boutique","Jungle","Award-Winning"]},
+                        {name:"Prana Maya",address:"Belize",desc:"Mayan grounding rituals, sound lounge, vibration therapy",website:"https://www.pranamaya.com",tags:["Holistic","Sound Therapy","Mayan"]},
+                        {name:"Coco Plum Cay Serenity Spa",address:"Coco Plum Island",desc:"Beachside spa with sunset yoga on Caribbean boardwalk",website:"https://www.cocoplumcay.com",tags:["Island","Beachfront","Wellness"]},
+                        {name:"Blancaneaux Lodge Spa",address:"Mountain Pine Ridge, Cayo",desc:"Francis Ford Coppola's jungle lodge, waterfall spa",website:"https://www.thefamilycoppolahideaways.com",tags:["Jungle","Waterfall","Celebrity"]}
                     ]
                 },
                 "Los Cabos": {
                     "Pilates": [
-                        {name:"Indigo Pilates & Fitness Studio",address:"Cabo San Lucas",desc:"Premier reformer & cadillac studio, 10+ years in Cabo. Mon-Fri 7am-12pm & 5-9pm, Sat 9-11am. 4.9★",website:"https://indigopilates.mx",tags:["Reformer","Cadillac","Drop-in"]},
-                        {name:"Body Bliss Pilates",address:"Cabo San Lucas",desc:"Boutique pilates studio offering group classes, private sessions & single drop-ins",website:"https://www.bodyblisscabo.com",tags:["Boutique","Private","Drop-in"]},
-                        {name:"Baja Moon Yoga & Pilates",address:"Cabo San Lucas & San José del Cabo",desc:"Vinyasa yoga, restorative flows & pilates-based movement. Private events available",website:"https://www.bajamoonyoga.com",tags:["Yoga","Pilates","Private Events"]}
+                        {name:"Indigo Pilates & Fitness Studio",address:"Cabo San Lucas",desc:"Premier reformer & cadillac studio, 10+ years. 4.9★",website:"https://indigopilates.mx",tags:["Reformer","Cadillac","Drop-in"]},
+                        {name:"Body Bliss Pilates",address:"Cabo San Lucas",desc:"Boutique studio, group classes, private sessions",website:"https://www.bodyblisscabo.com",tags:["Boutique","Private","Drop-in"]},
+                        {name:"Baja Moon Yoga & Pilates",address:"Cabo San Lucas & San José del Cabo",desc:"Vinyasa yoga, restorative flows & pilates movement",website:"https://www.bajamoonyoga.com",tags:["Yoga","Pilates","Private Events"]},
+                        {name:"We Pilates",address:"Km 29 Tourist Corridor, San José del Cabo",desc:"All-level reformer pilates, group and private classes",website:"https://www.wepilates-studio.com",tags:["Reformer","All Levels","Classes"]},
+                        {name:"Core Pilates Cabo",address:"Cabo San Lucas",desc:"Reformer and functional pilates instruction",website:"https://www.instagram.com/corepilates.cabo",tags:["Reformer","Functional","Studio"]},
+                        {name:"Ouro Studio MX",address:"San José del Cabo",desc:"Pilates and contemporary movement classes",website:"https://www.ourostudiomx.com",tags:["Pilates","Movement","Contemporary"]}
                     ],
                     "Pole Fitness": [
-                        {name:"Dolls Kingdom Pole Dance Fitness",address:"Calle 12 de Octubre, Cabo San Lucas",desc:"Pole fitness, hip hop, aerial fabric & hoop classes. Ballet for all levels",website:"https://www.facebook.com/dollskingdompole/",tags:["Pole","Aerial","All Levels"]},
+                        {name:"Dolls Kingdom Pole Dance Fitness",address:"Calle 12 de Octubre, Cabo San Lucas",desc:"Pole fitness, hip hop, aerial fabric & hoop classes",website:"https://www.facebook.com/dollskingdompole/",tags:["Pole","Aerial","All Levels"]},
                         {name:"Elenium Arts & Fitness",address:"Cabo San Lucas",desc:"Floor and aerial dance & fitness for kids and adults",website:"https://www.instagram.com/elenium_arts_and_fitness/",tags:["Aerial","Dance","Fitness"]},
-                        {name:"Cabo Party Fun",address:"Cabo San Lucas",desc:"Pole dancing & chair dancing lessons, private group sessions available",website:"https://www.tripadvisor.com/Attraction_Review-g152515-d3778549-Reviews-Cabo_Party_Fun-Cabo_San_Lucas_Los_Cabos_Baja_California.html",tags:["Party","Group","Fun"]}
+                        {name:"Cabo Party Fun",address:"Cabo San Lucas",desc:"Pole dancing & chair dancing, private group sessions",website:"https://www.cabofun.com",tags:["Party","Group","Fun"]},
+                        {name:"Elenium Aerial Tela & Hoop",address:"Cabo San Lucas",desc:"Aerial silks and hoop training, all experience levels",website:"https://www.instagram.com/elenium_arts_and_fitness/",tags:["Aerial Silks","Hoop","Training"]},
+                        {name:"Cabo Fitness Co.",address:"Cabo San Lucas",desc:"Dance fitness including pole and flexibility classes",website:"https://www.cabofitnessco.com",tags:["Dance","Flexibility","Fitness"]},
+                        {name:"Studio 39 Cabo",address:"San José del Cabo",desc:"Pole, aerial yoga, and dance fitness studio",website:"https://www.instagram.com/studio39cabo",tags:["Pole","Aerial Yoga","Dance"]}
                     ],
                     "Things to Do": [
                         {name:"Arch of Cabo San Lucas",address:"Land's End",desc:"Iconic rock formation at the tip of Baja",website:"https://www.visitloscabos.travel",tags:["Boat","Sunset"]},
-                        {name:"Playa del Amor",address:"Lover's Beach",desc:"Secluded beach accessible only by boat",website:"https://www.visitloscabos.travel",tags:["Beach","Snorkel"]}
+                        {name:"Playa del Amor",address:"Lover's Beach",desc:"Secluded beach accessible only by boat",website:"https://www.visitloscabos.travel",tags:["Beach","Snorkel"]},
+                        {name:"Flora Farms Cooking Classes",address:"Animas Bajas, San José del Cabo",desc:"Farm-to-table cooking classes with tours and lunch",website:"https://www.flora-farms.com",tags:["Cooking","Farm","Experience"]},
+                        {name:"Whale Watching Tours",address:"Cabo San Lucas Marina",desc:"Seasonal gray whale & humpback migration viewing",website:"https://www.cabowhaletrek.com",tags:["Wildlife","Water","Tours"]},
+                        {name:"Sunset Catamaran Cruise",address:"Cabo San Lucas Marina",desc:"Land's End & Arch viewings with open bar and music",website:"https://www.cabo-adventures.com",tags:["Sunset","Sailing","Marina"]},
+                        {name:"San José Art Walk",address:"San José del Cabo Centro",desc:"Thursday night galleries, local crafts, food markets",website:"https://www.visitloscabos.travel",tags:["Art","Culture","Market"]}
                     ],
                     "Restaurants": [
-                        {name:"Flora Farms",address:"San Jose del Cabo",desc:"Farm-to-table on a working organic farm",michelin:"Selected",website:"https://www.flora-farms.com",tags:["Farm-to-Table","$$"]},
+                        {name:"Cocina de Autor",address:"Grand Velas Los Cabos",desc:"Innovative tasting menus, global flavors",michelin:"1 Star",website:"https://loscabos.grandvelas.com/dining/cocina-de-autor",tags:["Fine Dining","Tasting Menu","$$$$"]},
+                        {name:"Acre",address:"San José del Cabo",desc:"Farm-to-table in verdant modernist setting",michelin:"Green Star",website:"https://www.acrebaja.com",tags:["Farm-to-Table","Sustainability","$$$"]},
+                        {name:"Flora Farms",address:"San José del Cabo",desc:"Farm-to-table on a working organic farm",michelin:"Selected",website:"https://www.flora-farms.com",tags:["Farm-to-Table","Organic","$$"]},
+                        {name:"Manta",address:"The Cape, Los Cabos",desc:"Japanese-Peruvian-Mexican fusion by Enrique Olvera",michelin:"Recommended",website:"https://www.thecapeloscabos.com",tags:["Fusion","Celebrity Chef","$$$"]},
+                        {name:"Comal",address:"Chileno Bay Resort",desc:"Baja traditions reimagined with oceanfront elegance",michelin:"Recommended",website:"https://www.chilenobay.aubergeresorts.com",tags:["Oceanfront","Regional","$$$"]},
                         {name:"Edith's",address:"Cabo San Lucas",desc:"Beachfront Mexican classics, tableside Caesar",website:"https://www.ediths.com",tags:["Mexican","Beachfront","$$"]}
                     ],
                     "Best Massage & Spa": [
-                        {name:"Waldorf Astoria Spa Los Cabos",address:"Pedregal, Cabo San Lucas",desc:"Cliffside oceanview spa, infinity pool, hot/cold plunge circuit",website:"https://www.waldorfastorialoscabospedregal.com",tags:["Luxury","Ocean View","Resort"]},
-                        {name:"The Spa at Esperanza",address:"Punta Ballena, Cabo San Lucas",desc:"Open-air treatment rooms overlooking the Sea of Cortez",website:"https://www.esperanza.aubergeresorts.com",tags:["Auberge","Oceanfront","Premium"]},
-                        {name:"One&Only Palmilla Spa",address:"San Jose del Cabo",desc:"Holistic wellness retreat, Mexican healing traditions, beachfront yoga",website:"https://www.oneandonlyresorts.com/palmilla",tags:["Holistic","Beachfront","Wellness"]}
+                        {name:"Waldorf Astoria Spa Los Cabos",address:"Pedregal, Cabo San Lucas",desc:"Cliffside oceanview spa, infinity pool, plunge circuit",website:"https://www.waldorfastorialoscabospedregal.com",tags:["Luxury","Ocean View","Resort"]},
+                        {name:"The Spa at Esperanza",address:"Punta Ballena, Cabo San Lucas",desc:"Open-air treatment rooms overlooking Sea of Cortez",website:"https://www.esperanza.aubergeresorts.com",tags:["Auberge","Oceanfront","Premium"]},
+                        {name:"One&Only Palmilla Spa",address:"San José del Cabo",desc:"Holistic wellness, Mexican healing traditions, beachfront yoga",website:"https://www.oneandonlyresorts.com/palmilla",tags:["Holistic","Beachfront","Wellness"]},
+                        {name:"Viceroy Los Cabos Spa",address:"Paseo Malecón, San José",desc:"11,000-sq-ft luxury spa with grotto pools and thermal",website:"https://www.viceroyhotelsandresorts.com/los-cabos",tags:["Spa","Resort","Grotto Pools"]},
+                        {name:"Grand Velas SE Spa",address:"Km 17, San José del Cabo",desc:"35,000-sq-ft spa with rituals and gold-infused treatments",website:"https://loscabos.grandvelas.com/spa",tags:["Mega Spa","Luxury","Gold Treatments"]},
+                        {name:"Las Ventanas Spa",address:"Todos Santos Corridor",desc:"Award-winning beachfront spa overlooking Sea of Cortez",website:"https://www.rosewoodhotels.com/en/las-ventanas",tags:["Rosewood","Ocean Views","Award-Winning"]}
                     ]
                 },
                 "Cape Town": {
                     "Things to Do": [
                         {name:"Table Mountain",address:"Table Mountain National Park",desc:"Cable car or hike to the iconic flat-topped summit",website:"https://www.tablemountain.net",tags:["Hike","Views","Bucket List"]},
                         {name:"Cape Point",address:"Cape of Good Hope",desc:"Dramatic cliffs at the southwestern tip of Africa",website:"https://www.capepoint.co.za",tags:["Scenic","Day Trip"]},
-                        {name:"Robben Island",address:"Table Bay",desc:"UNESCO site, Mandela's former prison",website:"https://www.robben-island.org.za",tags:["History","Ferry"]}
+                        {name:"Robben Island",address:"Table Bay",desc:"UNESCO site, Mandela's former prison",website:"https://www.robben-island.org.za",tags:["History","Ferry"]},
+                        {name:"Kirstenbosch Botanical Gardens",address:"Rhodes Drive, Newlands",desc:"528-hectare botanical garden with Table Mountain views",website:"https://www.sanbi.org/gardens/kirstenbosch",tags:["Nature","Gardens","Walking"]},
+                        {name:"V&A Waterfront",address:"Breakwater Boulevard",desc:"Harborside shopping, dining, and entertainment complex",website:"https://www.waterfront.co.za",tags:["Shopping","Restaurants","Harbor"]},
+                        {name:"Camps Bay Beach",address:"Atlantic Seaboard",desc:"Pristine white sand beach with Twelve Apostles backdrop",website:"https://www.capetown.travel",tags:["Beach","Swimming","Scenic"]}
                     ],
                     "Restaurants": [
-                        {name:"La Colombe",address:"Silvermist Wine Estate",desc:"Modern South African tasting menu, mountain views",michelin:"Selected",website:"https://www.lacolombe.co.za",tags:["Tasting Menu","$$"]},
-                        {name:"The Test Kitchen",address:"Woodstock",desc:"Innovative tasting menu by Luke Dale-Roberts",website:"https://www.thetestkitchen.co.za",tags:["Tasting Menu","$$"]}
+                        {name:"La Colombe",address:"Silvermist Wine Estate",desc:"Modern South African tasting menu, mountain views",michelin:"World's 50 Best #55",website:"https://www.lacolombe.co.za",tags:["Tasting Menu","$$$"]},
+                        {name:"The Test Kitchen",address:"Woodstock",desc:"Innovative tasting menu by Luke Dale-Roberts",michelin:"World's 50 Best",website:"https://www.thetestkitchen.co.za",tags:["Tasting Menu","$$$"]},
+                        {name:"FYN",address:"Cape Town CBD",desc:"Japanese-African fusion, daily-changing taster menu",michelin:"World's 50 Best #82",website:"https://www.fynrestaurant.com",tags:["Kaiseki","Contemporary","$$$$"]},
+                        {name:"Wolfgat",address:"Paternoster, Western Cape",desc:"Coastal fine dining, celebrated best in South Africa",michelin:"World Restaurant Awards",website:"https://www.wolfgat.co.za",tags:["Fine Dining","Seafood","West Coast"]},
+                        {name:"Salon by Luke Dale-Roberts",address:"Cape Town",desc:"Nine-course tasting menu celebrating global cuisines",michelin:"Acclaimed Chef",website:"https://www.saloncapetown.com",tags:["Tasting Menu","Contemporary","$$$$"]},
+                        {name:"Amura",address:"Cape Town",desc:"Spanish fine dining by Michelin-starred Angel Leon",michelin:"Michelin-Starred Chef",website:"https://www.amurarestaurants.com",tags:["Spanish","Fine Dining","Mediterranean"]}
                     ],
                     "Best Massage & Spa": [
                         {name:"Twelve Apostles Spa",address:"Victoria Rd, Camps Bay",desc:"Mountain & ocean views, rasul chamber, heated vitality pool",website:"https://www.12apostleshotel.com/spa",tags:["Ocean View","Luxury","Vitality Pool"]},
-                        {name:"One&Only Cape Town Spa",address:"V&A Waterfront",desc:"Island spa sanctuary on private dock, African-inspired rituals",website:"https://www.oneandonlyresorts.com/cape-town",tags:["Island","Waterfront","Premium"]}
+                        {name:"One&Only Cape Town Spa",address:"V&A Waterfront",desc:"Island spa sanctuary on private dock, African-inspired rituals",website:"https://www.oneandonlyresorts.com/cape-town",tags:["Island","Waterfront","Premium"]},
+                        {name:"The Grotto Spa",address:"15 Orange Street, Gardens",desc:"Luxury wellness with sauna, ice pools, steam rooms",website:"https://www.thegrottospa.co.za",tags:["Hydrotherapy","Luxury","City"]},
+                        {name:"Librisa Spa at Mount Nelson",address:"76 Orange Street, Gardens",desc:"Award-winning spa in 5-star Belmond hotel",website:"https://www.belmond.com/hotels/africa/south-africa/cape-town/belmond-mount-nelson-hotel",tags:["Belmond","5-Star","Premium"]},
+                        {name:"Mai Thai Wellness Spa",address:"7 Breda Street, Gardens",desc:"Thai massage and facials in Victorian villa setting",website:"https://www.maithaiwellness.com",tags:["Thai Massage","Facials","Charming"]},
+                        {name:"Heavenly Spa by Westin",address:"19th Floor Westin Hotel",desc:"City-view sauna, pool and hydrotherapy facilities",website:"https://www.marriott.com/en-us/hotels/cptwi-the-westin-cape-town",tags:["City Views","Hydrotherapy","Pool"]}
                     ]
                 }
             };

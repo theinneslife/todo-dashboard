@@ -6235,8 +6235,8 @@ this.updateDashboardStats();
         if (window.location.hash.startsWith('#share=')) {
             window.app.loadSharedTrip();
         }
-        // Load shared-trip read-only view if URL has #trip= hash
-        if (window.location.hash.startsWith('#trip=')) {
+        // Load shared-trip read-only view if URL has #trip= or #z= (compressed) hash
+        if (window.location.hash.startsWith('#trip=') || window.location.hash.startsWith('#z=')) {
             window.app.loadSharedTripFromHash();
         }
 

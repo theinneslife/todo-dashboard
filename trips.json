@@ -146,20 +146,67 @@
       },
       "dates": {
         "start": "2026-04-17",
-        "end": "2026-04-20"
+        "end": "2026-04-24"
       },
       "status": "upcoming",
       "type": "personal",
       "bookings": [
         {
-          "id": "b_3_1",
+          "id": "b_3_f1",
           "type": "flight",
-          "title": "Delta Air Lines",
+          "title": "Delta Air Lines DL1315/DL1945",
+          "details": {
+            "bRoute": "IAH > ATL > SJD",
+            "bDepDate": "Apr 17, 2026 7:00 AM",
+            "bArrDate": "Apr 17, 2026 1:04 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HHY9O6",
+            "bSeats": "01D / 03B",
+            "bNotes": "DL1315 IAH-ATL 7:00AM-10:04AM, DL1945 ATL-SJD 11:36AM-1:04PM"
+          }
+        },
+        {
+          "id": "b_3_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL1876",
           "details": {
             "bRoute": "SJD > LAX",
-            "bDepDate": "Apr 24, 2026",
+            "bDepDate": "Apr 24, 2026 2:00 PM",
             "bArrDate": "Apr 24, 2026 4:43 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HH9APE",
+            "bSeats": "04A",
             "bNotes": "Los Cabos to Los Angeles"
+          }
+        },
+        {
+          "id": "b_3_acc1",
+          "type": "accommodation",
+          "title": "Condominium in Cabo San Lucas",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Cabo San Lucas, Baja California Sur 23453, Mexico",
+            "bConfirmation": "HMYAWZ52EQ",
+            "bCheckin": "Apr 17, 2026 4:00 PM",
+            "bCheckout": "Apr 21, 2026 11:00 AM",
+            "bNights": "4",
+            "bHost": "Laura & Nick @ The Cabo Way",
+            "bListingUrl": "https://www.airbnb.com/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMYAWZ52EQ"
+          }
+        },
+        {
+          "id": "b_3_acc2",
+          "type": "accommodation",
+          "title": "House in Cabo Bello",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Paseo de los Cabos Lote H117, Cabo Bello, Baja California Sur 23455, Mexico",
+            "bConfirmation": "HMQTY8Y2FR",
+            "bCheckin": "Apr 20, 2026 3:00 PM",
+            "bCheckout": "Apr 24, 2026 11:00 AM",
+            "bNights": "4",
+            "bHost": "Agueda",
+            "bListingUrl": "https://www.airbnb.com/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMQTY8Y2FR"
           }
         }
       ],
@@ -221,18 +268,31 @@
       "type": "personal",
       "bookings": [
         {
-          "id": "b_4_1",
+          "id": "b_4_f1",
           "type": "flight",
-          "title": "Lufthansa LH457",
+          "title": "Delta Air Lines DL1876",
           "details": {
-            "bRoute": "LAX > FRA > JNB",
-            "bDepDate": "Apr 30, 2026 3:05 PM",
-            "bArrDate": "May 2, 2026 8:35 AM",
-            "bClass": "First Flex",
-            "bConfirmation": "76XWTD",
-            "bCost": "$22,397.80 USD",
-            "bNotes": "11h 05m layover in Frankfurt",
-            "bPassengers": "Christopher Innes, Brooke Scimemi"
+            "bRoute": "SJD > LAX",
+            "bDepDate": "Apr 24, 2026 2:00 PM",
+            "bArrDate": "Apr 24, 2026 4:43 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HH9APE",
+            "bSeats": "04A",
+            "bNotes": "Arriving from Los Cabos"
+          }
+        },
+        {
+          "id": "b_4_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL968/DL5535",
+          "details": {
+            "bRoute": "LGA > ATL > LFT",
+            "bDepDate": "May 1, 2026 5:00 PM",
+            "bArrDate": "May 1, 2026 10:12 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "GT6REO",
+            "bSeats": "03B / 02A",
+            "bNotes": "DL968 LGA-ATL 5:00PM-7:36PM, DL5535 ATL-LFT 9:20PM-10:12PM (Endeavor Air)"
           }
         }
       ],
@@ -474,7 +534,8 @@
             "bConfirmation": "GHBJWI",
             "bCost": "EUR 4,315.62",
             "bNotes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
-            "bPassengers": "Brooke Scimemi"
+            "bPassengers": "Brooke Scimemi",
+            "bSeats": "03F / 07G"
           }
         },
         {
@@ -531,12 +592,26 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-06-01",
+        "start": "2026-05-30",
         "end": "2026-06-12"
       },
       "status": "upcoming",
       "type": "personal",
       "bookings": [
+        {
+          "id": "b_9_f1",
+          "type": "flight",
+          "title": "Delta Air Lines DL615",
+          "details": {
+            "bRoute": "LAX > CUN",
+            "bDepDate": "May 30, 2026 10:18 AM",
+            "bArrDate": "May 30, 2026 4:55 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "GGY5ZF",
+            "bSeats": "04A",
+            "bNotes": "Los Angeles to Cancun"
+          }
+        },
         {
           "id": "b_9_acc",
           "type": "accommodation",
@@ -708,7 +783,7 @@
       },
       "dates": {
         "start": "2026-07-11",
-        "end": "2026-07-30"
+        "end": "2026-07-27"
       },
       "status": "upcoming",
       "type": "personal",
@@ -724,14 +799,17 @@
           }
         },
         {
-          "id": "b_12_acc",
-          "type": "accommodation",
-          "title": "donQuijote Spanish School",
+          "id": "b_12_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL110/DL996",
           "details": {
-            "bProvider": "donQuijote",
-            "bAddress": "Calle Hipolito Yrigoyen 571, piso 4, Buenos Aires, CP 1086",
-            "bPhone": "(+5411) 4345 5954",
-            "bNotes": "Intensive Spanish 20. Arrive 09:00 first day."
+            "bRoute": "EZE > ATL > LAX",
+            "bDepDate": "Jul 26, 2026 8:10 PM",
+            "bArrDate": "Jul 27, 2026 8:33 AM",
+            "bClass": "Delta One / Delta First",
+            "bConfirmation": "HLWTES",
+            "bSeats": "02G / 02A",
+            "bNotes": "DL110 EZE-ATL 8:10PM-5:25AM+1 (Delta One), DL996 ATL-LAX 7:00AM-8:33AM"
           }
         }
       ],
@@ -779,18 +857,17 @@
       "type": "personal",
       "bookings": [
         {
-          "id": "b_13_1",
+          "id": "b_13_f1",
           "type": "flight",
-          "title": "Delta DL1978/DL825",
+          "title": "Delta Air Lines DL1978/DL825",
           "details": {
             "bRoute": "SAL > ATL > LAS",
             "bDepDate": "Aug 9, 2026 1:48 PM",
             "bArrDate": "Aug 9, 2026 10:08 PM",
             "bClass": "Delta First Classic",
             "bConfirmation": "HL94IF",
-            "bCost": "$2,596.09 USD",
-            "bNotes": "DL1978 SAL 1:48PM-ATL 7:30PM, DL825 ATL 8:55PM-LAS 10:08PM",
-            "bPassengers": "Brooke Scimemi"
+            "bSeats": "03A / 02A",
+            "bNotes": "DL1978 SAL-ATL 1:48PM-7:30PM, DL825 ATL-LAS 8:55PM-10:08PM"
           }
         },
         {
@@ -860,7 +937,7 @@
           "email": ""
         }
       ],
-      "notes": "",
+      "notes": " Arriving via DL825 from ATL at 10:08 PM (from El Salvador)",
       "flights": [],
       "accommodation": null,
       "budget": 0,

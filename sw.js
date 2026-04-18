@@ -1,4 +1,4 @@
-const CACHE_NAME = 'travelflo-v1';
+const CACHE_NAME = 'travelflo-v3';
 const ASSETS_TO_CACHE = [
   './',
   './travelflo.html',

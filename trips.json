@@ -361,20 +361,17 @@
       "flights": [
         {
           "airline": "Flightnetwork",
-          "route": "JNB > MQP",
-          "departure": "May 2, 2026 11:05 AM",
-          "arrival": "May 2, 2026 12:00 PM",
-          "confirmation": "1124-346-110",
-          "class": "",
-          "cost": "$652.29 USD",
-          "notes": "",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": null,
       "budget": 652.29,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 3,
       "legs": []
     },

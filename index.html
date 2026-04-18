@@ -80,8 +80,9 @@
         }
         html[data-theme="dark"] .header-icon-cluster { background: rgba(255,255,255,0.06); }
         .header-icon-cluster > button {
-            width: 34px;
-            height: 34px;
+            /* 44px minimum touch target (P3 fix) */
+            width: 44px;
+            height: 44px;
             padding: 0;
             border-radius: 999px;
             background: transparent;
@@ -641,8 +642,9 @@
         }
 
         .task-action-btn {
-            width: 20px;
-            height: 20px;
+            /* 44px minimum touch target (P3 fix) — icon stays visually small via inline size */
+            width: 44px;
+            height: 44px;
             padding: 0;
             border-radius: 4px;
             background-color: transparent;
@@ -722,6 +724,12 @@
             font-size: 18px;
             font-weight: 700;
             color: #1d1d1f;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 8px;
         }
 
         .modal-close {
@@ -1265,8 +1273,8 @@
             .logo { font-size: 18px; }
             .version-badge { display: none; }
             .header-right { width: 100%; }
-            .header-right .button-group { flex: 1; flex-wrap: wrap; overflow: hidden; }
-            .header-right .button-group button { flex: 1; font-size: 11px; padding: 5px 8px; }
+            .header-right .button-group { flex: 0 0 auto; flex-wrap: nowrap; overflow: visible; align-items: center; }
+            .header-right .button-group button { font-size: 11px; padding: 5px 8px; }
             .token-status { display: none; }
             .task-card { padding: 10px; }
             .task-description { display: none; }
@@ -1682,8 +1690,12 @@
             flex-wrap: wrap;
         }
         .activity-filter-btn {
+            /* 44px minimum touch target (P3 fix) */
             font-size: 11px;
             padding: 4px 10px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
             border-radius: 12px;
             border: 1px solid #e5e5e7;
             background: white;
@@ -2243,15 +2255,17 @@
             height: 40px;
             border-radius: 12px;
             border: none;
-            background: #f5f5f7;
-            color: #1d1d1f;
+            background: rgba(255,255,255,0.1);
+            color: #f5f5f7;
             cursor: pointer;
             transition: all 0.2s ease;
             position: relative;
-            z-index: 1001;
+            z-index: 10;
         }
-        .hamburger-menu-btn:hover { background: #e5e5e7; }
+        .hamburger-menu-btn:hover { background: rgba(255,255,255,0.18); }
         .hamburger-menu-btn.active { background: #007aff; color: #fff; }
+        html:not([data-theme="dark"]) .hamburger-menu-btn { background: #f5f5f7; color: #1d1d1f; }
+        html:not([data-theme="dark"]) .hamburger-menu-btn:hover { background: #e5e5e7; }
 
         .hamburger-dropdown {
             display: none;
@@ -2263,7 +2277,7 @@
             border-radius: 14px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
             min-width: 200px;
-            z-index: 1000;
+            z-index: 1100;
             padding: 6px;
             animation: hamburgerSlideDown 0.2s ease;
         }
@@ -2496,10 +2510,12 @@
 
         /* Touch target fixes (P2) */
         @media (max-width: 768px) {
-          .view-tab { min-height: 44px !important; min-width: 44px !important; padding: 12px 16px !important; display: inline-flex; align-items: center; justify-content: center; }
+          .view-toggle-btn { min-height: 44px !important; padding: 10px 14px !important; display: inline-flex; align-items: center; justify-content: center; }
           .mobile-column-nav .nav-arrow { width: 44px !important; height: 44px !important; min-width: 44px !important; min-height: 44px !important; }
           .mobile-tabs button, .mobile-tabs .mobile-tab, .mobile-tab { min-height: 44px !important; min-width: 44px !important; padding: 12px 14px !important; display: inline-flex; align-items: center; justify-content: center; }
           .hamburger-menu-btn { width: 44px !important; height: 44px !important; min-width: 44px !important; min-height: 44px !important; }
+          .quick-filter-btn { min-height: 44px !important; padding: 10px 14px !important; }
+          .header-icon-cluster > button { width: 44px !important; height: 44px !important; flex-shrink: 0 !important; }
         }
 
 
@@ -2532,7 +2548,7 @@
 .calendar-nav h2 { font-size: 20px; font-weight: 600; color: #1d1d1f; }
 .calendar-nav button { background: #f5f5f7; border: 1px solid #e5e5e7; border-radius: 8px; padding: 6px 14px; cursor: pointer; font-size: 13px; font-weight: 500; }
 .calendar-nav button:hover { background: #e5e5e7; }
-.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #e5e5e7; border-radius: 12px; overflow: hidden; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: #e5e5e7; border-radius: 12px; overflow: hidden; }
 .calendar-day-header { background: #f5f5f7; padding: 8px; text-align: center; font-size: 12px; font-weight: 600; color: #6e6e73; text-transform: uppercase; }
 .calendar-day { background: #fff; min-height: 90px; padding: 6px; position: relative; cursor: pointer; transition: background 0.15s; }
 .calendar-day:hover { background: #f9f9fb; }
@@ -2699,6 +2715,16 @@ html[data-theme="dark"] .timeline-strip { background: var(--dm-surface); border-
 html[data-theme="dark"] .mobile-tab { background: rgba(255,255,255,0.06); color: var(--dm-text); }
 html[data-theme="dark"] .mobile-tab.active { background: #007aff; color: #fff; }
 html[data-theme="dark"] .view-toggle-btn { color: var(--dm-text); }
+html[data-theme="dark"] .calendar-nav h2 { color: var(--dm-text); }
+html[data-theme="dark"] .calendar-nav button { background: rgba(255,255,255,0.08); border-color: var(--dm-border); color: var(--dm-text); }
+html[data-theme="dark"] .calendar-nav button:hover { background: rgba(255,255,255,0.14); }
+html[data-theme="dark"] .calendar-day-header { background: rgba(255,255,255,0.04); color: #8e8e93; }
+html[data-theme="dark"] .calendar-day { background: var(--dm-card); color: var(--dm-text); }
+html[data-theme="dark"] .calendar-day:hover { background: rgba(255,255,255,0.06); }
+html[data-theme="dark"] .calendar-day.other-month { background: rgba(255,255,255,0.02); }
+html[data-theme="dark"] .calendar-day.today { background: rgba(0,122,255,0.12); }
+html[data-theme="dark"] .cal-date { color: var(--dm-text); }
+html[data-theme="dark"] .calendar-grid { background: var(--dm-border); }
 html[data-theme="dark"] .view-toggle-btn.active { background: #007aff; color: #fff; }
 html[data-theme="dark"] .token-status { color: var(--dm-muted); }
 html[data-theme="dark"] .secondary { background: rgba(255,255,255,0.06); color: var(--dm-text); border-color: var(--dm-border); }
@@ -2724,7 +2750,8 @@ html[data-theme="dark"] .column.drag-over .task-list { background: rgba(0,122,25
 /* ===== QUICK FILTERS ===== */
 .quick-filters { display: flex; gap: 6px; padding: 8px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .quick-filters::-webkit-scrollbar { display: none; }
-.quick-filter-btn { white-space: nowrap; padding: 5px 14px; border-radius: 99px; border: 1px solid #e5e5ea; background: #fff; color: #1a1a2e; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+/* 44px minimum touch target (P3 fix) — min-height expands tap area without widening pill visually */
+.quick-filter-btn { white-space: nowrap; padding: 5px 14px; min-height: 44px; display: inline-flex; align-items: center; border-radius: 99px; border: 1px solid #e5e5ea; background: #fff; color: #1a1a2e; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
 .quick-filter-btn:hover { background: #f5f5f7; }
 .quick-filter-btn.active { background: #007aff; color: #fff; border-color: #007aff; }
 html[data-theme="dark"] .quick-filter-btn { background: rgba(255,255,255,0.06); color: #E0E0E0; border-color: #2A2A4A; }
@@ -2782,7 +2809,7 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
 html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
 
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" onerror="var s=document.createElement('script');s.src='https://unpkg.com/lucide@latest/dist/umd/lucide.min.js';document.head.appendChild(s);"></script>
+    <script src="https://unpkg.com/lucide@0.263.1"></script>
 </head>
 <body>
 <script>
@@ -5809,12 +5836,21 @@ document.addEventListener('keydown', (e) => {
       // Toggle controls visibility for non-board views
         var controls = document.querySelector('.controls');
         var containerEl = document.querySelector('.container');
+        var mobileColNavEl = document.querySelector('.mobile-column-nav');
+        var priorityStripEl = document.getElementById('priorityStrip');
+        var quickFiltersEl = document.getElementById('quickFilters');
         if (view === 'board') {
             if (containerEl) containerEl.style.height = '100vh';
             if (controls) controls.style.display = '';
+            if (mobileColNavEl) mobileColNavEl.style.display = '';
+            if (priorityStripEl) priorityStripEl.style.display = '';
+            if (quickFiltersEl) quickFiltersEl.style.display = '';
         } else {
             if (containerEl) containerEl.style.height = 'auto';
             if (controls) controls.style.display = 'none';
+            if (mobileColNavEl) mobileColNavEl.style.display = 'none';
+            if (priorityStripEl) priorityStripEl.style.display = 'none';
+            if (quickFiltersEl) quickFiltersEl.style.display = 'none';
         }
         window.scrollTo(0, 0);
     }

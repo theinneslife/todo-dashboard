@@ -44,6 +44,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            height: 100dvh;
             background-color: var(--bg-primary);
         }
 
@@ -1460,12 +1461,12 @@
 
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
 
             .logo svg {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
             }
 
             .version-badge {
@@ -2128,25 +2129,6 @@
         <div class="trips-timeline-scroll" id="upcomingTripsTimeline"></div>
     </div>
     
-    <!-- Current Trip Hero Card -->
-    <div class="dashboard-section" id="currentTripHeroSection" style="display:none;">
-        <div class="dashboard-section-title"><i data-lucide="map-pin" style="width:18px;height:18px;stroke:var(--accent-green);vertical-align:-3px;"></i> Currently Traveling</div>
-        <div id="currentTripHero"></div>
-    </div>
-
-    <!-- Next Flight Countdown + Status -->
-    <div class="dashboard-section" id="nextFlightSection" style="display:none;">
-        <div class="dashboard-section-title"><i data-lucide="plane" style="width:18px;height:18px;stroke:var(--accent-blue);vertical-align:-3px;"></i> Next Flight</div>
-        <div class="next-flight-container" id="nextFlightContainer"></div>
-    </div>
-    
-    
-<!-- Upcoming Trips Timeline -->
-    <div class="dashboard-section" id="upcomingTripsSection" style="display:none;">
-        <div class="dashboard-section-title"><i data-lucide="calendar-range" style="width:18px;height:18px;stroke:var(--accent-purple);vertical-align:-3px;"></i> Upcoming Trips</div>
-        <div class="trips-timeline-scroll" id="upcomingTripsTimeline"></div>
-    </div>
-    
     <!-- Quick Stats Bar -->
     <div class="dashboard-section">
         <div class="quick-stats" id="quickStats">
@@ -2605,13 +2587,16 @@
                     }
                     return jt;
                 });
-                // Preserve user-created trips not in trips.json
+                // Preserve ONLY user-created trips (IDs starting with timestamp, not from trips.json)
+                // Trips deleted from trips.json should NOT be re-added from stale localStorage
                 const existingLocal = localStorage.getItem('travelFloTrips');
+                const jsonTripIds = new Set(jsonTrips.map(jt => jt.id));
                 if (existingLocal) {
                     try {
                         const localTrips = JSON.parse(existingLocal);
                         localTrips.forEach(lt => {
-                            if (lt.id && !this.trips.find(t => t.id === lt.id)) {
+                            // Only re-add if: has ID, not already in merged trips, AND was user-created (not from trips.json)
+                            if (lt.id && !this.trips.find(t => t.id === lt.id) && !jsonTripIds.has(lt.id) && lt._userCreated) {
                                 this.trips.push(lt);
                             }
                         });
@@ -5218,12 +5203,42 @@ this.updateDashboardStats();
         // ===== FEATURE 4: COUNTDOWN TIMERS =====
         TravelFloApp.prototype.renderCountdownBanners = function() {
             const today = new Date(); today.setHours(0,0,0,0);
+            const now = new Date();
+            // Check if currently on a trip
+            const currentTrip = this.trips.find(function(t) {
+                var s = new Date(t.startDate + 'T00:00:00');
+                var e = new Date(t.endDate + 'T23:59:59');
+                return s <= now && now <= e;
+            });
             const upcoming = this.trips
                 .filter(function(t) { var s = new Date(t.startDate + 'T00:00:00'); return s > today; })
                 .sort(function(a,b) { return new Date(a.startDate) - new Date(b.startDate); });
 
             let html = '';
-            if (upcoming.length > 0) {
+            if (currentTrip) {
+                // Show "Currently in" banner instead of countdown
+                const dest = currentTrip.title || currentTrip.destination;
+                const s = new Date(currentTrip.startDate + 'T00:00:00');
+                const e = new Date(currentTrip.endDate + 'T00:00:00');
+                const dayNum = Math.floor((now - s) / 864e5) + 1;
+                const totalDays = Math.round((e - s) / 864e5) + 1;
+                html += '<div class="countdown-banner" style="background:linear-gradient(135deg,#10b981,#059669)">';
+                html += '<div class="countdown-label">Currently Traveling</div>';
+                html += '<div class="countdown-value">Day ' + dayNum + ' of ' + totalDays + '</div>';
+                html += '<div class="countdown-sub">in ' + dest + '</div>';
+                html += '</div>';
+                // Also show next trip after current
+                if (upcoming.length > 0) {
+                    const next = upcoming[0];
+                    const days = Math.ceil((new Date(next.startDate + 'T00:00:00') - today) / (1000*60*60*24));
+                    const nextDest = next.title || next.destination;
+                    html += '<div class="countdown-row"><div class="countdown-mini">';
+                    html += '<div class="countdown-mini-label">Next Trip</div>';
+                    html += '<div class="countdown-mini-value">' + days + ' day' + (days !== 1 ? 's' : '') + '</div>';
+                    html += '<div class="countdown-mini-dest">' + nextDest + '</div>';
+                    html += '</div></div>';
+                }
+            } else if (upcoming.length > 0) {
                 const next = upcoming[0];
                 const days = Math.ceil((new Date(next.startDate + 'T00:00:00') - today) / (1000*60*60*24));
                 const dest = next.title || next.destination;

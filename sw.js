@@ -1,98 +1,87 @@
-const CACHE_NAME = 'travelflo-v3';
-const ASSETS_TO_CACHE = [
+// ===== TravelFlo Service Worker =====
+// CACHE_VERSION: bump this string any time you deploy a new build.
+// Changing it (even by one character) triggers the browser to install
+// the new SW and delete the old cache, so mobile devices stop serving
+// stale HTML/JS/CSS from the previous version.
+const CACHE_VERSION = 'travelflow-v3';
+
+const PRECACHE_URLS = [
   './',
+  './travelflow.html',
   './travelflo.html',
-  './manifest.json',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
+  './index.html',
 ];
 
-// Install - cache core assets
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      console.log('[SW] Caching core assets');
-      return cache.addAll(ASSETS_TO_CACHE);
-    }).then(function() {
-      return self.skipWaiting();
-    })
-  );
-});
+// ── Install: cache core files ──────────────────────────────────────────────
+self.addEventListener('install', event => {
+  // Skip waiting so the new SW activates immediately (no tab-close needed)
+  self.skipWaiting();
 
-// Activate - clean old caches
-self.addEventListener('activate', function(event) {
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function(name) {
-          return name !== CACHE_NAME;
-        }).map(function(name) {
-          console.log('[SW] Removing old cache:', name);
-          return caches.delete(name);
-        })
+    caches.open(CACHE_VERSION).then(cache => {
+      // Use individual adds so a single 404 doesn't break the whole install
+      return Promise.allSettled(
+        PRECACHE_URLS.map(url => cache.add(url).catch(() => {}))
       );
-    }).then(function() {
-      return self.clients.claim();
     })
   );
 });
 
-// Fetch - network first, fallback to cache
-self.addEventListener('fetch', function(event) {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') return;
+// ── Activate: delete caches from any previous version ─────────────────────
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(key => key !== CACHE_VERSION)
+          .map(key => caches.delete(key))
+      )
+    ).then(() => self.clients.claim()) // take control of open pages immediately
+  );
+});
 
-  // Skip API calls (weather, currency)
-  var url = new URL(event.request.url);
-  if (url.hostname === 'api.open-meteo.com' || 
-      url.hostname === 'api.exchangerate-api.com' ||
-      url.hostname === 'open.er-api.com') {
-    // For API calls: network only with timeout, cache response
+// ── Fetch: network-first for HTML, cache-first for everything else ─────────
+// Network-first for HTML means changes to travelflow.html show up on next
+// reload even without a SW version bump. Other assets (fonts, etc.) are
+// cache-first for speed.
+self.addEventListener('fetch', event => {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Only handle same-origin requests; let GitHub API calls through
+  if (url.origin !== self.location.origin) return;
+
+  const isHTML = request.destination === 'document' ||
+                 url.pathname.endsWith('.html') ||
+                 url.pathname === '/';
+
+  if (isHTML) {
+    // Network-first: always try to get fresh HTML, fall back to cache
     event.respondWith(
-      fetch(event.request, { signal: AbortSignal.timeout(5000) })
-        .then(function(response) {
-          var clone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) {
-            cache.put(event.request, clone);
-          });
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            // Update the cached copy while we're here
+            const clone = response.clone();
+            caches.open(CACHE_VERSION).then(c => c.put(request, clone));
+          }
           return response;
         })
-        .catch(function() {
-          return caches.match(event.request);
-        })
+        .catch(() => caches.match(request))
     );
-    return;
-  }
-
-  // For app assets: network first, cache fallback
-  event.respondWith(
-    fetch(event.request)
-      .then(function(response) {
-        // Cache successful responses
-        if (response.status === 200) {
-          var clone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) {
-            cache.put(event.request, clone);
-          });
-        }
-        return response;
-      })
-      .catch(function() {
-        return caches.match(event.request).then(function(cached) {
-          if (cached) return cached;
-          // Return offline page for navigation requests
-          if (event.request.mode === 'navigate') {
-            return caches.match('./travelflo.html');
+  } else {
+    // Cache-first for non-HTML assets
+    event.respondWith(
+      caches.match(request).then(cached => {
+        if (cached) return cached;
+        return fetch(request).then(response => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_VERSION).then(c => c.put(request, clone));
           }
-          return new Response('Offline', { status: 503, statusText: 'Offline' });
+          return response;
         });
       })
-  );
-});
-
-// Listen for messages from the app
-self.addEventListener('message', function(event) {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+    );
   }
 });

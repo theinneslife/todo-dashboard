@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
 <script>
-(function(){var t=localStorage.getItem('taskflo_theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();
+(function(){
+  var stored = localStorage.getItem('taskflo_theme');
+  // Explicit user preference always wins
+  if (stored === 'dark' || stored === 'light') {
+    document.documentElement.setAttribute('data-theme', stored);
+  } else {
+    // No stored preference — respect OS/browser dark mode setting.
+    // This is the fix for mobile: if the phone is in dark mode and the user
+    // has never toggled the app's theme, we now honour that preference.
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+})();
 </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%2334c759' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2224,6 +2236,17 @@
 .sheet-body .label-filters{flex-wrap:wrap;gap:8px}
 .reset-filters-btn{width:100%;padding:12px;border-radius:10px;border:none;background:#f0f0f2;color:#007aff;font-size:15px;font-weight:600;cursor:pointer}
 
+/* Mobile filter sheet — dark mode overrides */
+html[data-theme="dark"] .mobile-filter-sheet { background: var(--dm-card); }
+html[data-theme="dark"] .sheet-handle { background: rgba(255,255,255,0.18); }
+html[data-theme="dark"] .sheet-header { border-bottom-color: var(--dm-border); color: var(--dm-text); }
+html[data-theme="dark"] .sheet-header h3 { color: var(--dm-text); }
+html[data-theme="dark"] .sheet-close { background: rgba(255,255,255,0.1); color: var(--dm-muted); }
+html[data-theme="dark"] .sheet-close:hover { background: rgba(255,255,255,0.16); }
+html[data-theme="dark"] .sheet-body .filter-group label { color: var(--dm-muted); }
+html[data-theme="dark"] .sheet-body select { background: var(--dm-input-bg); border-color: var(--dm-border); color: var(--dm-text); }
+html[data-theme="dark"] .reset-filters-btn { background: rgba(255,255,255,0.08); color: #5eb0ff; }
+
 
         .move-to-wrapper { position: relative; display: inline-block; }
         .move-to-btn { background: none; border: 1px solid #e5e5e7; border-radius: 6px; padding: 2px 6px; font-size: 11px; cursor: pointer; color: #6e6e73; transition: all 0.2s; }
@@ -2712,8 +2735,29 @@ html[data-theme="dark"] .rules-modal { background: var(--dm-card); color: var(--
 html[data-theme="dark"] .stats-modal { background: var(--dm-card); color: var(--dm-text); }
 html[data-theme="dark"] .priority-strip-wrapper { background: var(--dm-surface); border-color: var(--dm-border); }
 html[data-theme="dark"] .timeline-strip { background: var(--dm-surface); border-color: var(--dm-border); }
-html[data-theme="dark"] .mobile-tab { background: rgba(255,255,255,0.06); color: var(--dm-text); }
-html[data-theme="dark"] .mobile-tab.active { background: #007aff; color: #fff; }
+
+/* P2 Fix: Timeline / Gantt view — all content area was hardcoded white/light */
+html[data-theme="dark"] .timeline-view { background: var(--dm-bg); }
+html[data-theme="dark"] .timeline-header h2 { color: var(--dm-text); }
+html[data-theme="dark"] .gantt-container { background: var(--dm-card); border-color: var(--dm-border); }
+html[data-theme="dark"] .gantt-header { background: var(--dm-surface); border-bottom-color: var(--dm-border); }
+html[data-theme="dark"] .gantt-label-col { color: var(--dm-muted); border-right-color: var(--dm-border); }
+html[data-theme="dark"] .gantt-week-col { color: var(--dm-muted); border-right-color: rgba(255,255,255,0.05); }
+html[data-theme="dark"] .gantt-row { border-bottom-color: rgba(255,255,255,0.05); }
+html[data-theme="dark"] .gantt-row:hover { background: rgba(255,255,255,0.04); }
+html[data-theme="dark"] .gantt-row-label { color: var(--dm-text); border-right-color: var(--dm-border); }
+html[data-theme="dark"] .gantt-row-track { background: var(--dm-card); }
+html[data-theme="dark"] .gantt-cell { border-right-color: rgba(255,255,255,0.04); }
+html[data-theme="dark"] .gantt-lane-header { background: var(--dm-surface); border-bottom-color: var(--dm-border); color: var(--dm-muted); }
+html[data-theme="dark"] .gantt-today-line { background: #ff453a; }
+html[data-theme="dark"] .mobile-column-nav { background: var(--dm-surface); }
+html[data-theme="dark"] .mobile-column-nav .nav-arrow { background: var(--dm-card); color: #007aff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+html[data-theme="dark"] .mobile-column-nav .nav-arrow:active { background: #1a1a3a; }
+html[data-theme="dark"] .mobile-tabs { background: rgba(255,255,255,0.06); }
+html[data-theme="dark"] .mobile-tab { background: transparent; color: var(--dm-muted); }
+html[data-theme="dark"] .mobile-tab.active { background: var(--dm-card); color: #007aff; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+html[data-theme="dark"] .mobile-tab .tab-count { background-color: rgba(255,255,255,0.08); color: var(--dm-muted); }
+html[data-theme="dark"] .mobile-tab.active .tab-count { background-color: rgba(0,122,255,0.18); color: #007aff; }
 html[data-theme="dark"] .view-toggle-btn { color: var(--dm-text); }
 html[data-theme="dark"] .calendar-nav h2 { color: var(--dm-text); }
 html[data-theme="dark"] .calendar-nav button { background: rgba(255,255,255,0.08); border-color: var(--dm-border); color: var(--dm-text); }
@@ -6689,6 +6733,19 @@ function updateDarkModeIcon() {
 // Initialize dark mode icon on load
 document.addEventListener('DOMContentLoaded', function() {
     updateDarkModeIcon();
+
+    // When the user hasn't set an explicit preference, follow OS dark mode changes
+    // (e.g. auto-brightness on mobile switching at sunset). If they have a stored
+    // preference, we leave it alone — they made a deliberate choice.
+    if (window.matchMedia) {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener('change', function(e) {
+            if (!localStorage.getItem('taskflo_theme')) {
+                document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                updateDarkModeIcon();
+            }
+        });
+    }
 });
 
 // ===== FEATURE 4: QUICK FILTERS =====

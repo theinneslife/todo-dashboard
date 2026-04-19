@@ -1406,6 +1406,13 @@
                 state = { trips: [], templates: [], settings: { defaultTimezone: 'America/Los_Angeles' } };
                 return;
             }
+            // Explicitly throw on any other non-OK response (401, 403, 500, etc.) so
+            // we always land in the catch block and load from localStorage instead of
+            // trying to decode a GitHub error body as trip content.
+            if (!resp.ok) {
+                const errBody = await resp.json().catch(() => ({}));
+                throw new Error(`GitHub API error ${resp.status}: ${errBody.message || resp.statusText}`);
+            }
             const data = await resp.json();
             window.__tripsSha = data.sha;
             const decoded = decodeBase64UTF8(data.content);
@@ -1415,31 +1422,48 @@
             if (!state.settings) state.settings = { defaultTimezone: 'America/Los_Angeles' };
             // Cache to localStorage with a timestamp so we can warn when serving
             // stale data after a network failure (common on mobile).
+            // NOTE: sw.js only manages the HTTP Cache API (network response caches for
+            // HTML/assets). It cannot touch localStorage — so a SW version bump does NOT
+            // wipe this key. The trips here are safe across SW updates.
             try { localStorage.setItem('travelflow_cache', JSON.stringify({ data: state, savedAt: Date.now() })); } catch(e) {}
         } catch (err) {
             console.error('Failed to fetch trips:', err);
             // Fall back to localStorage cache; show how old it is so the user
             // knows they may be seeing stale trip details.
+            //
+            // BACKWARD-COMPAT: the cache was previously stored as a raw state object
+            // { trips, templates, settings }. It is now stored as a timestamped wrapper
+            // { data: state, savedAt: Date.now() }. Both formats are handled below so
+            // existing caches on devices that haven't done a successful online load yet
+            // are NOT wiped.
             try {
                 const cacheRaw = localStorage.getItem('travelflow_cache');
                 if (cacheRaw) {
                     const cacheEntry = JSON.parse(cacheRaw);
-                    // Support both new format { data, savedAt } and the old
-                    // format (raw state object) so existing caches keep working.
-                    if (cacheEntry && cacheEntry.data && cacheEntry.savedAt !== undefined) {
+                    if (cacheEntry && typeof cacheEntry === 'object' &&
+                        cacheEntry.data && typeof cacheEntry.data === 'object' &&
+                        cacheEntry.savedAt !== undefined) {
+                        // ── New format: { data: state, savedAt: timestamp } ──
                         state = cacheEntry.data;
                         const ageMs  = Date.now() - cacheEntry.savedAt;
                         const ageHrs = Math.floor(ageMs / (1000 * 60 * 60));
                         const ageMins = Math.floor((ageMs % (1000 * 60 * 60)) / (1000 * 60));
                         const ageLabel = ageHrs > 0 ? `${ageHrs}h ${ageMins}m` : `${ageMins}m`;
                         showToast(`Offline — showing cached data from ${ageLabel} ago`, ageHrs >= 6 ? 'error' : 'info');
-                    } else {
-                        state = cacheEntry; // legacy format — no timestamp
+                    } else if (cacheEntry && typeof cacheEntry === 'object') {
+                        // ── Legacy format: raw state object { trips, templates, settings } ──
+                        state = cacheEntry;
                         showToast('Loaded from cache (offline mode)', 'info');
+                    } else {
+                        throw new Error('Unrecognised cache format');
                     }
+                    // Normalise missing fields regardless of which format was loaded
+                    if (!state.trips) state.trips = [];
+                    if (!state.templates) state.templates = [];
+                    if (!state.settings) state.settings = { defaultTimezone: 'America/Los_Angeles' };
                     return;
                 }
-            } catch(e) {}
+            } catch(e) { console.warn('localStorage cache read failed:', e); }
             showToast('Failed to load trips: ' + err.message, 'error');
         }
     }

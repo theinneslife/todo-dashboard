@@ -1448,10 +1448,13 @@
 
             .bottom-nav {
                 padding: 0.375rem 0;
+                overflow-x: auto;
             }
 
             .nav-item {
                 padding: 0.5rem;
+                min-width: 56px;
+                flex-shrink: 0;
             }
 
             .nav-icon {
@@ -5865,6 +5868,16 @@ this.updateDashboardStats();
             container.style.webkitOverflowScrolling = 'touch';
             // Hide bottom nav / any other fixed chrome
             document.querySelectorAll('.bottom-nav, nav.bottom-nav, .nav-bar').forEach(function(el){ el.style.display = 'none'; });
+            // Restore bottom nav when navigating away from shared-trip view
+            (function() {
+                function restoreNav() {
+                    if (!location.hash.match(/^#trip=/)) {
+                        document.querySelectorAll('.bottom-nav, nav.bottom-nav, .nav-bar').forEach(function(el){ el.style.display = ''; });
+                        window.removeEventListener('hashchange', restoreNav);
+                    }
+                }
+                window.addEventListener('hashchange', restoreNav);
+            })();
             try { if (window.lucide) lucide.createIcons(); } catch(e) {}
             document.title = (data.name || 'Shared Trip') + ' \u2014 TravelFlo';
 

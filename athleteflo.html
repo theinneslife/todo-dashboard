@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AthleteFlo — Training Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    /* ============================================================
+       AthleteFlo — Design System
+       ============================================================ */
+    :root {
+      --bg:            #080c18;
+      --bg-secondary:  #10152a;
+      --bg-tertiary:   #1e2438;
+      --card:          #161d2e;
+      --card-hover:    #1c2540;
+      --border:        #252d42;
+      --border-accent: #354060;
+
+      --text-primary:   #e2e8f0;
+      --text-secondary: #b8c4d8;
+      --text-muted:     #6b7a99;
+
+      --purple: #a78bfa;
+      --blue:   #60a5fa;
+      --green:  #34d399;
+      --orange: #fb923c;
+      --red:    #f87171;
+      --pink:   #f472b6;
+      --yellow: #fbbf24;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+
+      --shadow: 0 4px 24px rgba(0,0,0,0.45);
+      --nav-h: 60px;
+      --bottom-nav-h: 64px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { height: 100%; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100%;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* ============================================================
+       Top Nav
+       ============================================================ */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      background: rgba(8, 12, 24, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .brand-name em {
+      font-style: normal;
+      color: var(--purple);
+    }
+
+    .brand-pill {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.28);
+      color: var(--purple);
+      margin-left: 0.25rem;
+    }
+
+    .nav-center-links {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-link:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .sync-status {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .sync-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: blink 2.2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       Bottom Nav (mobile)
+       ============================================================ */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: var(--bottom-nav-h);
+      background: rgba(16, 21, 42, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .bottom-nav-inner {
+      display: flex;
+      height: 100%;
+    }
+
+    .bottom-nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .bottom-nav-item svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bottom-nav-item.active { color: var(--purple); }
+    .bottom-nav-item:hover { color: var(--text-secondary); }
+
+    /* ============================================================
+       Main Layout
+       ============================================================ */
+    .main {
+      padding: 1.25rem;
+      padding-bottom: calc(var(--bottom-nav-h) + 1.25rem);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* 2-col on desktop */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* 3-col on desktop */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .mb { margin-bottom: 1rem; }
+    .mt { margin-top: 1rem; }
+
+    /* ============================================================
+       Cards
+       ============================================================ */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.125rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: var(--border-accent); }
+
+    .card-hd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.875rem;
+    }
+
+    .card-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      font-size: 0.62rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-purple { background: rgba(167,139,250,.14); color: var(--purple); border: 1px solid rgba(167,139,250,.25); }
+    .pill-blue   { background: rgba(96,165,250,.14);  color: var(--blue);   border: 1px solid rgba(96,165,250,.25);  }
+    .pill-green  { background: rgba(52,211,153,.14);  color: var(--green);  border: 1px solid rgba(52,211,153,.25);  }
+    .pill-orange { background: rgba(251,146,60,.14);  color: var(--orange); border: 1px solid rgba(251,146,60,.25);  }
+    .pill-red    { background: rgba(248,113,113,.14); color: var(--red);    border: 1px solid rgba(248,113,113,.25);  }
+
+    /* ============================================================
+       Race Banner
+       ============================================================ */
+    .race-banner {
+      background: linear-gradient(135deg, #0f1730 0%, #17123a 50%, #0d1a34 100%);
+      border-color: rgba(167,139,250,0.3);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .race-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .race-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(96,165,250,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .race-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .race-countdown-block {
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .race-days-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .race-days-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    .race-divider {
+      width: 1px;
+      background: var(--border-accent);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .race-info { flex: 1; }
+
+    .race-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .race-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .race-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .race-meta-item svg {
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      opacity: 0.7;
+    }
+
+    .phase-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(167,139,250,0.12);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-radius: var(--radius-md);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    .phase-chip .chip-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      box-shadow: 0 0 5px var(--purple);
+    }
+
+    /* ============================================================
+       Today / Tomorrow workouts
+       ============================================================ */
+    .workout-type-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .workout-type-icon svg {
+      width: 18px; height: 18px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .workout-main {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .workout-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .workout-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+    }
+
+    .workout-tag {
+      font-size: 0.66rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .workout-rest {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+      gap: 0.5rem;
+    }
+
+    .workout-rest-icon {
+      font-size: 2rem;
+      opacity: 0.6;
+    }
+
+    .workout-rest-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       Week at a Glance
+       ============================================================ */
+    .week-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+    }
+
+    .week-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .week-day-name {
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .week-day-cell {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      transition: border-color 0.2s;
+      padding: 0.25rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .week-day-cell.today {
+      border-color: var(--purple);
+      background: rgba(167,139,250,0.08);
+      color: var(--purple);
+    }
+
+    .week-day-cell.has-workout {
+      border-color: var(--border-accent);
+    }
+
+    .week-day-cell.rest {
+      opacity: 0.5;
+    }
+
+    .week-day-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .week-day-cell.today .week-day-num { color: var(--purple); }
+
+    .week-type-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       Recovery / Whoop Section
+       ============================================================ */
+    .recovery-ring-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .ring-wrap {
+      position: relative;
+      width: 80px; height: 80px;
+      flex-shrink: 0;
+    }
+
+    .ring-wrap svg { transform: rotate(-90deg); }
+
+    .ring-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring-pct {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .ring-lbl {
+      font-size: 0.52rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+    }
+
+    .ring-stats { flex: 1; }
+
+    .ring-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .ring-stat-name {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .ring-stat-val {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .recovery-metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .rec-metric {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.625rem;
+    }
+
+    .rec-metric-val {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .rec-metric-unit {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .rec-metric-lbl {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .mini-trend {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      height: 18px;
+      margin-top: 0.4rem;
+    }
+
+    .mini-bar {
+      flex: 1;
+      border-radius: 2px 2px 0 0;
+      min-height: 2px;
+    }
+
+    .hrv-sparkline-wrap {
+      height: 72px;
+      position: relative;
+    }
+
+    /* ============================================================
+       Fitness Curve
+       ============================================================ */
+    .fitness-chart-wrap {
+      height: 230px;
+      position: relative;
+    }
+
+    .chart-legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-name { font-weight: 600; }
+
+    /* ============================================================
+       Weekly Stats
+       ============================================================ */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .stat-tile {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.875rem;
+    }
+
+    .stat-tile-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-tile-unit {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 0.1rem;
+    }
+
+    .stat-tile-lbl {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .stat-tile-change {
+      font-size: 0.68rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .up { color: var(--green); }
+    .dn { color: var(--red); }
+
+    /* ============================================================
+       Weight Tracker
+       ============================================================ */
+    .weight-layout {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .weight-big {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .weight-unit {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .weight-meta { flex: 1; }
+
+    .weight-target-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .weight-progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .weight-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      transition: width 0.6s ease;
+    }
+
+    .weight-stats-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .weight-stat-item {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.625rem;
+    }
+
+    .weight-stat-val {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .weight-stat-lbl {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ============================================================
+       Coach Notes
+       ============================================================ */
+    .coach-note-body {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      border-left: 2px solid var(--purple);
+      padding-left: 0.875rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .coach-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .coach-avatar-sm {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .coach-name {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .coach-date {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ============================================================
+       Data Sources
+       ============================================================ */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.625rem;
+    }
+
+    .source-item {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+    }
+
+    .source-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .source-info { flex: 1; min-width: 0; }
+
+    .source-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .source-status {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .source-indicator {
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 1100px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .bottom-nav { display: flex; }
+      .nav-center-links { display: none; }
+      .sync-status span { display: none; }
+
+      .main {
+        padding: 1rem;
+        padding-bottom: calc(var(--bottom-nav-h) + 1rem + env(safe-area-inset-bottom));
+      }
+
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+
+      .race-days-number { font-size: 3rem; }
+      .race-title { font-size: 1.1rem; }
+
+      .recovery-metrics-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .weight-layout { gap: 0.875rem; }
+      .weight-big { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .race-layout { flex-direction: column; gap: 0.75rem; }
+      .race-divider { width: 100%; height: 1px; align-self: auto; }
+      .race-days-number { font-size: 3.5rem; }
+      .recovery-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .week-strip { gap: 0.3rem; }
+      .week-day-cell { border-radius: 8px; font-size: 0.55rem; }
+      .sources-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ TOP NAV ═══ -->
+<nav class="top-nav">
+  <a class="nav-brand" href="#">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <span class="brand-name">Athlete<em>Flo</em></span>
+    <span class="brand-pill">v1.0</span>
+  </a>
+
+  <div class="nav-center-links">
+    <a class="nav-link" href="index.html">TaskFlo</a>
+    <a class="nav-link" href="travelflo.html">TravelFlo</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="sync-status">
+      <div class="sync-dot"></div>
+      <span>Synced 6:14 AM</span>
+    </div>
+    <div class="avatar">CI</div>
+  </div>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+  <!-- ── Race Banner ── -->
+  <div class="card race-banner">
+    <div class="card-hd">
+      <span class="card-label">Next Race</span>
+      <span class="pill pill-purple">Registered</span>
+    </div>
+    <div class="race-layout">
+      <div class="race-countdown-block">
+        <div class="race-days-number" id="countdown-num">150</div>
+        <div class="race-days-label">Days Out</div>
+      </div>
+      <div class="race-divider"></div>
+      <div class="race-info">
+        <div class="race-title" id="race-title">Julian Alps UTMB 50K</div>
+        <div class="race-meta-row">
+          <div class="race-meta-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span id="race-date">Sep 18, 2026</span>
+          </div>
+          <div class="race-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span id="race-location">Triglav, Slovenia</span>
+          </div>
+          <div class="race-meta-item">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>50K · ~9,000 ft gain</span>
+          </div>
+        </div>
+        <div class="phase-chip">
+          <div class="chip-dot"></div>
+          <span id="phase-label">Phase 1 — Marathon Recovery · Week 1 of 22</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Today / Tomorrow ── -->
+  <div class="grid-2 mb">
+    <!-- Today -->
+    <div class="card" id="today-card">
+      <div class="card-hd">
+        <span class="card-label">Today</span>
+        <span class="pill pill-blue" id="today-date-pill">Mon Apr 21</span>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+        <div class="workout-type-icon" style="background:rgba(96,165,250,0.12); color:var(--blue);">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div class="workout-main" id="today-title">Easy 4 mi</div>
+          <div class="workout-sub" id="today-sub">Zone 2 Aerobic Run</div>
+          <div class="workout-tags" id="today-tags"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tomorrow -->
+    <div class="card" id="tomorrow-card">
+      <div class="card-hd">
+        <span class="card-label">Tomorrow</span>
+        <span class="pill pill-purple" id="tomorrow-date-pill">Tue Apr 22</span>
+      </div>
+      <div id="tomorrow-body"></div>
+    </div>
+  </div>
+
+  <!-- ── Week at a Glance ── -->
+  <div class="card mb">
+    <div class="card-hd">
+      <span class="card-label">Week at a Glance</span>
+      <span class="pill pill-orange" id="week-range-pill">Apr 21–27</span>
+    </div>
+    <div class="week-strip" id="week-strip"></div>
+  </div>
+
+  <!-- ── Recovery & Health ── -->
+  <div class="card mb">
+    <div class="card-hd">
+      <span class="card-label">Recovery &amp; Health</span>
+      <span class="pill pill-purple">Whoop · Placeholder</span>
+    </div>
+
+    <!-- Recovery ring + key stats -->
+    <div class="recovery-ring-row">
+      <div class="ring-wrap">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="33" fill="none" stroke="var(--bg-tertiary)" stroke-width="7"/>
+          <circle cx="40" cy="40" r="33" fill="none" stroke="var(--green)" stroke-width="7"
+            stroke-linecap="round"
+            stroke-dasharray="207.3"
+            stroke-dashoffset="52"
+            id="recovery-ring-circle"/>
+        </svg>
+        <div class="ring-center">
+          <div class="ring-pct" style="color:var(--green);" id="recovery-pct">75%</div>
+          <div class="ring-lbl">Recovery</div>
+        </div>
+      </div>
+      <div class="ring-stats">
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">HRV</span>
+          <span class="ring-stat-val" style="color:var(--green);" id="hrv-val">68 ms</span>
+        </div>
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">Resting HR</span>
+          <span class="ring-stat-val" style="color:var(--blue);" id="rhr-val">48 bpm</span>
+        </div>
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">Sleep</span>
+          <span class="ring-stat-val" style="color:var(--purple);" id="sleep-dur-val">7h 42m</span>
+        </div>
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">Sleep Performance</span>
+          <span class="ring-stat-val" style="color:var(--purple);" id="sleep-perf-val">83%</span>
+        </div>
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">Strain</span>
+          <span class="ring-stat-val" style="color:var(--orange);" id="strain-val">12.4</span>
+        </div>
+        <div class="ring-stat-row">
+          <span class="ring-stat-name">Respiratory Rate</span>
+          <span class="ring-stat-val" id="resp-val">15.2 rpm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6-metric grid -->
+    <div class="recovery-metrics-grid">
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--green);">68<span class="rec-metric-unit"> ms</span></div>
+        <div class="rec-metric-lbl">HRV Today</div>
+        <div class="mini-trend" id="hrv-mini-bars"></div>
+      </div>
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--blue);">48<span class="rec-metric-unit"> bpm</span></div>
+        <div class="rec-metric-lbl">Resting HR</div>
+        <div class="mini-trend" id="rhr-mini-bars"></div>
+      </div>
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--purple);">83<span class="rec-metric-unit">%</span></div>
+        <div class="rec-metric-lbl">Sleep Score</div>
+        <div class="mini-trend" id="sleep-mini-bars"></div>
+      </div>
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--orange);">12.4</div>
+        <div class="rec-metric-lbl">Strain</div>
+        <div class="mini-trend" id="strain-mini-bars"></div>
+      </div>
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--purple);">7h 42m</div>
+        <div class="rec-metric-lbl">Sleep Dur.</div>
+        <div class="mini-trend" id="sleepdur-mini-bars"></div>
+      </div>
+      <div class="rec-metric">
+        <div class="rec-metric-val" style="color:var(--text-secondary);">15.2<span class="rec-metric-unit"> rpm</span></div>
+        <div class="rec-metric-lbl">Resp. Rate</div>
+        <div class="mini-trend" id="resp-mini-bars"></div>
+      </div>
+    </div>
+
+    <!-- HRV 7-day sparkline -->
+    <div style="margin-top:0.5rem;">
+      <div style="font-size:0.66rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">HRV — Last 7 Days</div>
+      <div class="hrv-sparkline-wrap">
+        <canvas id="hrvSparkline"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Fitness Curve ── -->
+  <div class="card mb">
+    <div class="card-hd">
+      <span class="card-label">Fitness Curve — ATL / CTL / TSB</span>
+      <span class="pill pill-blue">12 Weeks</span>
+    </div>
+    <div class="fitness-chart-wrap">
+      <canvas id="fitnessChart"></canvas>
+    </div>
+    <div class="chart-legend-row">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--blue);"></div>
+        <span class="legend-name" style="color:var(--blue);">CTL</span>
+        <span>Chronic Training Load (fitness)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--orange);"></div>
+        <span class="legend-name" style="color:var(--orange);">ATL</span>
+        <span>Acute Training Load (fatigue)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--green);"></div>
+        <span class="legend-name" style="color:var(--green);">TSB</span>
+        <span>Form: (+) fresh / (−) fatigued</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Weekly Stats + Weight Tracker ── -->
+  <div class="grid-2 mb">
+
+    <!-- Weekly Stats -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-label">This Week's Training</span>
+        <span class="pill pill-orange" id="week-range-stats">Apr 21–27</span>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-val" style="color:var(--orange);">24<span class="stat-tile-unit">mi</span></div>
+          <div class="stat-tile-lbl">Mileage</div>
+          <div class="stat-tile-change up">↑ Plan: 28 mi</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-val" style="color:var(--blue);">1,840<span class="stat-tile-unit">ft</span></div>
+          <div class="stat-tile-lbl">Elevation</div>
+          <div class="stat-tile-change">Plan: 2,200 ft</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-val" style="color:var(--purple);">0<span class="stat-tile-unit">mi</span></div>
+          <div class="stat-tile-lbl">Long Run</div>
+          <div class="stat-tile-change" style="color:var(--text-muted);">Sat: 10 mi target</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-val" style="color:var(--green);">3<span class="stat-tile-unit"> of 5</span></div>
+          <div class="stat-tile-lbl">Sessions</div>
+          <div class="stat-tile-change up">On track</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight Tracker -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-label">Weight Goal</span>
+        <span class="pill pill-blue">MyFitnessPal · Placeholder</span>
+      </div>
+      <div class="weight-layout">
+        <div>
+          <div class="weight-big">176<span class="weight-unit"> lbs</span></div>
+          <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Current · Apr 21</div>
+        </div>
+        <div class="weight-meta">
+          <div class="weight-target-row">
+            <span>Start: 182 lbs</span>
+            <span style="color:var(--purple);">Target: 172 lbs</span>
+          </div>
+          <div class="weight-progress-track">
+            <div class="weight-progress-fill" style="width: 60%;"></div>
+          </div>
+          <div style="font-size:0.68rem;color:var(--text-muted);margin-top:0.3rem;">6 lbs lost · 4 lbs to go · ~60% complete</div>
+        </div>
+      </div>
+      <div class="weight-stats-row">
+        <div class="weight-stat-item">
+          <div class="weight-stat-val" style="color:var(--green);">−6 lbs</div>
+          <div class="weight-stat-lbl">Lost Total</div>
+        </div>
+        <div class="weight-stat-item">
+          <div class="weight-stat-val" style="color:var(--blue);">−0.5 lb/wk</div>
+          <div class="weight-stat-lbl">Avg Rate</div>
+        </div>
+        <div class="weight-stat-item">
+          <div class="weight-stat-val" style="color:var(--purple);">8 wks</div>
+          <div class="weight-stat-lbl">Est. to Goal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Coach Notes + Data Sources ── -->
+  <div class="grid-2 mb">
+
+    <!-- Coach Notes -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-label">Coach Notes</span>
+        <span class="pill pill-blue">Apr 20, 2026</span>
+      </div>
+      <p class="coach-note-body">
+        Welcome to Phase 1 — Marathon Recovery. Your body needs to adapt from marathon training before we start the ultra block. This week is intentionally light: aerobic only, HR cap at 130. Don't chase pace. Saturday's 10-miler is on trails if possible — time on feet matters more than miles right now. Sleep 8+ hrs, protein target 160g/day. HRV should trend up by Thursday; if it doesn't, swap Friday's run for a walk. Julian Alps is 22 weeks away — we have time, use it wisely.
+      </p>
+      <div class="coach-footer">
+        <div class="coach-avatar-sm">AI</div>
+        <span class="coach-name">Coach AI (Claude)</span>
+        <span class="coach-date">via AthleteFlo</span>
+      </div>
+    </div>
+
+    <!-- Data Sources -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-label">Data Sources</span>
+        <span class="pill pill-orange">1 of 4 Connected</span>
+      </div>
+      <div class="sources-grid" id="sources-grid"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══ BOTTOM NAV (mobile) ═══ -->
+<nav class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <a class="bottom-nav-item active" href="#">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+    <a class="bottom-nav-item" href="#">
+      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Training
+    </a>
+    <a class="bottom-nav-item" href="#">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Recovery
+    </a>
+    <a class="bottom-nav-item" href="#">
+      <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      Nutrition
+    </a>
+    <a class="bottom-nav-item" href="#">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+      Settings
+    </a>
+  </div>
+</nav>
+
+<script>
+'use strict';
+
+/* ================================================================
+   DATA CONFIG — swap these out when real APIs are connected
+   ================================================================ */
+const CONFIG = {
+  race: {
+    name:     'Julian Alps UTMB 50K',
+    date:     '2026-09-18',
+    location: 'Triglav, Slovenia',
+    phase:    'Phase 1 — Marathon Recovery',
+    week:     1,
+    totalWeeks: 22,
+  },
+
+  // Keyed by ISO date string YYYY-MM-DD
+  workouts: {
+    '2026-04-21': { type: 'run',  title: 'Easy 4 mi',   sub: 'Zone 2 Aerobic Run',    tags: ['Zone 2', 'HR <130', 'Easy'], color: 'blue' },
+    '2026-04-22': { type: 'rest', title: 'Rest Day',    sub: 'Active recovery only',  tags: [],                             color: null  },
+    '2026-04-23': { type: 'run',  title: 'Easy 5 mi',   sub: 'Zone 2 · Strides x4',  tags: ['Zone 2', 'Strides'],          color: 'blue' },
+    '2026-04-24': { type: 'rest', title: 'Rest Day',    sub: 'Yoga / mobility',        tags: ['Mobility'],                   color: null  },
+    '2026-04-25': { type: 'run',  title: 'Easy 5 mi',   sub: 'Zone 2 · Flat terrain', tags: ['Zone 2', 'Easy'],             color: 'blue' },
+    '2026-04-26': { type: 'run',  title: 'Long Run 10 mi', sub: 'Trail run · Z2',     tags: ['Long Run', 'Trail', 'Zone 2'], color: 'purple' },
+    '2026-04-27': { type: 'cross','title': 'Cross Train', sub: 'Bike 45 min or swim', tags: ['Cross Train', 'Low Impact'],  color: 'green' },
+  },
+
+  whoop: {
+    recovery:     75,
+    hrv:          68,
+    restingHR:    48,
+    sleepDur:     '7h 42m',
+    sleepPerf:    83,
+    strain:       12.4,
+    respRate:     15.2,
+    // 7-day history (Mon→Sun)
+    hrv7d:        [62, 58, 71, 64, 68, 72, 68],
+    rhr7d:        [50, 52, 48, 49, 47, 48, 48],
+    sleep7d:      [78, 72, 85, 80, 83, 88, 83],
+    strain7d:     [14.2, 8.1, 16.3, 9.4, 13.8, 18.2, 12.4],
+    sleepdur7d:   [7.1, 6.8, 8.2, 7.5, 7.8, 8.5, 7.7],
+    resp7d:       [15.0, 15.3, 14.8, 15.1, 15.2, 14.9, 15.2],
+  },
+
+  // 12-week fitness curve (84 data points)
+  fitness: (function() {
+    const ctl = [38,39,40,40,41,42,42,43,44,44,45,46,46,47,47,48,49,49,50,51,51,52,53,53,54,55,55,56,57,57,58,58,59,60,60,61,62,62,63,64,65,65,66,66,67,68,68,69,70,70,71,72,72,73,73,74,75,75,76,76,77,78,78,76,74,72,70,68,66,64,62,61,60,59,58,57,56,55,55,54,54,53,53,52];
+    const atl = [40,38,45,50,42,46,40,48,55,47,50,45,52,58,49,53,46,54,60,52,55,50,57,62,53,58,51,59,65,56,70,72,68,65,62,58,52,48,45,42,55,60,56,52,48,45,68,72,65,58,52,48,44,40,55,62,58,52,48,44,40,55,60,52,46,40,52,58,50,44,38,46,52,45,40,36,44,50,43,38,34,42,48,42];
+    return {
+      ctl,
+      atl,
+      tsb: ctl.map((c, i) => Math.round(c - atl[i])),
+    };
+  })(),
+
+  weeklyStats: {
+    mileage:   { done: 4,   plan: 28,  unit: 'mi' },
+    elevation: { done: 320, plan: 2200, unit: 'ft' },
+    longRun:   { done: 0,   plan: 10,  unit: 'mi' },
+    sessions:  { done: 1,   plan: 5,   unit: '' },
+  },
+
+  weight: {
+    start:   182,
+    current: 176,
+    target:  172,
+    date:    'Apr 21',
+  },
+
+  coachNote: {
+    text: `Welcome to Phase 1 — Marathon Recovery. Your body needs to adapt from marathon training before we start the ultra block. This week is intentionally light: aerobic only, HR cap at 130. Don't chase pace. Saturday's 10-miler is on trails if possible — time on feet matters more than miles right now. Sleep 8+ hrs, protein target 160g/day. HRV should trend up by Thursday; if it doesn't, swap Friday's run for a walk. Julian Alps is 22 weeks away — we have time, use it wisely.`,
+    coach: 'Coach AI (Claude)',
+    date:  'Apr 20, 2026',
+  },
+
+  sources: [
+    { name: 'Whoop',          icon: '🫀', status: 'Not connected', connected: false },
+    { name: 'Strava',         icon: '🏃', status: 'Not connected', connected: false },
+    { name: 'MyFitnessPal',   icon: '🥗', status: 'Not connected', connected: false },
+    { name: 'Google Calendar',icon: '📅', status: 'Connected',     connected: true  },
+  ],
+};
+
+/* ================================================================
+   Helpers
+   ================================================================ */
+function isoToday() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function formatDatePill(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function addDays(iso, n) {
+  const d = new Date(iso + 'T00:00:00');
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+/* ================================================================
+   Race Banner
+   ================================================================ */
+(function initRace() {
+  const r = CONFIG.race;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const raceDate = new Date(r.date + 'T00:00:00');
+  const diff = Math.ceil((raceDate - today) / 86400000);
+  document.getElementById('countdown-num').textContent = diff > 0 ? diff : '—';
+  document.getElementById('race-title').textContent = r.name;
+  document.getElementById('race-date').textContent = raceDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  document.getElementById('race-location').textContent = r.location;
+  document.getElementById('phase-label').textContent = `${r.phase} · Week ${r.week} of ${r.totalWeeks}`;
+})();
+
+/* ================================================================
+   Today / Tomorrow Workouts
+   ================================================================ */
+(function initWorkouts() {
+  const today = isoToday();
+  const tomorrow = addDays(today, 1);
+
+  document.getElementById('today-date-pill').textContent = formatDatePill(today);
+  document.getElementById('tomorrow-date-pill').textContent = formatDatePill(tomorrow);
+
+  function renderWorkout(containerId, iso) {
+    const w = CONFIG.workouts[iso];
+    const container = document.getElementById(containerId);
+    if (!w) return;
+
+    if (w.type === 'rest') {
+      container.innerHTML = `
+        <div class="workout-rest">
+          <div class="workout-rest-icon">🛌</div>
+          <div class="workout-rest-label">${w.title}</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);">${w.sub}</div>
+        </div>`;
+      return;
+    }
+
+    const colorMap = { blue: 'var(--blue)', purple: 'var(--purple)', green: 'var(--green)', orange: 'var(--orange)' };
+    const col = colorMap[w.color] || 'var(--blue)';
+    const iconHtml = w.type === 'cross'
+      ? `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>`
+      : `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`;
+
+    const tagsHtml = (w.tags || []).map(t =>
+      `<span class="workout-tag" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border:1px solid var(--border);">${t}</span>`
+    ).join('');
+
+    container.innerHTML = `
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+        <div class="workout-type-icon" style="background:rgba(0,0,0,0.2);color:${col};">${iconHtml}</div>
+        <div style="flex:1;">
+          <div class="workout-main">${w.title}</div>
+          <div class="workout-sub">${w.sub}</div>
+          ${tagsHtml ? `<div class="workout-tags">${tagsHtml}</div>` : ''}
+        </div>
+      </div>`;
+  }
+
+  // Today: card body already has placeholder; update it
+  const todayW = CONFIG.workouts[today];
+  if (todayW) {
+    document.getElementById('today-title').textContent = todayW.title;
+    document.getElementById('today-sub').textContent = todayW.sub;
+    const tagsEl = document.getElementById('today-tags');
+    tagsEl.innerHTML = (todayW.tags || []).map(t =>
+      `<span class="workout-tag" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border:1px solid var(--border);">${t}</span>`
+    ).join('');
+  }
+
+  renderWorkout('tomorrow-body', tomorrow);
+})();
+
+/* ================================================================
+   Week at a Glance
+   ================================================================ */
+(function initWeek() {
+  const today = isoToday();
+  // Start from the Monday of current week
+  const todayDate = new Date(today + 'T00:00:00');
+  const dow = todayDate.getDay(); // 0=Sun
+  const mondayOffset = dow === 0 ? -6 : 1 - dow;
+  const monday = new Date(todayDate);
+  monday.setDate(todayDate.getDate() + mondayOffset);
+
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const strip = document.getElementById('week-strip');
+  const colorMap = {
+    blue: 'var(--blue)', purple: 'var(--purple)', green: 'var(--green)',
+    orange: 'var(--orange)', null: 'var(--border-accent)'
+  };
+
+  let weekStart, weekEnd;
+
+  days.forEach((name, i) => {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    const iso = d.toISOString().slice(0, 10);
+    if (i === 0) weekStart = d;
+    if (i === 6) weekEnd = d;
+
+    const w = CONFIG.workouts[iso];
+    const isToday = iso === today;
+    const num = d.getDate();
+
+    const dotColor = w && w.type !== 'rest' ? (colorMap[w.color] || 'var(--blue)') : '';
+    const dotHtml = dotColor ? `<div class="week-type-dot" style="background:${dotColor};"></div>` : '';
+    const label = w ? (w.type === 'rest' ? '—' : (w.title.length > 10 ? w.title.slice(0, 10) + '…' : w.title)) : '';
+
+    const classes = ['week-day-cell'];
+    if (isToday) classes.push('today');
+    if (w && w.type !== 'rest') classes.push('has-workout');
+    if (!w || w.type === 'rest') classes.push('rest');
+
+    const el = document.createElement('div');
+    el.className = 'week-day';
+    el.innerHTML = `
+      <div class="week-day-name">${name}</div>
+      <div class="${classes.join(' ')}">
+        <div class="week-day-num">${num}</div>
+        ${dotHtml}
+        <span style="font-size:0.55rem;line-height:1.1;">${label}</span>
+      </div>`;
+    strip.appendChild(el);
+  });
+
+  // Update pills with actual week range
+  if (weekStart && weekEnd) {
+    const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const rangeStr = `${fmt(weekStart)}–${fmt(weekEnd).replace(/\w+ /, '')}`;
+    document.getElementById('week-range-pill').textContent = rangeStr;
+    document.getElementById('week-range-stats').textContent = rangeStr;
+  }
+})();
+
+/* ================================================================
+   Recovery Ring
+   ================================================================ */
+(function initRecoveryRing() {
+  const pct = CONFIG.whoop.recovery;
+  const circumference = 2 * Math.PI * 33;
+  const offset = circumference * (1 - pct / 100);
+  document.getElementById('recovery-ring-circle').setAttribute('stroke-dashoffset', offset.toFixed(1));
+  document.getElementById('recovery-pct').textContent = pct + '%';
+  document.getElementById('hrv-val').textContent = CONFIG.whoop.hrv + ' ms';
+  document.getElementById('rhr-val').textContent = CONFIG.whoop.restingHR + ' bpm';
+  document.getElementById('sleep-dur-val').textContent = CONFIG.whoop.sleepDur;
+  document.getElementById('sleep-perf-val').textContent = CONFIG.whoop.sleepPerf + '%';
+  document.getElementById('strain-val').textContent = CONFIG.whoop.strain;
+  document.getElementById('resp-val').textContent = CONFIG.whoop.respRate + ' rpm';
+})();
+
+/* ================================================================
+   Mini Trend Bars
+   ================================================================ */
+function renderMiniTrend(id, data, color) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  data.forEach(v => {
+    const pct = ((v - min) / range) * 100;
+    const bar = document.createElement('div');
+    bar.className = 'mini-bar';
+    bar.style.cssText = `flex:1; height:${Math.max(pct, 12)}%; background:${color}; opacity:${0.35 + (pct / 100) * 0.65};`;
+    el.appendChild(bar);
+  });
+}
+
+renderMiniTrend('hrv-mini-bars',     CONFIG.whoop.hrv7d,      'var(--green)');
+renderMiniTrend('rhr-mini-bars',     CONFIG.whoop.rhr7d,      'var(--blue)');
+renderMiniTrend('sleep-mini-bars',   CONFIG.whoop.sleep7d,    'var(--purple)');
+renderMiniTrend('strain-mini-bars',  CONFIG.whoop.strain7d,   'var(--orange)');
+renderMiniTrend('sleepdur-mini-bars',CONFIG.whoop.sleepdur7d, 'var(--purple)');
+renderMiniTrend('resp-mini-bars',    CONFIG.whoop.resp7d,     'var(--text-muted)');
+
+/* ================================================================
+   HRV Sparkline (Chart.js)
+   ================================================================ */
+(function initHrvSparkline() {
+  const ctx = document.getElementById('hrvSparkline').getContext('2d');
+  const data = CONFIG.whoop.hrv7d;
+  const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const colors = data.map(v => v >= 65 ? '#34d399' : v >= 55 ? '#fb923c' : '#f87171');
+
+  const grad = ctx.createLinearGradient(0, 0, 0, 72);
+  grad.addColorStop(0, 'rgba(52,211,153,0.2)');
+  grad.addColorStop(1, 'rgba(52,211,153,0.0)');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: colors,
+        borderRadius: 4,
+        barPercentage: 0.65,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1f2e',
+          borderColor: '#2a3040',
+          borderWidth: 1,
+          titleColor: '#94a3b8',
+          bodyColor: '#e2e8f0',
+          padding: 8,
+          callbacks: { label: ctx => `HRV: ${ctx.parsed.y} ms` }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { color: '#6b7a99', font: { size: 10, family: 'Inter' } }
+        },
+        y: {
+          grid: { color: 'rgba(37,45,66,0.6)', drawBorder: false },
+          ticks: { color: '#6b7a99', font: { size: 10, family: 'Inter' } },
+          min: 40, max: 85,
+        }
+      }
+    }
+  });
+})();
+
+/* ================================================================
+   Fitness Curve Chart (Chart.js) — 12 weeks
+   ================================================================ */
+(function initFitnessChart() {
+  const ctx = document.getElementById('fitnessChart').getContext('2d');
+  const { ctl, atl, tsb } = CONFIG.fitness;
+
+  // Generate 84-day labels
+  const labels = [];
+  const end = new Date();
+  end.setHours(0, 0, 0, 0);
+  for (let i = 83; i >= 0; i--) {
+    const d = new Date(end);
+    d.setDate(d.getDate() - i);
+    labels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+  }
+  const sparse = labels.map((l, i) => (i % 14 === 0 || i === labels.length - 1) ? l : '');
+
+  const ctlGrad = ctx.createLinearGradient(0, 0, 0, 230);
+  ctlGrad.addColorStop(0, 'rgba(96,165,250,0.2)');
+  ctlGrad.addColorStop(1, 'rgba(96,165,250,0.0)');
+
+  const atlGrad = ctx.createLinearGradient(0, 0, 0, 230);
+  atlGrad.addColorStop(0, 'rgba(251,146,60,0.18)');
+  atlGrad.addColorStop(1, 'rgba(251,146,60,0.0)');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: sparse,
+      datasets: [
+        {
+          label: 'CTL (Fitness)',
+          data: ctl,
+          borderColor: '#60a5fa',
+          backgroundColor: ctlGrad,
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#60a5fa',
+          fill: true,
+          tension: 0.4,
+        },
+        {
+          label: 'ATL (Fatigue)',
+          data: atl,
+          borderColor: '#fb923c',
+          backgroundColor: atlGrad,
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#fb923c',
+          fill: true,
+          tension: 0.4,
+        },
+        {
+          label: 'TSB (Form)',
+          data: tsb,
+          borderColor: '#34d399',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [4, 3],
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#34d399',
+          fill: false,
+          tension: 0.4,
+          yAxisID: 'y2',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1f2e',
+          borderColor: '#252d42',
+          borderWidth: 1,
+          titleColor: '#94a3b8',
+          bodyColor: '#e2e8f0',
+          padding: 10,
+          callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y}` }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(37,45,66,0.5)', drawBorder: false },
+          ticks: { color: '#6b7a99', font: { size: 10, family: 'Inter' }, maxRotation: 0 }
+        },
+        y: {
+          position: 'left',
+          grid: { color: 'rgba(37,45,66,0.5)', drawBorder: false },
+          ticks: { color: '#6b7a99', font: { size: 10, family: 'Inter' } },
+          title: { display: true, text: 'Load', color: '#4a5568', font: { size: 10, family: 'Inter' } }
+        },
+        y2: {
+          position: 'right',
+          grid: { display: false },
+          ticks: { color: '#34d399', font: { size: 10, family: 'Inter' } },
+          title: { display: true, text: 'TSB', color: '#34d399', font: { size: 10, family: 'Inter' } }
+        }
+      }
+    }
+  });
+})();
+
+/* ================================================================
+   Data Sources
+   ================================================================ */
+(function initSources() {
+  const grid = document.getElementById('sources-grid');
+  CONFIG.sources.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'source-item';
+    el.innerHTML = `
+      <div class="source-icon" style="background:${s.connected ? 'rgba(52,211,153,0.1)' : 'rgba(255,255,255,0.04)'};">${s.icon}</div>
+      <div class="source-info">
+        <div class="source-name">${s.name}</div>
+        <div class="source-status">${s.status}</div>
+      </div>
+      <div class="source-indicator">${s.connected ? '🟢' : '🔴'}</div>`;
+    grid.appendChild(el);
+  });
+})();
+</script>
+</body>
+</html>

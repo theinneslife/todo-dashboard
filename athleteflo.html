@@ -1222,11 +1222,11 @@
     <div class="card">
       <div class="card-hd">
         <span class="card-label">Weight Goal</span>
-        <span class="pill pill-blue">MyFitnessPal · Placeholder</span>
+        <span class="pill pill-blue">Whoop · Live</span>
       </div>
       <div class="weight-layout">
         <div>
-          <div class="weight-big">176<span class="weight-unit"> lbs</span></div>
+          <div class="weight-big">177<span class="weight-unit"> lbs</span></div>
           <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Current · Apr 21</div>
         </div>
         <div class="weight-meta">
@@ -1235,7 +1235,7 @@
             <span style="color:var(--purple);">Target: 172 lbs</span>
           </div>
           <div class="weight-progress-track">
-            <div class="weight-progress-fill" style="width: 60%;"></div>
+            <div class="weight-progress-fill" style="width: 50%;"></div>
           </div>
           <div style="font-size:0.68rem;color:var(--text-muted);margin-top:0.3rem;">6 lbs lost · 4 lbs to go · ~60% complete</div>
         </div>
@@ -1342,18 +1342,18 @@ const CONFIG = {
   },
 
   whoop: {
-    recovery:     75,
-    hrv:          68,
-    restingHR:    48,
+    recovery:     null,
+    hrv:          null,
+    restingHR:    null,
     sleepDur:     '7h 42m',
     sleepPerf:    83,
-    strain:       12.4,
+    strain:       11.6,
     respRate:     15.2,
     // 7-day history (Mon→Sun)
     hrv7d:        [62, 58, 71, 64, 68, 72, 68],
     rhr7d:        [50, 52, 48, 49, 47, 48, 48],
     sleep7d:      [78, 72, 85, 80, 83, 88, 83],
-    strain7d:     [14.2, 8.1, 16.3, 9.4, 13.8, 18.2, 12.4],
+    strain7d:     [20.6, 10.8, 6.8, 13.4, 14.0, 11.6, 0.4],
     sleepdur7d:   [7.1, 6.8, 8.2, 7.5, 7.8, 8.5, 7.7],
     resp7d:       [15.0, 15.3, 14.8, 15.1, 15.2, 14.9, 15.2],
   },
@@ -1378,7 +1378,7 @@ const CONFIG = {
 
   weight: {
     start:   182,
-    current: 176,
+    current: 177,
     target:  172,
     date:    'Apr 21',
   },
@@ -1557,13 +1557,13 @@ function addDays(iso, n) {
    Recovery Ring
    ================================================================ */
 (function initRecoveryRing() {
-  const pct = CONFIG.whoop.recovery;
+  const pct = CONFIG.whoop.recovery ?? 0;
   const circumference = 2 * Math.PI * 33;
   const offset = circumference * (1 - pct / 100);
   document.getElementById('recovery-ring-circle').setAttribute('stroke-dashoffset', offset.toFixed(1));
-  document.getElementById('recovery-pct').textContent = pct + '%';
-  document.getElementById('hrv-val').textContent = CONFIG.whoop.hrv + ' ms';
-  document.getElementById('rhr-val').textContent = CONFIG.whoop.restingHR + ' bpm';
+  document.getElementById('recovery-pct').textContent = CONFIG.whoop.recovery != null ? pct + '%' : '—';
+  document.getElementById('hrv-val').textContent = CONFIG.whoop.hrv != null ? CONFIG.whoop.hrv + ' ms' : '—';
+  document.getElementById('rhr-val').textContent = CONFIG.whoop.restingHR != null ? CONFIG.whoop.restingHR + ' bpm' : '—';
   document.getElementById('sleep-dur-val').textContent = CONFIG.whoop.sleepDur;
   document.getElementById('sleep-perf-val').textContent = CONFIG.whoop.sleepPerf + '%';
   document.getElementById('strain-val').textContent = CONFIG.whoop.strain;

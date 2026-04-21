@@ -956,6 +956,65 @@
       .training-grid { grid-template-columns: 1fr; }
       .recovery-grid { grid-template-columns: 1fr; }
     }
+
+    /* ============================================
+       Activity Feed
+       ============================================ */
+    .activity-feed-card {
+      grid-column: 1 / -1;
+      margin-top: 0;
+    }
+
+    .activity-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+
+    .activity-table th {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0 0.5rem 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .activity-table th:not(:first-child) { text-align: right; }
+
+    .activity-table td {
+      padding: 0.55rem 0.5rem;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(42,48,64,0.5);
+      vertical-align: middle;
+    }
+
+    .activity-table tr:last-child td { border-bottom: none; }
+
+    .activity-table tr:hover td { background: rgba(255,255,255,0.025); }
+
+    .activity-date { color: var(--text-muted); font-size: 0.65rem; white-space: nowrap; }
+
+    .activity-name { color: var(--text-primary); font-weight: 600; }
+
+    .activity-type-badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 20px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-run  { background: rgba(96,165,250,0.15); color: var(--accent-blue); }
+    .badge-ride { background: rgba(251,146,60,0.15); color: var(--accent-orange); }
+
+    .activity-num { text-align: right; font-variant-numeric: tabular-nums; }
+    .activity-num strong { color: var(--text-primary); font-weight: 600; }
+    .activity-unit { font-size: 0.6rem; color: var(--text-muted); margin-left: 0.15rem; }
   </style>
 </head>
 <body>
@@ -1259,6 +1318,121 @@
       </div>
     </div>
 
+
+    <!-- ── Activity Feed (real Strava data) ── -->
+    <div class="bottom-row" style="margin-top:1.5rem;">
+      <div class="card activity-feed-card">
+        <div class="card-header">
+          <span class="card-title">Recent Activity</span>
+          <span class="card-badge badge-green">Strava Live</span>
+        </div>
+        <table class="activity-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Activity</th>
+              <th style="text-align:left">Type</th>
+              <th>Dist</th>
+              <th>Pace</th>
+              <th>Elev</th>
+              <th>Avg HR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="activity-date">Apr 6</td>
+              <td class="activity-name">Morning Run</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>4.1</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>10:11</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>27</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Apr 5</td>
+              <td class="activity-name">Easy Run with 30 pushups every mile</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>9:46</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>110</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>137</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Apr 1</td>
+              <td class="activity-name">Morning Run</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>10.1</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>10:44</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>118</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 31</td>
+              <td class="activity-name">Morning Run</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>12:17</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>172</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>126</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 26</td>
+              <td class="activity-name">Brick &amp; Push Ups</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>4.1</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>12:44</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>48</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>125</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 26</td>
+              <td class="activity-name">Morning Ride</td>
+              <td><span class="activity-type-badge badge-ride">Ride</span></td>
+              <td class="activity-num"><strong>31.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><span style="color:var(--text-muted)">—</span></td>
+              <td class="activity-num"><strong>330</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>136</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 25</td>
+              <td class="activity-name">Morning Ride</td>
+              <td><span class="activity-type-badge badge-ride">Ride</span></td>
+              <td class="activity-num"><strong>31.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><span style="color:var(--text-muted)">—</span></td>
+              <td class="activity-num"><strong>376</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>135</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 24</td>
+              <td class="activity-name">Repeat of Yesterday</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>10:08</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>207</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 23</td>
+              <td class="activity-name">Easy Run</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>14.2</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>10:09</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>149</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>134</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+            <tr>
+              <td class="activity-date">Mar 22</td>
+              <td class="activity-name">Afternoon Run</td>
+              <td><span class="activity-type-badge badge-run">Run</span></td>
+              <td class="activity-num"><strong>2.0</strong><span class="activity-unit">mi</span></td>
+              <td class="activity-num"><strong>9:13</strong><span class="activity-unit">/mi</span></td>
+              <td class="activity-num"><strong>5</strong><span class="activity-unit">ft</span></td>
+              <td class="activity-num"><strong>124</strong><span class="activity-unit">bpm</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </main>
 
   <!-- ═══ FOOTER ═══ -->
@@ -1267,7 +1441,7 @@
       <a class="footer-link" href="index.html">TaskFlo</a>
       <a class="footer-link" href="travelflo.html">TravelFlo</a>
     </div>
-    <span class="footer-note">Placeholder data · Strava + Whoop integration coming soon</span>
+    <span class="footer-note">Live Strava data · Whoop integration coming soon</span>
   </footer>
 
 </div>

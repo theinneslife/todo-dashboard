@@ -412,5 +412,98 @@
     "depends_on": [],
     "collaborators": [],
     "pinned": false
+  },
+  {
+    "id": "4e213ca4-643c-4b15-bd3a-d44c8f324de3",
+    "title": "Review Zeta-Mountain collaboration opportunities and follow up with next steps",
+    "description": "From Connected TV Partnership Meeting on Apr 20. Review potential collaboration opportunities between Zeta and Mountain (e.g., attribution solutions and show-level TV buying) and follow up with Mark with next steps.",
+    "priority": 1,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [
+      "otter-ai",
+      "to-do"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-21T20:25:00.000Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created from Otter.ai meeting summary (Connected TV Partnership Meeting, Apr 20 2026)"
+      }
+    ],
+    "created_at": "2026-04-21T20:25:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "b3c493aa-80c0-417f-9acc-27a3ff565606",
+    "title": "Send Mountain platform materials to Zeta for internal evaluation",
+    "description": "From Connected TV Partnership Meeting on Apr 20. Send additional information or materials about Mountain's platform and capabilities (attribution, show-level TV buying, pricing) to support Zeta's internal evaluation.",
+    "priority": 1,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [
+      "otter-ai",
+      "to-do"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-21T20:25:00.000Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created from Otter.ai meeting summary (Connected TV Partnership Meeting, Apr 20 2026)"
+      }
+    ],
+    "created_at": "2026-04-21T20:25:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "212bbf20-a837-4491-8265-7acf1ded8e9d",
+    "title": "Follow up with Paramount team on consolidated next steps after product demo",
+    "description": "From Product Demo and Strategy Meeting on Apr 20. Hold internal follow-up with the Paramount team (Hugh Williams, Todd Bender) to discuss thoughts on next steps, then brief Mark and the Mountain team with their consolidated response.",
+    "priority": 1,
+    "status": "todo",
+    "mode": "manual",
+    "labels": [
+      "otter-ai",
+      "to-do"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-21T20:25:00.000Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created from Otter.ai meeting summary (Product Demo and Strategy Meeting, Apr 20 2026)"
+      }
+    ],
+    "created_at": "2026-04-21T20:25:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
   }
 ]

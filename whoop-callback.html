@@ -27,15 +27,6 @@
     .icon { font-size: 48px; margin-bottom: 20px; }
     h1 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
     p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
-    .spinner {
-      width: 40px; height: 40px;
-      border: 3px solid rgba(99,102,241,0.2);
-      border-top-color: #6d28d9;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 20px auto 0;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
     .success { color: #10b981; }
     .error { color: #ef4444; }
     .code-box {
@@ -69,16 +60,10 @@
 <div class="card" id="card">
   <div class="icon">⌛</div>
   <h1>Connecting Whoop…</h1>
-  <p>Exchanging authorization code for access tokens.</p>
-  <div class="spinner"></div>
+  <p>Saving authorization code…</p>
 </div>
 
 <script>
-const CLIENT_ID = '6f7cd1d9-ce7d-4d3c-bf83-1a144c324b0d';
-const CLIENT_SECRET = 'dd68c080314ac8f5d41b92dddc3f2a2e1fec98aee8cfc435c15d86518787e999';
-const REDIRECT_URI = 'https://theinneslife.github.io/todo-dashboard/whoop-callback.html';
-const TOKEN_ENDPOINT = 'https://api.prod.whoop.com/oauth/oauth2/token';
-
 const params = new URLSearchParams(window.location.search);
 const code = params.get('code');
 const error = params.get('error');
@@ -91,48 +76,20 @@ function showResult(success, title, body, extra) {
     <h1 class="${success ? 'success' : 'error'}">${title}</h1>
     <p>${body}</p>
     ${extra || ''}
-    ${success ? '<a class="btn" href="athleteflo.html">Open AthleteFlo →</a>' : ''}
   `;
 }
 
-async function exchangeCode(code) {
+function exchangeCode(code) {
+  // Save code to localStorage — Claude exchanges server-side via RUBE
+  // Do NOT attempt browser-side fetch (CORS consumes the code without returning tokens)
   localStorage.setItem('whoop_auth_code', code);
   localStorage.setItem('whoop_auth_state', state || '');
   localStorage.setItem('whoop_auth_ts', Date.now().toString());
 
-  try {
-    const body = new URLSearchParams({
-      grant_type: 'authorization_code',
-      code: code,
-      redirect_uri: REDIRECT_URI,
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET
-    });
-
-    const resp = await fetch(TOKEN_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    });
-
-    if (resp.ok) {
-      const tokens = await resp.json();
-      localStorage.setItem('whoop_access_token', tokens.access_token);
-      localStorage.setItem('whoop_refresh_token', tokens.refresh_token || '');
-      localStorage.setItem('whoop_token_expiry', (Date.now() + (tokens.expires_in || 3600) * 1000).toString());
-      localStorage.removeItem('whoop_auth_code');
-      showResult(true, 'Whoop Connected!', 'Access token saved. Redirecting to AthleteFlo…', '');
-      setTimeout(() => { window.location.href = 'athleteflo.html'; }, 2000);
-      return;
-    }
-  } catch (e) {
-    // CORS or network error
-  }
-
   showResult(true, 'Authorization Code Captured!',
-    'Whoop authorized successfully. Claude will complete the token exchange automatically.',
-    `<div class="code-box" id="auth-code-display"><strong>Code:</strong> ${code}</div>
-     <div class="code-box" style="margin-top:8px;color:#10b981;">✓ Code saved. Return to Claude — exchange will complete in seconds.</div>`
+    'Whoop authorized successfully. Tell Claude “done” — tokens will be ready in seconds.',
+    `<div class="code-box"><strong>Code:</strong> ${code}</div>
+     <div class="code-box" style="margin-top:8px;color:#10b981;">✓ Code saved to localStorage. Switch back to Claude now.</div>`
   );
 }
 

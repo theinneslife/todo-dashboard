@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AthleteFlo Logo Options</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f5f7;
+    margin: 0;
+    padding: 40px;
+  }
+  h1 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #86868b;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 28px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.04);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .card:hover { border-color: #a78bfa; box-shadow: 0 4px 24px rgba(124,58,237,.12); }
+  .card.selected { border-color: #7c3aed; background: #faf5ff; }
+  .label {
+    margin-top: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #86868b;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .note {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+  .dark-bg {
+    background: #0a0e1a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #86868b;
+    margin: 8px 0 4px;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+<h1>AthleteFlo — Logo Options</h1>
+<p style="font-size:13px;color:#6b7280;margin:-16px 0 28px;">Click a card to select. All use the same gradient style as TaskFlo.</p>
+
+<div class="grid">
+
+  <!-- Option 1: Running figure -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af1-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af1-g)"/>
+      <!-- Running figure (stick-style) -->
+      <!-- head -->
+      <circle cx="20" cy="12" r="3.5" fill="#fff" opacity=".9"/>
+      <!-- body lean -->
+      <line x1="20" y1="15.5" x2="16" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+      <!-- front arm -->
+      <line x1="18" y1="18" x2="13" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+      <!-- back arm -->
+      <line x1="18" y1="18" x2="22" y2="22" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+      <!-- front leg -->
+      <line x1="16" y1="24" x2="11" y2="30" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+      <!-- back leg -->
+      <line x1="16" y1="24" x2="22" y2="28" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af1-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af1-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af1d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af1d-g)"/>
+        <circle cx="20" cy="12" r="3.5" fill="#fff" opacity=".9"/>
+        <line x1="20" y1="15.5" x2="16" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+        <line x1="18" y1="18" x2="13" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+        <line x1="18" y1="18" x2="22" y2="22" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+        <line x1="16" y1="24" x2="11" y2="30" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+        <line x1="16" y1="24" x2="22" y2="28" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af1d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af1d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 1 — Running Figure</div>
+    <div class="note">Classic runner silhouette, clean and instantly readable</div>
+  </div>
+
+  <!-- Option 2: Heartbeat / pulse line -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af2-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af2-g)"/>
+      <!-- Heartbeat / ECG line -->
+      <polyline points="3,20 8,20 10,13 13,27 16,10 19,29 22,20 29,20" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af2-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af2-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af2d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af2d-g)"/>
+        <polyline points="3,20 8,20 10,13 13,27 16,10 19,29 22,20 29,20" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af2d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af2d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 2 — Heartbeat / ECG</div>
+    <div class="note">Performance monitoring feel, matches the data-driven tone of the dashboard</div>
+  </div>
+
+  <!-- Option 3: Mountain / trail peaks -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af3-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af3-g)"/>
+      <!-- Mountain peaks -->
+      <polygon points="5,30 13,14 21,30" fill="#fff" opacity=".6"/>
+      <polygon points="14,30 22,10 30,30" fill="#fff" opacity=".9"/>
+      <!-- Snow cap on main peak -->
+      <polygon points="22,10 19,17 25,17" fill="#fff" opacity=".4"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af3-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af3-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af3d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af3d-g)"/>
+        <polygon points="5,30 13,14 21,30" fill="#fff" opacity=".6"/>
+        <polygon points="14,30 22,10 30,30" fill="#fff" opacity=".9"/>
+        <polygon points="22,10 19,17 25,17" fill="#fff" opacity=".4"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af3d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af3d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 3 — Mountain Peaks</div>
+    <div class="note">Nods to trail/ultra running, elevation data, and outdoor endurance</div>
+  </div>
+
+  <!-- Option 4: Flame / fire -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af4-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af4-g)"/>
+      <!-- Flame shape -->
+      <path d="M16 30 C10 26 8 20 12 16 C12 20 14 21 14 21 C14 17 16 13 19 10 C19 15 21 17 22 20 C24 16 22 13 22 13 C26 17 25 23 22 27 C20 29 18 30 16 30Z" fill="#fff" opacity=".9"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af4-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af4-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af4d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af4d-g)"/>
+        <path d="M16 30 C10 26 8 20 12 16 C12 20 14 21 14 21 C14 17 16 13 19 10 C19 15 21 17 22 20 C24 16 22 13 22 13 C26 17 25 23 22 27 C20 29 18 30 16 30Z" fill="#fff" opacity=".9"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af4d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af4d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 4 — Flame</div>
+    <div class="note">Energy and intensity, simple and iconic shape</div>
+  </div>
+
+  <!-- Option 5: Shoe / footprint -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af5-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af5-g)"/>
+      <!-- Running shoe side profile -->
+      <path d="M4 26 Q6 24 10 24 L19 22 Q24 20 26 22 L28 22 Q30 22 30 24 L28 26 Q24 28 18 28 L6 28 Q4 28 4 26Z" fill="#fff" opacity=".9"/>
+      <!-- Sole detail -->
+      <path d="M6 26 L26 26" stroke="rgba(124,58,237,0.4)" stroke-width="1" fill="none"/>
+      <!-- Laces hint -->
+      <path d="M12 24 L14 22 M16 23.5 L18 21.5 M20 23 L22 21" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af5-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af5-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af5d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af5d-g)"/>
+        <path d="M4 26 Q6 24 10 24 L19 22 Q24 20 26 22 L28 22 Q30 22 30 24 L28 26 Q24 28 18 28 L6 28 Q4 28 4 26Z" fill="#fff" opacity=".9"/>
+        <path d="M6 26 L26 26" stroke="rgba(124,58,237,0.4)" stroke-width="1" fill="none"/>
+        <path d="M12 24 L14 22 M16 23.5 L18 21.5 M20 23 L22 21" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af5d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af5d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 5 — Running Shoe</div>
+    <div class="note">Literal but distinctive, instantly understood</div>
+  </div>
+
+  <!-- Option 6: Upward arrow / progress -->
+  <div class="card" onclick="select(this)">
+    <div class="section-title">Light background</div>
+    <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+      <defs>
+        <linearGradient id="af6-g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af6-g)"/>
+      <!-- Upward trending line with dot markers -->
+      <polyline points="4,28 10,24 16,19 22,13 28,9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+      <!-- Arrow head -->
+      <polyline points="23,9 28,9 28,14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+      <!-- Dots on line -->
+      <circle cx="10" cy="24" r="1.8" fill="#fff" opacity=".8"/>
+      <circle cx="16" cy="19" r="1.8" fill="#fff" opacity=".8"/>
+      <circle cx="22" cy="13" r="1.8" fill="#fff" opacity=".8"/>
+      <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Athlete</text>
+      <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af6-g)">Flo</text>
+      <path d="M126 33Q138 28 150 33" stroke="url(#af6-g)" stroke-width="2" fill="none" opacity=".8"/>
+    </svg>
+    <div class="section-title" style="margin-top:12px">Dark background</div>
+    <div class="dark-bg">
+      <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle;display:block">
+        <defs>
+          <linearGradient id="af6d-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af6d-g)"/>
+        <polyline points="4,28 10,24 16,19 22,13 28,9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+        <polyline points="23,9 28,9 28,14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+        <circle cx="10" cy="24" r="1.8" fill="#fff" opacity=".8"/>
+        <circle cx="16" cy="19" r="1.8" fill="#fff" opacity=".8"/>
+        <circle cx="22" cy="13" r="1.8" fill="#fff" opacity=".8"/>
+        <text x="39" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#f0f0f5">Athlete</text>
+        <text x="126" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af6d-g)">Flo</text>
+        <path d="M126 33Q138 28 150 33" stroke="url(#af6d-g)" stroke-width="2" fill="none" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="label">Option 6 — Progress Trend</div>
+    <div class="note">Data-forward, mirrors the dashboard's analytics focus, upward trajectory</div>
+  </div>
+
+</div>
+
+<script>
+function select(card) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+</script>
+</body>
+</html>

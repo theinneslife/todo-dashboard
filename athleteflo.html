@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AthleteFlo — Training Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    /* ============================================
+       AthleteFlo — Design tokens
+       ============================================ */
+    :root {
+      --bg-primary:    #0a0e1a;
+      --bg-secondary:  #1a1f2e;
+      --bg-tertiary:   #25293d;
+      --bg-card:       #161b2e;
+      --border-color:  #2a3040;
+      --border-accent: #3b4260;
+
+      --text-primary:   #e2e8f0;
+      --text-secondary: #cbd5e1;
+      --text-muted:     #94a3b8;
+
+      --accent-blue:   #60a5fa;
+      --accent-purple: #a78bfa;
+      --accent-green:  #34d399;
+      --accent-orange: #fb923c;
+      --accent-red:    #f87171;
+      --accent-pink:   #f472b6;
+      --accent-yellow: #fbbf24;
+
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  14px;
+
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Layout
+       ============================================ */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ============================================
+       Header
+       ============================================ */
+    .header {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .logo-text {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .logo-text span { color: var(--accent-purple); }
+
+    .version-badge {
+      background: linear-gradient(135deg, rgba(167,139,250,0.2), rgba(96,165,250,0.2));
+      border: 1px solid rgba(167,139,250,0.3);
+      color: var(--accent-purple);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-accent);
+      color: var(--text-primary);
+    }
+
+    .last-sync {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .sync-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 6px var(--accent-green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+
+    /* ============================================
+       Main Content
+       ============================================ */
+    .main {
+      flex: 1;
+      padding: 1.5rem;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ============================================
+       Section label
+       ============================================ */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.875rem;
+    }
+
+    /* ============================================
+       Grid rows
+       ============================================ */
+    .top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Pass 1: middle row is now 3 columns */
+    .middle-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* ============================================
+       Cards — Pass 2: hover lift + tighter padding
+       ============================================ */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.125rem;
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.22s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.875rem;
+    }
+
+    /* Pass 2: card title smaller + tighter tracking */
+    .card-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .card-badge {
+      font-size: 0.63rem;
+      font-weight: 600;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-green {
+      background: rgba(52, 211, 153, 0.14);
+      color: var(--accent-green);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .badge-purple {
+      background: rgba(167, 139, 250, 0.14);
+      color: var(--accent-purple);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+    }
+
+    .badge-blue {
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--accent-blue);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+    }
+
+    .badge-orange {
+      background: rgba(251, 146, 60, 0.14);
+      color: var(--accent-orange);
+      border: 1px solid rgba(251, 146, 60, 0.25);
+    }
+
+    /* ============================================
+       Race Countdown Card
+       ============================================ */
+    .race-card {
+      background: linear-gradient(135deg, #161b2e 0%, #1a1440 100%);
+      border-color: rgba(167, 139, 250, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .race-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Pass 2: larger countdown number */
+    .countdown-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--accent-purple);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .race-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0.75rem;
+    }
+
+    .race-meta {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ============================================
+       Check-in Card
+       ============================================ */
+    .checkin-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.375rem;
+    }
+
+    .checkin-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .checkin-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--accent-green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .checkin-text {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .checkin-date {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .checkin-streak { margin-top: 0.875rem; }
+
+    .streak-label {
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.45rem;
+    }
+
+    .streak-dots { display: flex; gap: 0.35rem; }
+
+    .streak-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 4px rgba(52,211,153,0.4);
+    }
+
+    .streak-dot.miss { background: var(--border-color); box-shadow: none; }
+
+    /* ============================================
+       Coach Notes Card
+       ============================================ */
+    .coach-note {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      border-left: 2px solid var(--accent-purple);
+      padding-left: 0.875rem;
+      margin-top: 0.125rem;
+    }
+
+    .coach-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.875rem;
+    }
+
+    .coach-avatar {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .coach-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .coach-date {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ============================================
+       Training Week Card
+       ============================================ */
+    .training-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.625rem;
+      margin-top: 0.125rem;
+    }
+
+    .training-stat {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .training-stat:hover { border-color: var(--border-accent); }
+
+    /* Pass 2: accent top bar */
+    .training-stat::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      border-radius: 2px 2px 0 0;
+      background: var(--stat-accent, var(--border-color));
+      opacity: 0.6;
+    }
+
+    /* Pass 1+2: bigger numbers */
+    .training-stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .training-stat-unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 0.1rem;
+    }
+
+    .training-stat-label {
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 600;
+    }
+
+    .training-stat-change {
+      font-size: 0.68rem;
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+
+    .change-up   { color: var(--accent-green); }
+    .change-down { color: var(--accent-red); }
+    .change-flat { color: var(--text-muted); }
+
+    .session-day-row {
+      display: flex;
+      gap: 0.3rem;
+      margin-top: 0.875rem;
+      align-items: flex-end;
+    }
+
+    .session-day {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .session-bar-wrap {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .session-bar {
+      width: 100%;
+      border-radius: 3px 3px 0 0;
+      transition: height 0.3s ease;
+      min-height: 3px;
+    }
+
+    .session-day-label {
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    /* Strain sparkline section */
+    .divider-section {
+      margin-top: 0.875rem;
+      padding-top: 0.875rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .micro-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .micro-label {
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 700;
+    }
+
+    .micro-value {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .sparkline-svg {
+      width: 100%;
+      height: 34px;
+      display: block;
+      overflow: visible;
+    }
+
+    .sparkline-days {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.25rem;
+    }
+
+    .sparkline-day-lbl {
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      text-align: center;
+      flex: 1;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       Body Metrics Card (new — Pass 1)
+       ============================================ */
+    .body-hero {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--accent-purple);
+    }
+
+    .body-hero-unit {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0;
+      margin-left: 0.1rem;
+    }
+
+    .body-hero-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .weight-progress {
+      margin-top: 0.875rem;
+    }
+
+    .weight-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .weight-bar-labels span { color: var(--text-secondary); font-weight: 600; }
+
+    .weight-bar-track {
+      height: 7px;
+      background: var(--bg-tertiary);
+      border-radius: 99px;
+      position: relative;
+    }
+
+    .weight-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+      position: relative;
+      transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .weight-bar-thumb {
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2px solid var(--accent-blue);
+      box-shadow: 0 0 8px rgba(96,165,250,0.6);
+    }
+
+    .weight-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 0.875rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .weight-stat {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem 0.25rem;
+      border-right: 1px solid var(--border-color);
+    }
+
+    .weight-stat:last-child { border-right: none; }
+
+    .weight-stat-num {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .weight-stat-lbl {
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       Recovery Card
+       ============================================ */
+    .recovery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.625rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .recovery-metric {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .recovery-metric:hover { border-color: var(--border-accent); }
+
+    /* Pass 2: accent top bar */
+    .recovery-metric::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      border-radius: 2px 2px 0 0;
+      background: var(--metric-accent, var(--border-color));
+      opacity: 0.55;
+    }
+
+    /* Pass 1+2: bigger recovery values */
+    .recovery-metric-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .recovery-metric-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+      font-weight: 700;
+    }
+
+    .recovery-metric-trend {
+      display: flex;
+      gap: 2px;
+      margin-top: 0.45rem;
+      align-items: flex-end;
+      height: 18px;
+    }
+
+    .trend-bar {
+      flex: 1;
+      border-radius: 2px 2px 0 0;
+      min-height: 2px;
+    }
+
+    .hrv-trend-wrap {
+      margin-top: 0.5rem;
+    }
+
+    .hrv-day-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hrv-day-label {
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      width: 22px;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .hrv-bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .hrv-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .hrv-value {
+      font-size: 0.63rem;
+      color: var(--text-secondary);
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       Fitness Curve Card
+       ============================================ */
+    .chart-wrap {
+      position: relative;
+      height: 220px;
+      margin-top: 0.25rem;
+    }
+
+    /* TSB status bar — Pass 1 */
+    .tsb-status-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.875rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    .tsb-current-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .tsb-zone-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .tsb-zone-desc {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-label { font-weight: 600; }
+
+    /* ============================================
+       Pending / empty state
+       ============================================ */
+    .pending-label {
+      display: inline-block;
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      background: rgba(148,163,184,0.07);
+      border: 1px dashed var(--border-color);
+      border-radius: 3px;
+      padding: 0.15rem 0.45rem;
+      font-style: italic;
+      vertical-align: middle;
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-secondary);
+    }
+
+    .footer-links { display: flex; gap: 1rem; }
+
+    .footer-link {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover { color: var(--text-primary); }
+
+    .footer-note { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* ============================================
+       Scrollbar
+       ============================================ */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 1100px) {
+      .middle-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .body-metrics-card { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 900px) {
+      .top-row { grid-template-columns: 1fr 1fr; }
+      .coach-card { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .header { padding: 0.75rem 1rem; }
+      .header-nav { display: none; }
+      .main { padding: 1rem; }
+      .top-row { grid-template-columns: 1fr; }
+      .coach-card { grid-column: auto; }
+      .middle-row { grid-template-columns: 1fr; }
+      .body-metrics-card { grid-column: auto; }
+      .countdown-number { font-size: 3rem; }
+      .training-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .training-grid { grid-template-columns: 1fr; }
+      .recovery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <div class="header-left">
+      <a class="logo" href="#">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <span class="logo-text">Athlete<span>Flo</span></span>
+      </a>
+      <span class="version-badge">v1.1</span>
+    </div>
+
+    <nav class="header-nav">
+      <a class="nav-link" href="index.html">TaskFlo</a>
+      <a class="nav-link" href="travelflo.html">TravelFlo</a>
+    </nav>
+
+    <div class="last-sync">
+      <span class="sync-dot"></span>
+      <span>Synced today at 6:14 AM</span>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- ── Top Row: Race + Checkin + Coach ── -->
+    <div class="top-row">
+
+      <!-- Race Countdown -->
+      <div class="card race-card">
+        <div class="card-header">
+          <span class="card-title">Next Race</span>
+          <span class="card-badge badge-purple">Registered</span>
+        </div>
+        <div class="countdown-number" id="countdown-days">—</div>
+        <div class="countdown-label">days out</div>
+        <div class="race-name" id="race-name">Upcoming Race</div>
+        <div class="race-meta" id="race-meta">Date &amp; location TBD</div>
+      </div>
+
+      <!-- Weekly Check-in -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Weekly Check-in</span>
+          <span class="card-badge badge-green">Complete</span>
+        </div>
+        <div class="checkin-status">
+          <div class="checkin-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="checkin-text">Last check-in</div>
+            <div class="checkin-date">April 20, 2026</div>
+          </div>
+        </div>
+        <div class="checkin-streak">
+          <div class="streak-label">Last 7 weeks</div>
+          <div class="streak-dots">
+            <div class="streak-dot"></div>
+            <div class="streak-dot"></div>
+            <div class="streak-dot"></div>
+            <div class="streak-dot"></div>
+            <div class="streak-dot miss"></div>
+            <div class="streak-dot"></div>
+            <div class="streak-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coach Notes -->
+      <div class="card coach-card">
+        <div class="card-header">
+          <span class="card-title">Coach Notes</span>
+          <span class="card-badge badge-blue">April 18, 2026</span>
+        </div>
+        <p class="coach-note">
+          Great effort on Saturday's long run — held pace through mile 18 which is exactly where we need you mentally. This week is a down week. Keep Tuesday's track session to 6×800 at goal HM pace, nothing faster. Sleep and nutrition are your PRs right now. Let's keep HRV above 65 heading into the peak block.
+        </p>
+        <div class="coach-meta">
+          <div class="coach-avatar">EC</div>
+          <span class="coach-name">Coach Eric</span>
+          <span class="coach-date">via TrainingPeaks</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Middle Row: Training + Body Metrics + Recovery ── -->
+    <div class="middle-row">
+
+      <!-- Training Week -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">This Week's Training</span>
+          <span class="card-badge badge-orange">Apr 14–20</span>
+        </div>
+        <div class="training-grid">
+
+          <div class="training-stat" style="--stat-accent: var(--accent-orange);">
+            <div class="training-stat-value" style="color: var(--accent-orange);">
+              42<span class="training-stat-unit">mi</span>
+            </div>
+            <div class="training-stat-label">Mileage</div>
+            <div class="training-stat-change change-up">↑ +6 vs last week</div>
+          </div>
+
+          <div class="training-stat" style="--stat-accent: var(--accent-blue);">
+            <div class="training-stat-value" style="color: var(--accent-blue);">
+              3.8<span class="training-stat-unit">k ft</span>
+            </div>
+            <div class="training-stat-label">Elevation</div>
+            <div class="training-stat-change change-up">↑ +420 ft</div>
+          </div>
+
+          <div class="training-stat" style="--stat-accent: var(--accent-purple);">
+            <div class="training-stat-value" style="color: var(--accent-purple);">
+              18<span class="training-stat-unit">mi</span>
+            </div>
+            <div class="training-stat-label">Long Run</div>
+            <div class="training-stat-change change-up">↑ PR distance</div>
+          </div>
+
+          <div class="training-stat" style="--stat-accent: var(--accent-green);">
+            <div class="training-stat-value" style="color: var(--accent-green);">
+              5<span class="training-stat-unit"> ses</span>
+            </div>
+            <div class="training-stat-label">Sessions</div>
+            <div class="training-stat-change change-flat">Goal: 5 of 5 ✓</div>
+          </div>
+
+        </div>
+
+        <!-- Day-by-day mini bar chart -->
+        <div class="session-day-row" id="weekly-bars"></div>
+
+        <!-- Pass 1: 7-day strain sparkline -->
+        <div class="divider-section">
+          <div class="micro-header">
+            <span class="micro-label">7-Day Strain</span>
+            <span class="micro-value" id="strain-latest">— <span style="font-size:0.6rem;font-weight:400;color:var(--text-muted)">/ 21</span></span>
+          </div>
+          <svg class="sparkline-svg" id="strain-sparkline" viewBox="0 0 200 34" preserveAspectRatio="none"></svg>
+          <div class="sparkline-days" id="strain-days"></div>
+        </div>
+      </div>
+
+      <!-- Body Metrics (new — Pass 1) -->
+      <div class="card body-metrics-card">
+        <div class="card-header">
+          <span class="card-title">Body Metrics</span>
+          <span class="card-badge badge-purple">Manual</span>
+        </div>
+
+        <div class="body-hero" id="weight-hero">168<span class="body-hero-unit">lbs</span></div>
+        <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">162 lbs</strong></div>
+
+        <!-- Progress bar: start → current → goal -->
+        <div class="weight-progress">
+          <div class="weight-bar-labels">
+            <div>Start <span>175</span></div>
+            <div style="color:var(--accent-purple);font-weight:600;">↓ 7 lbs to go</div>
+            <div>Goal <span>162</span></div>
+          </div>
+          <div class="weight-bar-track">
+            <div class="weight-bar-fill" id="weight-bar" style="width: 0%;">
+              <div class="weight-bar-thumb"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="weight-stats">
+          <div class="weight-stat">
+            <div class="weight-stat-num" style="color:var(--accent-orange);">−7.0</div>
+            <div class="weight-stat-lbl">lbs lost</div>
+          </div>
+          <div class="weight-stat">
+            <div class="weight-stat-num" style="color:var(--accent-purple);">54%</div>
+            <div class="weight-stat-lbl">to goal</div>
+          </div>
+          <div class="weight-stat">
+            <div class="weight-stat-num" style="color:var(--accent-green);">−0.2</div>
+            <div class="weight-stat-lbl">lbs/day</div>
+          </div>
+        </div>
+
+        <!-- 7-day weight trend sparkline -->
+        <div class="divider-section">
+          <div class="micro-header">
+            <span class="micro-label">7-Day Trend</span>
+            <span class="micro-value" style="color:var(--accent-green);">↓ trending down</span>
+          </div>
+          <svg class="sparkline-svg" id="weight-sparkline" viewBox="0 0 200 34" preserveAspectRatio="none"></svg>
+          <div class="sparkline-days" id="weight-days"></div>
+        </div>
+      </div>
+
+      <!-- Recovery -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Recovery Trend</span>
+          <span class="card-badge badge-green">Good</span>
+        </div>
+
+        <div class="recovery-grid">
+
+          <div class="recovery-metric" style="--metric-accent: var(--accent-green);">
+            <div class="recovery-metric-value" style="color: var(--accent-green);">
+              68<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> ms</span>
+            </div>
+            <div class="recovery-metric-label">HRV Today</div>
+            <div class="recovery-metric-trend" id="hrv-mini"></div>
+          </div>
+
+          <div class="recovery-metric" style="--metric-accent: var(--accent-blue);">
+            <div class="recovery-metric-value" style="color: var(--accent-blue);">
+              48<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> bpm</span>
+            </div>
+            <div class="recovery-metric-label">Resting HR</div>
+            <div class="recovery-metric-trend" id="rhr-mini"></div>
+          </div>
+
+          <div class="recovery-metric" style="--metric-accent: var(--accent-purple);">
+            <div class="recovery-metric-value" style="color: var(--accent-purple);">
+              83<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">%</span>
+            </div>
+            <div class="recovery-metric-label">Sleep Score</div>
+            <div class="recovery-metric-trend" id="sleep-mini"></div>
+          </div>
+
+          <div class="recovery-metric" style="--metric-accent: var(--accent-orange);">
+            <div class="recovery-metric-value" style="color: var(--accent-orange);">
+              76<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">%</span>
+            </div>
+            <div class="recovery-metric-label">Recovery %</div>
+            <div class="recovery-metric-trend" id="rec-mini"></div>
+          </div>
+
+        </div>
+
+        <!-- HRV 7-day breakdown -->
+        <div class="hrv-trend-wrap">
+          <div class="streak-label" style="margin-bottom: 0.45rem;">HRV — last 7 days</div>
+          <div id="hrv-bars"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Bottom Row: Fitness Curve ── -->
+    <div class="bottom-row">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Fitness Curve — ATL / CTL / TSB</span>
+          <span class="card-badge badge-blue">6 weeks</span>
+        </div>
+
+        <div class="chart-wrap">
+          <canvas id="fitnessChart"></canvas>
+        </div>
+
+        <!-- Pass 1: TSB current status annotation -->
+        <div class="tsb-status-bar" id="tsb-status-bar">
+          <div class="tsb-current-val" id="tsb-current-val">—</div>
+          <div class="tsb-zone-label" id="tsb-zone-label">—</div>
+          <div class="tsb-zone-desc" id="tsb-zone-desc">Calculating…</div>
+        </div>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--accent-blue);"></div>
+            <span class="legend-label" style="color: var(--accent-blue);">CTL</span>
+            <span>Chronic Training Load (fitness)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--accent-orange);"></div>
+            <span class="legend-label" style="color: var(--accent-orange);">ATL</span>
+            <span>Acute Training Load (fatigue)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--accent-green);"></div>
+            <span class="legend-label" style="color: var(--accent-green);">TSB</span>
+            <span>Form · (+) fresh / (−) fatigued</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a class="footer-link" href="index.html">TaskFlo</a>
+      <a class="footer-link" href="travelflo.html">TravelFlo</a>
+    </div>
+    <span class="footer-note">Placeholder data · Strava + Whoop integration coming soon</span>
+  </footer>
+
+</div>
+
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════
+   CONFIG / Placeholder Data
+   ══════════════════════════════════════════════ */
+
+const RACE_DATE     = new Date('2026-09-12');
+const RACE_NAME     = 'Leadville Trail 100';
+const RACE_LOCATION = 'Leadville, CO · Sep 12, 2026';
+
+// Weekly mileage Mon–Sun
+const weeklyMiles = [0, 8, 7, 0, 10, 18, 0];
+const weekDays    = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+
+// Recovery 7-day data
+const recoveryData = {
+  hrv:      [62, 58, 71, 68, 65, 70, 68],
+  rhr:      [50, 52, 48, 49, 48, 47, 48],
+  sleep:    [78, 72, 85, 81, 80, 88, 83],
+  recovery: [68, 60, 80, 76, 74, 82, 76]
+};
+
+// Pass 1: 7-day strain (0–21 WHOOP-style scale)
+const strain7d = [14.2, 18.5, 8.1, 16.3, 10.4, 19.8, 11.2];
+
+// Pass 1: weight data
+const weightData = {
+  current:   168.0,
+  goal:      162.0,
+  start:     175.0,
+  history7d: [170.0, 169.5, 169.0, 168.8, 168.5, 168.2, 168.0]
+};
+
+// 6-week fitness curve (~42 days)
+const fitnessLabels = [];
+const now = new Date();
+for (let i = 41; i >= 0; i--) {
+  const d = new Date(now);
+  d.setDate(d.getDate() - i);
+  fitnessLabels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+}
+
+const ctlData = [42,43,44,45,45,46,46,47,47,48,49,49,50,51,51,52,53,53,54,54,55,55,56,57,57,58,58,59,60,60,61,62,63,64,65,65,64,63,62,61,60,59];
+const atlData = [45,43,48,52,44,47,43,50,55,48,51,46,54,58,50,53,47,55,60,52,56,50,57,62,54,58,52,60,65,57,70,72,68,65,62,58,52,48,45,42,40,38];
+const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
+
+/* ══════════════════════════════════════════════
+   Race Countdown
+   ══════════════════════════════════════════════ */
+(function initCountdown() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diff = Math.ceil((RACE_DATE - today) / (1000 * 60 * 60 * 24));
+  document.getElementById('countdown-days').textContent = diff > 0 ? diff : '—';
+  document.getElementById('race-name').textContent = RACE_NAME;
+  document.getElementById('race-meta').textContent = RACE_LOCATION;
+})();
+
+/* ══════════════════════════════════════════════
+   Weekly Session Bars
+   ══════════════════════════════════════════════ */
+(function initWeeklyBars() {
+  const container = document.getElementById('weekly-bars');
+  const max = Math.max(...weeklyMiles, 1);
+  const colors = [
+    'var(--accent-purple)', 'var(--accent-blue)', 'var(--accent-blue)',
+    'var(--border-accent)', 'var(--accent-orange)', 'var(--accent-purple)',
+    'var(--border-accent)'
+  ];
+
+  weeklyMiles.forEach((miles, i) => {
+    const heightPct = (miles / max) * 100;
+    const dayEl = document.createElement('div');
+    dayEl.className = 'session-day';
+    dayEl.innerHTML = `
+      <div class="session-bar-wrap">
+        <div class="session-bar" style="height:${heightPct}%;background:${colors[i]};opacity:${miles > 0 ? 1 : 0.15};" title="${miles > 0 ? miles + ' mi' : 'Rest'}"></div>
+      </div>
+      <span class="session-day-label">${weekDays[i]}</span>
+    `;
+    container.appendChild(dayEl);
+  });
+})();
+
+/* ══════════════════════════════════════════════
+   Pass 1: Strain Sparkline (SVG bars)
+   ══════════════════════════════════════════════ */
+(function initStrainSparkline() {
+  const svg = document.getElementById('strain-sparkline');
+  const daysEl = document.getElementById('strain-days');
+  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const W = 200, H = 34, MAX = 21;
+  const barW = 22, gap = (W - barW * 7) / 6;
+
+  strain7d.forEach((v, i) => {
+    const barH = Math.max((v / MAX) * H, 3);
+    const x = i * (barW + gap);
+    const y = H - barH;
+    // Color by zone
+    const color = v >= 18 ? '#f87171' : v >= 14 ? '#fb923c' : v >= 8 ? '#60a5fa' : '#34d399';
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', barW);
+    rect.setAttribute('height', barH);
+    rect.setAttribute('rx', '3');
+    rect.setAttribute('fill', color);
+    rect.setAttribute('opacity', '0.85');
+    svg.appendChild(rect);
+
+    const lbl = document.createElement('span');
+    lbl.className = 'sparkline-day-lbl';
+    lbl.textContent = days[i];
+    daysEl.appendChild(lbl);
+  });
+
+  // Latest value badge
+  const latest = strain7d[strain7d.length - 1];
+  const latestColor = latest >= 18 ? 'var(--accent-red)' : latest >= 14 ? 'var(--accent-orange)' : 'var(--accent-blue)';
+  const el = document.getElementById('strain-latest');
+  el.innerHTML = `<span style="color:${latestColor};font-size:0.85rem;font-weight:700;">${latest.toFixed(1)}</span> <span style="font-size:0.6rem;font-weight:400;color:var(--text-muted);">/ 21 today</span>`;
+})();
+
+/* ══════════════════════════════════════════════
+   Pass 1: Weight Progress Bar
+   ══════════════════════════════════════════════ */
+(function initWeightCard() {
+  const { current, goal, start } = weightData;
+  const pct = Math.round(((start - current) / (start - goal)) * 100);
+  document.getElementById('weight-bar').style.width = pct + '%';
+})();
+
+/* ══════════════════════════════════════════════
+   Pass 1: Weight Sparkline (SVG line)
+   ══════════════════════════════════════════════ */
+(function initWeightSparkline() {
+  const svg = document.getElementById('weight-sparkline');
+  const daysEl = document.getElementById('weight-days');
+  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const data = weightData.history7d;
+  const W = 200, H = 34;
+  const n = data.length;
+  const minV = Math.min(...data) - 0.3;
+  const maxV = Math.max(...data) + 0.3;
+  const range = maxV - minV || 1;
+
+  const pts = data.map((v, i) => {
+    const x = (i / (n - 1)) * W;
+    const y = H - ((v - minV) / range) * (H - 6) - 2;
+    return `${x},${y}`;
+  });
+
+  // Area fill
+  const area = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+  const areaFill = `0,${H} ` + pts.join(' ') + ` ${W},${H}`;
+  const fillPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+  fillPoly.setAttribute('points', areaFill);
+  fillPoly.setAttribute('fill', 'rgba(167,139,250,0.12)');
+  svg.appendChild(fillPoly);
+
+  // Line
+  const line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+  line.setAttribute('points', pts.join(' '));
+  line.setAttribute('fill', 'none');
+  line.setAttribute('stroke', '#a78bfa');
+  line.setAttribute('stroke-width', '2');
+  line.setAttribute('stroke-linejoin', 'round');
+  line.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(line);
+
+  // End dot
+  const lastPt = pts[pts.length - 1].split(',');
+  const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  dot.setAttribute('cx', lastPt[0]);
+  dot.setAttribute('cy', lastPt[1]);
+  dot.setAttribute('r', '3');
+  dot.setAttribute('fill', '#a78bfa');
+  svg.appendChild(dot);
+
+  // Day labels
+  days.forEach(d => {
+    const lbl = document.createElement('span');
+    lbl.className = 'sparkline-day-lbl';
+    lbl.textContent = d;
+    daysEl.appendChild(lbl);
+  });
+})();
+
+/* ══════════════════════════════════════════════
+   Recovery Mini Trend Bars
+   ══════════════════════════════════════════════ */
+function renderMiniTrend(containerId, data, color) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  data.forEach(v => {
+    const pct = ((v - min) / range) * 100;
+    const bar = document.createElement('div');
+    bar.className = 'trend-bar';
+    bar.style.cssText = `flex:1;height:${Math.max(pct,12)}%;background:${color};opacity:${0.35 + (pct/100)*0.65};`;
+    el.appendChild(bar);
+  });
+}
+
+renderMiniTrend('hrv-mini',   recoveryData.hrv,      'var(--accent-green)');
+renderMiniTrend('rhr-mini',   recoveryData.rhr,      'var(--accent-blue)');
+renderMiniTrend('sleep-mini', recoveryData.sleep,    'var(--accent-purple)');
+renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
+
+/* ══════════════════════════════════════════════
+   HRV 7-day Bar Breakdown
+   ══════════════════════════════════════════════ */
+(function initHrvBars() {
+  const container = document.getElementById('hrv-bars');
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const data = recoveryData.hrv;
+  const MAX_HRV = 80;
+
+  data.forEach((v, i) => {
+    const pct = (v / MAX_HRV) * 100;
+    const color = v >= 65 ? 'var(--accent-green)' : v >= 55 ? 'var(--accent-orange)' : 'var(--accent-red)';
+    const row = document.createElement('div');
+    row.className = 'hrv-day-row';
+    row.innerHTML = `
+      <span class="hrv-day-label">${days[i]}</span>
+      <div class="hrv-bar-track">
+        <div class="hrv-bar-fill" style="width:${pct}%;background:${color};"></div>
+      </div>
+      <span class="hrv-value">${v}</span>
+    `;
+    container.appendChild(row);
+  });
+})();
+
+/* ══════════════════════════════════════════════
+   Pass 1: TSB Status Annotation
+   ══════════════════════════════════════════════ */
+(function initTsbStatus() {
+  const tsb = tsbData[tsbData.length - 1];
+  let zone, zoneColor, desc;
+
+  if      (tsb > 15)  { zone = 'Very Fresh';  zoneColor = '#34d399'; desc = 'Optimal performance window — race ready'; }
+  else if (tsb > 5)   { zone = 'Fresh';        zoneColor = '#60a5fa'; desc = 'Good form — key workouts advisable'; }
+  else if (tsb > -5)  { zone = 'Neutral';      zoneColor = '#a78bfa'; desc = 'Balanced load — steady training'; }
+  else if (tsb > -15) { zone = 'Tired';        zoneColor = '#fb923c'; desc = 'Accumulating fatigue — monitor closely'; }
+  else                { zone = 'Fatigued';     zoneColor = '#f87171'; desc = 'High load — recovery priority'; }
+
+  document.getElementById('tsb-current-val').textContent = (tsb > 0 ? '+' : '') + tsb;
+  document.getElementById('tsb-current-val').style.color = zoneColor;
+
+  const zoneLbl = document.getElementById('tsb-zone-label');
+  zoneLbl.textContent = zone;
+  zoneLbl.style.cssText = `color:${zoneColor};background:${zoneColor}22;border:1px solid ${zoneColor}44;`;
+
+  document.getElementById('tsb-zone-desc').textContent = desc;
+})();
+
+/* ══════════════════════════════════════════════
+   Fitness Curve Chart (Chart.js)
+   ══════════════════════════════════════════════ */
+(function initFitnessChart() {
+  const ctx = document.getElementById('fitnessChart').getContext('2d');
+
+  const ctlGrad = ctx.createLinearGradient(0, 0, 0, 220);
+  ctlGrad.addColorStop(0, 'rgba(96,165,250,0.22)');
+  ctlGrad.addColorStop(1, 'rgba(96,165,250,0.0)');
+
+  const atlGrad = ctx.createLinearGradient(0, 0, 0, 220);
+  atlGrad.addColorStop(0, 'rgba(251,146,60,0.22)');
+  atlGrad.addColorStop(1, 'rgba(251,146,60,0.0)');
+
+  const sparseLabels = fitnessLabels.map((l, i) =>
+    (i % 7 === 0 || i === fitnessLabels.length - 1) ? l : ''
+  );
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: sparseLabels,
+      datasets: [
+        {
+          label: 'CTL (Fitness)',
+          data: ctlData,
+          borderColor: '#60a5fa',
+          backgroundColor: ctlGrad,
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#60a5fa',
+          fill: true,
+          tension: 0.4,
+        },
+        {
+          label: 'ATL (Fatigue)',
+          data: atlData,
+          borderColor: '#fb923c',
+          backgroundColor: atlGrad,
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#fb923c',
+          fill: true,
+          tension: 0.4,
+        },
+        {
+          label: 'TSB (Form)',
+          data: tsbData,
+          borderColor: '#34d399',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [4, 3],
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#34d399',
+          fill: false,
+          tension: 0.4,
+          yAxisID: 'y2',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1f2e',
+          borderColor: '#2a3040',
+          borderWidth: 1,
+          titleColor: '#94a3b8',
+          bodyColor: '#e2e8f0',
+          padding: 10,
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(42,48,64,0.5)', drawBorder: false },
+          ticks: { color: '#94a3b8', font: { size: 11, family: 'Inter' }, maxRotation: 0 }
+        },
+        y: {
+          position: 'left',
+          grid: { color: 'rgba(42,48,64,0.5)', drawBorder: false },
+          ticks: { color: '#94a3b8', font: { size: 11, family: 'Inter' } },
+          title: { display: true, text: 'Load', color: '#64748b', font: { size: 10, family: 'Inter' } }
+        },
+        y2: {
+          position: 'right',
+          grid: { display: false },
+          ticks: { color: '#34d399', font: { size: 11, family: 'Inter' } },
+          title: { display: true, text: 'TSB', color: '#34d399', font: { size: 10, family: 'Inter' } }
+        }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

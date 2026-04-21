@@ -3,23 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whoop Auth Callback</title>
+  <title>Connecting Whoop…</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 500px; margin: 100px auto; padding: 0 24px; text-align: center; color: #1a1a2e; }
-    h1 { font-size: 1.5rem; color: #5b21b6; }
-    p { color: #666; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #080c18;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #161d2e;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px 48px;
+      text-align: center;
+      max-width: 440px;
+      width: 90%;
+    }
+    .icon { font-size: 48px; margin-bottom: 20px; }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid rgba(99,102,241,0.2);
+      border-top-color: #6d28d9;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 20px auto 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .success { color: #10b981; }
+    .error { color: #ef4444; }
+    .code-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-family: monospace;
+      color: #94a3b8;
+      margin-top: 16px;
+      word-break: break-all;
+      text-align: left;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #6d28d9, #2563eb);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
   </style>
 </head>
 <body>
-  <h1>✓ Authorization Complete</h1>
-  <p>You have successfully authorized WHOOP. You may close this tab.</p>
-  <script>
-    // Capture the authorization code from the URL if present
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    if (code) {
-      document.querySelector("p").textContent = "Authorization code received. You may close this tab.";
+<div class="card" id="card">
+  <div class="icon">⏳</div>
+  <h1>Connecting Whoop…</h1>
+  <p>Exchanging authorization code for access tokens.</p>
+  <div class="spinner"></div>
+</div>
+
+<script>
+const CLIENT_ID = '6f7cd1d9-ce7d-4d3c-bf83-1a144c324b0d';
+const CLIENT_SECRET = 'WHOOP_CLIENT_SECRET_HERE'; // fill in before use
+const REDIRECT_URI = 'https://theinneslife.github.io/todo-dashboard/whoop-callback.html';
+const TOKEN_ENDPOINT = 'https://api.prod.whoop.com/oauth/oauth2/token';
+
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+const error = params.get('error');
+const state = params.get('state');
+
+function showResult(success, title, body, extra) {
+  const card = document.getElementById('card');
+  card.innerHTML = `
+    <div class="icon">${success ? '✅' : '❌'}</div>
+    <h1 class="${success ? 'success' : 'error'}">${title}</h1>
+    <p>${body}</p>
+    ${extra || ''}
+    ${success ? '<a class="btn" href="athleteflo.html">Open AthleteFlo →</a>' : ''}
+  `;
+}
+
+async function exchangeCode(code) {
+  // If client secret is a placeholder, just save the code and show success
+  if (CLIENT_SECRET === 'WHOOP_CLIENT_SECRET_HERE') {
+    // Save code to localStorage for manual exchange
+    localStorage.setItem('whoop_auth_code', code);
+    localStorage.setItem('whoop_auth_state', state || '');
+    localStorage.setItem('whoop_auth_ts', Date.now().toString());
+    showResult(true, 'Authorization Code Captured!',
+      'Whoop authorized successfully. The authorization code has been saved.',
+      `<div class="code-box"><strong>Code:</strong> ${code}</div>
+       <div class="code-box" style="margin-top:8px;"><strong>Note:</strong> Client secret needed to complete token exchange. Code saved to localStorage as <code>whoop_auth_code</code>.</div>`
+    );
+    return;
+  }
+
+  try {
+    const body = new URLSearchParams({
+      grant_type: 'authorization_code',
+      code: code,
+      redirect_uri: REDIRECT_URI,
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET
+    });
+
+    const resp = await fetch(TOKEN_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      showResult(false, 'Token Exchange Failed', `Status ${resp.status}: ${err}`);
+      return;
     }
-  </script>
+
+    const tokens = await resp.json();
+    localStorage.setItem('whoop_access_token', tokens.access_token);
+    localStorage.setItem('whoop_refresh_token', tokens.refresh_token || '');
+    localStorage.setItem('whoop_token_expiry', (Date.now() + (tokens.expires_in || 3600) * 1000).toString());
+
+    showResult(true, 'Whoop Connected!',
+      'Access token saved. Redirecting to AthleteFlo…',
+      ``
+    );
+    setTimeout(() => { window.location.href = 'athleteflo.html'; }, 2000);
+
+  } catch (e) {
+    showResult(false, 'Connection Error', e.message || 'Unknown error during token exchange.');
+  }
+}
+
+if (error) {
+  showResult(false, 'Authorization Failed',
+    `Whoop returned: <strong>${error}</strong> — ${params.get('error_description') || ''}`,
+    `<div class="code-box">Hint: ${params.get('error_hint') || 'Check developer portal settings.'}</div>`
+  );
+} else if (code) {
+  exchangeCode(code);
+} else {
+  showResult(false, 'No Code Received', 'The callback URL did not include an authorization code. Try the OAuth flow again.');
+}
+</script>
 </body>
 </html>

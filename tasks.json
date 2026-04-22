@@ -430,7 +430,7 @@
     "title": "Review Zeta-Mountain collaboration opportunities and follow up with next steps",
     "description": "From Connected TV Partnership Meeting on Apr 20. Review potential collaboration opportunities between Zeta and Mountain (e.g., attribution solutions and show-level TV buying) and follow up with Mark with next steps.",
     "priority": 1,
-    "status": "todo",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai",
@@ -446,10 +446,16 @@
         "action": "created",
         "by": "System",
         "details": "Task created from Otter.ai meeting summary (Connected TV Partnership Meeting, Apr 20 2026)"
+      },
+      {
+        "timestamp": "2026-04-22T18:34:54.925Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-21T20:25:00.000Z",
-    "completed_at": null,
+    "completed_at": "2026-04-22T18:34:54.925Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

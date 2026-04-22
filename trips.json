@@ -330,7 +330,7 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-05-02",
+        "start": "2026-04-30",
         "end": "2026-05-02"
       },
       "status": "upcoming",
@@ -360,12 +360,12 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Flightnetwork",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "airline": "Luftansa",
+          "number": "76XWTD",
+          "depAirport": "LAX",
+          "arrAirport": "JNB",
+          "depTime": "2026-04-30T15:05",
+          "arrTime": "2026-05-02T08:05"
         }
       ],
       "accommodation": null,

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AthleteFlo — Training Dashboard</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%23fb923c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 31 C9 27 7 20 11 16 C11 20 13 22 13 22 C13 17 15 13 18 10 C18 15 20 17 21 20 C23 16 22 13 22 13 C26 17 25 24 23 28 C21 30 19 31 16 31Z' fill='%23fff' opacity='.9'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ea580c'/%3E%3Cstop offset='100%25' stop-color='%23fb923c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 31 C9 27 7 20 11 16 C11 20 13 22 13 22 C13 17 15 13 18 10 C18 15 20 17 21 20 C23 16 22 13 22 13 C26 17 25 24 23 28 C21 30 19 31 16 31Z' fill='%23fff' opacity='.9'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <style>
@@ -926,6 +926,165 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
     /* ============================================
+       Periodization badge
+       ============================================ */
+    .period-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.625rem;
+      padding: 0.3rem 0.65rem;
+      background: rgba(251,146,60,0.1);
+      border: 1px solid rgba(251,146,60,0.25);
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent-orange);
+    }
+    .period-badge .period-phase {
+      color: var(--text-muted);
+      font-weight: 500;
+      padding-left: 0.35rem;
+      border-left: 1px solid rgba(251,146,60,0.3);
+    }
+
+    /* ============================================
+       Analytics row
+       ============================================ */
+    .analytics-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ============================================
+       Vert Gain Tracker
+       ============================================ */
+    .vert-actual {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--accent-blue);
+    }
+    .vert-unit {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 0.1rem;
+    }
+    .vert-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .vert-track {
+      height: 10px;
+      background: var(--bg-tertiary);
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 0.625rem 0 0.25rem;
+      position: relative;
+    }
+    .vert-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+      max-width: 100%;
+      transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .vert-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .cumulative-vert {
+      margin-top: 0.5rem;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .cumulative-vert strong {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .b2b-stat-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .b2b-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent-orange);
+      letter-spacing: -0.03em;
+    }
+    .b2b-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ============================================
+       HRV Quick Entry
+       ============================================ */
+    .hrv-entry-section {
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hrv-entry-row {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+    .hrv-entry-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.5rem;
+      min-width: 0;
+      transition: border-color 0.2s;
+      -moz-appearance: textfield;
+    }
+    .hrv-entry-input::-webkit-outer-spin-button,
+    .hrv-entry-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .hrv-entry-input:focus { outline: none; border-color: var(--border-accent); }
+    .hrv-entry-input::placeholder { color: var(--text-muted); font-size: 0.7rem; }
+    .hrv-log-btn {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.35);
+      color: var(--accent-purple);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .hrv-log-btn:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.5); }
+    .hrv-entry-confirm {
+      font-size: 0.65rem;
+      color: var(--accent-green);
+      margin-top: 0.25rem;
+      min-height: 1em;
+      font-weight: 500;
+    }
+
+    /* ============================================
        Responsive
        ============================================ */
     @media (max-width: 1100px) {
@@ -938,6 +1097,7 @@
     @media (max-width: 900px) {
       .top-row { grid-template-columns: 1fr 1fr; }
       .coach-card { grid-column: 1 / -1; }
+      .analytics-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -956,105 +1116,6 @@
       .training-grid { grid-template-columns: 1fr; }
       .recovery-grid { grid-template-columns: 1fr; }
     }
-
-    /* ============================================
-       Activity Feed
-       ============================================ */
-    .activity-feed-card {
-      grid-column: 1 / -1;
-      margin-top: 0;
-    }
-
-    .activity-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.5rem;
-    }
-
-    .activity-table th {
-      font-size: 0.6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      padding: 0 0.5rem 0.5rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .activity-table th:not(:first-child) { text-align: right; }
-
-    .activity-table td {
-      padding: 0.55rem 0.5rem;
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-      border-bottom: 1px solid rgba(42,48,64,0.5);
-      vertical-align: middle;
-    }
-
-    .activity-table tr:last-child td { border-bottom: none; }
-
-    .activity-table tr:hover td { background: rgba(255,255,255,0.025); }
-
-    .activity-date { color: var(--text-muted); font-size: 0.65rem; white-space: nowrap; }
-
-    .activity-name { color: var(--text-primary); font-weight: 600; }
-
-    .activity-type-badge {
-      display: inline-block;
-      padding: 0.15rem 0.45rem;
-      border-radius: 20px;
-      font-size: 0.58rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .badge-run  { background: rgba(96,165,250,0.15); color: var(--accent-blue); }
-    .badge-ride { background: rgba(251,146,60,0.15); color: var(--accent-orange); }
-
-    .activity-num { text-align: right; font-variant-numeric: tabular-nums; }
-    .activity-num strong { color: var(--text-primary); font-weight: 600; }
-    .activity-unit { font-size: 0.6rem; color: var(--text-muted); margin-left: 0.15rem; }
-
-    .weight-log-row {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.65rem;
-      align-items: center;
-    }
-
-    .weight-log-input {
-      flex: 1;
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-size: 0.8rem;
-      padding: 0.45rem 0.65rem;
-      outline: none;
-      font-family: inherit;
-      transition: border-color 0.2s;
-      -moz-appearance: textfield;
-    }
-    .weight-log-input::-webkit-inner-spin-button,
-    .weight-log-input::-webkit-outer-spin-button { -webkit-appearance: none; }
-    .weight-log-input:focus { border-color: var(--accent-purple); }
-    .weight-log-input::placeholder { color: var(--text-muted); }
-
-    .weight-log-btn {
-      background: linear-gradient(135deg, #7c3aed, #a78bfa);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.45rem 1rem;
-      cursor: pointer;
-      font-family: inherit;
-      transition: opacity 0.15s;
-    }
-    .weight-log-btn:hover { opacity: 0.85; }
-    .weight-log-btn:active { opacity: 0.7; }
   </style>
 </head>
 <body>
@@ -1067,18 +1128,14 @@
         <svg viewBox="0 0 200 40" height="36" style="vertical-align:middle">
           <defs>
             <linearGradient id="af-g" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#7c3aed"/>
-              <stop offset="100%" stop-color="#a78bfa"/>
-            </linearGradient>
-            <linearGradient id="af-orange" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#f97316"/>
+              <stop offset="0%" stop-color="#ea580c"/>
               <stop offset="100%" stop-color="#fb923c"/>
             </linearGradient>
           </defs>
-          <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af-orange)"/>
+          <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af-g)"/>
           <path d="M16 31 C9 27 7 20 11 16 C11 20 13 22 13 22 C13 17 15 13 18 10 C18 15 20 17 21 20 C23 16 22 13 22 13 C26 17 25 24 23 28 C21 30 19 31 16 31Z" fill="#fff" opacity=".9"/>
           <text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Athlete</text>
-          <text x="112" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-orange)">Flo</text>
+          <text x="112" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-g)">Flo</text>
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
@@ -1112,6 +1169,10 @@
         <div class="countdown-label">days out</div>
         <div class="race-name" id="race-name">Upcoming Race</div>
         <div class="race-meta" id="race-meta">Date &amp; location TBD</div>
+        <div class="period-badge">
+          <span id="period-week-label">Week — of 22</span>
+          <span class="period-phase" id="period-phase">Base</span>
+        </div>
       </div>
 
       <!-- Weekly Check-in -->
@@ -1143,19 +1204,19 @@
         </div>
       </div>
 
-      <!-- Coach Recommendations (AI-generated daily briefing) -->
-      <div class="card coach-card" id="coach-card">
+      <!-- Coach Notes -->
+      <div class="card coach-card">
         <div class="card-header">
-          <span class="card-title">Coach Recommendations</span>
-          <span class="card-badge badge-blue" id="coach-date-badge">Loading...</span>
+          <span class="card-title">Coach Notes</span>
+          <span class="card-badge badge-blue">April 18, 2026</span>
         </div>
-        <div id="coach-recs-list">
-          <p class="coach-note" style="color:var(--text-muted);font-style:italic;">Loading today's briefing...</p>
-        </div>
+        <p class="coach-note">
+          Great effort on Saturday's long run — held pace through mile 18 which is exactly where we need you mentally. This week is a down week. Keep Tuesday's track session to 6×800 at goal HM pace, nothing faster. Sleep and nutrition are your PRs right now. Let's keep HRV above 65 heading into the peak block.
+        </p>
         <div class="coach-meta">
-          <div class="coach-avatar" style="background:linear-gradient(135deg,#f97316,#fb923c);">AF</div>
-          <span class="coach-name">AthleteFlo Coach</span>
-          <span class="coach-date" id="coach-gen-time"></span>
+          <div class="coach-avatar">EC</div>
+          <span class="coach-name">Coach Eric</span>
+          <span class="coach-date">via TrainingPeaks</span>
         </div>
       </div>
 
@@ -1168,14 +1229,7 @@
       <div class="card">
         <div class="card-header">
           <span class="card-title">This Week's Training</span>
-          <div style="display:flex;gap:0.5rem;align-items:center;">
-            <span class="card-badge" id="phase-label" style="background:rgba(249,115,22,0.15);color:#f97316;">Base Building</span>
-            <span class="card-badge badge-orange">Apr 14–20</span>
-          </div>
-        </div>
-        <!-- Back-to-back run detection -->
-        <div id="btb-alert" style="display:none;margin:0.5rem 0 0.75rem;padding:0.5rem 0.75rem;background:rgba(251,146,60,0.12);border:1px solid rgba(249,115,22,0.3);border-radius:8px;font-size:0.78rem;color:#fb923c;">
-          ⚡ Back-to-back runs detected this week — monitor fatigue and prioritize sleep tonight.
+          <span class="card-badge badge-orange">Apr 14–20</span>
         </div>
         <div class="training-grid">
 
@@ -1213,18 +1267,6 @@
 
         </div>
 
-        <!-- Vertical Gain Tracker -->
-        <div style="margin:0.875rem 0 0.5rem;padding:0.75rem;background:var(--bg-tertiary);border-radius:10px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-            <span style="font-size:0.78rem;font-weight:600;color:var(--text-secondary);">Weekly Vert</span>
-            <span style="font-size:0.78rem;color:var(--accent-blue);" id="vert-label">3,800 ft / 4,500 ft goal</span>
-          </div>
-          <div style="background:var(--bg-secondary);border-radius:4px;height:6px;overflow:hidden;">
-            <div id="vert-bar" style="height:6px;border-radius:4px;background:linear-gradient(90deg,#3b82f6,#60a5fa);width:84%;transition:width 0.6s ease;"></div>
-          </div>
-          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.35rem;">84% of weekly target · +420 ft vs last week</div>
-        </div>
-
         <!-- Day-by-day mini bar chart -->
         <div class="session-day-row" id="weekly-bars"></div>
 
@@ -1248,12 +1290,6 @@
 
         <div class="body-hero" id="weight-hero">168<span class="body-hero-unit">lbs</span></div>
         <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">162 lbs</strong></div>
-
-        <!-- Weight log input -->
-        <div class="weight-log-row">
-          <input id="weight-input" class="weight-log-input" type="number" step="0.1" min="100" max="400" placeholder="e.g. 167.5">
-          <button class="weight-log-btn" onclick="logWeight()">Log</button>
-        </div>
 
         <!-- Progress bar: start → current → goal -->
         <div class="weight-progress">
@@ -1303,6 +1339,18 @@
           <span class="card-badge badge-green">Good</span>
         </div>
 
+        <!-- HRV Quick Entry -->
+        <div class="hrv-entry-section">
+          <div class="streak-label">Log Today</div>
+          <div class="hrv-entry-row">
+            <input class="hrv-entry-input" type="number" id="entry-hrv" placeholder="HRV ms" min="0" max="250">
+            <input class="hrv-entry-input" type="number" id="entry-rhr" placeholder="RHR bpm" min="30" max="120">
+            <input class="hrv-entry-input" type="number" id="entry-sleep" placeholder="Sleep hrs" min="0" max="15" step="0.5">
+            <button class="hrv-log-btn" onclick="logRecovery()">Log</button>
+          </div>
+          <div class="hrv-entry-confirm" id="hrv-entry-confirm"></div>
+        </div>
+
         <div class="recovery-grid">
 
           <div class="recovery-metric" style="--metric-accent: var(--accent-green);">
@@ -1339,15 +1387,6 @@
 
         </div>
 
-        <!-- Manual HRV Quick Entry -->
-        <div style="display:flex;gap:0.5rem;align-items:center;margin-top:0.625rem;padding:0.5rem 0.75rem;background:var(--bg-tertiary);border-radius:8px;">
-          <span style="font-size:0.78rem;color:var(--text-secondary);white-space:nowrap;">Log HRV:</span>
-          <input id="hrv-input" type="number" min="20" max="120" step="1" placeholder="e.g. 68"
-            style="width:72px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.5rem;color:var(--text-primary);font-size:0.82rem;outline:none;">
-          <button onclick="logHRV()" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border:none;border-radius:6px;padding:0.3rem 0.7rem;font-size:0.78rem;font-weight:600;cursor:pointer;">Log</button>
-          <span id="hrv-log-msg" style="font-size:0.75rem;color:var(--accent-green);"></span>
-        </div>
-
         <!-- HRV 7-day breakdown -->
         <div class="hrv-trend-wrap">
           <div class="streak-label" style="margin-bottom: 0.45rem;">HRV — last 7 days</div>
@@ -1357,20 +1396,42 @@
 
     </div>
 
-    <!-- ── Long Run Progression Row ── -->
-    <div class="bottom-row" style="margin-bottom:1rem;">
+    <!-- ── Analytics Row: Vert Gain + Long Run Progression ── -->
+    <div class="analytics-row">
+
+      <!-- Weekly Vert Gain + B2B -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Weekly Vert Gain</span>
+          <span class="card-badge badge-blue" id="vert-pct-badge">0%</span>
+        </div>
+        <div class="vert-actual" id="vert-actual">0<span class="vert-unit">ft</span></div>
+        <div class="vert-sub" id="vert-sub">of 500 ft weekly target</div>
+        <div class="vert-track">
+          <div class="vert-fill" id="vert-fill" style="width:0%"></div>
+        </div>
+        <div class="vert-labels">
+          <span>0</span>
+          <span id="vert-target-lbl">500 ft target</span>
+        </div>
+        <div class="cumulative-vert">Cumulative this block: <strong id="vert-cumulative">0 ft</strong></div>
+        <div class="b2b-stat-row">
+          <span class="b2b-number" id="b2b-count">0</span>
+          <span class="b2b-label">B2B days this block</span>
+        </div>
+      </div>
+
+      <!-- Long Run Progression -->
       <div class="card">
         <div class="card-header">
           <span class="card-title">Long Run Progression</span>
-          <span class="card-badge badge-purple">8 weeks</span>
+          <span class="card-badge badge-purple">Weekly peak distance</span>
         </div>
-        <div class="chart-wrap" style="height:160px;">
+        <div class="chart-wrap" style="height:180px;">
           <canvas id="longRunChart"></canvas>
         </div>
-        <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;text-align:center;">
-          Peak long run: <strong style="color:var(--accent-purple);">18 mi</strong> · Target by race week: 22 mi
-        </div>
       </div>
+
     </div>
 
     <!-- ── Bottom Row: Fitness Curve ── -->
@@ -1412,121 +1473,6 @@
       </div>
     </div>
 
-
-    <!-- ── Activity Feed (real Strava data) ── -->
-    <div class="bottom-row" style="margin-top:1.5rem;">
-      <div class="card activity-feed-card">
-        <div class="card-header">
-          <span class="card-title">Recent Activity</span>
-          <span class="card-badge badge-green">Strava Live</span>
-        </div>
-        <table class="activity-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Activity</th>
-              <th style="text-align:left">Type</th>
-              <th>Dist</th>
-              <th>Pace</th>
-              <th>Elev</th>
-              <th>Avg HR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="activity-date">Apr 6</td>
-              <td class="activity-name">Morning Run</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>4.1</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>10:11</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>27</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Apr 5</td>
-              <td class="activity-name">Easy Run with 30 pushups every mile</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>9:46</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>110</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>137</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Apr 1</td>
-              <td class="activity-name">Morning Run</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>10.1</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>10:44</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>118</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 31</td>
-              <td class="activity-name">Morning Run</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>12:17</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>172</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>126</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 26</td>
-              <td class="activity-name">Brick &amp; Push Ups</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>4.1</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>12:44</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>48</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>125</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 26</td>
-              <td class="activity-name">Morning Ride</td>
-              <td><span class="activity-type-badge badge-ride">Ride</span></td>
-              <td class="activity-num"><strong>31.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><span style="color:var(--text-muted)">—</span></td>
-              <td class="activity-num"><strong>330</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>136</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 25</td>
-              <td class="activity-name">Morning Ride</td>
-              <td><span class="activity-type-badge badge-ride">Ride</span></td>
-              <td class="activity-num"><strong>31.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><span style="color:var(--text-muted)">—</span></td>
-              <td class="activity-num"><strong>376</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>135</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 24</td>
-              <td class="activity-name">Repeat of Yesterday</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>14.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>10:08</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>207</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>131</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 23</td>
-              <td class="activity-name">Easy Run</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>14.2</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>10:09</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>149</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>134</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-            <tr>
-              <td class="activity-date">Mar 22</td>
-              <td class="activity-name">Afternoon Run</td>
-              <td><span class="activity-type-badge badge-run">Run</span></td>
-              <td class="activity-num"><strong>2.0</strong><span class="activity-unit">mi</span></td>
-              <td class="activity-num"><strong>9:13</strong><span class="activity-unit">/mi</span></td>
-              <td class="activity-num"><strong>5</strong><span class="activity-unit">ft</span></td>
-              <td class="activity-num"><strong>124</strong><span class="activity-unit">bpm</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </main>
 
   <!-- ═══ FOOTER ═══ -->
@@ -1535,7 +1481,7 @@
       <a class="footer-link" href="index.html">TaskFlo</a>
       <a class="footer-link" href="travelflo.html">TravelFlo</a>
     </div>
-    <span class="footer-note">Live Strava data · Whoop integration coming soon</span>
+    <span class="footer-note">Placeholder data · Strava + Whoop integration coming soon</span>
   </footer>
 
 </div>
@@ -1548,8 +1494,59 @@
    ══════════════════════════════════════════════ */
 
 const RACE_DATE     = new Date('2026-09-18');
-const RACE_NAME     = 'Julian Alps Trail Run 50K';
-const RACE_LOCATION = 'Kranjska Gora, Slovenia · Sep 18, 2026';
+const RACE_NAME     = 'Julian Alps 50K';
+const RACE_LOCATION = 'Julian Alps, Slovenia · Sep 18, 2026';
+const TOTAL_WEEKS   = 22;
+const WEEKLY_VERT_TARGET = 500; // feet
+
+// Training block starts 22 weeks before race day
+const BLOCK_START = (function() {
+  const d = new Date(RACE_DATE);
+  d.setDate(d.getDate() - TOTAL_WEEKS * 7);
+  d.setHours(0, 0, 0, 0);
+  return d;
+})();
+
+// Strava activity feed — date, name, type, dist (mi), elev (ft)
+const stravaActivities = [
+  { date: '2026-04-22', name: 'Easy trail run',        type: 'Run',  dist: 6.2,  elev: 420  },
+  { date: '2026-04-21', name: 'Recovery jog',          type: 'Run',  dist: 4.1,  elev: 180  },
+  { date: '2026-04-20', name: 'Sunday long run',        type: 'Run',  dist: 16.5, elev: 1240 },
+  { date: '2026-04-19', name: 'Trail hike',             type: 'Hike', dist: 3.5,  elev: 520  },
+  { date: '2026-04-18', name: 'Tempo run',              type: 'Run',  dist: 7.8,  elev: 310  },
+  { date: '2026-04-17', name: 'Easy run',               type: 'Run',  dist: 5.0,  elev: 240  },
+  { date: '2026-04-15', name: 'B2B day 2',              type: 'Run',  dist: 12.0, elev: 920  },
+  { date: '2026-04-14', name: 'B2B day 1',              type: 'Run',  dist: 8.5,  elev: 680  },
+  { date: '2026-04-13', name: 'Track session',          type: 'Run',  dist: 6.0,  elev: 120  },
+  { date: '2026-04-11', name: 'Long run',               type: 'Run',  dist: 18.0, elev: 1480 },
+  { date: '2026-04-10', name: 'Easy shakeout',          type: 'Run',  dist: 4.5,  elev: 190  },
+  { date: '2026-04-09', name: 'Tempo',                  type: 'Run',  dist: 7.2,  elev: 280  },
+  { date: '2026-04-07', name: 'Recovery hike',          type: 'Hike', dist: 4.0,  elev: 640  },
+  { date: '2026-04-06', name: 'Sunday long run',        type: 'Run',  dist: 16.0, elev: 1250 },
+  { date: '2026-04-05', name: 'B2B long run',           type: 'Run',  dist: 14.0, elev: 1100 },
+  { date: '2026-04-04', name: 'B2B mountain run',       type: 'Run',  dist: 10.5, elev: 750  },
+  { date: '2026-04-03', name: 'Easy miles',             type: 'Run',  dist: 5.5,  elev: 220  },
+  { date: '2026-04-02', name: 'Track',                  type: 'Run',  dist: 6.0,  elev: 100  },
+  { date: '2026-04-01', name: 'Easy run',               type: 'Run',  dist: 8.0,  elev: 450  },
+  { date: '2026-03-31', name: 'Long run',               type: 'Run',  dist: 15.0, elev: 1100 },
+  { date: '2026-03-29', name: 'Mid-week long',          type: 'Run',  dist: 10.0, elev: 620  },
+  { date: '2026-03-28', name: 'Easy run',               type: 'Run',  dist: 5.0,  elev: 230  },
+  { date: '2026-03-26', name: 'Tempo',                  type: 'Run',  dist: 7.0,  elev: 240  },
+  { date: '2026-03-23', name: 'Long run',               type: 'Run',  dist: 14.0, elev: 980  },
+  { date: '2026-03-22', name: 'Easy run',               type: 'Run',  dist: 5.0,  elev: 200  },
+  { date: '2026-03-21', name: 'Strength vert run',      type: 'Run',  dist: 7.5,  elev: 550  },
+  { date: '2026-03-19', name: 'Easy jog',               type: 'Run',  dist: 4.0,  elev: 150  },
+  { date: '2026-03-17', name: 'Long run',               type: 'Run',  dist: 13.0, elev: 880  },
+  { date: '2026-03-15', name: 'Tempo',                  type: 'Run',  dist: 8.0,  elev: 310  },
+  { date: '2026-03-14', name: 'Easy run',               type: 'Run',  dist: 5.5,  elev: 220  },
+  { date: '2026-03-12', name: 'Easy run',               type: 'Run',  dist: 4.5,  elev: 180  },
+  { date: '2026-03-10', name: 'Long run',               type: 'Run',  dist: 12.0, elev: 760  },
+  { date: '2026-03-08', name: 'Mid-week run',           type: 'Run',  dist: 7.0,  elev: 380  },
+  { date: '2026-03-07', name: 'Easy run',               type: 'Run',  dist: 5.0,  elev: 200  },
+  { date: '2026-03-03', name: 'Long run',               type: 'Run',  dist: 10.5, elev: 640  },
+  { date: '2026-03-01', name: 'Easy run',               type: 'Run',  dist: 5.5,  elev: 220  },
+  { date: '2026-02-28', name: 'Tempo',                  type: 'Run',  dist: 7.0,  elev: 280  },
+];
 
 // Weekly mileage Mon–Sun
 const weeklyMiles = [0, 8, 7, 0, 10, 18, 0];
@@ -1665,53 +1662,6 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
 })();
 
 /* ══════════════════════════════════════════════
-   Weight Logging
-   ══════════════════════════════════════════════ */
-
-(function loadSavedWeight() {
-  const saved = localStorage.getItem('af_weight_current');
-  const savedHistory = localStorage.getItem('af_weight_history');
-  if (saved) {
-    weightData.current = parseFloat(saved);
-    const hero = document.getElementById('weight-hero');
-    if (hero) hero.innerHTML = saved + '<span class="body-hero-unit">lbs</span>';
-  }
-  if (savedHistory) weightData.history7d = JSON.parse(savedHistory);
-})();
-
-function logWeight() {
-  const input = document.getElementById('weight-input');
-  const val = parseFloat(input.value);
-  if (isNaN(val) || val < 50 || val > 500) {
-    input.style.borderColor = '#f87171';
-    setTimeout(() => input.style.borderColor = '', 1000);
-    return;
-  }
-  weightData.current = val;
-  weightData.history7d.push(val);
-  if (weightData.history7d.length > 7) weightData.history7d.shift();
-  localStorage.setItem('af_weight_current', val);
-  localStorage.setItem('af_weight_history', JSON.stringify(weightData.history7d));
-  document.getElementById('weight-hero').innerHTML = val + '<span class="body-hero-unit">lbs</span>';
-  const { goal, start } = weightData;
-  const pct = Math.min(100, Math.max(0, Math.round(((start - val) / (start - goal)) * 100)));
-  document.getElementById('weight-bar').style.width = pct + '%';
-  const lbsLost = (start - val).toFixed(1);
-  const toGoal = (val - goal).toFixed(1);
-  const statNums = document.querySelectorAll('.weight-stat-num');
-  if (statNums[0]) statNums[0].textContent = '\u2212' + lbsLost;
-  if (statNums[1]) statNums[1].textContent = pct + '%';
-  const midLabel = document.querySelector('.weight-bar-labels div:nth-child(2)');
-  if (midLabel) midLabel.textContent = '\u2193 ' + toGoal + ' lbs to go';
-  document.getElementById('weight-sparkline').innerHTML = '';
-  document.getElementById('weight-days').innerHTML = '';
-  initWeightSparkline();
-  input.value = '';
-  input.style.borderColor = '#34d399';
-  setTimeout(() => input.style.borderColor = '', 1200);
-}
-
-/* ══════════════════════════════════════════════
    Pass 1: Weight Progress Bar
    ══════════════════════════════════════════════ */
 (function initWeightCard() {
@@ -1723,7 +1673,7 @@ function logWeight() {
 /* ══════════════════════════════════════════════
    Pass 1: Weight Sparkline (SVG line)
    ══════════════════════════════════════════════ */
-function initWeightSparkline() {
+(function initWeightSparkline() {
   const svg = document.getElementById('weight-sparkline');
   const daysEl = document.getElementById('weight-days');
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -1774,8 +1724,7 @@ function initWeightSparkline() {
     lbl.textContent = d;
     daysEl.appendChild(lbl);
   });
-}
-initWeightSparkline();
+})();
 
 /* ══════════════════════════════════════════════
    Recovery Mini Trend Bars
@@ -1951,135 +1900,229 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
   });
 })();
 
+/* ══════════════════════════════════════════════
+   Periodization Week Label
+   ══════════════════════════════════════════════ */
+(function initPeriodization() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const daysDiff = Math.floor((today - BLOCK_START) / (1000 * 60 * 60 * 24));
+  const weekNum = Math.min(Math.max(Math.floor(daysDiff / 7) + 1, 1), TOTAL_WEEKS);
+
+  let phase;
+  if      (weekNum <= 6)  phase = 'Base';
+  else if (weekNum <= 12) phase = 'Build 1';
+  else if (weekNum <= 17) phase = 'Build 2';
+  else if (weekNum <= 20) phase = 'Peak';
+  else                    phase = 'Taper';
+
+  document.getElementById('period-week-label').textContent = 'Week ' + weekNum + ' of ' + TOTAL_WEEKS;
+  document.getElementById('period-phase').textContent = phase;
+})();
 
 /* ══════════════════════════════════════════════
-   NEW FEATURES v1.2
+   Vertical Gain Tracker
    ══════════════════════════════════════════════ */
-
-// ── Periodization Phase Label ──
-(function setPeriodizationLabel() {
+(function initVertGain() {
   const today = new Date();
-  const raceDate = new Date('2026-09-18');
-  const daysOut = Math.ceil((raceDate - today) / 86400000);
-  let phase = 'Base Building';
-  if (daysOut > 120) phase = 'Base Building';
-  else if (daysOut > 70) phase = 'Build Phase';
-  else if (daysOut > 35) phase = 'Peak Phase';
-  else if (daysOut > 14) phase = 'Taper';
-  else if (daysOut > 0) phase = 'Race Week';
-  else phase = 'Post-Race';
-  const el = document.getElementById('phase-label');
-  if (el) el.textContent = phase;
+  today.setHours(0, 0, 0, 0);
+
+  // Current ISO week: Mon-Sun containing today
+  const dayOfWeek = (today.getDay() + 6) % 7; // 0=Mon
+  const weekStart = new Date(today);
+  weekStart.setDate(today.getDate() - dayOfWeek);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+
+  let weekVert = 0;
+  let totalVert = 0;
+
+  stravaActivities.forEach(a => {
+    const d = new Date(a.date);
+    d.setHours(0, 0, 0, 0);
+    if (d >= BLOCK_START && d <= today) {
+      totalVert += a.elev;
+      if (d >= weekStart && d <= weekEnd) weekVert += a.elev;
+    }
+  });
+
+  const pct = Math.min((weekVert / WEEKLY_VERT_TARGET) * 100, 100);
+  const displayPct = Math.round((weekVert / WEEKLY_VERT_TARGET) * 100);
+
+  document.getElementById('vert-actual').innerHTML =
+    weekVert.toLocaleString() + '<span class="vert-unit">ft</span>';
+  document.getElementById('vert-sub').textContent =
+    'of ' + WEEKLY_VERT_TARGET.toLocaleString() + ' ft weekly target';
+  document.getElementById('vert-fill').style.width = pct + '%';
+  document.getElementById('vert-target-lbl').textContent =
+    WEEKLY_VERT_TARGET.toLocaleString() + ' ft target';
+  document.getElementById('vert-pct-badge').textContent = displayPct + '%';
+  document.getElementById('vert-cumulative').textContent =
+    totalVert.toLocaleString() + ' ft';
 })();
 
-// ── Back-to-Back Run Detection ──
-(function detectBackToBack() {
-  const btb = document.getElementById('btb-alert');
-  if (!btb) return;
-  // Check for consecutive non-zero days in weeklyMiles
-  let hasBackToBack = false;
-  for (let i = 1; i < weeklyMiles.length; i++) {
-    if (weeklyMiles[i] > 0 && weeklyMiles[i-1] > 0) { hasBackToBack = true; break; }
-  }
-  if (hasBackToBack) btb.style.display = 'block';
+/* ══════════════════════════════════════════════
+   Back-to-Back Run Detection (last 14 days)
+   ══════════════════════════════════════════════ */
+(function initB2B() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const cutoff = new Date(today);
+  cutoff.setDate(today.getDate() - 13);
+
+  // Build set of run-day strings in window
+  const runDays = new Set();
+  stravaActivities.forEach(a => {
+    if (a.type === 'Run') {
+      const d = new Date(a.date);
+      d.setHours(0, 0, 0, 0);
+      if (d >= cutoff && d <= today) runDays.add(a.date);
+    }
+  });
+
+  let b2bCount = 0;
+  runDays.forEach(dateStr => {
+    const d = new Date(dateStr);
+    const prev = new Date(d);
+    prev.setDate(d.getDate() - 1);
+    const prevStr = prev.toISOString().slice(0, 10);
+    if (runDays.has(prevStr)) b2bCount++;
+  });
+
+  document.getElementById('b2b-count').textContent = b2bCount;
 })();
 
-// ── Long Run Progression Chart ──
+/* ══════════════════════════════════════════════
+   Long Run Progression Chart
+   ══════════════════════════════════════════════ */
 (function initLongRunChart() {
-  const ctx = document.getElementById('longRunChart');
-  if (!ctx) return;
-  const labels = ['Mar 1','Mar 8','Mar 15','Mar 22','Mar 29','Apr 5','Apr 12','Apr 20'];
-  const longRuns = [12, 13, 14, 12, 15, 16, 17, 18];
+  // Group runs by ISO week (Mon-based), find longest per week
+  const weekMap = {};
+  stravaActivities.forEach(a => {
+    if (a.type !== 'Run') return;
+    const d = new Date(a.date);
+    d.setHours(0, 0, 0, 0);
+    const dayOfWeek = (d.getDay() + 6) % 7;
+    const mon = new Date(d);
+    mon.setDate(d.getDate() - dayOfWeek);
+    const key = mon.toISOString().slice(0, 10);
+    weekMap[key] = Math.max(weekMap[key] || 0, a.dist);
+  });
+
+  const keys   = Object.keys(weekMap).sort();
+  const labels = keys.map(k => {
+    const d = new Date(k);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  });
+  const values = keys.map(k => weekMap[k]);
+
+  const ctx = document.getElementById('longRunChart').getContext('2d');
+  const barGrad = ctx.createLinearGradient(0, 0, 0, 180);
+  barGrad.addColorStop(0, 'rgba(167,139,250,0.85)');
+  barGrad.addColorStop(1, 'rgba(96,165,250,0.5)');
+
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels,
       datasets: [{
         label: 'Long Run (mi)',
-        data: longRuns,
-        borderColor: '#a78bfa',
-        backgroundColor: 'rgba(167,139,250,0.12)',
-        borderWidth: 2,
-        pointBackgroundColor: '#a78bfa',
-        pointRadius: 4,
-        tension: 0.3,
-        fill: true
+        data: values,
+        backgroundColor: barGrad,
+        borderColor: 'rgba(167,139,250,0.9)',
+        borderWidth: 1,
+        borderRadius: 4,
+        borderSkipped: false,
       }]
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: {
-        label: ctx => ctx.raw + ' mi'
-      }}},
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1f2e',
+          borderColor: '#2a3040',
+          borderWidth: 1,
+          titleColor: '#94a3b8',
+          bodyColor: '#e2e8f0',
+          padding: 10,
+          callbacks: { label: c => c.parsed.y + ' mi' }
+        }
+      },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#64748b', font: { size: 10 } }},
-        y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#64748b', font: { size: 10 }, callback: v => v + ' mi' },
-             min: 10, max: 24 }
+        x: {
+          grid: { color: 'rgba(42,48,64,0.4)', drawBorder: false },
+          ticks: { color: '#94a3b8', font: { size: 10, family: 'Inter' }, maxRotation: 45 }
+        },
+        y: {
+          grid: { color: 'rgba(42,48,64,0.4)', drawBorder: false },
+          ticks: { color: '#94a3b8', font: { size: 10, family: 'Inter' },
+                   callback: v => v + ' mi' },
+          min: 0
+        }
       }
     }
   });
 })();
 
-// ── Manual HRV Entry ──
-function logHRV() {
-  const input = document.getElementById('hrv-input');
-  const msg = document.getElementById('hrv-log-msg');
-  const val = parseFloat(input.value);
-  if (!val || val < 20 || val > 120) {
-    if (msg) { msg.textContent = 'Enter 20–120'; msg.style.color = '#f87171'; }
-    return;
-  }
-  // Update displayed HRV
-  const hrvEl = document.querySelector('.recovery-metric-value');
-  if (hrvEl) {
-    const span = hrvEl.querySelector('span');
-    hrvEl.innerHTML = val + (span ? span.outerHTML : '<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> ms</span>');
-  }
-  // Update chart data
-  if (typeof recoveryData !== 'undefined') {
-    recoveryData.hrv[recoveryData.hrv.length - 1] = val;
-  }
-  // Persist
-  try { localStorage.setItem('af_hrv_today', JSON.stringify({ val, date: new Date().toDateString() })); } catch(e){}
-  if (msg) { msg.textContent = '✓ Logged'; msg.style.color = '#34d399'; setTimeout(() => { msg.textContent = ''; }, 3000); }
-  input.value = '';
-}
-
-// ── Coach Briefing JSON Loader ──
-(async function loadCoachBriefing() {
-  const list = document.getElementById('coach-recs-list');
-  const badge = document.getElementById('coach-date-badge');
-  const genTime = document.getElementById('coach-gen-time');
-  if (!list) return;
-  try {
-    const res = await fetch('coach_briefing.json?t=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    // Update date badge
-    if (badge && data.date) {
-      const d = new Date(data.date + 'T12:00:00');
-      badge.textContent = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    }
-    if (genTime && data.generated) {
-      const g = new Date(data.generated);
-      genTime.textContent = 'Generated ' + g.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-    }
-    if (data.recommendations && data.recommendations.length) {
-      list.innerHTML = data.recommendations.map(r =>
-        `<div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.625rem;">
-          <span style="font-size:1.1rem;flex-shrink:0;margin-top:0.05rem;">${r.icon}</span>
-          <div><div style="font-size:0.8rem;font-weight:600;color:var(--text-primary);margin-bottom:0.15rem;">${r.title}</div>
-          <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.55;">${r.text}</div></div>
-        </div>`
-      ).join('');
-    }
-  } catch(e) {
-    // Fallback: show static coaching message
-    list.innerHTML = `<p class="coach-note">Today is a quality training day. Focus on controlled effort, stay hydrated, and trust the process — Julian Alps is 149 days out. <span style="font-size:0.72rem;color:var(--text-muted);">(Run the coach briefing task to get personalized daily recommendations)</span></p>`;
-    if (badge) { const d = new Date(); badge.textContent = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }); }
-  }
+/* ══════════════════════════════════════════════
+   HRV Quick Entry (localStorage)
+   ══════════════════════════════════════════════ */
+(function initHrvEntry() {
+  const saved = JSON.parse(localStorage.getItem('af_recovery_today') || 'null');
+  if (!saved) return;
+  const today = new Date().toISOString().slice(0, 10);
+  if (saved.date !== today) return;
+  applyHrvEntry(saved);
 })();
 
+function applyHrvEntry(data) {
+  // Update HRV tile
+  const hrvVal = document.querySelector('[id="hrv-mini"]')
+    .closest('.recovery-metric').querySelector('.recovery-metric-value');
+  if (data.hrv) {
+    hrvVal.childNodes[0].textContent = data.hrv;
+  }
+  // Update RHR tile
+  const rhrVal = document.querySelector('[id="rhr-mini"]')
+    .closest('.recovery-metric').querySelector('.recovery-metric-value');
+  if (data.rhr) {
+    rhrVal.childNodes[0].textContent = data.rhr;
+  }
+  // Update sleep tile (stored as hours, displayed as %)
+  if (data.sleep) {
+    const sleepVal = document.querySelector('[id="sleep-mini"]')
+      .closest('.recovery-metric').querySelector('.recovery-metric-value');
+    const sleepScore = Math.min(Math.round((data.sleep / 9) * 100), 100);
+    sleepVal.childNodes[0].textContent = sleepScore;
+  }
+}
+
+function logRecovery() {
+  const hrv   = parseFloat(document.getElementById('entry-hrv').value);
+  const rhr   = parseFloat(document.getElementById('entry-rhr').value);
+  const sleep = parseFloat(document.getElementById('entry-sleep').value);
+  const confirm = document.getElementById('hrv-entry-confirm');
+
+  if (!hrv && !rhr && !sleep) {
+    confirm.style.color = 'var(--accent-red)';
+    confirm.textContent = 'Enter at least one value';
+    return;
+  }
+
+  const entry = { date: new Date().toISOString().slice(0, 10), hrv, rhr, sleep };
+  localStorage.setItem('af_recovery_today', JSON.stringify(entry));
+  applyHrvEntry(entry);
+
+  confirm.style.color = 'var(--accent-green)';
+  confirm.textContent = 'Logged';
+  setTimeout(() => { confirm.textContent = ''; }, 2500);
+
+  document.getElementById('entry-hrv').value   = '';
+  document.getElementById('entry-rhr').value   = '';
+  document.getElementById('entry-sleep').value = '';
+}
 </script>
 </body>
 </html>

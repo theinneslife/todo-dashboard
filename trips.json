@@ -444,32 +444,26 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Flightnetwork",
-          "route": "MQP > CPT",
-          "departure": "May 6, 2026 3:10 PM",
-          "arrival": "May 6, 2026 5:50 PM",
-          "confirmation": "1125-931-158",
-          "class": "",
-          "cost": "$472.19 USD",
-          "notes": "",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "airline": "Federal Air",
+          "number": "2031",
+          "depAirport": "JMB",
+          "arrAirport": "Sabi Sands",
+          "depTime": "2026-05-02T11:30",
+          "arrTime": "2026-05-02T15:00"
         },
         {
           "airline": "Flightnetwork",
-          "route": "JNB > CPT",
-          "departure": "May 6, 2026 5:40 PM",
-          "arrival": "May 6, 2026 7:55 PM",
-          "confirmation": "1127-650-787",
-          "class": "",
-          "cost": "$857.72 USD",
-          "notes": "Alternative routing via Johannesburg",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "Singita Boulders Lodge - River Suite",
       "budget": 57639.91,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 4,
       "legs": []
     },

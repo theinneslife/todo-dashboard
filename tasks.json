@@ -498,7 +498,7 @@
     "title": "Follow up with Paramount team on consolidated next steps after product demo",
     "description": "From Product Demo and Strategy Meeting on Apr 20. Hold internal follow-up with the Paramount team (Hugh Williams, Todd Bender) to discuss thoughts on next steps, then brief Mark and the Mountain team with their consolidated response.",
     "priority": 1,
-    "status": "todo",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai",
@@ -514,10 +514,16 @@
         "action": "created",
         "by": "System",
         "details": "Task created from Otter.ai meeting summary (Product Demo and Strategy Meeting, Apr 20 2026)"
+      },
+      {
+        "timestamp": "2026-04-22T18:34:42.760Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-21T20:25:00.000Z",
-    "completed_at": null,
+    "completed_at": "2026-04-22T18:34:42.759Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

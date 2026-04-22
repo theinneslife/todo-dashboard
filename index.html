@@ -2853,7 +2853,7 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
 html[data-theme="dark"] .header-left svg text[fill="#1a1a2e"] { fill: #81C784; }
 
     </style>
-    <script src="https://unpkg.com/lucide@0.263.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js" onerror="var s=document.createElement('script');s.src='https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js';document.head.appendChild(s);"></script>
 </head>
 <body>
 <script>
@@ -6629,7 +6629,7 @@ function updateNavArrows() {
 
         if (pinnedTasks.length === 0) {
             if (empty) { empty.style.display = ''; empty.textContent = 'Star tasks to pin them here.'; }
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             return;
         }
         if (empty) empty.style.display = 'none';
@@ -6669,7 +6669,7 @@ function updateNavArrows() {
                     if (btn) {
                         btn.innerHTML = '<i data-lucide="star" style="width:14px;height:14px;"></i>';
                         btn.className = 'task-pin-btn';
-                        lucide.createIcons();
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
                     }
                 }
                 card.style.opacity = '0';
@@ -6683,7 +6683,7 @@ function updateNavArrows() {
 
             strip.appendChild(card);
         });
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
     </script>

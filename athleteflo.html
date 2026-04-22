@@ -1015,6 +1015,46 @@
     .activity-num { text-align: right; font-variant-numeric: tabular-nums; }
     .activity-num strong { color: var(--text-primary); font-weight: 600; }
     .activity-unit { font-size: 0.6rem; color: var(--text-muted); margin-left: 0.15rem; }
+
+    .weight-log-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+      align-items: center;
+    }
+
+    .weight-log-input {
+      flex: 1;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      padding: 0.45rem 0.65rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      -moz-appearance: textfield;
+    }
+    .weight-log-input::-webkit-inner-spin-button,
+    .weight-log-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+    .weight-log-input:focus { border-color: var(--accent-purple); }
+    .weight-log-input::placeholder { color: var(--text-muted); }
+
+    .weight-log-btn {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.45rem 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .weight-log-btn:hover { opacity: 0.85; }
+    .weight-log-btn:active { opacity: 0.7; }
   </style>
 </head>
 <body>
@@ -1185,6 +1225,12 @@
 
         <div class="body-hero" id="weight-hero">168<span class="body-hero-unit">lbs</span></div>
         <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">162 lbs</strong></div>
+
+        <!-- Weight log input -->
+        <div class="weight-log-row">
+          <input id="weight-input" class="weight-log-input" type="number" step="0.1" min="100" max="400" placeholder="e.g. 167.5">
+          <button class="weight-log-btn" onclick="logWeight()">Log</button>
+        </div>
 
         <!-- Progress bar: start → current → goal -->
         <div class="weight-progress">
@@ -1571,6 +1617,53 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
 })();
 
 /* ══════════════════════════════════════════════
+   Weight Logging
+   ══════════════════════════════════════════════ */
+
+(function loadSavedWeight() {
+  const saved = localStorage.getItem('af_weight_current');
+  const savedHistory = localStorage.getItem('af_weight_history');
+  if (saved) {
+    weightData.current = parseFloat(saved);
+    const hero = document.getElementById('weight-hero');
+    if (hero) hero.innerHTML = saved + '<span class="body-hero-unit">lbs</span>';
+  }
+  if (savedHistory) weightData.history7d = JSON.parse(savedHistory);
+})();
+
+function logWeight() {
+  const input = document.getElementById('weight-input');
+  const val = parseFloat(input.value);
+  if (isNaN(val) || val < 50 || val > 500) {
+    input.style.borderColor = '#f87171';
+    setTimeout(() => input.style.borderColor = '', 1000);
+    return;
+  }
+  weightData.current = val;
+  weightData.history7d.push(val);
+  if (weightData.history7d.length > 7) weightData.history7d.shift();
+  localStorage.setItem('af_weight_current', val);
+  localStorage.setItem('af_weight_history', JSON.stringify(weightData.history7d));
+  document.getElementById('weight-hero').innerHTML = val + '<span class="body-hero-unit">lbs</span>';
+  const { goal, start } = weightData;
+  const pct = Math.min(100, Math.max(0, Math.round(((start - val) / (start - goal)) * 100)));
+  document.getElementById('weight-bar').style.width = pct + '%';
+  const lbsLost = (start - val).toFixed(1);
+  const toGoal = (val - goal).toFixed(1);
+  const statNums = document.querySelectorAll('.weight-stat-num');
+  if (statNums[0]) statNums[0].textContent = '\u2212' + lbsLost;
+  if (statNums[1]) statNums[1].textContent = pct + '%';
+  const midLabel = document.querySelector('.weight-bar-labels div:nth-child(2)');
+  if (midLabel) midLabel.textContent = '\u2193 ' + toGoal + ' lbs to go';
+  document.getElementById('weight-sparkline').innerHTML = '';
+  document.getElementById('weight-days').innerHTML = '';
+  initWeightSparkline();
+  input.value = '';
+  input.style.borderColor = '#34d399';
+  setTimeout(() => input.style.borderColor = '', 1200);
+}
+
+/* ══════════════════════════════════════════════
    Pass 1: Weight Progress Bar
    ══════════════════════════════════════════════ */
 (function initWeightCard() {
@@ -1582,7 +1675,7 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
 /* ══════════════════════════════════════════════
    Pass 1: Weight Sparkline (SVG line)
    ══════════════════════════════════════════════ */
-(function initWeightSparkline() {
+function initWeightSparkline() {
   const svg = document.getElementById('weight-sparkline');
   const daysEl = document.getElementById('weight-days');
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -1633,7 +1726,8 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
     lbl.textContent = d;
     daysEl.appendChild(lbl);
   });
-})();
+}
+initWeightSparkline();
 
 /* ══════════════════════════════════════════════
    Recovery Mini Trend Bars

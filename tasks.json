@@ -279,7 +279,8 @@
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
   },
   {
     "id": "66971ede-992c-4e04-bd0a-9ca89197f3f2",

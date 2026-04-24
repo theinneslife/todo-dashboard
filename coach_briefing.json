@@ -1,0 +1,18 @@
+{
+  "date": "April 24, 2026",
+  "coach_name": "Claude (AI Coach)",
+  "coach_initials": "AI",
+  "source": "via AthleteFlo",
+  "athlete": "Christopher Innes",
+  "goal_race": "Julian Alps 50K",
+  "race_date": "2026-09-18",
+  "current_weight_lbs": 190,
+  "target_weight_lbs": 178,
+  "note": "Huge week behind you — that 27.2-mile long run on April 11 is a genuine block PR and exactly the confidence builder you need heading into the Julian Alps 50K. Your aerobic base is responding. Yesterday's easy 6-miler was perfect execution of the recovery principle: keep the easy days truly easy. Current weight at 190 lbs — on track toward race-day target of 178. Keep prioritizing sleep and nutrition; your HRV tells the story. Next key session: mid-week vert run to maintain climbing legs. 147 days to race day — stay the course.",
+  "key_stats": {
+    "block_long_run_mi": 27.2,
+    "recent_run_date": "2026-04-23",
+    "recent_run_mi": 6.0,
+    "weeks_to_race": 21
+  }
+}

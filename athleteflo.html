@@ -1205,18 +1205,16 @@
       </div>
 
       <!-- Coach Notes -->
-      <div class="card coach-card">
+      <div class="card coach-card" id="coach-card">
         <div class="card-header">
           <span class="card-title">Coach Notes</span>
-          <span class="card-badge badge-blue">April 18, 2026</span>
+          <span class="card-badge badge-blue" id="coach-badge-date">Loading…</span>
         </div>
-        <p class="coach-note">
-          Great effort on Saturday's long run — held pace through mile 18 which is exactly where we need you mentally. This week is a down week. Keep Tuesday's track session to 6×800 at goal HM pace, nothing faster. Sleep and nutrition are your PRs right now. Let's keep HRV above 65 heading into the peak block.
-        </p>
+        <p class="coach-note" id="coach-note-text">Fetching coach feedback…</p>
         <div class="coach-meta">
-          <div class="coach-avatar">EC</div>
-          <span class="coach-name">Coach Eric</span>
-          <span class="coach-date">via TrainingPeaks</span>
+          <div class="coach-avatar" id="coach-avatar-initials">C</div>
+          <span class="coach-name" id="coach-name-display">Coach</span>
+          <span class="coach-date" id="coach-source-display">via AthleteFlo</span>
         </div>
       </div>
 
@@ -1229,29 +1227,29 @@
       <div class="card">
         <div class="card-header">
           <span class="card-title">This Week's Training</span>
-          <span class="card-badge badge-orange">Apr 14–20</span>
+          <span class="card-badge badge-orange">Apr 20–26</span>
         </div>
         <div class="training-grid">
 
           <div class="training-stat" style="--stat-accent: var(--accent-orange);">
             <div class="training-stat-value" style="color: var(--accent-orange);">
-              42<span class="training-stat-unit">mi</span>
+              16.3<span class="training-stat-unit">mi</span>
             </div>
             <div class="training-stat-label">Mileage</div>
-            <div class="training-stat-change change-up">↑ +6 vs last week</div>
+            <div class="training-stat-change change-flat">Week in progress</div>
           </div>
 
           <div class="training-stat" style="--stat-accent: var(--accent-blue);">
             <div class="training-stat-value" style="color: var(--accent-blue);">
-              3.8<span class="training-stat-unit">k ft</span>
+              0.9<span class="training-stat-unit">k ft</span>
             </div>
             <div class="training-stat-label">Elevation</div>
-            <div class="training-stat-change change-up">↑ +420 ft</div>
+            <div class="training-stat-change change-flat">Week in progress</div>
           </div>
 
           <div class="training-stat" style="--stat-accent: var(--accent-purple);">
             <div class="training-stat-value" style="color: var(--accent-purple);">
-              18<span class="training-stat-unit">mi</span>
+              27<span class="training-stat-unit">mi</span>
             </div>
             <div class="training-stat-label">Long Run</div>
             <div class="training-stat-change change-up">↑ PR distance</div>
@@ -1259,10 +1257,10 @@
 
           <div class="training-stat" style="--stat-accent: var(--accent-green);">
             <div class="training-stat-value" style="color: var(--accent-green);">
-              5<span class="training-stat-unit"> ses</span>
+              3<span class="training-stat-unit"> ses</span>
             </div>
             <div class="training-stat-label">Sessions</div>
-            <div class="training-stat-change change-flat">Goal: 5 of 5 ✓</div>
+            <div class="training-stat-change change-flat">3 of 5 · Week in progress</div>
           </div>
 
         </div>
@@ -1288,15 +1286,15 @@
           <span class="card-badge badge-purple">Manual</span>
         </div>
 
-        <div class="body-hero" id="weight-hero">168<span class="body-hero-unit">lbs</span></div>
-        <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">162 lbs</strong></div>
+        <div class="body-hero" id="weight-hero">190<span class="body-hero-unit">lbs</span></div>
+        <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">178 lbs</strong></div>
 
         <!-- Progress bar: start → current → goal -->
         <div class="weight-progress">
           <div class="weight-bar-labels">
-            <div>Start <span>175</span></div>
-            <div style="color:var(--accent-purple);font-weight:600;">↓ 7 lbs to go</div>
-            <div>Goal <span>162</span></div>
+            <div>Start <span>195</span></div>
+            <div style="color:var(--accent-purple);font-weight:600;">↓ 12 lbs to go</div>
+            <div>Goal <span>178</span></div>
           </div>
           <div class="weight-bar-track">
             <div class="weight-bar-fill" id="weight-bar" style="width: 0%;">
@@ -1308,11 +1306,11 @@
         <!-- Stats row -->
         <div class="weight-stats">
           <div class="weight-stat">
-            <div class="weight-stat-num" style="color:var(--accent-orange);">−7.0</div>
+            <div class="weight-stat-num" style="color:var(--accent-orange);">−5.0</div>
             <div class="weight-stat-lbl">lbs lost</div>
           </div>
           <div class="weight-stat">
-            <div class="weight-stat-num" style="color:var(--accent-purple);">54%</div>
+            <div class="weight-stat-num" style="color:var(--accent-purple);">29%</div>
             <div class="weight-stat-lbl">to goal</div>
           </div>
           <div class="weight-stat">
@@ -1509,6 +1507,7 @@ const BLOCK_START = (function() {
 
 // Strava activity feed — date, name, type, dist (mi), elev (ft)
 const stravaActivities = [
+  { date: '2026-04-23', name: 'Easy run',              type: 'Run',  dist: 6.0,  elev: 300  },
   { date: '2026-04-22', name: 'Easy trail run',        type: 'Run',  dist: 6.2,  elev: 420  },
   { date: '2026-04-21', name: 'Recovery jog',          type: 'Run',  dist: 4.1,  elev: 180  },
   { date: '2026-04-20', name: 'Sunday long run',        type: 'Run',  dist: 16.5, elev: 1240 },
@@ -1518,7 +1517,7 @@ const stravaActivities = [
   { date: '2026-04-15', name: 'B2B day 2',              type: 'Run',  dist: 12.0, elev: 920  },
   { date: '2026-04-14', name: 'B2B day 1',              type: 'Run',  dist: 8.5,  elev: 680  },
   { date: '2026-04-13', name: 'Track session',          type: 'Run',  dist: 6.0,  elev: 120  },
-  { date: '2026-04-11', name: 'Long run',               type: 'Run',  dist: 18.0, elev: 1480 },
+  { date: '2026-04-11', name: 'Epic long run',          type: 'Run',  dist: 27.2, elev: 2850 },
   { date: '2026-04-10', name: 'Easy shakeout',          type: 'Run',  dist: 4.5,  elev: 190  },
   { date: '2026-04-09', name: 'Tempo',                  type: 'Run',  dist: 7.2,  elev: 280  },
   { date: '2026-04-07', name: 'Recovery hike',          type: 'Hike', dist: 4.0,  elev: 640  },
@@ -1549,7 +1548,7 @@ const stravaActivities = [
 ];
 
 // Weekly mileage Mon–Sun
-const weeklyMiles = [0, 8, 7, 0, 10, 18, 0];
+const weeklyMiles = [0, 4.1, 6.2, 6.0, 0, 0, 0];
 const weekDays    = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
 // Recovery 7-day data
@@ -1565,10 +1564,10 @@ const strain7d = [14.2, 18.5, 8.1, 16.3, 10.4, 19.8, 11.2];
 
 // Pass 1: weight data
 const weightData = {
-  current:   168.0,
-  goal:      162.0,
-  start:     175.0,
-  history7d: [170.0, 169.5, 169.0, 168.8, 168.5, 168.2, 168.0]
+  current:   190.0,
+  goal:      178.0,
+  start:     195.0,
+  history7d: [192.0, 191.5, 191.2, 191.0, 190.8, 190.4, 190.0]
 };
 
 // 6-week fitness curve (~42 days)
@@ -2123,6 +2122,26 @@ function logRecovery() {
   document.getElementById('entry-rhr').value   = '';
   document.getElementById('entry-sleep').value = '';
 }
+
+/* ══════════════════════════════════════════════
+   Coach Briefing — dynamic fetch from coach_briefing.json
+   ══════════════════════════════════════════════ */
+(async function initCoachCard() {
+  try {
+    const res = await fetch('coach_briefing.json');
+    if (!res.ok) throw new Error('coach_briefing.json not found: ' + res.status);
+    const data = await res.json();
+    document.getElementById('coach-badge-date').textContent = data.date || '';
+    document.getElementById('coach-note-text').textContent  = data.note || '';
+    document.getElementById('coach-avatar-initials').textContent = data.coach_initials || 'C';
+    document.getElementById('coach-name-display').textContent   = data.coach_name    || 'Coach';
+    document.getElementById('coach-source-display').textContent = data.source        || 'via AthleteFlo';
+  } catch (e) {
+    document.getElementById('coach-note-text').textContent  = 'Coach briefing unavailable. Check back soon.';
+    document.getElementById('coach-badge-date').textContent = '—';
+    console.warn('AthleteFlo: could not load coach_briefing.json', e);
+  }
+})();
 </script>
 </body>
 </html>

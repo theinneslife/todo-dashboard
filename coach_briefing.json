@@ -1,18 +1,52 @@
 {
-  "date": "April 24, 2026",
-  "coach_name": "Claude (AI Coach)",
-  "coach_initials": "AI",
-  "source": "via AthleteFlo",
-  "athlete": "Christopher Innes",
-  "goal_race": "Julian Alps 50K",
-  "race_date": "2026-09-18",
-  "current_weight_lbs": 190,
-  "target_weight_lbs": 178,
-  "note": "Huge week behind you — that 27.2-mile long run on April 11 is a genuine block PR and exactly the confidence builder you need heading into the Julian Alps 50K. Your aerobic base is responding. Yesterday's easy 6-miler was perfect execution of the recovery principle: keep the easy days truly easy. Current weight at 190 lbs — on track toward race-day target of 178. Keep prioritizing sleep and nutrition; your HRV tells the story. Next key session: mid-week vert run to maintain climbing legs. 147 days to race day — stay the course.",
-  "key_stats": {
-    "block_long_run_mi": 27.2,
-    "recent_run_date": "2026-04-23",
-    "recent_run_mi": 6.0,
-    "weeks_to_race": 21
-  }
+  "generated": "2026-04-23",
+  "athlete": {
+    "name": "Christopher",
+    "weight_lbs": 190,
+    "goal_race": "Julian Alps 50K",
+    "race_date": "2026-09-18"
+  },
+  "recent_runs": [
+    {
+      "date": "2026-04-23",
+      "miles": 6.0,
+      "type": "Easy"
+    },
+    {
+      "date": "2026-04-22",
+      "miles": 6.0,
+      "type": "Easy"
+    },
+    {
+      "date": "2026-04-11",
+      "miles": 26.8,
+      "type": "Long Run"
+    }
+  ],
+  "coaching": [
+    {
+      "type": "run",
+      "icon": "\ud83c\udfc3",
+      "title": "Easy Recovery",
+      "message": "Back-to-back 6-milers this week are solid base work. Keep today easy \u2014 your legs need time after the 26.8-mile effort on April 11. 30\u201345 min zone 2 max."
+    },
+    {
+      "type": "nutrition",
+      "icon": "\ud83e\udd57",
+      "title": "Fuel for adaptation",
+      "message": "At 190 lbs targeting Julian Alps 50K in September, prioritize protein today (0.8g/lb = ~152g). Carb-load lightly for tomorrow if you have a quality workout planned."
+    },
+    {
+      "type": "recovery",
+      "icon": "\ud83d\udca4",
+      "title": "Sleep is the workout",
+      "message": "You're 147 days out from race day. This is base-building phase \u2014 sleep 8+ hours and avoid back-to-back hard days."
+    },
+    {
+      "type": "mental",
+      "icon": "\ud83e\udde0",
+      "title": "Trust the long run",
+      "message": "26.8 miles is real fitness. The Julian Alps course will test you but you've proven you can go long. Stay consistent and the fitness compounds."
+    }
+  ]
 }

@@ -454,6 +454,43 @@
       margin-left: auto;
     }
 
+    .coach-notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .coach-item {
+      border-left: 2px solid var(--accent-purple);
+      padding-left: 0.875rem;
+    }
+
+    .coach-item-header {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .coach-item-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .coach-item-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .coach-item-message {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
     /* ============================================
        Training Week Card
        ============================================ */
@@ -1210,11 +1247,8 @@
           <span class="card-title">Coach Notes</span>
           <span class="card-badge badge-blue" id="coach-badge-date">Loading…</span>
         </div>
-        <p class="coach-note" id="coach-note-text">Fetching coach feedback…</p>
-        <div class="coach-meta">
-          <div class="coach-avatar" id="coach-avatar-initials">C</div>
-          <span class="coach-name" id="coach-name-display">Coach</span>
-          <span class="coach-date" id="coach-source-display">via AthleteFlo</span>
+        <div class="coach-notes-list" id="coach-notes-list">
+          <p class="coach-note">Fetching coach feedback…</p>
         </div>
       </div>
 
@@ -2131,13 +2165,26 @@ function logRecovery() {
     const res = await fetch('coach_briefing.json');
     if (!res.ok) throw new Error('coach_briefing.json not found: ' + res.status);
     const data = await res.json();
-    document.getElementById('coach-badge-date').textContent = data.date || '';
-    document.getElementById('coach-note-text').textContent  = data.note || '';
-    document.getElementById('coach-avatar-initials').textContent = data.coach_initials || 'C';
-    document.getElementById('coach-name-display').textContent   = data.coach_name    || 'Coach';
-    document.getElementById('coach-source-display').textContent = data.source        || 'via AthleteFlo';
+
+    document.getElementById('coach-badge-date').textContent = data.generated || '';
+
+    const list = document.getElementById('coach-notes-list');
+    if (data.coaching && data.coaching.length) {
+      list.innerHTML = data.coaching.map(item => `
+        <div class="coach-item">
+          <div class="coach-item-header">
+            <span class="coach-item-icon">${item.icon}</span>
+            <span class="coach-item-title">${item.title}</span>
+          </div>
+          <p class="coach-item-message">${item.message}</p>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = '<p class="coach-note">No coaching notes available.</p>';
+    }
   } catch (e) {
-    document.getElementById('coach-note-text').textContent  = 'Coach briefing unavailable. Check back soon.';
+    const list = document.getElementById('coach-notes-list');
+    if (list) list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
     document.getElementById('coach-badge-date').textContent = '—';
     console.warn('AthleteFlo: could not load coach_briefing.json', e);
   }

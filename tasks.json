@@ -577,7 +577,12 @@
     "labels": [],
     "due_date": null,
     "recurrence": null,
-    "subtasks": [],
+    "subtasks": [
+      {
+        "title": "amazon acceptance",
+        "done": false
+      }
+    ],
     "comments": [],
     "activity_log": [
       {
@@ -585,6 +590,12 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-04-28T19:48:09.959Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
       }
     ],
     "created_at": "2026-04-22T18:55:41.854Z",

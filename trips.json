@@ -335,7 +335,21 @@
       },
       "status": "upcoming",
       "type": "personal",
-      "bookings": [],
+      "bookings": [
+        {
+          "id": "b_5_1",
+          "type": "flight",
+          "title": "Flightnetwork",
+          "details": {
+            "bRoute": "JNB > MQP",
+            "bDepDate": "May 2, 2026 11:05 AM",
+            "bArrDate": "May 2, 2026 12:00 PM",
+            "bConfirmation": "1124-346-110",
+            "bCost": "$652.29 USD",
+            "bPassengers": "Christopher Innes, Brooke Scimemi"
+          }
+        }
+      ],
       "tasks": [],
       "companions": [
         {

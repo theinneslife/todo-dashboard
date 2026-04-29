@@ -262,7 +262,8 @@
   {
     "id": "6b0c1963-626f-4f8d-9a64-0f52435579fa",
     "title": "AI targeting deal",
-    "description": "OpenAI or perplexity\nBuy a medal trained on searched",
+    "description": "OpenAI or perplexity
+Buy a medal trained on searched",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -838,5 +839,38 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "bd25dac9-8cd7-4860-97ac-42b45eda7128",
+    "title": "File Missing Sandwich LLC Annual Report",
+    "description": "File at ccfs.sos.wa.gov — $60 fee. UBI: 605-234-741. Must file by May 31 or risk re-dissolution.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "missing-sandwich"
+    ],
+    "due_date": "2026-05-31",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-04-29T18:20:43.000Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-04-29T18:20:43.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
   }
 ]

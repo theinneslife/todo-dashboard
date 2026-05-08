@@ -589,7 +589,7 @@
       },
       "dates": {
         "start": "2026-05-30",
-        "end": "2026-06-12"
+        "end": "2026-06-13"
       },
       "status": "upcoming",
       "type": "personal",
@@ -628,11 +628,20 @@
         }
       ],
       "notes": "",
-      "flights": [],
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL0615",
+          "depAirport": "LAX",
+          "arrAirport": "CUN",
+          "depTime": "2026-05-30T10:18",
+          "arrTime": "2026-05-30T16:55"
+        }
+      ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 7,
       "legs": []
     },
@@ -971,6 +980,75 @@
       "expenses": [],
       "packingList": [],
       "colorIndex": 3,
+      "legs": []
+    },
+    {
+      "id": "1775582430454",
+      "title": "Paris, France",
+      "destination": {
+        "city": "Paris",
+        "country": "France",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-15",
+        "end": "2026-05-22"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Summer vacation - visit museums and enjoy wine",
+      "flights": [],
+      "accommodation": "https://www.airbnb.com",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
+    },
+    {
+      "id": "1778264251712",
+      "title": "Los Angeles",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-29",
+        "end": "2026-05-30"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Quick Overnight",
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL9171",
+          "depAirport": "Dubrovnik, Croatia (DBV)",
+          "arrAirport": "Amsterdam, Netherlands (AMS)",
+          "depTime": "2026-05-29T06:30",
+          "arrTime": "2026-05-29T09:00"
+        },
+        {
+          "airline": "Delta",
+          "number": "DL9225",
+          "depAirport": "Amsterdam, Netherlands (AMS)",
+          "arrAirport": "LAX",
+          "depTime": "2026-05-29T09:50",
+          "arrTime": "2026-05-29T11:50"
+        }
+      ],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 2,
       "legs": []
     }
   ],

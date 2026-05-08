@@ -972,6 +972,32 @@
       "packingList": [],
       "colorIndex": 3,
       "legs": []
+    },
+    {
+      "id": "1778268408717",
+      "title": "Los Angeles ",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-07-26",
+        "end": "2026-07-30"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 6323.09,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0,
+      "legs": []
     }
   ],
   "templates": [],

@@ -654,8 +654,8 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-06-15",
-        "end": "2026-06-26"
+        "start": "2026-06-13",
+        "end": "2026-06-27"
       },
       "status": "upcoming",
       "type": "personal",
@@ -692,21 +692,18 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Avianca",
-          "route": "Guatemala departure",
-          "departure": "Jun 27, 2026 9:30 AM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "airline": "Volaris",
+          "number": "Volaris 3930",
+          "depAirport": "CUN",
+          "arrAirport": "GUA",
+          "depTime": "2026-06-13T11:22",
+          "arrTime": "2026-06-13T11:55"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 8,
       "legs": []
     },

@@ -2593,31 +2593,21 @@ async function refreshCoachBriefing() {
 
 /* ══════════════════════════════════════════════
    Strava — live integration
-   Credentials are loaded from ./strava_creds.json (gitignored, local only).
-   On public GitHub Pages where that file isn't present, syncStravaData
-   no-ops silently and placeholder data continues to drive the UI.
+   Credentials seeded directly into localStorage on first load.
+   Token auto-refreshes when expired.
    ══════════════════════════════════════════════ */
 async function _loadStravaCredsFromFile() {
-  try {
-    const res = await fetch('./strava_creds.json', { cache: 'no-store' });
-    if (!res.ok) return false;
-    const c = await res.json();
-    const map = {
-      strava_client_id:     c.client_id,
-      strava_client_secret: c.client_secret,
-      strava_access_token:  c.access_token,
-      strava_refresh_token: c.refresh_token,
-      strava_expires_at:    c.expires_at,
-    };
-    for (const [k, v] of Object.entries(map)) {
-      if (v === undefined || v === null) continue;
-      const str = String(v);
-      if (localStorage.getItem(k) !== str) localStorage.setItem(k, str);
-    }
-    return true;
-  } catch {
-    return false;
+  const defaults = {
+    strava_client_id:     '237801',
+    strava_client_secret: 'f7d6d889672d8dbb658ed01102e67d3bbafd8d2e',
+    strava_access_token:  '2e35b58704c165de6bc9b4ad79d10c38923cea1b',
+    strava_refresh_token: '21becb2fb944af67dad304d242f7546904df798e',
+    strava_expires_at:    '1746757179',
+  };
+  for (const [k, v] of Object.entries(defaults)) {
+    if (!localStorage.getItem(k)) localStorage.setItem(k, v);
   }
+  return true;
 }
 
 function _mondayUnix() {

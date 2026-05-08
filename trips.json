@@ -782,7 +782,7 @@
       },
       "dates": {
         "start": "2026-07-11",
-        "end": "2026-07-27"
+        "end": "2026-07-26"
       },
       "status": "upcoming",
       "type": "personal",
@@ -823,20 +823,17 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "LAX > SAL",
-          "departure": "Jul 30, 2026 2:40 PM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "number": "",
+          "depAirport": "Bogota",
+          "arrAirport": "Buenos Aires",
+          "depTime": "2026-07-11T07:15",
+          "arrTime": "2026-07-11T15:40"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 0,
       "legs": []
     },

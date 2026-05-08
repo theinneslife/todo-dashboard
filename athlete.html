@@ -804,6 +804,7 @@
         <span class="logo-text">Athlete<span>Flo</span></span>
       </a>
       <span class="version-badge">v1.0</span>
+      <button id="sync-now-btn" type="button" onclick="syncAll()" style="margin-left:0.75rem;padding:0.45rem 0.85rem;border-radius:0.5rem;border:1px solid var(--border-color);background:var(--bg-tertiary);color:var(--text-primary);font:600 0.8rem 'Inter',sans-serif;cursor:pointer;">Sync Now</button>
     </div>
 
     <nav class="header-nav">
@@ -847,7 +848,7 @@
           </div>
           <div>
             <div class="checkin-text">Last check-in</div>
-            <div class="checkin-date">April 20, 2026</div>
+            <div class="checkin-date" id="checkin-date">—</div>
           </div>
         </div>
         <div class="checkin-streak">
@@ -868,16 +869,17 @@
       <div class="card coach-card">
         <div class="card-header">
           <span class="card-title">Coach Notes</span>
-          <span class="card-badge badge-blue">April 18, 2026</span>
+          <span class="card-badge badge-blue" id="coach-note-date">—</span>
         </div>
-        <p class="coach-note">
-          Great effort on Saturday's long run — held pace through mile 18 which is exactly where we need you mentally. This week is a down week. Keep Tuesday's track session to 6×800 at goal HM pace, nothing faster. Sleep and nutrition are your PRs right now. Let's keep HRV above 65 heading into the peak block.
+        <p class="coach-note" id="coach-note-text">
+          Loading…
         </p>
         <div class="coach-meta">
-          <div class="coach-avatar">EC</div>
-          <span class="coach-name">Coach Eric</span>
-          <span class="coach-date">via TrainingPeaks</span>
+          <div class="coach-avatar" id="coach-avatar">EC</div>
+          <span class="coach-name" id="coach-name">Coach Eric</span>
+          <span class="coach-date" id="coach-source">via TrainingPeaks</span>
         </div>
+        <div class="coach-last-updated" id="coach-last-updated" style="margin-top:0.5rem;font-size:0.75rem;color:var(--text-muted);">Last updated: —</div>
       </div>
     </div>
 
@@ -888,7 +890,7 @@
       <div class="card">
         <div class="card-header">
           <span class="card-title">This Week's Training</span>
-          <span class="card-badge badge-orange">Apr 14–20</span>
+          <span class="card-badge badge-orange" id="training-week-range">—</span>
         </div>
         <div class="training-grid">
           <div class="training-stat">
@@ -961,6 +963,40 @@
         <div style="margin-top: 0.5rem;">
           <div class="streak-label" style="margin-bottom: 0.5rem;">HRV — last 7 days</div>
           <div id="hrv-bars"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Progression Row: Weight + Vert/Long Run ── -->
+    <div class="middle-row" style="margin-top:1rem;">
+
+      <!-- Daily Weight -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Daily Weight</span>
+          <span class="card-badge badge-green" id="weight-today-badge">—</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;align-items:center;margin-bottom:0.75rem;">
+          <input id="weight-input" type="number" step="0.1" min="0" placeholder="lbs" style="flex:1;padding:0.5rem 0.75rem;border-radius:0.5rem;border:1px solid var(--border-color);background:var(--bg-tertiary);color:var(--text-primary);font:500 0.95rem 'Inter',sans-serif;" />
+          <button id="weight-log-btn" type="button" onclick="logWeight()" style="padding:0.5rem 0.9rem;border-radius:0.5rem;border:1px solid var(--border-color);background:var(--accent-green);color:#0b1220;font:600 0.85rem 'Inter',sans-serif;cursor:pointer;">Log Weight</button>
+        </div>
+        <div class="streak-label" style="margin-bottom:0.5rem;">Last 7 days</div>
+        <div id="weight-trend"></div>
+      </div>
+
+      <!-- Vert + Long Run Progression -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Vert &amp; Long Run Progression</span>
+          <span class="card-badge badge-purple" id="progression-window">—</span>
+        </div>
+        <div style="margin-bottom:0.75rem;">
+          <div class="streak-label" style="margin-bottom:0.5rem;">Long Run (mi) — week-by-week to race</div>
+          <div id="longrun-progression"></div>
+        </div>
+        <div>
+          <div class="streak-label" style="margin-bottom:0.5rem;">Weekly Vert Gain (ft)</div>
+          <div id="vert-progression"></div>
         </div>
       </div>
     </div>
@@ -1269,6 +1305,250 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
     }
   });
 })();
+
+/* ══════════════════════════════════════════════
+   Dynamic Dates: weekly check-in + training week range
+   ══════════════════════════════════════════════ */
+function getMondayOfThisWeek(d = new Date()) {
+  const date = new Date(d);
+  date.setHours(0, 0, 0, 0);
+  const day = date.getDay(); // 0 Sun – 6 Sat
+  const diff = day === 0 ? -6 : 1 - day; // back to Monday
+  date.setDate(date.getDate() + diff);
+  return date;
+}
+
+function fmtLong(d) {
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function fmtShort(d) {
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function renderDynamicDates() {
+  const monday = getMondayOfThisWeek();
+  const sunday = new Date(monday);
+  sunday.setDate(sunday.getDate() + 6);
+
+  const checkinEl = document.getElementById('checkin-date');
+  if (checkinEl) checkinEl.textContent = fmtLong(monday);
+
+  const weekBadge = document.getElementById('training-week-range');
+  if (weekBadge) {
+    const sameMonth = monday.getMonth() === sunday.getMonth();
+    const left = monday.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const right = sameMonth
+      ? sunday.getDate()
+      : sunday.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    weekBadge.textContent = `${left}–${right}`;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Coach Briefing — fetch + render
+   ══════════════════════════════════════════════ */
+async function loadCoachBriefing() {
+  try {
+    const res = await fetch('coach_briefing.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('coach_briefing fetch failed');
+    const data = await res.json();
+
+    const noteEl = document.getElementById('coach-note-text');
+    const dateEl = document.getElementById('coach-note-date');
+    const updatedEl = document.getElementById('coach-last-updated');
+
+    const generated = data.generated ? new Date(data.generated + 'T00:00:00') : null;
+
+    // Build the displayed note from the coaching array; fall back to single fields.
+    let noteText = '';
+    if (Array.isArray(data.coaching) && data.coaching.length) {
+      noteText = data.coaching
+        .map(c => {
+          const title = c.title ? `${c.title}: ` : '';
+          return `${c.icon ? c.icon + ' ' : ''}${title}${c.message || ''}`;
+        })
+        .join('  ·  ');
+    } else if (data.note) {
+      noteText = data.note;
+    }
+    if (noteEl && noteText) noteEl.textContent = noteText;
+
+    if (dateEl && generated) dateEl.textContent = fmtLong(generated);
+    if (updatedEl && generated) {
+      updatedEl.textContent = 'Last updated: ' + fmtLong(generated);
+    }
+  } catch (err) {
+    const noteEl = document.getElementById('coach-note-text');
+    if (noteEl) noteEl.textContent = 'Coach notes unavailable.';
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Sync Now
+   ══════════════════════════════════════════════ */
+async function syncAll() {
+  const btn = document.getElementById('sync-now-btn');
+  const originalText = btn ? btn.textContent : 'Sync Now';
+  if (btn) { btn.disabled = true; btn.textContent = 'Syncing…'; }
+
+  await loadCoachBriefing();
+  renderDynamicDates();
+  renderWeightTrend();
+  renderProgressions();
+
+  if (btn) {
+    btn.textContent = 'Synced ✓';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 2000);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Daily Weight: localStorage + 7-day trend
+   ══════════════════════════════════════════════ */
+const WEIGHT_LS_PREFIX = 'athleteflo:weight:';
+
+function todayKey() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.toISOString().slice(0, 10);
+}
+
+function logWeight() {
+  const input = document.getElementById('weight-input');
+  if (!input) return;
+  const val = parseFloat(input.value);
+  if (!isFinite(val) || val <= 0) return;
+  localStorage.setItem(WEIGHT_LS_PREFIX + todayKey(), String(val));
+  input.value = '';
+  renderWeightTrend();
+}
+
+function renderWeightTrend() {
+  const container = document.getElementById('weight-trend');
+  const badge = document.getElementById('weight-today-badge');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    const raw = localStorage.getItem(WEIGHT_LS_PREFIX + key);
+    days.push({ date: d, value: raw ? parseFloat(raw) : null });
+  }
+
+  const todayVal = days[days.length - 1].value;
+  if (badge) badge.textContent = todayVal != null ? todayVal.toFixed(1) + ' lbs' : 'No entry';
+
+  const vals = days.filter(d => d.value != null).map(d => d.value);
+  const min = vals.length ? Math.min(...vals) : 0;
+  const max = vals.length ? Math.max(...vals) : 1;
+  const range = (max - min) || 1;
+
+  days.forEach(({ date, value }) => {
+    const pct = value != null ? ((value - min) / range) * 100 : 0;
+    const row = document.createElement('div');
+    row.className = 'hrv-day-row';
+    const dayLabel = date.toLocaleDateString('en-US', { weekday: 'short' });
+    row.innerHTML = `
+      <span class="hrv-day-label">${dayLabel}</span>
+      <div class="hrv-bar-track">
+        <div class="hrv-bar-fill" style="width: ${value != null ? Math.max(pct, 8) : 0}%; background: var(--accent-green); opacity: ${value != null ? 0.85 : 0.2};"></div>
+      </div>
+      <span class="hrv-value">${value != null ? value.toFixed(1) : '—'}</span>
+    `;
+    container.appendChild(row);
+  });
+}
+
+/* ══════════════════════════════════════════════
+   Vert + Long Run Progression — dynamic week-by-week
+   ══════════════════════════════════════════════ */
+const RACE_DATE_PROGRESSION = new Date('2026-09-18T00:00:00');
+const LONGRUN_BASE = 10;   // mi at start of plan
+const LONGRUN_PEAK = 30;   // mi at peak (2 weeks before race)
+const VERT_BASE    = 1500; // ft per week at start
+const VERT_PEAK    = 6000; // ft per week at peak
+
+function buildProgression() {
+  const todayMonday = getMondayOfThisWeek();
+  const peakMonday = getMondayOfThisWeek(new Date(RACE_DATE_PROGRESSION.getTime() - 14 * 86400000));
+  const weeksToPeak = Math.max(1, Math.round((peakMonday - todayMonday) / (7 * 86400000)));
+
+  // 8-week window: 4 weeks past + this week + 3 weeks ahead (if available)
+  const weeks = [];
+  for (let i = -4; i <= 3; i++) {
+    const wk = new Date(todayMonday);
+    wk.setDate(wk.getDate() + i * 7);
+    // Linear ramp toward peak using offset from today (i steps).
+    const stepsRemainingFromThis = weeksToPeak - i;
+    const totalSteps = weeksToPeak + 4; // earliest week is i=-4 → steps remaining = peak+4
+    const progress = 1 - Math.max(0, Math.min(1, stepsRemainingFromThis / totalSteps));
+
+    const longRun = Math.round(LONGRUN_BASE + (LONGRUN_PEAK - LONGRUN_BASE) * progress);
+    const vert    = Math.round(VERT_BASE + (VERT_PEAK - VERT_BASE) * progress);
+    weeks.push({ date: wk, longRun, vert, isCurrent: i === 0 });
+  }
+  return weeks;
+}
+
+function renderProgressions() {
+  const longEl = document.getElementById('longrun-progression');
+  const vertEl = document.getElementById('vert-progression');
+  const winEl  = document.getElementById('progression-window');
+  if (!longEl || !vertEl) return;
+
+  const weeks = buildProgression();
+  longEl.innerHTML = '';
+  vertEl.innerHTML = '';
+
+  if (winEl && weeks.length) {
+    winEl.textContent = fmtShort(weeks[0].date) + '–' + fmtShort(weeks[weeks.length - 1].date);
+  }
+
+  const longMax = Math.max(...weeks.map(w => w.longRun), 1);
+  const vertMax = Math.max(...weeks.map(w => w.vert), 1);
+
+  weeks.forEach(w => {
+    const longPct = (w.longRun / longMax) * 100;
+    const longRow = document.createElement('div');
+    longRow.className = 'hrv-day-row';
+    longRow.innerHTML = `
+      <span class="hrv-day-label">${fmtShort(w.date)}</span>
+      <div class="hrv-bar-track">
+        <div class="hrv-bar-fill" style="width: ${longPct}%; background: var(--accent-orange); opacity: ${w.isCurrent ? 1 : 0.7};"></div>
+      </div>
+      <span class="hrv-value">${w.longRun}</span>
+    `;
+    longEl.appendChild(longRow);
+
+    const vertPct = (w.vert / vertMax) * 100;
+    const vertRow = document.createElement('div');
+    vertRow.className = 'hrv-day-row';
+    vertRow.innerHTML = `
+      <span class="hrv-day-label">${fmtShort(w.date)}</span>
+      <div class="hrv-bar-track">
+        <div class="hrv-bar-fill" style="width: ${vertPct}%; background: var(--accent-blue); opacity: ${w.isCurrent ? 1 : 0.7};"></div>
+      </div>
+      <span class="hrv-value">${w.vert.toLocaleString()}</span>
+    `;
+    vertEl.appendChild(vertRow);
+  });
+}
+
+/* ══════════════════════════════════════════════
+   Init
+   ══════════════════════════════════════════════ */
+renderDynamicDates();
+loadCoachBriefing();
+renderWeightTrend();
+renderProgressions();
 </script>
 </body>
 </html>

@@ -1007,49 +1007,6 @@
       "packingList": {},
       "colorIndex": 4,
       "legs": []
-    },
-    {
-      "id": "1778264251712",
-      "title": "Los Angeles",
-      "destination": {
-        "city": "Los Angeles",
-        "country": "",
-        "timezone": ""
-      },
-      "dates": {
-        "start": "2026-05-29",
-        "end": "2026-05-30"
-      },
-      "status": "upcoming",
-      "type": "personal",
-      "bookings": [],
-      "tasks": [],
-      "companions": [],
-      "notes": "Quick Overnight",
-      "flights": [
-        {
-          "airline": "Delta",
-          "number": "DL9171",
-          "depAirport": "Dubrovnik, Croatia (DBV)",
-          "arrAirport": "Amsterdam, Netherlands (AMS)",
-          "depTime": "2026-05-29T06:30",
-          "arrTime": "2026-05-29T09:00"
-        },
-        {
-          "airline": "Delta",
-          "number": "DL9225",
-          "depAirport": "Amsterdam, Netherlands (AMS)",
-          "arrAirport": "LAX",
-          "depTime": "2026-05-29T09:50",
-          "arrTime": "2026-05-29T11:50"
-        }
-      ],
-      "accommodation": null,
-      "budget": 0,
-      "expenses": [],
-      "packingList": {},
-      "colorIndex": 2,
-      "legs": []
     }
   ],
   "templates": [],

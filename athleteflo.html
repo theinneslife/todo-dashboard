@@ -1262,9 +1262,9 @@
           </defs>
           <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af-g)"/>
           <path d="M16 31 C9 27 7 20 11 16 C11 20 13 22 13 22 C13 17 15 13 18 10 C18 15 20 17 21 20 C23 16 22 13 22 13 C26 17 25 24 23 28 C21 30 19 31 16 31Z" fill="#fff" opacity=".9"/>
-          <text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Athlete</text>
-          <text x="112" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-g)">Flo</text>
-          <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
+          <text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" letter-spacing="-0.5" fill="#e2e8f0">Athlete</text>
+          <text x="105" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-g)">Flo</text>
+          <path d="M105 33Q120 28 135 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
       <span class="version-badge">v1.2</span>
@@ -1447,7 +1447,7 @@
 
         <!-- Daily weight input -->
         <div class="weight-entry-row">
-          <input class="weight-entry-input" type="number" id="entry-weight" placeholder="Today's weight (lbs)" min="100" max="350" step="0.1">
+          <input class="weight-entry-input" type="number" id="entry-weight" placeholder="Today's weight (lbs)" min="100" max="350" step="0.1" onkeydown="if(event.key==='Enter'){event.preventDefault();logWeight();}">
           <button class="weight-log-btn" onclick="logWeight()">Log Weight</button>
         </div>
         <div class="weight-entry-confirm" id="weight-entry-confirm"></div>
@@ -1750,7 +1750,11 @@ function fmtFullDate(d) {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 function isoDate(d) {
-  return new Date(d).toISOString().slice(0, 10);
+  const x = new Date(d);
+  const y = x.getFullYear();
+  const m = String(x.getMonth() + 1).padStart(2, '0');
+  const day = String(x.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 /* ══════════════════════════════════════════════

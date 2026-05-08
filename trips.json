@@ -978,6 +978,32 @@
       "packingList": [],
       "colorIndex": 3,
       "legs": []
+    },
+    {
+      "id": "1775582430454",
+      "title": "Paris, France",
+      "destination": {
+        "city": "Paris",
+        "country": "France",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-15",
+        "end": "2026-05-22"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Summer vacation - visit museums and enjoy wine",
+      "flights": [],
+      "accommodation": "https://www.airbnb.com",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
     }
   ],
   "templates": [],

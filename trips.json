@@ -758,20 +758,17 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "BOG > EZE",
-          "departure": "Jul 11, 2026",
-          "arrival": "",
-          "confirmation": "AJ2LFB",
-          "class": "Business Flex",
-          "cost": "$3,014.00 USD",
-          "notes": "",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "number": "AV743",
+          "depAirport": "GUA",
+          "arrAirport": "BOG",
+          "depTime": "2026-06-27T09:30",
+          "arrTime": "2026-06-27T13:45"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 3014,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 9,
       "legs": []
     },

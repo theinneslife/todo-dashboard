@@ -620,9 +620,11 @@
     "title": "Kiana Review",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "pending",
     "mode": "manual",
-    "labels": [],
+    "labels": [
+      "Parking Lot"
+    ],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
@@ -639,6 +641,12 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-05-08T16:39:45.424Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to parking"
       }
     ],
     "created_at": "2026-04-22T18:56:16.287Z",

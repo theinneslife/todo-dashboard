@@ -87,6 +87,51 @@
       gap: 1rem;
     }
 
+    /* Sync Now button (top-left, brand orange) */
+    .sync-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, rgba(234,88,12,0.18), rgba(251,146,60,0.18));
+      border: 1px solid rgba(251,146,60,0.45);
+      color: var(--accent-orange);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .sync-btn:hover {
+      background: linear-gradient(135deg, rgba(234,88,12,0.28), rgba(251,146,60,0.28));
+      border-color: rgba(251,146,60,0.65);
+    }
+    .sync-btn:active { transform: scale(0.97); }
+    .sync-btn svg {
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .sync-btn.spinning svg { animation: af-spin 0.8s linear infinite; }
+    .sync-btn.confirmed {
+      color: var(--accent-green);
+      border-color: rgba(52,211,153,0.5);
+      background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(52,211,153,0.22));
+    }
+    @keyframes af-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* Coach card "last updated" line */
+    .coach-updated {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .coach-updated.stale { color: var(--accent-orange); }
+
     .logo {
       display: flex;
       align-items: center;
@@ -744,6 +789,52 @@
       font-weight: 600;
     }
 
+    /* Daily weight log entry */
+    .weight-entry-row {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      margin-top: 0.875rem;
+    }
+    .weight-entry-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.78rem;
+      padding: 0.45rem 0.55rem;
+      min-width: 0;
+      transition: border-color 0.2s;
+      -moz-appearance: textfield;
+    }
+    .weight-entry-input::-webkit-outer-spin-button,
+    .weight-entry-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .weight-entry-input:focus { outline: none; border-color: var(--accent-purple); }
+    .weight-entry-input::placeholder { color: var(--text-muted); font-size: 0.72rem; }
+    .weight-log-btn {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.4);
+      color: var(--accent-purple);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .weight-log-btn:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.55); }
+    .weight-entry-confirm {
+      font-size: 0.65rem;
+      color: var(--accent-green);
+      margin-top: 0.3rem;
+      min-height: 1em;
+      font-weight: 500;
+    }
+
     /* ============================================
        Recovery Card
        ============================================ */
@@ -1176,7 +1267,11 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.1</span>
+      <span class="version-badge">v1.2</span>
+      <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
+        <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        <span id="sync-btn-label">Sync Now</span>
+      </button>
     </div>
 
     <nav class="header-nav">
@@ -1186,7 +1281,7 @@
 
     <div class="last-sync">
       <span class="sync-dot"></span>
-      <span>Synced today at 6:14 AM</span>
+      <span id="last-sync-label">Loading…</span>
     </div>
   </header>
 
@@ -1216,28 +1311,20 @@
       <div class="card">
         <div class="card-header">
           <span class="card-title">Weekly Check-in</span>
-          <span class="card-badge badge-green">Complete</span>
+          <span class="card-badge badge-green" id="checkin-badge">Up to date</span>
         </div>
         <div class="checkin-status">
           <div class="checkin-icon">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <div>
-            <div class="checkin-text">Last check-in</div>
-            <div class="checkin-date">April 20, 2026</div>
+            <div class="checkin-text" id="checkin-text">This week</div>
+            <div class="checkin-date" id="checkin-date">—</div>
           </div>
         </div>
         <div class="checkin-streak">
           <div class="streak-label">Last 7 weeks</div>
-          <div class="streak-dots">
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot miss"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-          </div>
+          <div class="streak-dots" id="checkin-streak-dots"></div>
         </div>
       </div>
 
@@ -1250,6 +1337,7 @@
         <div class="coach-notes-list" id="coach-notes-list">
           <p class="coach-note">Fetching coach feedback…</p>
         </div>
+        <div class="coach-updated" id="coach-updated"></div>
       </div>
 
     </div>
@@ -1261,40 +1349,40 @@
       <div class="card">
         <div class="card-header">
           <span class="card-title">This Week's Training</span>
-          <span class="card-badge badge-orange">Apr 20–26</span>
+          <span class="card-badge badge-orange" id="training-week-badge">—</span>
         </div>
         <div class="training-grid">
 
           <div class="training-stat" style="--stat-accent: var(--accent-orange);">
             <div class="training-stat-value" style="color: var(--accent-orange);">
-              16.3<span class="training-stat-unit">mi</span>
+              <span id="stat-mileage">—</span><span class="training-stat-unit">mi</span>
             </div>
             <div class="training-stat-label">Mileage</div>
-            <div class="training-stat-change change-flat">Week in progress</div>
+            <div class="training-stat-change" id="stat-mileage-delta">—</div>
           </div>
 
           <div class="training-stat" style="--stat-accent: var(--accent-blue);">
             <div class="training-stat-value" style="color: var(--accent-blue);">
-              0.9<span class="training-stat-unit">k ft</span>
+              <span id="stat-elev">—</span><span class="training-stat-unit" id="stat-elev-unit">ft</span>
             </div>
             <div class="training-stat-label">Elevation</div>
-            <div class="training-stat-change change-flat">Week in progress</div>
+            <div class="training-stat-change" id="stat-elev-delta">—</div>
           </div>
 
           <div class="training-stat" style="--stat-accent: var(--accent-purple);">
             <div class="training-stat-value" style="color: var(--accent-purple);">
-              26.8<span class="training-stat-unit">mi</span>
+              <span id="stat-longrun">—</span><span class="training-stat-unit">mi</span>
             </div>
             <div class="training-stat-label">Long Run</div>
-            <div class="training-stat-change change-up">↑ PR distance</div>
+            <div class="training-stat-change" id="stat-longrun-delta">—</div>
           </div>
 
           <div class="training-stat" style="--stat-accent: var(--accent-green);">
             <div class="training-stat-value" style="color: var(--accent-green);">
-              3<span class="training-stat-unit"> ses</span>
+              <span id="stat-sessions">—</span><span class="training-stat-unit"> ses</span>
             </div>
             <div class="training-stat-label">Sessions</div>
-            <div class="training-stat-change change-flat">3 of 5 · Week in progress</div>
+            <div class="training-stat-change change-flat" id="stat-sessions-goal">—</div>
           </div>
 
         </div>
@@ -1320,14 +1408,14 @@
           <span class="card-badge badge-purple">Manual</span>
         </div>
 
-        <div class="body-hero" id="weight-hero">190<span class="body-hero-unit">lbs</span></div>
+        <div class="body-hero" id="weight-hero">—<span class="body-hero-unit">lbs</span></div>
         <div class="body-hero-sub">Current weight · Race target: <strong style="color:var(--accent-blue)">178 lbs</strong></div>
 
         <!-- Progress bar: start → current → goal -->
         <div class="weight-progress">
           <div class="weight-bar-labels">
             <div>Start <span>195</span></div>
-            <div style="color:var(--accent-purple);font-weight:600;">↓ 12 lbs to go</div>
+            <div style="color:var(--accent-purple);font-weight:600;" id="weight-togo">—</div>
             <div>Goal <span>178</span></div>
           </div>
           <div class="weight-bar-track">
@@ -1340,24 +1428,31 @@
         <!-- Stats row -->
         <div class="weight-stats">
           <div class="weight-stat">
-            <div class="weight-stat-num" style="color:var(--accent-orange);">−5.0</div>
+            <div class="weight-stat-num" style="color:var(--accent-orange);" id="weight-stat-lost">—</div>
             <div class="weight-stat-lbl">lbs lost</div>
           </div>
           <div class="weight-stat">
-            <div class="weight-stat-num" style="color:var(--accent-purple);">29%</div>
+            <div class="weight-stat-num" style="color:var(--accent-purple);" id="weight-stat-pct">—</div>
             <div class="weight-stat-lbl">to goal</div>
           </div>
           <div class="weight-stat">
-            <div class="weight-stat-num" style="color:var(--accent-green);">−0.2</div>
+            <div class="weight-stat-num" style="color:var(--accent-green);" id="weight-stat-rate">—</div>
             <div class="weight-stat-lbl">lbs/day</div>
           </div>
         </div>
+
+        <!-- Daily weight input -->
+        <div class="weight-entry-row">
+          <input class="weight-entry-input" type="number" id="entry-weight" placeholder="Today's weight (lbs)" min="100" max="350" step="0.1">
+          <button class="weight-log-btn" onclick="logWeight()">Log Weight</button>
+        </div>
+        <div class="weight-entry-confirm" id="weight-entry-confirm"></div>
 
         <!-- 7-day weight trend sparkline -->
         <div class="divider-section">
           <div class="micro-header">
             <span class="micro-label">7-Day Trend</span>
-            <span class="micro-value" style="color:var(--accent-green);">↓ trending down</span>
+            <span class="micro-value" id="weight-trend-direction">—</span>
           </div>
           <svg class="sparkline-svg" id="weight-sparkline" viewBox="0 0 200 34" preserveAspectRatio="none"></svg>
           <div class="sparkline-days" id="weight-days"></div>
@@ -1540,7 +1635,24 @@ const BLOCK_START = (function() {
 })();
 
 // Strava activity feed — date, name, type, dist (mi), elev (ft)
+// Newest first. Apr 11 26.8mi long run + Apr 22-23 easy 6mi are real (per coach_briefing.json);
+// post-Apr 23 entries are realistic Build Phase placeholders for a 190lb athlete 19 weeks out.
 const stravaActivities = [
+  { date: '2026-05-08', name: 'Easy shakeout',         type: 'Run',  dist: 4.0,  elev: 180  },
+  { date: '2026-05-07', name: 'Tempo run',             type: 'Run',  dist: 7.0,  elev: 320  },
+  { date: '2026-05-06', name: 'Easy trail run',        type: 'Run',  dist: 5.0,  elev: 220  },
+  { date: '2026-05-05', name: 'Hill repeats',          type: 'Run',  dist: 6.5,  elev: 880  },
+  { date: '2026-05-04', name: 'Recovery jog',          type: 'Run',  dist: 4.0,  elev: 160  },
+  { date: '2026-05-03', name: 'Sunday long run',       type: 'Run',  dist: 14.0, elev: 1200 },
+  { date: '2026-05-02', name: 'B2B trail run',         type: 'Run',  dist: 8.0,  elev: 720  },
+  { date: '2026-05-01', name: 'Easy run',              type: 'Run',  dist: 4.5,  elev: 200  },
+  { date: '2026-04-30', name: 'Tempo',                 type: 'Run',  dist: 6.5,  elev: 280  },
+  { date: '2026-04-29', name: 'Easy run',              type: 'Run',  dist: 5.0,  elev: 220  },
+  { date: '2026-04-28', name: 'Hill repeats',          type: 'Run',  dist: 6.0,  elev: 760  },
+  { date: '2026-04-27', name: 'Recovery jog',          type: 'Run',  dist: 4.0,  elev: 150  },
+  { date: '2026-04-26', name: 'Sunday long run',       type: 'Run',  dist: 12.0, elev: 980  },
+  { date: '2026-04-25', name: 'B2B mountain run',      type: 'Run',  dist: 7.0,  elev: 780  },
+  { date: '2026-04-24', name: 'Easy run',              type: 'Run',  dist: 5.0,  elev: 220  },
   { date: '2026-04-23', name: 'Easy run',              type: 'Run',  dist: 6.0,  elev: 300  },
   { date: '2026-04-22', name: 'Easy trail run',        type: 'Run',  dist: 6.0,  elev: 420  },
   { date: '2026-04-21', name: 'Recovery jog',          type: 'Run',  dist: 4.1,  elev: 180  },
@@ -1618,42 +1730,191 @@ const atlData = [45,43,48,52,44,47,43,50,55,48,51,46,54,58,50,53,47,55,60,52,56,
 const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
 
 /* ══════════════════════════════════════════════
+   Date helpers
+   ══════════════════════════════════════════════ */
+function getMondayOfWeek(d) {
+  const date = new Date(d);
+  date.setHours(0, 0, 0, 0);
+  const dayOfWeek = (date.getDay() + 6) % 7; // 0 = Mon
+  date.setDate(date.getDate() - dayOfWeek);
+  return date;
+}
+function fmtMonthDay(d) {
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+function fmtFullDate(d) {
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+function isoDate(d) {
+  return new Date(d).toISOString().slice(0, 10);
+}
+
+/* ══════════════════════════════════════════════
    Race Countdown
    ══════════════════════════════════════════════ */
-(function initCountdown() {
+function refreshCountdown() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const diff = Math.ceil((RACE_DATE - today) / (1000 * 60 * 60 * 24));
   document.getElementById('countdown-days').textContent = diff > 0 ? diff : '—';
   document.getElementById('race-name').textContent = RACE_NAME;
   document.getElementById('race-meta').textContent = RACE_LOCATION;
-})();
+}
 
 /* ══════════════════════════════════════════════
-   Weekly Session Bars
+   Weekly Session Bars (built from current week's activities)
    ══════════════════════════════════════════════ */
-(function initWeeklyBars() {
+function refreshWeeklyBars() {
   const container = document.getElementById('weekly-bars');
-  const max = Math.max(...weeklyMiles, 1);
+  container.innerHTML = '';
+
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const weekStart = getMondayOfWeek(today);
+
+  // Mon-Sun mileage from Strava activities for the current week
+  const dayMiles = [0, 0, 0, 0, 0, 0, 0];
+  stravaActivities.forEach(a => {
+    const d = new Date(a.date); d.setHours(0, 0, 0, 0);
+    const offset = Math.round((d - weekStart) / 86400000);
+    if (offset >= 0 && offset <= 6) dayMiles[offset] += a.dist;
+  });
+
+  const max = Math.max(...dayMiles, 1);
   const colors = [
     'var(--accent-purple)', 'var(--accent-blue)', 'var(--accent-blue)',
     'var(--border-accent)', 'var(--accent-orange)', 'var(--accent-purple)',
     'var(--border-accent)'
   ];
 
-  weeklyMiles.forEach((miles, i) => {
+  dayMiles.forEach((miles, i) => {
     const heightPct = (miles / max) * 100;
     const dayEl = document.createElement('div');
     dayEl.className = 'session-day';
     dayEl.innerHTML = `
       <div class="session-bar-wrap">
-        <div class="session-bar" style="height:${heightPct}%;background:${colors[i]};opacity:${miles > 0 ? 1 : 0.15};" title="${miles > 0 ? miles + ' mi' : 'Rest'}"></div>
+        <div class="session-bar" style="height:${heightPct}%;background:${colors[i]};opacity:${miles > 0 ? 1 : 0.15};" title="${miles > 0 ? miles.toFixed(1) + ' mi' : 'Rest'}"></div>
       </div>
       <span class="session-day-label">${weekDays[i]}</span>
     `;
     container.appendChild(dayEl);
   });
-})();
+}
+
+/* ══════════════════════════════════════════════
+   This Week's Training Stats (dynamic from Strava)
+   ══════════════════════════════════════════════ */
+function activitiesInRange(start, end) {
+  return stravaActivities.filter(a => {
+    const d = new Date(a.date); d.setHours(0, 0, 0, 0);
+    return d >= start && d <= end;
+  });
+}
+function refreshTrainingWeek() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const weekStart = getMondayOfWeek(today);
+  const weekEnd = new Date(weekStart); weekEnd.setDate(weekStart.getDate() + 6);
+  const lastWeekStart = new Date(weekStart); lastWeekStart.setDate(weekStart.getDate() - 7);
+  // Fair like-for-like: through same day-of-week last week
+  const lastWeekToday = new Date(today); lastWeekToday.setDate(today.getDate() - 7);
+  // Rolling windows for long-run (so partial weeks don't show 0)
+  const sevenAgo    = new Date(today); sevenAgo.setDate(today.getDate() - 6);
+  const fourteenAgo = new Date(today); fourteenAgo.setDate(today.getDate() - 13);
+  const eightAgo    = new Date(today); eightAgo.setDate(today.getDate() - 7);
+
+  const thisWeek = activitiesInRange(weekStart, today);
+  const lastWeek = activitiesInRange(lastWeekStart, lastWeekToday);
+
+  const sumDist = arr => arr.reduce((s, a) => s + a.dist, 0);
+  const sumElev = arr => arr.reduce((s, a) => s + a.elev, 0);
+  const longRun = arr => arr.reduce((m, a) => Math.max(m, a.dist), 0);
+  const sessions = arr => new Set(arr.map(a => a.date)).size;
+
+  const mi    = sumDist(thisWeek);
+  const elev  = sumElev(thisWeek);
+  const ses   = sessions(thisWeek);
+  const miL   = sumDist(lastWeek);
+  const elevL = sumElev(lastWeek);
+
+  const lr  = longRun(activitiesInRange(sevenAgo, today));
+  const lrL = longRun(activitiesInRange(fourteenAgo, eightAgo));
+
+  // Badge: e.g. "May 4–10"
+  const badge = `${fmtMonthDay(weekStart)}–${weekEnd.toLocaleDateString('en-US',{day:'numeric'})}`;
+  document.getElementById('training-week-badge').textContent = badge;
+
+  document.getElementById('stat-mileage').textContent = mi ? mi.toFixed(0) : '0';
+  setDelta('stat-mileage-delta', mi - miL, 'mi vs last week');
+
+  // Elevation: render in k ft when >= 1000
+  const elevEl = document.getElementById('stat-elev');
+  const elevUnitEl = document.getElementById('stat-elev-unit');
+  if (elev >= 1000) {
+    elevEl.textContent = (elev / 1000).toFixed(1);
+    elevUnitEl.textContent = 'k ft';
+  } else {
+    elevEl.textContent = elev.toFixed(0);
+    elevUnitEl.textContent = 'ft';
+  }
+  setDelta('stat-elev-delta', elev - elevL, 'ft', { showFt: true });
+
+  document.getElementById('stat-longrun').textContent = lr ? lr.toFixed(0) : '0';
+  setDelta('stat-longrun-delta', lr - lrL, 'mi long-run');
+
+  document.getElementById('stat-sessions').textContent = ses;
+  document.getElementById('stat-sessions-goal').textContent =
+    `Goal: ${ses} of 6${ses >= 6 ? ' ✓' : ''}`;
+}
+
+function setDelta(elId, delta, unit, opts = {}) {
+  const el = document.getElementById(elId);
+  el.classList.remove('change-up', 'change-down', 'change-flat');
+  if (Math.abs(delta) < 0.05) {
+    el.classList.add('change-flat');
+    el.textContent = `→ flat vs last week`;
+    return;
+  }
+  const arrow = delta > 0 ? '↑' : '↓';
+  el.classList.add(delta > 0 ? 'change-up' : 'change-down');
+  el.textContent = opts.showFt
+    ? `${arrow} ${(delta > 0 ? '+' : '')}${Math.round(delta).toLocaleString()} ${unit}`
+    : `${arrow} ${(delta > 0 ? '+' : '')}${delta.toFixed(1)} ${unit}`;
+}
+
+/* ══════════════════════════════════════════════
+   Weekly Check-in (dynamic — Mon-Sun, due Sunday)
+   ══════════════════════════════════════════════ */
+function refreshWeeklyCheckin() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const weekStart = getMondayOfWeek(today);
+  const sunday = new Date(weekStart); sunday.setDate(weekStart.getDate() + 6);
+  const lastSunday = new Date(weekStart); lastSunday.setDate(weekStart.getDate() - 1);
+
+  // 7-week streak dots — most recent (current week) on the right, pending state if mid-week.
+  const dotsEl = document.getElementById('checkin-streak-dots');
+  dotsEl.innerHTML = '';
+  for (let i = 6; i >= 0; i--) {
+    const dot = document.createElement('div');
+    dot.className = 'streak-dot';
+    if (i === 4) dot.classList.add('miss'); // historical missed week
+    if (i === 0 && today < sunday) {
+      dot.style.cssText = 'background:var(--accent-orange);box-shadow:0 0 6px rgba(251,146,60,0.6);';
+    }
+    dotsEl.appendChild(dot);
+  }
+
+  if (today >= sunday) {
+    document.getElementById('checkin-text').textContent = 'This week — checked in';
+    document.getElementById('checkin-date').textContent = fmtFullDate(sunday);
+    document.getElementById('checkin-badge').textContent = 'Complete';
+    document.getElementById('checkin-badge').className = 'card-badge badge-green';
+  } else {
+    document.getElementById('checkin-text').textContent =
+      `Week of ${fmtMonthDay(weekStart)} — due Sunday`;
+    document.getElementById('checkin-date').textContent = `Last: ${fmtFullDate(lastSunday)}`;
+    document.getElementById('checkin-badge').textContent = 'Pending';
+    document.getElementById('checkin-badge').className = 'card-badge badge-orange';
+  }
+}
 
 /* ══════════════════════════════════════════════
    Pass 1: Strain Sparkline (SVG bars)
@@ -1695,22 +1956,137 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
 })();
 
 /* ══════════════════════════════════════════════
-   Pass 1: Weight Progress Bar
+   Weight: localStorage persistence + dynamic 7-day trend
    ══════════════════════════════════════════════ */
-(function initWeightCard() {
-  const { current, goal, start } = weightData;
-  const pct = Math.round(((start - current) / (start - goal)) * 100);
-  document.getElementById('weight-bar').style.width = pct + '%';
-})();
+const WEIGHT_LS_KEY = 'af_weight_log';
 
-/* ══════════════════════════════════════════════
-   Pass 1: Weight Sparkline (SVG line)
-   ══════════════════════════════════════════════ */
-(function initWeightSparkline() {
+function getWeightLog() {
+  try {
+    const raw = localStorage.getItem(WEIGHT_LS_KEY);
+    if (!raw) return seedWeightLog();
+    const log = JSON.parse(raw);
+    if (!Array.isArray(log) || log.length === 0) return seedWeightLog();
+    return log;
+  } catch (e) {
+    return seedWeightLog();
+  }
+}
+
+// Seed with realistic 7-day history ending today, anchored to Christopher's actual weight (190lb).
+function seedWeightLog() {
+  const seed = [];
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  // Reflects history7d from earlier hardcoded data: 192 → 190 over 7 days (oldest → newest)
+  const seedValues = [192.0, 191.5, 191.2, 191.0, 190.8, 190.4, 190.0];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today); d.setDate(today.getDate() - i);
+    seed.push({ date: isoDate(d), weight: seedValues[6 - i] });
+  }
+  localStorage.setItem(WEIGHT_LS_KEY, JSON.stringify(seed));
+  return seed;
+}
+
+function setWeightLog(log) {
+  localStorage.setItem(WEIGHT_LS_KEY, JSON.stringify(log));
+}
+
+function logWeight() {
+  const input = document.getElementById('entry-weight');
+  const confirmEl = document.getElementById('weight-entry-confirm');
+  const w = parseFloat(input.value);
+  if (!w || w < 100 || w > 350) {
+    confirmEl.style.color = 'var(--accent-red)';
+    confirmEl.textContent = 'Enter a valid weight (100–350 lbs)';
+    return;
+  }
+
+  const log = getWeightLog();
+  const today = isoDate(new Date());
+  const existing = log.findIndex(e => e.date === today);
+  if (existing >= 0) log[existing].weight = w;
+  else log.push({ date: today, weight: w });
+  log.sort((a, b) => a.date.localeCompare(b.date));
+  setWeightLog(log);
+
+  input.value = '';
+  confirmEl.style.color = 'var(--accent-green)';
+  confirmEl.textContent = `Logged ${w.toFixed(1)} lbs for today ✓`;
+  setTimeout(() => { confirmEl.textContent = ''; }, 2500);
+
+  refreshWeightCard();
+}
+
+function refreshWeightCard() {
+  const log = getWeightLog();
+  const goal  = weightData.goal;
+  const start = weightData.start;
+
+  // Build last-7-days array (oldest → newest), filling gaps with last known on-or-before value
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const byDate = Object.fromEntries(log.map(e => [e.date, e.weight]));
+  const sortedDates = log.map(e => e.date).sort();
+  const days7 = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today); d.setDate(today.getDate() - i);
+    const key = isoDate(d);
+    const onOrBefore = sortedDates.filter(s => s <= key);
+    const w = onOrBefore.length
+      ? byDate[onOrBefore[onOrBefore.length - 1]]
+      : weightData.current;
+    days7.push({ date: key, weight: w, weekday: d });
+  }
+
+  const current = days7[days7.length - 1].weight;
+
+  // Hero
+  document.getElementById('weight-hero').innerHTML =
+    `${current.toFixed(1)}<span class="body-hero-unit">lbs</span>`;
+
+  // Progress
+  const pct = Math.max(0, Math.min(100, Math.round(((start - current) / (start - goal)) * 100)));
+  document.getElementById('weight-bar').style.width = pct + '%';
+
+  const togo = current - goal;
+  document.getElementById('weight-togo').textContent =
+    togo > 0 ? `↓ ${togo.toFixed(1)} lbs to go`
+             : togo < 0 ? `↑ ${(-togo).toFixed(1)} lbs under goal`
+                        : `✓ at goal`;
+
+  // Stats
+  const lost = start - current;
+  document.getElementById('weight-stat-lost').textContent =
+    (lost >= 0 ? '−' : '+') + Math.abs(lost).toFixed(1);
+  document.getElementById('weight-stat-pct').textContent = pct + '%';
+
+  // Rate over last 7 days
+  const span = days7[days7.length - 1].weight - days7[0].weight;
+  const ratePerDay = span / 6;
+  document.getElementById('weight-stat-rate').textContent =
+    (ratePerDay > 0 ? '+' : ratePerDay < 0 ? '−' : '') + Math.abs(ratePerDay).toFixed(2);
+
+  // Trend direction
+  const trendEl = document.getElementById('weight-trend-direction');
+  if (Math.abs(span) < 0.1) {
+    trendEl.style.color = 'var(--text-muted)';
+    trendEl.textContent = '→ holding steady';
+  } else if (span < 0) {
+    trendEl.style.color = 'var(--accent-green)';
+    trendEl.textContent = '↓ trending down';
+  } else {
+    trendEl.style.color = 'var(--accent-orange)';
+    trendEl.textContent = '↑ trending up';
+  }
+
+  drawWeightSparkline(days7);
+}
+
+function drawWeightSparkline(days7) {
   const svg = document.getElementById('weight-sparkline');
   const daysEl = document.getElementById('weight-days');
-  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-  const data = weightData.history7d;
+  svg.innerHTML = '';
+  daysEl.innerHTML = '';
+
+  const data = days7.map(d => d.weight);
   const W = 200, H = 34;
   const n = data.length;
   const minV = Math.min(...data) - 0.3;
@@ -1723,15 +2099,11 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
     return `${x},${y}`;
   });
 
-  // Area fill
-  const area = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
-  const areaFill = `0,${H} ` + pts.join(' ') + ` ${W},${H}`;
   const fillPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-  fillPoly.setAttribute('points', areaFill);
+  fillPoly.setAttribute('points', `0,${H} ` + pts.join(' ') + ` ${W},${H}`);
   fillPoly.setAttribute('fill', 'rgba(167,139,250,0.12)');
   svg.appendChild(fillPoly);
 
-  // Line
   const line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
   line.setAttribute('points', pts.join(' '));
   line.setAttribute('fill', 'none');
@@ -1741,7 +2113,6 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
   line.setAttribute('stroke-linecap', 'round');
   svg.appendChild(line);
 
-  // End dot
   const lastPt = pts[pts.length - 1].split(',');
   const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   dot.setAttribute('cx', lastPt[0]);
@@ -1750,14 +2121,13 @@ const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
   dot.setAttribute('fill', '#a78bfa');
   svg.appendChild(dot);
 
-  // Day labels
-  days.forEach(d => {
+  days7.forEach(d => {
     const lbl = document.createElement('span');
     lbl.className = 'sparkline-day-lbl';
-    lbl.textContent = d;
+    lbl.textContent = d.weekday.toLocaleDateString('en-US', { weekday: 'short' }).charAt(0);
     daysEl.appendChild(lbl);
   });
-})();
+}
 
 /* ══════════════════════════════════════════════
    Recovery Mini Trend Bars
@@ -1936,34 +2306,32 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
 /* ══════════════════════════════════════════════
    Periodization Week Label
    ══════════════════════════════════════════════ */
-(function initPeriodization() {
+function refreshPeriodization() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const daysDiff = Math.floor((today - BLOCK_START) / (1000 * 60 * 60 * 24));
   const weekNum = Math.min(Math.max(Math.floor(daysDiff / 7) + 1, 1), TOTAL_WEEKS);
 
+  // 22-week 50K plan: Base 1-3, Build 4-15 (split Build 1 / Build 2), Peak 16-19, Taper 20-22
   let phase;
-  if      (weekNum <= 6)  phase = 'Base';
-  else if (weekNum <= 12) phase = 'Build 1';
-  else if (weekNum <= 17) phase = 'Build 2';
-  else if (weekNum <= 20) phase = 'Peak';
+  if      (weekNum <= 3)  phase = 'Base';
+  else if (weekNum <= 9)  phase = 'Build 1';
+  else if (weekNum <= 15) phase = 'Build 2';
+  else if (weekNum <= 19) phase = 'Peak';
   else                    phase = 'Taper';
 
   document.getElementById('period-week-label').textContent = 'Week ' + weekNum + ' of ' + TOTAL_WEEKS;
   document.getElementById('period-phase').textContent = phase;
-})();
+}
 
 /* ══════════════════════════════════════════════
    Vertical Gain Tracker
    ══════════════════════════════════════════════ */
-(function initVertGain() {
+function refreshVertGain() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Current ISO week: Mon-Sun containing today
-  const dayOfWeek = (today.getDay() + 6) % 7; // 0=Mon
-  const weekStart = new Date(today);
-  weekStart.setDate(today.getDate() - dayOfWeek);
+  const weekStart = getMondayOfWeek(today);
   const weekEnd = new Date(weekStart);
   weekEnd.setDate(weekStart.getDate() + 6);
 
@@ -1992,18 +2360,17 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
   document.getElementById('vert-pct-badge').textContent = displayPct + '%';
   document.getElementById('vert-cumulative').textContent =
     totalVert.toLocaleString() + ' ft';
-})();
+}
 
 /* ══════════════════════════════════════════════
    Back-to-Back Run Detection (last 14 days)
    ══════════════════════════════════════════════ */
-(function initB2B() {
+function refreshB2B() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const cutoff = new Date(today);
   cutoff.setDate(today.getDate() - 13);
 
-  // Build set of run-day strings in window
   const runDays = new Set();
   stravaActivities.forEach(a => {
     if (a.type === 'Run') {
@@ -2023,12 +2390,13 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
   });
 
   document.getElementById('b2b-count').textContent = b2bCount;
-})();
+}
 
 /* ══════════════════════════════════════════════
    Long Run Progression Chart
    ══════════════════════════════════════════════ */
-(function initLongRunChart() {
+let longRunChartInstance = null;
+function refreshLongRunChart() {
   // Group runs by ISO week (Mon-based), find longest per week
   const weekMap = {};
   stravaActivities.forEach(a => {
@@ -2049,12 +2417,18 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
   });
   const values = keys.map(k => weekMap[k]);
 
+  if (longRunChartInstance) {
+    longRunChartInstance.data.labels = labels;
+    longRunChartInstance.data.datasets[0].data = values;
+    longRunChartInstance.update();
+    return;
+  }
   const ctx = document.getElementById('longRunChart').getContext('2d');
   const barGrad = ctx.createLinearGradient(0, 0, 0, 180);
   barGrad.addColorStop(0, 'rgba(167,139,250,0.85)');
   barGrad.addColorStop(1, 'rgba(96,165,250,0.5)');
 
-  new Chart(ctx, {
+  longRunChartInstance = new Chart(ctx, {
     type: 'bar',
     data: {
       labels,
@@ -2097,7 +2471,7 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
       }
     }
   });
-})();
+}
 
 /* ══════════════════════════════════════════════
    HRV Quick Entry (localStorage)
@@ -2158,36 +2532,119 @@ function logRecovery() {
 }
 
 /* ══════════════════════════════════════════════
-   Coach Briefing — dynamic fetch from coach_briefing.json
+   Coach Briefing — fetch coach_briefing.json with cache-bust + stale indicator
    ══════════════════════════════════════════════ */
-(async function initCoachCard() {
+async function refreshCoachBriefing() {
+  const list      = document.getElementById('coach-notes-list');
+  const badge     = document.getElementById('coach-badge-date');
+  const updatedEl = document.getElementById('coach-updated');
+
   try {
-    const res = await fetch('coach_briefing.json');
-    if (!res.ok) throw new Error('coach_briefing.json not found: ' + res.status);
+    const res = await fetch('coach_briefing.json?_=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
 
-    document.getElementById('coach-badge-date').textContent = data.generated || '';
+    badge.textContent = data.generated || '—';
 
-    const list = document.getElementById('coach-notes-list');
     if (data.coaching && data.coaching.length) {
       list.innerHTML = data.coaching.map(item => `
         <div class="coach-item">
           <div class="coach-item-header">
-            <span class="coach-item-icon">${item.icon}</span>
-            <span class="coach-item-title">${item.title}</span>
+            <span class="coach-item-icon">${item.icon || ''}</span>
+            <span class="coach-item-title">${item.title || ''}</span>
           </div>
-          <p class="coach-item-message">${item.message}</p>
+          <p class="coach-item-message">${item.message || ''}</p>
         </div>
       `).join('');
     } else {
       list.innerHTML = '<p class="coach-note">No coaching notes available.</p>';
     }
+
+    // Last-updated / stale indicator
+    if (data.generated) {
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const gen = new Date(data.generated + 'T00:00:00');
+      const daysAgo = Math.round((today - gen) / 86400000);
+      const ts = data.generated_at
+        ? new Date(data.generated_at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+        : '';
+      let staleText;
+      if      (daysAgo === 0) staleText = 'generated today';
+      else if (daysAgo === 1) staleText = 'generated yesterday';
+      else                    staleText = `generated ${daysAgo} days ago${daysAgo > 7 ? ' — may be stale' : ''}`;
+      updatedEl.textContent = `Last updated: ${fmtFullDate(gen)}${ts ? ' · ' + ts : ''} · ${staleText}`;
+      updatedEl.classList.toggle('stale', daysAgo > 7);
+    } else {
+      updatedEl.textContent = '';
+      updatedEl.classList.remove('stale');
+    }
   } catch (e) {
-    const list = document.getElementById('coach-notes-list');
-    if (list) list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
-    document.getElementById('coach-badge-date').textContent = '—';
+    list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
+    badge.textContent = '—';
+    updatedEl.textContent = 'Last updated: unknown — fetch failed';
+    updatedEl.classList.add('stale');
     console.warn('AthleteFlo: could not load coach_briefing.json', e);
   }
+}
+
+/* ══════════════════════════════════════════════
+   Sync Now — re-fetch + recompute everything
+   ══════════════════════════════════════════════ */
+function updateLastSyncLabel() {
+  const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  document.getElementById('last-sync-label').textContent = `Synced today at ${time}`;
+}
+
+async function syncNow() {
+  const btn = document.getElementById('sync-btn');
+  const lbl = document.getElementById('sync-btn-label');
+  btn.classList.remove('confirmed');
+  btn.classList.add('spinning');
+  lbl.textContent = 'Syncing…';
+
+  try {
+    await refreshCoachBriefing();
+    refreshCountdown();
+    refreshPeriodization();
+    refreshTrainingWeek();
+    refreshWeeklyBars();
+    refreshWeeklyCheckin();
+    refreshVertGain();
+    refreshB2B();
+    refreshLongRunChart();
+    refreshWeightCard();
+    updateLastSyncLabel();
+
+    btn.classList.remove('spinning');
+    btn.classList.add('confirmed');
+    lbl.textContent = 'Synced ✓';
+    setTimeout(() => {
+      btn.classList.remove('confirmed');
+      lbl.textContent = 'Sync Now';
+    }, 1800);
+  } catch (e) {
+    console.error('Sync failed:', e);
+    btn.classList.remove('spinning');
+    lbl.textContent = 'Sync failed';
+    setTimeout(() => { lbl.textContent = 'Sync Now'; }, 2000);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Initial bootstrap — runs on page load
+   ══════════════════════════════════════════════ */
+(async function bootstrap() {
+  refreshCountdown();
+  refreshPeriodization();
+  refreshTrainingWeek();
+  refreshWeeklyBars();
+  refreshWeeklyCheckin();
+  refreshVertGain();
+  refreshB2B();
+  refreshLongRunChart();
+  refreshWeightCard();
+  await refreshCoachBriefing();
+  updateLastSyncLabel();
 })();
 </script>
 </body>

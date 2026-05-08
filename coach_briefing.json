@@ -1,5 +1,6 @@
 {
-  "generated": "2026-04-23",
+  "generated": "2026-05-08",
+  "generated_at": "2026-05-08T07:30:00-07:00",
   "athlete": {
     "name": "Christopher",
     "weight_lbs": 190,
@@ -26,27 +27,27 @@
   "coaching": [
     {
       "type": "run",
-      "icon": "\ud83c\udfc3",
-      "title": "Easy Recovery",
-      "message": "Back-to-back 6-milers this week are solid base work. Keep today easy \u2014 your legs need time after the 26.8-mile effort on April 11. 30\u201345 min zone 2 max."
+      "icon": "🏃",
+      "title": "Re-engage the Build Phase",
+      "message": "27 days post the 26.8-mile effort and you've been smart about base recovery. We're 19 weeks out from Julian Alps — time to ramp deliberately. Target this week: 4 quality runs + a Saturday long run at 16-18mi with sustained climbs. Conservative on pace, hard on consistency."
     },
     {
       "type": "nutrition",
-      "icon": "\ud83e\udd57",
-      "title": "Fuel for adaptation",
-      "message": "At 190 lbs targeting Julian Alps 50K in September, prioritize protein today (0.8g/lb = ~152g). Carb-load lightly for tomorrow if you have a quality workout planned."
+      "icon": "🥗",
+      "title": "Fuel the climb",
+      "message": "190 lbs and entering Build means real protein loads (~152g/day) and carbs that match training volume. Build Phase weeks need 250+ daily carbs on doubles, 350+ on long-run days. No empty calories — every gram is doing work for the Alps."
     },
     {
       "type": "recovery",
-      "icon": "\ud83d\udca4",
+      "icon": "💤",
       "title": "Sleep is the workout",
-      "message": "You're 147 days out from race day. This is base-building phase \u2014 sleep 8+ hours and avoid back-to-back hard days."
+      "message": "133 days to race day. Build Phase volume only sticks if you sleep through it — 8 hours minimum, no exceptions. Watch HRV daily; if it drops below 60 two days in a row, pull back the next workout."
     },
     {
       "type": "mental",
-      "icon": "\ud83e\udde0",
-      "title": "Trust the long run",
-      "message": "26.8 miles is real fitness. The Julian Alps course will test you but you've proven you can go long. Stay consistent and the fitness compounds."
+      "icon": "🧠",
+      "title": "26.8 was the floor, not the ceiling",
+      "message": "The April 11 long run proved you can already cover the 50K distance. The next 19 weeks are about doing it on tired legs, on technical climbs, in the heat. Stack consistent weeks — the Alps reward whoever does the boring work between now and September."
     }
   ]
 }

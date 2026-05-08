@@ -494,7 +494,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 5,
       "legs": []
     },

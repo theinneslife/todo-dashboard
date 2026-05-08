@@ -1326,6 +1326,10 @@
           <div class="streak-label">Last 7 weeks</div>
           <div class="streak-dots" id="checkin-streak-dots"></div>
         </div>
+        <div id="recent-runs-block" style="display:none; margin-top:0.85rem; padding-top:0.7rem; border-top:1px solid var(--border-default,#1f2937);">
+          <div style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem;">Recent runs</div>
+          <div id="recent-runs-list" style="display:flex; flex-direction:column; gap:0.3rem; font-size:0.75rem; color:var(--text-muted);"></div>
+        </div>
       </div>
 
       <!-- Coach Notes -->
@@ -2588,6 +2592,152 @@ async function refreshCoachBriefing() {
 }
 
 /* ══════════════════════════════════════════════
+   Strava — live integration
+   Credentials are loaded from ./strava_creds.json (gitignored, local only).
+   On public GitHub Pages where that file isn't present, syncStravaData
+   no-ops silently and placeholder data continues to drive the UI.
+   ══════════════════════════════════════════════ */
+async function _loadStravaCredsFromFile() {
+  try {
+    const res = await fetch('./strava_creds.json', { cache: 'no-store' });
+    if (!res.ok) return false;
+    const c = await res.json();
+    const map = {
+      strava_client_id:     c.client_id,
+      strava_client_secret: c.client_secret,
+      strava_access_token:  c.access_token,
+      strava_refresh_token: c.refresh_token,
+      strava_expires_at:    c.expires_at,
+    };
+    for (const [k, v] of Object.entries(map)) {
+      if (v === undefined || v === null) continue;
+      const str = String(v);
+      if (localStorage.getItem(k) !== str) localStorage.setItem(k, str);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function _mondayUnix() {
+  const d = new Date(); d.setHours(0, 0, 0, 0);
+  const day = d.getDay();
+  const diff = (day === 0 ? -6 : 1 - day);
+  d.setDate(d.getDate() + diff);
+  return Math.floor(d.getTime() / 1000);
+}
+
+function _fmtDuration(sec) {
+  sec = Math.max(0, Math.floor(sec || 0));
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const pad = (n) => String(n).padStart(2, '0');
+  return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
+}
+
+function _fmtRunDate(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+async function _refreshStravaToken() {
+  const body = new URLSearchParams({
+    client_id:     localStorage.getItem('strava_client_id') || '',
+    client_secret: localStorage.getItem('strava_client_secret') || '',
+    refresh_token: localStorage.getItem('strava_refresh_token') || '',
+    grant_type:    'refresh_token',
+  });
+  const res = await fetch('https://www.strava.com/oauth/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
+  if (!res.ok) throw new Error('Strava token refresh failed: ' + res.status);
+  const data = await res.json();
+  if (data.access_token)  localStorage.setItem('strava_access_token', data.access_token);
+  if (data.refresh_token) localStorage.setItem('strava_refresh_token', data.refresh_token);
+  if (data.expires_at)    localStorage.setItem('strava_expires_at', String(data.expires_at));
+  return data.access_token;
+}
+
+async function syncStravaData() {
+  await _loadStravaCredsFromFile();
+  if (!localStorage.getItem('strava_client_id') || !localStorage.getItem('strava_refresh_token')) {
+    return false;
+  }
+
+  let token = localStorage.getItem('strava_access_token');
+  const expiresAt = parseInt(localStorage.getItem('strava_expires_at') || '0', 10);
+  const nowSec    = Math.floor(Date.now() / 1000);
+  if (!token || nowSec >= expiresAt) {
+    token = await _refreshStravaToken();
+  }
+
+  const after = _mondayUnix();
+  const url = `https://www.strava.com/api/v3/athlete/activities?after=${after}&per_page=100`;
+  let res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  if (res.status === 401) {
+    token = await _refreshStravaToken();
+    res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  }
+  if (!res.ok) throw new Error('Strava activities fetch failed: ' + res.status);
+
+  const activities = await res.json();
+  const runs = (activities || []).filter(a => a.type === 'Run');
+
+  const monday = new Date(); monday.setHours(0, 0, 0, 0);
+  monday.setDate(monday.getDate() + (monday.getDay() === 0 ? -6 : 1 - monday.getDay()));
+  for (let i = stravaActivities.length - 1; i >= 0; i--) {
+    const d = new Date(stravaActivities[i].date); d.setHours(0, 0, 0, 0);
+    if (d >= monday) stravaActivities.splice(i, 1);
+  }
+  runs.forEach(r => {
+    const dateLocal = (r.start_date_local || r.start_date || '').slice(0, 10);
+    if (!dateLocal) return;
+    stravaActivities.push({
+      date: dateLocal,
+      name: r.name || 'Run',
+      type: 'Run',
+      dist: Math.round((r.distance / 1609.344) * 10) / 10,
+      elev: Math.round((r.total_elevation_gain || 0) * 3.28084),
+    });
+  });
+  stravaActivities.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+
+  const totalMiles = Math.round((runs.reduce((s, a) => s + (a.distance || 0), 0) / 1609.344) * 10) / 10;
+  const milesEl = document.getElementById('stat-mileage');
+  if (milesEl) milesEl.textContent = totalMiles.toFixed(1);
+
+  const recent = [...runs]
+    .sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
+    .slice(0, 5);
+  const block = document.getElementById('recent-runs-block');
+  const list  = document.getElementById('recent-runs-list');
+  if (block && list) {
+    if (recent.length) {
+      block.style.display = 'block';
+      list.innerHTML = recent.map(r => {
+        const miles = (r.distance / 1609.344).toFixed(1);
+        const date  = _fmtRunDate(r.start_date_local || r.start_date);
+        const time  = _fmtDuration(r.moving_time);
+        const name  = (r.name || 'Run').replace(/[<>]/g, '');
+        return `<div style="display:flex;justify-content:space-between;gap:0.5rem;">
+          <span style="color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${name}</span>
+          <span>${date} · ${miles} mi · ${time}</span>
+        </div>`;
+      }).join('');
+    } else {
+      block.style.display = 'block';
+      list.innerHTML = '<div>No runs yet this week</div>';
+    }
+  }
+
+  return true;
+}
+
+/* ══════════════════════════════════════════════
    Sync Now — re-fetch + recompute everything
    ══════════════════════════════════════════════ */
 function updateLastSyncLabel() {
@@ -2603,6 +2753,7 @@ async function syncNow() {
   lbl.textContent = 'Syncing…';
 
   try {
+    try { await syncStravaData(); } catch (e) { console.warn('Strava sync failed:', e); }
     await refreshCoachBriefing();
     refreshCountdown();
     refreshPeriodization();
@@ -2645,6 +2796,18 @@ async function syncNow() {
   refreshWeightCard();
   await refreshCoachBriefing();
   updateLastSyncLabel();
+
+  try {
+    const synced = await syncStravaData();
+    if (synced) {
+      refreshTrainingWeek();
+      refreshWeeklyBars();
+      refreshLongRunChart();
+      updateLastSyncLabel();
+    }
+  } catch (e) {
+    console.warn('AthleteFlo: Strava sync failed', e);
+  }
 })();
 </script>
 </body>

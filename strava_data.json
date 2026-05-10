@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-10T09:44:09.703599Z",
-  "weekly_miles": 21.0,
+  "generated": "2026-05-10T11:04:19.468192Z",
+  "weekly_miles": 31.6,
   "recent_runs": [
     {
       "name": "Treadmill",
@@ -19,6 +19,12 @@
       "date": "2026-05-08",
       "miles": 7.01,
       "duration": "1:41:15"
+    },
+    {
+      "name": "Rainy Trail Work",
+      "date": "2026-05-10",
+      "miles": 10.62,
+      "duration": "2:03:42"
     }
   ]
 }

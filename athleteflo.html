@@ -1262,9 +1262,9 @@
           </defs>
           <rect x="0" y="4" width="32" height="32" rx="7" fill="url(#af-g)"/>
           <path d="M16 31 C9 27 7 20 11 16 C11 20 13 22 13 22 C13 17 15 13 18 10 C18 15 20 17 21 20 C23 16 22 13 22 13 C26 17 25 24 23 28 C21 30 19 31 16 31Z" fill="#fff" opacity=".9"/>
-          <text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" letter-spacing="-0.5" fill="#e2e8f0">Athlete</text>
-          <text x="105" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-g)">Flo</text>
-          <path d="M105 33Q120 28 135 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
+          <text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Athlete</text>
+          <text x="112" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#af-g)">Flo</text>
+          <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
       <span class="version-badge">v1.2</span>
@@ -1447,7 +1447,7 @@
 
         <!-- Daily weight input -->
         <div class="weight-entry-row">
-          <input class="weight-entry-input" type="number" id="entry-weight" placeholder="Today's weight (lbs)" min="100" max="350" step="0.1" onkeydown="if(event.key==='Enter'){event.preventDefault();logWeight();}">
+          <input class="weight-entry-input" type="number" id="entry-weight" placeholder="Today's weight (lbs)" min="100" max="350" step="0.1">
           <button class="weight-log-btn" onclick="logWeight()">Log Weight</button>
         </div>
         <div class="weight-entry-confirm" id="weight-entry-confirm"></div>
@@ -1750,11 +1750,7 @@ function fmtFullDate(d) {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 function isoDate(d) {
-  const x = new Date(d);
-  const y = x.getFullYear();
-  const m = String(x.getMonth() + 1).padStart(2, '0');
-  const day = String(x.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
+  return new Date(d).toISOString().slice(0, 10);
 }
 
 /* ══════════════════════════════════════════════
@@ -2601,6 +2597,7 @@ async function refreshCoachBriefing() {
    Before the first workflow run the file may be missing; we no-op silently
    in that case so placeholder data continues to drive the UI.
    ══════════════════════════════════════════════ */
+
 async function syncStravaData() {
   let data;
   try {
@@ -2616,10 +2613,32 @@ async function syncStravaData() {
     milesEl.textContent = data.weekly_miles.toFixed(1);
   }
 
+  // Replace this week's static placeholder entries with real data from strava_data.json
+  // so that refreshTrainingWeek() uses accurate mileage instead of placeholder totals
+  const recent = Array.isArray(data.recent_runs) ? data.recent_runs : [];
+  if (recent.length) {
+    const monday = new Date(); monday.setHours(0, 0, 0, 0);
+    const day = monday.getDay();
+    monday.setDate(monday.getDate() + (day === 0 ? -6 : 1 - day));
+    for (let i = stravaActivities.length - 1; i >= 0; i--) {
+      const d = new Date(stravaActivities[i].date); d.setHours(0, 0, 0, 0);
+      if (d >= monday) stravaActivities.splice(i, 1);
+    }
+    recent.forEach(r => {
+      stravaActivities.push({
+        date: String(r.date || ''),
+        name: String(r.name || 'Run'),
+        type: 'Run',
+        dist: typeof r.miles === 'number' ? r.miles : 0,
+        elev: 0,
+      });
+    });
+    stravaActivities.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  }
+
   const block = document.getElementById('recent-runs-block');
   const list  = document.getElementById('recent-runs-list');
   if (block && list) {
-    const recent = Array.isArray(data.recent_runs) ? data.recent_runs : [];
     block.style.display = 'block';
     if (recent.length) {
       list.innerHTML = recent.map(r => {

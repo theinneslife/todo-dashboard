@@ -918,7 +918,7 @@
   {
     "id": "bd25dac9-8cd7-4860-97ac-42b45eda7128",
     "title": "File Missing Sandwich LLC Annual Report",
-    "description": "File at ccfs.sos.wa.gov — $60 fee. UBI: 605-234-741. Must file by May 31 or risk re-dissolution.",
+    "description": "File at ccfs.sos.wa.gov â $60 fee. UBI: 605-234-741. Must file by May 31 or risk re-dissolution.",
     "priority": 1,
     "status": "completed",
     "mode": "manual",
@@ -1136,5 +1136,145 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "6ff6f0f0-c906-448c-97a6-225c36e27b39",
+    "title": "Reply to jury summons - Clark County, Washington",
+    "description": "Respond to the jury summons from Clark County, Washington. Flagged as an explicit action item in the May 1 Otter recording.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-11T16:57:12.808Z",
+        "action": "created",
+        "by": "Otter Import",
+        "details": "Created from Otter recording: Note (May 1, 8:16 PM)"
+      }
+    ],
+    "created_at": "2026-05-11T16:57:12.808Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "db81aa31-0dfe-4691-a437-8ba971048a88",
+    "title": "Send Rivian title to MJ",
+    "description": "Send the title document for the Rivian to MJ. First noted on May 1 ('find out where the title is'), then re-flagged on May 8 ('send the title to MJ').",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-11T16:57:12.808Z",
+        "action": "created",
+        "by": "Otter Import",
+        "details": "Created from Otter recording: Note (May 1 + May 8)"
+      }
+    ],
+    "created_at": "2026-05-11T16:57:12.808Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "b67831c7-e275-4d55-9e01-b35269653497",
+    "title": "Align all SSPs and TV networks to MNTN impression data",
+    "description": "Ensure all SSPs and TV networks report off MNTN's impression counts, not their own. Strategic measurement/data initiative noted in May 8 recording.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-11T16:57:12.808Z",
+        "action": "created",
+        "by": "Otter Import",
+        "details": "Created from Otter recording: Note (May 8, 3:46 PM)"
+      }
+    ],
+    "created_at": "2026-05-11T16:57:12.808Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "1b13feb6-d43a-4088-9343-143705409ddb",
+    "title": "Put buttons back on Brooke's jacket",
+    "description": "Brooke's jacket needs its buttons sewn back on. Personal errand noted in May 8 recording.",
+    "priority": 3,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-11T16:57:12.808Z",
+        "action": "created",
+        "by": "Otter Import",
+        "details": "Created from Otter recording: Note (May 8, 3:08 PM)"
+      }
+    ],
+    "created_at": "2026-05-11T16:57:12.808Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

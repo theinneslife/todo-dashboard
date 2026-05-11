@@ -1,30 +1,5 @@
 {
-  "generated": "2026-05-10T22:59:46.600909Z",
-  "weekly_miles": 31.6,
-  "recent_runs": [
-    {
-      "name": "Treadmill",
-      "date": "2026-05-06",
-      "miles": 7.0,
-      "duration": "1:10:00"
-    },
-    {
-      "name": "Morning Run",
-      "date": "2026-05-07",
-      "miles": 7.01,
-      "duration": "1:10:33"
-    },
-    {
-      "name": "Morning Trail Run",
-      "date": "2026-05-08",
-      "miles": 7.01,
-      "duration": "1:41:15"
-    },
-    {
-      "name": "Rainy Trail Work",
-      "date": "2026-05-10",
-      "miles": 10.62,
-      "duration": "2:03:42"
-    }
-  ]
+  "generated": "2026-05-11T00:03:16.632619Z",
+  "weekly_miles": 0.0,
+  "recent_runs": []
 }

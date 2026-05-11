@@ -40,23 +40,51 @@ jobs:
             token = json.loads(r.read())
           access_token = token['access_token']
 
-          # Calculate Monday 00:00:00 local (use UTC for simplicity — close enough)
+          # Calculate Monday 00:00:00 (UTC). We need this week AND last week, so fetch
+          # everything since the start of last week (14 days back from this Monday).
           now = datetime.datetime.utcnow()
-          monday = now - datetime.timedelta(days=now.weekday())
-          monday_midnight = monday.replace(hour=0, minute=0, second=0, microsecond=0)
-          after_ts = int(monday_midnight.timestamp())
+          this_monday = (now - datetime.timedelta(days=now.weekday())).replace(
+            hour=0, minute=0, second=0, microsecond=0)
+          last_monday = this_monday - datetime.timedelta(days=7)
+          after_ts = int(last_monday.timestamp())
 
-          # Fetch activities since Monday
           url = f'https://www.strava.com/api/v3/athlete/activities?after={after_ts}&per_page=100'
           req = urllib.request.Request(url, headers={'Authorization': f'Bearer {access_token}'})
           with urllib.request.urlopen(req) as r:
             activities = json.loads(r.read())
 
-          # Filter runs and compute stats
-          runs = [a for a in activities if a.get('type') == 'Run']
-          weekly_miles = round(sum(a['distance'] for a in runs) / 1609.344, 1)
+          METERS_PER_MILE = 1609.344
+          METERS_PER_FOOT = 0.3048
 
-          # Format recent runs (most recent 5)
+          def parse_local(a):
+            # start_date_local is naive ISO; treat as local for week-bucketing.
+            return datetime.datetime.fromisoformat(a['start_date_local'].replace('Z', ''))
+
+          # Filter runs and bucket into this-week / last-week.
+          runs = [a for a in activities if a.get('type') == 'Run']
+          this_week, last_week = [], []
+          for a in runs:
+            ts = parse_local(a)
+            if ts >= this_monday:
+              this_week.append(a)
+            elif ts >= last_monday:
+              last_week.append(a)
+
+          def sum_miles(arr):
+            return round(sum(a['distance'] for a in arr) / METERS_PER_MILE, 1)
+          def sum_elev_ft(arr):
+            return round(sum(a.get('total_elevation_gain', 0) for a in arr) / METERS_PER_FOOT)
+          def session_count(arr):
+            # One session per local calendar day.
+            return len({parse_local(a).date() for a in arr})
+
+          weekly_miles            = sum_miles(this_week)
+          total_elevation_feet    = sum_elev_ft(this_week)
+          last_week_miles         = sum_miles(last_week)
+          last_week_elevation_feet = sum_elev_ft(last_week)
+          last_week_sessions      = session_count(last_week)
+
+          # Format recent runs (most recent 5 from this week)
           def fmt_duration(sec):
             sec = int(sec or 0)
             h, rem = divmod(sec, 3600)
@@ -64,22 +92,29 @@ jobs:
             return f'{h}:{m:02d}:{s:02d}' if h else f'{m}:{s:02d}'
 
           recent = []
-          for a in runs[:5]:
+          for a in this_week[:5]:
             recent.append({
               'name': a.get('name', 'Run'),
               'date': a['start_date_local'][:10],
-              'miles': round(a['distance'] / 1609.344, 2),
+              'miles': round(a['distance'] / METERS_PER_MILE, 2),
+              'elevation_feet': round(a.get('total_elevation_gain', 0) / METERS_PER_FOOT),
               'duration': fmt_duration(a.get('moving_time', 0)),
             })
 
           output = {
             'generated': datetime.datetime.utcnow().isoformat() + 'Z',
             'weekly_miles': weekly_miles,
+            'total_elevation_feet': total_elevation_feet,
+            'last_week_miles': last_week_miles,
+            'last_week_elevation_feet': last_week_elevation_feet,
+            'last_week_sessions': last_week_sessions,
             'recent_runs': recent,
           }
           with open('strava_data.json', 'w') as f:
             json.dump(output, f, indent=2)
-          print(f"Written: weekly_miles={weekly_miles}, runs={len(recent)}")
+          print(f"Written: weekly_miles={weekly_miles}, elev={total_elevation_feet}ft, "
+                f"last_week=({last_week_miles}mi/{last_week_elevation_feet}ft/{last_week_sessions}ses), "
+                f"runs={len(recent)}")
           PYEOF
 
       - name: Commit and push strava_data.json

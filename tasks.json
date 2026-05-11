@@ -1327,5 +1327,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "2405fa4b-37c0-4886-aa05-674fa2afa836",
+    "title": "Dream video youtube page",
+    "description": "",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-11T20:03:25.139Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-05-11T20:03:25.139Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

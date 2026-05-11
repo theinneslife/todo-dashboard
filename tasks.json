@@ -1262,7 +1262,8 @@
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "otter-ai"
+      "otter-ai",
+      "Parking Lot"
     ],
     "due_date": null,
     "recurrence": null,
@@ -1273,6 +1274,12 @@
         "action": "created",
         "by": "Otter Import",
         "details": "Created from Otter recording: Note (May 8, 3:08 PM)"
+      },
+      {
+        "timestamp": "2026-05-11T18:03:53.537Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to parking"
       }
     ],
     "created_at": "2026-05-11T16:57:12.808Z",

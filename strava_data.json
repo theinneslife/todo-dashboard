@@ -1,5 +1,12 @@
 {
-  "generated": "2026-05-11T05:01:42.345639Z",
-  "weekly_miles": 0.0,
-  "recent_runs": []
+  "generated": "2026-05-11T09:54:24.374148Z",
+  "weekly_miles": 1.9,
+  "recent_runs": [
+    {
+      "name": "Technogym Run Excite: Hills",
+      "date": "2026-05-11",
+      "miles": 1.91,
+      "duration": "22:53"
+    }
+  ]
 }

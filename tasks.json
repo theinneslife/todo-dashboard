@@ -1248,7 +1248,12 @@
     ],
     "due_date": null,
     "recurrence": null,
-    "subtasks": [],
+    "subtasks": [
+      {
+        "title": "Innes Call Todd @ Beeswax",
+        "done": false
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-05-11T16:57:12.808Z",
@@ -1273,6 +1278,12 @@
         "action": "commented",
         "by": "Christopher",
         "details": "Added a comment"
+      },
+      {
+        "timestamp": "2026-05-12T16:20:40.936Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
       }
     ],
     "created_at": "2026-05-11T16:57:12.808Z",
@@ -1299,7 +1310,10 @@
         "text": "Chandler is approaching the SSPs immediately",
         "timestamp": "2026-05-11T18:16:08.246Z"
       }
-    ]
+    ],
+    "start_date": null,
+    "category": null,
+    "effort": null
   },
   {
     "id": "1b13feb6-d43a-4088-9343-143705409ddb",

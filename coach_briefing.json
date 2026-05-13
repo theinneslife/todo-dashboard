@@ -1,53 +1,35 @@
 {
-  "generated": "2026-05-08",
-  "generated_at": "2026-05-08T07:30:00-07:00",
+  "generated": "2026-05-13",
+  "generated_at": "2026-05-13T17:57:01Z",
   "athlete": {
     "name": "Christopher",
-    "weight_lbs": 190,
     "goal_race": "Julian Alps 50K",
     "race_date": "2026-09-18"
   },
-  "recent_runs": [
-    {
-      "date": "2026-04-23",
-      "miles": 6.0,
-      "type": "Easy"
-    },
-    {
-      "date": "2026-04-22",
-      "miles": 6.0,
-      "type": "Easy"
-    },
-    {
-      "date": "2026-04-11",
-      "miles": 26.8,
-      "type": "Long Run"
-    }
-  ],
   "coaching": [
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Re-engage the Build Phase",
-      "message": "27 days post the 26.8-mile effort and you've been smart about base recovery. We're 19 weeks out from Julian Alps — time to ramp deliberately. Target this week: 4 quality runs + a Saturday long run at 16-18mi with sustained climbs. Conservative on pace, hard on consistency."
+      "title": "Today's Run",
+      "message": "Build Phase, Week 1 of 8 — Wednesday calls for a mid-week quality effort. Target 75–90 min with 3×8-min hill repeats at perceived effort 7/10 (think: hard but controlled conversation possible). Walk the descent — Julian Alps will punish quads that haven't practiced downhill loading. If you're in a flat city, find stairs or a treadmill on max incline. Keep the last 20 min at easy Zone 2 to flush legs. Total vert goal: 400–600m. Log your HR drift — you're building the aerobic engine that will carry you through 2,500m of Slovenian alpine gain in September."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel the climb",
-      "message": "190 lbs and entering Build means real protein loads (~152g/day) and carbs that match training volume. Build Phase weeks need 250+ daily carbs on doubles, 350+ on long-run days. No empty calories — every gram is doing work for the Alps."
+      "title": "Fuel Right",
+      "message": "Mid-build means your gut needs training too. On today's run, practice taking 30–40g of carbs per hour using whatever you plan to race with — gels, chews, or real food. The Julian Alps course will have limited aid, so self-sufficiency is key. Post-run within 30 minutes: 20–25g protein + fast carbs to kickstart glycogen replenishment. As a full-time traveler, lean on hotel eggs + fruit or Greek yogurt + banana if you're not cooking. Hydration note: if you're crossing time zones right now, electrolyte intake matters more than plain water — sodium especially."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Sleep is the workout",
-      "message": "133 days to race day. Build Phase volume only sticks if you sleep through it — 8 hours minimum, no exceptions. Watch HRV daily; if it drops below 60 two days in a row, pull back the next workout."
+      "title": "Recovery",
+      "message": "You're 18 weeks out — deep in the build window where cumulative fatigue is the hidden enemy. Tonight, protect your sleep like it's training. Aim for 8 hours; if travel or meetings compressed yesterday, a 20-min nap before 3pm is clinically proven to restore cognitive function and reduce injury risk. Do 10 minutes of hip flexor + calf work tonight — the alpine terrain in Kranjska Gora will demand full ankle and hip range of motion on technical descents. Foam roll your IT bands if you did the hill repeats. Body check: any niggles that weren't there Monday need to be tracked, not ignored."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "26.8 was the floor, not the ceiling",
-      "message": "The April 11 long run proved you can already cover the 50K distance. The next 19 weeks are about doing it on tired legs, on technical climbs, in the heat. Stack consistent weeks — the Alps reward whoever does the boring work between now and September."
+      "title": "Mental Edge",
+      "message": "128 days to race day. Build phase is where races are won — not by grinding recklessly, but by showing up consistently across travel, meetings, and time zones. You don't need a perfect week. You need a good-enough week, repeated 18 times. Today's mental practice: spend 5 minutes before your run visualizing the Julian Alps ridgeline at kilometer 35 — legs heavy, views stunning, summit in sight. That image is your anchor when it gets hard. The athlete who races Julian Alps well is the one who trained their mind to embrace discomfort as signal, not warning. Today is a rep toward that."
     }
   ]
 }

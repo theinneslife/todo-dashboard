@@ -1,7 +1,7 @@
 {
-  "generated": "2026-05-13T07:54:29.383631Z",
-  "weekly_miles": 12.0,
-  "total_elevation_feet": 0,
+  "generated": "2026-05-13T10:36:52.029394Z",
+  "weekly_miles": 21.7,
+  "total_elevation_feet": 1388,
   "last_week_miles": 31.6,
   "last_week_elevation_feet": 2451,
   "last_week_sessions": 4,
@@ -19,6 +19,13 @@
       "miles": 5.01,
       "elevation_feet": 0,
       "duration": "59:12"
+    },
+    {
+      "name": "Morning Trail Run",
+      "date": "2026-05-13",
+      "miles": 9.72,
+      "elevation_feet": 1388,
+      "duration": "2:08:03"
     }
   ]
 }

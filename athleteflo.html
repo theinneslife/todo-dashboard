@@ -453,6 +453,7 @@
     }
 
     .streak-dot.miss { background: var(--border-color); box-shadow: none; }
+    .streak-dot.future { background: transparent; border: 1px dashed var(--border-color); box-shadow: none; }
 
     /* ============================================
        Coach Notes Card
@@ -1323,7 +1324,7 @@
           </div>
         </div>
         <div class="checkin-streak">
-          <div class="streak-label">Last 7 weeks</div>
+          <div class="streak-label">This week — Mon to Sun</div>
           <div class="streak-dots" id="checkin-streak-dots"></div>
         </div>
         <div id="recent-runs-block" style="display:none; margin-top:0.85rem; padding-top:0.7rem; border-top:1px solid var(--border-default,#1f2937);">
@@ -1833,11 +1834,17 @@ function refreshTrainingWeek() {
   const longRun = arr => arr.reduce((m, a) => Math.max(m, a.dist), 0);
   const sessions = arr => new Set(arr.map(a => a.date)).size;
 
-  const mi    = sumDist(thisWeek);
-  const elev  = sumElev(thisWeek);
+  // Prefer precomputed values from strava_data.json (authoritative for current
+  // and prior week) and fall back to placeholder activities when unavailable.
+  const sd = stravaData || {};
+  const num = (v) => typeof v === 'number' ? v : null;
+
+  const mi    = num(sd.weekly_miles)             ?? sumDist(thisWeek);
+  const elev  = num(sd.total_elevation_feet)     ?? sumElev(thisWeek);
   const ses   = sessions(thisWeek);
-  const miL   = sumDist(lastWeek);
-  const elevL = sumElev(lastWeek);
+  const miL   = num(sd.last_week_miles)          ?? sumDist(lastWeek);
+  const elevL = num(sd.last_week_elevation_feet) ?? sumElev(lastWeek);
+  const sesL  = num(sd.last_week_sessions)       ?? sessions(lastWeek);
 
   const lr  = longRun(activitiesInRange(sevenAgo, today));
   const lrL = longRun(activitiesInRange(fourteenAgo, eightAgo));
@@ -1865,59 +1872,115 @@ function refreshTrainingWeek() {
   setDelta('stat-longrun-delta', lr - lrL, 'mi long-run');
 
   document.getElementById('stat-sessions').textContent = ses;
-  document.getElementById('stat-sessions-goal').textContent =
-    `Goal: ${ses} of 6${ses >= 6 ? ' ✓' : ''}`;
+  setDelta('stat-sessions-goal', ses - sesL, 'ses vs last week', { integer: true });
 }
 
 function setDelta(elId, delta, unit, opts = {}) {
   const el = document.getElementById(elId);
   el.classList.remove('change-up', 'change-down', 'change-flat');
-  if (Math.abs(delta) < 0.05) {
+  const epsilon = (opts.showFt || opts.integer) ? 0.5 : 0.05;
+  if (Math.abs(delta) < epsilon) {
     el.classList.add('change-flat');
     el.textContent = `→ flat vs last week`;
     return;
   }
   const arrow = delta > 0 ? '↑' : '↓';
   el.classList.add(delta > 0 ? 'change-up' : 'change-down');
-  el.textContent = opts.showFt
-    ? `${arrow} ${(delta > 0 ? '+' : '')}${Math.round(delta).toLocaleString()} ${unit}`
-    : `${arrow} ${(delta > 0 ? '+' : '')}${delta.toFixed(1)} ${unit}`;
+  const sign = delta > 0 ? '+' : '';
+  const value = (opts.showFt || opts.integer)
+    ? Math.round(delta).toLocaleString()
+    : delta.toFixed(1);
+  el.textContent = `${arrow} ${sign}${value} ${unit}`;
 }
 
 /* ══════════════════════════════════════════════
-   Weekly Check-in (dynamic — Mon-Sun, due Sunday)
+   Weekly Check-in (dynamic — Mon-Sun, dots reflect runs in current week)
    ══════════════════════════════════════════════ */
 function refreshWeeklyCheckin() {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const weekStart = getMondayOfWeek(today);
   const sunday = new Date(weekStart); sunday.setDate(weekStart.getDate() + 6);
-  const lastSunday = new Date(weekStart); lastSunday.setDate(weekStart.getDate() - 1);
 
-  // 7-week streak dots — most recent (current week) on the right, pending state if mid-week.
+  // Which days of the current week (Mon..Sun) have a run? Use precomputed
+  // strava_data.json recent_runs when available, otherwise fall back to the
+  // local stravaActivities array.
+  const ranDays = new Set();
+  const recentRuns = (stravaData && Array.isArray(stravaData.recent_runs))
+    ? stravaData.recent_runs
+    : null;
+  if (recentRuns) {
+    recentRuns.forEach(r => {
+      const [y, m, d] = String(r.date || '').split('-').map(Number);
+      if (!y || !m || !d) return;
+      const dt = new Date(y, m - 1, d); dt.setHours(0, 0, 0, 0);
+      const offset = Math.round((dt - weekStart) / 86400000);
+      if (offset >= 0 && offset <= 6) ranDays.add(offset);
+    });
+  } else {
+    stravaActivities.forEach(a => {
+      const dt = new Date(a.date); dt.setHours(0, 0, 0, 0);
+      const offset = Math.round((dt - weekStart) / 86400000);
+      if (offset >= 0 && offset <= 6 && a.type === 'Run' && a.dist > 0) ranDays.add(offset);
+    });
+  }
+
+  // Streak dots — Mon..Sun left-to-right. Green = ran, grey "miss" = past day with
+  // no run, dashed "future" = day hasn't happened yet.
   const dotsEl = document.getElementById('checkin-streak-dots');
   dotsEl.innerHTML = '';
-  for (let i = 6; i >= 0; i--) {
+  const todayOffset = Math.round((today - weekStart) / 86400000);
+  for (let i = 0; i <= 6; i++) {
     const dot = document.createElement('div');
     dot.className = 'streak-dot';
-    if (i === 4) dot.classList.add('miss'); // historical missed week
-    if (i === 0 && today < sunday) {
-      dot.style.cssText = 'background:var(--accent-orange);box-shadow:0 0 6px rgba(251,146,60,0.6);';
+    if (ranDays.has(i)) {
+      // green = default
+    } else if (i > todayOffset) {
+      dot.classList.add('future');
+    } else {
+      dot.classList.add('miss');
     }
     dotsEl.appendChild(dot);
   }
 
-  if (today >= sunday) {
-    document.getElementById('checkin-text').textContent = 'This week — checked in';
-    document.getElementById('checkin-date').textContent = fmtFullDate(sunday);
-    document.getElementById('checkin-badge').textContent = 'Complete';
-    document.getElementById('checkin-badge').className = 'card-badge badge-green';
-  } else {
-    document.getElementById('checkin-text').textContent =
-      `Week of ${fmtMonthDay(weekStart)} — due Sunday`;
-    document.getElementById('checkin-date').textContent = `Last: ${fmtFullDate(lastSunday)}`;
-    document.getElementById('checkin-badge').textContent = 'Pending';
-    document.getElementById('checkin-badge').className = 'card-badge badge-orange';
+  // Last check-in date = date of most recent run in recent_runs (or stravaActivities fallback).
+  let lastRunDate = null;
+  if (recentRuns && recentRuns.length) {
+    const sorted = recentRuns
+      .map(r => String(r.date || ''))
+      .filter(Boolean)
+      .sort();
+    if (sorted.length) {
+      const [y, m, d] = sorted[sorted.length - 1].split('-').map(Number);
+      if (y && m && d) {
+        lastRunDate = new Date(y, m - 1, d); lastRunDate.setHours(0, 0, 0, 0);
+      }
+    }
   }
+  if (!lastRunDate) {
+    for (const a of stravaActivities) {
+      if (a.type === 'Run' && a.dist > 0) {
+        lastRunDate = new Date(a.date); lastRunDate.setHours(0, 0, 0, 0);
+        break;
+      }
+    }
+  }
+
+  const checkinText = document.getElementById('checkin-text');
+  const checkinDate = document.getElementById('checkin-date');
+  const badge = document.getElementById('checkin-badge');
+
+  if (today >= sunday) {
+    checkinText.textContent = 'This week — complete';
+    badge.textContent = 'Complete';
+    badge.className = 'card-badge badge-green';
+  } else {
+    checkinText.textContent = `Week of ${fmtMonthDay(weekStart)} — due Sunday`;
+    badge.textContent = 'Pending';
+    badge.className = 'card-badge badge-orange';
+  }
+  checkinDate.textContent = lastRunDate
+    ? `Last check-in: ${fmtFullDate(lastRunDate)}`
+    : 'Last check-in: —';
 }
 
 /* ══════════════════════════════════════════════
@@ -2543,21 +2606,39 @@ async function refreshCoachBriefing() {
   const badge     = document.getElementById('coach-badge-date');
   const updatedEl = document.getElementById('coach-updated');
 
+  // Tiny HTML-escape so titles/messages from JSON can't break layout.
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
   try {
     const res = await fetch('coach_briefing.json?_=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
 
-    badge.textContent = data.generated || '—';
+    // Accept either `coaching` (current shape) or `recommendations` (alt shape).
+    const items = Array.isArray(data.coaching)
+      ? data.coaching
+      : Array.isArray(data.recommendations) ? data.recommendations : [];
 
-    if (data.coaching && data.coaching.length) {
-      list.innerHTML = data.coaching.map(item => `
+    // Pull a date-only string for the badge, regardless of generated format.
+    const dateOnly = (() => {
+      if (!data.generated) return null;
+      const s = String(data.generated);
+      // ISO datetime → take the date portion; date-only stays as is.
+      const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
+      return m ? m[1] : null;
+    })();
+    badge.textContent = dateOnly || '—';
+
+    if (items.length) {
+      list.innerHTML = items.map(item => `
         <div class="coach-item">
           <div class="coach-item-header">
-            <span class="coach-item-icon">${item.icon || ''}</span>
-            <span class="coach-item-title">${item.title || ''}</span>
+            <span class="coach-item-icon">${esc(item.icon)}</span>
+            <span class="coach-item-title">${esc(item.title)}</span>
           </div>
-          <p class="coach-item-message">${item.message || ''}</p>
+          <p class="coach-item-message">${esc(item.message != null ? item.message : item.text)}</p>
         </div>
       `).join('');
     } else {
@@ -2565,9 +2646,9 @@ async function refreshCoachBriefing() {
     }
 
     // Last-updated / stale indicator
-    if (data.generated) {
+    if (dateOnly) {
       const today = new Date(); today.setHours(0, 0, 0, 0);
-      const gen = new Date(data.generated + 'T00:00:00');
+      const gen = new Date(dateOnly + 'T00:00:00');
       const daysAgo = Math.round((today - gen) / 86400000);
       const ts = data.generated_at
         ? new Date(data.generated_at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
@@ -2598,6 +2679,8 @@ async function refreshCoachBriefing() {
    in that case so placeholder data continues to drive the UI.
    ══════════════════════════════════════════════ */
 
+let stravaData = null;
+
 async function syncStravaData() {
   let data;
   try {
@@ -2607,6 +2690,8 @@ async function syncStravaData() {
   } catch {
     return false;
   }
+
+  stravaData = data;
 
   const milesEl = document.getElementById('stat-mileage');
   if (milesEl && typeof data.weekly_miles === 'number') {
@@ -2630,7 +2715,7 @@ async function syncStravaData() {
         name: String(r.name || 'Run'),
         type: 'Run',
         dist: typeof r.miles === 'number' ? r.miles : 0,
-        elev: 0,
+        elev: typeof r.elevation_feet === 'number' ? r.elevation_feet : 0,
       });
     });
     stravaActivities.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
@@ -2725,6 +2810,7 @@ async function syncNow() {
     if (synced) {
       refreshTrainingWeek();
       refreshWeeklyBars();
+      refreshWeeklyCheckin();
       refreshLongRunChart();
       updateLastSyncLabel();
     }

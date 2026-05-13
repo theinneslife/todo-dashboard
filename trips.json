@@ -991,12 +991,21 @@
       "tasks": [],
       "companions": [],
       "notes": "",
-      "flights": [],
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL 0110",
+          "depAirport": "EZE",
+          "arrAirport": "LAX",
+          "depTime": "2026-07-26T08:10",
+          "arrTime": "2026-07-27T08:55"
+        }
+      ],
       "accommodation": null,
       "budget": 6323.09,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 0,
+      "colorIndex": 4,
       "legs": []
     }
   ],

@@ -1274,7 +1274,7 @@
 
         @media (max-width: 640px) {
             .mobile-column-nav { display: flex; } .mobile-tabs { display: flex; }
-            .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; }
+            .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
             .column { flex: 0 0 100%; display: none; }
             .column.mobile-active { display: block; }
             .controls { display: none !important; }

@@ -1468,8 +1468,8 @@
             }
 
             .logo svg {
-                width: 32px;
-                height: 32px;
+                height: 28px;
+                width: auto;
             }
 
             .version-badge {
@@ -2533,17 +2533,21 @@
                     const startDate = t.dates ? t.dates.start : (t.startDate || '');
                     const endDate = t.dates ? t.dates.end : (t.endDate || '');
                     const bookings = t.bookings || [];
-                    const flights = bookings.filter(b => b.type === 'flight').map(b => ({
-                        airline: b.title || '',
-                        route: b.details ? b.details.bRoute || '' : '',
-                        departure: b.details ? b.details.bDepDate || '' : '',
-                        arrival: b.details ? b.details.bArrDate || '' : '',
-                        confirmation: b.details ? b.details.bConfirmation || '' : '',
-                        class: b.details ? b.details.bClass || '' : '',
-                        cost: b.details ? b.details.bCost || '' : '',
-                        notes: b.details ? b.details.bNotes || '' : '',
-                        passengers: b.details ? b.details.bPassengers || '' : ''
-                    }));
+                    // Prefer bookings-derived flights; fall back to direct t.flights array
+                    // (trips.json stores flights directly, not via bookings)
+                    const flights = bookings.length > 0
+                        ? bookings.filter(b => b.type === 'flight').map(b => ({
+                            airline: b.title || '',
+                            route: b.details ? b.details.bRoute || '' : '',
+                            departure: b.details ? b.details.bDepDate || '' : '',
+                            arrival: b.details ? b.details.bArrDate || '' : '',
+                            confirmation: b.details ? b.details.bConfirmation || '' : '',
+                            class: b.details ? b.details.bClass || '' : '',
+                            cost: b.details ? b.details.bCost || '' : '',
+                            notes: b.details ? b.details.bNotes || '' : '',
+                            passengers: b.details ? b.details.bPassengers || '' : ''
+                          }))
+                        : (t.flights || []);
                     const accBooking = bookings.find(b => b.type === 'accommodation');
                     const accommodation = accBooking ? accBooking.title || '' : (t.accommodation || '');
                     const accommodationUrl = accBooking && accBooking.details ? accBooking.details.bListingUrl || '' : '';
@@ -6337,6 +6341,31 @@ this.updateDashboardStats();
 
 
 // Initialize app
+        // One-time data migration: permanently remove Paris trip (id=2) from
+        // all localStorage stores. Paris was a sample trip that was deleted from
+        // trips.json but can persist in browser cache across refreshes.
+        try {
+            const _ue = JSON.parse(localStorage.getItem('travelflow-user-edits') || '{}');
+            delete _ue['2'];
+            // Also remove any trip whose destination contains Paris, France
+            Object.keys(_ue).forEach(k => {
+                const t = _ue[k];
+                if (t && t.destination && /paris.*france|france.*paris/i.test(t.destination)) {
+                    delete _ue[k];
+                }
+            });
+            localStorage.setItem('travelflow-user-edits', JSON.stringify(_ue));
+
+            const _lt = JSON.parse(localStorage.getItem('travelFloTrips') || '[]');
+            const _filtered = _lt.filter(t =>
+                String(t.id) !== '2' &&
+                !(t.destination && /paris.*france|france.*paris/i.test(t.destination))
+            );
+            if (_filtered.length !== _lt.length) {
+                localStorage.setItem('travelFloTrips', JSON.stringify(_filtered));
+            }
+        } catch(e) {}
+
         window.app = new TravelFloApp();
         // Load shared trip if URL has share hash (Feature 8)
         if (window.location.hash.startsWith('#share=')) {

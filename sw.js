@@ -3,7 +3,7 @@
 // Changing it (even by one character) triggers the browser to install
 // the new SW and delete the old cache, so mobile devices stop serving
 // stale HTML/JS/CSS from the previous version.
-const CACHE_VERSION = 'travelflow-v5';
+const CACHE_VERSION = 'travelflow-v6';
 
 const PRECACHE_URLS = [
   './',

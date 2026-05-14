@@ -832,7 +832,7 @@
     "title": "Adjust pricing for SSPs, start with magnite",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -857,10 +857,16 @@
         "action": "commented",
         "by": "Christopher",
         "details": "Added a comment"
+      },
+      {
+        "timestamp": "2026-05-14T17:45:43.649Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to completed"
       }
     ],
     "created_at": "2026-04-28T17:42:25.816Z",
-    "completed_at": null,
+    "completed_at": "2026-05-14T17:45:43.649Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -868,7 +874,7 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "6cb53afb-e091-41bd-af1c-56606b72043a",

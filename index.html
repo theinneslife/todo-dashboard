@@ -4156,12 +4156,8 @@ function getGithubToken() {
             pinBtn.innerHTML = task.pinned ? '<i data-lucide="star" style="width:16px;height:16px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:16px;height:16px;"></i>';
             pinBtn.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
             pinBtn.dataset.taskId = task.id;
-            pinBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var t = tasks.find(function(x) { return x.id === task.id; });
-                if (t) toggleTaskPin(t, pinBtn);
-            });
+            // NOTE: click handled by document-level delegation below (robust against Lucide DOM re-creation).
+            // Do NOT add a direct addEventListener here — the delegation + stopPropagation prevents double-fire.
             card.appendChild(pinBtn);
             // Feature 7: Batch selection on shift-click
             card.addEventListener('click', (e) => {
@@ -6607,7 +6603,8 @@ function updateNavArrows() {
         btnEl.innerHTML = task.pinned ? '<i data-lucide="star" style="width:16px;height:16px;fill:currentColor;stroke:currentColor;"></i>' : '<i data-lucide="star" style="width:16px;height:16px;"></i>';
         btnEl.className = 'task-pin-btn' + (task.pinned ? ' pinned' : '');
         btnEl.title = task.pinned ? 'Unpin from priorities' : 'Pin to priorities';
-        if (typeof lucide !== 'undefined') lucide.createIcons({elements: btnEl.querySelectorAll('i[data-lucide]')});
+        // createIcons() with no args scans the whole doc — correct for v0.263.1 (no 'elements' option exists)
+        if (typeof lucide !== 'undefined') lucide.createIcons();
         btnEl.classList.add('pop');
         setTimeout(() => btnEl.classList.remove('pop'), 300);
         renderPriorityStrip();
@@ -6615,11 +6612,16 @@ function updateNavArrows() {
         savePinnedToLocal();
     }
 
-    // Event delegation for star toggle — robust against DOM re-creation by Lucide
+    // SINGLE authoritative handler for star/priority toggle.
+    // Using document delegation so it survives Lucide DOM re-creation and renderBoard() cycles.
+    // stopImmediatePropagation + preventDefault ensures no other document listener or default
+    // behavior interferes (fixes the double-toggle regression where task pinned then immediately unpinned).
     document.addEventListener('click', function(e) {
         var pinBtn = e.target.closest('.task-pin-btn');
         if (!pinBtn) return;
         e.stopPropagation();
+        e.stopImmediatePropagation();
+        e.preventDefault();
         var card = pinBtn.closest('.task-card');
         if (!card) return;
         var taskId = card.id.replace('task-', '');

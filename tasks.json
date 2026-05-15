@@ -1697,5 +1697,35 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "6389ee62-e640-4cbf-9a1e-d2e57ea4c052",
+    "title": "Call Revolve",
+    "description": "REVOLVE PHONE NUMBER 18884425830 or 5629265672",
+    "priority": 1,
+    "status": "in_progress",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-15T13:22:56.053Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-05-15T13:22:56.053Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

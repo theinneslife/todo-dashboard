@@ -1593,7 +1593,7 @@
     "title": "update to peter, chandler",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1606,10 +1606,16 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-05-15T12:29:17.845Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to completed"
       }
     ],
     "created_at": "2026-05-14T20:58:35.023Z",
-    "completed_at": null,
+    "completed_at": "2026-05-15T12:29:17.845Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -1617,7 +1623,7 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "2a8d6297-db48-4958-a772-0e9ee95aed8e",

@@ -1,45 +1,9 @@
 {
-  "generated": "2026-05-17T22:59:05.581927Z",
-  "weekly_miles": 40.5,
-  "total_elevation_feet": 3205,
-  "last_week_miles": 31.6,
-  "last_week_elevation_feet": 2451,
-  "last_week_sessions": 4,
-  "recent_runs": [
-    {
-      "name": "Morning Run",
-      "date": "2026-05-11",
-      "miles": 7.01,
-      "elevation_feet": 0,
-      "duration": "1:25:51"
-    },
-    {
-      "name": "Morning Run",
-      "date": "2026-05-12",
-      "miles": 5.01,
-      "elevation_feet": 0,
-      "duration": "59:12"
-    },
-    {
-      "name": "Morning Trail Run",
-      "date": "2026-05-13",
-      "miles": 9.72,
-      "elevation_feet": 1388,
-      "duration": "2:08:03"
-    },
-    {
-      "name": "Evening Run",
-      "date": "2026-05-14",
-      "miles": 7.01,
-      "elevation_feet": 0,
-      "duration": "1:26:26"
-    },
-    {
-      "name": "Morning Trail Run",
-      "date": "2026-05-16",
-      "miles": 11.78,
-      "elevation_feet": 1818,
-      "duration": "2:42:40"
-    }
-  ]
+  "generated": "2026-05-18T00:05:59.964134Z",
+  "weekly_miles": 0.0,
+  "total_elevation_feet": 0,
+  "last_week_miles": 40.5,
+  "last_week_elevation_feet": 3205,
+  "last_week_sessions": 5,
+  "recent_runs": []
 }

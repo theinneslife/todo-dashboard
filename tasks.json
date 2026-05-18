@@ -413,7 +413,7 @@
     "title": "Paramount Deal",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "Parking Lot"
@@ -440,10 +440,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to parking"
+      },
+      {
+        "timestamp": "2026-05-18T18:42:54.130Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from parking to completed"
       }
     ],
     "created_at": "2026-04-20T16:09:59.705Z",
-    "completed_at": null,
+    "completed_at": "2026-05-18T18:42:54.130Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,

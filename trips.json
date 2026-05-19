@@ -1033,6 +1033,32 @@
       "packingList": {},
       "colorIndex": 0,
       "legs": []
+    },
+    {
+      "id": "1779177067373",
+      "title": "Kotor, Montenegro",
+      "destination": {
+        "city": "Kotor",
+        "country": "Montenegro",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-24",
+        "end": "2026-05-25"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1,
+      "legs": []
     }
   ],
   "templates": [],

@@ -1007,6 +1007,32 @@
       "packingList": {},
       "colorIndex": 4,
       "legs": []
+    },
+    {
+      "id": "1779176977117",
+      "title": "Trebinje, Bosnia",
+      "destination": {
+        "city": "Trebinje",
+        "country": "Bosnia",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-23",
+        "end": "2026-05-24"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0,
+      "legs": []
     }
   ],
   "templates": [],

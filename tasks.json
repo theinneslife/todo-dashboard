@@ -1735,9 +1735,11 @@
     "title": "Call Revolve",
     "description": "REVOLVE PHONE NUMBER 18884425830 or 5629265672",
     "priority": 1,
-    "status": "in_progress",
+    "status": "pending",
     "mode": "manual",
-    "labels": [],
+    "labels": [
+      "Parking Lot"
+    ],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
@@ -1754,6 +1756,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-ip to christopher-ip"
+      },
+      {
+        "timestamp": "2026-05-20T15:57:42.043Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to parking"
       }
     ],
     "created_at": "2026-05-15T13:22:56.053Z",

@@ -893,21 +893,18 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta DL1978/DL825",
-          "route": "SAL > ATL > LAS",
-          "departure": "Aug 9, 2026 1:48 PM",
-          "arrival": "Aug 9, 2026 10:08 PM",
-          "confirmation": "HL94IF",
-          "class": "Delta First Classic",
-          "cost": "$2,596.09 USD",
-          "notes": "DL1978 SAL 1:48PM-ATL 7:30PM, DL825 ATL 8:55PM-LAS 10:08PM",
-          "passengers": "Brooke Scimemi"
+          "airline": "Avianca",
+          "number": "Avianca (AV 569)",
+          "depAirport": "JFK",
+          "arrAirport": "SAL",
+          "depTime": "2026-07-30T06:55",
+          "arrTime": "2026-07-30T09:50"
         }
       ],
       "accommodation": "Il Vento Uno - Penthouse TERRA",
       "budget": 6323.09,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 1,
       "legs": []
     },

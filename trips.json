@@ -977,7 +977,7 @@
       "id": "1778268408717",
       "title": "Los Angeles ",
       "destination": {
-        "city": "Los Angeles",
+        "city": "New York",
         "country": "",
         "timezone": ""
       },
@@ -996,9 +996,9 @@
           "airline": "Delta",
           "number": "DL 0110",
           "depAirport": "EZE",
-          "arrAirport": "LAX",
-          "depTime": "2026-07-26T08:10",
-          "arrTime": "2026-07-27T08:55"
+          "arrAirport": "NYC",
+          "depTime": "2026-07-26T20:10",
+          "arrTime": "2026-07-27T09:55"
         }
       ],
       "accommodation": null,

@@ -1004,58 +1004,6 @@
       "packingList": {},
       "colorIndex": 4,
       "legs": []
-    },
-    {
-      "id": "1779176977117",
-      "title": "Trebinje, Bosnia",
-      "destination": {
-        "city": "Trebinje",
-        "country": "Bosnia",
-        "timezone": ""
-      },
-      "dates": {
-        "start": "2026-05-23",
-        "end": "2026-05-24"
-      },
-      "status": "upcoming",
-      "type": "personal",
-      "bookings": [],
-      "tasks": [],
-      "companions": [],
-      "notes": "https://www.sixt.com/betafunnel/#/confirmation?zen_booking_id=28cc6a6e-17ac-4d85-9a78-3e1616f23024&zen_pu_location=e5c05994-3214-461a-81c1-42045a58902f&zen_pu_time=2026-05-23T12%3A00&zen_do_time=2026-05-25T17%3A30&zen_offer_position=17&zen_vehicle_type=car&zen_campaign_name=undefined&zen_reservation_id=9734205956&zen_del_col_flow_type=NoDelCol&zen_booking_status=OFFER_AVAILABILITY_STATUS_FREE_SALE&zen_attributes=%5Bobject%20Object%5D&zen_pickup_station_id=41190&zen_pickup_country_code=HR&zen_acriss_code=ITAR",
-      "flights": [],
-      "accommodation": null,
-      "budget": 0,
-      "expenses": [],
-      "packingList": {},
-      "colorIndex": 0,
-      "legs": []
-    },
-    {
-      "id": "1779177067373",
-      "title": "Kotor, Montenegro",
-      "destination": {
-        "city": "Kotor",
-        "country": "Montenegro",
-        "timezone": ""
-      },
-      "dates": {
-        "start": "2026-05-24",
-        "end": "2026-05-25"
-      },
-      "status": "upcoming",
-      "type": "personal",
-      "bookings": [],
-      "tasks": [],
-      "companions": [],
-      "notes": "",
-      "flights": [],
-      "accommodation": null,
-      "budget": 0,
-      "expenses": [],
-      "packingList": {},
-      "colorIndex": 1,
-      "legs": []
     }
   ],
   "templates": [],

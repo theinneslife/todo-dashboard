@@ -1134,7 +1134,7 @@
     "title": "Bundle inventory into buckets. Premium, Fast, Non Premium, etc.",
     "description": "",
     "priority": 1,
-    "status": "in_progress",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1159,10 +1159,28 @@
         "action": "commented",
         "by": "Christopher",
         "details": "Added a comment"
+      },
+      {
+        "timestamp": "2026-05-22T15:16:55.605Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-ip to completed"
+      },
+      {
+        "timestamp": "2026-05-22T15:17:01.408Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from completed to completed"
+      },
+      {
+        "timestamp": "2026-05-22T15:17:04.841Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from completed to completed"
       }
     ],
     "created_at": "2026-05-08T19:19:44.205Z",
-    "completed_at": null,
+    "completed_at": "2026-05-22T15:17:04.841Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -1170,7 +1188,7 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "696c3af1-2a9b-4b20-8ea9-ab86fb0f5af0",

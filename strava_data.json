@@ -1,7 +1,7 @@
 {
-  "generated": "2026-05-24T08:39:41.165244Z",
-  "weekly_miles": 7.0,
-  "total_elevation_feet": 686,
+  "generated": "2026-05-24T10:46:04.331622Z",
+  "weekly_miles": 26.1,
+  "total_elevation_feet": 1972,
   "last_week_miles": 40.5,
   "last_week_elevation_feet": 3205,
   "last_week_sessions": 5,
@@ -12,6 +12,20 @@
       "miles": 7.01,
       "elevation_feet": 686,
       "duration": "1:27:10"
+    },
+    {
+      "name": "Missed miles",
+      "date": "2026-05-24",
+      "miles": 10.0,
+      "elevation_feet": 0,
+      "duration": "10:00"
+    },
+    {
+      "name": "Morning Run",
+      "date": "2026-05-24",
+      "miles": 9.1,
+      "elevation_feet": 1286,
+      "duration": "1:53:57"
     }
   ]
 }

@@ -5609,9 +5609,11 @@ this.updateDashboardStats();
             if (window.app && window.app.trips) {
                 const today = todayStr();
                 window.app.trips.forEach(t => {
-                    if (!t.dates) return;
-                    if (t.dates.start <= today && t.dates.end >= today) t.status = 'in-progress';
-                    else if (t.dates.end < today) t.status = 'completed';
+                    const ts = (t.dates && t.dates.start) ? t.dates.start : (t.startDate || '');
+                    const te = (t.dates && t.dates.end)   ? t.dates.end   : (t.endDate   || '');
+                    if (!ts || !te) return;
+                    if (ts <= today && te >= today) t.status = 'in-progress';
+                    else if (te < today) t.status = 'completed';
                     else t.status = t.status || 'planning';
                 });
             }
@@ -6281,26 +6283,30 @@ this.updateDashboardStats();
                        weDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
         // Upcoming Schengen trips + projection warnings
+        // Normalize both date formats: t.dates.start/end (new) vs t.startDate/endDate (old)
+        const _tStart = t => (t.dates && t.dates.start) ? t.dates.start : (t.startDate || '');
+        const _tEnd   = t => (t.dates && t.dates.end)   ? t.dates.end   : (t.endDate   || '');
+        const _dest   = t => (t.destination && t.destination.country) ? t.destination.country : (t.country || '');
+
         const upcomingSchengen = state.trips
-            .filter(t => t.dates.start > today && isSchengen(t.destination?.country))
-            .sort((a, b) => a.dates.start.localeCompare(b.dates.start));
+            .filter(t => _tStart(t) > today && isSchengen(_dest(t)))
+            .sort((a, b) => _tStart(a).localeCompare(_tStart(b)));
 
         const warnings = [];
         upcomingSchengen.forEach(t => {
-            // Project forward: count Schengen days in the 180-day window ending on the trip's last day
-            const projected = schengenDaysInWindow(t.dates.end);
+            const projected = schengenDaysInWindow(_tEnd(t));
             if (projected > 90) warnings.push({ trip: t, projected, excess: projected - 90 });
         });
 
         const infoSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
 
         const warningsHtml = warnings.length ? '<div class="schengen-warnings">' +
-            warnings.map(w => `<div class="schengen-warning">${infoSVG} <span><strong>${esc(w.trip.title)}</strong> (${formatDateShort(w.trip.dates.start)}) projects to ${w.projected}/90 days — exceeds limit by <strong>${w.excess} day${w.excess !== 1 ? 's' : ''}</strong></span></div>`).join('') +
+            warnings.map(w => `<div class="schengen-warning">${infoSVG} <span><strong>${esc(w.trip.title)}</strong> (${formatDateShort(_tStart(w.trip))}) projects to ${w.projected}/90 days — exceeds limit by <strong>${w.excess} day${w.excess !== 1 ? 's' : ''}</strong></span></div>`).join('') +
             '</div>' : '';
 
         const upcomingHtml = upcomingSchengen.length ? `<div class="schengen-upcoming">
             <span class="schengen-upcoming-label">Upcoming Schengen:</span>
-            ${upcomingSchengen.map(t => `<span class="schengen-trip-chip" onclick="openTripDetail('${t.id}')">${esc(t.destination.city || t.destination.country)} · ${formatDateShort(t.dates.start)}</span>`).join('')}
+            ${upcomingSchengen.map(t => `<span class="schengen-trip-chip" onclick="openTripDetail('${t.id}')">${esc(_dest(t))} · ${formatDateShort(_tStart(t))}</span>`).join('')}
         </div>` : '';
 
         container.innerHTML = `<div class="schengen-card">

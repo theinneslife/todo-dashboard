@@ -1,5 +1,25 @@
 [
   {
+    "id": "shopping-list-001",
+    "title": "Shopping List",
+    "description": "Deodorant\nRazor\nWhoop\nStarlink",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude",
+        "details": "Task created"
+      }
+    ]
+  },
+  {
     "id": "e1315482-fc18-482a-8ebb-0b347530f548",
     "title": "Evan - when is stock transfer?",
     "description": "",
@@ -334,6 +354,202 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "otter-1747526580-cologne",
+    "title": "Buy new cologne",
+    "description": "From Otter recording: Note (May 17, 2026). Quick voice note asking for new cologne ASAP along with deodorant and hair wax.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526581-hair-wax",
+    "title": "Buy extra hair wax",
+    "description": "From Otter recording: Note (May 17, 2026). Quick voice note asking for extra hair wax ASAP along with deodorant and cologne.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526582-samsung-followup",
+    "title": "Follow up with Samsung periodically to keep relationship warm",
+    "description": "From Otter recording: Samsung-Mountain Business Meeting (May 15, 2026). Samsung corporate dev team expressed interest in staying in touch and wants to be included if MNTN starts a strategic or capital raise process. No hard commitments but both sides agreed to periodic check-ins.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526583-samsung-strategic",
+    "title": "Loop Samsung in if MNTN starts a strategic or investment process",
+    "description": "From Otter recording: Samsung-Mountain Business Meeting (May 15, 2026). Samsung corporate dev team said they want to be at the table if Mountain starts a fundraising, M and A, or strategic partnership process. They are a potential investor or strategic partner contingent on MNTN initiating a process.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526584-jedi-update",
+    "title": "Send update to Jedi about current work write draft and have Mark review",
+    "description": "From Otter recording: Note (May 13, 2026). Voice memo to send Jedi an update on what is being worked on. Write the draft first and have Mark take a look before sending.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": ["Mark"],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526585-shark-footage",
+    "title": "Pull in shark footage cut it up and share in channel with Brooke",
+    "description": "From Otter recording: Note (May 13, 2026). Voice memo to pull shark footage, edit it, and share it in the channel with Brooke (spelled B-R-O-O-K-E).",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": ["Brooke"],
+    "pinned": false
+  },
+  {
+    "id": "otter-1747526586-sonicare-heads",
+    "title": "Buy Philips Sonicare toothbrush replacement heads",
+    "description": "From Otter recording: Shower (May 13, 2026). Noted during shower that replacement heads for the Philips Sonicare toothbrush need to be purchased.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": ["otter-ai"],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-19T00:00:00.000Z",
+        "action": "created",
+        "by": "Claude (Otter import)",
+        "details": "Task created from Otter.ai recording"
+      }
+    ],
+    "created_at": "2026-05-19T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "8c850bce-a4c3-45a1-98bd-a34998e6b337",

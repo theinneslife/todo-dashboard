@@ -1,0 +1,35 @@
+{
+  "generated": "2026-05-18",
+  "generated_at": "2026-05-18T05:01:21Z",
+  "athlete": {
+    "name": "Christopher",
+    "goal_race": "Julian Alps 50K",
+    "race_date": "2026-09-18"
+  },
+  "coaching": [
+    {
+      "type": "run",
+      "icon": "🏃",
+      "title": "Today's Run",
+      "message": "Build Phase, 17 weeks (123 days) to Kranjska Gora. Monday is a recovery anchor — 45–60 min very easy Z2 on softest surface you can find, heart rate capped at 70% max, nasal breathing only. If legs feel trashed from the weekend, swap for 30 min brisk walk plus 15 min mobility. Save the legs — Wednesday's hill repeats and Saturday's long climb day are where the Julian Alps prep actually compounds."
+    },
+    {
+      "type": "nutrition",
+      "icon": "🥗",
+      "title": "Fuel Right",
+      "message": "Build Phase is where you train the gut, not just the legs. Today: 1.6–1.8 g/kg protein spread across 4 feedings to rebuild from the weekend long run — eggs + oats at breakfast, a real lunch (chicken/rice/veg ~600 kcal), Greek yogurt + berries mid-afternoon, fatty fish + sweet potato at dinner. Start dialing in race-day carbs now: aim for 80–90 g/hr on Saturday's long run using the exact gels/mix you'll carry in September. The gut needs 12+ weeks of reps to handle that load at altitude."
+    },
+    {
+      "type": "recovery",
+      "icon": "💤",
+      "title": "Recovery",
+      "message": "Non-negotiable tonight: 8 hours in bed, screens off 60 min before sleep, room under 67°F. With your travel load and time-zone churn, sleep is the only training variable that compounds without cost. Before bed, 10 minutes on the calves and posterior chain with a lacrosse ball — the Julian Alps will tax your soleus more than any flat ultra you've done. Hydrate to clear urine by 7pm, then taper fluids so you sleep through."
+    },
+    {
+      "type": "mental",
+      "icon": "🧠",
+      "title": "Mental Edge",
+      "message": "Build Phase is the bank account. You don't withdraw on race day — you withdraw what you deposited over these 17 weeks. The 50K in Kranjska Gora isn't won at the start line; it's decided by whether you respected the Mondays. Easy today is not lazy — easy today is what makes hard possible on Wednesday and survivable in the Alps. Trust the architecture."
+    }
+  ]
+}

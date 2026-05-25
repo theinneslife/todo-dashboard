@@ -1017,6 +1017,74 @@
             color: var(--accent-blue);
         }
 
+        /* ===== SCHENGEN TRACKER ===== */
+        .schengen-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .schengen-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #003399 0%, #003399 33%, #FFCC00 33%, #FFCC00 66%, #003399 66%);
+        }
+        .schengen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .schengen-title { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .schengen-status-badge { padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+        .schengen-stats { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .schengen-stat { text-align: center; }
+        .schengen-stat-right { text-align: center; margin-left: auto; }
+        .schengen-stat-num { font-size: 2rem; font-weight: 700; line-height: 1; margin-bottom: 2px; }
+        .schengen-stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .schengen-stat-divider { font-size: 1.2rem; color: var(--border-light); font-weight: 300; align-self: flex-end; margin-bottom: 6px; }
+        .schengen-bar-track { height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden; margin-bottom: 4px; }
+        .schengen-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+        .schengen-bar-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; }
+        .schengen-window { font-size: 0.75rem; color: var(--text-muted); }
+        .schengen-warnings { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+        .schengen-warning {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: 0.8rem; color: var(--accent-orange);
+            padding: 8px; background: rgba(245,158,11,0.08);
+            border-radius: var(--radius-xs); margin-bottom: 6px;
+        }
+        .schengen-warning svg { flex-shrink: 0; margin-top: 1px; }
+        .schengen-upcoming { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+        .schengen-upcoming-label { font-size: 0.75rem; color: var(--text-muted); }
+        .schengen-trip-chip {
+            padding: 3px 10px; background: rgba(59,130,246,0.12); color: var(--accent-blue);
+            border-radius: 12px; font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: var(--transition);
+        }
+        .schengen-trip-chip:hover { background: rgba(59,130,246,0.25); }
+
+        /* ===== VISA REQUIREMENTS ===== */
+        .visa-req-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 8px; }
+        .visa-req-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .visa-req-flag { font-size: 1.4rem; line-height: 1; }
+        .visa-req-country { font-weight: 600; font-size: 0.95rem; }
+        .visa-req-status { margin-left: auto; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; }
+        .visa-req-status.no-visa { background: rgba(34,197,94,0.15); color: var(--accent-green); }
+        .visa-req-status.visa-required { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+        .visa-req-status.visa-on-arrival { background: rgba(245,158,11,0.15); color: var(--accent-orange); }
+        .visa-req-rows { display: flex; flex-direction: column; gap: 8px; }
+        .visa-req-row { display: flex; gap: 12px; font-size: 0.82rem; }
+        .visa-req-row-label { color: var(--text-muted); min-width: 120px; flex-shrink: 0; }
+        .visa-req-row-value { color: var(--text-primary); flex: 1; }
+        .visa-req-row-value a { color: var(--accent-blue); }
+        .visa-notice {
+            display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 8px 10px;
+            background: rgba(59,130,246,0.08); border-radius: var(--radius-xs);
+            font-size: 0.78rem; color: var(--accent-blue);
+        }
+        .visa-notice svg { flex-shrink: 0; margin-top: 1px; }
+        .visa-fallback { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; font-size: 0.85rem; color: var(--text-secondary); }
+        .visa-fallback a { color: var(--accent-blue); }
+
         /* ===== LOADING SPINNER ===== */
         .spinner {
             width: 24px;
@@ -1083,6 +1151,9 @@
             <!-- Visual Timeline -->
             <div class="timeline-grid" id="timelineGrid"></div>
 
+            <!-- Schengen / EU Visa Counter Widget -->
+            <div id="schengenWidget"></div>
+
             <!-- Current Trip Banner -->
             <div id="currentTripBanner" style="display:none;"></div>
 
@@ -1111,10 +1182,12 @@
             <div class="detail-header" id="detailHeader"></div>
             <div class="detail-tabs">
                 <button class="detail-tab active" data-tab="itinerary" onclick="switchTab(this)">Itinerary</button>
+                <button class="detail-tab" data-tab="requirements" onclick="switchTab(this)">Entry Requirements</button>
                 <button class="detail-tab" data-tab="tasks" onclick="switchTab(this)">Tasks</button>
                 <button class="detail-tab" data-tab="info" onclick="switchTab(this)">Info</button>
             </div>
             <div class="tab-content active" id="tabItinerary"></div>
+            <div class="tab-content" id="tabRequirements"></div>
             <div class="tab-content" id="tabTasks"></div>
             <div class="tab-content" id="tabInfo"></div>
         </div>
@@ -2195,6 +2268,7 @@
         `;
 
         renderItinerary(trip);
+        renderVisaRequirements(trip);
         renderTasks(trip);
         renderInfo(trip);
     }
@@ -2650,11 +2724,371 @@
         return div.innerHTML;
     }
 
+    // ===== SCHENGEN 90/180-DAY TRACKER =====
+
+    // Every country that counts toward the Schengen 90/180-day limit.
+    // Croatia joined the Schengen Area on January 1, 2023.
+    // UK, Ireland, Romania, Bulgaria, Cyprus do NOT count.
+    const SCHENGEN_SET = new Set([
+        'at','austria','be','belgium','hr','croatia',
+        'cz','czech republic','czechia','dk','denmark',
+        'ee','estonia','fi','finland','fr','france',
+        'de','germany','gr','greece','hu','hungary',
+        'is','iceland','it','italy','lv','latvia',
+        'li','liechtenstein','lt','lithuania','lu','luxembourg',
+        'mt','malta','nl','netherlands','no','norway',
+        'pl','poland','pt','portugal','sk','slovakia',
+        'si','slovenia','es','spain','se','sweden','ch','switzerland',
+    ]);
+
+    function isSchengen(country) {
+        return country ? SCHENGEN_SET.has(country.trim().toLowerCase()) : false;
+    }
+
+    // Pre-app Schengen travel — manually hardcoded seed data
+    const SCHENGEN_SEED = [
+        { start: '2025-12-01', end: '2026-01-05', label: 'Italy (pre-app)' },
+        { start: '2026-01-06', end: '2026-01-12', label: 'Switzerland (pre-app)' },
+    ];
+
+    // Count days in [periodStart, periodEnd] that fall within [winStart, winEnd] (all inclusive, YYYY-MM-DD)
+    function daysOverlap(periodStart, periodEnd, winStart, winEnd) {
+        const ps = new Date(periodStart + 'T00:00:00');
+        const pe = new Date(periodEnd   + 'T00:00:00');
+        const ws = new Date(winStart    + 'T00:00:00');
+        const we = new Date(winEnd      + 'T00:00:00');
+        const oStart = new Date(Math.max(ps.getTime(), ws.getTime()));
+        const oEnd   = new Date(Math.min(pe.getTime(), we.getTime()));
+        if (oEnd < oStart) return 0;
+        return Math.round((oEnd - oStart) / 86400000) + 1;
+    }
+
+    // Collect all Schengen stay periods (seed + app-tracked trips)
+    function getSchengenPeriods() {
+        const periods = SCHENGEN_SEED.map(s => ({ ...s }));
+        state.trips.forEach(t => {
+            if (t.dates && t.dates.start && t.dates.end && isSchengen(t.destination?.country)) {
+                periods.push({ start: t.dates.start, end: t.dates.end, label: t.title, tripId: t.id });
+            }
+        });
+        return periods;
+    }
+
+    // Count total Schengen days in the 180-day window ending at windowEndStr (inclusive)
+    function schengenDaysInWindow(windowEndStr) {
+        const we = new Date(windowEndStr + 'T00:00:00');
+        const ws = new Date(we);
+        ws.setDate(ws.getDate() - 179); // 180 days inclusive
+        const wsStr = ws.toISOString().split('T')[0];
+        let total = 0;
+        getSchengenPeriods().forEach(p => { total += daysOverlap(p.start, p.end, wsStr, windowEndStr); });
+        return total;
+    }
+
+    function renderSchengenWidget() {
+        const container = document.getElementById('schengenWidget');
+        if (!container) return;
+
+        const today = todayStr();
+        const daysUsed      = schengenDaysInWindow(today);
+        const daysRemaining = Math.max(0, 90 - daysUsed);
+        const pct           = Math.min(100, (daysUsed / 90) * 100);
+
+        let statusColor, statusBg, statusLabel;
+        if (daysUsed >= 80) {
+            statusColor = 'var(--accent-red)';    statusBg = 'rgba(239,68,68,0.15)';    statusLabel = 'Critical';
+        } else if (daysUsed >= 60) {
+            statusColor = 'var(--accent-orange)'; statusBg = 'rgba(245,158,11,0.15)';   statusLabel = 'Caution';
+        } else {
+            statusColor = 'var(--accent-green)';  statusBg = 'rgba(34,197,94,0.15)';    statusLabel = 'Good Standing';
+        }
+
+        // Human-readable window label
+        const weDate = new Date(today + 'T00:00:00');
+        const wsDate = new Date(weDate); wsDate.setDate(wsDate.getDate() - 179);
+        const wLabel = wsDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) +
+                       ' – ' +
+                       weDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+        // Upcoming Schengen trips + projection warnings
+        const upcomingSchengen = state.trips
+            .filter(t => t.dates.start > today && isSchengen(t.destination?.country))
+            .sort((a, b) => a.dates.start.localeCompare(b.dates.start));
+
+        const warnings = [];
+        upcomingSchengen.forEach(t => {
+            // Project forward: count Schengen days in the 180-day window ending on the trip's last day
+            const projected = schengenDaysInWindow(t.dates.end);
+            if (projected > 90) warnings.push({ trip: t, projected, excess: projected - 90 });
+        });
+
+        const infoSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+
+        const warningsHtml = warnings.length ? '<div class="schengen-warnings">' +
+            warnings.map(w => `<div class="schengen-warning">${infoSVG} <span><strong>${esc(w.trip.title)}</strong> (${formatDateShort(w.trip.dates.start)}) projects to ${w.projected}/90 days — exceeds limit by <strong>${w.excess} day${w.excess !== 1 ? 's' : ''}</strong></span></div>`).join('') +
+            '</div>' : '';
+
+        const upcomingHtml = upcomingSchengen.length ? `<div class="schengen-upcoming">
+            <span class="schengen-upcoming-label">Upcoming Schengen:</span>
+            ${upcomingSchengen.map(t => `<span class="schengen-trip-chip" onclick="openTripDetail('${t.id}')">${esc(t.destination.city || t.destination.country)} · ${formatDateShort(t.dates.start)}</span>`).join('')}
+        </div>` : '';
+
+        container.innerHTML = `<div class="schengen-card">
+            <div class="schengen-header">
+                <div class="schengen-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Schengen 90/180 Tracker
+                </div>
+                <span class="schengen-status-badge" style="background:${statusBg};color:${statusColor};">${statusLabel}</span>
+            </div>
+            <div class="schengen-stats">
+                <div class="schengen-stat">
+                    <div class="schengen-stat-num" style="color:${statusColor};">${daysUsed}</div>
+                    <div class="schengen-stat-label">Days Used</div>
+                </div>
+                <div class="schengen-stat-divider">/90</div>
+                <div class="schengen-stat-right">
+                    <div class="schengen-stat-num" style="color:${statusColor};">${daysRemaining}</div>
+                    <div class="schengen-stat-label">Days Remaining</div>
+                </div>
+            </div>
+            <div class="schengen-bar-track"><div class="schengen-bar-fill" style="width:${pct}%;background:${statusColor};"></div></div>
+            <div class="schengen-bar-labels"><span>0</span><span>45</span><span>90 days</span></div>
+            <div class="schengen-window">Rolling 180-day window: ${wLabel}</div>
+            ${warningsHtml}
+            ${upcomingHtml}
+        </div>`;
+    }
+
+    // ===== VISA REQUIREMENTS (US Passport Holder) =====
+
+    // Country flag emoji lookup (by lowercase country name or ISO-2 code)
+    const COUNTRY_FLAGS = {
+        'fr':'🇫🇷','france':'🇫🇷','de':'🇩🇪','germany':'🇩🇪','it':'🇮🇹','italy':'🇮🇹',
+        'es':'🇪🇸','spain':'🇪🇸','pt':'🇵🇹','portugal':'🇵🇹','nl':'🇳🇱','netherlands':'🇳🇱',
+        'ch':'🇨🇭','switzerland':'🇨🇭','at':'🇦🇹','austria':'🇦🇹','be':'🇧🇪','belgium':'🇧🇪',
+        'cz':'🇨🇿','czech republic':'🇨🇿','czechia':'🇨🇿','dk':'🇩🇰','denmark':'🇩🇰',
+        'no':'🇳🇴','norway':'🇳🇴','se':'🇸🇪','sweden':'🇸🇪','fi':'🇫🇮','finland':'🇫🇮',
+        'gr':'🇬🇷','greece':'🇬🇷','hr':'🇭🇷','croatia':'🇭🇷','pl':'🇵🇱','poland':'🇵🇱',
+        'hu':'🇭🇺','hungary':'🇭🇺','sk':'🇸🇰','slovakia':'🇸🇰','si':'🇸🇮','slovenia':'🇸🇮',
+        'ee':'🇪🇪','estonia':'🇪🇪','lv':'🇱🇻','latvia':'🇱🇻','lt':'🇱🇹','lithuania':'🇱🇹',
+        'lu':'🇱🇺','luxembourg':'🇱🇺','mt':'🇲🇹','malta':'🇲🇹','is':'🇮🇸','iceland':'🇮🇸',
+        'li':'🇱🇮','liechtenstein':'🇱🇮',
+        'gb':'🇬🇧','uk':'🇬🇧','united kingdom':'🇬🇧','england':'🇬🇧','scotland':'🇬🇧','wales':'🇬🇧',
+        'ie':'🇮🇪','ireland':'🇮🇪',
+        'us':'🇺🇸','usa':'🇺🇸','united states':'🇺🇸',
+        'ca':'🇨🇦','canada':'🇨🇦','mx':'🇲🇽','mexico':'🇲🇽',
+        'jp':'🇯🇵','japan':'🇯🇵','th':'🇹🇭','thailand':'🇹🇭',
+        'au':'🇦🇺','australia':'🇦🇺','nz':'🇳🇿','new zealand':'🇳🇿','sg':'🇸🇬','singapore':'🇸🇬',
+        'ae':'🇦🇪','uae':'🇦🇪','dubai':'🇦🇪','abu dhabi':'🇦🇪',
+        'in':'🇮🇳','india':'🇮🇳','cn':'🇨🇳','china':'🇨🇳',
+        'br':'🇧🇷','brazil':'🇧🇷','ro':'🇷🇴','romania':'🇷🇴',
+        'bg':'🇧🇬','bulgaria':'🇧🇬','cy':'🇨🇾','cyprus':'🇨🇾',
+    };
+
+    // Visa requirements database — keyed by normalized country name / code
+    // Status: 'no-visa' | 'visa-required' | 'visa-on-arrival'
+    const VISA_DB = {
+        // Shared Schengen entry — individual countries map here via lookupVisa()
+        '_schengen': {
+            status: 'no-visa',
+            stayLimit: '90 days in any rolling 180-day period',
+            etias: true,
+            requirements: [
+                'Valid US passport (6+ months validity recommended)',
+                'Proof of onward / return travel',
+                'Proof of accommodation',
+                'Proof of sufficient funds (~€100/day)',
+            ],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/France.html',
+            notes: 'Applies across all 27 Schengen countries. Croatia joined January 1, 2023.',
+        },
+        '_uk': {
+            status: 'no-visa',
+            stayLimit: 'Up to 6 months per visit',
+            eta: { required: true, note: 'UK Electronic Travel Authorisation (ETA) required. Apply via the UK ETA app before departure. Cost: £10. Valid 2 years (or until passport expiry).' },
+            requirements: ['Valid US passport', 'UK ETA (required before boarding)', 'Proof of onward travel', 'Sufficient funds'],
+            link: 'https://www.gov.uk/visit-uk',
+        },
+        'ireland': {
+            status: 'no-visa', stayLimit: '90 days',
+            requirements: ['Valid US passport'],
+            link: 'https://www.dfa.ie/travel/visas/visas-for-ireland/',
+        },
+        'canada': {
+            status: 'no-visa', stayLimit: 'Up to 6 months',
+            eta: { required: true, note: 'Electronic Travel Authorisation (eTA) required for air travel. Apply at canada.ca/eta. Cost: CAD $7. Valid 5 years (not needed for land/sea border crossings).' },
+            requirements: ['Valid US passport', 'eTA for air travel'],
+            link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html',
+        },
+        'mexico': {
+            status: 'no-visa', stayLimit: 'Up to 180 days',
+            requirements: ['Valid US passport', 'FMM tourist card (included in airfare for air arrivals; small fee at land borders)'],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Mexico.html',
+        },
+        'japan': {
+            status: 'no-visa', stayLimit: '90 days',
+            requirements: ['Valid US passport (6+ months)', 'Onward/return ticket', 'Proof of accommodation', 'Sufficient funds'],
+            link: 'https://www.us.emb-japan.go.jp/itpr_en/visa.html',
+            notes: 'Valid for tourism and short business stays. Working is not permitted under this entry.',
+        },
+        'thailand': {
+            status: 'no-visa', stayLimit: '60 days via air (30 days via land crossing)',
+            requirements: ['Valid US passport (6+ months)', 'Onward/return ticket', 'Sufficient funds (10,000 THB per person recommended)'],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Thailand.html',
+            notes: 'Can be extended once by 30 days at a local immigration office.',
+        },
+        'australia': {
+            status: 'no-visa', stayLimit: '3 months per stay (ETA permits multiple entries over 12 months)',
+            eta: { required: true, note: 'Electronic Travel Authority (ETA Subclass 601) required. Apply via the Australia ETA app. Cost: AUD $20.' },
+            requirements: ['Valid US passport', 'ETA (required before departure)', 'Onward/return ticket'],
+            link: 'https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601',
+        },
+        'new zealand': {
+            status: 'no-visa', stayLimit: '90 days',
+            eta: { required: true, note: 'NZeTA (New Zealand Electronic Travel Authority) required. Apply via the NZeTA app or at immigration.govt.nz. Cost: NZD $23 (app) / NZD $35 (online). Includes International Visitor Levy.' },
+            requirements: ['Valid US passport', 'NZeTA (required)', 'Onward/return ticket'],
+            link: 'https://www.immigration.govt.nz/new-zealand-visas/apply-for-a-visa/about-visa/nzeta',
+        },
+        'singapore': {
+            status: 'no-visa', stayLimit: '30 days (extendable to 90 days)',
+            requirements: ['Valid US passport (6+ months)', 'Onward/return ticket', 'Proof of sufficient funds'],
+            link: 'https://www.ica.gov.sg/enter-transit-depart/entering-singapore',
+        },
+        'uae': {
+            status: 'no-visa', stayLimit: '30 days (renewable once for an additional 30 days)',
+            requirements: ['Valid US passport (6+ months)', 'Onward/return ticket'],
+            link: 'https://u.ae/en/information-and-services/visa-and-emirates-id/do-you-need-an-entry-visa',
+            notes: 'Covers all Emirates including Dubai and Abu Dhabi.',
+        },
+        'india': {
+            status: 'visa-required',
+            visaType: 'e-Visa (e-Tourist or e-Business)',
+            cost: 'USD $10–25 depending on validity',
+            processingTime: '72–96 hours (apply at least 4 business days before travel)',
+            stayLimit: '30 or 90 days depending on e-Visa type chosen',
+            requirements: ['Valid US passport (6+ months)', 'e-Visa obtained online before travel', 'Return/onward ticket', 'Proof of accommodation', 'Proof of sufficient funds'],
+            link: 'https://indianvisaonline.gov.in/',
+            notes: 'e-Visa available for single, double, or annual multiple-entry.',
+        },
+        'china': {
+            status: 'visa-required',
+            visaType: 'L Tourist Visa (in-person at Chinese consulate)',
+            cost: 'USD $140',
+            processingTime: '4 business days (expedited options available)',
+            stayLimit: '30–90 days depending on visa issued',
+            requirements: ['Valid US passport (6+ months)', 'Completed visa application', 'Passport photo', 'Itinerary & hotel bookings', 'Return/onward ticket', 'Bank statement'],
+            link: 'https://www.mfa.gov.cn/mfa_eng/',
+            notes: 'Beijing, Shanghai and certain other cities offer 144-hour visa-free transit. Verify current policies before travel.',
+        },
+        'brazil': {
+            status: 'no-visa', stayLimit: '90 days per 180-day period',
+            eta: { required: true, note: 'eVisa required. Apply at gov.br/mre. Cost: USD $80.90. Valid 2 years, multiple entries.' },
+            requirements: ['Valid US passport (6+ months)', 'Brazilian eVisa (required)', 'Return/onward ticket'],
+            link: 'https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos',
+        },
+        // Non-Schengen EU countries (no Schengen limit but still EU)
+        'romania': {
+            status: 'no-visa', stayLimit: '90 days (not part of Schengen — separate 90-day allowance)',
+            requirements: ['Valid US passport'],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Romania.html',
+            notes: 'Romania is an EU member but is NOT in the Schengen Area. Days here do not count toward your Schengen allowance.',
+        },
+        'bulgaria': {
+            status: 'no-visa', stayLimit: '90 days (not part of Schengen — separate 90-day allowance)',
+            requirements: ['Valid US passport'],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Bulgaria.html',
+            notes: 'Bulgaria is an EU member but is NOT in the Schengen Area. Days here do not count toward your Schengen allowance.',
+        },
+        'cyprus': {
+            status: 'no-visa', stayLimit: '90 days',
+            requirements: ['Valid US passport'],
+            link: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Cyprus.html',
+            notes: 'Cyprus is an EU member but is NOT in the Schengen Area.',
+        },
+    };
+
+    // Resolve a country string to a VISA_DB entry
+    function lookupVisa(country) {
+        if (!country) return null;
+        const n = country.trim().toLowerCase();
+        // UK aliases
+        if (['gb','uk','united kingdom','england','scotland','wales'].includes(n)) return VISA_DB['_uk'];
+        // UAE aliases
+        if (['ae','dubai','abu dhabi'].includes(n)) return VISA_DB['uae'];
+        // Schengen members
+        if (SCHENGEN_SET.has(n)) return VISA_DB['_schengen'];
+        // Direct lookup
+        return VISA_DB[n] || null;
+    }
+
+    function renderVisaRequirements(trip) {
+        const container = document.getElementById('tabRequirements');
+        if (!container) return;
+
+        const country    = trip.destination?.country;
+        const city       = trip.destination?.city;
+        const info       = lookupVisa(country);
+        const n          = (country || '').trim().toLowerCase();
+        const flag       = COUNTRY_FLAGS[n] || '🌐';
+        const displayName = country || city || 'Unknown Destination';
+
+        const infoIconSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+        const disclaimerHtml = `<div style="margin-top:12px;padding:10px 14px;background:var(--bg-secondary);border-radius:var(--radius-sm);font-size:0.75rem;color:var(--text-muted);">⚠️ Requirements change. Always verify at <a href="https://travel.state.gov" target="_blank" rel="noopener" style="color:var(--accent-blue);">travel.state.gov</a> before departure.</div>`;
+
+        if (!info) {
+            container.innerHTML = `<div class="visa-fallback">
+                <strong style="display:block;margin-bottom:8px;">${flag} ${esc(displayName)}</strong>
+                <p style="margin-bottom:10px;">Entry requirements for this destination aren't in our database yet.</p>
+                <p>Check official sources:</p>
+                <ul style="margin-top:8px;padding-left:20px;line-height:1.8;">
+                    <li><a href="https://travel.state.gov" target="_blank" rel="noopener">travel.state.gov</a> — Official US government travel info</li>
+                    <li><a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages.html" target="_blank" rel="noopener">Country-by-country travel pages</a></li>
+                </ul>
+            </div>${disclaimerHtml}`;
+            return;
+        }
+
+        const statusLabels = { 'no-visa':'No Visa Required', 'visa-required':'Visa Required', 'visa-on-arrival':'Visa on Arrival' };
+
+        let html = `<div class="visa-req-card">
+            <div class="visa-req-header">
+                <span class="visa-req-flag">${flag}</span>
+                <span class="visa-req-country">${esc(displayName)}</span>
+                <span class="visa-req-status ${info.status}">${statusLabels[info.status] || info.status}</span>
+            </div>
+            <div class="visa-req-rows">`;
+
+        if (info.stayLimit)      html += `<div class="visa-req-row"><span class="visa-req-row-label">Stay Limit</span><span class="visa-req-row-value">${esc(info.stayLimit)}</span></div>`;
+        if (info.visaType)       html += `<div class="visa-req-row"><span class="visa-req-row-label">Visa Type</span><span class="visa-req-row-value">${esc(info.visaType)}</span></div>`;
+        if (info.cost)           html += `<div class="visa-req-row"><span class="visa-req-row-label">Visa Cost</span><span class="visa-req-row-value">${esc(info.cost)}</span></div>`;
+        if (info.processingTime) html += `<div class="visa-req-row"><span class="visa-req-row-label">Processing</span><span class="visa-req-row-value">${esc(info.processingTime)}</span></div>`;
+        if (info.requirements?.length) html += `<div class="visa-req-row"><span class="visa-req-row-label">Requirements</span><span class="visa-req-row-value">${info.requirements.map(r => '• ' + esc(r)).join('<br>')}</span></div>`;
+        if (info.notes)          html += `<div class="visa-req-row"><span class="visa-req-row-label">Notes</span><span class="visa-req-row-value">${esc(info.notes)}</span></div>`;
+        if (info.link)           html += `<div class="visa-req-row"><span class="visa-req-row-label">Official Info</span><span class="visa-req-row-value"><a href="${esc(info.link)}" target="_blank" rel="noopener">Embassy / travel info →</a></span></div>`;
+
+        html += '</div>';
+
+        // ETA / pre-travel authorisation notice
+        if (info.eta?.required && info.eta.note) {
+            html += `<div class="visa-notice">${infoIconSVG}<span>${esc(info.eta.note)}</span></div>`;
+        }
+
+        // ETIAS notice for Schengen
+        if (info.etias) {
+            html += `<div class="visa-notice">${infoIconSVG}<span>ETIAS (EU Travel Information and Authorisation System) is required for Schengen entry. Apply at <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener" style="color:var(--accent-blue);">travel-europe.europa.eu</a> before departure. Cost: ~€7. Valid 3 years.</span></div>`;
+        }
+
+        html += `</div>${disclaimerHtml}`;
+        container.innerHTML = html;
+    }
+
     // ===== RENDER ALL =====
     function renderAll() {
         autoUpdateStatuses();
         renderTimeline();
         renderTripCards();
+        renderSchengenWidget();
     }
 
     // ===== INIT =====

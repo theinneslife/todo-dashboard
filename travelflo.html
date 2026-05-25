@@ -3193,414 +3193,6 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 }
             }
 
-    async function saveBooking() {
-        const tripId = document.getElementById('bookingTripId').value;
-        const editId = document.getElementById('bookingEditId').value;
-        const type = document.getElementById('bookingType').value;
-        const trip = state.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        if (!trip.bookings) trip.bookings = [];
-
-        // Collect all field values
-        const fields = getBookingFields(type);
-        const details = {};
-        fields.forEach(f => {
-            const el = document.getElementById(f.id);
-            if (el) details[f.id] = el.value;
-        });
-
-        // Create a display-friendly title
-        let title = details.bName || details.bAirline || details.bCompany || type;
-        if (type === 'flight') title = `${details.bAirline || ''} ${details.bFlightNum || ''}`.trim();
-
-        // Determine date for sorting
-        let sortDate = details.bDepDate || details.bCheckin || details.bResDate || details.bActDate || details.bMeetDate || details.bPickupDate || trip.dates.start;
-        let sortTime = details.bDepTime || details.bResTime || details.bActTime || details.bMeetTime || details.bPickupTime || '00:00';
-
-        const bookingData = {
-            type,
-            title,
-            details,
-            date: sortDate,
-            time: sortTime,
-            updatedAt: new Date().toISOString()
-        };
-
-        if (editId) {
-            const idx = trip.bookings.findIndex(b => b.id === editId);
-            if (idx > -1) Object.assign(trip.bookings[idx], bookingData);
-        } else {
-            trip.bookings.push({
-                id: genId('bk'),
-                ...bookingData,
-                createdAt: new Date().toISOString()
-            });
-        }
-
-        closeModal('bookingModal');
-        await saveToGitHub();
-        renderTripDetail(tripId);
-    }
-
-    function deleteBooking(tripId, bookingId) {
-        showConfirm('Delete Booking', 'Remove this booking?', async () => {
-            const trip = state.trips.find(t => t.id === tripId);
-            if (trip) {
-                trip.bookings = trip.bookings.filter(b => b.id !== bookingId);
-                await saveToGitHub();
-                renderTripDetail(tripId);
-            }
-        });
-    }
-
-    // ===== TASK CRUD =====
-    function openTaskModal(tripId) {
-        document.getElementById('taskTripId').value = tripId;
-        document.getElementById('taskTitle').value = '';
-        document.getElementById('taskPhase').value = 'pre-trip';
-        document.getElementById('taskPriority').value = 'medium';
-        document.getElementById('taskDueDate').value = '';
-        openModal('taskModal');
-    }
-
-    async function saveTask() {
-        const tripId = document.getElementById('taskTripId').value;
-        const trip = state.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        if (!trip.tasks) trip.tasks = [];
-
-        const title = document.getElementById('taskTitle').value.trim();
-        if (!title) { showToast('Task title required', 'error'); return; }
-
-        trip.tasks.push({
-            id: genId('task'),
-            title,
-            phase: document.getElementById('taskPhase').value,
-            status: 'pending',
-            priority: document.getElementById('taskPriority').value,
-            dueDate: document.getElementById('taskDueDate').value || null,
-            createdAt: new Date().toISOString()
-        });
-
-        closeModal('taskModal');
-        await saveToGitHub();
-        renderTripDetail(tripId);
-    }
-
-    async function toggleTask(tripId, taskId) {
-        const trip = state.trips.find(t => t.id === tripId);
-        const task = trip?.tasks?.find(t => t.id === taskId);
-        if (task) {
-            task.status = task.status === 'done' ? 'pending' : 'done';
-            await saveToGitHub();
-            renderTripDetail(tripId);
-        }
-    }
-
-    async function deleteTask(tripId, taskId) {
-        const trip = state.trips.find(t => t.id === tripId);
-        if (trip) {
-            trip.tasks = trip.tasks.filter(t => t.id !== taskId);
-            await saveToGitHub();
-            renderTripDetail(tripId);
-        }
-    }
-
-    // ===== COMPANION CRUD =====
-    function openCompanionModal(tripId) {
-        document.getElementById('companionTripId').value = tripId;
-        document.getElementById('companionName').value = '';
-        document.getElementById('companionEmail').value = '';
-        document.getElementById('companionPhone').value = '';
-        openModal('companionModal');
-    }
-
-    async function saveCompanion() {
-        const tripId = document.getElementById('companionTripId').value;
-        const trip = state.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        if (!trip.companions) trip.companions = [];
-
-        const name = document.getElementById('companionName').value.trim();
-        if (!name) { showToast('Name required', 'error'); return; }
-
-        trip.companions.push({
-            name,
-            email: document.getElementById('companionEmail').value.trim(),
-            phone: document.getElementById('companionPhone').value.trim()
-        });
-
-        closeModal('companionModal');
-        await saveToGitHub();
-        renderTripDetail(tripId);
-    }
-
-    async function removeCompanion(tripId, index) {
-        const trip = state.trips.find(t => t.id === tripId);
-        if (trip && trip.companions) {
-            trip.companions.splice(index, 1);
-            await saveToGitHub();
-            renderTripDetail(tripId);
-        }
-    }
-
-    // ===== RENDER: TIMELINE =====
-    function renderTimeline() {
-        const year = timelineDate.getFullYear();
-        const month = timelineDate.getMonth();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const today = todayStr();
-        const monthName = timelineDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-        document.getElementById('timelineMonthLabel').textContent = monthName;
-
-        // Build day headers
-        let daysHtml = '';
-        for (let d = 1; d <= daysInMonth; d++) {
-            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const dow = new Date(year, month, d).getDay();
-            const isToday = dateStr === today;
-            const isWeekend = dow === 0 || dow === 6;
-            daysHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''} ${isWeekend ? 'weekend' : ''}">${d}</div>`;
-        }
-
-        // Find trips that overlap this month
-        const monthStart = `${year}-${String(month + 1).padStart(2, '0')}-01`;
-        const monthEnd = `${year}-${String(month + 1).padStart(2, '0')}-${String(daysInMonth).padStart(2, '0')}`;
-
-        const overlapping = state.trips.filter(t => t.dates.start <= monthEnd && t.dates.end >= monthStart);
-
-        // Build bars
-        let barsHtml = '';
-        overlapping.forEach(trip => {
-            const startDay = Math.max(1, trip.dates.start >= monthStart ? parseInt(trip.dates.start.split('-')[2]) : 1);
-            const endDay = Math.min(daysInMonth, trip.dates.end <= monthEnd ? parseInt(trip.dates.end.split('-')[2]) : daysInMonth);
-            const left = ((startDay - 1) / daysInMonth) * 100;
-            const width = ((endDay - startDay + 1) / daysInMonth) * 100;
-            barsHtml += `<div class="timeline-bar-row"><div class="timeline-bar ${trip.type}" style="left:${left}%;width:${width}%;" onclick="openTripDetail('${trip.id}')" title="${trip.title}">${trip.title}</div></div>`;
-        });
-
-        // Today line
-        let todayLine = '';
-        if (today >= monthStart && today <= monthEnd) {
-            const todayDay = parseInt(today.split('-')[2]);
-            const todayPos = ((todayDay - 0.5) / daysInMonth) * 100;
-            todayLine = `<div class="timeline-today-line" style="left:${todayPos}%"></div>`;
-        }
-
-        const grid = document.getElementById('timelineGrid');
-        if (overlapping.length === 0 && !todayLine) {
-            grid.innerHTML = `<div class="timeline-grid-inner"><div class="timeline-days-header">${daysHtml}</div><div class="timeline-body"><div class="timeline-empty">No trips this month</div></div></div>`;
-        } else {
-            grid.innerHTML = `<div class="timeline-grid-inner"><div class="timeline-days-header">${daysHtml}</div><div class="timeline-body" style="position:relative;">${todayLine}${barsHtml || '<div class="timeline-empty">No trips this month</div>'}</div></div>`;
-        }
-    }
-
-    function changeMonth(delta) {
-        timelineDate.setMonth(timelineDate.getMonth() + delta);
-        renderTimeline();
-    }
-
-    function goToToday() {
-        timelineDate = new Date();
-        renderTimeline();
-    }
-
-    // ===== RENDER: TRIP CARDS =====
-    function renderTripCards() {
-        const today = todayStr();
-        const upcoming = state.trips
-            .filter(t => t.dates.start >= today || (t.status === 'in-progress'))
-            .sort((a, b) => a.dates.start.localeCompare(b.dates.start));
-        const past = state.trips
-            .filter(t => t.dates.end < today && t.status !== 'in-progress')
-            .sort((a, b) => b.dates.start.localeCompare(a.dates.start));
-
-        document.getElementById('upcomingCount').textContent = upcoming.length;
-        document.getElementById('pastCount').textContent = past.length;
-
-        document.getElementById('upcomingTrips').innerHTML = upcoming.length ? upcoming.map(renderTripCard).join('') : '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><h3>No upcoming trips</h3><p>Plan your next adventure!</p><button class="btn btn-primary" onclick="openTripModal()">Add Trip</button></div>';
-
-        document.getElementById('pastTrips').innerHTML = past.map(renderTripCard).join('');
-
-        // Current trip banner
-        const current = state.trips.find(t => t.status === 'in-progress');
-        const banner = document.getElementById('currentTripBanner');
-        if (current) {
-            const daysLeft = daysUntil(current.dates.end);
-            banner.style.display = 'block';
-            banner.innerHTML = `<div class="trip-card ${current.type}" onclick="openTripDetail('${current.id}')" style="border:2px solid var(--accent-green);margin-bottom:24px;"><div class="trip-card-header"><div><div class="trip-card-title">${esc(current.title)}</div><div class="trip-card-destination">${esc(current.destination.city)}${current.destination.country ? ', ' + esc(current.destination.country) : ''}</div></div><span class="trip-status in-progress">In Progress</span></div><div class="trip-card-dates">${formatDateShort(current.dates.start)} - ${formatDateShort(current.dates.end)} &bull; ${daysLeft > 0 ? daysLeft + ' days left' : 'Last day!'}</div></div>`;
-        } else {
-            banner.style.display = 'none';
-        }
-    }
-
-    function renderTripCard(trip) {
-        const today = todayStr();
-        const days = daysUntil(trip.dates.start);
-        let countdown = '';
-        if (days > 0) countdown = `<span class="countdown">in ${days} day${days !== 1 ? 's' : ''}</span>`;
-        else if (days === 0) countdown = `<span class="countdown" style="color:var(--accent-green)">Today!</span>`;
-
-        const bookingCount = (trip.bookings || []).length;
-        const tasksDone = (trip.tasks || []).filter(t => t.status === 'done').length;
-        const tasksTotal = (trip.tasks || []).length;
-
-        return `<div class="trip-card ${trip.type}" onclick="openTripDetail('${trip.id}')">
-            <div class="trip-card-header">
-                <div class="trip-card-title">${esc(trip.title)}</div>
-                ${countdown}
-            </div>
-            <div class="trip-card-destination">${esc(trip.destination?.city || '')}${trip.destination?.country ? ', ' + esc(trip.destination.country) : ''}</div>
-            <div class="trip-card-dates">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                ${formatDateShort(trip.dates?.start)} - ${formatDateShort(trip.dates?.end)}
-            </div>
-            <div class="trip-card-meta">
-                <span class="trip-status ${trip.status}">${trip.status}</span>
-                <span class="trip-type-badge ${trip.type}">${trip.type}</span>
-                ${bookingCount ? `<span class="tag">${bookingCount} booking${bookingCount !== 1 ? 's' : ''}</span>` : ''}
-                ${tasksTotal ? `<span class="tag">${tasksDone}/${tasksTotal} tasks</span>` : ''}
-            </div>
-        </div>`;
-    }
-
-    // ===== RENDER: TRIP DETAIL =====
-    function openTripDetail(tripId) {
-        currentTripId = tripId;
-
-        // Always reset to Itinerary tab when opening a trip — if the user left
-        // on a different tab (e.g. Tasks for Trip A) and then opens Trip B, the
-        // stale active-tab state would make it look like the wrong trip is shown
-        // even though the content is re-rendered correctly.
-        document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-        const itineraryTab = document.querySelector('.detail-tab[data-tab="itinerary"]');
-        if (itineraryTab) itineraryTab.classList.add('active');
-        const itineraryContent = document.getElementById('tabItinerary');
-        if (itineraryContent) itineraryContent.classList.add('active');
-
-        renderTripDetail(tripId);
-        showView('viewDetail');
-    }
-
-    function renderTripDetail(tripId) {
-        const trip = state.trips.find(t => t.id === tripId);
-        if (!trip) return;
-
-        // Header
-        const daysCount = daysBetween(trip.dates.start, trip.dates.end) + 1;
-        document.getElementById('detailHeader').innerHTML = `
-            <div class="detail-title-row">
-                <div>
-                    <div class="detail-title">${esc(trip.title)}</div>
-                    <div class="detail-destination">${esc(trip.destination?.city || '')}${trip.destination?.country ? ', ' + esc(trip.destination.country) : ''}</div>
-                </div>
-                <div class="detail-actions">
-                    <button class="btn-icon" onclick="openTripModal('${trip.id}')" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                    <button class="btn-icon" onclick="exportTripICS('${trip.id}')" title="Export .ics"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></button>
-                    <button class="btn-icon danger" onclick="deleteTrip('${trip.id}')" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
-                </div>
-            </div>
-            <div class="detail-meta">
-                <span class="trip-status ${trip.status}">${trip.status}</span>
-                <span class="trip-type-badge ${trip.type}">${trip.type}</span>
-                ${trip.tags ? trip.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('') : ''}
-            </div>
-            <div class="detail-dates">${formatDate(trip.dates?.start)} - ${formatDate(trip.dates?.end)} (${daysCount} day${daysCount !== 1 ? 's' : ''})</div>
-            ${trip.purpose ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">${esc(trip.purpose)}</div>` : ''}
-        `;
-
-        renderItinerary(trip);
-        renderVisaRequirements(trip);
-        renderTasks(trip);
-        renderInfo(trip);
-    }
-
-    function renderItinerary(trip) {
-        const container = document.getElementById('tabItinerary');
-        const bookings = (trip.bookings || []).sort((a, b) => {
-            const cmp = (a.date || '').localeCompare(b.date || '');
-            return cmp !== 0 ? cmp : (a.time || '').localeCompare(b.time || '');
-        });
-
-        if (bookings.length === 0) {
-            container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><h3>No bookings yet</h3><p>Add flights, hotels, restaurants, and more.</p><button class="btn btn-primary" onclick="openBookingModal('${trip.id}')">Add Booking</button></div>`;
-            return;
-        }
-
-        // Group by date
-        const grouped = {};
-        bookings.forEach(b => {
-            const d = b.date || 'Unscheduled';
-            if (!grouped[d]) grouped[d] = [];
-            grouped[d].push(b);
-        });
-
-        let html = `<div style="display:flex;justify-content:flex-end;margin-bottom:16px;"><button class="btn btn-primary btn-sm" onclick="openBookingModal('${trip.id}')">+ Add Booking</button></div>`;
-
-        Object.keys(grouped).sort().forEach(date => {
-            const dayLabel = date === 'Unscheduled' ? 'Unscheduled' : `${getDayName(date)}, ${formatDate(date)}`;
-            const isToday = date === todayStr();
-            html += `<div class="itinerary-day"><div class="itinerary-day-header"><span class="day-label">${dayLabel}</span>${isToday ? '<span style="color:var(--accent-green);font-size:0.8rem;">Today</span>' : ''}</div>`;
-            grouped[date].forEach(b => { html += renderBookingCard(b, trip.id); });
-            html += '</div>';
-        });
-
-        container.innerHTML = html;
-    }
-
-    function renderBookingCard(booking, tripId) {
-        const d = booking.details || {};
-        const typeIcons = {
-            flight: '\u2708\uFE0F', hotel: '\uD83C\uDFE8', airbnb: '\uD83C\uDFE0', restaurant: '\uD83C\uDF7D\uFE0F',
-            activity: '\uD83C\uDFAF', meeting: '\uD83E\uDD1D', rental_car: '\uD83D\uDE97'
-        };
-
-        let content = '';
-
-        if (booking.type === 'flight') {
-            content = `
-                <div class="flight-route">
-                    <div class="flight-endpoint"><div class="flight-code">${esc(d.bDepAirport || '---')}</div><div class="flight-time">${d.bDepTime ? formatTime(d.bDepTime) : ''}</div></div>
-                    <div class="flight-line"></div>
-                    <div class="flight-endpoint"><div class="flight-code">${esc(d.bArrAirport || '---')}</div><div class="flight-time">${d.bArrTime ? formatTime(d.bArrTime) : ''}</div></div>
-                </div>
-                ${d.bConfCode ? `<div class="booking-detail-row"><span>Conf:</span> <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation code')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bSeat ? `<div class="booking-detail-row">Seat: ${esc(d.bSeat)}</div>` : ''}`;
-        } else if (booking.type === 'hotel' || booking.type === 'airbnb') {
-            content = `
-                ${d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAddress)}','address')">${esc(d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bCheckin && d.bCheckout ? `<div class="booking-detail-row">Check-in: ${formatDateShort(d.bCheckin)} &rarr; Check-out: ${formatDateShort(d.bCheckout)}</div>` : ''}
-                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation code')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bWifi ? `<div class="booking-detail-row">WiFi: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bWifi)}','WiFi password')">${esc(d.bWifi)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bAccessCode ? `<div class="booking-detail-row">Access: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAccessCode)}','access code')">${esc(d.bAccessCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bHostName ? `<div class="booking-detail-row">Host: ${esc(d.bHostName)}${d.bHostPhone ? ' \u2022 ' + esc(d.bHostPhone) : ''}</div>` : ''}
-                ${d.bPhone ? `<div class="booking-detail-row">Phone: ${esc(d.bPhone)}</div>` : ''}
-                ${d.bCheckinInstructions ? `<div class="booking-detail-row" style="margin-top:6px;white-space:pre-wrap;">${esc(d.bCheckinInstructions)}</div>` : ''}`;
-        } else if (booking.type === 'restaurant') {
-            content = `
-                ${d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAddress)}','address')">${esc(d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bResTime ? `<div class="booking-detail-row">Time: ${formatTime(d.bResTime)}</div>` : ''}
-                ${d.bPartySize ? `<div class="booking-detail-row">Party: ${esc(d.bPartySize)} guests</div>` : ''}
-                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}`;
-        } else {
-            content = `
-                ${d.bLocation || d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bLocation || d.bAddress)}','location')">${esc(d.bLocation || d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bActTime || d.bMeetTime || d.bPickupTime ? `<div class="booking-detail-row">Time: ${formatTime(d.bActTime || d.bMeetTime || d.bPickupTime)}</div>` : ''}
-                ${d.bContacts ? `<div class="booking-detail-row">Contacts: ${esc(d.bContacts)}</div>` : ''}
-                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
-                ${d.bNotes || d.bAgenda ? `<div class="booking-detail-row" style="white-space:pre-wrap;margin-top:4px;">${esc(d.bNotes || d.bAgenda)}</div>` : ''}
-                ${d.bDropoffLoc ? `<div class="booking-detail-row">Dropoff: ${esc(d.bDropoffLoc)}${d.bDropoffDate ? ' on ' + formatDateShort(d.bDropoffDate) : ''}</div>` : ''}
-                ${d.bCompany ? `<div class="booking-detail-row">Company: ${esc(d.bCompany)}</div>` : ''}`;
-        }
-
-        return `<div class="booking-card">
-            <div class="booking-card-header">
-                <div style="display:flex;align-items:flex-start;">
-                    <div class="booking-type-icon ${booking.type}">${typeIcons[booking.type] || '\uD83D\uDCCC'}</div>
-                    <div class="booking-info">
-                        <div class="booking-title">${esc(booking.title || booking.type)}</div>
-                        <div class="booking-subtitle">${booking.type.replace('_', ' ')}${booking.time ? ' \u2022 ' + formatTime(booking.time) : ''}</div>
             addFlightSegment(flight = {}, index = null) {
                 const container = document.getElementById('flightSegmentsContainer');
                 const segNum = container.querySelectorAll('.flight-segment').length + 1;
@@ -5683,6 +5275,912 @@ this.updateDashboardStats();
         modal.style.display = 'block';
     }
 
+    saveFlightStatus() {
+        if (!this._statusFlight) return;
+        const trip = this.trips.find(t => t.id === this._statusFlight.tripId);
+        if (!trip || !trip.flights) return;
+        const idx = trip.flights.findIndex(f => (f.departure||f.from) === (this._statusFlight.departure||this._statusFlight.from));
+        if (idx === -1) return;
+        trip.flights[idx].status = document.getElementById('statusSelect')?.value || 'on-time';
+        trip.flights[idx].gate = document.getElementById('gateInput')?.value || '';
+        trip.flights[idx].terminal = trip.flights[idx].gate?.split(/[,\s]/)[0] || '';
+        trip.flights[idx].statusNotes = document.getElementById('statusNotesInput')?.value || '';
+        this.saveTrips();
+        this.updateNextFlightCountdown();
+        document.getElementById('statusUpdateModal').style.display = 'none';
+        this.showToast('Flight status updated');
+    }
+
+    // ========== TASK GENERATION (TaskFlo Integration) ==========
+    generateTasksForTrip(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        this._taskTrip = trip;
+        const modal = document.getElementById('taskGeneratorModal');
+        if (!modal) return;
+        const sel = document.getElementById('tripTypeSelect');
+        if (sel) sel.value = trip.type || 'personal';
+        this.refreshGeneratedTasks();
+        modal.style.display = 'block';
+    }
+
+    refreshGeneratedTasks() {
+        const trip = this._taskTrip;
+        if (!trip) return;
+        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
+        const tasks = this._buildChecklist(trip, type);
+        const list = document.getElementById('generatedTasksList');
+        if (list) list.innerHTML = tasks.map(t => '<div style="padding:8px;background:var(--bg-secondary,#1a1f2e);border-radius:6px;margin-bottom:6px;font-size:12px;color:var(--text-primary,#e2e8f0);">\u2713 ' + t + '</div>').join('');
+    }
+
+    _buildChecklist(trip, type) {
+        const base = ['Check passport expiration', 'Purchase travel insurance', 'Notify bank of travel dates', 'Download offline maps for ' + trip.destination, 'Confirm accommodation booking', 'Arrange airport transportation', 'Set out-of-office replies', 'Check weather forecast'];
+        if (type === 'business') {
+            base.push('Prepare presentation materials', 'Print business cards', 'Schedule client meetings', 'Book conference rooms', 'Prepare expense report template', 'Pack business attire');
+        } else {
+            base.push('Research local attractions', 'Book tours/activities', 'Learn basic local phrases', 'Download entertainment for travel', 'Pack camera/accessories');
+        }
+        const duration = Math.ceil((new Date(trip.endDate) - new Date(trip.startDate)) / 864e5);
+        if (duration > 7) base.push('Arrange mail hold', 'Set up pet/plant care');
+        return base;
+    }
+
+    exportTasksToTaskFlo() {
+        const trip = this._taskTrip;
+        if (!trip) return;
+        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
+        const tasks = this._buildChecklist(trip, type);
+        const payload = { project: trip.destination + ' Trip Prep', source: 'TravelFlo', tasks: tasks.map(t => ({ name: t, dueDate: trip.startDate, category: 'travel-prep' })) };
+        navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
+            this.showToast('Tasks copied! Paste into TaskFlo');
+            document.getElementById('taskGeneratorModal').style.display = 'none';
+        }).catch(() => this.showToast('Copy failed - check clipboard permissions'));
+    }
+
+    // ========== TRIP DEBRIEF ==========
+    openDebriefModal(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        this._debriefTrip = trip;
+        const modal = document.getElementById('debriefModal');
+        if (!modal) return;
+        const name = document.getElementById('debriefTripName');
+        if (name) name.textContent = trip.destination + ' (' + this.parseLocalDate(trip.startDate).toLocaleDateString() + ' - ' + this.parseLocalDate(trip.endDate).toLocaleDateString() + ')';
+        const notes = document.getElementById('debriefNotesInput');
+        if (notes) notes.value = trip.debriefNotes || '';
+        modal.style.display = 'block';
+    }
+
+    saveDebrief() {
+        const trip = this._debriefTrip;
+        if (!trip) return;
+        trip.debriefNotes = document.getElementById('debriefNotesInput')?.value || '';
+        trip.debriefCompleted = true;
+        if (document.getElementById('generateFollowupCheckbox')?.checked) {
+            const lines = trip.debriefNotes.split('\n');
+            trip.followupTasks = lines.filter(l => l.trim().match(/^[-\u2022*]/)).map(l => l.replace(/^[-\u2022*]\s*/, '').trim()).filter(t => t.length > 0);
+        }
+        this.saveTrips();
+        this.initDashboard();
+        document.getElementById('debriefModal').style.display = 'none';
+        this.showToast('Debrief saved' + (trip.followupTasks?.length ? ' with ' + trip.followupTasks.length + ' follow-up tasks' : ''));
+    }
+
+
+
+    // ========== DISCOVER TAB - DESTINATION INTEL ==========
+    renderEnhancedDiscover() {
+        const grid = document.getElementById('destinationsGrid');
+        if (!grid) return;
+        const dests = this.getDestinationIntel();
+        grid.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">' +
+            dests.map(d => {
+                const visited = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase())).length;
+                const tips = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase()) && t.notes).map(t => t.notes).slice(0, 1);
+                return `<div class="destination-card-enhanced" onclick="app.createTripFromDestination({name:'\'${d.name.split(',')[0]}\'', country:'\'${d.country}\''})"  >
+                    <div class="destination-header"><div class="destination-name">${d.emoji} ${d.name}</div><div class="destination-weather">${d.weather}</div></div>
+                    <div class="destination-meta-grid">
+                        <div class="destination-meta-item"><div class="destination-meta-label">Local Time</div><div class="destination-meta-value">${d.localTime}</div></div>
+                        <div class="destination-meta-item"><div class="destination-meta-label">Currency</div><div class="destination-meta-value">${d.currency}</div></div>
+                    </div>
+                    <div class="destination-tips"><div style="font-weight:600;margin-bottom:4px;">\u{1F4A1} Tips</div>${d.tips}
+                    ${visited > 0 ? '<div style="margin-top:6px;font-size:11px;color:#00d9a3;">\u2713 Visited ' + visited + ' time' + (visited>1?'s':'') + '</div>' : ''}
+                    ${tips.length > 0 ? '<div style="margin-top:4px;font-size:11px;color:#ffa500;">Your note: ' + tips[0].substring(0,60) + '...</div>' : ''}
+                    </div>
+                </div>`;
+            }).join('') + '</div>';
+    }
+
+    getDestinationIntel() {
+        return [
+            { name: 'Tokyo, Japan', country: 'Japan', emoji: '\u{1F5FC}', weather: '\u{1F338}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'}), currency: '\u00A5 JPY', tips: 'Cherry blossoms in spring. Get a rail pass for bullet trains.' },
+            { name: 'Paris, France', country: 'France', emoji: '\u{1F5FC}', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Museum pass saves money. Visit Montmartre for views.' },
+            { name: 'Bali, Indonesia', country: 'Indonesia', emoji: '\u{1F3DD}\uFE0F', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Makassar',hour:'2-digit',minute:'2-digit'}), currency: '\u20A8 IDR', tips: 'Dry season May-Sep. Ubud for culture, Seminyak for beaches.' },
+            { name: 'New York, USA', country: 'USA', emoji: '\u{1F5FD}', weather: '\u{2744}\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'America/New_York',hour:'2-digit',minute:'2-digit'}), currency: '$ USD', tips: 'Get a MetroCard. Times Square is overrated - try the High Line.' },
+            { name: 'Barcelona, Spain', country: 'Spain', emoji: '\u{1F3D6}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Book Sagrada Familia in advance. La Boqueria for food.' },
+            { name: 'Bangkok, Thailand', country: 'Thailand', emoji: '\u{1F6D5}', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Bangkok',hour:'2-digit',minute:'2-digit'}), currency: '\u0E3F THB', tips: 'Street food is incredible. Take water taxis to avoid traffic.' },
+            { name: 'Dubai, UAE', country: 'UAE', emoji: '\u{1F3D9}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit'}), currency: 'AED', tips: 'Desert safari is a must. Dubai Mall has an aquarium.' },
+            { name: 'Sydney, Australia', country: 'Australia', emoji: '\u{1F3C4}', weather: '\u{1F30A}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit'}), currency: 'A$ AUD', tips: 'Bondi to Coogee walk is free. Manly Ferry for harbor views.' }
+        ];
+    }
+
+    // ========== ANALYTICS & ROI ==========
+    openAnalytics() {
+        const modal = document.getElementById('analyticsModal');
+        const grid = document.getElementById('analyticsGrid');
+        if (!modal || !grid) return;
+        const stats = this.calculateAnalytics();
+        grid.innerHTML = Object.entries(stats).map(([title, data]) => `
+            <div class="analytics-card"><div class="analytics-card-title">${title}</div>
+            <div class="analytics-list">${data.map(item => '<div class="analytics-item"><span class="analytics-item-label">' + item.label + '</span><span class="analytics-item-value">' + item.value + '</span></div>').join('')}</div>
+            </div>`).join('');
+        modal.style.display = 'block';
+    }
+
+    calculateAnalytics() {
+        const cities = new Map(), monthNights = new Map(), catSpend = {}, roiData = [];
+        let totalTrips = 0, totalNights = 0;
+        this.trips.forEach(trip => {
+            totalTrips++;
+            const s = new Date(trip.startDate), e = new Date(trip.endDate);
+            const nights = Math.ceil((e - s) / 864e5);
+            totalNights += nights;
+            cities.set(trip.destination, (cities.get(trip.destination) || 0) + 1);
+            const mk = s.getFullYear() + '-' + String(s.getMonth()+1).padStart(2,'0');
+            monthNights.set(mk, (monthNights.get(mk) || 0) + nights);
+            if (trip.expenses) trip.expenses.forEach(ex => { const c = ex.category || 'Other'; catSpend[c] = (catSpend[c] || 0) + (ex.amount || 0); });
+            // ROI: count follow-up tasks generated
+            const taskCount = (trip.followupTasks?.length || 0) + (trip.type === 'business' ? 1 : 0);
+            if (trip.type === 'business' || taskCount > 0) roiData.push({ dest: trip.destination, type: trip.type || 'personal', tasks: taskCount });
+        });
+        const result = {
+            '\u{1F3D9}\uFE0F Top Destinations': Array.from(cities.entries()).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,n])=>({label:c,value:n+' trip'+(n>1?'s':'')})),
+            '\u{1F319} Nights by Month': Array.from(monthNights.entries()).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,6).map(([m,n])=>({label:m,value:n+' nights'})),
+            '\u{1F4B3} Spending by Category': Object.entries(catSpend).sort((a,b)=>b[1]-a[1]).map(([c,a])=>({label:c,value:'$'+Math.round(a)})),
+            '\u{1F4CA} Summary': [
+                { label: 'Total Trips', value: totalTrips },
+                { label: 'Total Nights', value: totalNights },
+                { label: 'Avg Trip Length', value: Math.round(totalNights / (totalTrips || 1)) + ' days' },
+                { label: 'Countries', value: new Set(this.trips.map(t=>t.country).filter(Boolean)).size }
+            ]
+        };
+        if (roiData.length > 0) {
+            result['\u{1F4C8} Travel ROI'] = [
+                { label: 'Business Trips', value: roiData.filter(r=>r.type==='business').length },
+                { label: 'Personal Trips', value: roiData.filter(r=>r.type==='personal').length },
+                { label: 'Follow-up Tasks Generated', value: roiData.reduce((s,r)=>s+r.tasks,0) },
+                ...roiData.slice(0,3).map(r=>({ label: r.dest, value: '<span class="roi-tag ' + r.type + '">' + r.type + '</span> ' + r.tasks + ' tasks' }))
+            ];
+        }
+        return result;
+    }
+
+    // ========== TRIP SHAREBOARD ==========
+    openShareboard(tripId) {
+        const trip = this.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        const modal = document.getElementById('shareboardModal');
+        const content = document.getElementById('shareboardContent');
+        if (!modal || !content) return;
+        const s = new Date(trip.startDate), e = new Date(trip.endDate);
+        const duration = Math.ceil((e - s) / 864e5);
+        let html = '<div class="shareboard-title">' + trip.destination + '</div>';
+        html += '<div class="shareboard-subtitle">' + s.toLocaleDateString() + ' \u2013 ' + e.toLocaleDateString() + ' (' + duration + ' days) | ' + (trip.country || '') + '</div>';
+        // Flights
+        html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
+        if (trip.flights?.length > 0) {
+            trip.flights.forEach(f => { html += '<div class="shareboard-item">' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||'').toUpperCase() + ' | ' + (f.airline||'') + ' | Conf: ' + (f.confirmation||f.confirmationCode||'N/A') + '</div>'; });
+        } else { html += '<div class="shareboard-item">No flights booked</div>'; }
+        html += '</div>';
+        // Accommodation
+        if (trip.accommodation) {
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
+        }
+        // Budget
+        if (trip.budget || (trip.expenses?.length > 0)) {
+            const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
+        }
+        // Packing
+        if (trip.packingList && ((Array.isArray(trip.packingList) && trip.packingList.length > 0) || (!Array.isArray(trip.packingList) && Object.keys(trip.packingList).length > 0))) {
+            const packed = trip.packingList.filter(p=>p.packed).length;
+            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="luggage" style="width:16px;vertical-align:middle"></i> Packing</div><div class="shareboard-item">' + packed + '/' + trip.packingList.length + ' items packed</div></div>';
+        }
+        // Notes
+        if (trip.notes) html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="sticky-note" style="width:16px;vertical-align:middle"></i> Notes</div><div class="shareboard-item">' + trip.notes + '</div></div>';
+        content.innerHTML = html;
+        modal.style.display = 'block';
+    }
+
+    copyShareboardToClipboard() {
+        const el = document.getElementById('shareboardContent');
+        if (!el) return;
+        navigator.clipboard.writeText(el.innerText).then(() => this.showToast('Trip details copied to clipboard'));
+    }
+
+    // ========== TRIP DETAILS (Enhanced) ==========
+    // Consolidated: openTripDetails now delegates to showTripDetail
+    openTripDetails(tripId) {
+        openTripDetail(tripId);
+    }
+        }
+
+
+        // ===== STANDALONE FUNCTIONS (moved outside class body) =====
+        // These use a state proxy to access app.trips
+
+        const state = { get trips() { return window.app ? window.app.trips : []; } };
+        let currentTripId = null;
+        let timelineDate = new Date();
+
+        // ----- Utility Functions -----
+
+        function todayStr() {
+            const d = new Date();
+            return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        }
+
+        function esc(str) {
+            if (str == null) return '';
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+        }
+
+        function formatDate(str) {
+            if (!str) return '';
+            const d = new Date(str + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function formatDateShort(str) {
+            if (!str) return '';
+            const d = new Date(str + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function formatTime(str) {
+            if (!str) return '';
+            const [h, m] = str.split(':');
+            const hrs = parseInt(h, 10);
+            const ampm = hrs >= 12 ? 'PM' : 'AM';
+            const h12 = hrs % 12 || 12;
+            return h12 + ':' + (m || '00') + ' ' + ampm;
+        }
+
+        function getDayName(str) {
+            if (!str) return '';
+            const d = new Date(str + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+        }
+
+        function daysUntil(dateStr) {
+            if (!dateStr) return 0;
+            const today = new Date(); today.setHours(0,0,0,0);
+            const target = new Date(dateStr + 'T00:00:00');
+            return Math.round((target - today) / 86400000);
+        }
+
+        function daysBetween(start, end) {
+            if (!start || !end) return 0;
+            const s = new Date(start + 'T00:00:00');
+            const e = new Date(end + 'T00:00:00');
+            return Math.round((e - s) / 86400000);
+        }
+
+        function genId(prefix) {
+            return (prefix || 'id') + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+        }
+
+        function showView(viewId) {
+            document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
+            const target = document.getElementById(viewId);
+            if (target) target.style.display = 'block';
+        }
+
+        function openModal(modalId) {
+            const m = document.getElementById(modalId);
+            if (m) m.style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            const m = document.getElementById(modalId);
+            if (m) m.style.display = 'none';
+        }
+
+        function showConfirm(title, message, onConfirm) {
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:center;justify-content:center;';
+            overlay.innerHTML = '<div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:2rem;max-width:400px;width:90%;text-align:center;"><h3 style="margin:0 0 0.5rem;color:var(--text-primary);">' + esc(title) + '</h3><p style="color:var(--text-secondary);margin:0 0 1.5rem;font-size:0.9rem;">' + esc(message) + '</p><div style="display:flex;gap:12px;justify-content:center;"><button id="_cfCancel" style="padding:0.6rem 1.5rem;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-tertiary);color:var(--text-primary);cursor:pointer;">Cancel</button><button id="_cfOk" style="padding:0.6rem 1.5rem;border-radius:8px;border:none;background:#ef4444;color:white;cursor:pointer;font-weight:600;">Confirm</button></div></div>';
+            document.body.appendChild(overlay);
+            overlay.querySelector('#_cfCancel').onclick = () => overlay.remove();
+            overlay.querySelector('#_cfOk').onclick = () => { overlay.remove(); onConfirm && onConfirm(); };
+        }
+
+        function autoUpdateStatuses() {
+            if (window.app && window.app.trips) {
+                const today = todayStr();
+                window.app.trips.forEach(t => {
+                    if (!t.dates) return;
+                    if (t.dates.start <= today && t.dates.end >= today) t.status = 'in-progress';
+                    else if (t.dates.end < today) t.status = 'completed';
+                    else t.status = t.status || 'planning';
+                });
+            }
+        }
+
+        function copyText(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                if (window.app) window.app.showToast((label || 'Text') + ' copied!', 'success');
+            }).catch(() => {
+                if (window.app) window.app.showToast('Copy failed', 'error');
+            });
+        }
+
+        function openBookingModal(tripId, bookingId) {
+            if (window.app && window.app.openBookingModal) {
+                window.app.openBookingModal(tripId, bookingId);
+            } else {
+                const m = document.getElementById('bookingModal');
+                if (!m) return;
+                const tripEl = document.getElementById('bookingTripId');
+                const editEl = document.getElementById('bookingEditId');
+                if (tripEl) tripEl.value = tripId || '';
+                if (editEl) editEl.value = bookingId || '';
+                m.style.display = 'flex';
+            }
+        }
+
+        function deleteTrip(id) {
+            if (window.app) window.app.deleteTrip(id);
+        }
+
+        function openTripModal(id) {
+            if (window.app) window.app.openTripModal(id || null);
+        }
+
+        function exportTripICS(id) {
+            if (window.app && window.app.exportTripICS) window.app.exportTripICS(id);
+        }
+
+        function switchTab(arg) {
+            if (typeof arg === 'string') {
+                // Nav tab switch — delegate to app
+                if (window.app) window.app.switchTab(arg);
+            } else if (arg && arg.dataset && arg.dataset.tab) {
+                // Detail panel tab switch — activate correct content div
+                const tabName = arg.dataset.tab;
+                document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+                arg.classList.add('active');
+                const tabMap = { itinerary: 'tabItinerary', requirements: 'tabRequirements', tasks: 'tabTasks', info: 'tabInfo' };
+                document.querySelectorAll('#viewDetail .tab-content').forEach(t => t.classList.remove('active'));
+                const target = document.getElementById(tabMap[tabName]);
+                if (target) target.classList.add('active');
+            }
+        }
+
+        function performSearch(query) {
+            if (window.app && window.app.performSearch) window.app.performSearch(query);
+        }
+
+    async function saveBooking() {
+        const tripId = document.getElementById('bookingTripId').value;
+        const editId = document.getElementById('bookingEditId').value;
+        const type = document.getElementById('bookingType').value;
+        const trip = state.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        if (!trip.bookings) trip.bookings = [];
+
+        // Collect all field values
+        const fields = getBookingFields(type);
+        const details = {};
+        fields.forEach(f => {
+            const el = document.getElementById(f.id);
+            if (el) details[f.id] = el.value;
+        });
+
+        // Create a display-friendly title
+        let title = details.bName || details.bAirline || details.bCompany || type;
+        if (type === 'flight') title = `${details.bAirline || ''} ${details.bFlightNum || ''}`.trim();
+
+        // Determine date for sorting
+        let sortDate = details.bDepDate || details.bCheckin || details.bResDate || details.bActDate || details.bMeetDate || details.bPickupDate || trip.dates.start;
+        let sortTime = details.bDepTime || details.bResTime || details.bActTime || details.bMeetTime || details.bPickupTime || '00:00';
+
+        const bookingData = {
+            type,
+            title,
+            details,
+            date: sortDate,
+            time: sortTime,
+            updatedAt: new Date().toISOString()
+        };
+
+        if (editId) {
+            const idx = trip.bookings.findIndex(b => b.id === editId);
+            if (idx > -1) Object.assign(trip.bookings[idx], bookingData);
+        } else {
+            trip.bookings.push({
+                id: genId('bk'),
+                ...bookingData,
+                createdAt: new Date().toISOString()
+            });
+        }
+
+        closeModal('bookingModal');
+        await saveToGitHub();
+        renderTripDetail(tripId);
+    }
+
+    function deleteBooking(tripId, bookingId) {
+        showConfirm('Delete Booking', 'Remove this booking?', async () => {
+            const trip = state.trips.find(t => t.id === tripId);
+            if (trip) {
+                trip.bookings = trip.bookings.filter(b => b.id !== bookingId);
+                await saveToGitHub();
+                renderTripDetail(tripId);
+            }
+        });
+    }
+
+    // ===== TASK CRUD =====
+    function openTaskModal(tripId) {
+        document.getElementById('taskTripId').value = tripId;
+        document.getElementById('taskTitle').value = '';
+        document.getElementById('taskPhase').value = 'pre-trip';
+        document.getElementById('taskPriority').value = 'medium';
+        document.getElementById('taskDueDate').value = '';
+        openModal('taskModal');
+    }
+
+    async function saveTask() {
+        const tripId = document.getElementById('taskTripId').value;
+        const trip = state.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        if (!trip.tasks) trip.tasks = [];
+
+        const title = document.getElementById('taskTitle').value.trim();
+        if (!title) { showToast('Task title required', 'error'); return; }
+
+        trip.tasks.push({
+            id: genId('task'),
+            title,
+            phase: document.getElementById('taskPhase').value,
+            status: 'pending',
+            priority: document.getElementById('taskPriority').value,
+            dueDate: document.getElementById('taskDueDate').value || null,
+            createdAt: new Date().toISOString()
+        });
+
+        closeModal('taskModal');
+        await saveToGitHub();
+        renderTripDetail(tripId);
+    }
+
+    async function toggleTask(tripId, taskId) {
+        const trip = state.trips.find(t => t.id === tripId);
+        const task = trip?.tasks?.find(t => t.id === taskId);
+        if (task) {
+            task.status = task.status === 'done' ? 'pending' : 'done';
+            await saveToGitHub();
+            renderTripDetail(tripId);
+        }
+    }
+
+    async function deleteTask(tripId, taskId) {
+        const trip = state.trips.find(t => t.id === tripId);
+        if (trip) {
+            trip.tasks = trip.tasks.filter(t => t.id !== taskId);
+            await saveToGitHub();
+            renderTripDetail(tripId);
+        }
+    }
+
+    // ===== COMPANION CRUD =====
+    function openCompanionModal(tripId) {
+        document.getElementById('companionTripId').value = tripId;
+        document.getElementById('companionName').value = '';
+        document.getElementById('companionEmail').value = '';
+        document.getElementById('companionPhone').value = '';
+        openModal('companionModal');
+    }
+
+    async function saveCompanion() {
+        const tripId = document.getElementById('companionTripId').value;
+        const trip = state.trips.find(t => t.id === tripId);
+        if (!trip) return;
+        if (!trip.companions) trip.companions = [];
+
+        const name = document.getElementById('companionName').value.trim();
+        if (!name) { showToast('Name required', 'error'); return; }
+
+        trip.companions.push({
+            name,
+            email: document.getElementById('companionEmail').value.trim(),
+            phone: document.getElementById('companionPhone').value.trim()
+        });
+
+        closeModal('companionModal');
+        await saveToGitHub();
+        renderTripDetail(tripId);
+    }
+
+    async function removeCompanion(tripId, index) {
+        const trip = state.trips.find(t => t.id === tripId);
+        if (trip && trip.companions) {
+            trip.companions.splice(index, 1);
+            await saveToGitHub();
+            renderTripDetail(tripId);
+        }
+    }
+
+    // ===== RENDER: TIMELINE =====
+    function renderTimeline() {
+        const year = timelineDate.getFullYear();
+        const month = timelineDate.getMonth();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const today = todayStr();
+        const monthName = timelineDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        document.getElementById('timelineMonthLabel').textContent = monthName;
+
+        // Build day headers
+        let daysHtml = '';
+        for (let d = 1; d <= daysInMonth; d++) {
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+            const dow = new Date(year, month, d).getDay();
+            const isToday = dateStr === today;
+            const isWeekend = dow === 0 || dow === 6;
+            daysHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''} ${isWeekend ? 'weekend' : ''}">${d}</div>`;
+        }
+
+        // Find trips that overlap this month
+        const monthStart = `${year}-${String(month + 1).padStart(2, '0')}-01`;
+        const monthEnd = `${year}-${String(month + 1).padStart(2, '0')}-${String(daysInMonth).padStart(2, '0')}`;
+
+        const overlapping = state.trips.filter(t => t.dates.start <= monthEnd && t.dates.end >= monthStart);
+
+        // Build bars
+        let barsHtml = '';
+        overlapping.forEach(trip => {
+            const startDay = Math.max(1, trip.dates.start >= monthStart ? parseInt(trip.dates.start.split('-')[2]) : 1);
+            const endDay = Math.min(daysInMonth, trip.dates.end <= monthEnd ? parseInt(trip.dates.end.split('-')[2]) : daysInMonth);
+            const left = ((startDay - 1) / daysInMonth) * 100;
+            const width = ((endDay - startDay + 1) / daysInMonth) * 100;
+            barsHtml += `<div class="timeline-bar-row"><div class="timeline-bar ${trip.type}" style="left:${left}%;width:${width}%;" onclick="openTripDetail('${trip.id}')" title="${trip.title}">${trip.title}</div></div>`;
+        });
+
+        // Today line
+        let todayLine = '';
+        if (today >= monthStart && today <= monthEnd) {
+            const todayDay = parseInt(today.split('-')[2]);
+            const todayPos = ((todayDay - 0.5) / daysInMonth) * 100;
+            todayLine = `<div class="timeline-today-line" style="left:${todayPos}%"></div>`;
+        }
+
+        const grid = document.getElementById('timelineGrid');
+        if (overlapping.length === 0 && !todayLine) {
+            grid.innerHTML = `<div class="timeline-grid-inner"><div class="timeline-days-header">${daysHtml}</div><div class="timeline-body"><div class="timeline-empty">No trips this month</div></div></div>`;
+        } else {
+            grid.innerHTML = `<div class="timeline-grid-inner"><div class="timeline-days-header">${daysHtml}</div><div class="timeline-body" style="position:relative;">${todayLine}${barsHtml || '<div class="timeline-empty">No trips this month</div>'}</div></div>`;
+        }
+    }
+
+    function changeMonth(delta) {
+        timelineDate.setMonth(timelineDate.getMonth() + delta);
+        renderTimeline();
+    }
+
+    function goToToday() {
+        timelineDate = new Date();
+        renderTimeline();
+    }
+
+    // ===== RENDER: TRIP CARDS =====
+    function renderTripCards() {
+        const today = todayStr();
+        const upcoming = state.trips
+            .filter(t => t.dates.start >= today || (t.status === 'in-progress'))
+            .sort((a, b) => a.dates.start.localeCompare(b.dates.start));
+        const past = state.trips
+            .filter(t => t.dates.end < today && t.status !== 'in-progress')
+            .sort((a, b) => b.dates.start.localeCompare(a.dates.start));
+
+        document.getElementById('upcomingCount').textContent = upcoming.length;
+        document.getElementById('pastCount').textContent = past.length;
+
+        document.getElementById('upcomingTrips').innerHTML = upcoming.length ? upcoming.map(renderTripCard).join('') : '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><h3>No upcoming trips</h3><p>Plan your next adventure!</p><button class="btn btn-primary" onclick="openTripModal()">Add Trip</button></div>';
+
+        document.getElementById('pastTrips').innerHTML = past.map(renderTripCard).join('');
+
+        // Current trip banner
+        const current = state.trips.find(t => t.status === 'in-progress');
+        const banner = document.getElementById('currentTripBanner');
+        if (current) {
+            const daysLeft = daysUntil(current.dates.end);
+            banner.style.display = 'block';
+            banner.innerHTML = `<div class="trip-card ${current.type}" onclick="openTripDetail('${current.id}')" style="border:2px solid var(--accent-green);margin-bottom:24px;"><div class="trip-card-header"><div><div class="trip-card-title">${esc(current.title)}</div><div class="trip-card-destination">${esc(current.destination.city)}${current.destination.country ? ', ' + esc(current.destination.country) : ''}</div></div><span class="trip-status in-progress">In Progress</span></div><div class="trip-card-dates">${formatDateShort(current.dates.start)} - ${formatDateShort(current.dates.end)} &bull; ${daysLeft > 0 ? daysLeft + ' days left' : 'Last day!'}</div></div>`;
+        } else {
+            banner.style.display = 'none';
+        }
+    }
+
+    function renderTripCard(trip) {
+        const today = todayStr();
+        const days = daysUntil(trip.dates.start);
+        let countdown = '';
+        if (days > 0) countdown = `<span class="countdown">in ${days} day${days !== 1 ? 's' : ''}</span>`;
+        else if (days === 0) countdown = `<span class="countdown" style="color:var(--accent-green)">Today!</span>`;
+
+        const bookingCount = (trip.bookings || []).length;
+        const tasksDone = (trip.tasks || []).filter(t => t.status === 'done').length;
+        const tasksTotal = (trip.tasks || []).length;
+
+        return `<div class="trip-card ${trip.type}" onclick="openTripDetail('${trip.id}')">
+            <div class="trip-card-header">
+                <div class="trip-card-title">${esc(trip.title)}</div>
+                ${countdown}
+            </div>
+            <div class="trip-card-destination">${esc(trip.destination?.city || '')}${trip.destination?.country ? ', ' + esc(trip.destination.country) : ''}</div>
+            <div class="trip-card-dates">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                ${formatDateShort(trip.dates?.start)} - ${formatDateShort(trip.dates?.end)}
+            </div>
+            <div class="trip-card-meta">
+                <span class="trip-status ${trip.status}">${trip.status}</span>
+                <span class="trip-type-badge ${trip.type}">${trip.type}</span>
+                ${bookingCount ? `<span class="tag">${bookingCount} booking${bookingCount !== 1 ? 's' : ''}</span>` : ''}
+                ${tasksTotal ? `<span class="tag">${tasksDone}/${tasksTotal} tasks</span>` : ''}
+            </div>
+        </div>`;
+    }
+
+    // ===== RENDER: TRIP DETAIL =====
+    function openTripDetail(tripId) {
+        currentTripId = tripId;
+
+        // Always reset to Itinerary tab when opening a trip — if the user left
+        // on a different tab (e.g. Tasks for Trip A) and then opens Trip B, the
+        // stale active-tab state would make it look like the wrong trip is shown
+        // even though the content is re-rendered correctly.
+        document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        const itineraryTab = document.querySelector('.detail-tab[data-tab="itinerary"]');
+        if (itineraryTab) itineraryTab.classList.add('active');
+        const itineraryContent = document.getElementById('tabItinerary');
+        if (itineraryContent) itineraryContent.classList.add('active');
+
+        renderTripDetail(tripId);
+        showView('viewDetail');
+    }
+
+    function renderTripDetail(tripId) {
+        const trip = state.trips.find(t => t.id === tripId);
+        if (!trip) return;
+
+        // Header
+        const daysCount = daysBetween(trip.dates.start, trip.dates.end) + 1;
+        document.getElementById('detailHeader').innerHTML = `
+            <div class="detail-title-row">
+                <div>
+                    <div class="detail-title">${esc(trip.title)}</div>
+                    <div class="detail-destination">${esc(trip.destination?.city || '')}${trip.destination?.country ? ', ' + esc(trip.destination.country) : ''}</div>
+                </div>
+                <div class="detail-actions">
+                    <button class="btn-icon" onclick="openTripModal('${trip.id}')" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                    <button class="btn-icon" onclick="exportTripICS('${trip.id}')" title="Export .ics"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></button>
+                    <button class="btn-icon danger" onclick="deleteTrip('${trip.id}')" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
+                </div>
+            </div>
+            <div class="detail-meta">
+                <span class="trip-status ${trip.status}">${trip.status}</span>
+                <span class="trip-type-badge ${trip.type}">${trip.type}</span>
+                ${trip.tags ? trip.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('') : ''}
+            </div>
+            <div class="detail-dates">${formatDate(trip.dates?.start)} - ${formatDate(trip.dates?.end)} (${daysCount} day${daysCount !== 1 ? 's' : ''})</div>
+            ${trip.purpose ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">${esc(trip.purpose)}</div>` : ''}
+        `;
+
+        renderItinerary(trip);
+        renderVisaRequirements(trip);
+        renderTasks(trip);
+        renderInfo(trip);
+    }
+
+    function renderItinerary(trip) {
+        const container = document.getElementById('tabItinerary');
+        const bookings = (trip.bookings || []).sort((a, b) => {
+            const cmp = (a.date || '').localeCompare(b.date || '');
+            return cmp !== 0 ? cmp : (a.time || '').localeCompare(b.time || '');
+        });
+
+        if (bookings.length === 0) {
+            container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><h3>No bookings yet</h3><p>Add flights, hotels, restaurants, and more.</p><button class="btn btn-primary" onclick="openBookingModal('${trip.id}')">Add Booking</button></div>`;
+            return;
+        }
+
+        // Group by date
+        const grouped = {};
+        bookings.forEach(b => {
+            const d = b.date || 'Unscheduled';
+            if (!grouped[d]) grouped[d] = [];
+            grouped[d].push(b);
+        });
+
+        let html = `<div style="display:flex;justify-content:flex-end;margin-bottom:16px;"><button class="btn btn-primary btn-sm" onclick="openBookingModal('${trip.id}')">+ Add Booking</button></div>`;
+
+        Object.keys(grouped).sort().forEach(date => {
+            const dayLabel = date === 'Unscheduled' ? 'Unscheduled' : `${getDayName(date)}, ${formatDate(date)}`;
+            const isToday = date === todayStr();
+            html += `<div class="itinerary-day"><div class="itinerary-day-header"><span class="day-label">${dayLabel}</span>${isToday ? '<span style="color:var(--accent-green);font-size:0.8rem;">Today</span>' : ''}</div>`;
+            grouped[date].forEach(b => { html += renderBookingCard(b, trip.id); });
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
+    }
+
+
+    function renderBookingCard(booking, tripId) {
+        const d = booking.details || {};
+        const typeIcons = {
+            flight: '✈️', hotel: '🏨', airbnb: '🏠', restaurant: '🍽️',
+            activity: '🎯', meeting: '🤝', rental_car: '🚗'
+        };
+
+        let content = '';
+
+        if (booking.type === 'flight') {
+            content = `
+                <div class="flight-route">
+                    <div class="flight-endpoint"><div class="flight-code">${esc(d.bDepAirport || '---')}</div><div class="flight-time">${d.bDepTime ? formatTime(d.bDepTime) : ''}</div></div>
+                    <div class="flight-line"></div>
+                    <div class="flight-endpoint"><div class="flight-code">${esc(d.bArrAirport || '---')}</div><div class="flight-time">${d.bArrTime ? formatTime(d.bArrTime) : ''}</div></div>
+                </div>
+                ${d.bConfCode ? `<div class="booking-detail-row"><span>Conf:</span> <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation code')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bSeat ? `<div class="booking-detail-row">Seat: ${esc(d.bSeat)}</div>` : ''}`;
+        } else if (booking.type === 'hotel' || booking.type === 'airbnb') {
+            content = `
+                ${d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAddress)}','address')">${esc(d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bCheckin && d.bCheckout ? `<div class="booking-detail-row">Check-in: ${formatDateShort(d.bCheckin)} &rarr; Check-out: ${formatDateShort(d.bCheckout)}</div>` : ''}
+                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation code')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bWifi ? `<div class="booking-detail-row">WiFi: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bWifi)}','WiFi password')">${esc(d.bWifi)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bAccessCode ? `<div class="booking-detail-row">Access: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAccessCode)}','access code')">${esc(d.bAccessCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bHostName ? `<div class="booking-detail-row">Host: ${esc(d.bHostName)}${d.bHostPhone ? ' • ' + esc(d.bHostPhone) : ''}</div>` : ''}
+                ${d.bPhone ? `<div class="booking-detail-row">Phone: ${esc(d.bPhone)}</div>` : ''}
+                ${d.bCheckinInstructions ? `<div class="booking-detail-row" style="margin-top:6px;white-space:pre-wrap;">${esc(d.bCheckinInstructions)}</div>` : ''}`;
+        } else if (booking.type === 'restaurant') {
+            content = `
+                ${d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bAddress)}','address')">${esc(d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bResTime ? `<div class="booking-detail-row">Time: ${formatTime(d.bResTime)}</div>` : ''}
+                ${d.bPartySize ? `<div class="booking-detail-row">Party: ${esc(d.bPartySize)} guests</div>` : ''}
+                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}`;
+        } else {
+            content = `
+                ${d.bLocation || d.bAddress ? `<div class="booking-detail-row"><span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bLocation || d.bAddress)}','location')">${esc(d.bLocation || d.bAddress)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bActTime || d.bMeetTime || d.bPickupTime ? `<div class="booking-detail-row">Time: ${formatTime(d.bActTime || d.bMeetTime || d.bPickupTime)}</div>` : ''}
+                ${d.bContacts ? `<div class="booking-detail-row">Contacts: ${esc(d.bContacts)}</div>` : ''}
+                ${d.bConfCode ? `<div class="booking-detail-row">Conf: <span class="copyable" onclick="event.stopPropagation();copyText('${esc(d.bConfCode)}','confirmation')">${esc(d.bConfCode)} <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>` : ''}
+                ${d.bNotes || d.bAgenda ? `<div class="booking-detail-row" style="white-space:pre-wrap;margin-top:4px;">${esc(d.bNotes || d.bAgenda)}</div>` : ''}
+                ${d.bDropoffLoc ? `<div class="booking-detail-row">Dropoff: ${esc(d.bDropoffLoc)}${d.bDropoffDate ? ' on ' + formatDateShort(d.bDropoffDate) : ''}</div>` : ''}
+                ${d.bCompany ? `<div class="booking-detail-row">Company: ${esc(d.bCompany)}</div>` : ''}`;
+        }
+
+        return `<div class="booking-card">
+            <div class="booking-card-header">
+                <div style="display:flex;align-items:flex-start;">
+                    <div class="booking-type-icon ${booking.type}">${typeIcons[booking.type] || '📌'}</div>
+                    <div class="booking-info">
+                        <div class="booking-title">${esc(booking.title || booking.type)}</div>
+                        <div class="booking-subtitle">${booking.type.replace('_', ' ')}${booking.time ? ' • ' + formatTime(booking.time) : ''}</div>
+                    </div>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-icon btn-sm" onclick="event.stopPropagation();openBookingModal('${tripId}','${booking.id}')" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="btn-icon btn-sm danger" onclick="event.stopPropagation();deleteBooking('${tripId}','${booking.id}')" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                    </button>
+                </div>
+            </div>
+            ${content ? `<div class="booking-content">${content}</div>` : ''}
+            ${booking.notes ? `<div class="booking-notes">${esc(booking.notes)}</div>` : ''}
+        </div>`;
+    }
+
+
+    function renderTasks(trip) {
+        const container = document.getElementById('tabTasks');
+        if (!container) return;
+        const tasks = trip.tasks || [];
+        const phases = [
+            { key: 'pre-trip', label: 'Pre-Trip' },
+            { key: 'during',   label: 'During Trip' },
+            { key: 'post-trip',label: 'Post-Trip' },
+        ];
+
+        if (tasks.length === 0) {
+            container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>No tasks yet</h3><p>Add tasks to track what needs to be done.</p><button class="btn btn-primary" onclick="openTaskModal('${trip.id}')">Add Task</button></div>`;
+            return;
+        }
+
+        let html = `<div style="display:flex;justify-content:flex-end;margin-bottom:16px;"><button class="btn btn-primary btn-sm" onclick="openTaskModal('${trip.id}')">+ Add Task</button></div>`;
+
+        phases.forEach(phase => {
+            const phaseTasks = tasks.filter(t => t.phase === phase.key);
+            if (phaseTasks.length === 0) return;
+            html += `<div class="task-phase-group"><div class="task-phase-label">${phase.label}</div>`;
+            phaseTasks.forEach(task => {
+                const done = task.status === 'done';
+                html += `<div class="task-item ${done ? 'done' : ''}">
+                    <button class="task-check ${done ? 'checked' : ''}" onclick="toggleTask('${trip.id}','${task.id}')">
+                        ${done ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+                    </button>
+                    <div class="task-body">
+                        <div class="task-title">${esc(task.title)}</div>
+                        ${task.dueDate ? `<div class="task-due">Due: ${formatDateShort(task.dueDate)}</div>` : ''}
+                    </div>
+                    <button class="btn-icon btn-sm danger" onclick="deleteTask('${trip.id}','${task.id}')" title="Delete">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/></svg>
+                    </button>
+                </div>`;
+            });
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
+    }
+
+    function renderInfo(trip) {
+        const container = document.getElementById('tabInfo');
+        if (!container) return;
+
+        const companions = trip.companions || [];
+        const budget = trip.budget || 0;
+        const expenses = trip.expenses || [];
+        const totalSpent = expenses.reduce((s, e) => s + (e.amount || 0), 0);
+
+        let html = '';
+
+        // Budget section
+        if (budget > 0) {
+            const pct = Math.min(100, (totalSpent / budget) * 100);
+            const color = pct > 90 ? 'var(--accent-red)' : pct > 70 ? 'var(--accent-orange)' : 'var(--accent-green)';
+            html += `<div class="info-section">
+                <div class="info-section-title">Budget</div>
+                <div class="info-row"><span>Budget:</span> <span>$${budget.toLocaleString()}</span></div>
+                <div class="info-row"><span>Spent:</span> <span style="color:${color}">$${totalSpent.toLocaleString()}</span></div>
+                <div class="budget-bar-track" style="margin-top:8px;"><div style="height:6px;border-radius:3px;background:${color};width:${pct}%;"></div></div>
+            </div>`;
+        }
+
+        // Companions
+        if (companions.length > 0) {
+            html += `<div class="info-section"><div class="info-section-title">Companions</div>`;
+            companions.forEach((c, i) => {
+                html += `<div class="companion-row">
+                    <div class="companion-avatar">${esc(c.name.charAt(0).toUpperCase())}</div>
+                    <div class="companion-info">
+                        <div class="companion-name">${esc(c.name)}</div>
+                        ${c.email ? `<div class="companion-contact">${esc(c.email)}</div>` : ''}
+                        ${c.phone ? `<div class="companion-contact">${esc(c.phone)}</div>` : ''}
+                    </div>
+                    <button class="btn-icon btn-sm danger" onclick="removeCompanion('${trip.id}',${i})" title="Remove">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>`;
+            });
+            html += `<button class="btn btn-secondary btn-sm" style="margin-top:10px;" onclick="openCompanionModal('${trip.id}')">+ Add Companion</button></div>`;
+        } else {
+            html += `<div class="info-section"><div class="info-section-title">Companions</div><div class="empty-state-small">No companions added.</div><button class="btn btn-secondary btn-sm" style="margin-top:10px;" onclick="openCompanionModal('${trip.id}')">+ Add Companion</button></div>`;
+        }
+
+        // Notes / purpose
+        if (trip.notes || trip.purpose) {
+            html += `<div class="info-section"><div class="info-section-title">Notes</div><div class="info-notes">${esc(trip.notes || trip.purpose)}</div></div>`;
+        }
+
+        container.innerHTML = html || '<div class="empty-state-small" style="padding:20px;">No additional info.</div>';
+    }
+
     // ===== SCHENGEN 90/180-DAY TRACKER =====
 
     // Every country that counts toward the Schengen 90/180-day limit.
@@ -6048,235 +6546,8 @@ this.updateDashboardStats();
         renderTimeline();
         renderTripCards();
         renderSchengenWidget();
-    saveFlightStatus() {
-        if (!this._statusFlight) return;
-        const trip = this.trips.find(t => t.id === this._statusFlight.tripId);
-        if (!trip || !trip.flights) return;
-        const idx = trip.flights.findIndex(f => (f.departure||f.from) === (this._statusFlight.departure||this._statusFlight.from));
-        if (idx === -1) return;
-        trip.flights[idx].status = document.getElementById('statusSelect')?.value || 'on-time';
-        trip.flights[idx].gate = document.getElementById('gateInput')?.value || '';
-        trip.flights[idx].terminal = trip.flights[idx].gate?.split(/[,\s]/)[0] || '';
-        trip.flights[idx].statusNotes = document.getElementById('statusNotesInput')?.value || '';
-        this.saveTrips();
-        this.updateNextFlightCountdown();
-        document.getElementById('statusUpdateModal').style.display = 'none';
-        this.showToast('Flight status updated');
     }
 
-    // ========== TASK GENERATION (TaskFlo Integration) ==========
-    generateTasksForTrip(tripId) {
-        const trip = this.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        this._taskTrip = trip;
-        const modal = document.getElementById('taskGeneratorModal');
-        if (!modal) return;
-        const sel = document.getElementById('tripTypeSelect');
-        if (sel) sel.value = trip.type || 'personal';
-        this.refreshGeneratedTasks();
-        modal.style.display = 'block';
-    }
-
-    refreshGeneratedTasks() {
-        const trip = this._taskTrip;
-        if (!trip) return;
-        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
-        const tasks = this._buildChecklist(trip, type);
-        const list = document.getElementById('generatedTasksList');
-        if (list) list.innerHTML = tasks.map(t => '<div style="padding:8px;background:var(--bg-secondary,#1a1f2e);border-radius:6px;margin-bottom:6px;font-size:12px;color:var(--text-primary,#e2e8f0);">\u2713 ' + t + '</div>').join('');
-    }
-
-    _buildChecklist(trip, type) {
-        const base = ['Check passport expiration', 'Purchase travel insurance', 'Notify bank of travel dates', 'Download offline maps for ' + trip.destination, 'Confirm accommodation booking', 'Arrange airport transportation', 'Set out-of-office replies', 'Check weather forecast'];
-        if (type === 'business') {
-            base.push('Prepare presentation materials', 'Print business cards', 'Schedule client meetings', 'Book conference rooms', 'Prepare expense report template', 'Pack business attire');
-        } else {
-            base.push('Research local attractions', 'Book tours/activities', 'Learn basic local phrases', 'Download entertainment for travel', 'Pack camera/accessories');
-        }
-        const duration = Math.ceil((new Date(trip.endDate) - new Date(trip.startDate)) / 864e5);
-        if (duration > 7) base.push('Arrange mail hold', 'Set up pet/plant care');
-        return base;
-    }
-
-    exportTasksToTaskFlo() {
-        const trip = this._taskTrip;
-        if (!trip) return;
-        const type = document.getElementById('tripTypeSelect')?.value || 'personal';
-        const tasks = this._buildChecklist(trip, type);
-        const payload = { project: trip.destination + ' Trip Prep', source: 'TravelFlo', tasks: tasks.map(t => ({ name: t, dueDate: trip.startDate, category: 'travel-prep' })) };
-        navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
-            this.showToast('Tasks copied! Paste into TaskFlo');
-            document.getElementById('taskGeneratorModal').style.display = 'none';
-        }).catch(() => this.showToast('Copy failed - check clipboard permissions'));
-    }
-
-    // ========== TRIP DEBRIEF ==========
-    openDebriefModal(tripId) {
-        const trip = this.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        this._debriefTrip = trip;
-        const modal = document.getElementById('debriefModal');
-        if (!modal) return;
-        const name = document.getElementById('debriefTripName');
-        if (name) name.textContent = trip.destination + ' (' + this.parseLocalDate(trip.startDate).toLocaleDateString() + ' - ' + this.parseLocalDate(trip.endDate).toLocaleDateString() + ')';
-        const notes = document.getElementById('debriefNotesInput');
-        if (notes) notes.value = trip.debriefNotes || '';
-        modal.style.display = 'block';
-    }
-
-    saveDebrief() {
-        const trip = this._debriefTrip;
-        if (!trip) return;
-        trip.debriefNotes = document.getElementById('debriefNotesInput')?.value || '';
-        trip.debriefCompleted = true;
-        if (document.getElementById('generateFollowupCheckbox')?.checked) {
-            const lines = trip.debriefNotes.split('\n');
-            trip.followupTasks = lines.filter(l => l.trim().match(/^[-\u2022*]/)).map(l => l.replace(/^[-\u2022*]\s*/, '').trim()).filter(t => t.length > 0);
-        }
-        this.saveTrips();
-        this.initDashboard();
-        document.getElementById('debriefModal').style.display = 'none';
-        this.showToast('Debrief saved' + (trip.followupTasks?.length ? ' with ' + trip.followupTasks.length + ' follow-up tasks' : ''));
-    }
-
-
-
-    // ========== DISCOVER TAB - DESTINATION INTEL ==========
-    renderEnhancedDiscover() {
-        const grid = document.getElementById('destinationsGrid');
-        if (!grid) return;
-        const dests = this.getDestinationIntel();
-        grid.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">' +
-            dests.map(d => {
-                const visited = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase())).length;
-                const tips = this.trips.filter(t => t.destination.toLowerCase().includes(d.name.split(',')[0].toLowerCase()) && t.notes).map(t => t.notes).slice(0, 1);
-                return `<div class="destination-card-enhanced" onclick="app.createTripFromDestination({name:'\'${d.name.split(',')[0]}\'', country:'\'${d.country}\''})"  >
-                    <div class="destination-header"><div class="destination-name">${d.emoji} ${d.name}</div><div class="destination-weather">${d.weather}</div></div>
-                    <div class="destination-meta-grid">
-                        <div class="destination-meta-item"><div class="destination-meta-label">Local Time</div><div class="destination-meta-value">${d.localTime}</div></div>
-                        <div class="destination-meta-item"><div class="destination-meta-label">Currency</div><div class="destination-meta-value">${d.currency}</div></div>
-                    </div>
-                    <div class="destination-tips"><div style="font-weight:600;margin-bottom:4px;">\u{1F4A1} Tips</div>${d.tips}
-                    ${visited > 0 ? '<div style="margin-top:6px;font-size:11px;color:#00d9a3;">\u2713 Visited ' + visited + ' time' + (visited>1?'s':'') + '</div>' : ''}
-                    ${tips.length > 0 ? '<div style="margin-top:4px;font-size:11px;color:#ffa500;">Your note: ' + tips[0].substring(0,60) + '...</div>' : ''}
-                    </div>
-                </div>`;
-            }).join('') + '</div>';
-    }
-
-    getDestinationIntel() {
-        return [
-            { name: 'Tokyo, Japan', country: 'Japan', emoji: '\u{1F5FC}', weather: '\u{1F338}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'}), currency: '\u00A5 JPY', tips: 'Cherry blossoms in spring. Get a rail pass for bullet trains.' },
-            { name: 'Paris, France', country: 'France', emoji: '\u{1F5FC}', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Museum pass saves money. Visit Montmartre for views.' },
-            { name: 'Bali, Indonesia', country: 'Indonesia', emoji: '\u{1F3DD}\uFE0F', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Makassar',hour:'2-digit',minute:'2-digit'}), currency: '\u20A8 IDR', tips: 'Dry season May-Sep. Ubud for culture, Seminyak for beaches.' },
-            { name: 'New York, USA', country: 'USA', emoji: '\u{1F5FD}', weather: '\u{2744}\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'America/New_York',hour:'2-digit',minute:'2-digit'}), currency: '$ USD', tips: 'Get a MetroCard. Times Square is overrated - try the High Line.' },
-            { name: 'Barcelona, Spain', country: 'Spain', emoji: '\u{1F3D6}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}), currency: '\u20AC EUR', tips: 'Book Sagrada Familia in advance. La Boqueria for food.' },
-            { name: 'Bangkok, Thailand', country: 'Thailand', emoji: '\u{1F6D5}', weather: '\u{1F334}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Bangkok',hour:'2-digit',minute:'2-digit'}), currency: '\u0E3F THB', tips: 'Street food is incredible. Take water taxis to avoid traffic.' },
-            { name: 'Dubai, UAE', country: 'UAE', emoji: '\u{1F3D9}\uFE0F', weather: '\u2600\uFE0F', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit'}), currency: 'AED', tips: 'Desert safari is a must. Dubai Mall has an aquarium.' },
-            { name: 'Sydney, Australia', country: 'Australia', emoji: '\u{1F3C4}', weather: '\u{1F30A}', localTime: new Date().toLocaleTimeString('en-US', {timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit'}), currency: 'A$ AUD', tips: 'Bondi to Coogee walk is free. Manly Ferry for harbor views.' }
-        ];
-    }
-
-    // ========== ANALYTICS & ROI ==========
-    openAnalytics() {
-        const modal = document.getElementById('analyticsModal');
-        const grid = document.getElementById('analyticsGrid');
-        if (!modal || !grid) return;
-        const stats = this.calculateAnalytics();
-        grid.innerHTML = Object.entries(stats).map(([title, data]) => `
-            <div class="analytics-card"><div class="analytics-card-title">${title}</div>
-            <div class="analytics-list">${data.map(item => '<div class="analytics-item"><span class="analytics-item-label">' + item.label + '</span><span class="analytics-item-value">' + item.value + '</span></div>').join('')}</div>
-            </div>`).join('');
-        modal.style.display = 'block';
-    }
-
-    calculateAnalytics() {
-        const cities = new Map(), monthNights = new Map(), catSpend = {}, roiData = [];
-        let totalTrips = 0, totalNights = 0;
-        this.trips.forEach(trip => {
-            totalTrips++;
-            const s = new Date(trip.startDate), e = new Date(trip.endDate);
-            const nights = Math.ceil((e - s) / 864e5);
-            totalNights += nights;
-            cities.set(trip.destination, (cities.get(trip.destination) || 0) + 1);
-            const mk = s.getFullYear() + '-' + String(s.getMonth()+1).padStart(2,'0');
-            monthNights.set(mk, (monthNights.get(mk) || 0) + nights);
-            if (trip.expenses) trip.expenses.forEach(ex => { const c = ex.category || 'Other'; catSpend[c] = (catSpend[c] || 0) + (ex.amount || 0); });
-            // ROI: count follow-up tasks generated
-            const taskCount = (trip.followupTasks?.length || 0) + (trip.type === 'business' ? 1 : 0);
-            if (trip.type === 'business' || taskCount > 0) roiData.push({ dest: trip.destination, type: trip.type || 'personal', tasks: taskCount });
-        });
-        const result = {
-            '\u{1F3D9}\uFE0F Top Destinations': Array.from(cities.entries()).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,n])=>({label:c,value:n+' trip'+(n>1?'s':'')})),
-            '\u{1F319} Nights by Month': Array.from(monthNights.entries()).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,6).map(([m,n])=>({label:m,value:n+' nights'})),
-            '\u{1F4B3} Spending by Category': Object.entries(catSpend).sort((a,b)=>b[1]-a[1]).map(([c,a])=>({label:c,value:'$'+Math.round(a)})),
-            '\u{1F4CA} Summary': [
-                { label: 'Total Trips', value: totalTrips },
-                { label: 'Total Nights', value: totalNights },
-                { label: 'Avg Trip Length', value: Math.round(totalNights / (totalTrips || 1)) + ' days' },
-                { label: 'Countries', value: new Set(this.trips.map(t=>t.country).filter(Boolean)).size }
-            ]
-        };
-        if (roiData.length > 0) {
-            result['\u{1F4C8} Travel ROI'] = [
-                { label: 'Business Trips', value: roiData.filter(r=>r.type==='business').length },
-                { label: 'Personal Trips', value: roiData.filter(r=>r.type==='personal').length },
-                { label: 'Follow-up Tasks Generated', value: roiData.reduce((s,r)=>s+r.tasks,0) },
-                ...roiData.slice(0,3).map(r=>({ label: r.dest, value: '<span class="roi-tag ' + r.type + '">' + r.type + '</span> ' + r.tasks + ' tasks' }))
-            ];
-        }
-        return result;
-    }
-
-    // ========== TRIP SHAREBOARD ==========
-    openShareboard(tripId) {
-        const trip = this.trips.find(t => t.id === tripId);
-        if (!trip) return;
-        const modal = document.getElementById('shareboardModal');
-        const content = document.getElementById('shareboardContent');
-        if (!modal || !content) return;
-        const s = new Date(trip.startDate), e = new Date(trip.endDate);
-        const duration = Math.ceil((e - s) / 864e5);
-        let html = '<div class="shareboard-title">' + trip.destination + '</div>';
-        html += '<div class="shareboard-subtitle">' + s.toLocaleDateString() + ' \u2013 ' + e.toLocaleDateString() + ' (' + duration + ' days) | ' + (trip.country || '') + '</div>';
-        // Flights
-        html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="plane-takeoff" style="width:16px;vertical-align:middle"></i> Flights</div>';
-        if (trip.flights?.length > 0) {
-            trip.flights.forEach(f => { html += '<div class="shareboard-item">' + (f.departure||f.from||'').toUpperCase() + ' \u2192 ' + (f.arrival||f.to||'').toUpperCase() + ' | ' + (f.airline||'') + ' | Conf: ' + (f.confirmation||f.confirmationCode||'N/A') + '</div>'; });
-        } else { html += '<div class="shareboard-item">No flights booked</div>'; }
-        html += '</div>';
-        // Accommodation
-        if (trip.accommodation) {
-            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="building" style="width:16px;vertical-align:middle"></i> Accommodation</div><div class="shareboard-item">' + (typeof trip.accommodation === 'string' ? trip.accommodation : (trip.accommodation.name || 'Hotel') + ' | ' + (trip.accommodation.address || '')) + '</div></div>';
-        }
-        // Budget
-        if (trip.budget || (trip.expenses?.length > 0)) {
-            const spent = trip.expenses ? trip.expenses.reduce((s,ex) => s + (ex.amount||0), 0) : 0;
-            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="wallet" style="width:16px;vertical-align:middle"></i> Budget</div><div class="shareboard-item">Budget: $' + (trip.budget||0) + ' | Spent: $' + Math.round(spent) + ' | Remaining: $' + Math.round((trip.budget||0) - spent) + '</div></div>';
-        }
-        // Packing
-        if (trip.packingList && ((Array.isArray(trip.packingList) && trip.packingList.length > 0) || (!Array.isArray(trip.packingList) && Object.keys(trip.packingList).length > 0))) {
-            const packed = trip.packingList.filter(p=>p.packed).length;
-            html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="luggage" style="width:16px;vertical-align:middle"></i> Packing</div><div class="shareboard-item">' + packed + '/' + trip.packingList.length + ' items packed</div></div>';
-        }
-        // Notes
-        if (trip.notes) html += '<div class="shareboard-section"><div class="shareboard-section-title"><i data-lucide="sticky-note" style="width:16px;vertical-align:middle"></i> Notes</div><div class="shareboard-item">' + trip.notes + '</div></div>';
-        content.innerHTML = html;
-        modal.style.display = 'block';
-    }
-
-    copyShareboardToClipboard() {
-        const el = document.getElementById('shareboardContent');
-        if (!el) return;
-        navigator.clipboard.writeText(el.innerText).then(() => this.showToast('Trip details copied to clipboard'));
-    }
-
-    // ========== TRIP DETAILS (Enhanced) ==========
-    // Consolidated: openTripDetails now delegates to showTripDetail
-    openTripDetails(tripId) {
-        this.showTripDetail(tripId);
-    }
-        }
 
 
         // deleteTripFromModal — delete trip from within the edit modal
@@ -7679,6 +7950,8 @@ this.updateDashboardStats();
         } catch(e) {}
 
         window.app = new TravelFloApp();
+        renderAll();
+        renderSchengenWidget();
         // Load shared trip if URL has share hash (Feature 8)
         if (window.location.hash.startsWith('#share=')) {
             window.app.loadSharedTrip();

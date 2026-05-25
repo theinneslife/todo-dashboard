@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Deodorant\nRazor\nWhoop\nStarlink\nHair Wax\nCologne",
+    "description": "Deodorant\nRazor\nWhoop\nStarlink\nHair Wax\nCologne\nTooth Brush Heads",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -37,6 +37,12 @@
       },
       {
         "timestamp": "2026-05-25T10:54:02.624Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-05-25T18:31:48.087Z",
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"

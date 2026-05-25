@@ -424,7 +424,7 @@
     "title": "Buy new cologne",
     "description": "From Otter recording: Note (May 17, 2026). Quick voice note asking for new cologne ASAP along with deodorant and hair wax.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -439,10 +439,16 @@
         "action": "created",
         "by": "Claude (Otter import)",
         "details": "Task created from Otter.ai recording"
+      },
+      {
+        "timestamp": "2026-05-25T10:54:10.783Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to completed"
       }
     ],
     "created_at": "2026-05-19T00:00:00.000Z",
-    "completed_at": null,
+    "completed_at": "2026-05-25T10:54:10.783Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

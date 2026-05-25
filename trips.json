@@ -330,7 +330,7 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-05-02",
+        "start": "2026-04-30",
         "end": "2026-05-02"
       },
       "status": "upcoming",
@@ -360,12 +360,12 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Flightnetwork",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "airline": "Luftansa",
+          "number": "76XWTD",
+          "depAirport": "LAX",
+          "arrAirport": "JNB",
+          "depTime": "2026-04-30T15:05",
+          "arrTime": "2026-05-02T08:05"
         }
       ],
       "accommodation": null,
@@ -444,32 +444,26 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Flightnetwork",
-          "route": "MQP > CPT",
-          "departure": "May 6, 2026 3:10 PM",
-          "arrival": "May 6, 2026 5:50 PM",
-          "confirmation": "1125-931-158",
-          "class": "",
-          "cost": "$472.19 USD",
-          "notes": "",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "airline": "Federal Air",
+          "number": "2031",
+          "depAirport": "JMB",
+          "arrAirport": "Sabi Sands",
+          "depTime": "2026-05-02T11:30",
+          "arrTime": "2026-05-02T15:00"
         },
         {
           "airline": "Flightnetwork",
-          "route": "JNB > CPT",
-          "departure": "May 6, 2026 5:40 PM",
-          "arrival": "May 6, 2026 7:55 PM",
-          "confirmation": "1127-650-787",
-          "class": "",
-          "cost": "$857.72 USD",
-          "notes": "Alternative routing via Johannesburg",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "Singita Boulders Lodge - River Suite",
       "budget": 57639.91,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 4,
       "legs": []
     },
@@ -500,7 +494,7 @@
       "accommodation": null,
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 5,
       "legs": []
     },
@@ -562,21 +556,26 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta/KLM DL9171/DL9225",
-          "route": "DBV > AMS > LAX",
-          "departure": "May 29, 2026 6:30 AM",
-          "arrival": "May 29, 2026 11:50 AM",
-          "confirmation": "GHBJWI",
-          "class": "Europe Business / World Business",
-          "cost": "EUR 4,315.62",
-          "notes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
-          "passengers": "Brooke Scimemi"
+          "airline": "KLM",
+          "number": "KLM 596",
+          "depAirport": "Cape Town",
+          "arrAirport": "AMS-Schiphol",
+          "depTime": "2026-05-15T07:40",
+          "arrTime": "2026-05-15T19:10"
+        },
+        {
+          "airline": "KLM",
+          "number": "KLM 1981",
+          "depAirport": "AMS-Schiphol",
+          "arrAirport": "Dubrovnik, Croatia (DBV)",
+          "depTime": "2026-05-15T21:00",
+          "arrTime": "2026-05-15T23:35"
         }
       ],
       "accommodation": "Maxima Comoda",
       "budget": 22414.12,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 6,
       "legs": []
     },
@@ -590,7 +589,7 @@
       },
       "dates": {
         "start": "2026-05-30",
-        "end": "2026-06-12"
+        "end": "2026-06-13"
       },
       "status": "upcoming",
       "type": "personal",
@@ -629,11 +628,20 @@
         }
       ],
       "notes": "",
-      "flights": [],
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL0615",
+          "depAirport": "LAX",
+          "arrAirport": "CUN",
+          "depTime": "2026-05-30T10:18",
+          "arrTime": "2026-05-30T16:55"
+        }
+      ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 7,
       "legs": []
     },
@@ -646,8 +654,8 @@
         "timezone": ""
       },
       "dates": {
-        "start": "2026-06-15",
-        "end": "2026-06-26"
+        "start": "2026-06-13",
+        "end": "2026-06-27"
       },
       "status": "upcoming",
       "type": "personal",
@@ -684,21 +692,18 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Avianca",
-          "route": "Guatemala departure",
-          "departure": "Jun 27, 2026 9:30 AM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "airline": "Volaris",
+          "number": "Volaris 3930",
+          "depAirport": "CUN",
+          "arrAirport": "GUA",
+          "depTime": "2026-06-13T11:22",
+          "arrTime": "2026-06-13T11:55"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 8,
       "legs": []
     },
@@ -753,20 +758,17 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "BOG > EZE",
-          "departure": "Jul 11, 2026",
-          "arrival": "",
-          "confirmation": "AJ2LFB",
-          "class": "Business Flex",
-          "cost": "$3,014.00 USD",
-          "notes": "",
-          "passengers": "Christopher Innes, Brooke Scimemi"
+          "number": "AV743",
+          "depAirport": "GUA",
+          "arrAirport": "BOG",
+          "depTime": "2026-06-27T09:30",
+          "arrTime": "2026-06-27T13:45"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 3014,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 9,
       "legs": []
     },
@@ -780,7 +782,7 @@
       },
       "dates": {
         "start": "2026-07-11",
-        "end": "2026-07-27"
+        "end": "2026-07-26"
       },
       "status": "upcoming",
       "type": "personal",
@@ -821,20 +823,17 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "LAX > SAL",
-          "departure": "Jul 30, 2026 2:40 PM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "number": "",
+          "depAirport": "Bogota",
+          "arrAirport": "Buenos Aires",
+          "depTime": "2026-07-11T07:15",
+          "arrTime": "2026-07-11T15:40"
         }
       ],
       "accommodation": "donQuijote Spanish School",
       "budget": 0,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 0,
       "legs": []
     },
@@ -894,21 +893,18 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta DL1978/DL825",
-          "route": "SAL > ATL > LAS",
-          "departure": "Aug 9, 2026 1:48 PM",
-          "arrival": "Aug 9, 2026 10:08 PM",
-          "confirmation": "HL94IF",
-          "class": "Delta First Classic",
-          "cost": "$2,596.09 USD",
-          "notes": "DL1978 SAL 1:48PM-ATL 7:30PM, DL825 ATL 8:55PM-LAS 10:08PM",
-          "passengers": "Brooke Scimemi"
+          "airline": "Avianca",
+          "number": "Avianca (AV 569)",
+          "depAirport": "JFK",
+          "arrAirport": "SAL",
+          "depTime": "2026-07-30T06:55",
+          "arrTime": "2026-07-30T09:50"
         }
       ],
       "accommodation": "Il Vento Uno - Penthouse TERRA",
       "budget": 6323.09,
       "expenses": [],
-      "packingList": [],
+      "packingList": {},
       "colorIndex": 1,
       "legs": []
     },
@@ -975,26 +971,35 @@
       "legs": []
     },
     {
-      "id": "1775582430454",
-      "title": "Paris, France",
+      "id": "1778268408717",
+      "title": "Los Angeles ",
       "destination": {
-        "city": "Paris",
-        "country": "France",
+        "city": "New York",
+        "country": "",
         "timezone": ""
       },
       "dates": {
-        "start": "2026-05-15",
-        "end": "2026-05-22"
+        "start": "2026-07-26",
+        "end": "2026-07-30"
       },
       "status": "upcoming",
       "type": "personal",
       "bookings": [],
       "tasks": [],
       "companions": [],
-      "notes": "Summer vacation - visit museums and enjoy wine",
-      "flights": [],
-      "accommodation": "https://www.airbnb.com",
-      "budget": 3000,
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL 0110",
+          "depAirport": "EZE",
+          "arrAirport": "NYC",
+          "depTime": "2026-07-26T20:10",
+          "arrTime": "2026-07-27T09:55"
+        }
+      ],
+      "accommodation": null,
+      "budget": 6323.09,
       "expenses": [],
       "packingList": {},
       "colorIndex": 4,

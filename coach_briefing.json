@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-18",
-  "generated_at": "2026-05-18T05:01:21Z",
+  "generated": "2026-05-25",
+  "generated_at": "2026-05-25T10:45:26Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 17 weeks (123 days) to Kranjska Gora. Monday is a recovery anchor — 45–60 min very easy Z2 on softest surface you can find, heart rate capped at 70% max, nasal breathing only. If legs feel trashed from the weekend, swap for 30 min brisk walk plus 15 min mobility. Save the legs — Wednesday's hill repeats and Saturday's long climb day are where the Julian Alps prep actually compounds."
+      "message": "Build Phase, 16 weeks (115 days) to Kranjska Gora. Monday is your recovery anchor after the weekend's long efforts — 40–55 min very easy Zone 2, heart rate capped near 70% of max, on the softest surface you can find. Nasal breathing the whole way; if you can't hold it, you're running too hard. If the legs still feel hollow from Saturday's climb day, swap for a 30-min brisk walk plus 15 min of mobility — no ego today. The Julian Alps build compounds on Wednesday's hills and the weekend long run, not on Mondays. Today's only job is to move blood through tired muscle."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Build Phase is where you train the gut, not just the legs. Today: 1.6–1.8 g/kg protein spread across 4 feedings to rebuild from the weekend long run — eggs + oats at breakfast, a real lunch (chicken/rice/veg ~600 kcal), Greek yogurt + berries mid-afternoon, fatty fish + sweet potato at dinner. Start dialing in race-day carbs now: aim for 80–90 g/hr on Saturday's long run using the exact gels/mix you'll carry in September. The gut needs 12+ weeks of reps to handle that load at altitude."
+      "message": "Build Phase is when you train the gut as seriously as the legs. Today, rebuild from the weekend: 1.6–1.8 g/kg protein across four feedings — eggs and oats at breakfast, a real ~600 kcal lunch with chicken, rice and vegetables, Greek yogurt and berries mid-afternoon, fatty fish with sweet potato at dinner. Start locking in race-day carbs now: on this weekend's long run, rehearse 80–90 g/hr using the exact gels or drink mix you'll carry in Slovenia. The gut needs 12-plus weeks of reps to absorb that load — and sparse alpine aid stations make self-sufficiency non-negotiable."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Non-negotiable tonight: 8 hours in bed, screens off 60 min before sleep, room under 67°F. With your travel load and time-zone churn, sleep is the only training variable that compounds without cost. Before bed, 10 minutes on the calves and posterior chain with a lacrosse ball — the Julian Alps will tax your soleus more than any flat ultra you've done. Hydrate to clear urine by 7pm, then taper fluids so you sleep through."
+      "message": "Recovery is training — tonight it's the highest-leverage thing you'll do all day. Eight hours in bed, screens off 60 minutes before sleep, room under 67°F. With constant travel and time-zone churn, sleep is the one variable that compounds without cost, so anchor a consistent wake time even when MNTN's calendar fights you. Before bed, give 10 minutes to calves and soleus with a lacrosse ball — the Julian Alps' steep descents will tax them harder than any flat ultra you've run. Hydrate to clear urine by early evening, then taper fluids so you sleep straight through."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build Phase is the bank account. You don't withdraw on race day — you withdraw what you deposited over these 17 weeks. The 50K in Kranjska Gora isn't won at the start line; it's decided by whether you respected the Mondays. Easy today is not lazy — easy today is what makes hard possible on Wednesday and survivable in the Alps. Trust the architecture."
+      "message": "Build Phase is the bank account: on race day in September you only withdraw what you deposited over these 16 weeks. The 50K isn't won at the Kranjska Gora start line — it's decided by whether you respected the easy days enough to nail the hard ones. Easy today is not lazy; easy today is what makes Wednesday's hills sharp and the 2,500m of alpine climbing survivable. Sixteen weeks of good-enough, repeated through travel and meetings, beats any single heroic session. Trust the architecture you're building."
     }
   ]
 }

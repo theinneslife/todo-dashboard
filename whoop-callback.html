@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connecting Whoop…</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #080c18;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #161d2e;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px 48px;
+      text-align: center;
+      max-width: 440px;
+      width: 90%;
+    }
+    .icon { font-size: 48px; margin-bottom: 20px; }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .success { color: #10b981; }
+    .error { color: #ef4444; }
+    .code-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-family: monospace;
+      color: #94a3b8;
+      margin-top: 16px;
+      word-break: break-all;
+      text-align: left;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #6d28d9, #2563eb);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="icon">⌛</div>
+  <h1>Connecting Whoop…</h1>
+  <p>Saving authorization code…</p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+const error = params.get('error');
+const state = params.get('state');
+
+function showResult(success, title, body, extra) {
+  const card = document.getElementById('card');
+  card.innerHTML = `
+    <div class="icon">${success ? '✅' : '❌'}</div>
+    <h1 class="${success ? 'success' : 'error'}">${title}</h1>
+    <p>${body}</p>
+    ${extra || ''}
+  `;
+}
+
+function exchangeCode(code) {
+  // Save code to localStorage — Claude exchanges server-side via RUBE
+  // Do NOT attempt browser-side fetch (CORS consumes the code without returning tokens)
+  localStorage.setItem('whoop_auth_code', code);
+  localStorage.setItem('whoop_auth_state', state || '');
+  localStorage.setItem('whoop_auth_ts', Date.now().toString());
+
+  showResult(true, 'Authorization Code Captured!',
+    'Whoop authorized successfully. Tell Claude “done” — tokens will be ready in seconds.',
+    `<div class="code-box"><strong>Code:</strong> ${code}</div>
+     <div class="code-box" style="margin-top:8px;color:#10b981;">✓ Code saved to localStorage. Switch back to Claude now.</div>`
+  );
+}
+
+if (error) {
+  showResult(false, 'Authorization Failed',
+    `Whoop returned: <strong>${error}</strong> — ${params.get('error_description') || ''}`,
+    `<div class="code-box">Hint: ${params.get('error_hint') || 'Check developer portal settings.'}</div>`
+  );
+} else if (code) {
+  exchangeCode(code);
+} else {
+  showResult(false, 'No Code Received', 'The callback URL did not include an authorization code. Try the OAuth flow again.');
+}
+</script>
+</body>
+</html>

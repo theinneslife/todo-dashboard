@@ -2164,7 +2164,319 @@
         }
         .remove-leg-btn:hover { background: rgba(248,113,113,0.2); }
 
-        </style>
+        
+        /* =========================================================
+           #viewDetail — Tabbed Trip Detail Panel — CSS Fix
+           ========================================================= */
+
+        /* Back button */
+        .detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+        .detail-back:hover { color: var(--accent-blue); }
+        .detail-back svg { width: 16px; height: 16px; }
+
+        /* Header card */
+        .detail-header {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .detail-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .detail-destination {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        .detail-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .detail-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .detail-dates {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Status & type badges */
+        .trip-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .trip-status.upcoming {
+            background: rgba(96,165,250,0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(96,165,250,0.3);
+        }
+        .trip-status.active {
+            background: rgba(52,211,153,0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(52,211,153,0.3);
+        }
+        .trip-status.past {
+            background: rgba(148,163,184,0.15);
+            color: var(--text-muted);
+            border: 1px solid rgba(148,163,184,0.3);
+        }
+        .trip-type-badge {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(167,139,250,0.15);
+            color: var(--accent-purple);
+            border: 1px solid rgba(167,139,250,0.25);
+            text-transform: capitalize;
+        }
+        .trip-type-badge.work, .trip-type-badge.business {
+            background: rgba(251,146,60,0.15);
+            color: var(--accent-orange);
+            border-color: rgba(251,146,60,0.25);
+        }
+
+        /* Icon buttons */
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .btn-icon:hover { background: var(--accent-blue); color: white; border-color: var(--accent-blue); }
+        .btn-icon.danger:hover { background: var(--accent-red); color: white; border-color: var(--accent-red); }
+        .btn-icon svg { width: 15px; height: 15px; }
+
+        /* Tab bar */
+        .detail-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 1.25rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .detail-tabs::-webkit-scrollbar { display: none; }
+        .detail-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-muted);
+            padding: 10px 18px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+            font-family: inherit;
+            margin-bottom: -2px;
+        }
+        .detail-tab:hover { color: var(--text-primary); }
+        .detail-tab.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); font-weight: 600; }
+
+        /* Itinerary */
+        .itinerary-day { margin-bottom: 1.5rem; }
+        .itinerary-day-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+        .day-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: var(--bg-tertiary);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* Booking cards in viewDetail */
+        .booking-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s;
+        }
+        .booking-card:hover { border-color: rgba(96,165,250,0.3); }
+        .booking-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        .booking-type-icon { font-size: 1.1rem; margin-right: 8px; flex-shrink: 0; }
+        .booking-title { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
+        .booking-subtitle { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+        .booking-actions { display: flex; gap: 6px; flex-shrink: 0; }
+        .booking-content { padding-top: 0.25rem; }
+        .booking-detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(42,48,64,0.4);
+        }
+        .booking-detail-row:last-child { border-bottom: none; }
+        .booking-info { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* Flight display */
+        .flight-route {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .flight-endpoint { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+        .flight-time { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+        .flight-code { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .flight-line { flex: 1; height: 1px; background: var(--border-color); position: relative; }
+
+        /* Entry Requirements */
+        .visa-fallback {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .visa-fallback strong { display: block; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .visa-fallback p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.5rem; }
+        .visa-fallback ul { list-style: none; padding: 0; margin: 0; }
+        .visa-fallback ul li { margin-bottom: 0.35rem; }
+        .visa-fallback ul li a { color: var(--accent-blue); font-size: 0.85rem; text-decoration: none; }
+        .visa-fallback ul li a:hover { text-decoration: underline; }
+
+        /* Empty states */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .empty-state svg { width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.4; }
+        .empty-state h3 { color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem; }
+        .empty-state p { font-size: 0.85rem; margin-bottom: 1.25rem; max-width: 260px; }
+        .empty-state-small { color: var(--text-muted); font-size: 0.8rem; font-style: italic; padding: 0.5rem 0; }
+
+        /* Info tab */
+        .info-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .info-section-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(42,48,64,0.5);
+            font-size: 0.85rem;
+        }
+        .info-row:last-of-type { border-bottom: none; }
+        .info-row span:first-child { color: var(--text-muted); }
+        .info-row span:last-child { color: var(--text-primary); font-weight: 500; }
+        .info-notes { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; padding: 0.5rem 0; }
+
+        /* Budget bar */
+        .budget-bar-track {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+        .budget-bar-track > div { height: 100%; background: var(--accent-green); border-radius: 3px; }
+
+        /* Copyable */
+        .copyable {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 2px 10px;
+            font-family: monospace;
+            font-size: 0.82rem;
+            color: var(--accent-blue);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Shared btn base (fallback) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .btn-primary { background: var(--accent-blue); color: white; border-color: var(--accent-blue); }
+        .btn-primary:hover { background: #3b82f6; }
+        .btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border-color: var(--border-color); }
+        .btn-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+        .btn-sm { padding: 5px 12px; font-size: 0.78rem; }
+
+</style>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 

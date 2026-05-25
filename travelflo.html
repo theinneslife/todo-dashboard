@@ -6522,8 +6522,13 @@ this.updateDashboardStats();
         const container = document.getElementById('tabRequirements');
         if (!container) return;
 
-        const country    = trip.destination?.country;
-        const city       = trip.destination?.city;
+        // Normalize: destination may be object {city,country} or plain string
+        const country = (trip.destination && typeof trip.destination === 'object')
+            ? trip.destination.country
+            : (trip.country || (typeof trip.destination === 'string' ? trip.destination.split(',').pop().trim() : ''));
+        const city = (trip.destination && typeof trip.destination === 'object')
+            ? trip.destination.city
+            : (trip.city || (typeof trip.destination === 'string' ? trip.destination.split(',')[0].trim() : ''));
         const info       = lookupVisa(country);
         const n          = (country || '').trim().toLowerCase();
         const flag       = COUNTRY_FLAGS[n] || '🌐';

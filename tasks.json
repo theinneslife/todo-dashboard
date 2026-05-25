@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Deodorant\nRazor\nWhoop\nStarlink",
+    "description": "Deodorant\nRazor\nWhoop\nStarlink\nHair Wax",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -16,8 +16,17 @@
         "action": "created",
         "by": "Claude",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-05-25T10:53:34.858Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
       }
-    ]
+    ],
+    "start_date": null,
+    "category": null,
+    "effort": null
   },
   {
     "id": "e1315482-fc18-482a-8ebb-0b347530f548",

@@ -627,7 +627,7 @@
     "title": "Buy Philips Sonicare toothbrush replacement heads",
     "description": "From Otter recording: Shower (May 13, 2026). Noted during shower that replacement heads for the Philips Sonicare toothbrush need to be purchased.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -642,10 +642,16 @@
         "action": "created",
         "by": "Claude (Otter import)",
         "details": "Task created from Otter.ai recording"
+      },
+      {
+        "timestamp": "2026-05-26T16:35:50.518Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to completed"
       }
     ],
     "created_at": "2026-05-19T00:00:00.000Z",
-    "completed_at": null,
+    "completed_at": "2026-05-26T16:35:50.518Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

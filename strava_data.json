@@ -1,7 +1,7 @@
 {
-  "generated": "2026-05-26T19:23:23.902847Z",
-  "weekly_miles": 3.0,
-  "total_elevation_feet": 33,
+  "generated": "2026-05-26T21:51:56.467717Z",
+  "weekly_miles": 6.1,
+  "total_elevation_feet": 394,
   "last_week_miles": 26.1,
   "last_week_elevation_feet": 1972,
   "last_week_sessions": 2,
@@ -12,6 +12,13 @@
       "miles": 3.01,
       "elevation_feet": 33,
       "duration": "30:24"
+    },
+    {
+      "name": "Night Run",
+      "date": "2026-05-26",
+      "miles": 3.09,
+      "elevation_feet": 361,
+      "duration": "33:58"
     }
   ]
 }

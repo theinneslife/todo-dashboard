@@ -515,6 +515,38 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         }
 
+        /* Curated Discover */
+        .curated-discover { padding-bottom: 2rem; }
+        .discover-filter-bar { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .5rem; margin-bottom: 1.5rem; scrollbar-width: none; }
+        .discover-filter-bar::-webkit-scrollbar { display: none; }
+        .discover-filter-pill { flex-shrink: 0; padding: .35rem .85rem; border-radius: 20px; font-size: .7rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-secondary); transition: all .2s; white-space: nowrap; }
+        .discover-filter-pill.active, .discover-filter-pill:hover { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
+        .curated-category { margin-bottom: 2rem; }
+        .curated-cat-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--border-color); }
+        .curated-cat-emoji { font-size: 1.4rem; line-height: 1; }
+        .curated-cat-meta { flex: 1; min-width: 0; }
+        .curated-cat-name { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+        .curated-cat-desc { font-size: .72rem; color: var(--text-muted); margin-top: .1rem; }
+        .curated-cat-count { font-size: .65rem; font-weight: 700; padding: .2rem .55rem; border-radius: 10px; background: var(--bg-tertiary); color: var(--text-muted); white-space: nowrap; }
+        .curated-row { display: flex; gap: .75rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: none; }
+        .curated-row::-webkit-scrollbar { display: none; }
+        .curated-place-card { flex: 0 0 175px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: .9rem; display: flex; flex-direction: column; gap: .5rem; transition: all .2s; cursor: pointer; }
+        .curated-place-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+        .curated-place-flag { font-size: 1.4rem; line-height: 1; }
+        .curated-place-name { font-size: .85rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+        .curated-place-country { font-size: .68rem; color: var(--text-muted); }
+        .curated-place-hook { font-size: .68rem; color: var(--text-secondary); line-height: 1.4; flex: 1; }
+        .curated-place-tag { display: inline-block; font-size: .6rem; font-weight: 700; padding: .18rem .5rem; border-radius: 8px; margin-top: auto; text-transform: uppercase; letter-spacing: .03em; }
+        .tag-events { background: rgba(251,191,36,.15); color: #fbbf24; }
+        .tag-wonders { background: rgba(168,85,247,.15); color: #a855f7; }
+        .tag-safari { background: rgba(34,197,94,.15); color: #22c55e; }
+        .tag-food { background: rgba(249,115,22,.15); color: #f97316; }
+        .tag-nature { background: rgba(20,184,166,.15); color: #14b8a6; }
+        .tag-luxury { background: rgba(236,72,153,.15); color: #ec4899; }
+        .tag-culture { background: rgba(99,102,241,.15); color: #818cf8; }
+        .curated-plan-btn { width: 100%; padding: .4rem; border-radius: 6px; background: var(--accent-blue); border: none; color: #fff; font-size: .65rem; font-weight: 600; cursor: pointer; margin-top: .25rem; transition: background .2s; }
+        .curated-plan-btn:hover { background: #2563eb; }
+
         .top-list {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -2586,17 +2618,7 @@
 
             <!-- Discover Tab -->
             <div id="discoverTab" class="tab-content">
-                <div class="discover-content">
-                    <div class="discover-section">
-                        <div class="discover-title"><i data-lucide="map" style="width:18px;height:18px;"></i> Discover Destinations</div>
-                        <div class="destinations-grid" id="destinationsGrid"></div>
-                    </div>
-
-                    <div class="discover-section">
-                        <div class="discover-title">🌟 Top Recommendations</div>
-                        <div class="top-lists" id="topListsContainer"></div>
-                    </div>
-                </div>
+                <div class="discover-content curated-discover" id="curatedDiscoverContainer"></div>
             </div>
 
             <!-- Search Tab -->
@@ -4168,126 +4190,199 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 `;
             }
 
-            renderDiscover() {
-                this.renderDestinations();
-                this.renderTopLists();
-            }
-
-            renderDestinations() {
-                const html = this.allDestinations.map(dest => `
-                    <div class="destination-card">
-                        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                            <div>
-                                <div class="destination-name">${dest.emoji} ${dest.name}</div>
-                                <div class="destination-info">${dest.country}</div>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="destination-tag">${dest.tag}</span>
-                        </div>
-                        <button class="btn btn-primary btn-block" style="margin-top: 1rem; font-size: 0.75rem;" onclick="app.createTripFromDestination('${dest.name}'); return false;"><i data-lucide="plane" style="width:14px;height:14px;vertical-align:-2px;"></i> Plan Trip</button>
-                    </div>
-                `).join('');
-                document.getElementById('destinationsGrid').innerHTML = html;
-            }
-
             createTripFromDestination(destination) {
                 this.openTripModal();
                 document.getElementById('destinationInput').value = destination;
             }
 
-            renderTopLists() {
-                const restaurants = [
-                    { name: 'Michelin Star Restaurant', cuisine: 'French', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Local Street Food', cuisine: 'Traditional', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fusion Bistro', cuisine: 'Modern', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Beachfront Café', cuisine: 'Seafood', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Night Market Stall', cuisine: 'Street', price: '$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Fine Dining', cuisine: 'Contemporary', price: '$$$$', rating: '⭐⭐⭐⭐⭐' },
-                    { name: 'Rooftop Bar', cuisine: 'Cocktails', price: '$$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Family Restaurant', cuisine: 'Local', price: '$$', rating: '⭐⭐⭐' },
-                    { name: 'Vegetarian Café', cuisine: 'Vegan', price: '$$', rating: '⭐⭐⭐⭐' },
-                    { name: 'Sushi Counter', cuisine: 'Japanese', price: '$$$', rating: '⭐⭐⭐⭐⭐' }
+            renderDiscover() {
+                const categories = [
+                    {
+                        id: 'events',
+                        emoji: '🎟',
+                        name: 'Global Events Worth Planning Around',
+                        desc: 'The moments that define a year — book early, arrive ready',
+                        tagClass: 'tag-events',
+                        tagLabel: 'Event',
+                        places: [
+                            { flag: '🇨🇭', name: 'Art Basel', country: 'Basel, Switzerland', hook: 'June. The most important week in the contemporary art market. Book hotels by January.' },
+                            { flag: '🇧🇷', name: 'Carnival Rio', country: 'Rio de Janeiro, Brazil', hook: 'February/March. The greatest street party on earth. Sambódromo parade + street blocos.' },
+                            { flag: '🇬🇧', name: 'Glastonbury', country: 'Somerset, UK', hook: 'Late June. The definitive festival experience. Ballot tickets in October prior year.' },
+                            { flag: '🇳🇱', name: 'ADE Amsterdam', country: 'Amsterdam, Netherlands', hook: 'October. World\'s leading electronic music conference. 2,000+ artists across 200 venues.' },
+                            { flag: '🇲🇨', name: 'Monaco Grand Prix', country: 'Monte Carlo, Monaco', hook: 'Late May. The crown jewel of F1. Book paddock hospitality 6-12 months out.' },
+                            { flag: '🇺🇸', name: 'The Masters', country: 'Augusta, USA', hook: 'First week of April. Most exclusive ticket in American sport. Badge lottery August prior year.' },
+                            { flag: '🇬🇧', name: 'Wimbledon', country: 'London, UK', hook: 'Late June to early July. Centre Court debentures or public ballot in August prior year.' },
+                            { flag: '🇮🇹', name: 'Venice Biennale', country: 'Venice, Italy', hook: 'May to November, odd years. The art world\'s most serious exhibition.' },
+                            { flag: '🇬🇧', name: 'Edinburgh Fringe', country: 'Edinburgh, UK', hook: 'August. World\'s largest arts festival. Three weeks. Book accommodation 12 months out.' },
+                            { flag: '🇺🇸', name: 'Coachella', country: 'Indio, California', hook: 'Two April weekends. Lineup drop in January. General sale sells out same day.' },
+                            { flag: '🇯🇵', name: 'Cherry Blossom', country: 'Kyoto and Tokyo, Japan', hook: 'Late March to early April. Track JMA forecasts from January. Book 4-6 months out.' },
+                            { flag: '🇩🇪', name: 'Oktoberfest', country: 'Munich, Germany', hook: 'Mid-September to first October weekend. Book accommodation by January for that year.' },
+                        ]
+                    },
+                    {
+                        id: 'wonders',
+                        emoji: '🏛',
+                        name: 'World Wonders and Ancient Sites',
+                        desc: 'Places that stop you mid-sentence and reset your sense of scale',
+                        tagClass: 'tag-wonders',
+                        tagLabel: 'Wonder',
+                        places: [
+                            { flag: '🇵🇪', name: 'Machu Picchu', country: 'Peru', hook: 'Take the Sun Gate at sunrise. Book Huayna Picchu hike months in advance for the classic view.' },
+                            { flag: '🇯🇴', name: 'Petra', country: 'Jordan', hook: 'Arrive before 8am at the Treasury. Stay for the candlelight nights Mon/Wed/Thu evenings.' },
+                            { flag: '🇪🇬', name: 'Pyramids of Giza', country: 'Egypt', hook: 'The only surviving ancient wonder. Interior access requires advance booking.' },
+                            { flag: '🇰🇭', name: 'Angkor Wat', country: 'Cambodia', hook: 'Pre-dawn arrival for sunrise over the reflecting pool. Add Angkor Thom and Ta Prohm for a full day.' },
+                            { flag: '🇪🇸', name: 'Alhambra', country: 'Granada, Spain', hook: 'Afternoon light through the Nasrid Palaces. Tickets sell out weeks ahead.' },
+                            { flag: '🇮🇳', name: 'Taj Mahal', country: 'Agra, India', hook: 'First light sunrise entry only. The crowd quadruples by 9am.' },
+                            { flag: '🇲🇽', name: 'Chichen Itza', country: 'Yucatan, Mexico', hook: 'Spring and autumn equinox for the serpent shadow phenomenon.' },
+                            { flag: '🇬🇧', name: 'Stonehenge', country: 'Wiltshire, UK', hook: 'Inner circle access only available by special arrangement. Worth every step.' },
+                            { flag: '🇮🇹', name: 'Roman Colosseum', country: 'Rome, Italy', hook: 'Arena floor access tickets sell out weeks ahead. Get there before the tour buses.' },
+                            { flag: '🇨🇳', name: 'Great Wall', country: 'Mutianyu, China', hook: 'Mutianyu section for far fewer crowds than Badaling. Go on a weekday.' },
+                            { flag: '🇬🇷', name: 'Acropolis', country: 'Athens, Greece', hook: 'Arrive at opening, leave by 10am. Return at sunset for the light on the Parthenon.' },
+                            { flag: '🇹🇷', name: 'Ephesus', country: 'Selcuk, Turkey', hook: 'One of the best-preserved Roman cities on earth. Two full hours minimum.' },
+                        ]
+                    },
+                    {
+                        id: 'safari',
+                        emoji: '🦁',
+                        name: 'Safari and Wildlife',
+                        desc: 'The wild at its most raw — experiences that recalibrate everything',
+                        tagClass: 'tag-safari',
+                        tagLabel: 'Wildlife',
+                        places: [
+                            { flag: '🇰🇪', name: 'Maasai Mara', country: 'Kenya', hook: 'Great Migration river crossings July to October. Stay at Angama or Mahali Mzuri.' },
+                            { flag: '🇧🇼', name: 'Okavango Delta', country: 'Botswana', hook: 'Flood season June to August. Arrive by small plane to private camps. No roads needed.' },
+                            { flag: '🇹🇿', name: 'Serengeti', country: 'Tanzania', hook: 'Calving season January to February in the southern Serengeti. Predator density is staggering.' },
+                            { flag: '🇿🇦', name: 'Sabi Sands', country: 'South Africa', hook: 'Private reserve adjoining Kruger. Best leopard sightings on the continent. Twice-daily drives.' },
+                            { flag: '🇷🇼', name: 'Mountain Gorillas', country: 'Rwanda', hook: 'Volcanoes National Park. One hour with a gorilla family. Life-changing. Permits book fast.' },
+                            { flag: '🇿🇲', name: 'South Luangwa', country: 'Zambia', hook: 'Walking safari capital of the world. Night drives reveal a completely different park.' },
+                            { flag: '🇪🇨', name: 'Galapagos Islands', country: 'Ecuador', hook: 'Small-group liveaboard for direct wildlife access. Animals have no fear of humans.' },
+                            { flag: '🇲🇾', name: 'Borneo', country: 'Malaysia', hook: 'Orangutans at Sepilok rehabilitation center. Pygmy elephants on the Kinabatangan river.' },
+                            { flag: '🇿🇼', name: 'Victoria Falls', country: 'Zimbabwe', hook: 'Zimbabwe side for Devil\'s Pool swim at the edge of the falls. October timing is ideal.' },
+                            { flag: '🇳🇦', name: 'Namibia', country: 'Namibia', hook: 'Sossusvlei dunes at sunrise. Etosha for predator encounters. Self-drive the whole country.' },
+                        ]
+                    },
+                    {
+                        id: 'food',
+                        emoji: '🍽',
+                        name: 'Food and Restaurant Cities',
+                        desc: 'Cities where every meal is a reason to be there',
+                        tagClass: 'tag-food',
+                        tagLabel: 'Food',
+                        places: [
+                            { flag: '🇩🇰', name: 'Copenhagen', country: 'Denmark', hook: 'Currently the center of world gastronomy. Noma alumni restaurants across the city. Book 3 months out.' },
+                            { flag: '🇯🇵', name: 'Tokyo', country: 'Japan', hook: 'Highest Michelin density on earth. Tsukiji outer market at dawn. Counter seats are the move.' },
+                            { flag: '🇵🇪', name: 'Lima', country: 'Peru', hook: 'Central, Maido, Kjolle — three of the world\'s best within a mile. Ceviche for breakfast.' },
+                            { flag: '🇪🇸', name: 'San Sebastian', country: 'Spain', hook: 'More Michelin stars per capita than anywhere. Bar hop pintxos in the Old Town every evening.' },
+                            { flag: '🇫🇷', name: 'Lyon', country: 'France', hook: 'France\'s real food capital. Bouchon lunches, Bocuse market, Paul Bocuse\'s empire.' },
+                            { flag: '🇸🇬', name: 'Singapore', country: 'Singapore', hook: 'Hawker centers with Michelin stars to fine dining institutions. Eat every three hours.' },
+                            { flag: '🇲🇽', name: 'Oaxaca', country: 'Mexico', hook: 'Mole birthplace. Mezcal bars everywhere. Day of the Dead in November transforms the city.' },
+                            { flag: '🇺🇸', name: 'New Orleans', country: 'USA', hook: 'Po-boys to Commander\'s Palace. The food is the culture. Eat before noon and after midnight.' },
+                            { flag: '🇮🇹', name: 'Bologna', country: 'Italy', hook: 'The best food city in Italy and therefore the world. Ragù, mortadella, fresh pasta at every corner.' },
+                            { flag: '🇹🇭', name: 'Bangkok', country: 'Thailand', hook: 'Best street food on earth at every price point. Go to Or Tor Kor market first morning.' },
+                        ]
+                    },
+                    {
+                        id: 'nature',
+                        emoji: '🏔',
+                        name: 'Nature and Adventure',
+                        desc: 'Landscapes that make you feel small in the best possible way',
+                        tagClass: 'tag-nature',
+                        tagLabel: 'Nature',
+                        places: [
+                            { flag: '🇨🇱', name: 'Torres del Paine', country: 'Patagonia, Chile', hook: 'The W Trek or full O Circuit. October to March. Wind that will knock you sideways. Worth it entirely.' },
+                            { flag: '🇳🇴', name: 'Lofoten Islands', country: 'Norway', hook: 'Summer for midnight sun hiking. Winter for aurora and cod season. Dramatic at both ends.' },
+                            { flag: '🇳🇴', name: 'Aurora Borealis', country: 'Tromsø, Norway', hook: 'September to March. Track solar activity (Kp index) daily. Abisko in Sweden has the best clear skies.' },
+                            { flag: '🇵🇹', name: 'Azores', country: 'São Miguel, Portugal', hook: 'Volcanic crater lakes. Whale watching June to October. Hot springs you walk into from the ocean.' },
+                            { flag: '🇦🇷', name: 'Patagonia', country: 'Los Glaciares, Argentina', hook: 'Perito Moreno glacier calving. El Chaltén for FitzRoy hikes. October to March season.' },
+                            { flag: '🇮🇸', name: 'Iceland', country: 'Iceland', hook: 'Reykjanes Peninsula for aurora. F-roads in July for highland access. Midnight sun in June.' },
+                            { flag: '🇫🇴', name: 'Faroe Islands', country: 'Denmark', hook: 'Sea cliffs that drop 700 meters. Puffins in summer. Almost no other tourists.' },
+                            { flag: '🇺🇸', name: 'Antelope Canyon', country: 'Arizona, USA', hook: 'Upper Canyon for photography. Navajo-guided tours only. Slot canyon light at midday.' },
+                            { flag: '🇳🇿', name: 'Fiordland', country: 'New Zealand', hook: 'Milford Sound and Doubtful Sound by kayak. Overnight boat for the waterfall experience.' },
+                            { flag: '🇨🇳', name: 'Zhangjiajie', country: 'Hunan, China', hook: 'The mountains that inspired Avatar. Glass-bottomed skywalks and cable cars into the clouds.' },
+                        ]
+                    },
+                    {
+                        id: 'luxury',
+                        emoji: '🏝',
+                        name: 'Luxury Islands and Resorts',
+                        desc: 'Places where the setting is the entire point',
+                        tagClass: 'tag-luxury',
+                        tagLabel: 'Luxury',
+                        places: [
+                            { flag: '🇲🇻', name: 'Maldives', country: 'Maldives', hook: 'Private island overwater villa. Best diving visibility February to April. Book direct for room upgrades.' },
+                            { flag: '🇵🇫', name: 'Bora Bora', country: 'French Polynesia', hook: 'The iconic lagoon. Four Seasons and St. Regis set the standard. Snorkel with rays off the villa steps.' },
+                            { flag: '🇸🇨', name: 'Seychelles', country: 'Seychelles', hook: 'Private island archipelago. North Island and Fregate for total isolation. Granite boulders, no one else.' },
+                            { flag: '🇮🇹', name: 'Amalfi Coast', country: 'Italy', hook: 'Base in Ravello or Positano. Avoid July to August crowds. Day boat to Li Galli islands.' },
+                            { flag: '🇬🇷', name: 'Santorini', country: 'Greece', hook: 'Oia at sunset. Stay at Canaves Oia for the caldera views. Go in May or September to miss the crowds.' },
+                            { flag: '🇹🇨', name: 'Turks and Caicos', country: 'Caribbean', hook: 'Grace Bay consistently ranked the world\'s best beach. Como Parrot Cay for full seclusion.' },
+                            { flag: '🇵🇭', name: 'Palawan', country: 'Philippines', hook: 'El Nido limestone karsts and hidden lagoons. Amanpulo for private island access.' },
+                            { flag: '🇲🇾', name: 'Langkawi', country: 'Malaysia', hook: 'Duty-free island with Four Seasons overwater bungalows. Mangrove kayaking at dawn.' },
+                            { flag: '🇫🇯', name: 'Fiji Private Islands', country: 'Fiji', hook: 'Turtle Island or Wakaya Club. Remote, no day trippers, coral reefs untouched.' },
+                            { flag: '🇮🇩', name: 'Nihi Sumba', country: 'Indonesia', hook: 'World\'s most awarded hotel for years running. Remote Sumba island. Surf, horses, complete detachment.' },
+                        ]
+                    },
+                    {
+                        id: 'culture',
+                        emoji: '🎨',
+                        name: 'Art and Culture Cities',
+                        desc: 'Cities with a living pulse — where history, creativity and street life converge',
+                        tagClass: 'tag-culture',
+                        tagLabel: 'Culture',
+                        places: [
+                            { flag: '🇹🇷', name: 'Istanbul', country: 'Turkey', hook: 'Bosphorus crossing at sunset. Hamam at Çemberlitaş. Spice Bazaar before 10am. Two continents, one city.' },
+                            { flag: '🇯🇵', name: 'Kyoto', country: 'Japan', hook: 'Fushimi Inari before 7am. Kaiseki dinner at Kikunoi Honten. Private machiya ryokan in Gion.' },
+                            { flag: '🇲🇽', name: 'Mexico City', country: 'Mexico', hook: 'UNAM murals, Frida Kahlo museum, natural wine bars in Roma Norte. The best art scene in the Americas.' },
+                            { flag: '🇦🇹', name: 'Vienna', country: 'Austria', hook: 'Kunsthistorisches Museum, Klimt at the Belvedere, Naschmarkt on Saturday. Coffee house culture is sacred.' },
+                            { flag: '🇲🇦', name: 'Marrakech', country: 'Morocco', hook: 'Medina at dusk. Majorelle Garden in the morning. Riad stays transform the entire experience.' },
+                            { flag: '🇨🇺', name: 'Havana', country: 'Cuba', hook: '1950s American cars, live son cubano at midnight, art galleries hidden in crumbling buildings.' },
+                            { flag: '🇦🇷', name: 'Buenos Aires', country: 'Argentina', hook: 'Tango in San Telmo. Asado culture. Bookshops, steak, architecture. The Paris of South America means it.' },
+                            { flag: '🇵🇹', name: 'Porto', country: 'Portugal', hook: 'Port wine caves in Vila Nova de Gaia. Livraria Lello bookshop. Sunset from Serra do Pilar.' },
+                            { flag: '🇮🇳', name: 'Varanasi', country: 'India', hook: 'Oldest continuously inhabited city on earth. Ganga Aarti at dusk from a boat on the Ganges.' },
+                            { flag: '🇨🇿', name: 'Prague', country: 'Czech Republic', hook: 'Most intact medieval city in Europe. Cross Charles Bridge before 7am. Jazz caves under the old town.' },
+                        ]
+                    }
                 ];
 
-                const attractions = [
-                    { name: 'Historic Monument', desc: 'UNESCO World Heritage Site' },
-                    { name: 'Modern Art Museum', desc: 'Contemporary collections' },
-                    { name: 'Local Market', desc: 'Traditional crafts and goods' },
-                    { name: 'National Park', desc: 'Hiking and nature trails' },
-                    { name: 'Beach', desc: 'Swimming and water sports' },
-                    { name: 'Historic Old Town', desc: 'Cobblestone streets & architecture' },
-                    { name: 'Botanical Garden', desc: 'Exotic plants and flowers' },
-                    { name: 'Temple/Shrine', desc: 'Religious and cultural landmark' },
-                    { name: 'Observatory', desc: 'Stargazing experiences' },
-                    { name: 'Canyon/Viewpoint', desc: 'Scenic photography spots' }
-                ];
+                this._discoverActiveFilter = this._discoverActiveFilter || 'all';
 
-                const experiences = [
-                    { name: 'Cooking Class', type: 'Culinary' },
-                    { name: 'Guided City Tour', type: 'Cultural' },
-                    { name: 'Adventure Activities', type: 'Sports' },
-                    { name: 'Spa & Wellness', type: 'Relaxation' },
-                    { name: 'Local Festival', type: 'Cultural' },
-                    { name: 'Mountain Hiking', type: 'Adventure' },
-                    { name: 'Wine Tasting', type: 'Culinary' },
-                    { name: 'Sunset Cruise', type: 'Scenic' },
-                    { name: 'Photography Tour', type: 'Creative' },
-                    { name: 'Meditation Retreat', type: 'Wellness' }
-                ];
+                const filterBar = `<div class="discover-filter-bar">
+                    <button class="discover-filter-pill ${this._discoverActiveFilter === 'all' ? 'active' : ''}" onclick="app.filterDiscover('all')">All</button>
+                    ${categories.map(c => `<button class="discover-filter-pill ${this._discoverActiveFilter === c.id ? 'active' : ''}" onclick="app.filterDiscover('${c.id}')">${c.emoji} ${c.name.split(' ').slice(0,2).join(' ')}</button>`).join('')}
+                </div>`;
 
-                const listsHTML = `
-                    <div class="top-list">
-                        <div class="top-list-title"><i data-lucide="utensils" style="width:14px;height:14px;"></i> Top 10 Restaurants</div>
-                        <div class="top-list-items">
-                            ${restaurants.map((r, i) => `
-                                <div class="list-item">
-                                    <div class="list-item-num">${i + 1}</div>
-                                    <div class="list-item-content">
-                                        <div class="list-item-name">${r.name}</div>
-                                        <div class="restaurant-meta">
-                                            <span class="cuisine-tag">${r.cuisine}</span>
-                                            <span class="price-tag">${r.price}</span>
-                                            <span class="rating">${r.rating}</span>
-                                        </div>
-                                    </div>
+                const visibleCats = this._discoverActiveFilter === 'all' ? categories : categories.filter(c => c.id === this._discoverActiveFilter);
+
+                const catsHTML = visibleCats.map(cat => `
+                    <div class="curated-category" data-cat="${cat.id}">
+                        <div class="curated-cat-header">
+                            <div class="curated-cat-emoji">${cat.emoji}</div>
+                            <div class="curated-cat-meta">
+                                <div class="curated-cat-name">${cat.name}</div>
+                                <div class="curated-cat-desc">${cat.desc}</div>
+                            </div>
+                            <div class="curated-cat-count">${cat.places.length}</div>
+                        </div>
+                        <div class="curated-row">
+                            ${cat.places.map(p => `
+                                <div class="curated-place-card" onclick="app.createTripFromDestination('${p.name.replace(/'/g,'\\'')}'); return false;">
+                                    <div class="curated-place-flag">${p.flag}</div>
+                                    <div class="curated-place-name">${p.name}</div>
+                                    <div class="curated-place-country">${p.country}</div>
+                                    <div class="curated-place-hook">${p.hook}</div>
+                                    <span class="curated-place-tag ${cat.tagClass}">${cat.tagLabel}</span>
+                                    <button class="curated-plan-btn">+ Plan Trip</button>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
+                `).join('');
 
-                    <div class="top-list">
-                        <div class="top-list-title"><i data-lucide="ticket" style="width:14px;height:14px;"></i> Top 10 Attractions</div>
-                        <div class="top-list-items">
-                            ${attractions.map((a, i) => `
-                                <div class="list-item">
-                                    <div class="list-item-num">${i + 1}</div>
-                                    <div class="list-item-content">
-                                        <div class="list-item-name">${a.name}</div>
-                                        <div class="list-item-detail">${a.desc}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+                document.getElementById('curatedDiscoverContainer').innerHTML = filterBar + catsHTML;
+            }
 
-                    <div class="top-list">
-                        <div class="top-list-title">✨ Top 10 Experiences</div>
-                        <div class="top-list-items">
-                            ${experiences.map((e, i) => `
-                                <div class="list-item">
-                                    <div class="list-item-num">${i + 1}</div>
-                                    <div class="list-item-content">
-                                        <div class="list-item-name">${e.name}</div>
-                                        <div class="list-item-detail">${e.type}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-
-                document.getElementById('topListsContainer').innerHTML = listsHTML;
+            filterDiscover(catId) {
+                this._discoverActiveFilter = catId;
+                this.renderDiscover();
             }
 
         renderAllViews() { setTimeout(function(){if(typeof lucide!=="undefined")lucide.createIcons();},0);

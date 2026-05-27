@@ -4364,7 +4364,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         </div>
                         <div class="curated-row">
                             ${cat.places.map(p => `
-                                <div class="curated-place-card" onclick="app.createTripFromDestination('${p.name.replace(/'/g,'\\'')}'); return false;">
+                                <div class="curated-place-card" onclick="app.createTripFromDestination('${p.name.replace(/'/g,"\\'")}'); return false;">
                                     <div class="curated-place-flag">${p.flag}</div>
                                     <div class="curated-place-name">${p.name}</div>
                                     <div class="curated-place-country">${p.country}</div>

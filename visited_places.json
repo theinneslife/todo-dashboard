@@ -23,8 +23,6 @@
     { "name": "Lisbon", "country": "Portugal", "lat": 38.7223, "lng": -9.1393 },
     { "name": "Algarve", "country": "Portugal", "lat": 37.0179, "lng": -7.9307 },
     { "name": "Amsterdam", "country": "Netherlands", "lat": 52.3676, "lng": 4.9041 },
-    { "name": "Brussels", "country": "Belgium", "lat": 50.8503, "lng": 4.3517 },
-    { "name": "Trebinje", "country": "Bosnia & Herzegovina", "lat": 42.7122, "lng": 18.3438 },
-    { "name": "Kotor", "country": "Montenegro", "lat": 42.4247, "lng": 18.7712 }
+    { "name": "Brussels", "country": "Belgium", "lat": 50.8503, "lng": 4.3517 }
   ]
 }

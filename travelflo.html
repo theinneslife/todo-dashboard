@@ -2655,6 +2655,7 @@
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#3b82f6"></div> Upcoming</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#6b7280"></div> Past</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#ef4444"></div> Race</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#f472b6"></div> ♥ With Brooke</div>
             </div>
         </div>
         </div>
@@ -7067,6 +7068,26 @@ this.updateDashboardStats();
                     + '<a class="map-popup-link" onclick="window.app.showTripDetail(\''+trip.id+'\')">View Details →</a></div>';
                 marker.bindPopup(popupHtml);
             }
+
+            // Layer 2: Visited places with Brooke
+            try {
+                const vpResp = await fetch('./visited_places.json?_=' + Date.now());
+                if (vpResp.ok) {
+                    const vpData = await vpResp.json();
+                    const places = vpData.places || [];
+                    for (const place of places) {
+                        const coords = [place.lat, place.lng];
+                        bounds.push(coords);
+                        const vpIcon = L.divIcon({
+                            className: '',
+                            html: '<div style="width:14px;height:14px;background:#f472b6;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:8px;line-height:1">♥</div>',
+                            iconSize: [14, 14], iconAnchor: [7, 7]
+                        });
+                        const vpMarker = L.marker(coords, { icon: vpIcon }).addTo(map);
+                        vpMarker.bindPopup('<div class="map-popup"><h4>' + place.name + '</h4><p>' + place.country + '</p><p style="color:#f472b6;font-weight:500">♥ Visited with Brooke</p></div>');
+                    }
+                }
+            } catch(e) { console.warn('Could not load visited_places.json:', e); }
 
             if (bounds.length > 0) {
                 map.fitBounds(bounds, { padding: [40, 40], maxZoom: 6 });

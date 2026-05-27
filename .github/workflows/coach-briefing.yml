@@ -1,0 +1,157 @@
+name: Coach Briefing
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 1 PM UTC = 6 AM PT
+  workflow_dispatch:        # allow manual trigger
+
+# Requires repo secret: ANTHROPIC_API_KEY
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Anthropic SDK
+        run: pip install anthropic
+
+      - name: Generate coach_briefing.json
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, datetime, re
+          from anthropic import Anthropic
+
+          # Training plan constants
+          RACE_DATE   = datetime.date(2026, 9, 18)
+          PLAN_START  = datetime.date(2026, 1, 26)
+          TOTAL_WEEKS = 22
+          RECOVERY_WEEKS = {4, 8, 12, 16}
+
+          today = datetime.date.today()
+          days_to_race      = (RACE_DATE - today).days
+          days_since_start  = (today - PLAN_START).days
+          week_number       = max(1, days_since_start // 7 + 1)
+          day_of_week       = today.strftime('%A')
+
+          if week_number <= 3:
+              phase = 'Base'
+          elif week_number <= 9:
+              phase = 'Build 1'
+          elif week_number <= 15:
+              phase = 'Build 2'
+          elif week_number <= 19:
+              phase = 'Peak'
+          else:
+              phase = 'Taper'
+
+          is_recovery_week = week_number in RECOVERY_WEEKS
+
+          context_summary = (
+              f"Today: {today.isoformat()} ({day_of_week})\n"
+              f"Goal race: Julian Alps 50K, Kranjska Gora, Slovenia ({RACE_DATE.isoformat()})\n"
+              f"Days to race: {days_to_race}\n"
+              f"Training week: {week_number} of {TOTAL_WEEKS}\n"
+              f"Phase: {phase}\n"
+              f"Recovery week: {'yes' if is_recovery_week else 'no'}"
+          )
+
+          system_prompt = (
+              "You are Christopher Innes's personal ultra endurance coach. He's a 40-something "
+              "executive (Head of Corp Dev at MNTN) training for the Julian Alps 50K in Slovenia, "
+              "an alpine mountain ultra with ~2,500m of vert and sparse aid stations. He travels "
+              "constantly for work, runs 6 days/week, and respects coaches who are specific, "
+              "honest, and treat him like an athlete — not a beginner. Write in a direct, "
+              "knowledgeable voice. No fluff, no platitudes, no hedging."
+          )
+
+          user_prompt = f"""Generate today's coaching briefing for Christopher.
+
+          TRAINING CONTEXT:
+          {context_summary}
+
+          PHASE GUIDANCE:
+          - Base (wk 1-3): aerobic foundation, easy volume, build durability
+          - Build 1 (wk 4-9): introduce structured workouts, hills, tempo
+          - Build 2 (wk 10-15): race-specific stimulus, longer long runs, vert
+          - Peak (wk 16-19): highest training load, race-pace work, big vert days
+          - Taper (wk 20-22): cut volume, retain sharpness, sleep, fuel
+          - Recovery weeks (4, 8, 12, 16): cut volume ~30-40%, no hard intensity
+
+          DAY-OF-WEEK CONVENTIONS (typical):
+          - Monday: recovery / easy Z2 or rest
+          - Tuesday: quality (intervals, threshold)
+          - Wednesday: hills / vert work
+          - Thursday: easy recovery
+          - Friday: easy or pre-long-run shakeout
+          - Saturday: long run (peak day)
+          - Sunday: second long effort or easy recovery
+
+          Adjust for the actual day-of-week and phase above. Be specific to TODAY.
+
+          OUTPUT FORMAT — return ONLY valid JSON, no prose, no markdown fences:
+          {{
+            "coaching": [
+              {{ "type": "run",       "icon": "\U0001F3C3", "title": "Today's Run",  "message": "..." }},
+              {{ "type": "nutrition", "icon": "\U0001F957", "title": "Fuel Right",   "message": "..." }},
+              {{ "type": "recovery",  "icon": "\U0001F4A4", "title": "Recovery",     "message": "..." }},
+              {{ "type": "mental",    "icon": "\U0001F9E0", "title": "Mental Edge",  "message": "..." }}
+            ]
+          }}
+
+          Each message must be 3-5 substantive sentences, specific to this training phase, this
+          day of the week, and the Julian Alps 50K's alpine demands. Reference real numbers (HR
+          zones, paces, grams of carbs, hours of sleep) where it adds signal. No generic advice."""
+
+          client = Anthropic()
+          resp = client.messages.create(
+              model='claude-haiku-4-5-20251001',
+              max_tokens=2048,
+              system=system_prompt,
+              messages=[{'role': 'user', 'content': user_prompt}],
+          )
+          text = resp.content[0].text.strip()
+
+          # Strip any accidental markdown fences and extract the JSON object
+          text = re.sub(r'^```(?:json)?\s*|\s*```$', '', text, flags=re.MULTILINE).strip()
+          m = re.search(r'\{.*\}', text, re.DOTALL)
+          if not m:
+              raise SystemExit(f"No JSON object in model output:\n{text}")
+          parsed = json.loads(m.group(0))
+          coaching = parsed['coaching'] if isinstance(parsed, dict) and 'coaching' in parsed else parsed
+
+          output = {
+              'generated': today.isoformat(),
+              'generated_at': datetime.datetime.utcnow().isoformat() + 'Z',
+              'athlete': {
+                  'name': 'Christopher',
+                  'goal_race': 'Julian Alps 50K',
+                  'race_date': RACE_DATE.isoformat(),
+              },
+              'coaching': coaching,
+          }
+          with open('coach_briefing.json', 'w') as f:
+              json.dump(output, f, indent=2, ensure_ascii=False)
+          print(f"Generated briefing for {today}: week {week_number}/{TOTAL_WEEKS}, "
+                f"{phase}{' (recovery)' if is_recovery_week else ''}, "
+                f"{days_to_race} days to race")
+          PYEOF
+
+      - name: Commit and push coach_briefing.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add coach_briefing.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: update coach_briefing.json [skip ci]"
+          git push

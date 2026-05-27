@@ -7019,13 +7019,7 @@ this.updateDashboardStats();
             // Clean up existing map
             if (this._mapInstance) { this._mapInstance.remove(); this._mapInstance = null; }
 
-            const trips = this.trips;
-            if (!trips || trips.length === 0) {
-                container.innerHTML = '<div class="map-empty"><i data-lucide="map-pin-off" style="width:48px;height:48px"></i><p>No trips to display</p><p style="font-size:12px">Add a trip to see it on the map</p></div>';
-                if (window.lucide) lucide.createIcons();
-                document.getElementById('mapLegend').style.display = 'none';
-                return;
-            }
+            const trips = this.trips || [];
 
             container.innerHTML = '';
             const map = L.map(container).setView([20, 0], 2);

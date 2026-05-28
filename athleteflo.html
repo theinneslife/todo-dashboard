@@ -2492,6 +2492,12 @@ function refreshVertGain() {
     }
   });
 
+  // Prefer the authoritative current-week elevation from strava_data.json;
+  // the placeholder activity feed lags and would otherwise read 0.
+  if (stravaData && typeof stravaData.total_elevation_feet === 'number') {
+    weekVert = stravaData.total_elevation_feet;
+  }
+
   const pct = Math.min((weekVert / WEEKLY_VERT_TARGET) * 100, 100);
   const displayPct = Math.round((weekVert / WEEKLY_VERT_TARGET) * 100);
 
@@ -2898,6 +2904,7 @@ async function syncNow() {
         refreshTrainingWeek();
         refreshWeeklyBars();
         refreshWeeklyCheckin();
+        refreshVertGain();
         refreshLongRunChart();
         refreshFitness();
         updateLastSyncLabel();

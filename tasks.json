@@ -739,10 +739,10 @@
     "title": "Paramount Deal",
     "description": "",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [
-      "Parking Lot"
+      "Relationships"
     ],
     "due_date": null,
     "recurrence": null,
@@ -772,6 +772,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from parking to completed"
+      },
+      {
+        "timestamp": "2026-05-28T13:40:58.723Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from parking to relationships"
       }
     ],
     "created_at": "2026-04-20T16:09:59.705Z",

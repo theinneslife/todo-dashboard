@@ -3103,9 +3103,9 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
             <div class="form-group">
                 <label class="form-label">Assign To</label>
                 <select class="form-input" id="taskColumn">
-                    <option value="christopher-todo">Christopher — To Do</option>
-                    <option value="christopher-ip">Christopher — In Progress</option>
-                    <option value="claude">Claude</option>
+                    <option value="christopher-todo">Christopher To Do</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="relationships">Relationships</option>
                     <option value="completed">Completed</option>
                     <option value="parking">Parking Lot</option>
                 </select>
@@ -3233,8 +3233,9 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
     <!-- Feature 7: Batch Action Bar -->
     <div class="batch-bar" id="batchBar">
         <span class="batch-count" id="batchCount">0</span> selected
-        <button onclick="batchMove('christopher-ip')">→ Christopher</button>
-        <button onclick="batchMove('claude')">→ Claude</button>
+        <button onclick="batchMove('christopher-todo')">→ To Do</button>
+        <button onclick="batchMove('shopping')">→ Shopping</button>
+        <button onclick="batchMove('relationships')">→ Relationships</button>
         <button onclick="batchMove('completed')">✓ Complete</button>
         <button onclick="batchMove('parking')">⏸ Park</button>
         <button class="batch-close" onclick="clearBatchSelection()">✕</button>
@@ -3739,13 +3740,17 @@ function getGithubToken() {
         }
 
         function createTask(title, description, priority, labels, column, dueDate, recurrence, subtasks) {
-            const status = column === 'completed' ? 'completed' : (column === 'parking' ? 'pending' : (column === 'todo' ? 'pending' : 'in_progress'));
-            const mode = column === 'claude' ? 'auto' : (column === 'assistance' ? 'assistance' : 'manual');
+            const status = column === 'completed' ? 'completed' : 'pending';
+            const mode = 'manual';
             const taskLabels = [...labels];
-            if (column === 'parking') {
-                if (!taskLabels.includes('Parking Lot')) {
-                    taskLabels.push('Parking Lot');
-                }
+            if (column === 'parking' && !taskLabels.includes('Parking Lot')) {
+                taskLabels.push('Parking Lot');
+            }
+            if (column === 'shopping' && !taskLabels.includes('Shopping')) {
+                taskLabels.push('Shopping');
+            }
+            if (column === 'relationships' && !taskLabels.includes('Relationships')) {
+                taskLabels.push('Relationships');
             }
 
             const newTask = {
@@ -3778,15 +3783,14 @@ function getGithubToken() {
             if (task.labels && task.labels.includes('Parking Lot')) {
                 return 'parking';
             }
+            if (task.labels && task.labels.includes('Shopping')) {
+                return 'shopping';
+            }
+            if (task.labels && task.labels.includes('Relationships')) {
+                return 'relationships';
+            }
             if (task.status === 'completed') {
                 return 'completed';
-            }
-            if (task.status === 'in_progress') {
-                if (task.mode === 'auto') {
-                    return 'claude';
-                } else {
-                    return 'christopher-ip';
-                }
             }
             return 'christopher-todo';
         }
@@ -4035,9 +4039,9 @@ function getGithubToken() {
             kanban.innerHTML = '';
 
             const columns = [
-                { id: 'christopher-todo', title: 'Christopher \u2014 To Do', dot: '#5856d6', getColor: () => '#5856d6' },
-                { id: 'christopher-ip', title: 'Christopher \u2014 In Progress', dot: '#007aff', getColor: () => '#007aff' },
-                { id: 'claude', title: 'Claude', dot: '#af52de', getColor: () => '#af52de' },
+                { id: 'christopher-todo', title: 'Christopher To Do', dot: '#5856d6', getColor: () => '#5856d6' },
+                { id: 'shopping', title: 'Shopping', dot: '#ff9f0a', getColor: () => '#ff9f0a' },
+                { id: 'relationships', title: 'Relationships', dot: '#ff2d55', getColor: () => '#ff2d55' },
                 { id: 'completed', title: 'Completed', dot: '#34c759', getColor: () => '#34c759', subtitle: 'Cleared every Sunday' },
                 { id: 'parking', title: 'Parking Lot', dot: '#8e8e93', getColor: () => '#8e8e93' }
             ];
@@ -4400,7 +4404,7 @@ function getGithubToken() {
                     };
                     const moveMenu = document.createElement('div');
                     moveMenu.className = 'move-to-menu';
-                    [{id:'todo',title:'To Do',color:'#5856d6'},{id:'christopher',title:'Christopher',color:'#007aff'},{id:'claude',title:'Claude',color:'#af52de'},{id:'assistance',title:'Assistance',color:'#ff9f0a'},{id:'completed',title:'Completed',color:'#34c759'},{id:'parking',title:'Parking Lot',color:'#8e8e93'}].forEach(function(col) {
+                    [{id:'christopher-todo',title:'Christopher To Do',color:'#5856d6'},{id:'shopping',title:'Shopping',color:'#ff9f0a'},{id:'relationships',title:'Relationships',color:'#ff2d55'},{id:'completed',title:'Completed',color:'#34c759'},{id:'parking',title:'Parking Lot',color:'#8e8e93'}].forEach(function(col) {
                         if (getTaskColumn(task) === col.id) return;
                         const opt = document.createElement('button');
                         opt.className = 'move-to-option';
@@ -4408,15 +4412,13 @@ function getGithubToken() {
                         opt.onclick = function(ev) {
                             ev.stopPropagation();
                             moveMenu.classList.remove('open');
-                            if (col.id === 'completed') { task.status = 'completed'; }
-                            else if (col.id === 'todo' || col.id === 'parking') { task.status = 'pending'; }
-                            else { task.status = 'in_progress'; }
-                            if (col.id === 'christopher') { task.mode = 'manual'; }
-                            else if (col.id === 'claude') { task.mode = 'auto'; }
-                            else if (col.id === 'assistance') { task.mode = 'assistance'; }
-                            else if (col.id === 'parking') { task.labels = task.labels || []; if (!task.labels.includes('Parking Lot')) task.labels.push('Parking Lot'); task.mode = 'manual'; }
-                            else { task.mode = 'manual'; }
-                            if (col.id !== 'parking' && task.labels) { task.labels = task.labels.filter(function(l){return l !== 'Parking Lot';}); }
+                            task.mode = 'manual';
+                            task.status = (col.id === 'completed') ? 'completed' : 'pending';
+                            if (col.id === 'completed' && !task.completed_at) { task.completed_at = new Date().toISOString(); }
+                            task.labels = task.labels ? task.labels.filter(function(l){return l !== 'Parking Lot' && l !== 'Shopping' && l !== 'Relationships';}) : [];
+                            if (col.id === 'parking') { task.labels.push('Parking Lot'); }
+                            else if (col.id === 'shopping') { task.labels.push('Shopping'); }
+                            else if (col.id === 'relationships') { task.labels.push('Relationships'); }
                             saveTasksToGithub(tasks, 'Move task'); filterTasks();
                         };
                         moveMenu.appendChild(opt);
@@ -4505,9 +4507,9 @@ function getGithubToken() {
             if (!task) return;
 
             const columnMapping = {
-                'christopher-todo': { status: 'pending', mode: 'manual', removeLabel: 'Parking Lot' },
-                'christopher-ip': { status: 'in_progress', mode: 'manual' },
-                'claude': { status: 'in_progress', mode: 'auto' },
+                'christopher-todo': { status: 'pending', mode: 'manual' },
+                'shopping': { status: 'pending', mode: 'manual', addLabel: 'Shopping' },
+                'relationships': { status: 'pending', mode: 'manual', addLabel: 'Relationships' },
                 'completed': { status: 'completed', mode: 'manual', completedAt: new Date().toISOString() },
                 'parking': { status: 'pending', mode: 'manual', addLabel: 'Parking Lot' }
             };
@@ -4519,8 +4521,9 @@ function getGithubToken() {
             task.status = mapping.status;
             task.mode = mapping.mode;
 
-            if (mapping.removeLabel) {
-                task.labels = task.labels ? task.labels.filter(l => l !== mapping.removeLabel) : [];
+            // Strip column-defining labels, then add the one for the target column (Completed keeps existing labels)
+            if (columnId !== 'completed') {
+                task.labels = task.labels ? task.labels.filter(l => l !== 'Parking Lot' && l !== 'Shopping' && l !== 'Relationships') : [];
             }
 
             if (mapping.addLabel) {
@@ -4768,7 +4771,7 @@ function getGithubToken() {
             document.getElementById('modalTitle').textContent = 'Add Task';
             document.getElementById('taskTitle').value = '';
             document.getElementById('taskDescription').value = '';
-            document.getElementById('taskColumn').value = 'todo';
+            document.getElementById('taskColumn').value = 'christopher-todo';
             document.getElementById('taskDelegationNotes').value = '';
             document.getElementById('taskProject').value = '';
             if (document.getElementById('cfClient')) document.getElementById('cfClient').value = '';
@@ -4846,21 +4849,21 @@ function getGithubToken() {
 
                     // Update column/status/mode based on selected column
                     const columnMapping = {
-                        'todo': { status: 'pending', mode: 'manual' },
-                        'christopher': { status: 'in_progress', mode: 'manual' },
-                        'claude': { status: 'in_progress', mode: 'auto' },
-                        'assistance': { status: 'in_progress', mode: 'assistance' },
+                        'christopher-todo': { status: 'pending', mode: 'manual' },
+                        'shopping': { status: 'pending', mode: 'manual', addLabel: 'Shopping' },
+                        'relationships': { status: 'pending', mode: 'manual', addLabel: 'Relationships' },
                         'completed': { status: 'completed', mode: task.mode },
-                        'parking': { status: 'pending', mode: 'manual' }
+                        'parking': { status: 'pending', mode: 'manual', addLabel: 'Parking Lot' }
                     };
                     const mapping = columnMapping[column];
                     if (mapping) {
                         task.status = mapping.status;
                         task.mode = mapping.mode;
-                        if (column === 'parking' && !task.labels.includes('Parking Lot')) {
-                            task.labels.push('Parking Lot');
-                        } else if (column !== 'parking') {
-                            task.labels = task.labels.filter(l => l !== 'Parking Lot');
+                        if (column !== 'completed') {
+                            task.labels = task.labels.filter(l => l !== 'Parking Lot' && l !== 'Shopping' && l !== 'Relationships');
+                        }
+                        if (mapping.addLabel && !task.labels.includes(mapping.addLabel)) {
+                            task.labels.push(mapping.addLabel);
                         }
                         if (column === 'completed' && !task.completed_at) {
                             task.completed_at = new Date().toISOString();
@@ -5010,7 +5013,7 @@ function getGithubToken() {
             document.getElementById('priorityChart').innerHTML = priorityHtml;
 
             // Column chart
-            const columnLabels = { 'christopher-todo': 'Christopher — To Do', 'christopher-ip': 'Christopher — In Progress', 'claude': 'Claude', 'completed': 'Completed', 'parking': 'Parking' };
+            const columnLabels = { 'christopher-todo': 'Christopher To Do', 'shopping': 'Shopping', 'relationships': 'Relationships', 'completed': 'Completed', 'parking': 'Parking Lot' };
             let columnHtml = '';
             const maxColumn = Math.max(...Object.values(columnCounts));
             Object.entries(columnCounts).forEach(([col, count]) => {
@@ -6583,12 +6586,10 @@ function updateNavArrows() {
     // ===== PINNED PRIORITY STRIP =====
     const COLUMN_COLORS = {
         'christopher-todo': '#5856d6',
-        'christopher-ip': '#007aff', 
-        'claude': '#af52de',
+        'shopping': '#ff9f0a',
+        'relationships': '#ff2d55',
         'completed': '#34c759',
-        'in_progress': '#007aff',
-        'review': '#ff9f0a',
-        'parking_lot': '#6B7280'
+        'parking': '#8e8e93'
     };
     const MAX_PINNED = 10;
     var priorityStripCollapsed = false;

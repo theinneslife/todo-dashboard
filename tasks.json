@@ -48,6 +48,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to shopping"
+      },
+      {
+        "timestamp": "2026-05-28T13:39:48.192Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from shopping to shopping"
       }
     ],
     "start_date": null,

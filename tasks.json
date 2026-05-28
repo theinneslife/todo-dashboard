@@ -6,7 +6,9 @@
     "priority": 1,
     "status": "pending",
     "mode": "manual",
-    "labels": [],
+    "labels": [
+      "Shopping"
+    ],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
@@ -40,6 +42,12 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-05-28T13:39:34.761Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to shopping"
       }
     ],
     "start_date": null,

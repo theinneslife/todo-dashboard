@@ -1743,9 +1743,52 @@ for (let i = 41; i >= 0; i--) {
   fitnessLabels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
 }
 
-const ctlData = [42,43,44,45,45,46,46,47,47,48,49,49,50,51,51,52,53,53,54,54,55,55,56,57,57,58,58,59,60,60,61,62,63,64,65,65,64,63,62,61,60,59];
-const atlData = [45,43,48,52,44,47,43,50,55,48,51,46,54,58,50,53,47,55,60,52,56,50,57,62,54,58,52,60,65,57,70,72,68,65,62,58,52,48,45,42,40,38];
-const tsbData = ctlData.map((c, i) => Math.round(c - atlData[i]));
+// CTL/ATL/TSB are computed from actual Strava activity data via the Performance
+// Management Chart model (exponential moving averages), not a linear ramp.
+// Populated by computeFitnessData() and refreshed after each Strava sync.
+let ctlData = [];
+let atlData = [];
+let tsbData = [];
+
+// Per-activity Training Stress Score. No HR/power data is available for these
+// activities, so we estimate from distance (~10 TSS per mile at endurance effort)
+// plus a climbing surcharge (~1 TSS per 100 ft of vert gain).
+function estimateTSS(activity) {
+  const miles = Number(activity.dist) || 0;
+  const vert  = Number(activity.elev) || 0;
+  if (miles <= 0 && vert <= 0) return 0;
+  return miles * 10 + vert / 100;
+}
+
+// Build the CTL/ATL/TSB series across the fitness-curve window from
+// stravaActivities using the standard PMC exponential moving averages:
+//   CTL(t) = CTL(t-1) + (TSS(t) - CTL(t-1)) / 42   (chronic load / fitness)
+//   ATL(t) = ATL(t-1) + (TSS(t) - ATL(t-1)) / 7    (acute load / fatigue)
+//   TSB(t) = CTL(t-1) - ATL(t-1)                   (form / freshness)
+function computeFitnessData() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const N = fitnessLabels.length; // 42-day window, oldest → newest
+  const dailyTSS = new Array(N).fill(0);
+  stravaActivities.forEach(a => {
+    const d = new Date(a.date); d.setHours(0, 0, 0, 0);
+    const offset = Math.round((today - d) / 86400000); // 0 = today
+    if (offset >= 0 && offset < N) dailyTSS[N - 1 - offset] += estimateTSS(a);
+  });
+
+  // Seed CTL/ATL at the window's average daily load so the curve opens at a
+  // realistic baseline instead of ramping up from zero.
+  const seed = dailyTSS.reduce((s, v) => s + v, 0) / (N || 1);
+  let ctl = seed, atl = seed;
+  const ctlArr = [], atlArr = [], tsbArr = [];
+  for (let i = 0; i < N; i++) {
+    tsbArr.push(+(ctl - atl).toFixed(1)); // TSB(t) uses prior day's CTL/ATL
+    ctl += (dailyTSS[i] - ctl) / 42;
+    atl += (dailyTSS[i] - atl) / 7;
+    ctlArr.push(+ctl.toFixed(1));
+    atlArr.push(+atl.toFixed(1));
+  }
+  ctlData = ctlArr; atlData = atlArr; tsbData = tsbArr;
+}
 
 /* ══════════════════════════════════════════════
    Date helpers
@@ -2260,8 +2303,8 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
 /* ══════════════════════════════════════════════
    Pass 1: TSB Status Annotation
    ══════════════════════════════════════════════ */
-(function initTsbStatus() {
-  const tsb = tsbData[tsbData.length - 1];
+function renderTsbStatus() {
+  const tsb = Math.round(tsbData.length ? tsbData[tsbData.length - 1] : 0);
   let zone, zoneColor, desc;
 
   if      (tsb > 15)  { zone = 'Very Fresh';  zoneColor = '#34d399'; desc = 'Optimal performance window — race ready'; }
@@ -2278,13 +2321,25 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
   zoneLbl.style.cssText = `color:${zoneColor};background:${zoneColor}22;border:1px solid ${zoneColor}44;`;
 
   document.getElementById('tsb-zone-desc').textContent = desc;
-})();
+}
 
 /* ══════════════════════════════════════════════
    Fitness Curve Chart (Chart.js)
    ══════════════════════════════════════════════ */
-(function initFitnessChart() {
-  const ctx = document.getElementById('fitnessChart').getContext('2d');
+let fitnessChartInstance = null;
+function renderFitnessChart() {
+  const canvas = document.getElementById('fitnessChart');
+  if (!canvas) return;
+
+  if (fitnessChartInstance) {
+    fitnessChartInstance.data.datasets[0].data = ctlData;
+    fitnessChartInstance.data.datasets[1].data = atlData;
+    fitnessChartInstance.data.datasets[2].data = tsbData;
+    fitnessChartInstance.update();
+    return;
+  }
+
+  const ctx = canvas.getContext('2d');
 
   const ctlGrad = ctx.createLinearGradient(0, 0, 0, 220);
   ctlGrad.addColorStop(0, 'rgba(96,165,250,0.22)');
@@ -2298,7 +2353,7 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
     (i % 7 === 0 || i === fitnessLabels.length - 1) ? l : ''
   );
 
-  new Chart(ctx, {
+  fitnessChartInstance = new Chart(ctx, {
     type: 'line',
     data: {
       labels: sparseLabels,
@@ -2357,7 +2412,7 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
           bodyColor: '#e2e8f0',
           padding: 10,
           callbacks: {
-            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`
+            label: ctx => `${ctx.dataset.label}: ${Math.round(ctx.parsed.y)}`
           }
         }
       },
@@ -2381,7 +2436,14 @@ renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
       }
     }
   });
-})();
+}
+
+// Recompute PMC data from the latest activities and refresh the chart + status.
+function refreshFitness() {
+  computeFitnessData();
+  renderFitnessChart();
+  renderTsbStatus();
+}
 
 /* ══════════════════════════════════════════════
    Periodization Week Label
@@ -2748,9 +2810,14 @@ async function syncStravaData() {
           ? new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
           : (r.date || '');
         const name = String(r.name || 'Run').replace(/[<>]/g, '');
+        const ft = Number(r.elevation_feet);
+        const vert = (isFinite(ft) && ft > 0)
+          ? (ft >= 10000 ? (ft / 1000).toFixed(1) + 'k ft' : Math.round(ft).toLocaleString('en-US') + ' ft')
+          : '';
+        const vertStr = vert ? ` · <span style="color:var(--accent-blue);">↑ ${vert}</span>` : '';
         return `<div style="display:flex;justify-content:space-between;gap:0.5rem;">
           <span style="color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${name}</span>
-          <span>${dateStr} · ${r.miles} mi · ${r.duration}</span>
+          <span>${dateStr} · ${r.miles} mi${vertStr} · ${r.duration}</span>
         </div>`;
       }).join('');
     } else {
@@ -2787,6 +2854,7 @@ async function syncNow() {
     refreshVertGain();
     refreshB2B();
     refreshLongRunChart();
+    refreshFitness();
     refreshWeightCard();
     updateLastSyncLabel();
 
@@ -2818,21 +2886,29 @@ async function syncNow() {
   refreshB2B();
   refreshLongRunChart();
   refreshWeightCard();
-  await refreshCoachBriefing();
-  updateLastSyncLabel();
+  refreshFitness();
 
-  try {
-    const synced = await syncStravaData();
-    if (synced) {
-      refreshTrainingWeek();
-      refreshWeeklyBars();
-      refreshWeeklyCheckin();
-      refreshLongRunChart();
-      updateLastSyncLabel();
+  // Load the fast static Strava data immediately and in parallel with the slower
+  // coach briefing, so the weekly training stats show real numbers (~1.5s) rather
+  // than zeros while the briefing fetch is still in flight.
+  const stravaReady = (async () => {
+    try {
+      const synced = await syncStravaData();
+      if (synced) {
+        refreshTrainingWeek();
+        refreshWeeklyBars();
+        refreshWeeklyCheckin();
+        refreshLongRunChart();
+        refreshFitness();
+        updateLastSyncLabel();
+      }
+    } catch (e) {
+      console.warn('AthleteFlo: Strava sync failed', e);
     }
-  } catch (e) {
-    console.warn('AthleteFlo: Strava sync failed', e);
-  }
+  })();
+
+  await Promise.all([refreshCoachBriefing(), stravaReady]);
+  updateLastSyncLabel();
 })();
 </script>
 </body>

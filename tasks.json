@@ -2365,7 +2365,7 @@
     "title": "Write on brookes mirror",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -2378,17 +2378,24 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-05-28T17:35:05.484Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-05-28T17:33:44.104Z",
-    "completed_at": null,
+    "completed_at": "2026-05-28T17:35:05.484Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "efaf3e1e-b00b-4746-af4d-2fd8ac5d5851",

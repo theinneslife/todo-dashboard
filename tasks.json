@@ -2494,5 +2494,75 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "a7ad653f-9b0b-45d2-9665-cfcfe6aecdf7",
+    "title": "Buy bike food",
+    "description": "Add bike food to the shopping list, mentioned during recovery run voice note.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-28T22:32:50.735Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: 🏃 Easy 4 mi | Recovery Week 6"
+      }
+    ],
+    "created_at": "2026-05-28T22:32:50.735Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "aca09a3e-9f3b-445e-bf8f-728c3cf440f5",
+    "title": "Buy zip lock bags",
+    "description": "Add zip lock bags to the shopping list, mentioned during recovery run voice note.",
+    "priority": 3,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-05-28T22:32:50.735Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: 🏃 Easy 4 mi | Recovery Week 6"
+      }
+    ],
+    "created_at": "2026-05-28T22:32:50.735Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

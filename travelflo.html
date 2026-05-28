@@ -530,7 +530,7 @@
         .curated-cat-count { font-size: .65rem; font-weight: 700; padding: .2rem .55rem; border-radius: 10px; background: var(--bg-tertiary); color: var(--text-muted); white-space: nowrap; }
         .curated-row { display: flex; gap: .75rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: none; }
         .curated-row::-webkit-scrollbar { display: none; }
-        .curated-place-card { flex: 0 0 175px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: .9rem; display: flex; flex-direction: column; gap: .5rem; transition: all .2s; cursor: pointer; }
+        .curated-place-card { position: relative; flex: 0 0 175px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: .9rem; display: flex; flex-direction: column; gap: .5rem; transition: all .2s; cursor: pointer; }
         .curated-place-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
         .curated-place-flag { font-size: 1.4rem; line-height: 1; }
         .curated-place-name { font-size: .85rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
@@ -546,6 +546,23 @@
         .tag-culture { background: rgba(99,102,241,.15); color: #818cf8; }
         .curated-plan-btn { width: 100%; padding: .4rem; border-radius: 6px; background: var(--accent-blue); border: none; color: #fff; font-size: .65rem; font-weight: 600; cursor: pointer; margin-top: .25rem; transition: background .2s; }
         .curated-plan-btn:hover { background: #2563eb; }
+
+        /* Discover visited checkmarks */
+        .discover-check-btn { position: absolute; top: .5rem; right: .5rem; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-muted); font-size: .75rem; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; padding: 0; z-index: 2; }
+        .discover-check-btn:hover { border-color: #22c55e; color: #22c55e; }
+        .discover-check-btn.checked { background: #22c55e; border-color: #22c55e; color: #fff; }
+        .curated-place-card.visited { border-color: rgba(34,197,94,.55); box-shadow: 0 0 0 1px rgba(34,197,94,.3); }
+
+        /* Michelin section */
+        .michelin-add-btn { flex-shrink: 0; padding: .4rem .75rem; border-radius: 8px; background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.4); color: #f59e0b; font-size: .68rem; font-weight: 700; cursor: pointer; transition: all .2s; white-space: nowrap; }
+        .michelin-add-btn:hover { background: #f59e0b; color: #fff; }
+        .michelin-empty { font-size: .72rem; color: var(--text-muted); padding: .5rem 0; }
+        .michelin-card { position: relative; flex: 0 0 175px; background: var(--bg-secondary); border: 1px solid rgba(245,158,11,.35); border-radius: 10px; padding: .9rem; display: flex; flex-direction: column; gap: .35rem; }
+        .michelin-stars { font-size: .95rem; line-height: 1; }
+        .michelin-name { font-size: .85rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+        .michelin-loc { font-size: .68rem; color: var(--text-muted); }
+        .michelin-del-btn { position: absolute; top: .5rem; right: .5rem; width: 20px; height: 20px; border-radius: 50%; border: none; background: var(--bg-tertiary); color: var(--text-muted); font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: all .2s; }
+        .michelin-del-btn:hover { background: #ef4444; color: #fff; }
 
         .top-list {
             background-color: var(--bg-secondary);
@@ -2678,6 +2695,8 @@
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#6b7280"></div> Past</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#ef4444"></div> Race</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#f472b6"></div> ♥ With Brooke</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#14b8a6"></div> 🧭 Discover visited</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#f59e0b"></div> ⭐ Michelin</div>
             </div>
         </div>
         </div>
@@ -2882,6 +2901,42 @@
 
 
     <!-- Trip Details Modal Enhanced (consolidated into tripDetailModal) -->
+
+    <!-- Add Michelin Restaurant Modal -->
+    <div id="michelinModal" class="modal">
+        <div class="modal-content" style="max-width:420px;">
+            <div class="modal-header">
+                <div class="modal-title">⭐ Add Michelin Restaurant</div>
+                <button class="close-btn" onclick="app.closeMichelinModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Restaurant Name</label>
+                <input type="text" class="form-input" id="michelinNameInput" placeholder="e.g. Le Bernardin">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-input" id="michelinCityInput" placeholder="e.g. New York">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Country</label>
+                    <input type="text" class="form-input" id="michelinCountryInput" placeholder="e.g. USA">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Stars</label>
+                <select class="form-select" id="michelinStarsInput">
+                    <option value="1">⭐ 1 Star</option>
+                    <option value="2">⭐⭐ 2 Stars</option>
+                    <option value="3">⭐⭐⭐ 3 Stars</option>
+                </select>
+            </div>
+            <div class="form-actions" style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1rem;">
+                <button type="button" class="btn btn-secondary" onclick="app.closeMichelinModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="app.saveMichelinRestaurant()">Save</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Analytics Modal -->
     <div id="analyticsModal" class="modal" style="display:none;">
@@ -4195,8 +4250,8 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 document.getElementById('destinationInput').value = destination;
             }
 
-            renderDiscover() {
-                const categories = [
+            getDiscoverCategories() {
+                return [
                     {
                         id: 'events',
                         emoji: '🎟',
@@ -4342,6 +4397,10 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         ]
                     }
                 ];
+            }
+
+            renderDiscover() {
+                const categories = this.getDiscoverCategories();
 
                 this._discoverActiveFilter = this._discoverActiveFilter || 'all';
 
@@ -4363,8 +4422,12 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                             <div class="curated-cat-count">${cat.places.length}</div>
                         </div>
                         <div class="curated-row">
-                            ${cat.places.map(p => `
-                                <div class="curated-place-card" onclick="app.createTripFromDestination('${p.name.replace(/'/g,"\\'")}'); return false;">
+                            ${cat.places.map(p => {
+                                const visited = this.isDiscoverVisited(p.name);
+                                const safeName = p.name.replace(/'/g,"\\'");
+                                return `
+                                <div class="curated-place-card${visited ? ' visited' : ''}" onclick="app.createTripFromDestination('${safeName}'); return false;">
+                                    <button class="discover-check-btn${visited ? ' checked' : ''}" title="${visited ? 'Visited (click to remove)' : 'Mark as visited'}" onclick="event.stopPropagation(); app.toggleDiscoverVisited('${safeName}', this);">✓</button>
                                     <div class="curated-place-flag">${p.flag}</div>
                                     <div class="curated-place-name">${p.name}</div>
                                     <div class="curated-place-country">${p.country}</div>
@@ -4372,17 +4435,133 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                                     <span class="curated-place-tag ${cat.tagClass}">${cat.tagLabel}</span>
                                     <button class="curated-plan-btn">+ Plan Trip</button>
                                 </div>
-                            `).join('')}
+                            `;}).join('')}
                         </div>
                     </div>
                 `).join('');
 
-                document.getElementById('curatedDiscoverContainer').innerHTML = filterBar + catsHTML;
+                document.getElementById('curatedDiscoverContainer').innerHTML = this.renderMichelinSection() + filterBar + catsHTML;
             }
 
             filterDiscover(catId) {
                 this._discoverActiveFilter = catId;
                 this.renderDiscover();
+            }
+
+            _escHtml(s) {
+                return String(s == null ? '' : s)
+                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            }
+
+            // ===== Discover visited (localStorage: discover_visited) =====
+            getDiscoverVisited() {
+                try { return JSON.parse(localStorage.getItem('discover_visited')) || []; }
+                catch(e) { return []; }
+            }
+
+            isDiscoverVisited(name) {
+                return this.getDiscoverVisited().indexOf(name) >= 0;
+            }
+
+            getDiscoverPlaceByName(name) {
+                const cats = this.getDiscoverCategories();
+                for (const c of cats) {
+                    for (const p of c.places) {
+                        if (p.name === name) return p;
+                    }
+                }
+                return null;
+            }
+
+            toggleDiscoverVisited(name, btnEl) {
+                const list = this.getDiscoverVisited();
+                const idx = list.indexOf(name);
+                let nowVisited;
+                if (idx >= 0) { list.splice(idx, 1); nowVisited = false; }
+                else { list.push(name); nowVisited = true; }
+                localStorage.setItem('discover_visited', JSON.stringify(list));
+                if (btnEl) {
+                    btnEl.classList.toggle('checked', nowVisited);
+                    btnEl.title = nowVisited ? 'Visited (click to remove)' : 'Mark as visited';
+                    const card = btnEl.closest('.curated-place-card');
+                    if (card) card.classList.toggle('visited', nowVisited);
+                }
+                this.showToast(nowVisited ? name + ' marked as visited' : name + ' removed from visited', 'success');
+            }
+
+            // ===== Michelin restaurants (localStorage: michelin_visited) =====
+            getMichelinVisited() {
+                try { return JSON.parse(localStorage.getItem('michelin_visited')) || []; }
+                catch(e) { return []; }
+            }
+
+            renderMichelinSection() {
+                const list = this.getMichelinVisited();
+                const starStr = (n) => '⭐'.repeat(Math.max(1, Math.min(3, parseInt(n, 10) || 1)));
+                let cards;
+                if (list.length === 0) {
+                    cards = '<div class="michelin-empty">No restaurants yet. Add the Michelin starred places you have dined at.</div>';
+                } else {
+                    cards = list.map((r, i) => {
+                        const loc = [r.city, r.country].filter(Boolean).map(s => this._escHtml(s)).join(', ');
+                        return `
+                            <div class="michelin-card">
+                                <button class="michelin-del-btn" title="Remove" onclick="app.deleteMichelinRestaurant(${i})">&times;</button>
+                                <div class="michelin-stars">${starStr(r.stars)}</div>
+                                <div class="michelin-name">${this._escHtml(r.name)}</div>
+                                <div class="michelin-loc">${loc}</div>
+                            </div>`;
+                    }).join('');
+                }
+                return `
+                    <div class="curated-category michelin-section">
+                        <div class="curated-cat-header">
+                            <div class="curated-cat-emoji">⭐</div>
+                            <div class="curated-cat-meta">
+                                <div class="curated-cat-name">Michelin Restaurants</div>
+                                <div class="curated-cat-desc">The starred tables you have dined at</div>
+                            </div>
+                            <button class="michelin-add-btn" onclick="app.openMichelinModal()">+ Add Restaurant</button>
+                        </div>
+                        <div class="curated-row">${cards}</div>
+                    </div>`;
+            }
+
+            openMichelinModal() {
+                document.getElementById('michelinNameInput').value = '';
+                document.getElementById('michelinCityInput').value = '';
+                document.getElementById('michelinCountryInput').value = '';
+                document.getElementById('michelinStarsInput').value = '1';
+                document.getElementById('michelinModal').classList.add('active');
+                setTimeout(() => document.getElementById('michelinNameInput').focus(), 50);
+            }
+
+            closeMichelinModal() {
+                document.getElementById('michelinModal').classList.remove('active');
+            }
+
+            saveMichelinRestaurant() {
+                const name = (document.getElementById('michelinNameInput').value || '').trim();
+                const city = (document.getElementById('michelinCityInput').value || '').trim();
+                const country = (document.getElementById('michelinCountryInput').value || '').trim();
+                const stars = parseInt(document.getElementById('michelinStarsInput').value, 10) || 1;
+                if (!name) { this.showToast('Restaurant name required', 'error'); return; }
+                const list = this.getMichelinVisited();
+                list.push({ name: name, city: city, country: country, stars: stars });
+                localStorage.setItem('michelin_visited', JSON.stringify(list));
+                this.closeMichelinModal();
+                this.renderDiscover();
+                this.showToast(name + ' added', 'success');
+            }
+
+            deleteMichelinRestaurant(index) {
+                const list = this.getMichelinVisited();
+                if (index < 0 || index >= list.length) return;
+                const removed = list.splice(index, 1)[0];
+                localStorage.setItem('michelin_visited', JSON.stringify(list));
+                this.renderDiscover();
+                this.showToast((removed ? removed.name : 'Restaurant') + ' removed', 'success');
             }
 
         renderAllViews() { setTimeout(function(){if(typeof lucide!=="undefined")lucide.createIcons();},0);
@@ -7177,6 +7356,50 @@ this.updateDashboardStats();
                     }
                 }
             } catch(e) { console.warn('Could not load visited_places.json:', e); }
+
+            // Layer 3: Discover visited places (teal compass pins)
+            try {
+                const discoverVisited = this.getDiscoverVisited();
+                for (const placeName of discoverVisited) {
+                    const place = this.getDiscoverPlaceByName(placeName);
+                    const query = place ? (place.name + ', ' + place.country) : placeName;
+                    const coords = await this.geocodeDestination(query);
+                    if (!coords) continue;
+                    bounds.push(coords);
+                    const dIcon = L.divIcon({
+                        className: '',
+                        html: '<div style="width:20px;height:20px;background:#14b8a6;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1">🧭</div>',
+                        iconSize: [20, 20], iconAnchor: [10, 10]
+                    });
+                    const dMarker = L.marker(coords, { icon: dIcon }).addTo(map);
+                    const country = place ? place.country : '';
+                    dMarker.bindPopup('<div class="map-popup"><h4>' + self._escHtml(place ? place.name : placeName) + '</h4>'
+                        + (country ? '<p>' + self._escHtml(country) + '</p>' : '')
+                        + '<p style="color:#14b8a6;font-weight:500">🧭 Discover visited</p></div>');
+                }
+            } catch(e) { console.warn('Discover visited layer failed:', e); }
+
+            // Layer 4: Michelin restaurants (gold star pins)
+            try {
+                const michelin = this.getMichelinVisited();
+                for (const r of michelin) {
+                    const locQuery = [r.city, r.country].filter(Boolean).join(', ') || r.name;
+                    const coords = await this.geocodeDestination(locQuery);
+                    if (!coords) continue;
+                    bounds.push(coords);
+                    const mIcon = L.divIcon({
+                        className: '',
+                        html: '<div style="width:22px;height:22px;background:#f59e0b;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1">⭐</div>',
+                        iconSize: [22, 22], iconAnchor: [11, 11]
+                    });
+                    const mMarker = L.marker(coords, { icon: mIcon }).addTo(map);
+                    const stars = '⭐'.repeat(Math.max(1, Math.min(3, parseInt(r.stars, 10) || 1)));
+                    const loc = [r.city, r.country].filter(Boolean).join(', ');
+                    mMarker.bindPopup('<div class="map-popup"><h4>' + self._escHtml(r.name) + '</h4>'
+                        + (loc ? '<p>' + self._escHtml(loc) + '</p>' : '')
+                        + '<p style="color:#f59e0b;font-weight:500">' + stars + ' Michelin</p></div>');
+                }
+            } catch(e) { console.warn('Michelin layer failed:', e); }
 
             if (bounds.length > 0) {
                 map.fitBounds(bounds, { padding: [40, 40], maxZoom: 6 });

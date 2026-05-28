@@ -2137,10 +2137,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from parking to completed"
+      },
+      {
+        "timestamp": "2026-05-28T13:40:43.939Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from parking to completed"
       }
     ],
     "created_at": "2026-05-15T13:22:56.053Z",
-    "completed_at": "2026-05-28T13:40:39.507Z",
+    "completed_at": "2026-05-28T13:40:43.939Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,

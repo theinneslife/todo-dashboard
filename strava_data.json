@@ -1,7 +1,7 @@
 {
-  "generated": "2026-05-28T05:13:54.649741Z",
-  "weekly_miles": 18.3,
-  "total_elevation_feet": 1660,
+  "generated": "2026-05-28T10:17:06.775291Z",
+  "weekly_miles": 22.3,
+  "total_elevation_feet": 1919,
   "last_week_miles": 26.1,
   "last_week_elevation_feet": 1972,
   "last_week_sessions": 2,
@@ -26,6 +26,13 @@
       "miles": 12.21,
       "elevation_feet": 1266,
       "duration": "2:27:28"
+    },
+    {
+      "name": "Recovery Run",
+      "date": "2026-05-28",
+      "miles": 4.02,
+      "elevation_feet": 259,
+      "duration": "40:03"
     }
   ]
 }

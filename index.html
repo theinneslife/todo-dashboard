@@ -3542,7 +3542,13 @@ function getGithubToken() {
         }
 
         // GitHub API functions
+        // Safety guard (2026-05-29): distinguishes a *failed* fetch (network/offline/API error)
+        // from a genuinely-empty remote. fetchTasksFromGithub() returns [] in both cases, so
+        // callers must check this flag before treating an empty result as the real task list.
+        let _lastFetchFailed = false;
+
         async function fetchTasksFromGithub() {
+            _lastFetchFailed = false;
             try {
                 // v4.1: Use API endpoint when authenticated for fresh data (CDN caches for minutes)
                 if (githubToken) {
@@ -3569,6 +3575,7 @@ function getGithubToken() {
                 return Array.isArray(data) ? data : [];
             } catch (error) {
                 console.error('Error fetching tasks:', error);
+                _lastFetchFailed = true;
                 return [];
             }
         }
@@ -3688,6 +3695,35 @@ function getGithubToken() {
                     } catch (e) {
                         showToast('Merge failed - keeping local changes', 'warning');
                     }
+                }
+
+                // SAFETY GUARD (2026-05-29): never overwrite a populated remote tasks.json with an
+                // empty/minimal array. Regression context: the offline-retry path committed [] after a
+                // failed load, wiping all 61 tasks (recovered in commit f8f25bc). If the local array is
+                // suspiciously small, re-check the remote and abort rather than risk a wipe.
+                var MIN_SAFE_TASKS = 5;
+                if (tasks.length < MIN_SAFE_TASKS) {
+                    var remoteCheck = await fetchTasksFromGithub();
+                    if (_lastFetchFailed) {
+                        // Can't confirm the remote is empty — refuse to push a minimal array.
+                        console.warn('[SAFETY GUARD] Save aborted: local has ' + tasks.length +
+                            ' task(s) and remote re-check failed; refusing to overwrite tasks.json.');
+                        showToast('Save blocked — could not verify remote tasks', 'warning', 5000);
+                        return false;
+                    }
+                    if (remoteCheck.length > 0) {
+                        // Remote has real tasks but local is minimal/empty: this is the wipe scenario.
+                        console.warn('[SAFETY GUARD] Save aborted: local has ' + tasks.length +
+                            ' task(s) but remote has ' + remoteCheck.length +
+                            '. Refusing to overwrite tasks.json with a minimal array.');
+                        showToast('Save blocked — would have wiped ' + remoteCheck.length + ' tasks', 'error', 6000);
+                        // Drop the poisoned minimal state from the offline queue so it stops retrying;
+                        // the next auto-refresh (loadTasks) will restore the real tasks from remote.
+                        _offlineQueue = [];
+                        updateSyncIndicator();
+                        return false;
+                    }
+                    // remoteCheck.length === 0 → remote is genuinely empty, safe to proceed.
                 }
 
                 var tasksToSave = tasks.map(function(t) {
@@ -3928,7 +3964,20 @@ function getGithubToken() {
             document.body.classList.add('loading');
             document.getElementById('loadingOverlay').style.display = 'flex';
             try {
-                tasks = await fetchTasksFromGithub();
+                // SAFETY GUARD (2026-05-29): if the fetch failed (network/offline/API error),
+                // fetchTasksFromGithub() returns [] — do NOT overwrite the in-memory tasks with it,
+                // or a subsequent auto-save could push the empty array to GitHub. Keep whatever was
+                // last successfully loaded and surface a non-fatal warning instead.
+                var fetched = await fetchTasksFromGithub();
+                if (_lastFetchFailed) {
+                    console.warn('[SAFETY GUARD] Load failed — keeping ' + tasks.length +
+                        ' in-memory task(s), not overwriting with empty result.');
+                    if (tasks.length > 0) {
+                        showToast('Could not refresh — keeping current tasks', 'warning', 3000);
+                    }
+                } else {
+                    tasks = fetched;
+                }
                 loadPinnedFromLocal();
                 detectProjects();
                 updateAllLabels();

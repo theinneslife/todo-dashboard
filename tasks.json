@@ -2545,7 +2545,8 @@
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "otter-ai"
+      "otter-ai",
+      "Shopping"
     ],
     "due_date": null,
     "recurrence": null,
@@ -2556,6 +2557,12 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: 🏃 Easy 4 mi | Recovery Week 6"
+      },
+      {
+        "timestamp": "2026-05-29T21:23:04.141Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to shopping"
       }
     ],
     "created_at": "2026-05-28T22:32:50.735Z",

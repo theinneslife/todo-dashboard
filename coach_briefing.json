@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-25",
-  "generated_at": "2026-05-25T10:45:26Z",
+  "generated": "2026-05-29",
+  "generated_at": "2026-05-29T21:07:32Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 16 weeks (115 days) to Kranjska Gora. Monday is your recovery anchor after the weekend's long efforts — 40–55 min very easy Zone 2, heart rate capped near 70% of max, on the softest surface you can find. Nasal breathing the whole way; if you can't hold it, you're running too hard. If the legs still feel hollow from Saturday's climb day, swap for a 30-min brisk walk plus 15 min of mobility — no ego today. The Julian Alps build compounds on Wednesday's hills and the weekend long run, not on Mondays. Today's only job is to move blood through tired muscle."
+      "message": "Build Phase, 16 weeks (112 days) to Julian Alps. Friday is your pre-weekend primer: 50–60 min easy Zone 2 (HR ~135–145) with 4–5 × 20s strides on a slight incline to wake the legs without taxing them. Keep it conversational — tomorrow's long run and Sunday's back-to-back are where the alpine adaptation happens. Traveling? A treadmill at 4–6% covers the strides."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Build Phase is when you train the gut as seriously as the legs. Today, rebuild from the weekend: 1.6–1.8 g/kg protein across four feedings — eggs and oats at breakfast, a real ~600 kcal lunch with chicken, rice and vegetables, Greek yogurt and berries mid-afternoon, fatty fish with sweet potato at dinner. Start locking in race-day carbs now: on this weekend's long run, rehearse 80–90 g/hr using the exact gels or drink mix you'll carry in Slovenia. The gut needs 12-plus weeks of reps to absorb that load — and sparse alpine aid stations make self-sufficiency non-negotiable."
+      "message": "Start prepping the gut for the weekend's big efforts. Target ~6–7 g/kg carbs today (~450–550g): oats + banana at breakfast, a rice or pasta bowl at lunch, sweet potato + protein at dinner. Lock in a tested race breakfast you can repeat Saturday morning, and rehearse fueling on the long run — 60–90g carbs/hr. Train the gut as seriously as the legs."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Recovery is training — tonight it's the highest-leverage thing you'll do all day. Eight hours in bed, screens off 60 minutes before sleep, room under 67°F. With constant travel and time-zone churn, sleep is the one variable that compounds without cost, so anchor a consistent wake time even when MNTN's calendar fights you. Before bed, give 10 minutes to calves and soleus with a lacrosse ball — the Julian Alps' steep descents will tax them harder than any flat ultra you've run. Hydrate to clear urine by early evening, then taper fluids so you sleep straight through."
+      "message": "Protect tonight's sleep — you want 8+ hours before back-to-back long days. If you've crossed time zones this week, grab 10–15 min of morning daylight to anchor your rhythm. After today's run, foam-roll calves, quads, and glutes for 8–10 min so the legs are springy for this weekend's descents. Hydrate to pale-yellow by 6pm."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build Phase is the bank account: on race day in September you only withdraw what you deposited over these 16 weeks. The 50K isn't won at the Kranjska Gora start line — it's decided by whether you respected the easy days enough to nail the hard ones. Easy today is not lazy; easy today is what makes Wednesday's hills sharp and the 2,500m of alpine climbing survivable. Sixteen weeks of good-enough, repeated through travel and meetings, beats any single heroic session. Trust the architecture you're building."
+      "message": "Build Phase is where the race is quietly won — consistency now compounds into confidence on the Kranjska Gora start line. The ~2,500m of vert and variable alpine weather reward athletes who logged the boring middle blocks. This weekend's back-to-back simulates running on tired legs; treat fatigue as a teacher, not a threat. Show up, do the work, trust the bank you're building."
     }
   ]
 }

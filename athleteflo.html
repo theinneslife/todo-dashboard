@@ -1291,6 +1291,243 @@
     }
 
     /* ============================================
+       Nutrition — tabbed visualizations (3 concepts)
+       ============================================ */
+    .nutri-tabs {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.25rem;
+      margin-bottom: 1.1rem;
+    }
+    .nutri-tab {
+      flex: 1;
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 0.5rem 0.4rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .nutri-tab:hover { color: var(--text-secondary); }
+    .nutri-tab.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    }
+
+    .nutri-view { display: none; }
+    .nutri-view.active { display: block; animation: nutriFade 0.3s ease; }
+    @keyframes nutriFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+    .nutri-chart-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .nutri-chart-wrap canvas { width: 100% !important; }
+
+    /* Summary stat row (Concept 1 + Concept 2) */
+    .nutri-summary-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .nutri-summary {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.65rem 0.7rem;
+      min-width: 0;
+    }
+    .ns-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text-primary);
+    }
+    .ns-val.pos { color: var(--accent-green); }
+    .ns-val.neg { color: var(--accent-red); }
+    .ns-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      line-height: 1.25;
+    }
+    .ns-trend { font-size: 0.66rem; font-weight: 600; margin-left: 0.25rem; }
+    .ns-trend.up { color: var(--accent-green); }
+    .ns-trend.down { color: var(--accent-red); }
+    .ns-trend.flat { color: var(--text-muted); }
+
+    /* Chart legend chips */
+    .nutri-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .nutri-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.62rem;
+      color: var(--text-muted);
+    }
+    .nutri-legend i {
+      width: 10px; height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* Concept 2 — macro periodization calendar */
+    .macro-cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 0.55rem;
+    }
+    .macro-cal-legend span {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.6rem; color: var(--text-muted);
+    }
+    .macro-cal-legend i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+    .macro-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 4px;
+      margin-bottom: 1rem;
+    }
+    .macro-cal-cell {
+      aspect-ratio: 1 / 1;
+      border-radius: 3px;
+      background: var(--bg-tertiary);
+      cursor: default;
+      transition: transform 0.12s;
+    }
+    .macro-cal-cell:hover { transform: scale(1.18); }
+    .mc-carb    { background: #60a5fa; }
+    .mc-protein { background: #34d399; }
+    .mc-fat     { background: #fbbf24; }
+    .mc-none    { background: var(--bg-tertiary); }
+
+    /* Concept 3 — race readiness */
+    .readiness-top {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.1rem;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .gut-gauge-wrap {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+    .gut-score-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .gut-score-center span#gut-score-val {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--accent-green);
+    }
+    .gut-score-lbl {
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .readiness-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .rs-item {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+    }
+    .rs-item span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+    .rs-item label {
+      display: block;
+      font-size: 0.56rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      line-height: 1.2;
+    }
+    .grade-a { color: var(--accent-green) !important; }
+    .grade-b { color: var(--accent-blue) !important; }
+    .grade-c { color: var(--accent-yellow) !important; }
+    .grade-d { color: var(--accent-red) !important; }
+
+    .milestone-list {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .milestone {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+    .milestone .ms-check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .milestone.done .ms-check { background: rgba(52,211,153,0.18); color: var(--accent-green); border: 1px solid rgba(52,211,153,0.35); }
+    .milestone.pending .ms-check { background: var(--bg-tertiary); color: var(--text-muted); border: 1px solid var(--border-color); }
+    .milestone.done .ms-text { color: var(--text-primary); }
+
+    @media (max-width: 600px) {
+      .nutri-tab { font-size: 0.66rem; padding: 0.5rem 0.2rem; }
+      .nutri-summary-row { gap: 0.4rem; }
+      .ns-val { font-size: 1.05rem; }
+      .readiness-top { grid-template-columns: 1fr; }
+      .gut-gauge-wrap { width: 140px; height: 140px; }
+      .macro-cal-grid { grid-template-columns: repeat(10, 1fr); }
+    }
+
+    /* ============================================
        HRV Quick Entry
        ============================================ */
     .hrv-entry-section {
@@ -1704,51 +1941,79 @@
           <span class="card-badge badge-orange" id="nutrition-badge">Today</span>
         </div>
 
-        <div class="nutrition-grid">
-
-          <!-- Calories vs target -->
-          <div class="nutrition-cal-block">
-            <div class="nutrition-cal-hero"><span id="nutri-cal">—</span><span class="nutrition-cal-unit">cal</span></div>
-            <div class="nutrition-cal-sub">of <strong id="nutri-cal-target">2,500</strong> cal · <span id="nutri-cal-remaining">—</span></div>
-            <div class="nutri-track"><div class="nutri-fill nutri-fill-cal" id="nutri-cal-bar" style="width:0%"></div></div>
-          </div>
-
-          <!-- Macro breakdown -->
-          <div class="nutrition-macros">
-            <div class="macro-row">
-              <div class="macro-head">
-                <span class="macro-name">Protein</span>
-                <span class="macro-val"><span id="nutri-protein">— g</span><span class="macro-target" id="nutri-protein-target"></span></span>
-              </div>
-              <div class="nutri-track"><div class="nutri-fill nutri-fill-protein" id="nutri-protein-bar" style="width:0%"></div></div>
-            </div>
-            <div class="macro-row">
-              <div class="macro-head">
-                <span class="macro-name">Carbs</span>
-                <span class="macro-val"><span id="nutri-carbs">— g</span><span class="macro-target" id="nutri-carbs-target"></span></span>
-              </div>
-              <div class="nutri-track"><div class="nutri-fill nutri-fill-carbs" id="nutri-carbs-bar" style="width:0%"></div></div>
-            </div>
-            <div class="macro-row">
-              <div class="macro-head">
-                <span class="macro-name">Fat</span>
-                <span class="macro-val"><span id="nutri-fat">— g</span><span class="macro-target" id="nutri-fat-target"></span></span>
-              </div>
-              <div class="nutri-track"><div class="nutri-fill nutri-fill-fat" id="nutri-fat-bar" style="width:0%"></div></div>
-            </div>
-          </div>
-
-          <!-- Hydration -->
-          <div class="nutrition-hydration">
-            <div class="hydration-top">
-              <span class="hydration-icon">💧</span>
-              <span class="hydration-val" id="nutri-water">—</span><span class="hydration-unit">L</span>
-            </div>
-            <div class="hydration-sub">of <strong id="nutri-water-target">3.0</strong> L target</div>
-            <div class="nutri-track"><div class="nutri-fill nutri-fill-water" id="nutri-water-bar" style="width:0%"></div></div>
-          </div>
-
+        <!-- Segmented control -->
+        <div class="nutri-tabs" role="tablist">
+          <button class="nutri-tab active" data-tab="1" onclick="switchNutriTab(1)">Fuel vs Load</button>
+          <button class="nutri-tab" data-tab="2" onclick="switchNutriTab(2)">Macro Split</button>
+          <button class="nutri-tab" data-tab="3" onclick="switchNutriTab(3)">Race Readiness</button>
         </div>
+
+        <!-- ── Concept 1: Fuel vs Training Load ── -->
+        <div class="nutri-view active" id="nutri-view-1">
+          <div class="nutri-summary-row">
+            <div class="nutri-summary">
+              <div class="ns-val" id="ns-hard-deficit">—</div>
+              <div class="ns-label">Avg deficit · hard days</div>
+            </div>
+            <div class="nutri-summary">
+              <div class="ns-val" id="ns-rest-surplus">—</div>
+              <div class="ns-label">Avg surplus · rest days</div>
+            </div>
+            <div class="nutri-summary">
+              <div class="ns-val" id="ns-wellfueled">—</div>
+              <div class="ns-label">Well-fueled days (30d)</div>
+            </div>
+          </div>
+          <div class="nutri-chart-wrap"><canvas id="nutriFuelChart"></canvas></div>
+          <div class="nutri-legend">
+            <span><i style="background:#fb923c"></i> Calories</span>
+            <span><i style="background:#f87171"></i> Under-fueled hard day</span>
+            <span><i style="background:#34d399"></i> Training load (TSS)</span>
+          </div>
+        </div>
+
+        <!-- ── Concept 2: Macro Periodization Calendar ── -->
+        <div class="nutri-view" id="nutri-view-2">
+          <div class="macro-cal-legend">
+            <span><i class="mc-carb"></i> Carb-heavy</span>
+            <span><i class="mc-protein"></i> Protein-heavy</span>
+            <span><i class="mc-fat"></i> Fat-heavy</span>
+            <span><i class="mc-none"></i> No data</span>
+          </div>
+          <div class="macro-cal-grid" id="macroCalGrid"></div>
+          <div class="nutri-chart-wrap"><canvas id="macroStackChart"></canvas></div>
+          <div class="nutri-summary-row" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="nutri-summary">
+              <div class="ns-val" id="ns-carbs-7d">— <span class="ns-trend" id="ns-carbs-trend"></span></div>
+              <div class="ns-label">Avg carbs · 7d <span id="ns-carbs-tgt"></span></div>
+            </div>
+            <div class="nutri-summary">
+              <div class="ns-val" id="ns-protein-7d">— <span class="ns-trend" id="ns-protein-trend"></span></div>
+              <div class="ns-label">Avg protein · 7d <span id="ns-protein-tgt"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Concept 3: Race Fueling Readiness ── -->
+        <div class="nutri-view" id="nutri-view-3">
+          <div class="readiness-top">
+            <div class="gut-gauge-wrap">
+              <canvas id="gutScoreGauge"></canvas>
+              <div class="gut-score-center">
+                <span id="gut-score-val">0</span>
+                <span class="gut-score-lbl">gut score</span>
+              </div>
+            </div>
+            <div class="readiness-stats">
+              <div class="rs-item"><span id="rs-days-to-race">—</span><label>days to race</label></div>
+              <div class="rs-item"><span id="rs-week-grade">—</span><label>this week</label></div>
+              <div class="rs-item"><span id="rs-gut-runs">—</span><label>gut-training runs</label></div>
+            </div>
+          </div>
+          <div class="nutri-chart-wrap"><canvas id="weeklyFuelChart"></canvas></div>
+          <div class="milestone-list" id="milestoneList"></div>
+        </div>
+
         <div class="coach-updated" id="nutrition-updated"></div>
       </div>
     </div>
@@ -1820,11 +2085,13 @@ const WEEKLY_VERT_TARGET = 500; // feet
 
 // Daily nutrition targets — adjust freely. Calories default to 2500.
 const NUTRITION_TARGETS = {
-  calories:  2500, // cal
-  protein_g: 150,  // g
-  carbs_g:   300,  // g
-  fat_g:     80,   // g
-  water_l:   3.0,  // liters
+  calories:      2500, // cal — hard-training day
+  calories_easy: 2200, // cal — easy / rest day
+  protein_g:     150,  // g
+  carbs_g:       300,  // g — training day
+  carbs_rest_g:  220,  // g — rest day
+  fat_g:         80,   // g
+  water_l:       3.0,  // liters
 };
 
 // Training block starts 22 weeks before race day
@@ -3058,57 +3325,479 @@ async function syncStravaData() {
 let nutritionData = null;
 
 async function syncNutritionData() {
-  let data;
   try {
     const res = await fetch('./nutrition_data.json?_=' + Date.now(), { cache: 'no-store' });
-    if (!res.ok) return false;
-    data = await res.json();
-  } catch {
-    return false;
-  }
-  nutritionData = data;
+    if (res.ok) nutritionData = await res.json();
+  } catch { /* fall through — renderNutrition uses sample fallback */ }
   renderNutrition();
-  return true;
+  return !!nutritionData;
+}
+
+/* ── Small numeric / palette helpers shared across the three concepts ── */
+const N_PALETTE = {
+  cal:    '#fb923c',  // orange
+  calLow: '#f87171',  // red — under-fueled hard day
+  tss:    '#34d399',  // green
+  carb:   '#60a5fa',  // blue
+  protein:'#a78bfa',  // purple (macro stack)
+  fat:    '#fbbf24',  // amber
+  grid:   'rgba(42,48,64,0.5)',
+  muted:  '#94a3b8',
+};
+const N_TT = {  // shared tooltip styling
+  backgroundColor: '#1a1f2e', borderColor: '#2a3040', borderWidth: 1,
+  titleColor: '#94a3b8', bodyColor: '#e2e8f0', padding: 10,
+};
+const nNum = (v) => (typeof v === 'number' && isFinite(v) ? v : 0);
+
+/* ── Deterministic PRNG so the sample fallback is stable across re-renders ── */
+function nHash(s) {
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function nRng(seed) {
+  let t = seed >>> 0;
+  return function () {
+    t += 0x6D2B79F5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* TSS per calendar date, derived from the same Strava activity feed the
+   fitness curve uses (estimateTSS handles hrTSS vs distance fallback). */
+function nutriTssByDate() {
+  const m = {};
+  stravaActivities.forEach(a => {
+    if (!a || !a.date) return;
+    m[a.date] = (m[a.date] || 0) + estimateTSS(a);
+  });
+  return m;
+}
+
+// Day classification + per-day targets from training load.
+function nutriDayTargets(tss) {
+  const isHard = tss > 80;
+  const isTraining = tss >= 40;
+  return {
+    isHard, isTraining,
+    cal:  isHard ? NUTRITION_TARGETS.calories : NUTRITION_TARGETS.calories_easy,
+    carb: isTraining ? NUTRITION_TARGETS.carbs_g : NUTRITION_TARGETS.carbs_rest_g,
+  };
+}
+
+/* Build a 30-day daily series ending today. Real entries (history + today)
+   are used wherever present; if there are fewer than 5 real days we fill the
+   rest with a deterministic, training-correlated sample so the charts always
+   look populated. Each row carries a _real flag for honesty downstream. */
+let _nutriSeriesCache = null;
+function buildNutritionSeries() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const byDate = {};
+  const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+  hist.forEach(d => { if (d && d.date) byDate[d.date] = d; });
+  if (nutritionData && nutritionData.today && nutritionData.today.date) {
+    byDate[nutritionData.today.date] = nutritionData.today;
+  }
+  const useSample = Object.keys(byDate).length < 5;
+  const tssMap = nutriTssByDate();
+
+  const out = [];
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today); d.setDate(d.getDate() - i);
+    const key = isoDate(d);
+    const tss = nNum(tssMap[key]);
+    const real = byDate[key];
+    let row;
+    if (real) {
+      row = {
+        date: key, _real: true, tss,
+        calories: nNum(real.calories), protein_g: nNum(real.protein_g),
+        carbs_g: nNum(real.carbs_g), fat_g: nNum(real.fat_g),
+        fiber_g: nNum(real.fiber_g), water_ml: nNum(real.water_ml),
+      };
+    } else if (useSample) {
+      const rnd = nRng(nHash('athleteflo-nutri-' + key));
+      const tg = nutriDayTargets(tss);
+      let cal, carbs;
+      if (tg.isHard) {
+        if (rnd() < 0.28) { cal = 1700 + rnd() * 450; carbs = 150 + rnd() * 70; }  // occasional under-fuel
+        else              { cal = 2400 + rnd() * 520; carbs = 265 + rnd() * 90; }
+      } else if (tg.isTraining) {
+        cal = 2150 + rnd() * 420; carbs = 220 + rnd() * 80;
+      } else {
+        cal = 1900 + rnd() * 420; carbs = 170 + rnd() * 70;
+      }
+      const protein = 122 + rnd() * 56;
+      const fat = 60 + rnd() * 34;
+      row = {
+        date: key, _real: false, tss,
+        calories: Math.round(cal), protein_g: +protein.toFixed(1),
+        carbs_g: +carbs.toFixed(1), fat_g: +fat.toFixed(1),
+        fiber_g: +(18 + rnd() * 15).toFixed(1), water_ml: Math.round(2200 + rnd() * 1300),
+      };
+    } else {
+      row = { date: key, _real: false, tss, calories: 0, protein_g: 0, carbs_g: 0, fat_g: 0, fiber_g: 0, water_ml: 0 };
+    }
+    out.push(row);
+  }
+  return out;
+}
+
+/* ══════════════════════════════════════════════
+   Nutrition charts — tabbed (3 concepts)
+   ══════════════════════════════════════════════ */
+let activeNutriTab = 1;
+let nChartFuel = null, nChartStack = null, nChartGauge = null, nChartWeekly = null;
+
+function switchNutriTab(n) {
+  activeNutriTab = n;
+  document.querySelectorAll('.nutri-tab').forEach(b =>
+    b.classList.toggle('active', Number(b.dataset.tab) === n));
+  document.querySelectorAll('.nutri-view').forEach(v =>
+    v.classList.toggle('active', v.id === 'nutri-view-' + n));
+  drawNutriCharts();
+}
+
+function drawNutriCharts() {
+  if (!_nutriSeriesCache) return;
+  // Build only the visible tab's charts (Chart.js needs a sized canvas).
+  if (activeNutriTab === 1) drawFuelChart(_nutriSeriesCache);
+  else if (activeNutriTab === 2) drawMacroStackChart(_nutriSeriesCache);
+  else if (activeNutriTab === 3) { drawGutGauge(_nutriSeriesCache); drawWeeklyFuelChart(_nutriSeriesCache); }
+}
+
+const nMonthDay = (key) => { const d = new Date(key + 'T00:00:00'); return fmtMonthDay(d); };
+
+/* ── Concept 1: Fuel vs Training Load ── */
+function drawFuelChart(series) {
+  const canvas = document.getElementById('nutriFuelChart');
+  if (!canvas) return;
+  const labels = series.map(r => nMonthDay(r.date));
+  const cals   = series.map(r => Math.round(r.calories));
+  const tss    = series.map(r => Math.round(r.tss));
+  const barColors = series.map(r => {
+    const tg = nutriDayTargets(r.tss);
+    const underFueled = r.tss > 80 && r.calories < (tg.cal - 300);
+    return underFueled ? N_PALETTE.calLow : N_PALETTE.cal;
+  });
+
+  if (nChartFuel) nChartFuel.destroy();
+  nChartFuel = new Chart(canvas.getContext('2d'), {
+    data: {
+      labels,
+      datasets: [
+        {
+          type: 'bar', label: 'Calories', data: cals,
+          backgroundColor: barColors, borderRadius: 3, order: 2, yAxisID: 'y',
+        },
+        {
+          type: 'line', label: 'TSS', data: tss,
+          borderColor: N_PALETTE.tss, backgroundColor: 'transparent',
+          borderWidth: 2, pointRadius: 0, pointHoverRadius: 4,
+          tension: 0.35, order: 1, yAxisID: 'y2',
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: { ...N_TT, callbacks: {
+          label: c => c.dataset.label === 'TSS'
+            ? `TSS: ${c.parsed.y}`
+            : `Calories: ${c.parsed.y.toLocaleString('en-US')}`,
+        } },
+      },
+      scales: {
+        x: { grid: { color: N_PALETTE.grid, drawBorder: false },
+             ticks: { color: N_PALETTE.muted, font: { size: 10, family: 'Inter' }, maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } },
+        y: { position: 'left', beginAtZero: true,
+             grid: { color: N_PALETTE.grid, drawBorder: false },
+             ticks: { color: N_PALETTE.muted, font: { size: 10, family: 'Inter' } },
+             title: { display: true, text: 'Calories', color: '#64748b', font: { size: 10, family: 'Inter' } } },
+        y2: { position: 'right', beginAtZero: true,
+              grid: { display: false },
+              ticks: { color: N_PALETTE.tss, font: { size: 10, family: 'Inter' } },
+              title: { display: true, text: 'TSS', color: N_PALETTE.tss, font: { size: 10, family: 'Inter' } } },
+      },
+    },
+  });
+}
+
+/* ── Concept 2: Macro Periodization Calendar ── */
+function classifyMacroDay(r) {
+  const carbCal = r.carbs_g * 4, proCal = r.protein_g * 4, fatCal = r.fat_g * 9;
+  const total = carbCal + proCal + fatCal;
+  if (total <= 0) return 'none';
+  if (carbCal / total > 0.50) return 'carb';
+  if (proCal / total > 0.25)  return 'protein';
+  if (fatCal / total >= proCal / total && fatCal / total >= 0.30) return 'fat';
+  return 'carb';
+}
+function buildMacroCalGrid(series) {
+  const grid = document.getElementById('macroCalGrid');
+  if (!grid) return;
+  const cls = { carb: 'mc-carb', protein: 'mc-protein', fat: 'mc-fat', none: 'mc-none' };
+  grid.innerHTML = series.map(r => {
+    const k = classifyMacroDay(r);
+    const title = r.calories > 0
+      ? `${nMonthDay(r.date)} · ${Math.round(r.carbs_g)}C / ${Math.round(r.protein_g)}P / ${Math.round(r.fat_g)}F`
+      : `${nMonthDay(r.date)} · no data`;
+    return `<div class="macro-cal-cell ${cls[k]}" title="${title}"></div>`;
+  }).join('');
+}
+function drawMacroStackChart(series) {
+  const canvas = document.getElementById('macroStackChart');
+  if (!canvas) return;
+  const last14 = series.slice(-14);
+  const labels = last14.map(r => nMonthDay(r.date));
+  const mk = (key, color) => ({
+    label: key, data: last14.map(r => Math.round(r[key])),
+    borderColor: color, backgroundColor: color + '40',
+    borderWidth: 1.5, pointRadius: 0, pointHoverRadius: 4, tension: 0.35, fill: true,
+  });
+  if (nChartStack) nChartStack.destroy();
+  nChartStack = new Chart(canvas.getContext('2d'), {
+    type: 'line',
+    data: { labels, datasets: [
+      mk('carbs_g', N_PALETTE.carb),
+      mk('protein_g', N_PALETTE.protein),
+      mk('fat_g', N_PALETTE.fat),
+    ] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: true, labels: { color: N_PALETTE.muted, boxWidth: 10, font: { size: 10, family: 'Inter' },
+          generateLabels: (ch) => ch.data.datasets.map((ds, i) => ({
+            text: ds.label.replace('_g', '') + ' (g)', fillStyle: ds.borderColor,
+            strokeStyle: ds.borderColor, datasetIndex: i,
+          })) } },
+        tooltip: { ...N_TT, callbacks: { label: c => `${c.dataset.label.replace('_g','')}: ${c.parsed.y} g` } },
+      },
+      scales: {
+        x: { stacked: true, grid: { color: N_PALETTE.grid, drawBorder: false },
+             ticks: { color: N_PALETTE.muted, font: { size: 10, family: 'Inter' }, maxRotation: 0, autoSkip: true, maxTicksLimit: 7 } },
+        y: { stacked: true, beginAtZero: true,
+             grid: { color: N_PALETTE.grid, drawBorder: false },
+             ticks: { color: N_PALETTE.muted, font: { size: 10, family: 'Inter' } },
+             title: { display: true, text: 'grams', color: '#64748b', font: { size: 10, family: 'Inter' } } },
+      },
+    },
+  });
+}
+
+/* ── Concept 3: Race Fueling Readiness ── */
+function computeGutScore(series) {
+  const days = series.filter(r => r.calories > 0);
+  if (!days.length) return 0;
+  // 1) % of days hitting calorie target (within target − 300 .. target + 400)
+  const calHit = days.filter(r => {
+    const tg = nutriDayTargets(r.tss);
+    return r.calories >= tg.cal - 300 && r.calories <= tg.cal + 400;
+  }).length / days.length;
+  // 2) % of training days hitting carb target (>= 90% of day's carb target)
+  const trainingDays = days.filter(r => nutriDayTargets(r.tss).isTraining);
+  const carbHit = trainingDays.length
+    ? trainingDays.filter(r => r.carbs_g >= nutriDayTargets(r.tss).carb * 0.9).length / trainingDays.length
+    : 0;
+  // 3) consistency — inverse of calorie coefficient of variation
+  const mean = days.reduce((s, r) => s + r.calories, 0) / days.length;
+  const sd = Math.sqrt(days.reduce((s, r) => s + (r.calories - mean) ** 2, 0) / days.length);
+  const cv = mean > 0 ? sd / mean : 1;
+  const consistency = Math.max(0, Math.min(1, 1 - cv * 1.8));
+  return Math.round((0.40 * calHit + 0.40 * carbHit + 0.20 * consistency) * 100);
+}
+function drawGutGauge(series) {
+  const canvas = document.getElementById('gutScoreGauge');
+  if (!canvas) return;
+  const score = computeGutScore(series);
+  const el = document.getElementById('gut-score-val');
+  if (el) el.textContent = score;
+  const color = score >= 75 ? N_PALETTE.tss : score >= 50 ? N_PALETTE.fat : N_PALETTE.calLow;
+  if (el) el.style.color = color;
+  if (nChartGauge) nChartGauge.destroy();
+  nChartGauge = new Chart(canvas.getContext('2d'), {
+    type: 'doughnut',
+    data: { datasets: [{
+      data: [score, 100 - score],
+      backgroundColor: [color, 'rgba(42,48,64,0.55)'],
+      borderWidth: 0, circumference: 360, rotation: 0,
+    }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '74%',
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      animation: { animateRotate: true },
+    },
+  });
+}
+function weekKey(date) { const m = getMondayOfWeek(date); return isoDate(m); }
+function drawWeeklyFuelChart(series) {
+  const canvas = document.getElementById('weeklyFuelChart');
+  if (!canvas) return;
+  // Group the 30-day series into ISO weeks → weekly fueling score (% targets hit).
+  const weeks = {};
+  series.forEach(r => {
+    if (r.calories <= 0) return;
+    const k = weekKey(new Date(r.date + 'T00:00:00'));
+    (weeks[k] = weeks[k] || []).push(r);
+  });
+  const realWeekScores = Object.keys(weeks).sort().map(k => {
+    const ds = weeks[k];
+    const hit = ds.reduce((s, r) => {
+      const tg = nutriDayTargets(r.tss);
+      let pts = 0;
+      if (r.calories >= tg.cal - 300 && r.calories <= tg.cal + 400) pts++;
+      if (r.protein_g >= NUTRITION_TARGETS.protein_g * 0.9) pts++;
+      if (r.carbs_g >= tg.carb * 0.9) pts++;
+      return s + pts / 3;
+    }, 0);
+    return Math.round((hit / ds.length) * 100);
+  });
+
+  // Pad to 16 weeks with deterministic estimates that trend up toward the real weeks.
+  const TOTAL = 16;
+  const scores = [];
+  const firstReal = realWeekScores.length ? realWeekScores[0] : 60;
+  const padCount = Math.max(0, TOTAL - realWeekScores.length);
+  for (let i = 0; i < padCount; i++) {
+    const rnd = nRng(nHash('wk-est-' + i));
+    const base = 48 + (firstReal - 48) * (i / Math.max(1, padCount)); // ramp toward first real week
+    scores.push(Math.max(35, Math.min(95, Math.round(base + (rnd() - 0.5) * 14))));
+  }
+  realWeekScores.forEach(s => scores.push(s));
+  const series16 = scores.slice(-TOTAL);
+  const labels = series16.map((_, i) => 'W' + (i + 1));
+  const isEstimate = series16.map((_, i) => i < (TOTAL - realWeekScores.length));
+  const colors = series16.map((s, i) => isEstimate[i]
+    ? 'rgba(96,165,250,0.35)'
+    : (s >= 75 ? N_PALETTE.tss : s >= 55 ? N_PALETTE.carb : N_PALETTE.fat));
+
+  if (nChartWeekly) nChartWeekly.destroy();
+  nChartWeekly = new Chart(canvas.getContext('2d'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Weekly fueling score', data: series16,
+      backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { ...N_TT, callbacks: {
+          title: items => 'Week ' + (items[0].dataIndex + 1) + (isEstimate[items[0].dataIndex] ? ' (est.)' : ''),
+          label: c => 'Score: ' + c.parsed.y + '/100',
+        } },
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: N_PALETTE.muted, font: { size: 9, family: 'Inter' }, maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } },
+        y: { beginAtZero: true, max: 100, grid: { color: N_PALETTE.grid, drawBorder: false },
+             ticks: { color: N_PALETTE.muted, font: { size: 10, family: 'Inter' }, stepSize: 25 },
+             title: { display: true, text: 'fueling score', color: '#64748b', font: { size: 10, family: 'Inter' } } },
+      },
+    },
+  });
+}
+
+/* ── Text summaries + milestone checklist (safe to update while hidden) ── */
+function renderNutriSummaries(series) {
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+  const days = series.filter(r => r.calories > 0);
+
+  // Concept 1 summary
+  const hardDays = days.filter(r => r.tss > 80);
+  const restDays = days.filter(r => r.tss < 40);
+  const avg = (arr, fn) => arr.length ? arr.reduce((s, r) => s + fn(r), 0) / arr.length : 0;
+  const hardDeficit = avg(hardDays, r => NUTRITION_TARGETS.calories - r.calories);
+  const restSurplus = avg(restDays, r => r.calories - NUTRITION_TARGETS.calories_easy);
+  const wellFueled = days.filter(r => {
+    const tg = nutriDayTargets(r.tss);
+    return r.calories >= tg.cal - 300 && r.calories <= tg.cal + 400;
+  }).length;
+  const defEl = document.getElementById('ns-hard-deficit');
+  if (defEl) {
+    defEl.textContent = (hardDeficit >= 0 ? '−' : '+') + Math.abs(Math.round(hardDeficit)).toLocaleString('en-US');
+    defEl.className = 'ns-val ' + (hardDeficit > 150 ? 'neg' : '');
+  }
+  const surEl = document.getElementById('ns-rest-surplus');
+  if (surEl) {
+    surEl.textContent = (restSurplus >= 0 ? '+' : '−') + Math.abs(Math.round(restSurplus)).toLocaleString('en-US');
+    surEl.className = 'ns-val ' + (restSurplus > 0 ? 'pos' : '');
+  }
+  setText('ns-wellfueled', wellFueled + ' / ' + days.length);
+
+  // Concept 2 — 7d vs prior-7d trend
+  const last7 = days.slice(-7), prev7 = days.slice(-14, -7);
+  const avgKey = (arr, k) => arr.length ? arr.reduce((s, r) => s + r[k], 0) / arr.length : 0;
+  const trendArrow = (cur, prev) => {
+    if (!prev) return '<span class="ns-trend flat">→</span>';
+    const d = (cur - prev) / prev;
+    if (d > 0.05) return '<span class="ns-trend up">▲</span>';
+    if (d < -0.05) return '<span class="ns-trend down">▼</span>';
+    return '<span class="ns-trend flat">→</span>';
+  };
+  const c7 = avgKey(last7, 'carbs_g'), cPrev = avgKey(prev7, 'carbs_g');
+  const p7 = avgKey(last7, 'protein_g'), pPrev = avgKey(prev7, 'protein_g');
+  setHTML('ns-carbs-7d', Math.round(c7) + ' g ' + trendArrow(c7, cPrev));
+  setHTML('ns-protein-7d', Math.round(p7) + ' g ' + trendArrow(p7, pPrev));
+  setText('ns-carbs-tgt', '· tgt ' + NUTRITION_TARGETS.carbs_g + ' g');
+  setText('ns-protein-tgt', '· tgt ' + NUTRITION_TARGETS.protein_g + ' g');
+
+  // Concept 3 — days to race / weekly grade / gut-training runs
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const daysToRace = Math.max(0, Math.round((RACE_DATE - today) / 86400000));
+  setText('rs-days-to-race', daysToRace);
+
+  // Weekly grade from this week's hit-rate across cal/protein/carb targets
+  const monday = getMondayOfWeek(today);
+  const weekDays = days.filter(r => new Date(r.date + 'T00:00:00') >= monday);
+  let grade = '—', gradeCls = '';
+  if (weekDays.length) {
+    const hitRate = weekDays.reduce((s, r) => {
+      const tg = nutriDayTargets(r.tss);
+      let pts = 0;
+      if (r.calories >= tg.cal - 300 && r.calories <= tg.cal + 400) pts++;
+      if (r.protein_g >= NUTRITION_TARGETS.protein_g * 0.9) pts++;
+      if (r.carbs_g >= tg.carb * 0.9) pts++;
+      return s + pts / 3;
+    }, 0) / weekDays.length;
+    if (hitRate >= 0.85) { grade = 'A'; gradeCls = 'grade-a'; }
+    else if (hitRate >= 0.70) { grade = 'B'; gradeCls = 'grade-b'; }
+    else if (hitRate >= 0.50) { grade = 'C'; gradeCls = 'grade-c'; }
+    else { grade = 'D'; gradeCls = 'grade-d'; }
+  }
+  const gEl = document.getElementById('rs-week-grade');
+  if (gEl) { gEl.textContent = grade; gEl.className = gradeCls; }
+
+  // Gut-training runs = hard days (TSS>80) that also hit their carb target
+  const gutRuns = hardDays.filter(r => r.carbs_g >= nutriDayTargets(r.tss).carb * 0.9).length;
+  setText('rs-gut-runs', gutRuns);
+
+  // Milestone checklist
+  const score = computeGutScore(series);
+  const milestones = [
+    { done: gutRuns >= 1, text: '60 g/hr carbs in a long run' },
+    { done: score >= 70,  text: 'Consistent daily fueling (gut score ≥ 70)' },
+    { done: false,        text: '80 g/hr carbs by week 20' },
+    { done: false,        text: 'Race-simulation gut test (week 24)' },
+  ];
+  setHTML('milestoneList', milestones.map(m =>
+    `<div class="milestone ${m.done ? 'done' : 'pending'}">
+       <span class="ms-check">${m.done ? '✓' : '○'}</span>
+       <span class="ms-text">${m.text}</span>
+     </div>`).join(''));
 }
 
 function renderNutrition() {
-  const t   = (nutritionData && nutritionData.today) || {};
-  const tgt = NUTRITION_TARGETS;
-  const num = (v) => (typeof v === 'number' && isFinite(v) ? v : 0);
-  const pct = (v, max) => (max > 0 ? Math.max(0, Math.min(100, (v / max) * 100)) : 0);
-  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-  const setW    = (id, p)   => { const el = document.getElementById(id); if (el) el.style.width = p.toFixed(1) + '%'; };
-
-  // Calories vs target
-  const cal = num(t.calories);
-  setText('nutri-cal', Math.round(cal).toLocaleString('en-US'));
-  setText('nutri-cal-target', tgt.calories.toLocaleString('en-US'));
-  const remaining = tgt.calories - cal;
-  setText('nutri-cal-remaining', remaining >= 0
-    ? Math.round(remaining).toLocaleString('en-US') + ' left'
-    : Math.round(-remaining).toLocaleString('en-US') + ' over');
-  setW('nutri-cal-bar', pct(cal, tgt.calories));
-
-  // Macros — grams with progress bars
-  [['protein', t.protein_g, tgt.protein_g],
-   ['carbs',   t.carbs_g,   tgt.carbs_g],
-   ['fat',     t.fat_g,     tgt.fat_g]].forEach(([key, val, max]) => {
-    const g = num(val);
-    setText('nutri-' + key, g.toFixed(1) + ' g');
-    setText('nutri-' + key + '-target', ' / ' + max + ' g');
-    setW('nutri-' + key + '-bar', pct(g, max));
-  });
-
-  // Hydration — water_ml converted to liters
-  const liters = num(t.water_ml) / 1000;
-  setText('nutri-water', liters.toFixed(1));
-  setText('nutri-water-target', tgt.water_l.toFixed(1));
-  setW('nutri-water-bar', pct(liters, tgt.water_l));
+  _nutriSeriesCache = buildNutritionSeries();
 
   // Badge + last-updated line
+  const t = (nutritionData && nutritionData.today) || {};
   const badge = document.getElementById('nutrition-badge');
   if (badge) badge.textContent = t.date ? String(t.date) : 'Today';
-
   const updated = document.getElementById('nutrition-updated');
   if (updated) {
     let txt = '';
@@ -3119,8 +3808,18 @@ function renderNutrition() {
           dt.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
       }
     }
+    if (!nutritionData) txt = 'Showing sample data — nutrition feed unavailable';
+    else if (_nutriSeriesCache.filter(r => r._real).length < 5) {
+      txt = (txt ? txt + ' · ' : '') + 'history simulated';
+    }
     updated.textContent = txt;
   }
+
+  // Text/DOM that's safe to write even while a tab is hidden
+  renderNutriSummaries(_nutriSeriesCache);
+  buildMacroCalGrid(_nutriSeriesCache);
+  // Charts for the currently visible tab
+  drawNutriCharts();
 }
 
 /* ══════════════════════════════════════════════

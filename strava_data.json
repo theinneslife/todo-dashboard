@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-29T19:35:31.746399Z",
+  "generated": "2026-05-29T21:57:19.103240Z",
   "weekly_miles": 22.3,
   "total_elevation_feet": 1919,
   "last_week_miles": 26.1,
@@ -11,28 +11,36 @@
       "date": "2026-05-25",
       "miles": 3.01,
       "elevation_feet": 33,
-      "duration": "30:24"
+      "duration": 1824,
+      "avg_hr": 131,
+      "max_hr": 144
     },
     {
       "name": "Night Run",
       "date": "2026-05-26",
       "miles": 3.09,
       "elevation_feet": 361,
-      "duration": "33:58"
+      "duration": 2038,
+      "avg_hr": 138,
+      "max_hr": 156
     },
     {
       "name": "Morning Trail Run",
       "date": "2026-05-27",
       "miles": 12.21,
       "elevation_feet": 1266,
-      "duration": "2:27:28"
+      "duration": 8848,
+      "avg_hr": 145,
+      "max_hr": 173
     },
     {
       "name": "Recovery Run",
       "date": "2026-05-28",
       "miles": 4.02,
       "elevation_feet": 259,
-      "duration": "40:03"
+      "duration": 2403,
+      "avg_hr": 142,
+      "max_hr": 160
     }
   ]
 }

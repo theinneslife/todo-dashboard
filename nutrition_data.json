@@ -1,13 +1,23 @@
 {
-  "last_updated": "",
+  "last_updated": "2026-05-29T20:52:08.405274Z",
   "today": {
-    "date": "",
-    "calories": 0,
-    "protein_g": 0,
-    "carbs_g": 0,
-    "fat_g": 0,
-    "fiber_g": 0,
-    "water_ml": 0
+    "date": "2026-05-29",
+    "calories": 149,
+    "protein_g": 23.7,
+    "carbs_g": 0.9,
+    "fat_g": 4.9,
+    "fiber_g": 0.9,
+    "water_ml": 1.6
   },
-  "history": []
+  "history": [
+    {
+      "date": "2026-05-29",
+      "calories": 149,
+      "protein_g": 23.7,
+      "carbs_g": 0.9,
+      "fat_g": 4.9,
+      "fiber_g": 0.9,
+      "water_ml": 1.6
+    }
+  ]
 }

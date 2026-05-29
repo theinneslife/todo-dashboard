@@ -3251,6 +3251,30 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
 // v2.0 - Split from monolith
 // ============================================
 
+        // Self-heal: TaskFlo does not use a service worker, but the TravelFlo SW
+        // (sw.js, registered by travelflo.html) has scope '/todo-dashboard/' and
+        // ends up controlling this page. Its old versions cached live JSON
+        // cache-first, accumulating entries every 30s until the storage quota
+        // filled and cache ops threw — which made tasks.json fetches fail and
+        // left the board empty. Unregister any controlling SW and clear caches
+        // once per browser so stuck users recover. The hardened sw.js (v7+) no
+        // longer touches .json or the TaskFlo page, so this won't loop.
+        (function healStaleServiceWorker() {
+            try {
+                if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) return;
+                if (localStorage.getItem('taskflo_sw_healed') === '1') return;
+                localStorage.setItem('taskflo_sw_healed', '1');
+                navigator.serviceWorker.getRegistrations().then(function(regs) {
+                    regs.forEach(function(r) { r.unregister(); });
+                });
+                if (typeof caches !== 'undefined' && caches.keys) {
+                    caches.keys().then(function(keys) {
+                        keys.forEach(function(k) { caches.delete(k); });
+                    });
+                }
+            } catch (e) { /* best-effort cleanup */ }
+        })();
+
         // Configuration
         const GITHUB_REPO = 'theinneslife/todo-dashboard';
         const GITHUB_BRANCH = 'main';

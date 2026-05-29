@@ -3,13 +3,16 @@
 // Changing it (even by one character) triggers the browser to install
 // the new SW and delete the old cache, so mobile devices stop serving
 // stale HTML/JS/CSS from the previous version.
-const CACHE_VERSION = 'travelflow-v6';
+const CACHE_VERSION = 'travelflow-v7';
 
+// NOTE: Do NOT precache './' or './index.html' — those resolve to the TaskFlo
+// dashboard, which is a separate app that must always load fresh data. This SW
+// is registered by travelflo.html but its scope ('/todo-dashboard/') leaks onto
+// every page on the origin, so it must stay strictly hands-off the TaskFlo app
+// and all live JSON data files (see the .json bypass in the fetch handler).
 const PRECACHE_URLS = [
-  './',
   './travelflow.html',
   './travelflo.html',
-  './index.html',
 ];
 
 // ── Install: cache core files ──────────────────────────────────────────────
@@ -50,6 +53,14 @@ self.addEventListener('fetch', event => {
 
   // Only handle same-origin requests; let GitHub API calls through
   if (url.origin !== self.location.origin) return;
+
+  // Never touch live JSON data (tasks.json, strava_data.json, coach_briefing.json,
+  // trips.json, visited_places.json, etc.). Letting these fall through to the
+  // network means they always load fresh AND never bloat the cache. Previously
+  // these were cached cache-first with unique ?t= busters, accumulating one
+  // permanent entry per auto-refresh until the storage quota filled and cache
+  // ops threw — which broke the tasks.json fetch and left dashboards empty.
+  if (url.pathname.endsWith('.json')) return;
 
   const isHTML = request.destination === 'document' ||
                  url.pathname.endsWith('.html') ||

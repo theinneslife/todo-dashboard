@@ -1,0 +1,178 @@
+name: Nutrition Sync
+
+# Triggered by Health Auto Export (iOS) which POSTs Apple Health nutrition data
+# to the repository_dispatch endpoint once a day. The metrics payload arrives in
+# github.event.client_payload.
+on:
+  repository_dispatch:
+    types: [nutrition-sync]
+  workflow_dispatch:        # allow manual trigger for testing
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse nutrition payload and update nutrition_data.json
+        env:
+          # Serialize the whole client_payload to JSON and hand it to Python via an
+          # env var. This avoids any shell-injection / quoting issues with the body.
+          CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, datetime
+
+          payload_raw = os.environ.get('CLIENT_PAYLOAD', '') or '{}'
+          try:
+              payload = json.loads(payload_raw)
+          except json.JSONDecodeError:
+              payload = {}
+          if not isinstance(payload, dict):
+              payload = {}
+
+          DATA_FILE = 'nutrition_data.json'
+
+          # ---- Default / empty schema -------------------------------------------
+          def empty_entry(date=''):
+              return {
+                  'date': date,
+                  'calories': 0,
+                  'protein_g': 0,
+                  'carbs_g': 0,
+                  'fat_g': 0,
+                  'fiber_g': 0,
+                  'water_ml': 0,
+              }
+
+          def default_doc():
+              return {'last_updated': '', 'today': empty_entry(), 'history': []}
+
+          # ---- Load existing file (or start fresh) ------------------------------
+          try:
+              with open(DATA_FILE) as f:
+                  doc = json.load(f)
+              if not isinstance(doc, dict):
+                  doc = default_doc()
+          except (FileNotFoundError, json.JSONDecodeError):
+              doc = default_doc()
+          doc.setdefault('history', [])
+          doc.setdefault('today', empty_entry())
+
+          # ---- Normalize Health Auto Export metric names -----------------------
+          # HAE may send display names ("Dietary Energy") or snake_case
+          # ("dietary_energy"). Normalize to a comparable key.
+          def norm(name):
+              return ''.join(c for c in str(name).lower() if c.isalnum())
+
+          NAME_MAP = {
+              'dietaryenergy': 'calories',
+              'calories': 'calories',
+              'protein': 'protein_g',
+              'carbohydrates': 'carbs_g',
+              'carbs': 'carbs_g',
+              'totalfat': 'fat_g',
+              'dietaryfat': 'fat_g',
+              'fat': 'fat_g',
+              'dietaryfiber': 'fiber_g',
+              'fiber': 'fiber_g',
+              'fibre': 'fiber_g',
+              'dietarywater': 'water_ml',
+              'water': 'water_ml',
+          }
+
+          # ---- Locate the metrics list, tolerating both shapes ------------------
+          # Simplified: {"data": [ {name, qty, unit}, ... ]}
+          # Native HAE: {"data": {"metrics": [ {name, units, data:[{date, qty}]}, ... ]}}
+          data = payload.get('data', payload)
+          if isinstance(data, dict):
+              metrics = data.get('metrics', [])
+          elif isinstance(data, list):
+              metrics = data
+          else:
+              metrics = []
+
+          def to_number(v):
+              try:
+                  return float(v)
+              except (TypeError, ValueError):
+                  return 0.0
+
+          def metric_qty(m):
+              # A metric carries either a top-level qty, or a list of dated samples
+              # under "data" that we sum into a daily total.
+              if 'qty' in m and m['qty'] is not None:
+                  return to_number(m['qty'])
+              samples = m.get('data')
+              if isinstance(samples, list):
+                  return sum(to_number(s.get('qty')) for s in samples if isinstance(s, dict))
+              return 0.0
+
+          def metric_unit(m):
+              return str(m.get('unit') or m.get('units') or '').lower()
+
+          def sample_date(m):
+              samples = m.get('data')
+              if isinstance(samples, list):
+                  for s in samples:
+                      if isinstance(s, dict) and s.get('date'):
+                          # HAE dates look like "2026-05-29 00:00:00 -0700"
+                          return str(s['date'])[:10]
+              return None
+
+          # ---- Accumulate fields ------------------------------------------------
+          entry = empty_entry()
+          found_date = None
+          for m in metrics:
+              if not isinstance(m, dict):
+                  continue
+              field = NAME_MAP.get(norm(m.get('name', '')))
+              if not field:
+                  continue
+              qty = metric_qty(m)
+              if field == 'water_ml':
+                  unit = metric_unit(m)
+                  # Convert liters to milliliters. "ml"/"mL" is already ml; a bare
+                  # "l"/"liter"/"litre" (no "m") means liters.
+                  if 'ml' not in unit and (unit.startswith('l') or 'liter' in unit or 'litre' in unit):
+                      qty *= 1000
+              entry[field] = round(qty) if field == 'calories' else round(qty, 1)
+              found_date = found_date or sample_date(m)
+
+          # ---- Determine the entry date ----------------------------------------
+          # Priority: explicit date in payload > date carried on a sample > today (UTC).
+          date = (payload.get('date')
+                  or (data.get('date') if isinstance(data, dict) else None)
+                  or found_date
+                  or datetime.datetime.utcnow().strftime('%Y-%m-%d'))
+          date = str(date)[:10]
+          entry['date'] = date
+
+          # ---- Update today + history (dedup by date, keep last 30) ------------
+          doc['today'] = entry
+          history = [h for h in doc['history']
+                     if isinstance(h, dict) and h.get('date') != date]
+          history.insert(0, entry)
+          doc['history'] = history[:30]
+          doc['last_updated'] = datetime.datetime.utcnow().isoformat() + 'Z'
+
+          with open(DATA_FILE, 'w') as f:
+              json.dump(doc, f, indent=2)
+          print(f"Updated {DATA_FILE} for {date}: "
+                f"cal={entry['calories']} protein={entry['protein_g']}g "
+                f"carbs={entry['carbs_g']}g fat={entry['fat_g']}g "
+                f"fiber={entry['fiber_g']}g water={entry['water_ml']}ml "
+                f"(history={len(doc['history'])} days)")
+          PYEOF
+
+      - name: Commit and push nutrition_data.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add nutrition_data.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: update nutrition_data.json [skip ci]"
+          git push

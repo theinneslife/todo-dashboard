@@ -84,21 +84,21 @@ jobs:
           last_week_elevation_feet = sum_elev_ft(last_week)
           last_week_sessions      = session_count(last_week)
 
-          # Format recent runs (most recent 5 from this week)
-          def fmt_duration(sec):
-            sec = int(sec or 0)
-            h, rem = divmod(sec, 3600)
-            m, s = divmod(rem, 60)
-            return f'{h}:{m:02d}:{s:02d}' if h else f'{m}:{s:02d}'
-
+          # Format recent runs (most recent 5 from this week). Duration is emitted
+          # in raw seconds so the dashboard can compute heart-rate-based TSS (hrTSS);
+          # avg_hr / max_hr come straight off the activity summary (0 if no HR data).
           recent = []
           for a in this_week[:5]:
+            avg_hr = a.get('average_heartrate')
+            max_hr = a.get('max_heartrate')
             recent.append({
               'name': a.get('name', 'Run'),
               'date': a['start_date_local'][:10],
               'miles': round(a['distance'] / METERS_PER_MILE, 2),
               'elevation_feet': round(a.get('total_elevation_gain', 0) / METERS_PER_FOOT),
-              'duration': fmt_duration(a.get('moving_time', 0)),
+              'duration': int(a.get('moving_time', 0) or 0),
+              'avg_hr': round(avg_hr) if avg_hr else 0,
+              'max_hr': round(max_hr) if max_hr else 0,
             })
 
           output = {

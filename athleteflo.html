@@ -1174,6 +1174,123 @@
     }
 
     /* ============================================
+       Nutrition
+       ============================================ */
+    .nutrition-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      min-width: 0;
+    }
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.4fr 0.8fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+    /* Shared progress track/fill for calories, macros, hydration */
+    .nutri-track {
+      height: 8px;
+      background: var(--bg-tertiary);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 0.45rem;
+      position: relative;
+    }
+    .nutri-fill {
+      height: 100%;
+      border-radius: 99px;
+      max-width: 100%;
+      transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .nutri-fill-cal     { background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow)); }
+    .nutri-fill-protein { background: linear-gradient(90deg, var(--accent-red), var(--accent-pink)); }
+    .nutri-fill-carbs   { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); }
+    .nutri-fill-fat     { background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange)); }
+    .nutri-fill-water   { background: linear-gradient(90deg, #22d3ee, var(--accent-blue)); }
+
+    /* Calories block */
+    .nutrition-cal-hero {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--accent-orange);
+    }
+    .nutrition-cal-unit {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 0.15rem;
+    }
+    .nutrition-cal-sub {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .nutrition-cal-sub strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* Macro rows */
+    .nutrition-macros {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .macro-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .macro-name {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .macro-val {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .macro-val .macro-target {
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: 0.2rem;
+    }
+
+    /* Hydration block */
+    .nutrition-hydration {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hydration-top { display: flex; align-items: baseline; gap: 0.35rem; }
+    .hydration-icon { font-size: 1.1rem; line-height: 1; }
+    .hydration-val {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--accent-blue);
+    }
+    .hydration-unit {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 0.1rem;
+    }
+    .hydration-sub {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .nutrition-hydration .nutri-track { align-self: stretch; }
+
+    @media (max-width: 900px) {
+      .nutrition-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+
+    /* ============================================
        HRV Quick Entry
        ============================================ */
     .hrv-entry-section {
@@ -1579,6 +1696,63 @@
 
     </div>
 
+    <!-- ── Nutrition Row ── -->
+    <div class="nutrition-row">
+      <div class="card nutrition-card">
+        <div class="card-header">
+          <span class="card-title">Nutrition</span>
+          <span class="card-badge badge-orange" id="nutrition-badge">Today</span>
+        </div>
+
+        <div class="nutrition-grid">
+
+          <!-- Calories vs target -->
+          <div class="nutrition-cal-block">
+            <div class="nutrition-cal-hero"><span id="nutri-cal">—</span><span class="nutrition-cal-unit">cal</span></div>
+            <div class="nutrition-cal-sub">of <strong id="nutri-cal-target">2,500</strong> cal · <span id="nutri-cal-remaining">—</span></div>
+            <div class="nutri-track"><div class="nutri-fill nutri-fill-cal" id="nutri-cal-bar" style="width:0%"></div></div>
+          </div>
+
+          <!-- Macro breakdown -->
+          <div class="nutrition-macros">
+            <div class="macro-row">
+              <div class="macro-head">
+                <span class="macro-name">Protein</span>
+                <span class="macro-val"><span id="nutri-protein">— g</span><span class="macro-target" id="nutri-protein-target"></span></span>
+              </div>
+              <div class="nutri-track"><div class="nutri-fill nutri-fill-protein" id="nutri-protein-bar" style="width:0%"></div></div>
+            </div>
+            <div class="macro-row">
+              <div class="macro-head">
+                <span class="macro-name">Carbs</span>
+                <span class="macro-val"><span id="nutri-carbs">— g</span><span class="macro-target" id="nutri-carbs-target"></span></span>
+              </div>
+              <div class="nutri-track"><div class="nutri-fill nutri-fill-carbs" id="nutri-carbs-bar" style="width:0%"></div></div>
+            </div>
+            <div class="macro-row">
+              <div class="macro-head">
+                <span class="macro-name">Fat</span>
+                <span class="macro-val"><span id="nutri-fat">— g</span><span class="macro-target" id="nutri-fat-target"></span></span>
+              </div>
+              <div class="nutri-track"><div class="nutri-fill nutri-fill-fat" id="nutri-fat-bar" style="width:0%"></div></div>
+            </div>
+          </div>
+
+          <!-- Hydration -->
+          <div class="nutrition-hydration">
+            <div class="hydration-top">
+              <span class="hydration-icon">💧</span>
+              <span class="hydration-val" id="nutri-water">—</span><span class="hydration-unit">L</span>
+            </div>
+            <div class="hydration-sub">of <strong id="nutri-water-target">3.0</strong> L target</div>
+            <div class="nutri-track"><div class="nutri-fill nutri-fill-water" id="nutri-water-bar" style="width:0%"></div></div>
+          </div>
+
+        </div>
+        <div class="coach-updated" id="nutrition-updated"></div>
+      </div>
+    </div>
+
     <!-- ── Bottom Row: Fitness Curve ── -->
     <div class="bottom-row">
       <div class="card">
@@ -1643,6 +1817,15 @@ const RACE_NAME     = 'Julian Alps Trail Run 50K';
 const RACE_LOCATION = 'Julian Alps, Slovenia · Sep 18, 2026';
 const TOTAL_WEEKS   = 22;
 const WEEKLY_VERT_TARGET = 500; // feet
+
+// Daily nutrition targets — adjust freely. Calories default to 2500.
+const NUTRITION_TARGETS = {
+  calories:  2500, // cal
+  protein_g: 150,  // g
+  carbs_g:   300,  // g
+  fat_g:     80,   // g
+  water_l:   3.0,  // liters
+};
 
 // Training block starts 22 weeks before race day
 const BLOCK_START = (function() {
@@ -1750,10 +1933,23 @@ let ctlData = [];
 let atlData = [];
 let tsbData = [];
 
-// Per-activity Training Stress Score. No HR/power data is available for these
-// activities, so we estimate from distance (~10 TSS per mile at endurance effort)
-// plus a climbing surcharge (~1 TSS per 100 ft of vert gain).
+// Christopher's heart-rate anchors, used for heart-rate-based TSS (hrTSS).
+const RESTING_HR = 60;   // bpm
+const MAX_HR     = 188;  // bpm
+const LTHR       = 165;  // lactate threshold HR (~88% of max)
+
+// Per-activity Training Stress Score. When an activity carries average-HR data we
+// use heart-rate-based TSS (hrTSS):
+//   hrTSS = (duration_sec × avgHr²) / (LTHR² × 3600) × 100
+// which yields TSS = 100 for exactly one hour at threshold HR. When HR is missing
+// (avgHr 0/absent) we fall back to a distance estimate (~10 TSS per mile at
+// endurance effort) plus a climbing surcharge (~1 TSS per 100 ft of vert gain).
 function estimateTSS(activity) {
+  const durSec = Number(activity.durSec) || 0;
+  const avgHr  = Number(activity.avgHr) || 0;
+  if (durSec > 0 && avgHr > 0) {
+    return (durSec * avgHr * avgHr) / (LTHR * LTHR * 3600) * 100;
+  }
   const miles = Number(activity.dist) || 0;
   const vert  = Number(activity.elev) || 0;
   if (miles <= 0 && vert <= 0) return 0;
@@ -2729,23 +2925,30 @@ async function refreshCoachBriefing() {
       list.innerHTML = '<p class="coach-note">No coaching notes available.</p>';
     }
 
-    // Last-updated / stale indicator
-    if (dateOnly) {
-      const today = new Date(); today.setHours(0, 0, 0, 0);
-      const gen = new Date(dateOnly + 'T00:00:00');
-      const daysAgo = Math.round((today - gen) / 86400000);
-      const ts = data.generated_at
-        ? new Date(data.generated_at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
-        : '';
-      let staleText;
-      if      (daysAgo === 0) staleText = 'generated today';
-      else if (daysAgo === 1) staleText = 'generated yesterday';
-      else                    staleText = `generated ${daysAgo} days ago${daysAgo > 7 ? ' — may be stale' : ''}`;
-      updatedEl.textContent = `Last updated: ${fmtFullDate(gen)}${ts ? ' · ' + ts : ''} · ${staleText}`;
-      updatedEl.classList.toggle('stale', daysAgo > 7);
-    } else {
+    // Last-updated / stale indicator. Wrapped so a date-formatting error here
+    // can never blow up the outer try and wipe the coach items we just rendered.
+    try {
+      if (dateOnly) {
+        const today = new Date(); today.setHours(0, 0, 0, 0);
+        const gen = new Date(dateOnly + 'T00:00:00');
+        const daysAgo = Math.round((today - gen) / 86400000);
+        const ts = data.generated_at
+          ? new Date(data.generated_at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+          : '';
+        let staleText;
+        if      (daysAgo === 0) staleText = 'generated today';
+        else if (daysAgo === 1) staleText = 'generated yesterday';
+        else                    staleText = `generated ${daysAgo} days ago${daysAgo > 7 ? ' — may be stale' : ''}`;
+        updatedEl.textContent = `Last updated: ${fmtFullDate(gen)}${ts ? ' · ' + ts : ''} · ${staleText}`;
+        updatedEl.classList.toggle('stale', daysAgo > 7);
+      } else {
+        updatedEl.textContent = '';
+        updatedEl.classList.remove('stale');
+      }
+    } catch (dateErr) {
       updatedEl.textContent = '';
       updatedEl.classList.remove('stale');
+      console.warn('AthleteFlo: coach date formatting failed', dateErr);
     }
   } catch (e) {
     list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
@@ -2800,6 +3003,8 @@ async function syncStravaData() {
         type: 'Run',
         dist: typeof r.miles === 'number' ? r.miles : 0,
         elev: typeof r.elevation_feet === 'number' ? r.elevation_feet : 0,
+        durSec: typeof r.duration === 'number' ? r.duration : 0,
+        avgHr: typeof r.avg_hr === 'number' ? r.avg_hr : 0,
       });
     });
     stravaActivities.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
@@ -2821,9 +3026,18 @@ async function syncStravaData() {
           ? (ft >= 10000 ? (ft / 1000).toFixed(1) + 'k ft' : Math.round(ft).toLocaleString('en-US') + ' ft')
           : '';
         const vertStr = vert ? ` · <span style="color:var(--accent-blue);">↑ ${vert}</span>` : '';
+        // duration is now raw seconds; tolerate the legacy formatted-string shape too.
+        const durSec = Number(r.duration);
+        const durStr = (isFinite(durSec) && durSec > 0)
+          ? (durSec >= 3600
+              ? `${Math.floor(durSec / 3600)}:${String(Math.floor((durSec % 3600) / 60)).padStart(2, '0')}:${String(durSec % 60).padStart(2, '0')}`
+              : `${Math.floor(durSec / 60)}:${String(durSec % 60).padStart(2, '0')}`)
+          : String(r.duration || '');
+        const hr = Number(r.avg_hr);
+        const hrStr = (isFinite(hr) && hr > 0) ? ` · <span style="color:var(--accent-red,#e25);">♥ ${Math.round(hr)}</span>` : '';
         return `<div style="display:flex;justify-content:space-between;gap:0.5rem;">
           <span style="color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${name}</span>
-          <span>${dateStr} · ${r.miles} mi${vertStr} · ${r.duration}</span>
+          <span>${dateStr} · ${r.miles} mi${vertStr} · ${durStr}${hrStr}</span>
         </div>`;
       }).join('');
     } else {
@@ -2832,6 +3046,81 @@ async function syncStravaData() {
   }
 
   return true;
+}
+
+/* ══════════════════════════════════════════════
+   Nutrition — read precomputed data from nutrition_data.json
+   Fetched the same way as strava_data.json (relative, cache-busted, parallel).
+   Schema: { last_updated, today: { date, calories, protein_g, carbs_g, fat_g,
+   fiber_g, water_ml }, history: [] }. Targets live in NUTRITION_TARGETS.
+   ══════════════════════════════════════════════ */
+
+let nutritionData = null;
+
+async function syncNutritionData() {
+  let data;
+  try {
+    const res = await fetch('./nutrition_data.json?_=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return false;
+    data = await res.json();
+  } catch {
+    return false;
+  }
+  nutritionData = data;
+  renderNutrition();
+  return true;
+}
+
+function renderNutrition() {
+  const t   = (nutritionData && nutritionData.today) || {};
+  const tgt = NUTRITION_TARGETS;
+  const num = (v) => (typeof v === 'number' && isFinite(v) ? v : 0);
+  const pct = (v, max) => (max > 0 ? Math.max(0, Math.min(100, (v / max) * 100)) : 0);
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setW    = (id, p)   => { const el = document.getElementById(id); if (el) el.style.width = p.toFixed(1) + '%'; };
+
+  // Calories vs target
+  const cal = num(t.calories);
+  setText('nutri-cal', Math.round(cal).toLocaleString('en-US'));
+  setText('nutri-cal-target', tgt.calories.toLocaleString('en-US'));
+  const remaining = tgt.calories - cal;
+  setText('nutri-cal-remaining', remaining >= 0
+    ? Math.round(remaining).toLocaleString('en-US') + ' left'
+    : Math.round(-remaining).toLocaleString('en-US') + ' over');
+  setW('nutri-cal-bar', pct(cal, tgt.calories));
+
+  // Macros — grams with progress bars
+  [['protein', t.protein_g, tgt.protein_g],
+   ['carbs',   t.carbs_g,   tgt.carbs_g],
+   ['fat',     t.fat_g,     tgt.fat_g]].forEach(([key, val, max]) => {
+    const g = num(val);
+    setText('nutri-' + key, g.toFixed(1) + ' g');
+    setText('nutri-' + key + '-target', ' / ' + max + ' g');
+    setW('nutri-' + key + '-bar', pct(g, max));
+  });
+
+  // Hydration — water_ml converted to liters
+  const liters = num(t.water_ml) / 1000;
+  setText('nutri-water', liters.toFixed(1));
+  setText('nutri-water-target', tgt.water_l.toFixed(1));
+  setW('nutri-water-bar', pct(liters, tgt.water_l));
+
+  // Badge + last-updated line
+  const badge = document.getElementById('nutrition-badge');
+  if (badge) badge.textContent = t.date ? String(t.date) : 'Today';
+
+  const updated = document.getElementById('nutrition-updated');
+  if (updated) {
+    let txt = '';
+    if (nutritionData && nutritionData.last_updated) {
+      const dt = new Date(nutritionData.last_updated);
+      if (!isNaN(dt)) {
+        txt = 'Last updated: ' + fmtFullDate(dt) + ' · ' +
+          dt.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      }
+    }
+    updated.textContent = txt;
+  }
 }
 
 /* ══════════════════════════════════════════════
@@ -2851,6 +3140,7 @@ async function syncNow() {
 
   try {
     try { await syncStravaData(); } catch (e) { console.warn('Strava sync failed:', e); }
+    try { await syncNutritionData(); } catch (e) { console.warn('Nutrition sync failed:', e); }
     await refreshCoachBriefing();
     refreshCountdown();
     refreshPeriodization();
@@ -2914,7 +3204,7 @@ async function syncNow() {
     }
   })();
 
-  await Promise.all([refreshCoachBriefing(), stravaReady]);
+  await Promise.all([refreshCoachBriefing(), stravaReady, syncNutritionData()]);
   updateLastSyncLabel();
 })();
 </script>

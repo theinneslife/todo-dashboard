@@ -1291,6 +1291,91 @@
     }
 
     /* ============================================
+       Sleep (Apple Health "Sleep Analysis")
+       ============================================ */
+    .sleep-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      min-width: 0;
+    }
+    .sleep-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr 1.3fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    /* Hero block */
+    .sleep-hero-block { display: flex; align-items: center; gap: 0.7rem; }
+    .sleep-status-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      flex: 0 0 auto;
+      background: var(--text-muted);
+      box-shadow: 0 0 8px transparent;
+    }
+    .sleep-status-dot.good { background: var(--accent-green); box-shadow: 0 0 8px rgba(52,211,153,0.6); }
+    .sleep-status-dot.warn { background: var(--accent-yellow); box-shadow: 0 0 8px rgba(251,191,36,0.6); }
+    .sleep-status-dot.low  { background: var(--accent-red);   box-shadow: 0 0 8px rgba(248,113,113,0.6); }
+    .sleep-hero {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: #818cf8;
+    }
+    .sleep-hero-sub {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    /* Efficiency block */
+    .sleep-eff-block { display: flex; flex-direction: column; }
+    .sleep-eff-head { display: flex; justify-content: space-between; align-items: baseline; }
+    .sleep-eff-label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); }
+    .sleep-eff-val   { font-size: 0.8rem; font-weight: 700; color: var(--text-primary); }
+    .nutri-fill.sleep-eff-fill { background: linear-gradient(90deg, #818cf8, #22d3ee); }
+    .sleep-eff-sub { font-size: 0.66rem; color: var(--text-muted); margin-top: 0.35rem; }
+    /* 7-day trend block */
+    .sleep-trend-block { display: flex; flex-direction: column; }
+    .sleep-trend-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+    .sleep-trend-label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); }
+    .sleep-trend-avg   { font-size: 0.8rem; font-weight: 700; color: #818cf8; }
+    .sleep-spark {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      align-items: end;
+      height: 56px;
+    }
+    .sleep-bar {
+      align-self: end;
+      width: 100%;
+      min-height: 4px;
+      border-radius: 4px 4px 2px 2px;
+      transition: height 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .sleep-bar.empty { height: 100% !important; background: var(--bg-tertiary); opacity: 0.5; }
+    /* Empty / waiting placeholder */
+    .sleep-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      gap: 0.4rem;
+    }
+    .sleep-empty-icon { font-size: 2rem; opacity: 0.85; }
+    .sleep-empty-text { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); }
+    .sleep-empty-sub  { font-size: 0.72rem; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      .sleep-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+    }
+
+    /* ============================================
        Nutrition — tabbed visualizations (3 concepts)
        ============================================ */
     .nutri-tabs {
@@ -2024,6 +2109,53 @@
         </div>
 
         <div class="coach-updated" id="nutrition-updated"></div>
+      </div>
+    </div>
+
+    <!-- ── Sleep Row ── -->
+    <div class="sleep-row">
+      <div class="card sleep-card">
+        <div class="card-header">
+          <span class="card-title">Sleep</span>
+          <span class="card-badge badge-purple" id="sleep-badge">—</span>
+        </div>
+
+        <!-- Waiting-for-data placeholder -->
+        <div class="sleep-empty" id="sleep-empty" hidden>
+          <div class="sleep-empty-icon">🌙</div>
+          <div class="sleep-empty-text">Waiting for sleep data from Apple Health</div>
+          <div class="sleep-empty-sub">Sleep Analysis syncs nightly via Health Auto Export</div>
+        </div>
+
+        <!-- Populated view -->
+        <div class="sleep-grid" id="sleep-content">
+          <div class="sleep-hero-block">
+            <div class="sleep-status-dot" id="sleep-status-dot"></div>
+            <div>
+              <div class="sleep-hero" id="sleep-hero">—</div>
+              <div class="sleep-hero-sub" id="sleep-hero-sub">last night</div>
+            </div>
+          </div>
+
+          <div class="sleep-eff-block">
+            <div class="sleep-eff-head">
+              <span class="sleep-eff-label">Sleep efficiency</span>
+              <span class="sleep-eff-val" id="sleep-eff-val">—</span>
+            </div>
+            <div class="nutri-track"><div class="nutri-fill sleep-eff-fill" id="sleep-eff-fill" style="width:0%"></div></div>
+            <div class="sleep-eff-sub" id="sleep-eff-sub"></div>
+          </div>
+
+          <div class="sleep-trend-block">
+            <div class="sleep-trend-head">
+              <span class="sleep-trend-label">7-day average</span>
+              <span class="sleep-trend-avg" id="sleep-trend-avg">—</span>
+            </div>
+            <div class="sleep-spark" id="sleep-spark"></div>
+          </div>
+        </div>
+
+        <div class="coach-updated" id="sleep-updated"></div>
       </div>
     </div>
 
@@ -3832,6 +3964,139 @@ function renderNutrition() {
   buildMacroCalGrid(_nutriSeriesCache);
   // Charts for the currently visible tab
   drawNutriCharts();
+
+  // Sleep card shares the same nutrition_data.json feed.
+  renderSleep();
+}
+
+/* ══════════════════════════════════════════════
+   Sleep card — reads sleep_hours / time_in_bed_hours /
+   sleep_efficiency_pct from the same nutrition_data.json feed.
+   Unlike the nutrition charts there is NO sample fallback: with no real
+   sleep data we show an honest "waiting for data" placeholder.
+   ══════════════════════════════════════════════ */
+function fmtSleepHM(h) {
+  if (h == null || !isFinite(h) || h <= 0) return '—';
+  let hh = Math.floor(h);
+  let mm = Math.round((h - hh) * 60);
+  if (mm === 60) { hh += 1; mm = 0; }
+  return hh + 'h ' + mm + 'm';
+}
+function sleepStatus(h) {
+  if (h >= 7.5) return { cls: 'good', label: 'On target' };
+  if (h >= 6)   return { cls: 'warn', label: 'A bit short' };
+  return { cls: 'low', label: 'Under-slept' };
+}
+const SLEEP_BAR_COLORS = { good: 'var(--accent-green)', warn: 'var(--accent-yellow)', low: 'var(--accent-red)' };
+
+/* Last 7 calendar days ending today. Real data only — hours is null when a day
+   has no sleep entry (rendered as a faint empty bar). */
+function sleepSeries() {
+  const byDate = {};
+  const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+  hist.forEach(d => { if (d && d.date) byDate[d.date] = d; });
+  if (nutritionData && nutritionData.today && nutritionData.today.date) {
+    byDate[nutritionData.today.date] = nutritionData.today;
+  }
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const out = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today); d.setDate(d.getDate() - i);
+    const key = isoDate(d);
+    const r = byDate[key];
+    const num = (v) => (typeof v === 'number' && isFinite(v) && v > 0) ? v : null;
+    out.push({
+      date: key,
+      hours: r ? num(r.sleep_hours) : null,
+      eff:   r ? num(r.sleep_efficiency_pct) : null,
+      inBed: r ? num(r.time_in_bed_hours) : null,
+    });
+  }
+  return out;
+}
+
+function renderSleep() {
+  const series = sleepSeries();
+  const real = series.filter(s => s.hours != null);
+  const empty = document.getElementById('sleep-empty');
+  const content = document.getElementById('sleep-content');
+  const badge = document.getElementById('sleep-badge');
+  const updated = document.getElementById('sleep-updated');
+
+  // No real sleep data anywhere in the window → honest placeholder.
+  if (!real.length) {
+    if (empty) empty.hidden = false;
+    if (content) content.style.display = 'none';
+    if (badge) { badge.textContent = 'No data'; badge.className = 'card-badge badge-orange'; }
+    if (updated) updated.textContent = '';
+    return;
+  }
+  if (empty) empty.hidden = true;
+  if (content) content.style.display = '';
+
+  // Most recent day with data drives the hero + efficiency.
+  const latest = real[real.length - 1];
+  const st = sleepStatus(latest.hours);
+
+  const dot = document.getElementById('sleep-status-dot');
+  if (dot) dot.className = 'sleep-status-dot ' + st.cls;
+  const hero = document.getElementById('sleep-hero');
+  if (hero) hero.textContent = fmtSleepHM(latest.hours);
+  const heroSub = document.getElementById('sleep-hero-sub');
+  if (heroSub) {
+    const isToday = latest.date === isoDate(new Date());
+    heroSub.textContent = (isToday ? 'last night' : nMonthDay(latest.date)) + ' · ' + st.label;
+  }
+  if (badge) { badge.textContent = st.label; badge.className = 'card-badge badge-purple'; }
+
+  // Efficiency bar.
+  const effVal = document.getElementById('sleep-eff-val');
+  const effFill = document.getElementById('sleep-eff-fill');
+  const effSub = document.getElementById('sleep-eff-sub');
+  if (latest.eff != null) {
+    if (effVal) effVal.textContent = latest.eff.toFixed(0) + '%';
+    if (effFill) effFill.style.width = Math.max(0, Math.min(100, latest.eff)) + '%';
+    if (effSub) effSub.textContent = latest.inBed != null ? fmtSleepHM(latest.inBed) + ' in bed' : '';
+  } else {
+    if (effVal) effVal.textContent = '—';
+    if (effFill) effFill.style.width = '0%';
+    if (effSub) effSub.textContent = '';
+  }
+
+  // 7-day average (over days that have data).
+  const avg = real.reduce((a, s) => a + s.hours, 0) / real.length;
+  const avgEl = document.getElementById('sleep-trend-avg');
+  if (avgEl) avgEl.textContent = fmtSleepHM(avg);
+
+  // Sparkline bars. Scale to the largest of 9h or the week's max so bars stay
+  // comparable night-to-night.
+  const maxH = Math.max(9, ...real.map(s => s.hours));
+  const spark = document.getElementById('sleep-spark');
+  if (spark) {
+    spark.innerHTML = series.map(s => {
+      const label = nMonthDay(s.date);
+      if (s.hours == null) {
+        return `<div class="sleep-bar empty" title="${label} · no data"></div>`;
+      }
+      const pct = Math.max(8, Math.round(s.hours / maxH * 100));
+      const color = SLEEP_BAR_COLORS[sleepStatus(s.hours).cls];
+      return `<div class="sleep-bar" style="height:${pct}%;background:${color}" title="${label} · ${fmtSleepHM(s.hours)}"></div>`;
+    }).join('');
+  }
+
+  // Last-updated line, mirroring the nutrition card.
+  if (updated) {
+    let txt = '';
+    if (nutritionData && nutritionData.last_updated) {
+      const dt = new Date(nutritionData.last_updated);
+      if (!isNaN(dt)) {
+        txt = 'Last updated: ' + fmtFullDate(dt) + ' · ' +
+          dt.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      }
+    }
+    if (real.length < 7) txt = (txt ? txt + ' · ' : '') + real.length + '/7 nights recorded';
+    updated.textContent = txt;
+  }
 }
 
 /* ══════════════════════════════════════════════

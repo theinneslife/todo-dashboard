@@ -46,6 +46,11 @@ jobs:
                   'fat_g': 0,
                   'fiber_g': 0,
                   'water_ml': 0,
+                  # Sleep (Apple Health "Sleep Analysis"). None == no data yet,
+                  # which the AthleteFlo sleep card renders as a placeholder.
+                  'sleep_hours': None,
+                  'time_in_bed_hours': None,
+                  'sleep_efficiency_pct': None,
               }
 
           def default_doc():
@@ -142,6 +147,66 @@ jobs:
               entry[field] = round(qty) if field == 'calories' else round(qty, 1)
               found_date = found_date or sample_date(m)
 
+          # ---- Sleep parsing (Apple Health "Sleep Analysis") -------------------
+          # HAE sends sleep under a variety of names; "asleep" duration and
+          # "time in bed" may arrive as separate metrics, as a single qty, or as
+          # per-sample breakdown fields (asleep / inBed) on a "Sleep Analysis"
+          # metric. Normalize everything to hours.
+          SLEEP_ASLEEP = {'sleepanalysis', 'asleep', 'sleeping', 'sleep', 'totalsleep'}
+          SLEEP_INBED  = {'timeinbed', 'inbed'}
+
+          def to_hours(value, unit):
+              unit = str(unit or '').lower()
+              if 'min' in unit:
+                  return value / 60.0
+              if unit in ('s', 'sec', 'secs', 'second', 'seconds'):
+                  return value / 3600.0
+              return value  # 'hr' / 'h' / 'hours' or unitless → assume hours
+
+          def sample_sum(samples, *keys):
+              total = 0.0
+              for s in samples:
+                  if not isinstance(s, dict):
+                      continue
+                  for k in keys:
+                      if s.get(k) is not None:
+                          total += to_number(s.get(k))
+                          break
+              return total
+
+          sleep_hours = None
+          time_in_bed_hours = None
+          for m in metrics:
+              if not isinstance(m, dict):
+                  continue
+              key = norm(m.get('name', ''))
+              if key not in SLEEP_ASLEEP and key not in SLEEP_INBED:
+                  continue
+              unit = metric_unit(m)
+              samples = m.get('data') if isinstance(m.get('data'), list) else []
+              asleep_s = sample_sum(samples, 'asleep', 'totalSleep', 'sleepDurationAsleep')
+              inbed_s  = sample_sum(samples, 'inBed', 'timeInBed')
+              if key in SLEEP_ASLEEP:
+                  val = asleep_s if asleep_s > 0 else metric_qty(m)
+                  if val:
+                      sleep_hours = (sleep_hours or 0) + to_hours(val, unit)
+                  if inbed_s > 0:
+                      time_in_bed_hours = (time_in_bed_hours or 0) + to_hours(inbed_s, unit)
+              else:  # time in bed
+                  val = inbed_s if inbed_s > 0 else metric_qty(m)
+                  if val:
+                      time_in_bed_hours = (time_in_bed_hours or 0) + to_hours(val, unit)
+              found_date = found_date or sample_date(m)
+
+          # If only asleep duration arrived, treat time-in-bed as the same.
+          if sleep_hours is not None and time_in_bed_hours is None:
+              time_in_bed_hours = sleep_hours
+
+          if sleep_hours and time_in_bed_hours:
+              entry['sleep_efficiency_pct'] = round(sleep_hours / time_in_bed_hours * 100, 1)
+          entry['sleep_hours'] = round(sleep_hours, 2) if sleep_hours is not None else None
+          entry['time_in_bed_hours'] = round(time_in_bed_hours, 2) if time_in_bed_hours is not None else None
+
           # ---- Determine the entry date ----------------------------------------
           # Priority: explicit date in payload > date carried on a sample > today (UTC).
           date = (payload.get('date')
@@ -150,6 +215,32 @@ jobs:
                   or datetime.datetime.utcnow().strftime('%Y-%m-%d'))
           date = str(date)[:10]
           entry['date'] = date
+
+          # ---- Merge with any existing entry for the same date -----------------
+          # Sleep and nutrition often arrive in *separate* HAE exports, so a
+          # nutrition-only payload must not wipe sleep already recorded today
+          # (and vice-versa). Carry forward prior values for fields this payload
+          # left empty: 0 for nutrition counters, None for the sleep fields.
+          def find_prior(date):
+              if isinstance(doc.get('today'), dict) and doc['today'].get('date') == date:
+                  return doc['today']
+              for h in doc['history']:
+                  if isinstance(h, dict) and h.get('date') == date:
+                      return h
+              return None
+
+          prior = find_prior(date)
+          if prior:
+              for k, v in entry.items():
+                  if k == 'date':
+                      continue
+                  if (v is None or v == 0) and prior.get(k) not in (None, 0):
+                      entry[k] = prior[k]
+              # Recompute efficiency if the merge filled in both sleep numbers.
+              if entry.get('sleep_efficiency_pct') is None \
+                 and entry.get('sleep_hours') and entry.get('time_in_bed_hours'):
+                  entry['sleep_efficiency_pct'] = round(
+                      entry['sleep_hours'] / entry['time_in_bed_hours'] * 100, 1)
 
           # ---- Update today + history (dedup by date, keep last 30) ------------
           doc['today'] = entry
@@ -165,6 +256,9 @@ jobs:
                 f"cal={entry['calories']} protein={entry['protein_g']}g "
                 f"carbs={entry['carbs_g']}g fat={entry['fat_g']}g "
                 f"fiber={entry['fiber_g']}g water={entry['water_ml']}ml "
+                f"sleep={entry['sleep_hours']}h "
+                f"inbed={entry['time_in_bed_hours']}h "
+                f"eff={entry['sleep_efficiency_pct']}% "
                 f"(history={len(doc['history'])} days)")
           PYEOF
 

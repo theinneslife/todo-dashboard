@@ -1274,9 +1274,15 @@
 
         @media (max-width: 640px) {
             .mobile-column-nav { display: flex; } .mobile-tabs { display: flex; }
-            .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
+            .kanban { flex-direction: column; padding: 8px; gap: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; min-height: 0; }
             .column { flex: 0 0 100%; display: none; }
-            .column.mobile-active { display: block; }
+            /* iOS Chrome/WebKit: .kanban must be the SOLE scroll container. A nested
+               overflow:auto on .task-list traps the touch gesture (WebKit picks the
+               nearest scrollable ancestor and won't bubble to the parent), and
+               flex-basis:100% can clamp the column to the viewport and hide overflow.
+               Let the column size to its content and remove the inner scroll trap. */
+            .column.mobile-active { display: block; flex: 0 0 auto; }
+            .column.mobile-active .task-list { overflow: visible; flex: none; }
             .controls { display: none !important; }
             .mobile-filter-fab { display: flex; }
             .timeline-strip { padding: 6px 12px; }

@@ -1195,6 +1195,7 @@
         .mobile-add-fab:active { transform: scale(0.95); }
 
         /* Mobile column tabs */
+        .mobile-swipe-hint { display: none; }
         .mobile-column-nav {
             display: none;
             align-items: center;
@@ -1301,7 +1302,29 @@
             .batch-bar { max-width: 100vw; overflow-x: hidden; flex-wrap: wrap; }
             .mobile-tab { padding: 6px 10px; font-size: 12px; }
             .notification-panel { width: calc(100vw - 16px); right: 8px; left: 8px; top: 56px; }
-        
+
+            /* Prominent active-column header — tells the user which column they're viewing */
+            .column.mobile-active .column-header {
+                background: #ffffff;
+                border-radius: 12px;
+                padding: 12px 14px;
+                margin-bottom: 12px;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+                border-left: 4px solid var(--col-accent, #007aff);
+            }
+            .column.mobile-active .column-dot { width: 12px; height: 12px; }
+            .column.mobile-active .column-title { font-size: 18px; font-weight: 700; color: #1d1d1f; }
+            .column.mobile-active .column-count {
+                font-size: 14px; font-weight: 700;
+                background: var(--col-accent, #007aff); color: #fff;
+                min-width: 24px; text-align: center;
+            }
+            /* Hint that the board is swipeable */
+            .mobile-swipe-hint {
+                display: block; text-align: center; font-size: 11px; color: #8e8e93;
+                padding: 2px 0 6px; letter-spacing: 0.02em;
+            }
+
             /* Hamburger menu mobile overrides */
             .hamburger-wrapper { display: block !important; position: relative; }
             .hamburger-menu-btn { display: flex !important; }
@@ -2778,6 +2801,8 @@ html[data-theme="dark"] .mobile-tab { background: transparent; color: var(--dm-m
 html[data-theme="dark"] .mobile-tab.active { background: var(--dm-card); color: #007aff; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 html[data-theme="dark"] .mobile-tab .tab-count { background-color: rgba(255,255,255,0.08); color: var(--dm-muted); }
 html[data-theme="dark"] .mobile-tab.active .tab-count { background-color: rgba(0,122,255,0.18); color: #007aff; }
+html[data-theme="dark"] .column.mobile-active .column-header { background: var(--dm-card); box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+html[data-theme="dark"] .column.mobile-active .column-title { color: var(--dm-text, #f5f5f7); }
 html[data-theme="dark"] .view-toggle-btn { color: var(--dm-text); }
 html[data-theme="dark"] .calendar-nav h2 { color: var(--dm-text); }
 html[data-theme="dark"] .calendar-nav button { background: rgba(255,255,255,0.08); border-color: var(--dm-border); color: var(--dm-text); }
@@ -2897,7 +2922,7 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
         <header>
             <div class="header-left">
                 <svg viewBox="0 0 130 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tk-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs><rect x="0" y="4" width="130" height="32" rx="8" fill="#1A1A2E"/><rect x="4" y="8" width="24" height="24" rx="5" fill="url(#tk-g)"/><rect x="8" y="13" width="3.5" height="11" rx="1" fill="#fff" opacity=".95"/><rect x="13.5" y="13" width="3.5" height="8" rx="1" fill="#fff" opacity=".95"/><rect x="19" y="13" width="3.5" height="14" rx="1" fill="#fff" opacity=".95"/><text x="34" y="26" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" letter-spacing="-0.3" fill="#ffffff">Task</text><text x="76" y="26" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" fill="url(#tk-g)">Flo</text><path d="M76 30Q88 25 100 30" stroke="url(#tk-g)" stroke-width="2" fill="none" opacity=".85"/></svg>
-                <span class="version-badge">v4.2</span>
+                <span class="version-badge">v4.3</span>
             </div>
             <a href="travelflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <a href="athleteflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:8px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>AthleteFlo</a>
@@ -3001,6 +3026,7 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
         </div>
 
         <div class="mobile-column-nav" id="mobileColumnNav"><button class="nav-arrow" id="navLeft" onclick="mobileNavColumn(-1)">&lsaquo;</button><div class="mobile-tabs" id="mobileTabs"></div><button class="nav-arrow" id="navRight" onclick="mobileNavColumn(1)">&rsaquo;</button></div>
+        <div class="mobile-swipe-hint" id="mobileSwipeHint">‹ swipe to switch columns ›</div>
         <div class="priority-strip-wrapper" id="priorityStrip">
           <div class="priority-strip-header" onclick="togglePriorityStrip()">
             <span class="priority-strip-title" id="priorityStripTitle"><i data-lucide="star" style="width:14px;height:14px;fill:currentColor;stroke:currentColor;"></i> Priorities (0)</span>
@@ -4129,6 +4155,7 @@ function getGithubToken() {
                 const columnEl = document.createElement('div');
                 columnEl.className = 'column';
                 columnEl.id = `col-${col.id}`;
+                columnEl.style.setProperty('--col-accent', col.dot);
                 columnEl.ondragover = (e) => {
                     e.preventDefault();
                     columnEl.classList.add('drag-over');
@@ -4196,31 +4223,53 @@ function getGithubToken() {
             renderMobileTabs(columns);
         }
 
+        // Ordered list of mobile column ids, kept in sync with the rendered tabs.
+        let mobileColumnOrder = [];
+
         function renderMobileTabs(columns) {
             const tabsEl = document.getElementById('mobileTabs');
             if (!tabsEl) return;
             tabsEl.innerHTML = '';
+            mobileColumnOrder = columns.map(c => c.id);
+
+            // If the previously-active column no longer exists, fall back to the first.
+            if (!mobileColumnOrder.includes(mobileActiveColumn)) {
+                mobileActiveColumn = mobileColumnOrder[0];
+            }
 
             columns.forEach(col => {
                 const colTasks = filteredTasks.filter(t => getTaskColumn(t) === col.id);
                 const tab = document.createElement('button');
                 tab.className = 'mobile-tab' + (mobileActiveColumn === col.id ? ' active' : '');
+                tab.dataset.colId = col.id;
                 tab.innerHTML = `${col.title} <span class="tab-count">${colTasks.length}</span>`;
-                tab.onclick = () => {
-                    mobileActiveColumn = col.id;
-                    document.querySelectorAll('.mobile-tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.querySelectorAll('.column').forEach(c => {
-                        c.classList.remove('mobile-active');
-                        if (c.id === `col-${col.id}`) c.classList.add('mobile-active');
-                    });
-                };
+                tab.onclick = () => setMobileColumn(col.id);
                 tabsEl.appendChild(tab);
             });
 
-            // Activate the current mobile column
-            const activeCol = document.getElementById(`col-${mobileActiveColumn}`);
-            if (activeCol) activeCol.classList.add('mobile-active');
+            // Activate the current mobile column and sync the nav arrows.
+            setMobileColumn(mobileActiveColumn, true);
+        }
+
+        // Single source of truth for switching the visible mobile column.
+        // Used by the tab buttons, the ‹ › nav arrows, and horizontal swipe.
+        function setMobileColumn(colId, skipScroll) {
+            if (!colId) return;
+            mobileActiveColumn = colId;
+            document.querySelectorAll('.mobile-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.colId === colId);
+            });
+            document.querySelectorAll('.column').forEach(c => {
+                c.classList.toggle('mobile-active', c.id === `col-${colId}`);
+            });
+            const activeTab = document.querySelector(`.mobile-tab[data-col-id="${colId}"]`);
+            if (activeTab && !skipScroll) {
+                activeTab.scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+            }
+            // Jump the board back to the top so the new column starts at its header.
+            const kanban = document.getElementById('kanban');
+            if (kanban) kanban.scrollTop = 0;
+            updateNavArrows();
         }
 
         function renderTaskCard(task) {
@@ -6567,6 +6616,7 @@ function init() {
     function initV4Features() {
         requestNotifPermission();
         initSwipeGestures();
+        initColumnSwipe();
         updateNotifBadge();
         setTimeout(function() { enhanceTaskCards(); checkDeadlines(); checkUnblockedTasks(); generateDailyDigest(); }, 3000);
         setInterval(function() { checkDeadlines(); checkUnblockedTasks(); }, 300000);
@@ -6636,28 +6686,47 @@ document.addEventListener('click', function(e) {
     
 // Mobile column navigation arrows
 function mobileNavColumn(dir) {
-    var tabs = document.querySelectorAll('.mobile-tab');
-    if (!tabs.length) return;
-    var cols = [];
-    tabs.forEach(function(t, i) { cols.push({el: t, idx: i}); if (t.classList.contains('active')) cols.activeIdx = i; });
-    var currentIdx = -1;
-    tabs.forEach(function(t, i) { if (t.classList.contains('active')) currentIdx = i; });
+    if (!mobileColumnOrder.length) return;
+    var currentIdx = mobileColumnOrder.indexOf(mobileActiveColumn);
     var nextIdx = currentIdx + dir;
-    if (nextIdx < 0 || nextIdx >= tabs.length) return;
-    tabs[nextIdx].click();
-    // Scroll the active tab into view
-    tabs[nextIdx].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
-    updateNavArrows();
+    if (nextIdx < 0 || nextIdx >= mobileColumnOrder.length) return;
+    setMobileColumn(mobileColumnOrder[nextIdx]);
 }
 function updateNavArrows() {
-    var tabs = document.querySelectorAll('.mobile-tab');
     var leftBtn = document.getElementById('navLeft');
     var rightBtn = document.getElementById('navRight');
-    if (!leftBtn || !rightBtn || !tabs.length) return;
-    var currentIdx = -1;
-    tabs.forEach(function(t, i) { if (t.classList.contains('active')) currentIdx = i; });
+    if (!leftBtn || !rightBtn || !mobileColumnOrder.length) return;
+    var currentIdx = mobileColumnOrder.indexOf(mobileActiveColumn);
     leftBtn.disabled = (currentIdx <= 0);
-    rightBtn.disabled = (currentIdx >= tabs.length - 1);
+    rightBtn.disabled = (currentIdx >= mobileColumnOrder.length - 1);
+}
+
+// ===== Horizontal swipe on the board to switch columns =====
+// Card swipes (done/park) own gestures that START on a .task-card, so the board
+// swipe only acts on gestures that begin off a card (header, gaps, empty space).
+function initColumnSwipe() {
+    if (!('ontouchstart' in window)) return;
+    var kanban = document.getElementById('kanban');
+    if (!kanban) return;
+    var startX = 0, startY = 0, tracking = false;
+    var H_THRESHOLD = 50; // min horizontal delta to trigger a switch
+    kanban.addEventListener('touchstart', function(e) {
+        // Ignore gestures that begin on a task card — those are done/park swipes.
+        if (e.target.closest('.task-card')) { tracking = false; return; }
+        if (window.innerWidth > 640) { tracking = false; return; }
+        var t = e.touches[0];
+        startX = t.clientX; startY = t.clientY; tracking = true;
+    }, {passive: true});
+    kanban.addEventListener('touchend', function(e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - startX;
+        var dy = t.clientY - startY;
+        // Must be a mostly-horizontal swipe past the threshold.
+        if (Math.abs(dx) < H_THRESHOLD || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        mobileNavColumn(dx < 0 ? 1 : -1); // swipe left -> next column, right -> previous
+    }, {passive: true});
 }
 
 

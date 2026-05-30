@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-29",
-  "generated_at": "2026-05-29T21:07:32Z",
+  "generated": "2026-05-30",
+  "generated_at": "2026-05-30T14:43:48.550823Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 16 weeks (112 days) to Julian Alps. Friday is your pre-weekend primer: 50–60 min easy Zone 2 (HR ~135–145) with 4–5 × 20s strides on a slight incline to wake the legs without taxing them. Keep it conversational — tomorrow's long run and Sunday's back-to-back are where the alpine adaptation happens. Traveling? A treadmill at 4–6% covers the strides."
+      "message": "Long run day in peak phase: target 90–110 minutes with 800–1200m of vert, mixing Z2 climbing with 3–4 surges at 85–90% max HR (race-relevant pace on steep ground). Saturday is your anchor day—this is where you build the specific fitness that matters on Kranjska Gora's technical alpine terrain. Focus on foot placement and rhythm on descents; don't cruise downhills, but don't trash your quads either. Finish stronger than you start—your last 15 minutes should feel controlled but pushing, not cooked."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Start prepping the gut for the weekend's big efforts. Target ~6–7 g/kg carbs today (~450–550g): oats + banana at breakfast, a rice or pasta bowl at lunch, sweet potato + protein at dinner. Lock in a tested race breakfast you can repeat Saturday morning, and rehearse fueling on the long run — 60–90g carbs/hr. Train the gut as seriously as the legs."
+      "message": "Eat a substantial breakfast 90–120 minutes before you start: 60–80g carbs (oats, banana, toast), 20–25g protein, low fiber. During the run, consume 45–60g carbs per hour via gels, chews, or sports drink—your sparse Alpine aid stations won't wait for you to bonk. Post-run within 30 minutes: 40g carbs + 20–25g protein to arrest the muscle damage window. Given your travel schedule, prep your carbs the night before so you're not scrambling Saturday morning."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Protect tonight's sleep — you want 8+ hours before back-to-back long days. If you've crossed time zones this week, grab 10–15 min of morning daylight to anchor your rhythm. After today's run, foam-roll calves, quads, and glutes for 8–10 min so the legs are springy for this weekend's descents. Hydrate to pale-yellow by 6pm."
+      "message": "You're in week 18 of a 22-week block with zero recovery week buffer—sleep is non-negotiable. Target 7.5–8.5 hours minimum tonight; your CNS and glycogen repletion demand it more than any supplement will. Post-run, spend 8–10 minutes on lower-leg mobility (calves, shins, plantar fascia) since altitude + vert fatigue stiffens the dorsiflexors. If traveling for work, avoid the hotel gym and do nothing—active recovery Monday is your allocated day."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build Phase is where the race is quietly won — consistency now compounds into confidence on the Kranjska Gora start line. The ~2,500m of vert and variable alpine weather reward athletes who logged the boring middle blocks. This weekend's back-to-back simulates running on tired legs; treat fatigue as a teacher, not a threat. Show up, do the work, trust the bank you're building."
+      "message": "You're 111 days out and entering the zone where fitness ceiling matters less than durability. Today's run is a dress rehearsal for race-day effort distribution: treat the middle climb as a tactical moment where you assert control, not panic. The Julian Alps will demand sharp decision-making on fatigue; Saturday's surges teach your brain to separate true limits from discomfort. Finish today knowing you executed the plan. That's the only metric that counts right now."
     }
   ]
 }

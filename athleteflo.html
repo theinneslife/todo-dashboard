@@ -342,6 +342,12 @@
       border: 1px solid rgba(251, 146, 60, 0.25);
     }
 
+    .badge-red {
+      background: rgba(248, 113, 113, 0.14);
+      color: var(--accent-red);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
     /* ============================================
        Race Countdown Card
        ============================================ */
@@ -891,6 +897,16 @@
       font-weight: 700;
     }
 
+    .recovery-metric-sub {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .recovery-metric-trend {
       display: flex;
       gap: 2px;
@@ -1368,6 +1384,8 @@
       padding: 1.8rem 1rem;
       gap: 0.4rem;
     }
+    /* display:flex above would otherwise defeat the `hidden` attribute. */
+    .sleep-empty[hidden] { display: none; }
     .sleep-empty-icon { font-size: 2rem; opacity: 0.85; }
     .sleep-empty-text { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); }
     .sleep-empty-sub  { font-size: 0.72rem; color: var(--text-muted); }
@@ -1729,7 +1747,7 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.4</span>
+      <span class="version-badge">v1.5</span>
       <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
         <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
         <span id="sync-btn-label">Sync Now</span>
@@ -1925,14 +1943,14 @@
         </div>
       </div>
 
-      <!-- Recovery -->
+      <!-- Recovery (Sleep + vitals, all from real data) -->
       <div class="card">
         <div class="card-header">
-          <span class="card-title">Recovery Trend</span>
-          <span class="card-badge badge-green">Good</span>
+          <span class="card-title">Recovery</span>
+          <span class="card-badge badge-orange" id="recovery-badge">—</span>
         </div>
 
-        <!-- HRV Quick Entry -->
+        <!-- Manual Quick Entry (fallback when Apple Health hasn't synced these) -->
         <div class="hrv-entry-section">
           <div class="streak-label">Log Today</div>
           <div class="hrv-entry-row">
@@ -1946,45 +1964,46 @@
 
         <div class="recovery-grid">
 
+          <div class="recovery-metric" style="--metric-accent: var(--accent-purple);">
+            <div class="recovery-metric-value" id="rec-sleep-val" style="color: var(--accent-purple);">--</div>
+            <div class="recovery-metric-label">Sleep</div>
+            <div class="recovery-metric-sub" id="rec-sleep-sub">Waiting for data</div>
+          </div>
+
+          <div class="recovery-metric" style="--metric-accent: #22d3ee;">
+            <div class="recovery-metric-value" id="rec-eff-val" style="color: #22d3ee;">--</div>
+            <div class="recovery-metric-label">Sleep Efficiency</div>
+            <div class="recovery-metric-sub" id="rec-eff-sub">Waiting for data</div>
+          </div>
+
           <div class="recovery-metric" style="--metric-accent: var(--accent-green);">
-            <div class="recovery-metric-value" style="color: var(--accent-green);">
-              68<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> ms</span>
-            </div>
-            <div class="recovery-metric-label">HRV Today</div>
-            <div class="recovery-metric-trend" id="hrv-mini"></div>
+            <div class="recovery-metric-value" id="rec-hrv-val" style="color: var(--accent-green);">--</div>
+            <div class="recovery-metric-label">HRV</div>
+            <div class="recovery-metric-sub" id="rec-hrv-sub">Waiting for data</div>
           </div>
 
           <div class="recovery-metric" style="--metric-accent: var(--accent-blue);">
-            <div class="recovery-metric-value" style="color: var(--accent-blue);">
-              48<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> bpm</span>
-            </div>
+            <div class="recovery-metric-value" id="rec-rhr-val" style="color: var(--accent-blue);">--</div>
             <div class="recovery-metric-label">Resting HR</div>
-            <div class="recovery-metric-trend" id="rhr-mini"></div>
-          </div>
-
-          <div class="recovery-metric" style="--metric-accent: var(--accent-purple);">
-            <div class="recovery-metric-value" style="color: var(--accent-purple);">
-              83<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">%</span>
-            </div>
-            <div class="recovery-metric-label">Sleep Score</div>
-            <div class="recovery-metric-trend" id="sleep-mini"></div>
-          </div>
-
-          <div class="recovery-metric" style="--metric-accent: var(--accent-orange);">
-            <div class="recovery-metric-value" style="color: var(--accent-orange);">
-              76<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">%</span>
-            </div>
-            <div class="recovery-metric-label">Recovery %</div>
-            <div class="recovery-metric-trend" id="rec-mini"></div>
+            <div class="recovery-metric-sub" id="rec-rhr-sub">Waiting for data</div>
           </div>
 
         </div>
 
-        <!-- HRV 7-day breakdown -->
+        <!-- Sleep 7-day trend -->
         <div class="hrv-trend-wrap">
-          <div class="streak-label" style="margin-bottom: 0.45rem;">HRV — last 7 days</div>
-          <div id="hrv-bars"></div>
+          <div class="sleep-trend-head" style="margin-bottom: 0.5rem;">
+            <span class="streak-label">Sleep — last 7 days</span>
+            <span class="sleep-trend-avg" id="rec-sleep-avg">—</span>
+          </div>
+          <div class="sleep-spark" id="rec-sleep-spark"></div>
+          <div class="sleep-empty" id="rec-sleep-empty" hidden>
+            <div class="sleep-empty-icon">🌙</div>
+            <div class="sleep-empty-text">Waiting for sleep data from Apple Health</div>
+            <div class="sleep-empty-sub">Sleep Analysis syncs nightly via Health Auto Export</div>
+          </div>
         </div>
+        <div class="coach-updated" id="recovery-updated"></div>
       </div>
 
     </div>
@@ -2109,53 +2128,6 @@
         </div>
 
         <div class="coach-updated" id="nutrition-updated"></div>
-      </div>
-    </div>
-
-    <!-- ── Sleep Row ── -->
-    <div class="sleep-row">
-      <div class="card sleep-card">
-        <div class="card-header">
-          <span class="card-title">Sleep</span>
-          <span class="card-badge badge-purple" id="sleep-badge">—</span>
-        </div>
-
-        <!-- Waiting-for-data placeholder -->
-        <div class="sleep-empty" id="sleep-empty" hidden>
-          <div class="sleep-empty-icon">🌙</div>
-          <div class="sleep-empty-text">Waiting for sleep data from Apple Health</div>
-          <div class="sleep-empty-sub">Sleep Analysis syncs nightly via Health Auto Export</div>
-        </div>
-
-        <!-- Populated view -->
-        <div class="sleep-grid" id="sleep-content">
-          <div class="sleep-hero-block">
-            <div class="sleep-status-dot" id="sleep-status-dot"></div>
-            <div>
-              <div class="sleep-hero" id="sleep-hero">—</div>
-              <div class="sleep-hero-sub" id="sleep-hero-sub">last night</div>
-            </div>
-          </div>
-
-          <div class="sleep-eff-block">
-            <div class="sleep-eff-head">
-              <span class="sleep-eff-label">Sleep efficiency</span>
-              <span class="sleep-eff-val" id="sleep-eff-val">—</span>
-            </div>
-            <div class="nutri-track"><div class="nutri-fill sleep-eff-fill" id="sleep-eff-fill" style="width:0%"></div></div>
-            <div class="sleep-eff-sub" id="sleep-eff-sub"></div>
-          </div>
-
-          <div class="sleep-trend-block">
-            <div class="sleep-trend-head">
-              <span class="sleep-trend-label">7-day average</span>
-              <span class="sleep-trend-avg" id="sleep-trend-avg">—</span>
-            </div>
-            <div class="sleep-spark" id="sleep-spark"></div>
-          </div>
-        </div>
-
-        <div class="coach-updated" id="sleep-updated"></div>
       </div>
     </div>
 
@@ -2306,13 +2278,8 @@ const stravaActivities = [
 const weeklyMiles = [0, 4.1, 6.0, 6.0, 0, 0, 0];
 const weekDays    = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-// Recovery 7-day data
-const recoveryData = {
-  hrv:      [62, 58, 71, 68, 65, 70, 68],
-  rhr:      [50, 52, 48, 49, 48, 47, 48],
-  sleep:    [78, 72, 85, 81, 80, 88, 83],
-  recovery: [68, 60, 80, 76, 74, 82, 76]
-};
+// Recovery data is rendered from real sources only (sleep/HRV/RHR from
+// nutrition_data.json, manual log fallback in localStorage). See renderRecovery().
 
 // Pass 1: 7-day strain (0–21 WHOOP-style scale)
 const strain7d = [14.2, 18.5, 8.1, 16.3, 10.4, 19.8, 11.2];
@@ -2859,53 +2826,8 @@ function drawWeightSparkline(days7) {
   });
 }
 
-/* ══════════════════════════════════════════════
-   Recovery Mini Trend Bars
-   ══════════════════════════════════════════════ */
-function renderMiniTrend(containerId, data, color) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  const max = Math.max(...data);
-  const min = Math.min(...data);
-  const range = max - min || 1;
-  data.forEach(v => {
-    const pct = ((v - min) / range) * 100;
-    const bar = document.createElement('div');
-    bar.className = 'trend-bar';
-    bar.style.cssText = `flex:1;height:${Math.max(pct,12)}%;background:${color};opacity:${0.35 + (pct/100)*0.65};`;
-    el.appendChild(bar);
-  });
-}
-
-renderMiniTrend('hrv-mini',   recoveryData.hrv,      'var(--accent-green)');
-renderMiniTrend('rhr-mini',   recoveryData.rhr,      'var(--accent-blue)');
-renderMiniTrend('sleep-mini', recoveryData.sleep,    'var(--accent-purple)');
-renderMiniTrend('rec-mini',   recoveryData.recovery, 'var(--accent-orange)');
-
-/* ══════════════════════════════════════════════
-   HRV 7-day Bar Breakdown
-   ══════════════════════════════════════════════ */
-(function initHrvBars() {
-  const container = document.getElementById('hrv-bars');
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const data = recoveryData.hrv;
-  const MAX_HRV = 80;
-
-  data.forEach((v, i) => {
-    const pct = (v / MAX_HRV) * 100;
-    const color = v >= 65 ? 'var(--accent-green)' : v >= 55 ? 'var(--accent-orange)' : 'var(--accent-red)';
-    const row = document.createElement('div');
-    row.className = 'hrv-day-row';
-    row.innerHTML = `
-      <span class="hrv-day-label">${days[i]}</span>
-      <div class="hrv-bar-track">
-        <div class="hrv-bar-fill" style="width:${pct}%;background:${color};"></div>
-      </div>
-      <span class="hrv-value">${v}</span>
-    `;
-    container.appendChild(row);
-  });
-})();
+/* Recovery tiles + sleep trend are populated by renderRecovery(), driven by
+   real nutrition_data.json + manual log data (no hardcoded values). */
 
 /* ══════════════════════════════════════════════
    Pass 1: TSB Status Annotation
@@ -3232,36 +3154,15 @@ function refreshLongRunChart() {
 }
 
 /* ══════════════════════════════════════════════
-   HRV Quick Entry (localStorage)
+   Manual Recovery Log (localStorage)
+   Fallback source for HRV / RHR / Sleep when Apple Health hasn't synced them
+   yet. Read by renderRecovery(); no values are hardcoded.
    ══════════════════════════════════════════════ */
-(function initHrvEntry() {
+function getManualRecovery() {
   const saved = JSON.parse(localStorage.getItem('af_recovery_today') || 'null');
-  if (!saved) return;
+  if (!saved) return null;
   const today = new Date().toISOString().slice(0, 10);
-  if (saved.date !== today) return;
-  applyHrvEntry(saved);
-})();
-
-function applyHrvEntry(data) {
-  // Update HRV tile
-  const hrvVal = document.querySelector('[id="hrv-mini"]')
-    .closest('.recovery-metric').querySelector('.recovery-metric-value');
-  if (data.hrv) {
-    hrvVal.childNodes[0].textContent = data.hrv;
-  }
-  // Update RHR tile
-  const rhrVal = document.querySelector('[id="rhr-mini"]')
-    .closest('.recovery-metric').querySelector('.recovery-metric-value');
-  if (data.rhr) {
-    rhrVal.childNodes[0].textContent = data.rhr;
-  }
-  // Update sleep tile (stored as hours, displayed as %)
-  if (data.sleep) {
-    const sleepVal = document.querySelector('[id="sleep-mini"]')
-      .closest('.recovery-metric').querySelector('.recovery-metric-value');
-    const sleepScore = Math.min(Math.round((data.sleep / 9) * 100), 100);
-    sleepVal.childNodes[0].textContent = sleepScore;
-  }
+  return saved.date === today ? saved : null;
 }
 
 function logRecovery() {
@@ -3278,7 +3179,7 @@ function logRecovery() {
 
   const entry = { date: new Date().toISOString().slice(0, 10), hrv, rhr, sleep };
   localStorage.setItem('af_recovery_today', JSON.stringify(entry));
-  applyHrvEntry(entry);
+  renderRecovery();
 
   confirm.style.color = 'var(--accent-green)';
   confirm.textContent = 'Logged';
@@ -3965,15 +3866,17 @@ function renderNutrition() {
   // Charts for the currently visible tab
   drawNutriCharts();
 
-  // Sleep card shares the same nutrition_data.json feed.
-  renderSleep();
+  // Recovery section shares the same nutrition_data.json feed.
+  renderRecovery();
 }
 
 /* ══════════════════════════════════════════════
-   Sleep card — reads sleep_hours / time_in_bed_hours /
-   sleep_efficiency_pct from the same nutrition_data.json feed.
-   Unlike the nutrition charts there is NO sample fallback: with no real
-   sleep data we show an honest "waiting for data" placeholder.
+   Recovery section — Sleep + HRV + Resting HR, all from real data:
+   sleep_hours / time_in_bed_hours / sleep_efficiency_pct / hrv_ms /
+   resting_hr from nutrition_data.json (Apple Health via HAE), with a
+   manual localStorage log as a fallback for HRV/RHR/sleep. There is NO
+   sample fallback: missing fields show an honest placeholder, never a
+   hardcoded value.
    ══════════════════════════════════════════════ */
 function fmtSleepHM(h) {
   if (h == null || !isFinite(h) || h <= 0) return '—';
@@ -4010,81 +3913,117 @@ function sleepSeries() {
       hours: r ? num(r.sleep_hours) : null,
       eff:   r ? num(r.sleep_efficiency_pct) : null,
       inBed: r ? num(r.time_in_bed_hours) : null,
+      hrv:   r ? num(r.hrv_ms) : null,
+      rhr:   r ? num(r.resting_hr) : null,
     });
   }
   return out;
 }
 
-function renderSleep() {
+// Status badge palette keyed off the sleepStatus() class.
+const RECOVERY_BADGE_CLASS = { good: 'badge-green', warn: 'badge-orange', low: 'badge-red' };
+
+function renderRecovery() {
   const series = sleepSeries();
   const real = series.filter(s => s.hours != null);
-  const empty = document.getElementById('sleep-empty');
-  const content = document.getElementById('sleep-content');
-  const badge = document.getElementById('sleep-badge');
-  const updated = document.getElementById('sleep-updated');
+  const manual = getManualRecovery();   // {hrv, rhr, sleep} for today, or null
 
-  // No real sleep data anywhere in the window → honest placeholder.
-  if (!real.length) {
-    if (empty) empty.hidden = false;
-    if (content) content.style.display = 'none';
-    if (badge) { badge.textContent = 'No data'; badge.className = 'card-badge badge-orange'; }
-    if (updated) updated.textContent = '';
-    return;
-  }
-  if (empty) empty.hidden = true;
-  if (content) content.style.display = '';
+  const sleepVal = document.getElementById('rec-sleep-val');
+  const sleepSub = document.getElementById('rec-sleep-sub');
+  const effVal   = document.getElementById('rec-eff-val');
+  const effSub   = document.getElementById('rec-eff-sub');
+  const badge    = document.getElementById('recovery-badge');
+  const updated  = document.getElementById('recovery-updated');
+  const spark    = document.getElementById('rec-sleep-spark');
+  const sparkEmpty = document.getElementById('rec-sleep-empty');
+  const avgEl    = document.getElementById('rec-sleep-avg');
 
-  // Most recent day with data drives the hero + efficiency.
-  const latest = real[real.length - 1];
-  const st = sleepStatus(latest.hours);
+  const todayKey = isoDate(new Date());
 
-  const dot = document.getElementById('sleep-status-dot');
-  if (dot) dot.className = 'sleep-status-dot ' + st.cls;
-  const hero = document.getElementById('sleep-hero');
-  if (hero) hero.textContent = fmtSleepHM(latest.hours);
-  const heroSub = document.getElementById('sleep-hero-sub');
-  if (heroSub) {
-    const isToday = latest.date === isoDate(new Date());
-    heroSub.textContent = (isToday ? 'last night' : nMonthDay(latest.date)) + ' · ' + st.label;
-  }
-  if (badge) { badge.textContent = st.label; badge.className = 'card-badge badge-purple'; }
+  // ── Sleep: most recent night from HAE, else today's manual log ──
+  const latest = real.length ? real[real.length - 1] : null;
+  const manualSleepH = (manual && manual.sleep > 0) ? manual.sleep : null;
+  // Prefer real synced sleep; fall back to a manual entry only if no sync.
+  const sleepH   = latest ? latest.hours : manualSleepH;
+  const sleepEff = latest ? latest.eff : null;
+  const sleepInBed = latest ? latest.inBed : null;
 
-  // Efficiency bar.
-  const effVal = document.getElementById('sleep-eff-val');
-  const effFill = document.getElementById('sleep-eff-fill');
-  const effSub = document.getElementById('sleep-eff-sub');
-  if (latest.eff != null) {
-    if (effVal) effVal.textContent = latest.eff.toFixed(0) + '%';
-    if (effFill) effFill.style.width = Math.max(0, Math.min(100, latest.eff)) + '%';
-    if (effSub) effSub.textContent = latest.inBed != null ? fmtSleepHM(latest.inBed) + ' in bed' : '';
+  if (sleepH != null) {
+    const st = sleepStatus(sleepH);
+    if (sleepVal) sleepVal.textContent = fmtSleepHM(sleepH);
+    if (sleepSub) {
+      const when = latest && latest.date !== todayKey ? nMonthDay(latest.date) : 'last night';
+      sleepSub.textContent = when + ' · ' + st.label;
+    }
+    // Green / amber / red status badge driven purely by sleep hours.
+    if (badge) { badge.textContent = st.label; badge.className = 'card-badge ' + RECOVERY_BADGE_CLASS[st.cls]; }
   } else {
-    if (effVal) effVal.textContent = '—';
-    if (effFill) effFill.style.width = '0%';
-    if (effSub) effSub.textContent = '';
+    if (sleepVal) sleepVal.textContent = '--';
+    if (sleepSub) sleepSub.textContent = 'Waiting for data';
+    if (badge) { badge.textContent = 'Waiting for data'; badge.className = 'card-badge badge-orange'; }
   }
 
-  // 7-day average (over days that have data).
-  const avg = real.reduce((a, s) => a + s.hours, 0) / real.length;
-  const avgEl = document.getElementById('sleep-trend-avg');
-  if (avgEl) avgEl.textContent = fmtSleepHM(avg);
-
-  // Sparkline bars. Scale to the largest of 9h or the week's max so bars stay
-  // comparable night-to-night.
-  const maxH = Math.max(9, ...real.map(s => s.hours));
-  const spark = document.getElementById('sleep-spark');
-  if (spark) {
-    spark.innerHTML = series.map(s => {
-      const label = nMonthDay(s.date);
-      if (s.hours == null) {
-        return `<div class="sleep-bar empty" title="${label} · no data"></div>`;
-      }
-      const pct = Math.max(8, Math.round(s.hours / maxH * 100));
-      const color = SLEEP_BAR_COLORS[sleepStatus(s.hours).cls];
-      return `<div class="sleep-bar" style="height:${pct}%;background:${color}" title="${label} · ${fmtSleepHM(s.hours)}"></div>`;
-    }).join('');
+  // ── Sleep efficiency ──
+  if (sleepEff != null) {
+    if (effVal) effVal.textContent = sleepEff.toFixed(0) + '%';
+    if (effSub) effSub.textContent = sleepInBed != null ? fmtSleepHM(sleepInBed) + ' in bed' : '';
+  } else {
+    if (effVal) effVal.textContent = '--';
+    if (effSub) effSub.textContent = 'Waiting for data';
   }
 
-  // Last-updated line, mirroring the nutrition card.
+  // ── HRV: HAE value for the latest night, else today's manual entry ──
+  const hrvHae = latest ? latest.hrv : null;
+  const hrv = hrvHae != null ? hrvHae : (manual && manual.hrv > 0 ? manual.hrv : null);
+  const hrvVal = document.getElementById('rec-hrv-val');
+  const hrvSub = document.getElementById('rec-hrv-sub');
+  if (hrv != null) {
+    if (hrvVal) hrvVal.innerHTML = Math.round(hrv) + '<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> ms</span>';
+    if (hrvSub) hrvSub.textContent = hrvHae != null ? 'Apple Health' : 'Manual entry';
+  } else {
+    if (hrvVal) hrvVal.textContent = '--';
+    if (hrvSub) hrvSub.textContent = 'Waiting for data';
+  }
+
+  // ── Resting HR: HAE value, else today's manual entry ──
+  const rhrHae = latest ? latest.rhr : null;
+  const rhr = rhrHae != null ? rhrHae : (manual && manual.rhr > 0 ? manual.rhr : null);
+  const rhrVal = document.getElementById('rec-rhr-val');
+  const rhrSub = document.getElementById('rec-rhr-sub');
+  if (rhr != null) {
+    if (rhrVal) rhrVal.innerHTML = Math.round(rhr) + '<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);"> bpm</span>';
+    if (rhrSub) rhrSub.textContent = rhrHae != null ? 'Apple Health' : 'Manual entry';
+  } else {
+    if (rhrVal) rhrVal.textContent = '--';
+    if (rhrSub) rhrSub.textContent = 'Waiting for data';
+  }
+
+  // ── 7-day sleep trend bars ──
+  if (!real.length) {
+    if (sparkEmpty) sparkEmpty.hidden = false;
+    if (spark) spark.style.display = 'none';
+    if (avgEl) avgEl.textContent = '—';
+  } else {
+    if (sparkEmpty) sparkEmpty.hidden = true;
+    if (spark) spark.style.display = '';
+    const avg = real.reduce((a, s) => a + s.hours, 0) / real.length;
+    if (avgEl) avgEl.textContent = fmtSleepHM(avg) + ' avg';
+    // Scale to the larger of 9h or the week's max so bars stay comparable.
+    const maxH = Math.max(9, ...real.map(s => s.hours));
+    if (spark) {
+      spark.innerHTML = series.map(s => {
+        const label = nMonthDay(s.date);
+        if (s.hours == null) {
+          return `<div class="sleep-bar empty" title="${label} · no data"></div>`;
+        }
+        const pct = Math.max(8, Math.round(s.hours / maxH * 100));
+        const color = SLEEP_BAR_COLORS[sleepStatus(s.hours).cls];
+        return `<div class="sleep-bar" style="height:${pct}%;background:${color}" title="${label} · ${fmtSleepHM(s.hours)}"></div>`;
+      }).join('');
+    }
+  }
+
+  // ── Last-updated line ──
   if (updated) {
     let txt = '';
     if (nutritionData && nutritionData.last_updated) {
@@ -4094,7 +4033,7 @@ function renderSleep() {
           dt.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
       }
     }
-    if (real.length < 7) txt = (txt ? txt + ' · ' : '') + real.length + '/7 nights recorded';
+    if (real.length && real.length < 7) txt = (txt ? txt + ' · ' : '') + real.length + '/7 nights recorded';
     updated.textContent = txt;
   }
 }

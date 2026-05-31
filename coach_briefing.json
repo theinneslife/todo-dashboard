@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-30",
-  "generated_at": "2026-05-30T14:43:48.550823Z",
+  "generated": "2026-05-31",
+  "generated_at": "2026-05-31T14:50:45.494350Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Long run day in peak phase: target 90–110 minutes with 800–1200m of vert, mixing Z2 climbing with 3–4 surges at 85–90% max HR (race-relevant pace on steep ground). Saturday is your anchor day—this is where you build the specific fitness that matters on Kranjska Gora's technical alpine terrain. Focus on foot placement and rhythm on descents; don't cruise downhills, but don't trash your quads either. Finish stronger than you start—your last 15 minutes should feel controlled but pushing, not cooked."
+      "message": "Sunday in peak phase: this is your second long effort of the week, so dial it back to Z2 steady-state for 90–110 minutes on rolling or slightly technical terrain. You're 110 days out and your aerobic system is sharp; use today to log volume and practice footwork on uneven ground without accumulating central fatigue on top of yesterday's effort. Target HR 135–150 bpm depending on terrain. If legs feel heavy, 75 minutes easy is acceptable—never chase a number when your CNS is already loaded from the week's quality work."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat a substantial breakfast 90–120 minutes before you start: 60–80g carbs (oats, banana, toast), 20–25g protein, low fiber. During the run, consume 45–60g carbs per hour via gels, chews, or sports drink—your sparse Alpine aid stations won't wait for you to bonk. Post-run within 30 minutes: 40g carbs + 20–25g protein to arrest the muscle damage window. Given your travel schedule, prep your carbs the night before so you're not scrambling Saturday morning."
+      "message": "You're in peak training load; your glycogen stores are a limiting factor. Eat 1.5–2.0g carbs per kg bodyweight today distributed across all meals—aim for 300–400g total if you weigh ~75kg. Pre-run (2–3 hours prior): oatmeal, banana, honey. On the run: 30–40g carbs per hour via gels or sports drink if you're running >90 minutes. Post-run within 30 minutes: carbs + 20–30g protein to start recovery. Don't skimp on Sunday; it funds Monday's recovery and Tuesday's quality."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You're in week 18 of a 22-week block with zero recovery week buffer—sleep is non-negotiable. Target 7.5–8.5 hours minimum tonight; your CNS and glycogen repletion demand it more than any supplement will. Post-run, spend 8–10 minutes on lower-leg mobility (calves, shins, plantar fascia) since altitude + vert fatigue stiffens the dorsiflexors. If traveling for work, avoid the hotel gym and do nothing—active recovery Monday is your allocated day."
+      "message": "Prioritize sleep tonight—you're in peak phase and your body is in a state of controlled overreach. Target 8–9 hours minimum. After the run, get 10–15 minutes of easy walking or foam rolling to flush lactate, then hydrate aggressively (500–750ml fluid + electrolytes over 2 hours). If travel is on the agenda tomorrow, pack a foam roller and commit to a 20-minute mobility session before bed. Your parasympathetic nervous system needs as much downtime as your muscles do."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 111 days out and entering the zone where fitness ceiling matters less than durability. Today's run is a dress rehearsal for race-day effort distribution: treat the middle climb as a tactical moment where you assert control, not panic. The Julian Alps will demand sharp decision-making on fatigue; Saturday's surges teach your brain to separate true limits from discomfort. Finish today knowing you executed the plan. That's the only metric that counts right now."
+      "message": "You're 110 days from an alpine 50K with serious vert and sparse aid—this is the phase where mental toughness gets built in the aerobic zone, not in the pain cave. Today's run is about rhythmic breathing, terrain awareness, and self-regulation: can you stay composed at Z2 when your ego wants to push harder? Practice your race-day mindset: break the Julian Alps into 5–6 segments, focus on the next aid station, not the finish line. That executive discipline translates directly to mountain running."
     }
   ]
 }

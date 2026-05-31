@@ -552,6 +552,14 @@
         .discover-check-btn:hover { border-color: #22c55e; color: #22c55e; }
         .discover-check-btn.checked { background: #22c55e; border-color: #22c55e; color: #fff; }
         .curated-place-card.visited { border-color: rgba(34,197,94,.55); box-shadow: 0 0 0 1px rgba(34,197,94,.3); }
+        .discover-wish-btn { position: absolute; top: .5rem; right: 2.1rem; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-muted); font-size: .8rem; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; padding: 0; z-index: 2; }
+        .discover-wish-btn:hover { border-color: #38bdf8; color: #38bdf8; }
+        .discover-wish-btn.wished { background: #38bdf8; border-color: #38bdf8; color: #fff; }
+        .curated-place-card.wishlisted { border-color: rgba(56,189,248,.55); box-shadow: 0 0 0 1px rgba(56,189,248,.3); }
+        .curated-place-card.visited.wishlisted { border-color: rgba(34,197,94,.55); box-shadow: 0 0 0 1px rgba(34,197,94,.3), 0 0 0 3px rgba(56,189,248,.18); }
+        .discover-filter-pill.wishlist-pill { color: #38bdf8; border-color: rgba(56,189,248,.5); }
+        .discover-filter-pill.wishlist-pill.active, .discover-filter-pill.wishlist-pill:hover { background: #38bdf8; border-color: #38bdf8; color: #fff; }
+        .discover-wishlist-empty { padding: 32px 16px; text-align: center; color: var(--text-muted); font-size: .85rem; }
 
         /* Michelin section */
         .michelin-add-btn { flex-shrink: 0; padding: .4rem .75rem; border-radius: 8px; background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.4); color: #f59e0b; font-size: .68rem; font-weight: 700; cursor: pointer; transition: all .2s; white-space: nowrap; }
@@ -923,6 +931,75 @@
             border-radius: 12px; font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: var(--transition);
         }
         .schengen-trip-chip:hover { background: rgba(59,130,246,0.25); }
+        .schengen-alert {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 14px; margin-bottom: 16px;
+            border: 1px solid; border-radius: 10px;
+            font-size: 0.85rem; font-weight: 600;
+        }
+        .schengen-alert-icon { font-size: 1rem; line-height: 1; }
+        .schengen-alert-msg { line-height: 1.3; }
+
+        /* Schengen live preview inside the Add Trip form */
+        .schengen-preview {
+            display: flex; align-items: flex-start; gap: 8px;
+            padding: 10px 12px; margin-top: 10px;
+            border: 1px solid; border-radius: 10px;
+            font-size: 0.8rem; line-height: 1.35;
+        }
+        .schengen-preview-icon { font-size: 0.95rem; line-height: 1.2; flex-shrink: 0; }
+        .schengen-preview strong { font-weight: 700; }
+
+        /* ===== TIMELINE / PASSPORT VIEW ===== */
+        .passport-container { padding: 0 16px 32px; display: flex; flex-direction: column; gap: 24px; }
+        .passport-empty { text-align: center; padding: 48px 16px; color: var(--text-muted); }
+        .passport-empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .passport-empty-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+        .passport-empty-text { font-size: 0.85rem; }
+        .passport-summary {
+            position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #1e293b 0%, #25293d 100%);
+            border: 1px solid var(--border-color); border-radius: 16px;
+            padding: 20px; text-align: center;
+        }
+        .passport-summary::before {
+            content: ''; position: absolute; top: -40px; right: -40px;
+            width: 140px; height: 140px; border-radius: 50%;
+            border: 2px dashed rgba(96,165,250,0.25);
+        }
+        .passport-summary-year { font-size: 2.2rem; font-weight: 800; letter-spacing: 0.04em; color: var(--accent-blue); line-height: 1; }
+        .passport-summary-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-top: 4px; }
+        .passport-summary-stats { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+        .passport-summary-stat { display: flex; flex-direction: column; gap: 2px; }
+        .passport-summary-stat .psv { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); line-height: 1; }
+        .passport-summary-stat .psl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+        .passport-summary-divider { width: 1px; height: 32px; background: var(--border-color); }
+        .passport-summary-flags { margin-top: 14px; font-size: 1.25rem; letter-spacing: 2px; }
+        .passport-year-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-color); }
+        .passport-year-num { font-size: 1.4rem; font-weight: 800; color: var(--text-primary); letter-spacing: 0.03em; }
+        .passport-year-totals { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+        .passport-stamps { display: flex; flex-direction: column; gap: 10px; }
+        .passport-stamp {
+            display: flex; align-items: center; gap: 14px;
+            background: var(--bg-secondary); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 14px 16px; cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .passport-stamp:hover { transform: translateY(-2px); border-color: var(--accent-blue); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+        .passport-stamp.upcoming { border-style: dashed; opacity: 0.92; }
+        .passport-stamp-flag {
+            font-size: 1.9rem; line-height: 1; flex-shrink: 0;
+            width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--border-color); border-radius: 50%; background: var(--bg-tertiary);
+        }
+        .passport-stamp-body { flex: 1; min-width: 0; }
+        .passport-stamp-place { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .passport-stamp-country { font-size: 0.78rem; color: var(--text-secondary); margin-top: 1px; }
+        .passport-stamp-dates { font-size: 0.74rem; color: var(--text-muted); margin-top: 3px; }
+        .passport-stamp-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+        .passport-stamp-tag { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); background: rgba(96,165,250,0.14); padding: 2px 7px; border-radius: 10px; }
+        .passport-stamp-days { font-size: 1.25rem; font-weight: 800; color: var(--accent-purple); line-height: 1; display: flex; flex-direction: column; align-items: center; }
+        .passport-stamp-days span { font-size: 0.58rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-top: 2px; }
 
         /* ===== VISA REQUIREMENTS ===== */
         .visa-req-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 8px; }
@@ -2547,7 +2624,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.0</div>
+                    <div class="version-badge">v3.1</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -2696,8 +2773,18 @@
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#ef4444"></div> Race</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#f472b6"></div> ♥ With Brooke</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#14b8a6"></div> 🧭 Discover visited</div>
+                <div class="map-legend-item"><div class="map-legend-dot" style="background:#38bdf8"></div> ♥ Wishlist</div>
                 <div class="map-legend-item"><div class="map-legend-dot" style="background:#f59e0b"></div> ⭐ Michelin</div>
             </div>
+        </div>
+
+        <!-- Timeline / Passport View Tab -->
+        <div id="timelineTab" class="tab-content">
+            <div style="padding:16px 16px 8px">
+                <h2 style="font-size:20px;font-weight:700;margin:0">Passport</h2>
+                <p style="font-size:13px;color:var(--text-muted);margin:4px 0 12px">Every stamp in your journal</p>
+            </div>
+            <div id="passportContainer" class="passport-container"></div>
         </div>
         </div>
 
@@ -2760,6 +2847,10 @@
                 <div class="nav-icon"><i data-lucide="globe" style="width:24px;height:24px"></i></div>
                 <div>Map</div>
             </button>
+            <button class="nav-item" data-tab="timeline">
+                <div class="nav-icon"><i data-lucide="stamp" style="width:24px;height:24px"></i></div>
+                <div>Timeline</div>
+            </button>
             <button class="nav-item" data-tab="search">
                 <div class="nav-icon"><i data-lucide="search" style="width:24px;height:24px"></i></div>
                 <div>Search</div>
@@ -2810,6 +2901,9 @@
                         <input type="date" class="form-input" id="endDateInput" required>
                     </div>
                 </div>
+
+                <!-- Schengen projection preview (shown only for Schengen-area destinations) -->
+                <div id="schengenPreview" class="schengen-preview" style="display:none"></div>
 
                 <div id="raceFieldsContainer" style="display:none"></div>
                 <div class="form-group">
@@ -3277,6 +3371,12 @@
                 document.getElementById('startDateInput').addEventListener('change', () => this.checkOverlapWarning());
                 document.getElementById('endDateInput').addEventListener('change', () => this.checkOverlapWarning());
 
+                // Schengen live projection preview
+                ['destinationInput', 'startDateInput', 'endDateInput'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.addEventListener('input', () => this.updateSchengenPreview());
+                });
+
                 // Flights
                 document.getElementById('addFlightBtn').addEventListener('click', (e) => {
                     e.preventDefault();
@@ -3324,13 +3424,14 @@
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab', mapView: 'mapViewTab' };
+            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab', mapView: 'mapViewTab', timeline: 'timelineTab' };
             const targetTab = document.getElementById(tabMap[tabName]);
             if (targetTab) targetTab.classList.add('active');
             // Refresh views
             if (tabName === 'dashboard') this.initDashboard();
             if (tabName === 'current') this.renderCurrentTrip();
             if (tabName === 'mapView') this.renderMapView();
+            if (tabName === 'timeline') this.renderTimeline();
             if (tabName === 'discover') { this.renderDiscover();
             this.renderEnhancedDiscover(); }
         }
@@ -3407,6 +3508,7 @@
                 modal.classList.add('active');
 if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 
+                this.updateSchengenPreview();
                 this.currentModal = modal;
             }
 
@@ -3839,6 +3941,18 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     legs: this.currentEditingTrip ? (this.currentEditingTrip.legs || []) : [],
                     verified: document.getElementById('verifiedToggle') ? document.getElementById('verifiedToggle').classList.contains('active') : false
                 };
+
+                // Schengen 90/180 guard — warn clearly before saving a trip that breaches the limit
+                const _proj = projectSchengenForForm(trip.destination, startDate, endDate, this.currentEditingTrip ? this.currentEditingTrip.id : null);
+                if (_proj && _proj.breach) {
+                    const ok = window.confirm(
+                        '🚨 Schengen limit breach\n\n' +
+                        'This trip would put you at ' + _proj.projected + ' / 90 days in the rolling 180-day window — ' +
+                        _proj.excess + ' day' + (_proj.excess === 1 ? '' : 's') + ' over the limit.\n\n' +
+                        'Save anyway?'
+                    );
+                    if (!ok) return;
+                }
 
                 if (this.currentEditingTrip) {
                     this.updateTrip(this.currentEditingTrip.id, trip);
@@ -4504,13 +4618,27 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                 const categories = this.getDiscoverCategories();
 
                 this._discoverActiveFilter = this._discoverActiveFilter || 'all';
+                const wishCount = this.getDiscoverWishlist().length;
 
                 const filterBar = `<div class="discover-filter-bar">
+                    <button class="discover-filter-pill wishlist-pill ${this._discoverWishlistOnly ? 'active' : ''}" onclick="app.toggleWishlistFilter()">♥ Wishlist${wishCount ? ' ' + wishCount : ''}</button>
                     <button class="discover-filter-pill ${this._discoverActiveFilter === 'all' ? 'active' : ''}" onclick="app.filterDiscover('all')">All</button>
                     ${categories.map(c => `<button class="discover-filter-pill ${this._discoverActiveFilter === c.id ? 'active' : ''}" onclick="app.filterDiscover('${c.id}')">${c.emoji} ${c.name.split(' ').slice(0,2).join(' ')}</button>`).join('')}
                 </div>`;
 
-                const visibleCats = this._discoverActiveFilter === 'all' ? categories : categories.filter(c => c.id === this._discoverActiveFilter);
+                let visibleCats = this._discoverActiveFilter === 'all' ? categories : categories.filter(c => c.id === this._discoverActiveFilter);
+                // Wishlist-only mode: keep only wishlisted places, across all categories
+                if (this._discoverWishlistOnly) {
+                    visibleCats = visibleCats
+                        .map(c => Object.assign({}, c, { places: c.places.filter(p => this.isWishlisted(p.name)) }))
+                        .filter(c => c.places.length > 0);
+                }
+
+                if (this._discoverWishlistOnly && visibleCats.length === 0) {
+                    document.getElementById('curatedDiscoverContainer').innerHTML = this.renderMichelinSection() + filterBar +
+                        `<div class="discover-wishlist-empty">♡ No places on your wishlist yet. Tap the heart on any place to save it here.</div>`;
+                    return;
+                }
 
                 const catsHTML = visibleCats.map(cat => `
                     <div class="curated-category" data-cat="${cat.id}">
@@ -4525,10 +4653,12 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         <div class="curated-row">
                             ${cat.places.map(p => {
                                 const visited = this.isDiscoverVisited(p.name);
+                                const wished = this.isWishlisted(p.name);
                                 const safeName = p.name.replace(/'/g,"\\'");
                                 return `
-                                <div class="curated-place-card${visited ? ' visited' : ''}" onclick="app.createTripFromDestination('${safeName}'); return false;">
+                                <div class="curated-place-card${visited ? ' visited' : ''}${wished ? ' wishlisted' : ''}" onclick="app.createTripFromDestination('${safeName}'); return false;">
                                     <button class="discover-check-btn${visited ? ' checked' : ''}" title="${visited ? 'Visited (click to remove)' : 'Mark as visited'}" onclick="event.stopPropagation(); app.toggleDiscoverVisited('${safeName}', this);">✓</button>
+                                    <button class="discover-wish-btn${wished ? ' wished' : ''}" title="${wished ? 'On wishlist (click to remove)' : 'Add to wishlist'}" onclick="event.stopPropagation(); app.toggleWishlist('${safeName}', this);">${wished ? '♥' : '♡'}</button>
                                     <div class="curated-place-flag">${p.flag}</div>
                                     <div class="curated-place-name">${p.name}</div>
                                     <div class="curated-place-country">${p.country}</div>
@@ -4546,6 +4676,11 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
 
             filterDiscover(catId) {
                 this._discoverActiveFilter = catId;
+                this.renderDiscover();
+            }
+
+            toggleWishlistFilter() {
+                this._discoverWishlistOnly = !this._discoverWishlistOnly;
                 this.renderDiscover();
             }
 
@@ -4589,6 +4724,35 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                     if (card) card.classList.toggle('visited', nowVisited);
                 }
                 this.showToast(nowVisited ? name + ' marked as visited' : name + ' removed from visited', 'success');
+            }
+
+            // ===== Discover wishlist (localStorage: discover_wishlist) =====
+            getDiscoverWishlist() {
+                try { return JSON.parse(localStorage.getItem('discover_wishlist')) || []; }
+                catch(e) { return []; }
+            }
+
+            isWishlisted(name) {
+                return this.getDiscoverWishlist().indexOf(name) >= 0;
+            }
+
+            toggleWishlist(name, btnEl) {
+                const list = this.getDiscoverWishlist();
+                const idx = list.indexOf(name);
+                let nowWished;
+                if (idx >= 0) { list.splice(idx, 1); nowWished = false; }
+                else { list.push(name); nowWished = true; }
+                localStorage.setItem('discover_wishlist', JSON.stringify(list));
+                if (btnEl) {
+                    btnEl.classList.toggle('wished', nowWished);
+                    btnEl.title = nowWished ? 'On wishlist (click to remove)' : 'Add to wishlist';
+                    btnEl.textContent = nowWished ? '♥' : '♡';
+                    const card = btnEl.closest('.curated-place-card');
+                    if (card) card.classList.toggle('wishlisted', nowWished);
+                }
+                // If the wishlist-only filter is active, re-render so removed cards drop out
+                if (this._discoverWishlistOnly && !nowWished) this.renderDiscover();
+                this.showToast(nowWished ? name + ' added to wishlist' : name + ' removed from wishlist', 'success');
             }
 
             // ===== Michelin restaurants (localStorage: michelin_visited) =====
@@ -6943,26 +7107,57 @@ this.updateDashboardStats();
         return Math.round((oEnd - oStart) / 86400000) + 1;
     }
 
-    // Collect all Schengen stay periods (seed + app-tracked trips)
-    function getSchengenPeriods() {
+    // Normalize a trip into start / end / country regardless of which schema it uses.
+    // Runtime trips (loaded from trips.json) carry startDate/endDate + a string `destination`
+    // ("City, Country") plus a derived `country`. Structured trips may carry dates.{start,end}
+    // and destination.{city,country}. These helpers paper over both shapes.
+    function tripStart(t) { return (t.dates && t.dates.start) ? t.dates.start : (t.startDate || ''); }
+    function tripEnd(t)   { return (t.dates && t.dates.end)   ? t.dates.end   : (t.endDate   || ''); }
+    function tripCountry(t) {
+        if (t.destination && typeof t.destination === 'object' && t.destination.country) return t.destination.country;
+        if (t.country) return t.country;
+        if (typeof t.destination === 'string' && t.destination.indexOf(',') !== -1) return t.destination.split(',').pop().trim();
+        return (typeof t.destination === 'string') ? t.destination : '';
+    }
+
+    // Collect all Schengen stay periods (seed + app-tracked trips).
+    // `extra` is an optional hypothetical period {start,end,label} for projection previews.
+    function getSchengenPeriods(extra, excludeId) {
         const periods = SCHENGEN_SEED.map(s => ({ ...s }));
         state.trips.forEach(t => {
-            if (t.dates && t.dates.start && t.dates.end && isSchengen(t.destination?.country)) {
-                periods.push({ start: t.dates.start, end: t.dates.end, label: t.title, tripId: t.id });
+            if (excludeId != null && t.id === excludeId) return;
+            const s = tripStart(t), e = tripEnd(t), c = tripCountry(t);
+            if (s && e && isSchengen(c)) {
+                periods.push({ start: s, end: e, label: t.title || t.destination || c, tripId: t.id });
             }
         });
+        if (extra && extra.start && extra.end) periods.push(extra);
         return periods;
     }
 
-    // Count total Schengen days in the 180-day window ending at windowEndStr (inclusive)
-    function schengenDaysInWindow(windowEndStr) {
+    // Count total Schengen days in the 180-day window ending at windowEndStr (inclusive).
+    // Pass `extra` to include a hypothetical not-yet-saved trip; `excludeId` to drop a trip
+    // already in state (e.g. the one being edited) so projections don't double-count it.
+    function schengenDaysInWindow(windowEndStr, extra, excludeId) {
         const we = new Date(windowEndStr + 'T00:00:00');
         const ws = new Date(we);
         ws.setDate(ws.getDate() - 179); // 180 days inclusive
         const wsStr = ws.toISOString().split('T')[0];
         let total = 0;
-        getSchengenPeriods().forEach(p => { total += daysOverlap(p.start, p.end, wsStr, windowEndStr); });
+        getSchengenPeriods(extra, excludeId).forEach(p => { total += daysOverlap(p.start, p.end, wsStr, windowEndStr); });
         return total;
+    }
+
+    // Shared Schengen projection used by the Add-Trip form preview and the submit guard.
+    // Returns null when the destination isn't Schengen or dates are incomplete.
+    function projectSchengenForForm(destination, startDate, endDate, excludeId) {
+        const country = (typeof destination === 'string' && destination.indexOf(',') !== -1)
+            ? destination.split(',').pop().trim() : destination;
+        if (!isSchengen(country) || !startDate || !endDate || endDate < startDate) return null;
+        const extra = { start: startDate, end: endDate, label: destination };
+        const projected = schengenDaysInWindow(endDate, extra, excludeId);
+        const tripDays = daysOverlap(startDate, endDate, startDate, endDate);
+        return { country, projected, tripDays, remaining: Math.max(0, 90 - projected), breach: projected > 90, excess: Math.max(0, projected - 90) };
     }
 
     function renderSchengenWidget() {
@@ -6990,11 +7185,28 @@ this.updateDashboardStats();
                        ' – ' +
                        weDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-        // Upcoming Schengen trips + projection warnings
-        // Normalize both date formats: t.dates.start/end (new) vs t.startDate/endDate (old)
-        const _tStart = t => (t.dates && t.dates.start) ? t.dates.start : (t.startDate || '');
-        const _tEnd   = t => (t.dates && t.dates.end)   ? t.dates.end   : (t.endDate   || '');
-        const _dest   = t => (t.destination && t.destination.country) ? t.destination.country : (t.country || '');
+        // Proactive alert banner — tiered by days REMAINING (per spec):
+        //   >30 green · 15–30 amber · <15 red
+        let alertColor, alertBg, alertIcon, alertMsg;
+        if (daysRemaining > 30) {
+            alertColor = 'var(--accent-green)';  alertBg = 'rgba(52,211,153,0.12)';
+            alertIcon = '✅'; alertMsg = `${daysRemaining} days remaining in Schengen`;
+        } else if (daysRemaining >= 15) {
+            alertColor = 'var(--accent-orange)'; alertBg = 'rgba(251,146,60,0.14)';
+            alertIcon = '⚠️'; alertMsg = `${daysRemaining} days left — plan carefully`;
+        } else {
+            alertColor = 'var(--accent-red)';    alertBg = 'rgba(248,113,113,0.16)';
+            alertIcon = '🚨'; alertMsg = `Only ${daysRemaining} Schengen day${daysRemaining === 1 ? '' : 's'} left`;
+        }
+        const alertHtml = `<div class="schengen-alert" style="background:${alertBg};color:${alertColor};border-color:${alertColor};">
+            <span class="schengen-alert-icon">${alertIcon}</span>
+            <span class="schengen-alert-msg">${alertMsg}</span>
+        </div>`;
+
+        // Upcoming Schengen trips + projection warnings (shared normalization helpers)
+        const _tStart = tripStart;
+        const _tEnd   = tripEnd;
+        const _dest   = tripCountry;
 
         const upcomingSchengen = state.trips
             .filter(t => _tStart(t) > today && isSchengen(_dest(t)))
@@ -7025,6 +7237,7 @@ this.updateDashboardStats();
                 </div>
                 <span class="schengen-status-badge" style="background:${statusBg};color:${statusColor};">${statusLabel}</span>
             </div>
+            ${alertHtml}
             <div class="schengen-stats">
                 <div class="schengen-stat">
                     <div class="schengen-stat-num" style="color:${statusColor};">${daysUsed}</div>
@@ -7068,6 +7281,19 @@ this.updateDashboardStats();
         'in':'🇮🇳','india':'🇮🇳','cn':'🇨🇳','china':'🇨🇳',
         'br':'🇧🇷','brazil':'🇧🇷','ro':'🇷🇴','romania':'🇷🇴',
         'bg':'🇧🇬','bulgaria':'🇧🇬','cy':'🇨🇾','cyprus':'🇨🇾',
+        'gt':'🇬🇹','guatemala':'🇬🇹','sv':'🇸🇻','el salvador':'🇸🇻',
+        'co':'🇨🇴','colombia':'🇨🇴','ar':'🇦🇷','argentina':'🇦🇷',
+        'pe':'🇵🇪','peru':'🇵🇪','cl':'🇨🇱','chile':'🇨🇱','ec':'🇪🇨','ecuador':'🇪🇨',
+        'cr':'🇨🇷','costa rica':'🇨🇷','pa':'🇵🇦','panama':'🇵🇦',
+        'za':'🇿🇦','south africa':'🇿🇦','ke':'🇰🇪','kenya':'🇰🇪',
+        'ma':'🇲🇦','morocco':'🇲🇦','eg':'🇪🇬','egypt':'🇪🇬','tz':'🇹🇿','tanzania':'🇹🇿',
+        'id':'🇮🇩','indonesia':'🇮🇩','bali':'🇮🇩','vn':'🇻🇳','vietnam':'🇻🇳',
+        'ph':'🇵🇭','philippines':'🇵🇭','my':'🇲🇾','malaysia':'🇲🇾',
+        'fj':'🇫🇯','fiji':'🇫🇯','tr':'🇹🇷','turkey':'🇹🇷','türkiye':'🇹🇷',
+        'ge':'🇬🇪','georgia':'🇬🇪',
+        // Common US cities (some trips store a city with no country) → US flag
+        'new york':'🇺🇸','new york city':'🇺🇸','nyc':'🇺🇸','los angeles':'🇺🇸',
+        'las vegas':'🇺🇸','miami':'🇺🇸','san francisco':'🇺🇸','honolulu':'🇺🇸','maui':'🇺🇸','denver':'🇺🇸',
     };
 
     // Visa requirements database — keyed by normalized country name / code
@@ -7386,6 +7612,132 @@ this.updateDashboardStats();
             return null;
         };
 
+        // ===== TIMELINE / PASSPORT VIEW =====
+        TravelFloApp.prototype.renderTimeline = function() {
+            const container = document.getElementById('passportContainer');
+            if (!container) return;
+
+            const flagFor = c => COUNTRY_FLAGS[(c || '').trim().toLowerCase()] || '🌍';
+            const cityOf = t => {
+                if (t.destination && typeof t.destination === 'object') return t.destination.city || '';
+                if (typeof t.destination === 'string') return t.destination.split(',')[0].trim();
+                return t.title || '';
+            };
+            const durationOf = t => {
+                const s = tripStart(t); if (!s) return 0;
+                const e = tripEnd(t) || s;
+                return daysOverlap(s, e, s, e); // inclusive day count
+            };
+
+            const trips = (this.trips || []).filter(t => tripStart(t));
+            if (!trips.length) {
+                container.innerHTML = `<div class="passport-empty">
+                    <div class="passport-empty-icon">🛂</div>
+                    <div class="passport-empty-title">No stamps yet</div>
+                    <div class="passport-empty-text">Add a trip and it'll appear here as a passport stamp.</div>
+                </div>`;
+                return;
+            }
+
+            const sorted = trips.slice().sort((a, b) => tripStart(b).localeCompare(tripStart(a)));
+            const todayY = String(new Date().getFullYear());
+
+            // "This Year" summary
+            const thisYearTrips = sorted.filter(t => tripStart(t).slice(0, 4) === todayY);
+            const tyDays = thisYearTrips.reduce((sum, t) => sum + durationOf(t), 0);
+            const tyCountries = new Set(thisYearTrips.map(t => tripCountry(t)).filter(Boolean).map(c => c.toLowerCase())).size;
+            const tyFlags = [...new Set(thisYearTrips.map(t => flagFor(tripCountry(t))))].slice(0, 8).join(' ');
+
+            const summaryHtml = `<div class="passport-summary">
+                <div class="passport-summary-year">${todayY}</div>
+                <div class="passport-summary-label">This Year</div>
+                <div class="passport-summary-stats">
+                    <div class="passport-summary-stat"><span class="psv">${tyCountries}</span><span class="psl">${tyCountries === 1 ? 'Country' : 'Countries'}</span></div>
+                    <div class="passport-summary-divider"></div>
+                    <div class="passport-summary-stat"><span class="psv">${tyDays}</span><span class="psl">${tyDays === 1 ? 'Day' : 'Days'} Traveled</span></div>
+                    <div class="passport-summary-divider"></div>
+                    <div class="passport-summary-stat"><span class="psv">${thisYearTrips.length}</span><span class="psl">${thisYearTrips.length === 1 ? 'Trip' : 'Trips'}</span></div>
+                </div>
+                ${tyFlags ? `<div class="passport-summary-flags">${tyFlags}</div>` : ''}
+            </div>`;
+
+            // Group by year (start date), newest first
+            const byYear = {};
+            sorted.forEach(t => { const y = tripStart(t).slice(0, 4); (byYear[y] = byYear[y] || []).push(t); });
+            const years = Object.keys(byYear).sort((a, b) => b.localeCompare(a));
+            const today = todayStr();
+
+            const yearsHtml = years.map(y => {
+                const yt = byYear[y];
+                const yDays = yt.reduce((sum, t) => sum + durationOf(t), 0);
+                const yCountries = new Set(yt.map(t => tripCountry(t)).filter(Boolean).map(c => c.toLowerCase())).size;
+
+                const stamps = yt.map(t => {
+                    const country = tripCountry(t);
+                    const city = cityOf(t);
+                    const s = tripStart(t), e = tripEnd(t) || s;
+                    const dur = durationOf(t);
+                    const upcoming = s > today;
+                    const dateRange = e && e !== s
+                        ? `${formatDateShort(s)} – ${formatDateShort(e)}`
+                        : formatDateShort(s);
+                    return `<div class="passport-stamp${upcoming ? ' upcoming' : ''}" onclick="app.showTripDetail('${t.id}')">
+                        <div class="passport-stamp-flag">${flagFor(country)}</div>
+                        <div class="passport-stamp-body">
+                            <div class="passport-stamp-place">${esc(city || country || t.title || 'Trip')}</div>
+                            ${country && city && country.toLowerCase() !== city.toLowerCase() ? `<div class="passport-stamp-country">${esc(country)}</div>` : ''}
+                            <div class="passport-stamp-dates">${dateRange}</div>
+                        </div>
+                        <div class="passport-stamp-meta">
+                            ${upcoming ? '<span class="passport-stamp-tag">Upcoming</span>' : ''}
+                            <div class="passport-stamp-days">${dur}<span>${dur === 1 ? 'day' : 'days'}</span></div>
+                        </div>
+                    </div>`;
+                }).join('');
+
+                return `<div class="passport-year">
+                    <div class="passport-year-header">
+                        <div class="passport-year-num">${y}</div>
+                        <div class="passport-year-totals">${yCountries} ${yCountries === 1 ? 'country' : 'countries'} · ${yDays} ${yDays === 1 ? 'day' : 'days'}</div>
+                    </div>
+                    <div class="passport-stamps">${stamps}</div>
+                </div>`;
+            }).join('');
+
+            container.innerHTML = summaryHtml + yearsHtml;
+        };
+
+        // Live Schengen projection shown inside the Add/Edit Trip form
+        TravelFloApp.prototype.updateSchengenPreview = function() {
+            const box = document.getElementById('schengenPreview');
+            if (!box) return;
+            const dest  = (document.getElementById('destinationInput') || {}).value || '';
+            const start = (document.getElementById('startDateInput')  || {}).value || '';
+            const end   = (document.getElementById('endDateInput')    || {}).value || '';
+            const excludeId = this.currentEditingTrip ? this.currentEditingTrip.id : null;
+            const proj = projectSchengenForForm(dest, start, end, excludeId);
+            if (!proj) { box.style.display = 'none'; box.innerHTML = ''; return; }
+
+            let color, bg, icon, headline;
+            if (proj.breach) {
+                color = 'var(--accent-red)';    bg = 'rgba(248,113,113,0.14)';
+                icon = '🚨'; headline = `Exceeds the 90-day limit by ${proj.excess} day${proj.excess === 1 ? '' : 's'}`;
+            } else if (proj.remaining <= 15) {
+                color = 'var(--accent-orange)'; bg = 'rgba(251,146,60,0.14)';
+                icon = '⚠️'; headline = `Only ${proj.remaining} day${proj.remaining === 1 ? '' : 's'} of headroom left`;
+            } else {
+                color = 'var(--accent-green)';  bg = 'rgba(52,211,153,0.12)';
+                icon = '✅'; headline = `${proj.remaining} days still available after this trip`;
+            }
+            box.style.display = 'flex';
+            box.style.background = bg;
+            box.style.borderColor = color;
+            box.style.color = color;
+            box.innerHTML = `<span class="schengen-preview-icon">${icon}</span>`
+                + `<span><strong>Schengen (${esc(proj.country)}):</strong> this ${proj.tripDays}-day trip projects to `
+                + `<strong>${proj.projected} / 90 days</strong> used in the rolling 180-day window. ${headline}.</span>`;
+        };
+
         TravelFloApp.prototype.renderMapView = async function() {
             const container = document.getElementById('mapContainer');
             if (!container) return;
@@ -7479,6 +7831,30 @@ this.updateDashboardStats();
                         + '<p style="color:#14b8a6;font-weight:500">🧭 Discover visited</p></div>');
                 }
             } catch(e) { console.warn('Discover visited layer failed:', e); }
+
+            // Layer 3b: Discover wishlist places (blue heart pins)
+            try {
+                const wishlist = this.getDiscoverWishlist();
+                const visitedSet = new Set(this.getDiscoverVisited());
+                for (const placeName of wishlist) {
+                    if (visitedSet.has(placeName)) continue; // visited takes precedence on the map
+                    const place = this.getDiscoverPlaceByName(placeName);
+                    const query = place ? (place.name + ', ' + place.country) : placeName;
+                    const coords = await this.geocodeDestination(query);
+                    if (!coords) continue;
+                    bounds.push(coords);
+                    const wIcon = L.divIcon({
+                        className: '',
+                        html: '<div style="width:20px;height:20px;background:#38bdf8;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;color:#fff">♥</div>',
+                        iconSize: [20, 20], iconAnchor: [10, 10]
+                    });
+                    const wMarker = L.marker(coords, { icon: wIcon }).addTo(map);
+                    const country = place ? place.country : '';
+                    wMarker.bindPopup('<div class="map-popup"><h4>' + self._escHtml(place ? place.name : placeName) + '</h4>'
+                        + (country ? '<p>' + self._escHtml(country) + '</p>' : '')
+                        + '<p style="color:#38bdf8;font-weight:500">♥ On your wishlist</p></div>');
+                }
+            } catch(e) { console.warn('Wishlist layer failed:', e); }
 
             // Layer 4: Michelin restaurants (gold star pins)
             try {

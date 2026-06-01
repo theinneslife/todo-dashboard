@@ -1252,5 +1252,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "581794a3-ca75-4d0d-af54-54ea7e99b993",
+    "title": "Stagwell Deal",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-01T17:06:34.341Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-01T17:06:34.341Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

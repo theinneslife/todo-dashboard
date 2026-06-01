@@ -1,11 +1,20 @@
 {
-  "generated": "2026-06-01T12:43:42.672420Z",
-  "weekly_miles": 0.0,
-  "total_elevation_feet": 0,
+  "generated": "2026-06-01T17:07:58.247970Z",
+  "weekly_miles": 7.8,
+  "total_elevation_feet": 72,
   "last_week_miles": 43.3,
   "last_week_elevation_feet": 2316,
   "last_week_sessions": 6,
   "recent_runs": [
+    {
+      "name": "Morning Run",
+      "date": "2026-06-01",
+      "miles": 7.82,
+      "elevation_feet": 72,
+      "duration": 4897,
+      "avg_hr": 143,
+      "max_hr": 157
+    },
     {
       "name": "Morning Run",
       "date": "2026-05-31",

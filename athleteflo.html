@@ -1747,7 +1747,7 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.5</span>
+      <span class="version-badge">v1.6</span>
       <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
         <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
         <span id="sync-btn-label">Sync Now</span>
@@ -3297,16 +3297,20 @@ async function syncStravaData() {
     milesEl.textContent = data.weekly_miles.toFixed(1);
   }
 
-  // Replace this week's static placeholder entries with real data from strava_data.json
-  // so that refreshTrainingWeek() uses accurate mileage instead of placeholder totals
+  // Replace static placeholder entries with real data from strava_data.json so the
+  // fitness chart (PMC) and weekly stats use accurate values. recent_runs now spans
+  // the full ~60-day Strava window, so drop every placeholder on/after the earliest
+  // real run date (otherwise placeholder + real overlap and double-count the TSS).
   const recent = Array.isArray(data.recent_runs) ? data.recent_runs : [];
   if (recent.length) {
-    const monday = new Date(); monday.setHours(0, 0, 0, 0);
-    const day = monday.getDay();
-    monday.setDate(monday.getDate() + (day === 0 ? -6 : 1 - day));
-    for (let i = stravaActivities.length - 1; i >= 0; i--) {
-      const d = new Date(stravaActivities[i].date); d.setHours(0, 0, 0, 0);
-      if (d >= monday) stravaActivities.splice(i, 1);
+    const earliest = recent
+      .map(r => String(r.date || ''))
+      .filter(Boolean)
+      .sort()[0];
+    if (earliest) {
+      for (let i = stravaActivities.length - 1; i >= 0; i--) {
+        if (String(stravaActivities[i].date) >= earliest) stravaActivities.splice(i, 1);
+      }
     }
     recent.forEach(r => {
       stravaActivities.push({
@@ -3327,7 +3331,8 @@ async function syncStravaData() {
   if (block && list) {
     block.style.display = 'block';
     if (recent.length) {
-      list.innerHTML = recent.map(r => {
+      // recent_runs now spans ~60 days for the chart; show only the latest 8 here.
+      list.innerHTML = recent.slice(0, 8).map(r => {
         const [y, m, d] = String(r.date || '').split('-').map(Number);
         const dateStr = (y && m && d)
           ? new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })

@@ -197,6 +197,7 @@ jobs:
               return value  # 'hr' / 'h' / 'hours' or unitless → assume hours
 
           def sample_sum(samples, *keys):
+              # Sum the FIRST present key per sample — keys are ALIASES for one value.
               total = 0.0
               for s in samples:
                   if not isinstance(s, dict):
@@ -205,6 +206,17 @@ jobs:
                       if s.get(k) is not None:
                           total += to_number(s.get(k))
                           break
+              return total
+
+          def sample_sum_stages(samples, *keys):
+              # Sum ALL present keys per sample — keys are ADDITIVE sleep stages.
+              total = 0.0
+              for s in samples:
+                  if not isinstance(s, dict):
+                      continue
+                  for k in keys:
+                      if s.get(k) is not None:
+                          total += to_number(s.get(k))
               return total
 
           sleep_hours = None
@@ -218,6 +230,13 @@ jobs:
               unit = metric_unit(m)
               samples = m.get('data') if isinstance(m.get('data'), list) else []
               asleep_s = sample_sum(samples, 'asleep', 'totalSleep', 'sleepDurationAsleep')
+              if asleep_s <= 0:
+                  # Modern Apple Health / HAE splits "asleep" into Core/Deep/REM stages
+                  # with NO single asleep field — total sleep is their sum (awake
+                  # excluded). This is the usual reason sleep_hours came back null.
+                  asleep_s = sample_sum_stages(samples, 'core', 'deep', 'rem',
+                                               'asleepCore', 'asleepDeep', 'asleepREM',
+                                               'sleepCore', 'sleepDeep', 'sleepREM')
               inbed_s  = sample_sum(samples, 'inBed', 'timeInBed')
               if key in SLEEP_ASLEEP:
                   val = asleep_s if asleep_s > 0 else metric_qty(m)

@@ -40,14 +40,17 @@ jobs:
             token = json.loads(r.read())
           access_token = token['access_token']
 
-          # Calculate Monday 00:00:00 (UTC). We need this week AND last week, so fetch
-          # everything since the start of last week (14 days back from this Monday).
+          # Monday 00:00:00 (UTC) anchors the weekly aggregations. Separately, fetch a
+          # wider ~60-day window so the AthleteFlo fitness chart (PMC) and recent-runs
+          # feed have a full ~2 months of activity, not just the current week.
           now = datetime.datetime.utcnow()
           this_monday = (now - datetime.timedelta(days=now.weekday())).replace(
             hour=0, minute=0, second=0, microsecond=0)
           last_monday = this_monday - datetime.timedelta(days=7)
-          after_ts = int(last_monday.timestamp())
+          window_start = now - datetime.timedelta(days=60)
+          after_ts = int(window_start.timestamp())
 
+          # per_page=100 comfortably covers ~60 days of near-daily activity.
           url = f'https://www.strava.com/api/v3/athlete/activities?after={after_ts}&per_page=100'
           req = urllib.request.Request(url, headers={'Authorization': f'Bearer {access_token}'})
           with urllib.request.urlopen(req) as r:
@@ -84,11 +87,13 @@ jobs:
           last_week_elevation_feet = sum_elev_ft(last_week)
           last_week_sessions      = session_count(last_week)
 
-          # Format recent runs (most recent 5 from this week). Duration is emitted
-          # in raw seconds so the dashboard can compute heart-rate-based TSS (hrTSS);
-          # avg_hr / max_hr come straight off the activity summary (0 if no HR data).
+          # Format recent runs across the whole ~60-day window, most recent first, so
+          # the AthleteFlo fitness chart (PMC) sees the full activity history — not just
+          # the current week. Duration is emitted in raw seconds so the dashboard can
+          # compute heart-rate-based TSS (hrTSS); avg_hr / max_hr come straight off the
+          # activity summary (0 if no HR data).
           recent = []
-          for a in this_week[:5]:
+          for a in sorted(runs, key=parse_local, reverse=True):
             avg_hr = a.get('average_heartrate')
             max_hr = a.get('max_heartrate')
             recent.append({

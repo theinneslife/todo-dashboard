@@ -129,4 +129,4 @@ jobs:
           git add strava_data.json
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "chore: update strava_data.json [skip ci]"
-          git push
+          git pull --rebase origin main && git push origin main

@@ -123,7 +123,7 @@
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "Relationships"
+      "Parking Lot"
     ],
     "due_date": null,
     "recurrence": null,
@@ -159,6 +159,12 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from parking to relationships"
+      },
+      {
+        "timestamp": "2026-06-01T17:06:08.700Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from relationships to parking"
       }
     ],
     "created_at": "2026-04-08T17:40:29.777Z",

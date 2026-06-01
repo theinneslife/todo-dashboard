@@ -714,7 +714,7 @@
     "title": "Align all SSPs and TV networks to MNTN impression data",
     "description": "Ensure all SSPs and TV networks report off MNTN's impression counts, not their own. Strategic measurement/data initiative noted in May 8 recording.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -757,10 +757,16 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task edited"
+      },
+      {
+        "timestamp": "2026-06-01T17:05:55.425Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-05-11T16:57:12.808Z",
-    "completed_at": null,
+    "completed_at": "2026-06-01T17:05:55.425Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],
@@ -771,7 +777,7 @@
       "sprint": ""
     },
     "delegation_notes": null,
-    "pinned": true,
+    "pinned": false,
     "comments": [
       {
         "by": "Christopher",

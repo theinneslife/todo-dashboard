@@ -1404,5 +1404,135 @@
     "depends_on": [],
     "collaborators": [],
     "pinned": true
+  },
+  {
+    "id": "f99be3a9-e971-4f9a-8c0f-f4708a05360d",
+    "title": "MNTN Board Meeting reminder — Q2 (July 28)",
+    "description": "Q2 MNTN Quarterly Board Meeting is 45 days away (July 28, 2026 at Goodwin Procter LLP, NYC). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by June 28).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-06-13",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Board meeting July 28. Need to schedule 30-day pre-call with Mark, Patrick, Ashley Graham by June 28.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "9730ce65-08cc-41af-bb7f-f34fc0a5a425",
+    "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q2)",
+    "description": "Schedule 30-day pre-board alignment call with Mark (mark@mountain.com), Patrick (patrick@mountain.com), and Ashley Graham before the Q2 MNTN Board Meeting (July 28, 2026).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-06-28",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "6e5c698f-dbe9-463d-a949-524574555dc7",
+    "title": "MNTN Board Meeting reminder — Q3 (Oct 27)",
+    "description": "Q3 MNTN Quarterly Board Meeting is 45 days away (October 27, 2026 at Latham & Watkins, Century City). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by September 27).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-09-12",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "46d70aa3-c61a-4dd7-baf6-9e99bfd32ae0",
+    "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q3)",
+    "description": "Schedule 30-day pre-board alignment call with Mark, Patrick, and Ashley Graham before the Q3 MNTN Board Meeting (October 27, 2026).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-09-27",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": false
   }
 ]

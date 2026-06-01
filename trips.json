@@ -55,11 +55,14 @@
       "flights": [
         {
           "airline": "Delta Air Lines DL650",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "HNL > JFK",
+          "departure": "Apr 6, 2026 5:24 PM",
+          "arrival": "Apr 7, 2026 9:00 AM",
+          "confirmation": "JN4VEP",
+          "class": "Economy",
+          "cost": "",
+          "notes": "",
+          "passengers": "Christopher Innes"
         }
       ],
       "accommodation": "Stunning view+terrasse/Hells Kitchen",
@@ -220,37 +223,34 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta Air Lines",
-          "number": "DL1315",
-          "depAirport": "iah",
-          "arrAirport": "sjd",
-          "depTime": "2026-04-17T07:00",
-          "arrTime": "2026-04-17T13:02"
+          "airline": "Delta Air Lines DL1315/DL1945",
+          "route": "IAH > ATL > SJD",
+          "departure": "Apr 17, 2026 7:00 AM",
+          "arrival": "Apr 17, 2026 1:04 PM",
+          "confirmation": "HHY9O6",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL1315 IAH-ATL 7:00AM-10:04AM, DL1945 ATL-SJD 11:36AM-1:04PM",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines DL1876",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026 2:00 PM",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "confirmation": "HH9APE",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Los Cabos to Los Angeles",
+          "passengers": ""
         }
       ],
-      "accommodation": "https://www.airbnb.com/rooms/950786427645488481?source_impression_id=p3_1776179031_P3tId_trHBOZn16A",
+      "accommodation": "Condominium in Cabo San Lucas",
       "budget": 0,
       "expenses": [],
       "packingList": {},
       "colorIndex": 1,
-      "legs": [
-        {
-          "destination": "Cabo",
-          "startDate": "2026-04-20",
-          "endDate": "2026-04-24",
-          "accommodation": "https://www.airbnb.com/rooms/54162491?source_impression_id=p3_1776179142_P3E3kFtpNwRVswUq",
-          "flight": "",
-          "activities": ""
-        },
-        {
-          "destination": "Cabo San Lucas",
-          "startDate": "2026-04-17",
-          "endDate": "2026-04-20",
-          "accommodation": "https://www.airbnb.com/rooms/950786427645488481?source_impression_id=p3_1776179031_P3tId_trHBOZn16A",
-          "flight": "",
-          "activities": ""
-        }
-      ]
+      "legs": []
     },
     {
       "id": "4",
@@ -306,12 +306,26 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta",
-          "number": "DL1876",
-          "depAirport": "sjd",
-          "arrAirport": "lax",
-          "depTime": "2026-04-24T14:00",
-          "arrTime": "2026-04-24T16:45"
+          "airline": "Delta Air Lines DL1876",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026 2:00 PM",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "confirmation": "HH9APE",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Arriving from Los Cabos",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines DL968/DL5535",
+          "route": "LGA > ATL > LFT",
+          "departure": "May 1, 2026 5:00 PM",
+          "arrival": "May 1, 2026 10:12 PM",
+          "confirmation": "GT6REO",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL968 LGA-ATL 5:00PM-7:36PM, DL5535 ATL-LFT 9:20PM-10:12PM (Endeavor Air)",
+          "passengers": ""
         }
       ],
       "accommodation": null,
@@ -360,12 +374,15 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Luftansa",
-          "number": "76XWTD",
-          "depAirport": "LAX",
-          "arrAirport": "JNB",
-          "depTime": "2026-04-30T15:05",
-          "arrTime": "2026-05-02T08:05"
+          "airline": "Flightnetwork",
+          "route": "JNB > MQP",
+          "departure": "May 2, 2026 11:05 AM",
+          "arrival": "May 2, 2026 12:00 PM",
+          "confirmation": "1124-346-110",
+          "class": "",
+          "cost": "$652.29 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
         }
       ],
       "accommodation": null,
@@ -444,20 +461,26 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Federal Air",
-          "number": "2031",
-          "depAirport": "JMB",
-          "arrAirport": "Sabi Sands",
-          "depTime": "2026-05-02T11:30",
-          "arrTime": "2026-05-02T15:00"
+          "airline": "Flightnetwork",
+          "route": "MQP > CPT",
+          "departure": "May 6, 2026 3:10 PM",
+          "arrival": "May 6, 2026 5:50 PM",
+          "confirmation": "1125-931-158",
+          "class": "",
+          "cost": "$472.19 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
         },
         {
           "airline": "Flightnetwork",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "JNB > CPT",
+          "departure": "May 6, 2026 5:40 PM",
+          "arrival": "May 6, 2026 7:55 PM",
+          "confirmation": "1127-650-787",
+          "class": "",
+          "cost": "$857.72 USD",
+          "notes": "Alternative routing via Johannesburg",
+          "passengers": "Christopher Innes, Brooke Scimemi"
         }
       ],
       "accommodation": "Singita Boulders Lodge - River Suite",
@@ -556,20 +579,15 @@
       "notes": "",
       "flights": [
         {
-          "airline": "KLM",
-          "number": "KLM 596",
-          "depAirport": "Cape Town",
-          "arrAirport": "AMS-Schiphol",
-          "depTime": "2026-05-15T07:40",
-          "arrTime": "2026-05-15T19:10"
-        },
-        {
-          "airline": "KLM",
-          "number": "KLM 1981",
-          "depAirport": "AMS-Schiphol",
-          "arrAirport": "Dubrovnik, Croatia (DBV)",
-          "depTime": "2026-05-15T21:00",
-          "arrTime": "2026-05-15T23:35"
+          "airline": "Delta/KLM DL9171/DL9225",
+          "route": "DBV > AMS > LAX",
+          "departure": "May 29, 2026 6:30 AM",
+          "arrival": "May 29, 2026 11:50 AM",
+          "confirmation": "GHBJWI",
+          "class": "Europe Business / World Business",
+          "cost": "EUR 4,315.62",
+          "notes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
+          "passengers": "Brooke Scimemi"
         }
       ],
       "accommodation": "Maxima Comoda",
@@ -630,12 +648,15 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Delta",
-          "number": "DL0615",
-          "depAirport": "LAX",
-          "arrAirport": "CUN",
-          "depTime": "2026-05-30T10:18",
-          "arrTime": "2026-05-30T16:55"
+          "airline": "Delta Air Lines DL615",
+          "route": "LAX > CUN",
+          "departure": "May 30, 2026 10:18 AM",
+          "arrival": "May 30, 2026 4:55 PM",
+          "confirmation": "GGY5ZF",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Los Angeles to Cancun",
+          "passengers": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -692,12 +713,15 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Volaris",
-          "number": "Volaris 3930",
-          "depAirport": "CUN",
-          "arrAirport": "GUA",
-          "depTime": "2026-06-13T11:22",
-          "arrTime": "2026-06-13T11:55"
+          "airline": "Avianca",
+          "route": "Guatemala departure",
+          "departure": "Jun 27, 2026 9:30 AM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -758,11 +782,14 @@
       "flights": [
         {
           "airline": "Avianca",
-          "number": "AV743",
-          "depAirport": "GUA",
-          "arrAirport": "BOG",
-          "depTime": "2026-06-27T09:30",
-          "arrTime": "2026-06-27T13:45"
+          "route": "BOG > EZE",
+          "departure": "Jul 11, 2026",
+          "arrival": "",
+          "confirmation": "AJ2LFB",
+          "class": "Business Flex",
+          "cost": "$3,014.00 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -823,11 +850,25 @@
       "flights": [
         {
           "airline": "Avianca",
-          "number": "",
-          "depAirport": "Bogota",
-          "arrAirport": "Buenos Aires",
-          "depTime": "2026-07-11T07:15",
-          "arrTime": "2026-07-11T15:40"
+          "route": "LAX > SAL",
+          "departure": "Jul 30, 2026 2:40 PM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines DL110/DL996",
+          "route": "EZE > ATL > LAX",
+          "departure": "Jul 26, 2026 8:10 PM",
+          "arrival": "Jul 27, 2026 8:33 AM",
+          "confirmation": "HLWTES",
+          "class": "Delta One / Delta First",
+          "cost": "",
+          "notes": "DL110 EZE-ATL 8:10PM-5:25AM+1 (Delta One), DL996 ATL-LAX 7:00AM-8:33AM",
+          "passengers": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -893,16 +934,19 @@
       "notes": "",
       "flights": [
         {
-          "airline": "Avianca",
-          "number": "Avianca (AV 569)",
-          "depAirport": "JFK",
-          "arrAirport": "SAL",
-          "depTime": "2026-07-30T06:55",
-          "arrTime": "2026-07-30T09:50"
+          "airline": "Delta Air Lines DL1978/DL825",
+          "route": "SAL > ATL > LAS",
+          "departure": "Aug 9, 2026 1:48 PM",
+          "arrival": "Aug 9, 2026 10:08 PM",
+          "confirmation": "HL94IF",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL1978 SAL-ATL 1:48PM-7:30PM, DL825 ATL-LAS 8:55PM-10:08PM",
+          "passengers": ""
         }
       ],
       "accommodation": "Il Vento Uno - Penthouse TERRA",
-      "budget": 6323.09,
+      "budget": 3727,
       "expenses": [],
       "packingList": {},
       "colorIndex": 1,
@@ -999,7 +1043,7 @@
         }
       ],
       "accommodation": null,
-      "budget": 6323.09,
+      "budget": 0,
       "expenses": [],
       "packingList": {},
       "colorIndex": 4,

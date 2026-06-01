@@ -169,14 +169,34 @@ jobs:
               qty = metric_qty(m)
               if field == 'water_ml':
                   unit = metric_unit(m)
-                  # Convert liters to milliliters. "ml"/"mL" is already ml; a bare
-                  # "l"/"liter"/"litre" (no "m") means liters.
-                  if 'ml' not in unit and (unit.startswith('l') or 'liter' in unit or 'litre' in unit):
+                  # HAE actually sends water as US fluid ounces ("fl_oz_us"),
+                  # NOT liters — the old liters-only path left water near zero.
+                  # 1 US fl oz = 29.5735 ml. Check fl oz first, then fall back
+                  # to the liter -> ml conversion: "ml"/"mL" is already ml; a
+                  # bare "l"/"liter"/"litre" (no "m") means liters.
+                  if 'fl_oz' in unit or 'floz' in unit or 'fluidounce' in unit:
+                      qty *= 29.5735
+                  elif 'ml' not in unit and (unit.startswith('l') or 'liter' in unit or 'litre' in unit):
                       qty *= 1000
               entry[field] = round(qty) if field == 'calories' else round(qty, 1)
               found_date = found_date or sample_date(m)
 
           # ---- Sleep parsing (Apple Health "Sleep Analysis") -------------------
+          # NOTE ON MISSING SLEEP: real HAE payloads inspected so far carry 49
+          # metrics with NONE sleep-related, and every metric arrives with
+          # samples=0 because HAE's "Summarize Data" mode collapses per-sample
+          # records into a single daily qty. Sleep STAGE data (core/deep/rem,
+          # asleep/inBed) only exists in the per-sample records, so to get sleep
+          # here you must either:
+          #   (a) disable "Summarize Data" in HAE so per-sample sleep records
+          #       are sent (the stage-summing logic below depends on them), OR
+          #   (b) accept that Whoop-sourced sleep typically isn't written to
+          #       Apple Health until the next morning, so today's export may
+          #       legitimately have no sleep yet.
+          # The name checks below already cover "sleep_analysis" -> norm() ->
+          # "sleepanalysis" (in SLEEP_ASLEEP), so no field-name fix is needed;
+          # the gap is the payload not containing sleep at all.
+          #
           # HAE sends sleep under a variety of names; "asleep" duration and
           # "time in bed" may arrive as separate metrics, as a single qty, or as
           # per-sample breakdown fields (asleep / inBed) on a "Sleep Analysis"

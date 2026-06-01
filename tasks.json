@@ -128,7 +128,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Mark followed up with CEO on May 30th.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-08T17:40:29.777Z",
@@ -188,7 +194,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "TBD",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-08T17:40:55.226Z",
@@ -234,7 +246,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Meeting with OpenAI and Perplexity this week. Follow-up meeting on other potential partnerships being set for next week.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-17T13:21:29.545Z",
@@ -285,7 +303,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "TBD",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-17T13:21:55.925Z",
@@ -331,7 +355,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Checking back in June to see if their TV strategy has been solidified by new GM.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-05-19T00:00:00.000Z",
@@ -530,7 +560,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Call with Zazzle being coordinated by Rachel. Followed up with Rachel on June 1 for a status update.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-04-30T17:46:20.366Z",
@@ -794,6 +830,11 @@
         "by": "Christopher",
         "text": "Chandler is approaching the SSPs immediately",
         "timestamp": "2026-05-11T18:16:08.246Z"
+      },
+      {
+        "by": "Christopher",
+        "text": "Index Exchange will not lean in. Removing from list.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
       }
     ],
     "start_date": null,
@@ -963,7 +1004,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "With Legal. Rick turning around in 1-2 days.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-05-26T17:41:14.823Z",
@@ -1099,7 +1146,7 @@
         "timestamp": "2026-05-28T22:32:50.735Z",
         "action": "created",
         "by": "Otter Zap",
-        "details": "From: 🏃 Easy 4 mi | Recovery Week 6"
+        "details": "From: \ud83c\udfc3 Easy 4 mi | Recovery Week 6"
       },
       {
         "timestamp": "2026-05-29T21:22:59.195Z",
@@ -1141,7 +1188,7 @@
         "timestamp": "2026-05-28T22:32:50.735Z",
         "action": "created",
         "by": "Otter Zap",
-        "details": "From: 🏃 Easy 4 mi | Recovery Week 6"
+        "details": "From: \ud83c\udfc3 Easy 4 mi | Recovery Week 6"
       },
       {
         "timestamp": "2026-05-29T21:23:04.141Z",
@@ -1256,7 +1303,7 @@
   {
     "id": "581794a3-ca75-4d0d-af54-54ea7e99b993",
     "title": "Stagwell Deal",
-    "description": "",
+    "description": "Sign a major commitment to boost media spend this quarter. Met with their team last week to reset the relationship. Full demo with their teams this week. New leadership (all previous contacts were laid off 4 months ago) were not aware of the platform. Positive early signal.",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -1264,7 +1311,13 @@
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
-    "comments": [],
+    "comments": [
+      {
+        "by": "Christopher",
+        "text": "Met with their team last week to reset the relationship. Full demo / dog and pony show with their teams this week. New leadership not aware of our platform or features. I'm positive on this.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
     "activity_log": [
       {
         "timestamp": "2026-06-01T17:06:34.341Z",
@@ -1281,6 +1334,38 @@
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "667143a8-3130-4356-8979-e5b4ccedbd3b",
+    "title": "Net Revenue Lifting Acquisitions",
+    "description": "TBD \u2014 reviewing companies that can lift net revenue",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
   }
 ]

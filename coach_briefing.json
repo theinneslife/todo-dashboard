@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-31",
-  "generated_at": "2026-05-31T14:50:45.494350Z",
+  "generated": "2026-06-01",
+  "generated_at": "2026-06-01T18:43:37.382404Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Sunday in peak phase: this is your second long effort of the week, so dial it back to Z2 steady-state for 90–110 minutes on rolling or slightly technical terrain. You're 110 days out and your aerobic system is sharp; use today to log volume and practice footwork on uneven ground without accumulating central fatigue on top of yesterday's effort. Target HR 135–150 bpm depending on terrain. If legs feel heavy, 75 minutes easy is acceptable—never chase a number when your CNS is already loaded from the week's quality work."
+      "message": "Easy Z2 recovery, 45–55 min on relatively flat ground. Your legs took a pounding this weekend—respect that. Aim for 130–145 HR (adjust for travel lag if you're between time zones). This isn't a fitness day; it's active recovery that clears metabolic waste and preps you for Tuesday's threshold work. If you feel stiff or sluggish in the first 10 min, that's normal. Don't chase pace."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're in peak training load; your glycogen stores are a limiting factor. Eat 1.5–2.0g carbs per kg bodyweight today distributed across all meals—aim for 300–400g total if you weigh ~75kg. Pre-run (2–3 hours prior): oatmeal, banana, honey. On the run: 30–40g carbs per hour via gels or sports drink if you're running >90 minutes. Post-run within 30 minutes: carbs + 20–30g protein to start recovery. Don't skimp on Sunday; it funds Monday's recovery and Tuesday's quality."
+      "message": "You're in peak training load on a Monday travel day—a worst-case fuel scenario. Eat 1.2–1.5g carbs per kg bodyweight today (split across 4–5 meals if meals are irregular). Prioritize carbs in the 2 hours post-run to start glycogen replenishment. If you're on a plane or in transit, pack real food: rice cakes, bananas, energy bars. Hydration matters more than you think at altitude preparation; aim for pale urine by afternoon."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Prioritize sleep tonight—you're in peak phase and your body is in a state of controlled overreach. Target 8–9 hours minimum. After the run, get 10–15 minutes of easy walking or foam rolling to flush lactate, then hydrate aggressively (500–750ml fluid + electrolytes over 2 hours). If travel is on the agenda tomorrow, pack a foam roller and commit to a 20-minute mobility session before bed. Your parasympathetic nervous system needs as much downtime as your muscles do."
+      "message": "Prioritize 8+ hours of sleep tonight despite jet lag or work stress. Your CNS is fatigued in week 19 of peak, and Tuesday's threshold workout demands a rested nervous system. If you're traveling, use blackout curtains and consider a 20 min nap this afternoon if possible. Cold plunge or ice bath for 8–10 min post-easy run accelerates recovery; skip if it disrupts sleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 110 days from an alpine 50K with serious vert and sparse aid—this is the phase where mental toughness gets built in the aerobic zone, not in the pain cave. Today's run is about rhythmic breathing, terrain awareness, and self-regulation: can you stay composed at Z2 when your ego wants to push harder? Practice your race-day mindset: break the Julian Alps into 5–6 segments, focus on the next aid station, not the finish line. That executive discipline translates directly to mountain running."
+      "message": "You're 109 days out and in the sharpest 4-week block of the cycle. The Julian Alps demand precision on steep descents and mental resilience at 40K+. Use today's easy run to visualize the Kranjska Gora course—specifically the descent tech sections. You've built the aerobic engine; now start building confidence in your ability to execute under fatigue. Treat Tuesday's threshold work as a direct simulation of race pace decision-making."
     }
   ]
 }

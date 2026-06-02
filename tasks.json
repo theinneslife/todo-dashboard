@@ -1276,7 +1276,7 @@
     "title": "Buy melatonin",
     "description": "Add melatonin to the shopping list as mentioned in the voice note.",
     "priority": 3,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai",
@@ -1297,10 +1297,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to shopping"
+      },
+      {
+        "timestamp": "2026-06-02T17:25:05.670Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-05-31T22:06:17.797Z",
-    "completed_at": null,
+    "completed_at": "2026-06-02T17:25:05.670Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

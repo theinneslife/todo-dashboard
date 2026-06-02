@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-02",
-  "generated_at": "2026-06-02T12:00:00Z",
+  "generated_at": "2026-06-02T17:46:40.011508Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 15 weeks to Kranjska Gora. Tuesday is for vert: 75 min with 6x90sec uphill repeats at hard effort (Zone 4), full walk recovery between. Find the steepest sustained grade you can on today's route — Julian Alps will throw 2,500m at you, and your quads need to learn to push and brake. Cool down on flat ground."
+      "message": "Tuesday = quality day. Hit 8–10 × 3min at threshold (Z4, ~85–90% max HR) with 2min recovery jog between reps. Target ~6:30–6:45/km threshold pace depending on terrain. This isn't race pace yet—it's about holding controlled tension on tired legs after your weekend volume. The Julian Alps will demand sustained Z3–Z4 effort on the ascents, so reinforcing your lactate buffer now pays dividends. Keep total workout time under 60min including warm-up and cool-down."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Train the gut. On today's hill session, practice race fueling: 60-80g carbs/hour starting at minute 30. Use the actual gel or chew you'll race with (Maurten 100 or Precision PF30). Sip 500ml water with electrolytes. The gut is a trainable organ — 15 weeks out is exactly when to dial this in, not race week."
+      "message": "You're 108 days out in peak phase: prioritize glycogen. Eat 1.2–1.5g carb/kg body weight today spread across four meals, with emphasis on the 2–3 hours before your threshold session. A plain bagel or rice with banana 90min pre-run works. Post-run, consume 0.8–1.0g carb/kg plus 0.2–0.3g protein within 30min—chocolate milk, pasta, or rice bowl. Don't skimp: you're running 6 days/week under high load; under-fueling now will flat your adaptations and tank your September performance."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Travel days hammer recovery harder than miles. Tonight: 10 minutes of legs-up-the-wall before bed to flush the quads after hill work, then aim for 8 hours horizontal. If you're hopping time zones this week, anchor sleep to local sunrise — that single cue does more for circadian recovery than melatonin."
+      "message": "Target 7–8 hours sleep tonight. You're mid-peak with accumulated fatigue; sleep is your biggest performance lever right now, not stretching. Given your travel schedule, treat sleep like a non-negotiable meeting: dark room, cool temp (16–18°C), phone off 30min before bed. If you're in a hotel, request a quiet floor and use earplugs. One poor night won't wreck your cycle, but chronic short sleep will—you're too experienced and too close to race day to coast on five hours."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "108 days out. The work you do this month is what you'll feel in your legs at kilometer 35 in Slovenia, when the alpine air thins and the descent burns. Build Phase isn't glamorous — it's deposits in an account you'll withdraw on September 18th. Today's hills are tomorrow's confidence. Stack them quietly."
+      "message": "You're three weeks into peak. The legs will feel heavy today—that's the point. Threshold repeats on tired legs teach mental resilience for mile 25+ in the Alps when the terrain doesn't flatten and your quads are screaming. Embrace the discomfort, nail the numbers, then move on. No heroics, no extra reps. You're building a precise engine, not proving anything in June. Trust the plan: 108 days is still enough runway to peak at exactly the right moment."
     }
   ]
 }

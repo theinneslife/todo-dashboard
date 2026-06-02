@@ -1119,7 +1119,7 @@
     "title": "Pharmacy",
     "description": "Breathe Right Extra in tan \nAdderall\nRed pills",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "Shopping"
@@ -1134,17 +1134,24 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-06-02T17:25:40.903Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-05-28T17:59:29.652Z",
-    "completed_at": null,
+    "completed_at": "2026-06-02T17:25:40.903Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "a7ad653f-9b0b-45d2-9665-cfcfe6aecdf7",

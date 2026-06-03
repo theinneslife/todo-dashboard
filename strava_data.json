@@ -1,11 +1,20 @@
 {
-  "generated": "2026-06-03T10:00:41.353010Z",
-  "weekly_miles": 9.0,
-  "total_elevation_feet": 72,
+  "generated": "2026-06-03T19:54:11.036241Z",
+  "weekly_miles": 19.0,
+  "total_elevation_feet": 223,
   "last_week_miles": 43.3,
   "last_week_elevation_feet": 2316,
   "last_week_sessions": 6,
   "recent_runs": [
+    {
+      "name": "Hot with strides at every mile through 7",
+      "date": "2026-06-03",
+      "miles": 10.01,
+      "elevation_feet": 151,
+      "duration": 6228,
+      "avg_hr": 140,
+      "max_hr": 162
+    },
     {
       "name": "Morning Run",
       "date": "2026-06-02",

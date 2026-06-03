@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-02",
-  "generated_at": "2026-06-02T17:46:40.011508Z",
+  "generated": "2026-06-03",
+  "generated_at": "2026-06-03T14:01:53Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Tuesday = quality day. Hit 8–10 × 3min at threshold (Z4, ~85–90% max HR) with 2min recovery jog between reps. Target ~6:30–6:45/km threshold pace depending on terrain. This isn't race pace yet—it's about holding controlled tension on tired legs after your weekend volume. The Julian Alps will demand sustained Z3–Z4 effort on the ascents, so reinforcing your lactate buffer now pays dividends. Keep total workout time under 60min including warm-up and cool-down."
+      "message": "Build Phase, 15 weeks out — midweek quality day. 75–90 min total with 5 × 3-min uphill efforts at threshold (Zone 4, controlled hard), 2-min easy jog down recovery. Find the steepest sustained grade you can on the road or treadmill at 8–10%. The Julian Alps will ask for ~2500m of vert in 50K — start banking that climbing-specific strength now. Keep cadence quick, eyes up, shoulders relaxed."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're 108 days out in peak phase: prioritize glycogen. Eat 1.2–1.5g carb/kg body weight today spread across four meals, with emphasis on the 2–3 hours before your threshold session. A plain bagel or rice with banana 90min pre-run works. Post-run, consume 0.8–1.0g carb/kg plus 0.2–0.3g protein within 30min—chocolate milk, pasta, or rice bowl. Don't skimp: you're running 6 days/week under high load; under-fueling now will flat your adaptations and tank your September performance."
+      "message": "Gut training starts now, not race week. On today's quality session, take in 60g of carbs per hour — one gel at 30 min, one at 60 min, plus 500ml of mix with 30g carbs. Post-run within 30 min: 25–30g protein + 60g carbs (e.g., Greek yogurt + banana + honey + oats). Travel days wreck appetite cues — eat by the clock, not by hunger."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Target 7–8 hours sleep tonight. You're mid-peak with accumulated fatigue; sleep is your biggest performance lever right now, not stretching. Given your travel schedule, treat sleep like a non-negotiable meeting: dark room, cool temp (16–18°C), phone off 30min before bed. If you're in a hotel, request a quiet floor and use earplugs. One poor night won't wreck your cycle, but chronic short sleep will—you're too experienced and too close to race day to coast on five hours."
+      "message": "Travel + hard training = compounded fatigue. Tonight: 10 minutes legs-up-the-wall before bed, then compression socks if you're flying tomorrow. Hydrate with 500ml + electrolytes within an hour of finishing your run. Aim for 7.5–8 hours of sleep — guard the last 90 minutes from screens and work email. Recovery is the training that makes today's session pay off in September."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're three weeks into peak. The legs will feel heavy today—that's the point. Threshold repeats on tired legs teach mental resilience for mile 25+ in the Alps when the terrain doesn't flatten and your quads are screaming. Embrace the discomfort, nail the numbers, then move on. No heroics, no extra reps. You're building a precise engine, not proving anything in June. Trust the plan: 108 days is still enough runway to peak at exactly the right moment."
+      "message": "107 days out. You're in the middle phase — the part nobody posts about, where the work just compounds quietly. The Julian Alps don't reward the loudest training block; they reward the most consistent one. Today's job isn't to be a hero. It's to show up, hit the workout cleanly, and finish feeling like you could've done one more rep. Trust the build."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-03",
-  "generated_at": "2026-06-03T14:01:53Z",
+  "generated_at": "2026-06-03T18:02:54.936001Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 15 weeks out — midweek quality day. 75–90 min total with 5 × 3-min uphill efforts at threshold (Zone 4, controlled hard), 2-min easy jog down recovery. Find the steepest sustained grade you can on the road or treadmill at 8–10%. The Julian Alps will ask for ~2500m of vert in 50K — start banking that climbing-specific strength now. Keep cadence quick, eyes up, shoulders relaxed."
+      "message": "Wednesday = vert day in peak phase. Hit 4,000–5,000 feet of climbing over 90–110 minutes at Z3–Z4 intensity. Target sustained efforts on steep pitches (8–12% grade) where you'll practice the cadence and breathing rhythm you'll need in the Julian Alps' relentless ascents. Focus on grinding repeatable power, not speed; the 50K will demand exactly this—long, steep climbs with sparse aid. If you're traveling, find a hill repeats loop or stairwell; 8–10 × 8-minute climbs works if terrain is limited."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Gut training starts now, not race week. On today's quality session, take in 60g of carbs per hour — one gel at 30 min, one at 60 min, plus 500ml of mix with 30g carbs. Post-run within 30 min: 25–30g protein + 60g carbs (e.g., Greek yogurt + banana + honey + oats). Travel days wreck appetite cues — eat by the clock, not by hunger."
+      "message": "You're 107 days out and in peak load—don't skimp. Eat 200–300g carbs the night before (pasta, rice, oats), and fuel 2 hours pre-run with 60g carbs + 15g protein. During the vert session, if it runs over 90 minutes, take 30–40g carbs every 45 minutes (energy chew, sports drink, or gel). Post-run window: 50g carbs + 25g protein within 30 minutes to arrest muscle breakdown from the climbing stress. Your travel schedule is brutal; prep breakfast the night before or buy it the morning of—no excuses on fueling during peak."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Travel + hard training = compounded fatigue. Tonight: 10 minutes legs-up-the-wall before bed, then compression socks if you're flying tomorrow. Hydrate with 500ml + electrolytes within an hour of finishing your run. Aim for 7.5–8 hours of sleep — guard the last 90 minutes from screens and work email. Recovery is the training that makes today's session pay off in September."
+      "message": "You're in week 19 of a 22-week block and not in a recovery week, so sleep is non-negotiable. Aim for 8 hours minimum, 8.5 if possible—peak training + executive travel + time zone shifts compound fatigue. Tomorrow (Thursday) is easy recovery, so use today's evening to foam roll the quads, hip flexors, and calves for 12 minutes post-run while hydrating. No alcohol tonight; you're burning through glycogen and need full restoration. If legs feel heavy, 10 minutes of easy spinning (Z1) in the evening clears metabolic junk better than sitting."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "107 days out. You're in the middle phase — the part nobody posts about, where the work just compounds quietly. The Julian Alps don't reward the loudest training block; they reward the most consistent one. Today's job isn't to be a hero. It's to show up, hit the workout cleanly, and finish feeling like you could've done one more rep. Trust the build."
+      "message": "You're 15 weeks from Julian Alps. This vert session is a dress rehearsal for the alpine grind—use it to build confidence in sustained climbing power, not fear. Notice your breathing pattern, where your mind checks out, and how you self-talk on the steep sections. In a 50K with 2,500m of vert, you'll repeat these mental moments 5–6 times. Lean into the discomfort now. Also: scout the actual race course online (Strava, race maps) today or this weekend; knowing the terrain and aid station locations kills anxiety on race day."
     }
   ]
 }

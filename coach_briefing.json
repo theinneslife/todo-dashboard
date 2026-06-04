@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-03",
-  "generated_at": "2026-06-03T18:02:54.936001Z",
+  "generated": "2026-06-04",
+  "generated_at": "2026-06-04T16:25:44.651312Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Wednesday = vert day in peak phase. Hit 4,000–5,000 feet of climbing over 90–110 minutes at Z3–Z4 intensity. Target sustained efforts on steep pitches (8–12% grade) where you'll practice the cadence and breathing rhythm you'll need in the Julian Alps' relentless ascents. Focus on grinding repeatable power, not speed; the 50K will demand exactly this—long, steep climbs with sparse aid. If you're traveling, find a hill repeats loop or stairwell; 8–10 × 8-minute climbs works if terrain is limited."
+      "message": "Easy Z2 recovery, 45–55 minutes on rolling terrain. You're in peak phase week 19, coming off Wednesday's vert work, so today is pure aerobic recharge—target 130–145 bpm, conversational effort. Alpine 50Ks demand relentless fat oxidation; recovery runs rebuild that capacity without adding fatigue debt. Keep it flat-to-rolling, no hard accelerations. This is scaffolding for Saturday's long run, not a fitness builder."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're 107 days out and in peak load—don't skimp. Eat 200–300g carbs the night before (pasta, rice, oats), and fuel 2 hours pre-run with 60g carbs + 15g protein. During the vert session, if it runs over 90 minutes, take 30–40g carbs every 45 minutes (energy chew, sports drink, or gel). Post-run window: 50g carbs + 25g protein within 30 minutes to arrest muscle breakdown from the climbing stress. Your travel schedule is brutal; prep breakfast the night before or buy it the morning of—no excuses on fueling during peak."
+      "message": "Easy run = minimal carb demand. Eat normally pre-run (light breakfast or 30–45 min after coffee), skip in-run fuel. Post-run, consume 0.3–0.4g carbs + 0.1–0.2g protein per kg body weight within 30 minutes to begin glycogen repletion—roughly 25–35g carbs + 10g protein if you're 70–80kg. You're flying constantly for work; prioritize real food (rice, fruit, eggs) over gels. Your gut will thank you at km 35 in the Alps."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You're in week 19 of a 22-week block and not in a recovery week, so sleep is non-negotiable. Aim for 8 hours minimum, 8.5 if possible—peak training + executive travel + time zone shifts compound fatigue. Tomorrow (Thursday) is easy recovery, so use today's evening to foam roll the quads, hip flexors, and calves for 12 minutes post-run while hydrating. No alcohol tonight; you're burning through glycogen and need full restoration. If legs feel heavy, 10 minutes of easy spinning (Z1) in the evening clears metabolic junk better than sitting."
+      "message": "Aim for 7.5–8 hours tonight. You're 106 days out and in peak load; sleep is non-negotiable recovery hormones. If travel is hitting you, drop caffeine after 2 PM and aim for cool room temp (16–18°C). Light foam rolling or 5–10 min easy mobility post-run, but no aggressive soft tissue work—you need parasympathetic dominance tonight, not stimulation. Recovery week (wk 20) is 15 days away; prioritize sleep architecture now while volume is still high."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 15 weeks from Julian Alps. This vert session is a dress rehearsal for the alpine grind—use it to build confidence in sustained climbing power, not fear. Notice your breathing pattern, where your mind checks out, and how you self-talk on the steep sections. In a 50K with 2,500m of vert, you'll repeat these mental moments 5–6 times. Lean into the discomfort now. Also: scout the actual race course online (Strava, race maps) today or this weekend; knowing the terrain and aid station locations kills anxiety on race day."
+      "message": "You're 3 weeks from taper and your body is primed for hard work. Use today's easy run to reinforce pacing discipline—this is practice holding back, which you'll need at km 15 in Kranjska Gora when adrenaline wants to drag you uphill too fast. Alpine terrain punishes pacing mistakes. Mental toughness isn't built in the peak; it's built by respecting recovery and executing the plan with precision. Stay the course."
     }
   ]
 }

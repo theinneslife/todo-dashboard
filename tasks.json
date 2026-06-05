@@ -1629,7 +1629,8 @@
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "otter-ai"
+      "otter-ai",
+      "Relationships"
     ],
     "due_date": "2026-06-02",
     "recurrence": null,
@@ -1640,6 +1641,12 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-05T16:36:29.123Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to relationships"
       }
     ],
     "created_at": "2026-06-01T23:17:31.070Z",

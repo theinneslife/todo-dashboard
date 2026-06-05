@@ -691,7 +691,7 @@
     "title": "Reply to jury summons - Clark County, Washington",
     "description": "Respond to the jury summons from Clark County, Washington. Flagged as an explicit action item in the May 1 Otter recording.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -705,10 +705,16 @@
         "action": "created",
         "by": "Otter Import",
         "details": "Created from Otter recording: Note (May 1, 8:16 PM)"
+      },
+      {
+        "timestamp": "2026-06-05T16:35:55.236Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-05-11T16:57:12.808Z",
-    "completed_at": null,
+    "completed_at": "2026-06-05T16:35:55.236Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

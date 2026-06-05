@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-04",
-  "generated_at": "2026-06-04T16:25:44.651312Z",
+  "generated": "2026-06-05",
+  "generated_at": "2026-06-05T00:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy Z2 recovery, 45–55 minutes on rolling terrain. You're in peak phase week 19, coming off Wednesday's vert work, so today is pure aerobic recharge—target 130–145 bpm, conversational effort. Alpine 50Ks demand relentless fat oxidation; recovery runs rebuild that capacity without adding fatigue debt. Keep it flat-to-rolling, no hard accelerations. This is scaffolding for Saturday's long run, not a fitness builder."
+      "message": "Build Phase, 15 weeks (104 days) to Julian Alps. Friday = pre-weekend setup: 45-60 min easy Zone 2, flat or rolling, conversational pace. Keep it light — tomorrow kicks off your back-to-back long run weekend. If traveling today, a 40 min treadmill incline walk at 12-15% is a fine substitute that still banks vert."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Easy run = minimal carb demand. Eat normally pre-run (light breakfast or 30–45 min after coffee), skip in-run fuel. Post-run, consume 0.3–0.4g carbs + 0.1–0.2g protein per kg body weight within 30 minutes to begin glycogen repletion—roughly 25–35g carbs + 10g protein if you're 70–80kg. You're flying constantly for work; prioritize real food (rice, fruit, eggs) over gels. Your gut will thank you at km 35 in the Alps."
+      "message": "Carb-load lightly tonight for tomorrow's long run: 2-3 g/kg carbs at dinner (rice, pasta, potatoes). Start gut training on the long run — practice 60-80 g carbs/hour using the exact gels and chews you'll carry in Slovenia. The gut adapts like a muscle; 15 weeks is the right time to begin."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Aim for 7.5–8 hours tonight. You're 106 days out and in peak load; sleep is non-negotiable recovery hormones. If travel is hitting you, drop caffeine after 2 PM and aim for cool room temp (16–18°C). Light foam rolling or 5–10 min easy mobility post-run, but no aggressive soft tissue work—you need parasympathetic dominance tonight, not stimulation. Recovery week (wk 20) is 15 days away; prioritize sleep architecture now while volume is still high."
+      "message": "Protect 8 hours of sleep tonight ahead of the weekend block. If you're crossing time zones this week, anchor your bedtime to local time immediately and get morning sunlight — sleep debt before back-to-backs is where Build Phase injuries start."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 3 weeks from taper and your body is primed for hard work. Use today's easy run to reinforce pacing discipline—this is practice holding back, which you'll need at km 15 in Kranjska Gora when adrenaline wants to drag you uphill too fast. Alpine terrain punishes pacing mistakes. Mental toughness isn't built in the peak; it's built by respecting recovery and executing the plan with precision. Stay the course."
+      "message": "104 days out. Julian Alps will hand you ~2500 m of vert and fast-changing alpine weather — you can't control either, only your response. This weekend, practice one thing: when the legs complain on climbs, shorten your stride, drop your eyes 3 m ahead, and count 20 steps. That reset is your race-day tool."
     }
   ]
 }

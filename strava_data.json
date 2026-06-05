@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T00:15:28.515561Z",
+  "generated": "2026-06-05T05:23:27.192849Z",
   "weekly_miles": 24.1,
   "total_elevation_feet": 289,
   "last_week_miles": 43.3,
@@ -284,15 +284,6 @@
       "duration": 2487,
       "avg_hr": 131,
       "max_hr": 151
-    },
-    {
-      "name": "Easy Run with 30 pushups every mile",
-      "date": "2026-04-05",
-      "miles": 14.01,
-      "elevation_feet": 361,
-      "duration": 8222,
-      "avg_hr": 137,
-      "max_hr": 160
     }
   ]
 }

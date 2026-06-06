@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-05",
-  "generated_at": "2026-06-05T16:06:06.682033Z",
+  "generated": "2026-06-06",
+  "generated_at": "2026-06-06T14:48:14.050315Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy shakeout, 45–50 min at Z2 (140–150 bpm), no faster. You're 28 hours from your long run tomorrow and need to prime the legs without burning glycogen or adding fatigue. Keep it flat or rolling; this is movement, not work. Hit 6:00–6:30/km pace and dial it back if you feel sluggish—that's a signal your aerobic system is still recovering from Wednesday's vert block."
+      "message": "Long run day in peak phase—this is your biggest stimulus before taper. Target 90–100 min on trails with 800–1,200m of vert; aim to hit some sustained climbing at Z3 (aerobic threshold, ~160–170 bpm) in the middle 40 min, then recover pace for the final descent. Julian Alps demands relentless leg strength on 35–50% grades, so don't drift into comfort; you need to practice holding power when tired. If you're traveling this week for work, adapt: find a local climb that mimics the terrain (sustained, steep, technical foot placement) rather than a flat out-and-back."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Front-load carbs today: 1.5–2g/kg bodyweight in the 24 hours leading into tomorrow's long run. Since you're traveling constantly, prioritize easily digestible sources (rice, pasta, oats, bananas) and hit 500–600g total. During today's easy run, take nothing—you're Z2 for under an hour. Tonight, eat a solid dinner 3 hours before bed with protein + carbs; hydrate aggressively but taper 90 min before sleep to avoid nocturnal bathroom trips that trash sleep quality."
+      "message": "You're 90+ min on vert—consume 60–80g carbs during the run (gels, sports drink, real food if you tolerate it). Start fueling at 30 min in, not at the wall. Post-run (within 30 min), hit 30–40g protein + 80–120g carbs to spike insulin and drive glycogen repletion; your legs will thank you on recovery rides mid-week. Given your travel schedule, pre-stage your fuel the night before so you're not scrambling in a hotel or airport."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Aim for 8–8.5 hours tonight; you're in peak phase and tomorrow is a big day. Avoid screens 30 min before bed, keep the room cool (18–19°C), and if travel is involved, use your own pillow if possible—sleep consistency beats perfect conditions. Friday night is non-negotiable for an ultra athlete running 6 days/week. If you're tempted to work late, remember: sleep is a performance substrate, not a luxury."
+      "message": "You're deep in peak phase on a non-recovery week—prioritize 7.5–8.5 hrs sleep tonight and keep Sunday intentionally easy (Z1 shuffle, 40–50 min max). No second hard effort this weekend. Use a foam roller on calves and quads for 8–10 min post-run (not massage gun yet—too aggressive). If you're working on a deal at MNTN this week, mentally ring-fence the evening post-run for sleep prep, not emails."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 15 weeks out from the Julian Alps 50K. Tomorrow's long run will test alpine fitness; visualize Kranjska Gora's technical descents and sparse aid stations while running. Use the shakeout today to settle your nervous system and confirm your legs feel fresh—if they don't, that's data for adjusting tomorrow's intensity or duration. Treat peak phase as your dress rehearsal, not a grind."
+      "message": "You have 104 days to race—taper is in 3 weeks. This long run is your chance to affirm you *can* sustain vert work and hold power when fatigued, which is exactly what will break others in Slovenia. Run with intention, not just volume. Note how your body responds on the final 15 min of climbing: if legs feel strong and mind is calm, you're primed. If you're struggling mechanically or mentally, that's data to bring to your Tuesday quality session."
     }
   ]
 }

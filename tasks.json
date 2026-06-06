@@ -1784,5 +1784,75 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "67967cad-23e5-4ed5-8578-5b829604b9ec",
+    "title": "Plan a trip to Chicken Eats for next Friday",
+    "description": "Plan an outing to Chicken Eats restaurant for next Friday.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-12",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-06T22:46:38.053Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Float river"
+      }
+    ],
+    "created_at": "2026-06-06T22:46:38.053Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "7d4f9ca5-851e-4996-86d3-42bd6b4e687f",
+    "title": "Build a skills/learning tracker feature in Travel Flow or Task Flow",
+    "description": "Create a feature that tracks skills and things to learn. Consider whether it belongs in Travel Flow or Task Flow.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-06T22:46:38.053Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Float river"
+      }
+    ],
+    "created_at": "2026-06-06T22:46:38.053Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

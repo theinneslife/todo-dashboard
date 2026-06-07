@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.0 - Travel Command Center</title>
+    <title>TravelFlo v3.2 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1731,6 +1731,32 @@
 .quick-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
 .stat-box { background: var(--bg-tertiary, #25293d); border: 1px solid var(--border-color, #2a3040); border-radius: 10px; padding: 16px; text-align: center; transition: transform 0.2s; }
 .stat-box:hover { transform: translateY(-2px); }
+
+/* ===== Bucket List ===== */
+.bucket-header { margin-bottom: 24px; }
+.bucket-title { font-size: 22px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+.bucket-progress-label { font-size: 14px; color: var(--text-muted); margin-top: 10px; }
+.bucket-progress-bar { height: 8px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 999px; overflow: hidden; margin-top: 10px; }
+.bucket-progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); border-radius: 999px; transition: width 0.4s ease; }
+.bucket-group { margin-bottom: 26px; }
+.bucket-group-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 12px; }
+.bucket-group-count { font-weight: 600; opacity: 0.7; }
+.bucket-item { display: flex; align-items: center; gap: 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease; }
+.bucket-item:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
+.bucket-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border-color); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--bg-primary); }
+.bucket-name { flex: 1; font-size: 15px; font-weight: 500; color: var(--text-primary); line-height: 1.35; }
+.bucket-badge { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em; flex-shrink: 0; white-space: nowrap; }
+/* In progress */
+.bucket-item.inprogress { border-color: var(--accent-orange); background: rgba(251, 146, 60, 0.08); }
+.bucket-item.inprogress .bucket-check { border-color: var(--accent-orange); }
+.bucket-badge.inprogress { background: rgba(251, 146, 60, 0.18); color: var(--accent-orange); }
+/* To do */
+.bucket-badge.todo { background: var(--bg-tertiary); color: var(--text-muted); }
+/* Done */
+.bucket-item.done { opacity: 0.6; }
+.bucket-item.done .bucket-name { text-decoration: line-through; color: var(--text-muted); }
+.bucket-item.done .bucket-check { background: var(--accent-green); border-color: var(--accent-green); }
+.bucket-badge.done { background: rgba(52, 211, 153, 0.18); color: var(--accent-green); }
 .stat-value { font-size: 28px; font-weight: 700; color: #4a90e2; margin-bottom: 4px; }
 .stat-label { font-size: 11px; color: var(--text-secondary, #cbd5e1); text-transform: uppercase; letter-spacing: 0.5px; }
 
@@ -2624,7 +2650,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.1</div>
+                    <div class="version-badge">v3.2</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -2786,6 +2812,9 @@
             </div>
             <div id="passportContainer" class="passport-container"></div>
         </div>
+
+        <!-- Bucket List Tab -->
+        <div id="bucketListTab" class="tab-content"></div>
         </div>
 
         <!-- ===== TRIP DETAIL VIEW ===== -->
@@ -2850,6 +2879,10 @@
             <button class="nav-item" data-tab="timeline">
                 <div class="nav-icon"><i data-lucide="stamp" style="width:24px;height:24px"></i></div>
                 <div>Timeline</div>
+            </button>
+            <button class="nav-item" data-tab="bucketList">
+                <div class="nav-icon"><i data-lucide="list-checks" style="width:24px;height:24px"></i></div>
+                <div>Bucket List</div>
             </button>
             <button class="nav-item" data-tab="search">
                 <div class="nav-icon"><i data-lucide="search" style="width:24px;height:24px"></i></div>
@@ -3424,7 +3457,7 @@
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab', mapView: 'mapViewTab', timeline: 'timelineTab' };
+            const tabMap = { dashboard: 'dashboardTab', current: 'currentTab', allTrips: 'allTripsTab', discover: 'discoverTab', search: 'searchTab', mapView: 'mapViewTab', timeline: 'timelineTab', bucketList: 'bucketListTab' };
             const targetTab = document.getElementById(tabMap[tabName]);
             if (targetTab) targetTab.classList.add('active');
             // Refresh views
@@ -3432,8 +3465,86 @@
             if (tabName === 'current') this.renderCurrentTrip();
             if (tabName === 'mapView') this.renderMapView();
             if (tabName === 'timeline') this.renderTimeline();
+            if (tabName === 'bucketList') this.renderBucketList();
             if (tabName === 'discover') { this.renderDiscover();
             this.renderEnhancedDiscover(); }
+        }
+
+        // ===== Bucket List =====
+        bucketListItems() {
+            return [
+                { id:'strade-bianche', name:'Cycle a major classic (Strade Bianche)', status:'done' },
+                { id:'build-exit', name:'Build and exit a company', status:'done' },
+                { id:'spanish', name:'Achieve conversational fluency in Spanish', status:'inprogress' },
+                { id:'ironman', name:'Complete a full Ironman triathlon', status:'todo' },
+                { id:'ocean-passage', name:'Complete a blue-water ocean passage (Atlantic or Pacific crossing)', status:'todo' },
+                { id:'kitesurf', name:'Learn to kitesurf', status:'todo' },
+                { id:'scuba-advanced', name:'Get scuba diving advanced open water certification', status:'todo' },
+                { id:'freedive-30', name:'Freedive to 30 meters', status:'todo' },
+                { id:'seaplane', name:'Learn to fly a seaplane', status:'todo' },
+                { id:'celestial-nav', name:'Learn to navigate by stars (celestial navigation)', status:'todo' },
+                { id:'instrument', name:'Learn to play a musical instrument', status:'todo' },
+                { id:'book', name:'Write and publish a book', status:'todo' },
+                { id:'short-film', name:'Make a short film from scratch', status:'todo' },
+                { id:'northern-lights', name:'See the Northern Lights (Tromsø or Iceland)', status:'todo' },
+                { id:'solar-eclipse', name:'Witness a total solar eclipse in the path of totality', status:'todo' },
+                { id:'amalfi', name:'Drive the Amalfi Coast in a convertible', status:'todo' },
+                { id:'carnival', name:'Attend Carnival in Rio or Venice', status:'todo' },
+                { id:'antarctica', name:'Explore Antarctica', status:'todo' },
+                { id:'ultra-50', name:'Finish a 50-mile ultramarathon', status:'todo' },
+            ];
+        }
+        getBucketListOverrides() {
+            try { return JSON.parse(localStorage.getItem('travelflo-bucketlist') || '{}'); } catch(e) { return {}; }
+        }
+        getBucketListState() {
+            const overrides = this.getBucketListOverrides();
+            return this.bucketListItems().map(it => ({ ...it, status: overrides[it.id] || it.status }));
+        }
+        toggleBucketItem(id) {
+            const items = this.getBucketListState();
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            const overrides = this.getBucketListOverrides();
+            overrides[id] = (item.status === 'done') ? 'todo' : 'done';
+            localStorage.setItem('travelflo-bucketlist', JSON.stringify(overrides));
+            this.renderBucketList();
+        }
+        renderBucketList() {
+            const container = document.getElementById('bucketListTab');
+            if (!container) return;
+            const items = this.getBucketListState();
+            const total = items.length;
+            const doneCount = items.filter(i => i.status === 'done').length;
+            const pct = total ? Math.round((doneCount / total) * 100) : 0;
+            const badgeText = { inprogress:'In Progress', todo:'To Do', done:'Done' };
+            const groups = [
+                { label:'In Progress', items: items.filter(i => i.status === 'inprogress') },
+                { label:'To Do', items: items.filter(i => i.status === 'todo') },
+                { label:'Done', items: items.filter(i => i.status === 'done') },
+            ];
+            let html = `
+                <div class="bucket-header">
+                    <div class="bucket-title"><i data-lucide="list-checks" style="width:22px;height:22px;stroke:var(--accent-purple)"></i> Bucket List</div>
+                    <div class="bucket-progress-label"><strong style="color:var(--text-primary)">${doneCount}</strong> of <strong style="color:var(--text-primary)">${total}</strong> completed</div>
+                    <div class="bucket-progress-bar"><div class="bucket-progress-fill" style="width:${pct}%"></div></div>
+                </div>`;
+            groups.forEach(g => {
+                if (!g.items.length) return;
+                html += `<div class="bucket-group"><div class="bucket-group-title">${g.label} <span class="bucket-group-count">(${g.items.length})</span></div>`;
+                g.items.forEach(it => {
+                    const check = it.status === 'done' ? '&#10003;' : '';
+                    html += `
+                        <div class="bucket-item ${it.status}" onclick="app.toggleBucketItem('${it.id}')" title="Click to toggle complete">
+                            <div class="bucket-check">${check}</div>
+                            <div class="bucket-name">${it.name}</div>
+                            <div class="bucket-badge ${it.status}">${badgeText[it.status]}</div>
+                        </div>`;
+                });
+                html += `</div>`;
+            });
+            container.innerHTML = html;
+            if (window.lucide) lucide.createIcons();
         }
 
             openTripModal(tripId = null) {

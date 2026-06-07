@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-06",
-  "generated_at": "2026-06-06T14:48:14.050315Z",
+  "generated": "2026-06-07",
+  "generated_at": "2026-06-07T14:56:21.572835Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Long run day in peak phase—this is your biggest stimulus before taper. Target 90–100 min on trails with 800–1,200m of vert; aim to hit some sustained climbing at Z3 (aerobic threshold, ~160–170 bpm) in the middle 40 min, then recover pace for the final descent. Julian Alps demands relentless leg strength on 35–50% grades, so don't drift into comfort; you need to practice holding power when tired. If you're traveling this week for work, adapt: find a local climb that mimics the terrain (sustained, steep, technical foot placement) rather than a flat out-and-back."
+      "message": "Sunday in peak phase = second long effort or recovery. Given you're on day 7 of a hard week, run 75–90 minutes at Z2 (140–155 bpm) on rolling terrain with 600–800m of vert. This is active recovery with purpose: your aerobic base is locked in, and Sunday's job is to flush lactate from yesterday's long run while maintaining specificity for alpine terrain. Do NOT chase pace; nail the vert and hold conversational effort. If legs feel heavy, dial it back to 60 minutes easy—listen to your body, not the plan."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're 90+ min on vert—consume 60–80g carbs during the run (gels, sports drink, real food if you tolerate it). Start fueling at 30 min in, not at the wall. Post-run (within 30 min), hit 30–40g protein + 80–120g carbs to spike insulin and drive glycogen repletion; your legs will thank you on recovery rides mid-week. Given your travel schedule, pre-stage your fuel the night before so you're not scrambling in a hotel or airport."
+      "message": "You've run hard Saturday and will again Tuesday. Prioritize glycogen repletion today: 8–10g carbs per kg body weight over the next 24 hours (roughly 540–675g if you're 67–70kg). Front-load carbs in the 2–3 hours post-run: rice, pasta, fruit, or sports drink. For Sunday's 90-minute effort itself, sip 250ml of 6% carb drink every 20 minutes if running in heat; plain water is fine in cool alpine conditions. Evening: hit 30–40g protein to support muscle repair from the week's cumulative load."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You're deep in peak phase on a non-recovery week—prioritize 7.5–8.5 hrs sleep tonight and keep Sunday intentionally easy (Z1 shuffle, 40–50 min max). No second hard effort this weekend. Use a foam roller on calves and quads for 8–10 min post-run (not massage gun yet—too aggressive). If you're working on a deal at MNTN this week, mentally ring-fence the evening post-run for sleep prep, not emails."
+      "message": "You're in peak phase with 103 days to race—taper is 3 weeks away. Prioritize 7.5–8.5 hours of sleep tonight; peak training + travel stress taxes CNS recovery hard. If travel lag is present, add a 20–30 minute nap before Sunday's run. Consider 10–15 minutes of easy foam rolling on quads, calves, and IT band post-run (not aggressive). Skip ice baths this week; they blunt adaptation during peak phase. Active mobility (hip opener, calf stretch) for 5 minutes beats nothing."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You have 104 days to race—taper is in 3 weeks. This long run is your chance to affirm you *can* sustain vert work and hold power when fatigued, which is exactly what will break others in Slovenia. Run with intention, not just volume. Note how your body responds on the final 15 min of climbing: if legs feel strong and mind is calm, you're primed. If you're struggling mechanically or mentally, that's data to bring to your Tuesday quality session."
+      "message": "You're 14 weeks out with 3 solid peak weeks logged. Julian Alps will demand patience on descents (technical, loose scree), early pacing discipline (hold back the first 20K), and willingness to suffer between aid stations. Use today's Sunday run to practice staying composed when tired—that's the mental skill the race will test. Visualize one specific technical descent or exposed ridge on the route; rehearse your line and breathing cue. No heroics; controlled effort wins alpine ultras."
     }
   ]
 }

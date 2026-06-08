@@ -1359,7 +1359,7 @@
     "title": "Build a skills/learning tracker feature in Travel Flow or Task Flow",
     "description": "Create a feature that tracks skills and things to learn. Consider whether it belongs in Travel Flow or Task Flow.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1373,10 +1373,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Float river"
+      },
+      {
+        "timestamp": "2026-06-08T17:22:50.641Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-06T22:46:38.053Z",
-    "completed_at": null,
+    "completed_at": "2026-06-08T17:22:50.641Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

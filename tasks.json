@@ -956,7 +956,7 @@
   {
     "id": "667143a8-3130-4356-8979-e5b4ccedbd3b",
     "title": "Net Revenue Lifting Acquisitions",
-    "description": "TBD \u2014 reviewing companies that can lift net revenue",
+    "description": "TBD — reviewing companies that can lift net revenue",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -986,7 +986,7 @@
   },
   {
     "id": "8009c0ce-18c3-4bf3-8c53-f74cfebe4b95",
-    "title": "General Catalyst \u2014 Fund % of marketing in exchange for % of future revenues",
+    "title": "General Catalyst — Fund % of marketing in exchange for % of future revenues",
     "description": "Fund % of MNTN marketing in exchange for % of future revenues.",
     "priority": 1,
     "status": "pending",
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "f99be3a9-e971-4f9a-8c0f-f4708a05360d",
-    "title": "MNTN Board Meeting reminder \u2014 Q2 (July 28)",
+    "title": "MNTN Board Meeting reminder — Q2 (July 28)",
     "description": "Q2 MNTN Quarterly Board Meeting is 45 days away (July 28, 2026 at Goodwin Procter LLP, NYC). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by June 28).",
     "priority": 1,
     "status": "pending",
@@ -1060,7 +1060,7 @@
   },
   {
     "id": "9730ce65-08cc-41af-bb7f-f34fc0a5a425",
-    "title": "Schedule pre-board call \u2014 Mark, Patrick, Ashley Graham (Q2)",
+    "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q2)",
     "description": "Schedule 30-day pre-board alignment call with Mark (mark@mountain.com), Patrick (patrick@mountain.com), and Ashley Graham before the Q2 MNTN Board Meeting (July 28, 2026).",
     "priority": 1,
     "status": "pending",
@@ -1091,7 +1091,7 @@
   },
   {
     "id": "6e5c698f-dbe9-463d-a949-524574555dc7",
-    "title": "MNTN Board Meeting reminder \u2014 Q3 (Oct 27)",
+    "title": "MNTN Board Meeting reminder — Q3 (Oct 27)",
     "description": "Q3 MNTN Quarterly Board Meeting is 45 days away (October 27, 2026 at Latham & Watkins, Century City). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by September 27).",
     "priority": 1,
     "status": "pending",
@@ -1122,7 +1122,7 @@
   },
   {
     "id": "46d70aa3-c61a-4dd7-baf6-9e99bfd32ae0",
-    "title": "Schedule pre-board call \u2014 Mark, Patrick, Ashley Graham (Q3)",
+    "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q3)",
     "description": "Schedule 30-day pre-board alignment call with Mark, Patrick, and Ashley Graham before the Q3 MNTN Board Meeting (October 27, 2026).",
     "priority": 1,
     "status": "pending",
@@ -1405,6 +1405,41 @@
       }
     ],
     "created_at": "2026-06-08T00:48:41.700Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "dffeb4fc-9f5c-4539-94e1-3659a6170c02",
+    "title": "Check into Tatari acquisition",
+    "description": "Research and look into the Tatari acquisition. Mentioned as a voice note reminder.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-09",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-08T16:23:36.380Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-08T16:23:36.380Z",
     "completed_at": null,
     "completion_notes": null,
     "project": null,

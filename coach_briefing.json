@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-05",
-  "generated_at": "2026-06-05T00:00:00Z",
+  "generated": "2026-06-08",
+  "generated_at": "2026-06-08T14:01:14Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 15 weeks (104 days) to Julian Alps. Friday = pre-weekend setup: 45-60 min easy Zone 2, flat or rolling, conversational pace. Keep it light — tomorrow kicks off your back-to-back long run weekend. If traveling today, a 40 min treadmill incline walk at 12-15% is a fine substitute that still banks vert."
+      "message": "Build Phase, 14 weeks out — Monday is your aerobic reset after the weekend's long effort. Keep it easy: 45–60 min in Zone 2, conversational pace, ideally on rolling terrain. If your legs feel flat from travel, drop to 40 min and don't chase pace. The vert work comes later this week; today is about flushing fatigue and protecting tomorrow's quality session."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Carb-load lightly tonight for tomorrow's long run: 2-3 g/kg carbs at dinner (rice, pasta, potatoes). Start gut training on the long run — practice 60-80 g carbs/hour using the exact gels and chews you'll carry in Slovenia. The gut adapts like a muscle; 15 weeks is the right time to begin."
+      "message": "Train the gut now so it's race-ready for the Julian Alps. On today's easy run, practice taking 60g carbs/hour even though you don't strictly need it — a gel or 500ml of mix at 30 and 60 min. Post-run within 30 min: ~25–30g protein plus carbs (Greek yogurt with honey and berries, or eggs and toast). Building gut tolerance to 60–90g/hr is as trainable as your legs."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Protect 8 hours of sleep tonight ahead of the weekend block. If you're crossing time zones this week, anchor your bedtime to local time immediately and get morning sunlight — sleep debt before back-to-backs is where Build Phase injuries start."
+      "message": "With time-zone travel stacking on training load, anchor sleep first: aim for 7.5–8 hours and get 10 min of morning daylight wherever you wake up to reset your clock. Tonight, foam-roll quads and calves for 5 min and elevate your legs against a wall for 5 — cheap, hotel-friendly recovery that pays off before this week's hill work."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "104 days out. Julian Alps will hand you ~2500 m of vert and fast-changing alpine weather — you can't control either, only your response. This weekend, practice one thing: when the legs complain on climbs, shorten your stride, drop your eyes 3 m ahead, and count 20 steps. That reset is your race-day tool."
+      "message": "Fourteen weeks out is where the race is quietly won — not in heroics, but in showing up for the unglamorous Monday miles between time zones. The Julian Alps will demand patience on every long climb. Practice that patience now: settle into today's easy pace and trust that consistency, not intensity, is what carries you up 2,500m of alpine vert in September."
     }
   ]
 }

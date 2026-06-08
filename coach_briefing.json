@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-08",
-  "generated_at": "2026-06-08T14:01:14Z",
+  "generated_at": "2026-06-08T16:51:51.540646Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 14 weeks out — Monday is your aerobic reset after the weekend's long effort. Keep it easy: 45–60 min in Zone 2, conversational pace, ideally on rolling terrain. If your legs feel flat from travel, drop to 40 min and don't chase pace. The vert work comes later this week; today is about flushing fatigue and protecting tomorrow's quality session."
+      "message": "Easy Z2 recovery run, 45–55 minutes at 5:45–6:15/km pace, HR 135–150 bpm. You're 102 days out and in taper week 20; Monday is your reset after the weekend's long effort. Keep it genuinely easy—this run serves the nervous system, not the aerobic engine. If legs feel heavy or you're tempted to push, that's a signal you haven't recovered enough from the week. Stick to flat or rolling terrain; save the legs for Wednesday's vert work."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Train the gut now so it's race-ready for the Julian Alps. On today's easy run, practice taking 60g carbs/hour even though you don't strictly need it — a gel or 500ml of mix at 30 and 60 min. Post-run within 30 min: ~25–30g protein plus carbs (Greek yogurt with honey and berries, or eggs and toast). Building gut tolerance to 60–90g/hr is as trainable as your legs."
+      "message": "Easy run = minimal fueling needed. Start with a light breakfast 90 mins before (oats + banana, ~200 cal); you don't need gels for 45–55 minutes. Post-run, eat within 30 mins: 40–50g carbs + 15–20g protein (rice cakes + almond butter, or Greek yogurt + granola) to prime recovery. Given your travel schedule, pack these items ahead so you're not hunting for food mid-morning. Hydrate consistently throughout the day—aim for 3–4 liters of water plus electrolyte drink with lunch."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "With time-zone travel stacking on training load, anchor sleep first: aim for 7.5–8 hours and get 10 min of morning daylight wherever you wake up to reset your clock. Tonight, foam-roll quads and calves for 5 min and elevate your legs against a wall for 5 — cheap, hotel-friendly recovery that pays off before this week's hill work."
+      "message": "Taper weeks demand deliberate sleep discipline: target 8 hours minimum, ideally 8.5. You're traveling constantly; book a hotel room, kill the WiFi after 9 pm, and use blackout curtains. During taper, sleep debt is your enemy—even one 6-hour night tanks your nervous system recovery. Consider a 20–30 min nap this afternoon if your schedule allows; it's not laziness, it's adaptation. Monitor resting HR this week; if it creeps up 3–5 bpm above baseline, you're underfueled or undersleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Fourteen weeks out is where the race is quietly won — not in heroics, but in showing up for the unglamorous Monday miles between time zones. The Julian Alps will demand patience on every long climb. Practice that patience now: settle into today's easy pace and trust that consistency, not intensity, is what carries you up 2,500m of alpine vert in September."
+      "message": "You're 102 days out. The work is done. This taper phase is about trusting the adaptation, not second-guessing the plan. Don't start adding long runs or \"getting in extra volume\"—that's fear, not wisdom. Instead, use these three weeks to visualize the Julian Alps climb (km 35–42 at 7% avg grade with 400m+ vert remaining). Review your aid station strategy, your pace discipline above 1,600m elevation, and your risk management for weather. Mental prep now beats panicked planning in week 21."
     }
   ]
 }

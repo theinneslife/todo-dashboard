@@ -1699,7 +1699,7 @@
     "title": "Buy tomato at the grocery store",
     "description": "Grocery shopping item mentioned in voice note.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai",
@@ -1720,10 +1720,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to shopping"
+      },
+      {
+        "timestamp": "2026-06-09T03:57:27.342Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-08T22:43:33.761Z",
-    "completed_at": null,
+    "completed_at": "2026-06-09T03:57:27.342Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

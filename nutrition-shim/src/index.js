@@ -138,8 +138,27 @@ export default {
 
       // ── All other metrics (and sleep with Summarize ON) ────────────────────
       // HAE appends chronologically, so the last entry is the most recent.
-      const last = points[points.length - 1];
-      if (last == null || last.qty == null) continue;
+      // Some Apple Health metrics (notably HRV) can have a trailing sentinel
+      // record with qty == null or qty == "". Walk backwards to find the last
+      // record that carries an actual numeric value so we never silently drop
+      // a metric just because its final point has no qty.
+      let last = null;
+      for (let i = points.length - 1; i >= 0; i--) {
+        const p = points[i];
+        if (p != null && p.qty != null && p.qty !== '') {
+          last = p;
+          break;
+        }
+      }
+
+      // Debug log for HRV so we can verify it's flowing through
+      if (mName.includes('heartratevariability') || mName.includes('hrv')) {
+        console.log(`HRV metric: name=${metric.name} norm=${mName} points=${points.length} `
+          + `lastFound=${last ? JSON.stringify(last) : 'null'} `
+          + `rawLast=${JSON.stringify(points[points.length - 1])}`);
+      }
+
+      if (last == null) continue;
 
       data.push({
         name: metric.name,

@@ -24,7 +24,7 @@ jobs:
           CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
         run: |
           python3 - <<'PYEOF'
-          import os, json, datetime
+          import os, json, datetime, statistics
 
           payload_raw = os.environ.get('CLIENT_PAYLOAD', '') or '{}'
           try:
@@ -55,6 +55,9 @@ jobs:
                   # them — the recovery section shows "Waiting for data".
                   'hrv_ms': None,
                   'resting_hr': None,
+                  # Composite 0-100 recovery score (Whoop-style). Computed from
+                  # HRV vs 30-day baseline, RHR trend, sleep quality.
+                  'recovery_score': None,
               }
 
           def default_doc():
@@ -338,6 +341,75 @@ jobs:
                   entry['sleep_efficiency_pct'] = round(
                       entry['sleep_hours'] / entry['time_in_bed_hours'] * 100, 1)
 
+          # ---- Composite recovery score (0-100, Whoop-style) ------------------
+          # Weights: HRV 45%, RHR 25%, Sleep 30%. Recomputed AFTER the merge so
+          # we use the most complete picture of today's vitals.
+          # Uses last 30 days of history as rolling baselines. Graceful: computes
+          # a partial score from whichever metrics are available; None if nothing.
+          def recovery_score_from_entry(entry_data, prior_history):
+              scores = []
+              weights = []
+              recent = [h for h in prior_history if isinstance(h, dict)][:30]
+
+              # HRV score (45%): z-score vs 30-day rolling mean/sd.
+              hrv_today = entry_data.get('hrv_ms')
+              if hrv_today and hrv_today > 0:
+                  hrv_vals = [h['hrv_ms'] for h in recent
+                              if h.get('hrv_ms') and h['hrv_ms'] > 0]
+                  if len(hrv_vals) >= 3:
+                      hrv_avg = statistics.mean(hrv_vals)
+                      hrv_sd  = max(statistics.stdev(hrv_vals), hrv_avg * 0.05)
+                      hrv_z   = (hrv_today - hrv_avg) / hrv_sd
+                      # Clamp: +2 SD = 100, 0 SD = 70, -2 SD = 0
+                      hrv_score = min(100, max(0, 70 + hrv_z * 15))
+                  else:
+                      # Not enough history: use absolute scale anchored to typical athlete
+                      # ~50 ms SDNN baseline; +20 above = great, -20 = poor.
+                      hrv_score = min(100, max(0, 50 + (hrv_today - 50) * 1.0))
+                  scores.append(hrv_score)
+                  weights.append(45)
+
+              # RHR score (25%): lower than recent baseline = better recovery.
+              rhr_today = entry_data.get('resting_hr')
+              if rhr_today and rhr_today > 0:
+                  rhr_vals = [h['resting_hr'] for h in recent
+                              if h.get('resting_hr') and h['resting_hr'] > 0]
+                  if len(rhr_vals) >= 3:
+                      rhr_avg = statistics.mean(rhr_vals)
+                      rhr_delta = rhr_today - rhr_avg  # positive = elevated = bad
+                      # 0 delta = 70; -3 bpm = 90; +5 bpm = 0
+                      rhr_score = min(100, max(0, 70 - rhr_delta * 8))
+                  else:
+                      # Absolute: 55 bpm anchor = 80; each bpm above costs ~2 points
+                      rhr_score = min(100, max(0, 80 - (rhr_today - 55) * 2))
+                  scores.append(rhr_score)
+                  weights.append(25)
+
+              # Sleep score (30%): target 8h = 90+; efficiency modifier.
+              sleep_h = entry_data.get('sleep_hours')
+              if sleep_h and sleep_h > 0:
+                  # Linear: 4h = 0, 7h = 75, 8h = 87.5, 9h = 100
+                  sleep_score = min(100, max(0, (sleep_h - 4.0) / 5.0 * 100))
+                  # Efficiency modifier: below 85% reduces by up to 15 points
+                  eff = entry_data.get('sleep_efficiency_pct')
+                  if eff is not None and eff < 85:
+                      sleep_score = max(0, sleep_score - (85 - eff) * 0.5)
+                  scores.append(sleep_score)
+                  weights.append(30)
+
+              if not scores:
+                  return None
+
+              total_w = sum(weights)
+              raw = sum(s * w for s, w in zip(scores, weights)) / total_w
+              return int(round(raw))
+
+          computed_score = recovery_score_from_entry(entry, doc['history'])
+          # Preserve prior score if this payload added no new recovery metrics
+          if computed_score is None and prior and prior.get('recovery_score') is not None:
+              computed_score = prior['recovery_score']
+          entry['recovery_score'] = computed_score
+
           # ---- Update today + history (dedup by date, keep last 30) ------------
           doc['today'] = entry
           history = [h for h in doc['history']
@@ -357,6 +429,7 @@ jobs:
                 f"eff={entry['sleep_efficiency_pct']}% "
                 f"hrv={entry['hrv_ms']}ms "
                 f"rhr={entry['resting_hr']}bpm "
+                f"recovery={entry['recovery_score']} "
                 f"(history={len(doc['history'])} days)")
           PYEOF
 

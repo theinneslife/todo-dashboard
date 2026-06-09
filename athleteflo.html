@@ -1962,6 +1962,13 @@
           <div class="hrv-entry-confirm" id="hrv-entry-confirm"></div>
         </div>
 
+        <!-- Composite Recovery Score -->
+        <div id="rec-score-wrap" style="text-align:center; padding: 0.5rem 0 1rem; border-bottom: 1px solid var(--border); margin-bottom: 0.75rem;">
+          <div id="rec-score-num" style="font-size: 3rem; font-weight: 700; line-height: 1; letter-spacing: -1px; color: var(--text-muted);">--</div>
+          <div id="rec-score-label" style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem;">Recovery Score</div>
+          <div id="rec-score-sub" style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;"></div>
+        </div>
+
         <div class="recovery-grid">
 
           <div class="recovery-metric" style="--metric-accent: var(--accent-purple);">
@@ -3897,6 +3904,79 @@ function sleepStatus(h) {
 }
 const SLEEP_BAR_COLORS = { good: 'var(--accent-green)', warn: 'var(--accent-yellow)', low: 'var(--accent-red)' };
 
+/* ══════════════════════════════════════════════
+   Composite Recovery Score (0-100, Whoop-style)
+   Weighted: HRV 45%, RHR 25%, Sleep 30%.
+   Uses 30-day rolling history for baselines.
+   Partial score when some metrics are missing;
+   null only when all vitals are unavailable.
+   ══════════════════════════════════════════════ */
+function computeRecoveryScore() {
+  const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+  const today = nutritionData && nutritionData.today ? nutritionData.today : null;
+  const manual = getManualRecovery();
+
+  const latestHAE = [today, ...hist].find(h => h && (h.hrv_ms || h.resting_hr || h.sleep_hours));
+  const hrvToday   = (latestHAE && latestHAE.hrv_ms)     || (manual && manual.hrv > 0 ? manual.hrv : null);
+  const rhrToday   = (latestHAE && latestHAE.resting_hr) || (manual && manual.rhr > 0 ? manual.rhr : null);
+  const sleepToday = (latestHAE && latestHAE.sleep_hours) || (manual && manual.sleep > 0 ? manual.sleep : null);
+  const effToday   = latestHAE && latestHAE.sleep_efficiency_pct;
+
+  const scores = [], weights = [];
+  const num = (v) => (typeof v === 'number' && isFinite(v) && v > 0) ? v : null;
+  const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+  const stddev = (arr, avg) => {
+    if (arr.length < 2) return avg * 0.1;
+    return Math.sqrt(arr.reduce((s, v) => s + (v - avg) ** 2, 0) / arr.length);
+  };
+
+  const hrv = num(hrvToday);
+  if (hrv) {
+    const vals = hist.slice(0, 30).map(h => num(h.hrv_ms)).filter(Boolean);
+    let sc;
+    if (vals.length >= 3) {
+      const avg = mean(vals), sd = stddev(vals, avg);
+      const z = (hrv - avg) / Math.max(sd, avg * 0.05);
+      sc = Math.min(100, Math.max(0, 70 + z * 15));
+    } else {
+      sc = Math.min(100, Math.max(0, 50 + (hrv - 50) * 1.0));
+    }
+    scores.push(sc); weights.push(45);
+  }
+
+  const rhr = num(rhrToday);
+  if (rhr) {
+    const vals = hist.slice(0, 30).map(h => num(h.resting_hr)).filter(Boolean);
+    let sc;
+    if (vals.length >= 3) {
+      const avg = mean(vals), delta = rhr - avg;
+      sc = Math.min(100, Math.max(0, 70 - delta * 8));
+    } else {
+      sc = Math.min(100, Math.max(0, 80 - (rhr - 55) * 2));
+    }
+    scores.push(sc); weights.push(25);
+  }
+
+  const slp = num(sleepToday);
+  if (slp) {
+    let sc = Math.min(100, Math.max(0, (slp - 4.0) / 5.0 * 100));
+    if (effToday != null && effToday < 85) sc = Math.max(0, sc - (85 - effToday) * 0.5);
+    scores.push(sc); weights.push(30);
+  }
+
+  if (!scores.length) return null;
+  const totalW = weights.reduce((a, b) => a + b, 0);
+  const raw = scores.reduce((s, sc, i) => s + sc * weights[i], 0) / totalW;
+  return Math.round(raw);
+}
+
+function recoveryScoreStyle(score) {
+  if (score === null) return { cls: 'badge-orange', label: 'Waiting', color: 'var(--text-muted)' };
+  if (score >= 67)    return { cls: 'badge-green',  label: 'Recovered',   color: 'var(--accent-green)' };
+  if (score >= 34)    return { cls: 'badge-orange', label: 'Moderate',    color: '#f59e0b' };
+  return               { cls: 'badge-red',    label: 'Compromised', color: 'var(--accent-red)' };
+}
+
 /* Last 7 calendar days ending today. Real data only — hours is null when a day
    has no sleep entry (rendered as a faint empty bar). */
 function sleepSeries() {
@@ -3953,6 +4033,45 @@ function renderRecovery() {
   const sleepEff = latest ? latest.eff : null;
   const sleepInBed = latest ? latest.inBed : null;
 
+  // ── Composite recovery score badge + prominent display ──────────────────
+  const recScore = computeRecoveryScore();
+  const recStyle = recoveryScoreStyle(recScore);
+  if (badge) {
+    badge.className = 'card-badge ' + recStyle.cls;
+    badge.textContent = recScore !== null
+      ? recScore + ' · ' + recStyle.label
+      : recStyle.label;
+  }
+  // Big score number
+  const scoreNum   = document.getElementById('rec-score-num');
+  const scoreLabel = document.getElementById('rec-score-label');
+  const scoreSub   = document.getElementById('rec-score-sub');
+  if (scoreNum) {
+    scoreNum.textContent = recScore !== null ? recScore : '--';
+    scoreNum.style.color = recStyle.color;
+  }
+  if (scoreLabel) scoreLabel.style.color = recStyle.color;
+  if (scoreSub) {
+    // Brief summary of what data is driving the score
+    const parts = [];
+    if (recScore !== null) {
+      parts.push(recStyle.label);
+      // Show which signals are contributing
+      const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+      const tod  = nutritionData && nutritionData.today;
+      const latestHAE = [tod, ...hist].find(h => h && (h.hrv_ms || h.resting_hr || h.sleep_hours));
+      if (latestHAE) {
+        if (latestHAE.hrv_ms)     parts.push('HRV');
+        if (latestHAE.resting_hr) parts.push('RHR');
+        if (latestHAE.sleep_hours) parts.push('Sleep');
+      }
+      if (parts.length > 1) scoreSub.textContent = 'from ' + parts.slice(1).join(' + ');
+      else scoreSub.textContent = '';
+    } else {
+      scoreSub.textContent = 'Waiting for data';
+    }
+  }
+
   if (sleepH != null) {
     const st = sleepStatus(sleepH);
     if (sleepVal) sleepVal.textContent = fmtSleepHM(sleepH);
@@ -3960,12 +4079,9 @@ function renderRecovery() {
       const when = latest && latest.date !== todayKey ? nMonthDay(latest.date) : 'last night';
       sleepSub.textContent = when + ' · ' + st.label;
     }
-    // Green / amber / red status badge driven purely by sleep hours.
-    if (badge) { badge.textContent = st.label; badge.className = 'card-badge ' + RECOVERY_BADGE_CLASS[st.cls]; }
   } else {
     if (sleepVal) sleepVal.textContent = '--';
     if (sleepSub) sleepSub.textContent = 'Waiting for data';
-    if (badge) { badge.textContent = 'Waiting for data'; badge.className = 'card-badge badge-orange'; }
   }
 
   // ── Sleep efficiency ──

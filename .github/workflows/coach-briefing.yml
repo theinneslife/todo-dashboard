@@ -29,8 +29,52 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python3 - <<'PYEOF'
-          import os, json, datetime, re
+          import os, json, datetime, re, statistics
           from anthropic import Anthropic
+
+          # ---- Load recovery and training data ---------------------------------
+          def load_json(path):
+              try:
+                  with open(path) as f:
+                      return json.load(f)
+              except (FileNotFoundError, json.JSONDecodeError):
+                  return {}
+
+          nutrition = load_json('nutrition_data.json')
+          strava    = load_json('strava_data.json')
+
+          # Pull today's vitals from nutrition_data (or most recent if today is empty)
+          def best_entry(doc):
+              # Return the most recent history entry that has at least one vital
+              for h in [doc.get('today', {})] + doc.get('history', []):
+                  if isinstance(h, dict) and any(h.get(k) for k in
+                      ('hrv_ms', 'resting_hr', 'sleep_hours', 'recovery_score')):
+                      return h
+              return doc.get('today', {}) or {}
+
+          vitals = best_entry(nutrition)
+          history = nutrition.get('history', [])
+
+          hrv_today     = vitals.get('hrv_ms')
+          rhr_today     = vitals.get('resting_hr')
+          sleep_today   = vitals.get('sleep_hours')
+          sleep_eff     = vitals.get('sleep_efficiency_pct')
+          rec_score     = vitals.get('recovery_score')
+          vitals_date   = vitals.get('date', 'unknown')
+
+          # 30-day baselines for trend context
+          hrv_vals  = [h['hrv_ms'] for h in history if h.get('hrv_ms')]
+          rhr_vals  = [h['resting_hr'] for h in history if h.get('resting_hr')]
+          slp_vals  = [h['sleep_hours'] for h in history if h.get('sleep_hours')]
+          hrv_avg   = round(statistics.mean(hrv_vals), 1) if len(hrv_vals) >= 3 else None
+          rhr_avg   = round(statistics.mean(rhr_vals), 1) if len(rhr_vals) >= 3 else None
+          slp_avg   = round(statistics.mean(slp_vals), 2) if len(slp_vals) >= 3 else None
+
+          # Recent training load
+          recent_runs  = strava.get('recent_runs', [])[:5]
+          weekly_miles = strava.get('weekly_miles', 0)
+          last_week_mi = strava.get('last_week_miles', 0)
+          last_run     = recent_runs[0] if recent_runs else {}
 
           # Training plan constants
           RACE_DATE   = datetime.date(2026, 9, 18)
@@ -75,10 +119,33 @@ jobs:
               "knowledgeable voice. No fluff, no platitudes, no hedging."
           )
 
+          # Build recovery data block for the prompt
+          def fmt(v, unit='', fallback='no data'):
+              return f"{v}{unit}" if v is not None else fallback
+
+          def score_label(s):
+              if s is None: return 'no data'
+              if s >= 67: return f"{s}/100 (Recovered)"
+              if s >= 34: return f"{s}/100 (Moderate)"
+              return f"{s}/100 (Compromised)"
+
+          recovery_block = f"""RECOVERY DATA (from Apple Health via HAE, as of {vitals_date}):
+          - Recovery score: {score_label(rec_score)}
+          - HRV: {fmt(hrv_today, ' ms')} (30-day avg: {fmt(hrv_avg, ' ms')})
+          - Resting HR: {fmt(rhr_today, ' bpm')} (30-day avg: {fmt(rhr_avg, ' bpm')})
+          - Sleep: {fmt(sleep_today, 'h')} with {fmt(sleep_eff, '% efficiency')} (30-day avg: {fmt(slp_avg, 'h')})
+
+          RECENT TRAINING (Strava):
+          - This week so far: {weekly_miles} miles | Last week: {last_week_mi} miles
+          - Last run ({last_run.get('date','?')}): {last_run.get('miles','?')} mi, {last_run.get('elevation_feet','?')} ft vert, avg HR {last_run.get('avg_hr','?')} bpm
+          - Recent runs: {', '.join(f"{r.get('miles','?')}mi@{r.get('avg_hr','?')}bpm" for r in recent_runs[:3])}"""
+
           user_prompt = f"""Generate today's coaching briefing for Christopher.
 
           TRAINING CONTEXT:
           {context_summary}
+
+          {recovery_block}
 
           PHASE GUIDANCE:
           - Base (wk 1-3): aerobic foundation, easy volume, build durability
@@ -110,8 +177,12 @@ jobs:
           }}
 
           Each message must be 3-5 substantive sentences, specific to this training phase, this
-          day of the week, and the Julian Alps 50K's alpine demands. Reference real numbers (HR
-          zones, paces, grams of carbs, hours of sleep) where it adds signal. No generic advice."""
+          day of the week, and the Julian Alps 50K's alpine demands. Reference the ACTUAL recovery
+          numbers above — if HRV is suppressed, call it out; if the recovery score is in the red,
+          adjust the workout recommendation accordingly; if sleep was short, address it. When data
+          shows "no data", give general guidance for the phase/day without fabricating numbers.
+          Reference real numbers (HR zones, paces, grams of carbs, hours of sleep) where it adds
+          signal. No generic advice."""
 
           client = Anthropic()
           resp = client.messages.create(

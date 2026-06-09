@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-09",
-  "generated_at": "2026-06-09T14:01:20Z",
+  "generated_at": "2026-06-09T16:09:06.009496Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build phase, 14 weeks out. Tuesday is a quality day: 70–80 min with 5 x 4 min uphill efforts at threshold (Zone 4), easy jog down between. Find the steepest sustained grade you can — the Julian Alps 50K throws ~2500m of vert at you, so teach your legs to climb strong when fatigued. Keep the flats and warmup in Zone 2."
+      "message": "Do 10 min easy Z2 warm-up, then 3 × 5 min at Z4 (threshold, ~88–92% max HR) with 2 min Z1 recovery between. Finish with 10 min Z2 cool-down for ~35–40 min total. You're in taper week 20, so this is about retaining leg sharpness and neural readiness without accumulating fatigue—don't exceed threshold; the goal is touch, not grind. Expect to run this on tired legs after travel; if you feel flat, drop to 4 min intervals instead and call it a day."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Train the gut today. Take 60g carbs per hour on the run — alternate a gel (~22g) every 30 min with a few sips of carb drink. Practice now so 60–90g/hr feels routine by race day. Post-run within 30 min: ~30g protein + ~60g carbs (e.g. Greek yogurt, banana, honey, granola)."
+      "message": "Get 1.5–2 g carbs per kg bodyweight today (assume ~75 kg = 110–150 g), distributed across three meals plus a post-run carb + protein window within 30 min. For the threshold work, fuel with 300 ml sports drink (6–7% carbs) or a gel + water 30–45 min before. Taper is not license to cut carbs—you're preserving muscle glycogen and keeping energy systems primed for a 50K alpine grind. Skip heavy fats around run time."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "After hill repeats your calves and Achilles take the load. Spend 8–10 min foam rolling calves, quads, and glutes tonight, then elevate legs against a wall for 5 min. Prioritize 7.5–8 hrs sleep — if you're crossing time zones this week, anchor to local morning light and skip the late caffeine."
+      "message": "Target 8+ hours sleep tonight; taper weeks live and die on sleep debt, and you're juggling travel. Elevate legs for 10 min post-run, take a cold shower (90 sec, 12–15°C if you can manage it), and stay off your feet for 2 hours post-run. Skip any ancillary strength or mobility work today—the nervous system doesn't recover faster with extra work. If jet lag is a factor, get sunlight in the morning and skip caffeine after 12 pm."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build phase is where the race is quietly won. Today's uphill reps are a rehearsal for the long alpine climbs in Slovenia — when your legs burn, practice the cue you'll use on race day: 'relax the shoulders, shorten the stride, keep climbing.' Consistency over heroics. 101 days out, every solid session compounds."
+      "message": "You're 14 weeks out from the Alps. This is the window where race visualization stops being optional—spend 10 min tonight running through the first 10 km of Kranjska Gora (the steep technical descent, altitude shift, sparse aid). Taper anxiety is real for hard athletes; channel it into tactical prep instead. Your fitness is locked in. The remaining 100 days are about arriving sharp, uninjured, and mentally dialed."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T15:57:27.531488Z",
+  "last_updated": "2026-06-09T16:34:49.270993Z",
   "today": {
     "date": "2026-06-09",
     "calories": 0,
@@ -8,9 +8,9 @@
     "fat_g": 0,
     "fiber_g": 0,
     "water_ml": 0,
-    "sleep_hours": 0.47,
-    "time_in_bed_hours": 0.47,
-    "sleep_efficiency_pct": 100.0,
+    "sleep_hours": 6.74,
+    "time_in_bed_hours": 8.13,
+    "sleep_efficiency_pct": 82.9,
     "hrv_ms": null,
     "resting_hr": 59
   },
@@ -23,9 +23,9 @@
       "fat_g": 0,
       "fiber_g": 0,
       "water_ml": 0,
-      "sleep_hours": 0.47,
-      "time_in_bed_hours": 0.47,
-      "sleep_efficiency_pct": 100.0,
+      "sleep_hours": 6.74,
+      "time_in_bed_hours": 8.13,
+      "sleep_efficiency_pct": 82.9,
       "hrv_ms": null,
       "resting_hr": 59
     },

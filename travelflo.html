@@ -2582,6 +2582,23 @@
         .info-row span:last-child { color: var(--text-primary); font-weight: 500; }
         .info-notes { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; padding: 0.5rem 0; }
 
+        /* Safety Tab */
+        .safety-risk-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 12px; }
+        .safety-risk-badge.low { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        .safety-risk-badge.medium { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        .safety-risk-badge.high { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+        .safety-section { margin-bottom: 18px; }
+        .safety-section-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px; }
+        .safety-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 0.83rem; color: var(--text-secondary); line-height: 1.5; }
+        .safety-item:last-child { border-bottom: none; }
+        .safety-item-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+        .safety-emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+        .safety-emergency-item { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px; }
+        .safety-emergency-label { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 2px; }
+        .safety-emergency-number { font-size: 1rem; font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+        .safety-no-data { text-align: center; padding: 32px 16px; color: var(--text-muted); font-size: 0.85rem; }
+        .safety-source-note { font-size: 0.7rem; color: var(--text-muted); margin-top: 16px; line-height: 1.5; }
+
         /* Budget bar */
         .budget-bar-track {
             height: 6px;
@@ -2829,11 +2846,13 @@
                 <button class="detail-tab" data-tab="requirements" onclick="switchTab(this)">Entry Requirements</button>
                 <button class="detail-tab" data-tab="tasks" onclick="switchTab(this)">Tasks</button>
                 <button class="detail-tab" data-tab="info" onclick="switchTab(this)">Info</button>
+                <button class="detail-tab" data-tab="safety" onclick="switchTab(this)">🛡 Safety</button>
             </div>
             <div class="tab-content active" id="tabItinerary"></div>
             <div class="tab-content" id="tabRequirements"></div>
             <div class="tab-content" id="tabTasks"></div>
             <div class="tab-content" id="tabInfo"></div>
+            <div class="tab-content" id="tabSafety"></div>
         </div>
 
         <!-- ===== SEARCH VIEW ===== -->
@@ -6625,7 +6644,7 @@ this.updateDashboardStats();
                 const tabName = arg.dataset.tab;
                 document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
                 arg.classList.add('active');
-                const tabMap = { itinerary: 'tabItinerary', requirements: 'tabRequirements', tasks: 'tabTasks', info: 'tabInfo' };
+                const tabMap = { itinerary: 'tabItinerary', requirements: 'tabRequirements', tasks: 'tabTasks', info: 'tabInfo', safety: 'tabSafety' };
                 document.querySelectorAll('#viewDetail .tab-content').forEach(t => t.classList.remove('active'));
                 const target = document.getElementById(tabMap[tabName]);
                 if (target) target.classList.add('active');
@@ -6980,6 +6999,7 @@ this.updateDashboardStats();
         renderVisaRequirements(trip);
         renderTasks(trip);
         renderInfo(trip);
+        renderSafety(trip);
     }
 
     function renderItinerary(trip) {
@@ -7177,6 +7197,312 @@ this.updateDashboardStats();
         }
 
         container.innerHTML = html || '<div class="empty-state-small" style="padding:20px;">No additional info.</div>';
+    }
+
+    // ===== SAFETY TAB =====
+
+    const SAFETY_DB = {
+        italy: {
+            risk: 'low',
+            overview: 'Italy is generally very safe for tourists. Petty theft and pickpocketing are the primary concerns, especially in major tourist areas.',
+            avoid: [
+                { icon: '🚉', text: 'Termini Station area in Rome (pickpockets, aggressive vendors, drug activity near exits at night)' },
+                { icon: '🏟', text: 'Rome: Colosseum surroundings and Spanish Steps at night' },
+                { icon: '👜', text: 'Naples: Quartieri Spagnoli and Piazza Garibaldi after dark' },
+                { icon: '🌃', text: 'Milan: Stazione Centrale and Piazza XXIV Maggio after midnight' },
+                { icon: '🛥', text: 'Venice: crowded water bus stops — prime pickpocket territory' },
+            ],
+            tips: [
+                { icon: '💼', text: 'Use a cross-body bag worn in front; keep phone in a front pocket or money belt' },
+                { icon: '📸', text: 'Beware of friendly strangers who offer to take your photo — classic phone-snatch setup' },
+                { icon: '🍕', text: 'Avoid tourist trap restaurants near major sights; locals eat on side streets' },
+                { icon: '🚗', text: 'Never leave anything visible in a rental car; break-ins at scenic viewpoints are common' },
+                { icon: '💶', text: 'Fake €50 notes circulate; check for watermarks when receiving change' },
+            ],
+            scams: [
+                { icon: '💐', text: 'Rosebud scam: someone places a flower in your hand, then demands payment' },
+                { icon: '🤲', text: 'Friendship bracelet scam: strangers tie a bracelet on your wrist then ask for money' },
+                { icon: '🃏', text: 'Card/shell games on tourist plazas — illegal and always rigged' },
+            ],
+            emergency: { police: '113', ambulance: '118', fire: '115', general: '112' },
+        },
+        switzerland: {
+            risk: 'low',
+            overview: 'Switzerland is one of the safest countries in Europe. Violent crime is rare. The main risks are petty theft in cities and altitude-related issues in mountain areas.',
+            avoid: [
+                { icon: '🌃', text: 'Zurich: Langstrasse district at night (prostitution/drug zone; generally non-threatening to passersby)' },
+                { icon: '🚉', text: 'Geneva and Zurich main stations: watch belongings on platforms and in waiting areas' },
+                { icon: '⛰', text: 'Mountain trails: never hike marked closed trails; weather changes fast above 2000m' },
+            ],
+            tips: [
+                { icon: '🏔', text: 'Always check weather forecasts before mountain activities — afternoon thunderstorms are common' },
+                { icon: '💧', text: 'Tap water everywhere is glacier-quality and free — use it' },
+                { icon: '🚑', text: 'Carry travel insurance with helicopter evacuation coverage for mountain trips' },
+            ],
+            scams: [
+                { icon: '🚕', text: 'Taxi overcharging from Zurich airport — always use metered cabs or Uber' },
+            ],
+            emergency: { police: '117', ambulance: '144', fire: '118', general: '112' },
+        },
+        france: {
+            risk: 'medium',
+            overview: 'France is generally safe but Paris sees elevated petty crime in tourist zones. Terrorism threat level is elevated (Vigipirate system active). Exercise heightened awareness in crowded areas.',
+            avoid: [
+                { icon: '🗼', text: 'Paris: Sacré-Coeur steps and surrounding streets at night (muggings reported)' },
+                { icon: '🚇', text: 'Paris Métro lines near Gare du Nord/Est: pickpockets operate in pairs' },
+                { icon: '🌃', text: 'Paris: Châtelet-Les Halles at night; around Gare du Nord after dark' },
+                { icon: '🏖', text: 'Nice, Cannes, Marseille: beach areas — unattended bags disappear quickly' },
+            ],
+            tips: [
+                { icon: '🚇', text: 'Keep passport/cash in hotel safe; carry a photocopy of your passport' },
+                { icon: '🚕', text: 'Pre-book taxis from CDG airport via official apps (G7, Chauffeur Privé) to avoid scams' },
+                { icon: '⚠️', text: 'The petition scam is everywhere near monuments — do not engage or stop walking' },
+            ],
+            scams: [
+                { icon: '📝', text: 'Petition scam: women ask you to sign a deaf mute petition, then demand money' },
+                { icon: '💍', text: 'Gold ring scam: stranger finds a gold ring near you and offers it — setup for money demands' },
+            ],
+            emergency: { police: '17', ambulance: '15', fire: '18', general: '112' },
+        },
+        spain: {
+            risk: 'low',
+            overview: 'Spain is a safe destination. Barcelona has elevated petty theft in tourist zones. Madrid and other cities are generally very safe.',
+            avoid: [
+                { icon: '🏖', text: 'Barcelona: La Barceloneta beach — unattended bags stolen instantly' },
+                { icon: '🚇', text: 'Barcelona Metro: crowded lines especially near tourist sights' },
+                { icon: '🌃', text: 'Barcelona: El Raval (western end) at night' },
+            ],
+            tips: [
+                { icon: '🎒', text: 'In Barcelona, wear backpack on front in crowds; use bags with zippers' },
+                { icon: '🏧', text: 'Use ATMs inside banks; street ATMs have skimming devices' },
+            ],
+            scams: [
+                { icon: '💐', text: 'Las Ramblas flower scam: free flower handed over then €20 demanded' },
+                { icon: '🃏', text: 'Three-card monte on Las Ramblas (also acts as distraction for pickpockets)' },
+            ],
+            emergency: { police: '091', ambulance: '061', fire: '080', general: '112' },
+        },
+        japan: {
+            risk: 'low',
+            overview: 'Japan is one of the safest countries in the world for tourists. Violent crime against foreigners is extremely rare. The primary concern is earthquakes and natural disasters.',
+            avoid: [
+                { icon: '🌃', text: 'Tokyo: Kabukicho in Shinjuku late at night (host clubs, aggressive touts)' },
+            ],
+            tips: [
+                { icon: '🗾', text: 'Download NHK World and Japan Meteorological Agency apps for disaster alerts' },
+                { icon: '💴', text: 'Japan is still largely cash-based; carry ¥20,000-30,000 at all times' },
+                { icon: '🏥', text: 'International clinics exist in Tokyo/Osaka; hospital emergency care may require cash upfront' },
+            ],
+            scams: [
+                { icon: '🍻', text: 'Roppongi bar scam: friendly strangers lead you to a bar with exorbitant bills' },
+            ],
+            emergency: { police: '110', ambulance: '119', fire: '119', general: '110 / 119' },
+        },
+        'united kingdom': {
+            risk: 'medium',
+            overview: 'The UK is generally safe with low violent crime rates. London has elevated theft and knife crime in certain areas. Terrorism threat is at SUBSTANTIAL level. Exercise normal precautions.',
+            avoid: [
+                { icon: '🚉', text: 'London: Peckham, Lewisham — higher knife crime statistics' },
+                { icon: '🛵', text: 'Phone snatching by moped is a real issue in London — be aware when using phone on street' },
+            ],
+            tips: [
+                { icon: '🚇', text: 'Oyster/contactless is the only sensible way to ride the Tube; cash surcharges are significant' },
+                { icon: '☔', text: 'Always carry an umbrella; weather changes hourly' },
+            ],
+            scams: [
+                { icon: '🚕', text: 'Unlicensed minicabs outside clubs and pubs; only use Uber or official black cabs' },
+            ],
+            emergency: { police: '999', ambulance: '999', fire: '999', general: '999 (non-emergency: 101)' },
+        },
+        mexico: {
+            risk: 'high',
+            overview: 'Mexico has highly variable safety by region. Tourist areas in Cancun, Los Cabos, and Puerto Vallarta are generally safe; border regions carry elevated risk.',
+            avoid: [
+                { icon: '🚫', text: 'Do Not Travel: Colima, Guerrero (except Zihuatanejo), Michoacan, Sinaloa, Tamaulipas' },
+                { icon: '🚕', text: 'Never hail street taxis in Mexico City; only use Uber or DiDi with confirmed license plates' },
+                { icon: '🏧', text: 'Use ATMs inside bank lobbies only; card skimming is widespread at street machines' },
+                { icon: '🌙', text: 'Road travel at night outside major cities: highway robbery risk' },
+            ],
+            tips: [
+                { icon: '💵', text: 'Carry USD or pesos in small amounts; use hotel safe for passport and bulk cash' },
+                { icon: '✈️', text: 'Book travel insurance that includes medical evacuation (medevac to US)' },
+            ],
+            scams: [
+                { icon: '👮', text: 'Corrupt police shakedowns: officers may ask for bribes; note badge numbers and comply calmly' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+        thailand: {
+            risk: 'medium',
+            overview: 'Thailand is a popular destination. Petty theft, transportation scams, and political protests are the main concerns. Certain southern provinces have active insurgency.',
+            avoid: [
+                { icon: '🚫', text: 'Southern provinces (Pattani, Yala, Narathiwat): active insurgency — avoid entirely' },
+                { icon: '🏖', text: 'Beach areas: drowning risk is high at beaches without lifeguards; red flag means no swimming' },
+            ],
+            tips: [
+                { icon: '🛺', text: 'Never get in a tuk-tuk that offers to take you to a gem store or lucky Buddha — long-running scam' },
+                { icon: '👗', text: 'Dress modestly at temples; exposed shoulders/knees means no entry' },
+                { icon: '🚌', text: 'Use Grab (app) instead of street taxis to avoid fare disputes' },
+            ],
+            scams: [
+                { icon: '🏛', text: 'Closed temple scam: friendly local says it is closed and offers alternative — it is not closed' },
+                { icon: '💎', text: 'Gem scam: elaborate multi-person setup to sell investment gems at inflated prices' },
+            ],
+            emergency: { police: '191', ambulance: '1669', fire: '199', general: '1155 (tourist police)' },
+        },
+        portugal: {
+            risk: 'low',
+            overview: 'Portugal is one of the safest countries in Europe. Very low violent crime. Petty theft in Lisbon tourist areas is the main concern.',
+            avoid: [
+                { icon: '🚃', text: 'Lisbon: Tram 28E is a pickpocket hotspot — the most touristy route is the most targeted' },
+                { icon: '🌃', text: 'Lisbon: Martim Moniz and Intendente late at night' },
+            ],
+            tips: [
+                { icon: '🌊', text: 'Atlantic currents are powerful; always heed beach warning flags' },
+                { icon: '☀️', text: 'UV index is high year-round; sunscreen is not optional' },
+            ],
+            scams: [
+                { icon: '🍷', text: 'Restaurants near major sights sometimes add items you did not order to bills; verify each line' },
+            ],
+            emergency: { police: '112', ambulance: '112', fire: '112', general: '112' },
+        },
+        greece: {
+            risk: 'low',
+            overview: 'Greece is generally safe. Petty crime is the main concern in Athens. Water safety and scams on the islands are secondary considerations.',
+            avoid: [
+                { icon: '🌃', text: 'Athens: Omonia Square at night; Exarchia district if protests are occurring' },
+            ],
+            tips: [
+                { icon: '🚢', text: 'Ferry safety is generally good; book with major operators (Blue Star, Hellenic Seaways)' },
+                { icon: '🌡', text: 'Heat stroke is a serious risk in summer (June-August); drink 3L+ water daily' },
+            ],
+            scams: [
+                { icon: '🍺', text: 'Bar scam in Athens: strangers lead you to a bar, then demand inflated prices with implied threat' },
+            ],
+            emergency: { police: '100', ambulance: '166', fire: '199', general: '112' },
+        },
+        croatia: {
+            risk: 'low',
+            overview: 'Croatia is very safe. Dubrovnik is extremely tourist-friendly. Petty theft and traffic accidents are the primary concerns.',
+            avoid: [
+                { icon: '⛰', text: 'Unexploded landmines still exist in remote areas near the Bosnian border — stay on marked paths' },
+            ],
+            tips: [
+                { icon: '🌊', text: 'Strong undertows on parts of the Dalmatian coast; only swim in designated areas' },
+                { icon: '💶', text: 'Croatia joined EU/Schengen in 2023 and uses the euro' },
+            ],
+            emergency: { police: '192', ambulance: '194', fire: '193', general: '112' },
+        },
+        germany: {
+            risk: 'low',
+            overview: 'Germany is very safe with low crime rates. Petty theft in tourist areas and train stations is the primary concern. Terrorism threat exists at elevated level.',
+            avoid: [
+                { icon: '🚉', text: 'Frankfurt: areas directly around Hauptbahnhof — open drug market; safe in daylight, avoid at night' },
+                { icon: '🌃', text: 'Berlin: Görlitzer Park (Kreuzberg) for drug activity; Alexanderplatz at night' },
+            ],
+            tips: [
+                { icon: '🚲', text: 'Cycle lanes are for cyclists; pedestrians in cycle lanes face irritated locals' },
+                { icon: '💳', text: 'Many small shops and restaurants are still cash-only (Nur Barzahlung)' },
+            ],
+            emergency: { police: '110', ambulance: '112', fire: '112', general: '112' },
+        },
+        austria: {
+            risk: 'low',
+            overview: 'Austria is very safe. Vienna is consistently ranked among the world most livable cities. Very low crime against tourists.',
+            avoid: [
+                { icon: '🌃', text: 'Vienna: Praterstern area at night (petty crime, occasional confrontations)' },
+                { icon: '⛷', text: 'Alpine ski areas: avalanche zones — always check avalanche reports before off-piste skiing' },
+            ],
+            tips: [
+                { icon: '🎼', text: 'Unofficial ticket sellers outside opera/concert halls sell fakes; use official box offices' },
+                { icon: '⛷', text: 'Mountain rescue in Austria is not free; ensure travel insurance covers helicopter evacuation' },
+            ],
+            scams: [
+                { icon: '🎻', text: 'Mozart costume sellers in Vienna aggressively sell concert tickets at inflated prices' },
+            ],
+            emergency: { police: '133', ambulance: '144', fire: '122', general: '112' },
+        },
+        australia: {
+            risk: 'low',
+            overview: 'Australia is very safe. The wildlife and natural environment are far more dangerous than the people. UV radiation is extreme.',
+            avoid: [
+                { icon: '🏖', text: 'Unpatrolled beaches: shark attacks, strong rips, and jellyfish are real hazards' },
+                { icon: '🌿', text: 'Outback travel without preparation: people die every year from dehydration and heat' },
+            ],
+            tips: [
+                { icon: '☀️', text: 'Slip, Slop, Slap: shirt, sunscreen (SPF50+), hat. UV is brutally strong year-round' },
+                { icon: '🦘', text: 'Kangaroos are a serious road hazard at dawn and dusk; drive carefully in rural areas' },
+                { icon: '🐊', text: 'Crocodiles inhabit all waterways in the Northern Territory and north Queensland — never swim in rivers/lakes' },
+            ],
+            emergency: { police: '000', ambulance: '000', fire: '000', general: '000' },
+        },
+        usa: {
+            risk: 'medium',
+            overview: 'The US is generally safe in tourist areas. Gun violence is higher than comparable countries. Safety varies dramatically by city and neighborhood.',
+            avoid: [
+                { icon: '🌃', text: 'Research neighborhood safety before visiting: high crime areas exist in most major cities' },
+                { icon: '🚗', text: 'Lock car doors immediately upon entering; carjacking at intersections occurs in high-crime areas' },
+            ],
+            tips: [
+                { icon: '🏥', text: 'US healthcare is extremely expensive without insurance; ensure comprehensive travel coverage' },
+                { icon: '🚨', text: 'Call 911 for any emergency; non-emergency police line is 311 in major cities' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+    };
+
+    const SAFETY_DEFAULTS = {
+        lowRiskCountries: ['iceland','finland','denmark','norway','sweden','singapore','taiwan','south korea','ireland','czech republic','czechia','slovakia','slovenia','estonia'],
+        mediumRiskCountries: ['peru','colombia','brazil','argentina','chile','south africa','morocco','egypt','india','indonesia','vietnam','philippines','cambodia'],
+        highRiskCountries: ['venezuela','honduras','el salvador','haiti','myanmar','afghanistan','iraq','libya','somalia','south sudan','syria','yemen'],
+    };
+
+    function getSafetyRisk(country) {
+        const c = (country || '').trim().toLowerCase();
+        if (SAFETY_DEFAULTS.highRiskCountries.includes(c)) return 'high';
+        if (SAFETY_DEFAULTS.mediumRiskCountries.includes(c)) return 'medium';
+        if (SAFETY_DEFAULTS.lowRiskCountries.includes(c)) return 'low';
+        return null;
+    }
+
+    function renderEmergencySection(emergency) {
+        return `<div class="safety-section">
+            <div class="safety-section-title">Emergency Numbers</div>
+            <div class="safety-emergency-grid">
+                <div class="safety-emergency-item"><div class="safety-emergency-label">🚔 Police</div><div class="safety-emergency-number">${esc(emergency.police || '112')}</div></div>
+                <div class="safety-emergency-item"><div class="safety-emergency-label">🚑 Ambulance</div><div class="safety-emergency-number">${esc(emergency.ambulance || '112')}</div></div>
+                <div class="safety-emergency-item"><div class="safety-emergency-label">🚒 Fire</div><div class="safety-emergency-number">${esc(emergency.fire || '112')}</div></div>
+                <div class="safety-emergency-item"><div class="safety-emergency-label">🆘 General</div><div class="safety-emergency-number">${esc(emergency.general || '112')}</div></div>
+            </div>
+        </div>`;
+    }
+
+    function renderSafety(trip) {
+        const container = document.getElementById('tabSafety');
+        if (!container) return;
+        const country = (trip.destination?.country || trip.country || '').trim().toLowerCase();
+        const city = (trip.destination?.city || trip.city || '').trim().toLowerCase();
+        let data = SAFETY_DB[city] || SAFETY_DB[country];
+        if (!data) {
+            for (const key of Object.keys(SAFETY_DB)) {
+                if (country.includes(key) || key.includes(country)) { data = SAFETY_DB[key]; break; }
+                if (city.includes(key) || key.includes(city)) { data = SAFETY_DB[key]; break; }
+            }
+        }
+        if (!data) {
+            const inferredRisk = getSafetyRisk(country);
+            const riskLabel = inferredRisk ? `<span class="safety-risk-badge ${inferredRisk}">${inferredRisk === 'low' ? '🟢' : inferredRisk === 'medium' ? '🟡' : '🔴'} ${inferredRisk.toUpperCase()} RISK</span>` : '';
+            container.innerHTML = `<div style="padding:16px;">${riskLabel}<div class="safety-no-data"><div style="font-size:2rem;margin-bottom:12px;">🛡</div><div style="font-weight:600;color:var(--text-primary);margin-bottom:6px;">No detailed safety data for ${esc(trip.destination?.country || trip.country || 'this destination')}</div><div>Check <strong>travel.state.gov</strong> (US) or <strong>gov.uk/foreign-travel-advice</strong> (UK) before your trip.</div></div>${renderEmergencySection({ general: '112 (EU)', police: 'local', ambulance: 'local', fire: 'local' })}</div>`;
+            return;
+        }
+        const riskColors = { low: '🟢', medium: '🟡', high: '🔴' };
+        let html = `<div style="padding:16px;"><span class="safety-risk-badge ${data.risk}">${riskColors[data.risk]} ${data.risk.toUpperCase()} RISK</span><div class="safety-section"><div class="safety-item" style="border:none;padding-top:0;"><span class="safety-item-icon">ℹ️</span><span>${esc(data.overview)}</span></div></div>`;
+        if (data.avoid && data.avoid.length) { html += `<div class="safety-section"><div class="safety-section-title">Areas &amp; Situations to Avoid</div>` + data.avoid.map(i => `<div class="safety-item"><span class="safety-item-icon">${i.icon}</span><span>${esc(i.text)}</span></div>`).join('') + '</div>'; }
+        if (data.tips && data.tips.length) { html += `<div class="safety-section"><div class="safety-section-title">Safety Tips</div>` + data.tips.map(i => `<div class="safety-item"><span class="safety-item-icon">${i.icon}</span><span>${esc(i.text)}</span></div>`).join('') + '</div>'; }
+        if (data.scams && data.scams.length) { html += `<div class="safety-section"><div class="safety-section-title">Common Scams</div>` + data.scams.map(i => `<div class="safety-item"><span class="safety-item-icon">${i.icon}</span><span>${esc(i.text)}</span></div>`).join('') + '</div>'; }
+        if (data.emergency) html += renderEmergencySection(data.emergency);
+        html += `<div class="safety-source-note">Safety data is curated. Always verify with <strong>travel.state.gov</strong> or <strong>gov.uk/foreign-travel-advice</strong> before departure.</div></div>`;
+        container.innerHTML = html;
     }
 
     // ===== SCHENGEN 90/180-DAY TRACKER =====

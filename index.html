@@ -3872,6 +3872,11 @@ function getGithubToken() {
         }
 
         function getTaskColumn(task) {
+            // Completed status wins over column labels so Shopping/Parking Lot items
+            // move to Completed when marked done (labels are kept so reopening restores the column).
+            if (task.status === 'completed') {
+                return 'completed';
+            }
             if (task.labels && task.labels.includes('Parking Lot')) {
                 return 'parking';
             }
@@ -3880,9 +3885,6 @@ function getGithubToken() {
             }
             if (task.labels && task.labels.includes('Relationships')) {
                 return 'relationships';
-            }
-            if (task.status === 'completed') {
-                return 'completed';
             }
             return 'christopher-todo';
         }

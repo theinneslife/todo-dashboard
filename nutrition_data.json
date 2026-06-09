@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T16:34:49.270993Z",
+  "last_updated": "2026-06-09T17:45:15.230006Z",
   "today": {
     "date": "2026-06-09",
     "calories": 0,
@@ -12,7 +12,8 @@
     "time_in_bed_hours": 8.13,
     "sleep_efficiency_pct": 82.9,
     "hrv_ms": null,
-    "resting_hr": 59
+    "resting_hr": 59,
+    "recovery_score": 72
   },
   "history": [
     {
@@ -27,7 +28,8 @@
       "time_in_bed_hours": 8.13,
       "sleep_efficiency_pct": 82.9,
       "hrv_ms": null,
-      "resting_hr": 59
+      "resting_hr": 59,
+      "recovery_score": 72
     },
     {
       "date": "2026-06-07",

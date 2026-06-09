@@ -1412,5 +1412,40 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "05c98013-f4cf-46dc-af5d-fa84e4d392cf",
+    "title": "Create list of strategic companies to partner with",
+    "description": "Compile a list of strategic companies to potentially work with. Mentioned in a voice note that was cut short.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-09T11:40:06.946Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-09T11:40:06.946Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

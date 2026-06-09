@@ -2026,7 +2026,7 @@
     "title": "Check Orion entrance or visit Orion store",
     "description": "Referenced 'entrance from Orion' — may refer to a store, market, or location to pick up the groceries.",
     "priority": 3,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2040,10 +2040,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-09T03:54:22.926Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-08T22:44:52.971Z",
-    "completed_at": null,
+    "completed_at": "2026-06-09T03:54:22.926Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

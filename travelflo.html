@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.8 - Travel Command Center</title>
+    <title>TravelFlo v3.9 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -8348,6 +8348,52 @@ this.updateDashboardStats();
             ],
             emergency: { police: '999 / 112', ambulance: '999', fire: '999', general: '112' },
         },
+
+        // ===== CENTRAL AMERICA =====
+
+        guatemala: {
+            risk: 'high',
+            overview: 'Guatemala has significant security challenges. Guatemala City carries elevated violent crime. Border zones, especially near Honduras and El Salvador, are high-risk. Antigua Guatemala and major tourist sites are considerably safer. Lake Atitlán and Flores (Tikal) are popular and manageable with precautions. Stick to well-established tourist routes.',
+            avoid: [
+                { icon: '🏙', text: 'Guatemala City Zone 1 and peripheral zones after dark; most of the capital beyond tourist hotels warrants caution' },
+                { icon: '🚌', text: 'Chicken buses (local public buses) for long distance travel; higher-risk than shuttle services' },
+                { icon: '🌃', text: 'Driving at night between cities; road robbery and accidents are elevated risks' },
+                { icon: '🗺', text: 'Remote border areas near Honduras and El Salvador without local guidance' },
+            ],
+            tips: [
+                { icon: '🚐', text: 'Use tourist shuttle services (Antigua, Flores, Atitlán) — far safer than public buses for intercity travel' },
+                { icon: '💳', text: 'Use ATMs inside banks or secure hotel lobbies only; card skimming is common at standalone machines' },
+                { icon: '🎒', text: 'Keep bags in front of you in markets and crowded areas; petty theft is prevalent in tourist zones' },
+                { icon: '💊', text: 'Drink bottled water only; avoid ice in drinks outside top-tier restaurants' },
+            ],
+            scams: [
+                { icon: '🚕', text: 'Unofficial taxis outside airports and bus terminals; negotiate fare before entering or use hotel-dispatched vehicles' },
+                { icon: '👮', text: 'Occasional police requesting documentation checks that turn into informal fines; ask for a formal receipt (multa oficial)' },
+            ],
+            emergency: { police: '110 / 120', ambulance: '122', fire: '122 / 123', general: '1500 (Asistur tourist help)' },
+        },
+
+        'antigua guatemala': {
+            risk: 'medium',
+            overview: 'Antigua Guatemala is the safest and most tourist-developed city in the country — a UNESCO World Heritage colonial city with a strong police presence and well-established tourist infrastructure. While significantly safer than Guatemala City, it remains part of Guatemala and standard urban precautions apply. The cobblestone centre, Parque Central, and main tourist areas feel relaxed during the day.',
+            avoid: [
+                { icon: '🌃', text: 'Cerro de la Cruz and Alameda Santa Lucía area alone after dark — visit the viewpoint only with a guide or group' },
+                { icon: '🚶', text: 'Walking alone late at night outside the central tourist core; share rides back to your accommodation' },
+                { icon: '🧳', text: 'Visible expensive equipment (cameras, laptops) in crowded market areas — opportunistic theft is the main risk' },
+            ],
+            tips: [
+                { icon: '🗺', text: 'The city centre is highly walkable in daylight; most sites, restaurants, and cafés are within walking distance of Parque Central' },
+                { icon: '🚐', text: 'Use shuttle services for day trips to Lake Atitlán, Acatenango, and Chichicastenango — do not take local buses alone' },
+                { icon: '💳', text: 'Use ATMs inside banks (Banrural, Banco Industrial on 5a Calle Poniente) rather than standalone machines' },
+                { icon: '🌋', text: 'Volcano hikes (Pacaya, Acatenango, Santiaguito) require licensed guides; verify credentials through your hotel or INGUAT' },
+                { icon: '💊', text: 'Bottled water only throughout your stay; altitude is roughly 1,500m (5,000ft) — hydrate well' },
+            ],
+            scams: [
+                { icon: '🎓', text: 'Language school touts who earn commissions; research schools independently before committing' },
+                { icon: '🛒', text: 'Market vendors asking significantly above typical prices for handicrafts; gentle negotiation is expected and acceptable' },
+            ],
+            emergency: { police: '110 / 120', ambulance: '122', fire: '122', general: '1500 (INGUAT tourist assistance)' },
+        },
     };
 
     const SAFETY_DEFAULTS = {
@@ -8384,8 +8430,8 @@ this.updateDashboardStats();
         let data = SAFETY_DB[city] || SAFETY_DB[country];
         if (!data) {
             for (const key of Object.keys(SAFETY_DB)) {
-                if (country.includes(key) || key.includes(country)) { data = SAFETY_DB[key]; break; }
-                if (city.includes(key) || key.includes(city)) { data = SAFETY_DB[key]; break; }
+                if (country && country.length >= 3 && (country.includes(key) || key.includes(country))) { data = SAFETY_DB[key]; break; }
+                if (city && city.length >= 3 && (city.includes(key) || key.includes(city))) { data = SAFETY_DB[key]; break; }
             }
         }
         if (!data) {

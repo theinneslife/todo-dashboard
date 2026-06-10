@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.6 - Travel Command Center</title>
+    <title>TravelFlo v3.7 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -2707,7 +2707,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.6</div>
+                    <div class="version-badge">v3.7</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -5737,6 +5737,7 @@ return '<div class="all-trip-card'+verifiedClass+'" onclick="app.showTripDetail(
             if (trip.notes) html += '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">'+trip.notes+'</span></div>';
             if (trip.companions && trip.companions.length > 0) html += '<div class="detail-row"><span class="detail-label">Companions</span><span class="detail-value">'+trip.companions.map(function(c){return c.name;}).join(", ")+'</span></div>';
             html += "</div>";
+            html += '<div id="tripDetailSafetySection"></div>';
             var bookings = trip.bookings || [];
             var flights = bookings.filter(function(b){return b.type==="flight";});
             var accoms = bookings.filter(function(b){return b.type==="accommodation";});
@@ -5881,6 +5882,7 @@ return '<div class="all-trip-card'+verifiedClass+'" onclick="app.showTripDetail(
             html += '<div class="detail-section" id="weatherSection_' + trip.id + '"><div class="detail-section-title"><i data-lucide="cloud-sun" style="width:16px;vertical-align:middle"></i> Weather</div><div class="weather-notice">Loading weather...</div></div>';
 
             document.getElementById("tripDetailBody").innerHTML = html;
+            renderSafety(trip, 'tripDetailSafetySection');
 
             // Async: Load weather (Feature 5)
             self.fetchWeather(trip).then(function(weatherResult) {

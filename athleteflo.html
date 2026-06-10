@@ -1695,7 +1695,7 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.7</span>
+      <span class="version-badge">v1.8</span>
       <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
         <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
         <span id="sync-btn-label">Sync Now</span>
@@ -2595,7 +2595,9 @@ function refreshWeeklyCheckin() {
 /* ══════════════════════════════════════════════
    Weight: localStorage persistence + dynamic 7-day trend
    ══════════════════════════════════════════════ */
-const WEIGHT_LS_KEY = 'af_weight_log';
+// v2 key forces a clean re-seed on every device — eliminates stale 195 readings
+// from devices that had an old seed. Old 'af_weight_log' data is simply abandoned.
+const WEIGHT_LS_KEY = 'af_weight_log_v2';
 
 function getWeightLog() {
   try {
@@ -3380,11 +3382,18 @@ function buildNutritionSeries() {
     const tss = nNum(tssMap[key]);
     const real = byDate[key];
     let row;
-    const hasRealNutrition = real && nNum(real.calories) > 0;
+    // If the pipeline exported macros but left calories=0 (Cronometer/HAE sync gap),
+    // compute an estimate so the chart doesn't show a false zero.
+    const computedCals = real
+      ? (nNum(real.calories) > 0
+          ? nNum(real.calories)
+          : Math.round(nNum(real.protein_g) * 4 + nNum(real.carbs_g) * 4 + nNum(real.fat_g) * 9))
+      : 0;
+    const hasRealNutrition = real && computedCals > 50;
     if (hasRealNutrition) {
       row = {
         date: key, _real: true, tss,
-        calories: nNum(real.calories), protein_g: nNum(real.protein_g),
+        calories: computedCals, protein_g: nNum(real.protein_g),
         carbs_g: nNum(real.carbs_g), fat_g: nNum(real.fat_g),
         fiber_g: nNum(real.fiber_g), water_ml: nNum(real.water_ml),
       };

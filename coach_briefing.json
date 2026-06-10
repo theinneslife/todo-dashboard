@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-09",
-  "generated_at": "2026-06-09T16:09:06.009496Z",
+  "generated": "2026-06-10",
+  "generated_at": "2026-06-10T09:00:00.000000Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -9,27 +9,27 @@
   "coaching": [
     {
       "type": "run",
-      "icon": "🏃",
+      "icon": "🏔️",
       "title": "Today's Run",
-      "message": "Do 10 min easy Z2 warm-up, then 3 × 5 min at Z4 (threshold, ~88–92% max HR) with 2 min Z1 recovery between. Finish with 10 min Z2 cool-down for ~35–40 min total. You're in taper week 20, so this is about retaining leg sharpness and neural readiness without accumulating fatigue—don't exceed threshold; the goal is touch, not grind. Expect to run this on tired legs after travel; if you feel flat, drop to 4 min intervals instead and call it a day."
+      "message": "Vert work day. Find a steep grade and do 4–6 x 5 min uphill efforts at strong effort (Z3–Z4), walking back down as full recovery. Target 800–1,200 ft of gain total. Keep the top of each rep honest but not maxed — the goal is leg-strength stimulus and hip-flexor drive, not speed. This is key prep for Kranjska Gora's opening climb. If you're on a flat area, substitute 30 min of stair repeats at a tall building. Finish with 10 min easy Z1–Z2 cooldown on flat ground."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Get 1.5–2 g carbs per kg bodyweight today (assume ~75 kg = 110–150 g), distributed across three meals plus a post-run carb + protein window within 30 min. For the threshold work, fuel with 300 ml sports drink (6–7% carbs) or a gel + water 30–45 min before. Taper is not license to cut carbs—you're preserving muscle glycogen and keeping energy systems primed for a 50K alpine grind. Skip heavy fats around run time."
+      "message": "Vert days burn more than they feel like — uphill running is roughly 1.5x the caloric cost of flat running per mile. Hit 2,400–2,700 cal today. Load carbs in the 2 hours before (oatmeal, banana, toast) and refuel within 30 min post-run with 30–40 g protein plus 60–80 g fast carbs. Hydration matters more on sustained climbs — drink 500 ml 90 min before and carry water for anything over 60 min."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Target 8+ hours sleep tonight; taper weeks live and die on sleep debt, and you're juggling travel. Elevate legs for 10 min post-run, take a cold shower (90 sec, 12–15°C if you can manage it), and stay off your feet for 2 hours post-run. Skip any ancillary strength or mobility work today—the nervous system doesn't recover faster with extra work. If jet lag is a factor, get sunlight in the morning and skip caffeine after 12 pm."
+      "message": "Downhill walking recovery between reps is active rest — keep moving, don't stand still. Post-run, elevate legs 10–15 min and spend 5 min on hip flexor and glute stretches (lunges, pigeon). Quads will be loaded tonight; a contrast shower (90 sec cold after warm) accelerates flush. Sleep 8+ hours — vert work creates more muscle damage than flat running and the rebuild happens overnight."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 14 weeks out from the Alps. This is the window where race visualization stops being optional—spend 10 min tonight running through the first 10 km of Kranjska Gora (the steep technical descent, altitude shift, sparse aid). Taper anxiety is real for hard athletes; channel it into tactical prep instead. Your fitness is locked in. The remaining 100 days are about arriving sharp, uninjured, and mentally dialed."
+      "message": "The Julian Alps 50K has 8,000+ ft of gain. Every vert session is a direct deposit into race-day confidence. Today's reps simulate the lung burn and leg fatigue of the first big climb — learn to stay smooth and controlled when it hurts uphill. Breathe through the nose on the lower efforts; switch to mouth when it spikes. That control is what separates finishers from DNFs on alpine courses."
     }
   ]
 }

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.7 - Travel Command Center</title>
+    <title>TravelFlo v3.8 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -2707,7 +2707,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.7</div>
+                    <div class="version-badge">v3.8</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -7569,6 +7569,784 @@ this.updateDashboardStats();
                 { icon: '🚨', text: 'Call 911 for any emergency; non-emergency police line is 311 in major cities' },
             ],
             emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+
+        // ===== CITY-LEVEL ENTRIES =====
+
+        // Mexico cities
+        'playa del carmen': {
+            risk: 'medium',
+            overview: 'Playa del Carmen is a well-established tourist corridor and significantly safer than Mexico\'s national risk profile suggests. Quinta Avenida, beachfront resorts, and the central hotel zone are generally safe. Exercise normal urban precautions.',
+            avoid: [
+                { icon: '🌃', text: 'Streets east of Quinta Avenida after 10pm, especially near the ADO bus terminal area' },
+                { icon: '🚕', text: 'Unlicensed street taxis; use Uber or hotel-dispatched cabs only' },
+                { icon: '🏧', text: 'Street ATMs and machines outside bank lobbies — card skimming is active in the Riviera Maya' },
+            ],
+            tips: [
+                { icon: '🤿', text: 'Only book water sports and cenote diving with certified operators; verify all equipment beforehand' },
+                { icon: '💊', text: 'Do not drink tap water; bottled water only throughout Quintana Roo' },
+                { icon: '☀️', text: 'UV index is extreme in the Yucatán; SPF50+ every 90 minutes is not optional' },
+                { icon: '🏖', text: 'Beach vendors are persistent but not dangerous; a firm "no gracias" is sufficient' },
+            ],
+            scams: [
+                { icon: '💆', text: 'Free tour/activity pitches that turn into high-pressure timeshare presentations; decline firmly' },
+                { icon: '👮', text: 'Occasional police shakedowns for minor infractions; stay calm, note badge numbers' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '800-987-8224 (SECTUR tourist line)' },
+        },
+        cancun: {
+            risk: 'medium',
+            overview: 'The Hotel Zone (Zona Hotelera) is heavily policed and safe. Downtown Cancun carries more risk. Tourist areas are generally fine with standard precautions.',
+            avoid: [
+                { icon: '🌃', text: 'Downtown Cancun (Ciudad Cancún) at night, particularly away from main commercial strips' },
+                { icon: '🏧', text: 'Airport zone ATMs and standalone street machines; use machines inside hotels or bank lobbies' },
+            ],
+            tips: [
+                { icon: '🚕', text: 'Official airport taxis use fixed-rate zones; book from the authorized counters inside the terminal' },
+                { icon: '🏖', text: 'Ocean currents can be strong; observe beach flag system: yellow = caution, red = no swimming' },
+                { icon: '💊', text: 'Stick to bottled or purified water; traveler\'s diarrhea is common' },
+            ],
+            scams: [
+                { icon: '💆', text: 'Timeshare traps near shopping areas and on the beach; "free breakfast" offers are always a timeshare pitch' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '800-987-8224 (tourist line)' },
+        },
+        tulum: {
+            risk: 'medium',
+            overview: 'Tulum\'s hotel zone and beachfront are generally safe. The town center (pueblo) is more urban and requires greater awareness. Cenote areas can be remote — plan accordingly.',
+            avoid: [
+                { icon: '🏍', text: 'Renting motorbikes or ATVs without experience; unpaved roads are hazardous and accidents are common' },
+                { icon: '🌃', text: 'Pueblo areas of Tulum at night without local guidance' },
+                { icon: '🏧', text: 'Street ATMs; use machines inside hotels or the main commercial streets only' },
+            ],
+            tips: [
+                { icon: '🌿', text: 'Many jungle roads are unmarked; download offline maps before heading to remote cenotes' },
+                { icon: '🤿', text: 'Cenote diving without a certified guide is dangerous; many cenotes have restricted zones' },
+                { icon: '☀️', text: 'Strong sun at all hours; carry reef-safe sunscreen (required in cenotes by law)' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '800-987-8224 (tourist line)' },
+        },
+        'mexico city': {
+            risk: 'medium',
+            overview: 'Mexico City is far safer than its reputation suggests. Tourist zones (Roma, Condesa, Polanco, Centro Histórico) are generally safe with standard urban precautions. Certain neighborhoods require extra vigilance.',
+            avoid: [
+                { icon: '🚕', text: 'Street taxis hailed from the curb; use Uber, DiDi, or InDriver exclusively — express kidnappings happen in unverified cabs' },
+                { icon: '🌃', text: 'Tepito, Doctores, and Iztapalapa after dark — high crime areas for non-residents' },
+                { icon: '🏧', text: 'ATMs after dark and machines in unmonitored areas; use bank lobbies or hotel ATMs' },
+            ],
+            tips: [
+                { icon: '💵', text: 'Keep cash amounts modest; hotel safe for passport and bulk cards' },
+                { icon: '🌮', text: 'Roma, Condesa, and Polanco have world-class dining; street tacos from busy daytime stands are generally safe' },
+                { icon: '🚇', text: 'Metro is efficient but very crowded; keep bags in front during rush hour' },
+            ],
+            scams: [
+                { icon: '👮', text: 'Plainclothes "police" who demand to see your wallet; real police do not do this — do not comply' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '800-987-8224 (tourist line)' },
+        },
+        'los cabos': {
+            risk: 'medium',
+            overview: 'Los Cabos is a well-policed resort destination with very low tourist-directed crime. The Corridor and Marina areas are among Mexico\'s safest tourist zones.',
+            avoid: [
+                { icon: '🌊', text: 'Swimming at Lover\'s Beach and most Pacific-facing beaches — currents are fatal; only swim in designated cove areas' },
+                { icon: '🌃', text: 'Downtown San José del Cabo outskirts at night' },
+            ],
+            tips: [
+                { icon: '🚕', text: 'Use hotel shuttles or authorized taxis from marina stands; Uber availability is limited' },
+                { icon: '🐋', text: 'Whale watching (Jan-Mar) and marlin fishing trips are legitimate tourism staples; book through hotel concierge' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+        'puerto vallarta': {
+            risk: 'medium',
+            overview: 'Puerto Vallarta is one of Mexico\'s most tourist-friendly cities. Zona Romántica, the Malecón, and Marina Vallarta are safe and well-maintained areas.',
+            avoid: [
+                { icon: '🌃', text: 'Areas north of the downtown core away from tourist infrastructure after midnight' },
+                { icon: '🚕', text: 'Unregistered taxis; use Uber or the official white-and-green licensed cabs' },
+            ],
+            tips: [
+                { icon: '🌊', text: 'Banderas Bay offers calmer swimming conditions than Pacific-facing beaches' },
+                { icon: '🍹', text: 'Drink-spiking in bars has been reported; keep drinks in sight at all times' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+
+        // USA cities
+        'las vegas': {
+            risk: 'medium',
+            overview: 'The Las Vegas Strip and casino corridor are heavily policed and generally safe for tourists. Fremont Street is safe by day but chaotic after midnight. Areas off the Strip more than 2-3 blocks east or west carry higher risk.',
+            avoid: [
+                { icon: '🌃', text: 'Side streets east and west of the Strip away from the casino corridor, especially after dark' },
+                { icon: '🎰', text: 'Leaving casinos with large visible amounts of cash; pick-pocket risk spikes near exits' },
+                { icon: '🚗', text: 'Valuables visible in rental cars; smash-and-grab from parking structures is common' },
+            ],
+            tips: [
+                { icon: '🚕', text: 'Use Lyft/Uber from designated rideshare pick-up zones at each casino — avoid unmarked cabs near the entrance' },
+                { icon: '💧', text: 'Desert dehydration sneaks up fast — dry air and air conditioning mask sweat; drink water constantly' },
+                { icon: '🎲', text: 'Casino floors are intentionally disorienting; set a gambling budget before entering' },
+            ],
+            scams: [
+                { icon: '📸', text: 'Strip costumed characters (superheroes, showgirls) expect payment for photos and turn aggressive if unpaid' },
+                { icon: '💿', text: 'Unsolicited CD handouts or flower offers always expect payment after the exchange' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '311 (non-emergency)' },
+        },
+        'new york': {
+            risk: 'medium',
+            overview: 'New York City is far safer than its film reputation suggests. Violent crime against tourists is rare. Petty theft and subway safety require situational awareness. Subway system is safe but unpredictable late at night.',
+            avoid: [
+                { icon: '🚇', text: 'Subway platforms late at night: stand near the conductor\'s car; avoid being alone at the platform ends' },
+                { icon: '📱', text: 'Using your phone visibly in crowded areas; moped and bike phone snatching is increasing' },
+                { icon: '🌃', text: 'Parts of the Bronx and outer Brooklyn/Queens away from tourist areas after dark' },
+            ],
+            tips: [
+                { icon: '🗽', text: 'Get a MetroCard or tap to pay; it is the fastest way to get anywhere' },
+                { icon: '💳', text: 'NYC is largely cashless now; most restaurants and venues accept cards' },
+                { icon: '🏥', text: 'US hospital costs are extreme; comprehensive travel insurance with medical cover is essential' },
+            ],
+            scams: [
+                { icon: '🃏', text: 'Three-card monte and shell games near Times Square — always rigged, often a setup for pickpocketing' },
+                { icon: '🎟', text: 'Scalped Broadway/event tickets sold outside venues; only buy from official box offices or Ticketmaster' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '311 (non-emergency)' },
+        },
+        'los angeles': {
+            risk: 'medium',
+            overview: 'Los Angeles is spread across vast neighborhoods with wildly varying safety levels. Tourist areas (Hollywood, Santa Monica, Beverly Hills, West Hollywood) are generally safe. The city has a visible unhoused population downtown.',
+            avoid: [
+                { icon: '🚗', text: 'Leaving anything visible in parked cars — smash-and-grab is the most common crime tourists experience' },
+                { icon: '🌃', text: 'Skid Row (downtown) is not a tourist area; avoid after dark' },
+                { icon: '🏧', text: 'Standalone ATMs in 7-Elevens and gas stations; use bank ATMs or hotel machines' },
+            ],
+            tips: [
+                { icon: '🚗', text: 'A car is essentially required; rideshare is the alternative but surge pricing is aggressive' },
+                { icon: '☀️', text: 'UV is intense year-round even in overcast weather; wear SPF daily' },
+                { icon: '🦁', text: 'Hiking in Griffith Park/Santa Monica Mountains: mountain lion and rattlesnake awareness is relevant' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '311 (non-emergency)' },
+        },
+        miami: {
+            risk: 'medium',
+            overview: 'Miami Beach, Brickell, Wynwood, and the tourist corridor are generally safe. Certain inland neighborhoods carry significantly higher risk. Beach areas are safe but watch for petty theft.',
+            avoid: [
+                { icon: '🌃', text: 'Liberty City, Overtown, and parts of Hialeah — high violent crime; not tourist areas' },
+                { icon: '🏖', text: 'Unattended belongings on the beach disappear quickly; use hotel lockers or take turns' },
+                { icon: '🚗', text: 'Leaving anything visible in rental cars especially near the airport and on the beach' },
+            ],
+            tips: [
+                { icon: '🌀', text: 'Hurricane season runs June-November; monitor NOAA forecasts and know your hotel\'s evacuation plan' },
+                { icon: '🌊', text: 'Rip currents at South Beach are strong; swim between the flags only' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '311 (non-emergency)' },
+        },
+        'san francisco': {
+            risk: 'medium',
+            overview: 'San Francisco\'s tourist areas (Fisherman\'s Wharf, Union Square, the Embarcadero) are generally safe by day. Downtown has a visible open-air drug market in the Tenderloin. Car break-ins are at epidemic levels.',
+            avoid: [
+                { icon: '🚗', text: 'Leaving anything in a parked car — even a jacket. Break-ins are the #1 tourist crime; rental cars are prime targets' },
+                { icon: '🌃', text: 'The Tenderloin district day or night; UN Plaza after dark' },
+            ],
+            tips: [
+                { icon: '🚌', text: 'Muni and BART are functional; use Clipper card or contactless payment' },
+                { icon: '🧥', text: 'Temperatures drop dramatically after sunset year-round; always carry a layer' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '311 (non-emergency)' },
+        },
+
+        // European cities
+        paris: {
+            risk: 'medium',
+            overview: 'Paris is generally safe but has elevated pickpocket activity in tourist zones. Terrorism threat level is elevated (Vigipirate enhanced). Exercise heightened awareness in crowded areas and near major monuments.',
+            avoid: [
+                { icon: '🗼', text: 'Sacré-Coeur steps and surrounding streets at night — mugging reports are frequent' },
+                { icon: '🚇', text: 'Métro lines 2, 4, and 13 near Gare du Nord/Est: pickpockets operate in coordinated pairs' },
+                { icon: '🌃', text: 'Châtelet-Les Halles underground late at night; Gare du Nord surroundings after dark' },
+                { icon: '🏖', text: 'Any outdoor café table: phone and bag snatching happens mid-conversation' },
+            ],
+            tips: [
+                { icon: '🚕', text: 'Pre-book airport taxis via G7 or Chauffeur Privé apps; CDG taxi line is legitimate but long' },
+                { icon: '⚠️', text: 'The petition scam is relentless near monuments — do not stop, do not engage' },
+                { icon: '💼', text: 'Carry a photocopy of your passport; hotel safes for originals' },
+            ],
+            scams: [
+                { icon: '📝', text: 'Petition scam: someone asks you to sign for deaf children then demands money' },
+                { icon: '💍', text: 'Gold ring scam: stranger "finds" a ring near you and offers it as a setup for money demands' },
+            ],
+            emergency: { police: '17', ambulance: '15', fire: '18', general: '112' },
+        },
+        london: {
+            risk: 'medium',
+            overview: 'London is generally safe with low violent crime in tourist areas. Phone snatching by moped has increased significantly. Terrorism threat remains at SUBSTANTIAL. Night transport is generally safe but busier areas require awareness.',
+            avoid: [
+                { icon: '🛵', text: 'Using your phone near the curb or on the street — moped snatching is the primary tourist crime in central London' },
+                { icon: '🌃', text: 'Peckham, Hackney Wick, and New Cross at night unless you know the area' },
+                { icon: '🎭', text: 'Unlicensed minicabs outside clubs, pubs, and stations at night' },
+            ],
+            tips: [
+                { icon: '🚇', text: 'Tap your contactless bank card directly on the Tube; it is cheaper than buying single tickets' },
+                { icon: '☔', text: 'Weather changes hourly; carry a compact umbrella year-round' },
+                { icon: '🏥', text: 'NHS emergency care is free for visitors; non-emergency GP visits may require payment' },
+            ],
+            scams: [
+                { icon: '🚕', text: 'Unlicensed minicabs outside nightlife venues; only use Uber, Bolt, or official black cabs with the light on' },
+            ],
+            emergency: { police: '999', ambulance: '999', fire: '999', general: '999 (non-emergency: 101)' },
+        },
+        rome: {
+            risk: 'low',
+            overview: 'Rome is safe for tourists. Violent crime against visitors is rare. Pickpocketing and petty theft around major monuments and on crowded buses are the primary concerns.',
+            avoid: [
+                { icon: '🚉', text: 'Termini Station and its immediate surroundings — highest pickpocket concentration in the city' },
+                { icon: '🏟', text: 'Colosseum area: aggressive costumed gladiators demanding money for photos' },
+                { icon: '🚌', text: 'Bus 64 from Termini to Vatican — notorious for pickpockets; take the Metro instead' },
+            ],
+            tips: [
+                { icon: '💼', text: 'Cross-body bag worn in front; backpacks are an easy target in monument crowds' },
+                { icon: '🛵', text: 'Moped bag snatchers at outdoor café tables and crosswalks; do not leave bags on the table' },
+                { icon: '💧', text: 'Nasoni (street fountains) throughout the city have excellent drinking water — free' },
+            ],
+            scams: [
+                { icon: '💐', text: 'Rose pressed into your hand near Trevi Fountain or Spanish Steps — payment demanded immediately' },
+                { icon: '🤲', text: 'Friendship bracelet tied onto your wrist near Vatican and Colosseum — payment demanded after' },
+            ],
+            emergency: { police: '113', ambulance: '118', fire: '115', general: '112' },
+        },
+        florence: {
+            risk: 'low',
+            overview: 'Florence is very safe. The historic center is well-policed. Pickpockets operate near the Duomo and in crowded museum queues but violent crime is minimal.',
+            avoid: [
+                { icon: '🎨', text: 'Uffizi and Accademia queues: do not keep valuables in back pockets' },
+                { icon: '🌃', text: 'Train station (Santa Maria Novella) surroundings at night' },
+            ],
+            tips: [
+                { icon: '🍷', text: 'Book museum tickets online well in advance; same-day queues can be 2-3 hours' },
+                { icon: '💧', text: 'Free drinking water fountains (fontanelle) throughout the city; tap water is excellent' },
+            ],
+            scams: [
+                { icon: '💐', text: 'Same rose/bracelet scams as Rome; common near the Duomo and Piazza della Signoria' },
+            ],
+            emergency: { police: '113', ambulance: '118', fire: '115', general: '112' },
+        },
+        venice: {
+            risk: 'low',
+            overview: 'Venice is very safe. The biggest concerns are crowded water buses (vaporetti) which are prime pickpocket territory, and tourist pricing which can be extreme.',
+            avoid: [
+                { icon: '🛥', text: 'Crowded vaporetti stops (San Marco, Rialto): keep bags in front and be alert' },
+                { icon: '💸', text: 'Restaurants and cafes directly on Piazza San Marco charge 3-5x the normal price — no exaggeration' },
+            ],
+            tips: [
+                { icon: '🗺', text: 'Getting lost in Venice is inevitable and safe; the city is compact and every path eventually leads back' },
+                { icon: '🏙', text: 'Stay in Castello or Cannaregio for a quieter, more local experience than San Marco' },
+            ],
+            emergency: { police: '113', ambulance: '118', fire: '115', general: '112' },
+        },
+        milan: {
+            risk: 'low',
+            overview: 'Milan is safe with normal urban precautions. The Duomo and Central Station areas have higher pickpocket activity. Business and fashion districts are very safe.',
+            avoid: [
+                { icon: '🚉', text: 'Stazione Centrale at night — drug activity and aggressive panhandling near exits' },
+                { icon: '💼', text: 'Duomo square: extremely crowded, prime for pickpockets' },
+            ],
+            tips: [
+                { icon: '🛍', text: 'Quadrilatero della Moda (fashion district) is safe and walkable' },
+                { icon: '🍕', text: 'Best food is away from tourist areas; Navigli and Porta Romana are local favorites' },
+            ],
+            emergency: { police: '113', ambulance: '118', fire: '115', general: '112' },
+        },
+        barcelona: {
+            risk: 'medium',
+            overview: 'Barcelona is very enjoyable but has the highest pickpocket rate of any major European city. Violent crime against tourists is rare. The thefts happen constantly and are highly organized — stay alert.',
+            avoid: [
+                { icon: '🏖', text: 'Barceloneta beach: unattended bags disappear within minutes; phones left on towels are taken instantly' },
+                { icon: '🚇', text: 'Metro lines L2, L3 near Sagrada Família and Las Ramblas: multiple thieves working in teams' },
+                { icon: '🌃', text: 'El Raval (western end of Las Ramblas) at night' },
+            ],
+            tips: [
+                { icon: '🎒', text: 'Wear your backpack on your front in all crowded areas; use bags with zippers, not clasps' },
+                { icon: '🏧', text: 'Use bank ATMs inside branches; standalone machines on Las Ramblas are frequent skimming targets' },
+                { icon: '🚨', text: 'The "it\'s on your jacket" distraction: someone says there\'s something on you while an accomplice takes your bag' },
+            ],
+            scams: [
+                { icon: '💐', text: 'Las Ramblas flower scam: free flower, then €20 demanded' },
+                { icon: '🃏', text: 'Three-card monte on Las Ramblas — also acts as crowd cover for pickpockets working the audience' },
+            ],
+            emergency: { police: '091', ambulance: '061', fire: '080', general: '112' },
+        },
+        amsterdam: {
+            risk: 'low',
+            overview: 'Amsterdam is generally very safe. Cycling is the primary mode of transport and cyclists have absolute right of way. The Red Light District (De Wallen) is relatively safe for tourists but requires awareness at night.',
+            avoid: [
+                { icon: '🚲', text: 'Cycling in bike lanes is extremely fast — pedestrians stepping into bike lanes are a genuine hazard' },
+                { icon: '🌃', text: 'De Wallen (Red Light District) after midnight — crowded, drug activity, occasional confrontations' },
+                { icon: '🚉', text: 'Centraal Station: watch bags on crowded platforms' },
+            ],
+            tips: [
+                { icon: '🚲', text: 'Rent a bike and use it properly — it\'s the only way to move like a local' },
+                { icon: '💊', text: 'Cannabis cafes are legal; be aware of strength, especially space cakes — onset is delayed and effects are intense' },
+                { icon: '🧀', text: 'Tourist pricing is extreme near Centraal; venture into the Jordaan for better food and prices' },
+            ],
+            scams: [
+                { icon: '🏠', text: 'Fake Airbnb listings in Amsterdam are common; verify through the platform only, never wire direct' },
+            ],
+            emergency: { police: '0900-8844 (non-emergency) / 112', ambulance: '112', fire: '112', general: '112' },
+        },
+        prague: {
+            risk: 'low',
+            overview: 'Prague is very safe with beautiful architecture. The Old Town and tourist areas have higher pickpocket activity, and exchange rate scams are common. Violent crime against tourists is very rare.',
+            avoid: [
+                { icon: '💱', text: 'Currency exchange booths on the street offering "0% commission" — they use terrible rates and are legal but predatory' },
+                { icon: '🌃', text: 'Wenceslas Square at night — drug activity and prostitution nearby' },
+                { icon: '🚕', text: 'Hailing taxis from the street, especially near tourist areas; use Bolt or Liftago apps' },
+            ],
+            tips: [
+                { icon: '💶', text: 'Use ATMs to get Czech koruna; paying in euros at tourist traps uses unfavorable conversion' },
+                { icon: '🍺', text: 'Czech beer is excellent and affordable; Pilsner Urquell at the source is a different product than anywhere else' },
+            ],
+            scams: [
+                { icon: '💱', text: 'The €100 for koruna scam at exchange booths near Charles Bridge; use bank ATMs only' },
+                { icon: '🚕', text: 'Taxi meter rigging from the airport area; pre-arrange or use ride-share apps' },
+            ],
+            emergency: { police: '158', ambulance: '155', fire: '150', general: '112' },
+        },
+        budapest: {
+            risk: 'low',
+            overview: 'Budapest is very safe, beautiful, and affordable. Ruin bars and thermal baths are excellent. Taxi and nightlife scams target tourists, but violent crime is very low.',
+            avoid: [
+                { icon: '🚕', text: 'Any taxi not booked via Bolt or FőTaxi app — metered manipulation is common, especially from the airport' },
+                { icon: '🍺', text: 'Ruin bar areas at night: drink-spiking has been reported; keep drinks in sight' },
+            ],
+            tips: [
+                { icon: '🏊', text: 'Thermal baths (Széchenyi, Gellért) are genuine and excellent; book online to avoid queues' },
+                { icon: '💶', text: 'Use Hungarian forint; euro conversion at tourist sites is very poor' },
+            ],
+            scams: [
+                { icon: '👗', text: 'Beautiful strangers approach and invite you to a bar — the bill arrives in the hundreds of euros' },
+                { icon: '💱', text: 'Street currency changers offering great rates are conducting fraud' },
+            ],
+            emergency: { police: '107', ambulance: '104', fire: '105', general: '112' },
+        },
+        athens: {
+            risk: 'low',
+            overview: 'Athens is safe for tourists. The Acropolis area, Plaka, and Monastiraki are very tourist-friendly. Omonia Square and Exarchia can be rough, particularly at night.',
+            avoid: [
+                { icon: '🌃', text: 'Omonia Square after dark; Exarchia during protests or football matches' },
+                { icon: '🚕', text: 'Taxis from the airport without agreeing on the price or using the meter first' },
+            ],
+            tips: [
+                { icon: '🏛', text: 'Visit the Acropolis early morning (gates open 8am); midday heat and crowds are punishing' },
+                { icon: '🌡', text: 'Athenian summer heat is extreme (often 38-42°C); carry water everywhere in July-August' },
+            ],
+            scams: [
+                { icon: '🍺', text: 'Bar scam in Monastiraki: friendly strangers lead you to a bar, prices are outrageous and enforcement implied' },
+            ],
+            emergency: { police: '100', ambulance: '166', fire: '199', general: '112' },
+        },
+        santorini: {
+            risk: 'low',
+            overview: 'Santorini is very safe. Crime is minimal. The primary hazards are heat, sun, and the caldera cliffs. Crowds in high season (July-August) are intense.',
+            avoid: [
+                { icon: '🌋', text: 'Caldera cliff edges for selfies — each year tourists fall; the drop is fatal' },
+                { icon: '⛔', text: 'Donkey rides: the animals are poorly treated and the path has uneven cliff edges' },
+            ],
+            tips: [
+                { icon: '☀️', text: 'UV is brutal on a Greek island with white-painted surfaces reflecting everything; SPF50+ at minimum' },
+                { icon: '📸', text: 'Iconic blue-dome views in Oia are accessible but require arriving before 9am; sunset crowds are enormous' },
+            ],
+            emergency: { police: '100', ambulance: '166', fire: '199', general: '112' },
+        },
+        mykonos: {
+            risk: 'low',
+            overview: 'Mykonos is very safe. Nightlife is the main activity and the island has a strong LGBTQ+ friendly reputation. Wind (the Meltemi) can be extreme in summer.',
+            avoid: [
+                { icon: '🌬', text: 'The Meltemi wind makes beaches on the north and east inaccessible in summer; check daily wind reports' },
+                { icon: '🍹', text: 'Drink-spiking in late-night clubs has been reported; keep drinks in hand' },
+            ],
+            tips: [
+                { icon: '🚌', text: 'ATV/quad rentals are popular but the roads are narrow and accidents common; consider a local bus or taxi' },
+                { icon: '💶', text: 'Mykonos is extremely expensive — among the priciest destinations in the Mediterranean' },
+            ],
+            emergency: { police: '100', ambulance: '166', fire: '199', general: '112' },
+        },
+        dubrovnik: {
+            risk: 'low',
+            overview: 'Dubrovnik is one of Europe\'s safest destinations. Violent crime is essentially nonexistent. The only real issues are extreme tourist density in summer and the impact on local quality of life.',
+            avoid: [
+                { icon: '🌡', text: 'The Old City walls at midday in July-August — heat exposure on stone is extreme; go early morning' },
+            ],
+            tips: [
+                { icon: '🚢', text: 'Cruise ship days (most days in summer) flood the Old City; arrive before 8am or after 6pm' },
+                { icon: '🌊', text: 'Kayaking around the walls is excellent; book early morning for calm water before wind picks up' },
+            ],
+            emergency: { police: '192', ambulance: '194', fire: '193', general: '112' },
+        },
+        lisbon: {
+            risk: 'low',
+            overview: 'Lisbon is very safe and one of Europe\'s most visited cities. Tram 28E is a pickpocket hotspot. Overall crime against tourists is low.',
+            avoid: [
+                { icon: '🚃', text: 'Tram 28E: the entire route is a pickpocket corridor — most targeted tourist transport in Portugal' },
+                { icon: '🌃', text: 'Martim Moniz and Intendente late at night' },
+            ],
+            tips: [
+                { icon: '🌊', text: 'Atlantic ocean currents are powerful even on calm days; always heed the beach flag system' },
+                { icon: '🍷', text: 'Pastéis de nata at the Belém original (Pastéis de Belém) are worth the 20-minute queue' },
+            ],
+            emergency: { police: '112', ambulance: '112', fire: '112', general: '112' },
+        },
+        berlin: {
+            risk: 'low',
+            overview: 'Berlin is very safe with a thriving arts and nightlife culture. Petty crime is low. The city is extremely walkable and well-served by public transport.',
+            avoid: [
+                { icon: '🌃', text: 'Görlitzer Park in Kreuzberg for drug activity; generally non-threatening but avoidable' },
+                { icon: '🚉', text: 'Alexanderplatz at night: some petty crime and confrontations' },
+            ],
+            tips: [
+                { icon: '🎵', text: 'Nightlife (Berghain etc.) requires specific etiquette; phone cameras are taped on entry — respect the culture' },
+                { icon: '🚲', text: 'Cycling infrastructure is excellent; many rental options, and locals treat bike lanes as motorways' },
+            ],
+            emergency: { police: '110', ambulance: '112', fire: '112', general: '112' },
+        },
+        munich: {
+            risk: 'low',
+            overview: 'Munich is one of Germany\'s safest cities. Oktoberfest period adds crowding and opportunistic theft. Otherwise extremely low crime.',
+            avoid: [
+                { icon: '🍺', text: 'Oktoberfest: pickpockets work the festival grounds heavily; use money belts and leave valuables at hotel' },
+                { icon: '🌃', text: 'Main train station (Hauptbahnhof) surroundings at night' },
+            ],
+            tips: [
+                { icon: '🚇', text: 'MVV transit network is efficient; day tickets offer unlimited travel and good value' },
+                { icon: '🏔', text: 'Day trips to the Alps are spectacular; Neuschwanstein and the Zugspitze are accessible by train' },
+            ],
+            emergency: { police: '110', ambulance: '112', fire: '112', general: '112' },
+        },
+        zurich: {
+            risk: 'low',
+            overview: 'Zurich is one of the world\'s safest cities. Violent crime is extremely rare. The Langstrasse district has nightlife including legal sex work — generally safe but worth knowing.',
+            avoid: [
+                { icon: '🌃', text: 'Langstrasse late at night — not dangerous but the nature of the area changes significantly after midnight' },
+                { icon: '🚉', text: 'Hauptbahnhof: watch bags on platforms during rush hours' },
+            ],
+            tips: [
+                { icon: '💧', text: 'Tap water is among the best in the world — use it and skip bottled water' },
+                { icon: '💶', text: 'Zurich is expensive even by European standards; budget accordingly' },
+            ],
+            emergency: { police: '117', ambulance: '144', fire: '118', general: '112' },
+        },
+        interlaken: {
+            risk: 'low',
+            overview: 'Interlaken is very safe. The primary risks are entirely nature-related: adventure sports, mountain weather, and altitude. It is the extreme sports capital of the Alps.',
+            avoid: [
+                { icon: '⛰', text: 'Weather changes above 2000m within minutes; never hike or paraglide without checking forecasts first' },
+                { icon: '🏔', text: 'Off-piste activities without a certified guide; avalanche terrain is real and unmarked' },
+            ],
+            tips: [
+                { icon: '🏔', text: 'Jungfraujoch (Top of Europe) is spectacular but altitude (3454m) can cause headaches; ascend slowly' },
+                { icon: '🚑', text: 'Mountain rescue in Switzerland is not free; travel insurance with helicopter evacuation is essential' },
+            ],
+            emergency: { police: '117', ambulance: '144', fire: '118', general: '112' },
+        },
+        geneva: {
+            risk: 'low',
+            overview: 'Geneva is very safe. A global center for diplomacy. Petty crime is minimal. The lake area and old town are excellent for walking.',
+            avoid: [
+                { icon: '🚉', text: 'Gare de Cornavin: watch bags in waiting areas during peak hours' },
+            ],
+            tips: [
+                { icon: '🕰', text: 'Watch shopping is exceptional; buy from official boutiques, not street sellers' },
+                { icon: '🌊', text: 'Lake Geneva is safe for swimming at marked beaches; the jet d\'eau is unmissable' },
+            ],
+            emergency: { police: '117', ambulance: '144', fire: '118', general: '112' },
+        },
+
+        // Asian cities
+        tokyo: {
+            risk: 'low',
+            overview: 'Tokyo is one of the safest major cities on earth. Violent crime against tourists is essentially nonexistent. The primary concern is natural disasters (earthquakes). Getting lost is part of the experience.',
+            avoid: [
+                { icon: '🌃', text: 'Kabukicho in Shinjuku late at night: host clubs and touts, though generally non-violent' },
+                { icon: '🎏', text: 'Roppongi bars where strangers are overly friendly and lead you somewhere — targeted bar tab scam' },
+            ],
+            tips: [
+                { icon: '📱', text: 'Download NHK World and Japan Meteorological Agency apps for earthquake and disaster alerts' },
+                { icon: '💴', text: 'Japan is still heavily cash-based; withdraw yen at 7-Eleven or Japan Post ATMs (most reliable for foreign cards)' },
+                { icon: '🗾', text: 'If an earthquake occurs: drop, cover, hold; do not run outside' },
+            ],
+            emergency: { police: '110', ambulance: '119', fire: '119', general: '110 / 119' },
+        },
+        kyoto: {
+            risk: 'low',
+            overview: 'Kyoto is exceptionally safe. One of Japan\'s most beautiful cities. The primary issue is crowds at major temples during peak season.',
+            avoid: [
+                { icon: '🏯', text: 'Photographing geisha without permission in Gion district — considered harassing and now regulated' },
+                { icon: '🌿', text: 'Arashiyama bamboo grove at midday in peak season is extremely crowded; visit before 7am' },
+            ],
+            tips: [
+                { icon: '🚌', text: 'City buses cover most temple routes; IC card works on buses and trains throughout Kansai' },
+                { icon: '🌸', text: 'Cherry blossom (late March-early April) and autumn foliage (November) make accommodation scarce months in advance' },
+            ],
+            emergency: { police: '110', ambulance: '119', fire: '119', general: '110 / 119' },
+        },
+        bali: {
+            risk: 'medium',
+            overview: 'Bali is generally safe for tourists. Petty theft and traffic accidents are the primary concerns. The religious and cultural environment requires respectful behavior. Scooter accidents are the leading cause of tourist injury.',
+            avoid: [
+                { icon: '🛵', text: 'Riding a scooter without experience; roads are narrow, traffic is aggressive, and hospital care is limited' },
+                { icon: '🌊', text: 'West-facing beaches (Kuta, Seminyak): extremely strong rip currents — only swim between the flags' },
+                { icon: '🐒', text: 'Monkey Forest in Ubud: monkeys bite and steal; keep bags closed and avoid eye contact' },
+            ],
+            tips: [
+                { icon: '🙏', text: 'Wear a sarong when entering temples; respect is genuine, not performative' },
+                { icon: '💊', text: 'Bali Belly (food-borne illness) is extremely common; stick to cooked food and bottled water initially' },
+                { icon: '🦟', text: 'Dengue fever is present; use DEET-based repellent especially at dawn and dusk' },
+            ],
+            scams: [
+                { icon: '🛺', text: 'Taxi drivers who "know a better place" or insist their driver service is cheaper — use Grab or Gojek apps' },
+                { icon: '💎', text: 'Jewellery and gem investment scams operate through friendly "locals" — decline any investment discussions' },
+            ],
+            emergency: { police: '110', ambulance: '118', fire: '113', general: '112' },
+        },
+        bangkok: {
+            risk: 'medium',
+            overview: 'Bangkok is safe for tourists with standard urban precautions. Transportation scams and tuk-tuk schemes are very common. Violent crime against tourists is rare.',
+            avoid: [
+                { icon: '🛺', text: 'Any tuk-tuk that offers to take you to a "lucky Buddha" or gem store — this is the most persistent scam in Bangkok' },
+                { icon: '🌃', text: 'Walking Pat Pong alone very late at night' },
+            ],
+            tips: [
+                { icon: '📱', text: 'Use Grab for all transport; it is safer and cheaper than street taxis and metered cabs in tourist areas' },
+                { icon: '👗', text: 'Dress modestly at temples; shoulders and knees must be covered — scarves available at entrances' },
+                { icon: '💊', text: 'Medications and toiletries are available at 24-hour pharmacies (Boots, Watsons) throughout the city' },
+            ],
+            scams: [
+                { icon: '🏛', text: 'Closed Grand Palace scam: a tuk-tuk driver says it is closed today (it never is) and offers an alternative route through a gem shop' },
+                { icon: '💎', text: 'Gem investment scam: elaborate multi-person setup; never buy gems as investments in Thailand' },
+            ],
+            emergency: { police: '191', ambulance: '1669', fire: '199', general: '1155 (tourist police)' },
+        },
+        dubai: {
+            risk: 'low',
+            overview: 'Dubai is very safe with extremely low violent crime. Heavy police presence throughout the city. Cultural and legal norms differ significantly from Western countries — understand them before you go.',
+            avoid: [
+                { icon: '🍺', text: 'Drinking alcohol outside licensed premises (hotels, restaurants, specific bars) is illegal and enforced' },
+                { icon: '👗', text: 'Dressing immodestly in malls, souks, and public areas outside the beach/hotel zone will attract police attention' },
+                { icon: '📸', text: 'Photographing government buildings, airports, military installations, or people without consent is illegal' },
+            ],
+            tips: [
+                { icon: '🌡', text: 'Summer heat (June-September) is extreme (45°C+); most activity moves indoors and outdoor plans should be morning only' },
+                { icon: '🚕', text: 'RTA taxis are metered and reliable; Careem (regional Uber) is widely used' },
+                { icon: '🛂', text: 'Prescription medications must be declared and authorized; some common medications are controlled substances in the UAE' },
+            ],
+            emergency: { police: '999', ambulance: '998', fire: '997', general: '999' },
+        },
+        singapore: {
+            risk: 'low',
+            overview: 'Singapore is one of the safest cities on earth. Extremely low crime, clean, efficient, and well-organized. Laws are strict and fines are enforced (littering, gum, jaywalking). Humidity is intense year-round.',
+            avoid: [
+                { icon: '🚫', text: 'Chewing gum is banned; importing gum without a prescription is illegal' },
+                { icon: '🌿', text: 'Any drug offense carries mandatory minimum sentences including death for trafficking — no exceptions' },
+            ],
+            tips: [
+                { icon: '🚇', text: 'MRT is one of the world\'s best metro systems; tap to pay with any contactless card' },
+                { icon: '🍜', text: 'Hawker centers (food courts) are where locals eat — extraordinary quality at S$3-6 per dish' },
+                { icon: '💧', text: 'Stay hydrated; heat and humidity are extreme year-round even in air-conditioned environments' },
+            ],
+            emergency: { police: '999', ambulance: '995', fire: '995', general: '999' },
+        },
+
+        // Other popular destinations
+        reykjavik: {
+            risk: 'low',
+            overview: 'Iceland and Reykjavík are among the safest places on earth. No violent crime to speak of. The main hazards are all natural: weather, terrain, and unprepared adventure travel.',
+            avoid: [
+                { icon: '⛰', text: 'Off-road driving in a 2WD vehicle; Iceland\'s Highland roads (F-roads) require 4x4 and experience' },
+                { icon: '🌊', text: 'Sneaker waves on black sand beaches (Reynisfjara) kill tourists regularly; never turn your back on the ocean' },
+                { icon: '❄️', text: 'Weather changes from clear to whiteout in minutes; always download safetravel.is before hiking' },
+            ],
+            tips: [
+                { icon: '🌌', text: 'Northern lights are best viewed October-March; download aurora forecast apps for alerts' },
+                { icon: '🚗', text: 'Rent a 4x4 if leaving the capital; most attractions require it outside the Ring Road' },
+            ],
+            emergency: { police: '112', ambulance: '112', fire: '112', general: '112' },
+        },
+        dublin: {
+            risk: 'low',
+            overview: 'Dublin is safe and very friendly. Petty theft in tourist areas is the main concern. The pub culture is genuinely warm and welcoming.',
+            avoid: [
+                { icon: '🌃', text: 'Certain parts of the north inner city late at night, particularly O\'Connell Street at 2am' },
+                { icon: '🎒', text: 'Grafton Street and Temple Bar are the main pickpocket zones' },
+            ],
+            tips: [
+                { icon: '🍺', text: 'Pub culture is central to Dublin life; locals will happily recommend their favorites' },
+                { icon: '☔', text: 'Rain is possible at any moment year-round; a compact waterproof jacket is essential' },
+            ],
+            emergency: { police: '999 / 112', ambulance: '999 / 112', fire: '999 / 112', general: '999' },
+        },
+        'buenos aires': {
+            risk: 'medium',
+            overview: 'Buenos Aires is a vibrant city with a very European feel. Tourist areas (Palermo, Recoleta, San Telmo) are generally safe. Express kidnappings and taxi crime have been issues historically.',
+            avoid: [
+                { icon: '🚕', text: 'Street taxis: use Cabify or Uber exclusively; taxi crime has included express kidnappings' },
+                { icon: '🌃', text: 'La Boca neighborhood after dark — safe only in the Caminito tourist zone during daylight' },
+                { icon: '💵', text: 'Exchanging currency on the street ("cambio!") with informal changers' },
+            ],
+            tips: [
+                { icon: '💱', text: 'Blue-dollar rate vs official rate: the gap has narrowed but using licensed exchange houses or bank ATMs is safest' },
+                { icon: '🥩', text: 'Steak culture here is extraordinary; book ahead at Cabrera, El Preferido, or any parrilla in Palermo' },
+            ],
+            emergency: { police: '911', ambulance: '107', fire: '100', general: '911' },
+        },
+        'cape town': {
+            risk: 'high',
+            overview: 'Cape Town is a beautiful city with severe inequality and significant crime. Tourist areas (Waterfront, City Bowl, Sea Point) are generally safe with precautions. Never drive anywhere without research on current gang activity routes.',
+            avoid: [
+                { icon: '🌃', text: 'Khayelitsha, Nyanga, Mitchell\'s Plain: among the most dangerous urban areas globally — no tourist access' },
+                { icon: '🚗', text: 'Stopping at deserted traffic lights after dark in unknown areas; carjacking is a real risk' },
+                { icon: '📱', text: 'Visible phone use on the street anywhere outside the Waterfront and Sea Point esplanade' },
+            ],
+            tips: [
+                { icon: '🏔', text: 'Table Mountain is spectacular; take the cable car up and hike down in groups, never alone' },
+                { icon: '🚗', text: 'Always use Uber or bolt; research your route before driving and use freeway corridors at night' },
+                { icon: '🔒', text: 'Hotel safes for everything; do not walk with your passport or more cash than needed for the hour' },
+            ],
+            emergency: { police: '10111', ambulance: '10177', fire: '107', general: '112' },
+        },
+        marrakech: {
+            risk: 'medium',
+            overview: 'Marrakech is generally safe for tourists. The medina (old city) requires awareness of aggressive vendors and guide scams. The Djemaa el-Fna square is vibrant and mostly safe. Women traveling solo may experience unwanted attention.',
+            avoid: [
+                { icon: '🗺', text: 'Accepting "help" from strangers who approach and offer to guide you in the medina — unofficial guides demand payment and may lead you to shops' },
+                { icon: '📸', text: 'Photographing people, monkey handlers, or performers at Djemaa el-Fna without paying first' },
+            ],
+            tips: [
+                { icon: '🧭', text: 'Getting "lost" in the medina is inevitable; offline maps essential, and it is safe to wander with awareness' },
+                { icon: '💊', text: 'Drink bottled water only; eat at riads and established restaurants for safety' },
+                { icon: '👗', text: 'Dress modestly, especially women; shoulders and knees covered in the medina' },
+            ],
+            scams: [
+                { icon: '🐍', text: 'Snake charmers and henna artists: they approach, perform, then demand very large payment — disengage before they touch you' },
+                { icon: '🗺', text: 'Friendly strangers who offer to show you a "shortcut" through the medina — always leads to a shop' },
+            ],
+            emergency: { police: '19', ambulance: '15', fire: '15', general: '112' },
+        },
+
+        // Additional country entries
+        canada: {
+            risk: 'low',
+            overview: 'Canada is very safe. Low crime rates, excellent healthcare, and friendly population. Weather can be extreme in winter. Urban areas are among the safest in North America.',
+            avoid: [
+                { icon: '❄️', text: 'Hypothermia risk in winter is real; dress in layers and cover exposed skin in temperatures below -20°C' },
+                { icon: '🐻', text: 'Wildlife in national parks: bears, cougars, and moose are present — follow park guidelines strictly' },
+            ],
+            tips: [
+                { icon: '🏔', text: 'National parks (Banff, Jasper, Algonquin) require advance reservations in peak season' },
+                { icon: '🚗', text: 'Canada is enormous; domestic flights or long drives are part of any serious trip' },
+            ],
+            emergency: { police: '911', ambulance: '911', fire: '911', general: '911' },
+        },
+        colombia: {
+            risk: 'medium',
+            overview: 'Colombia has transformed dramatically and is now a popular tourist destination. Medellín and Cartagena are vibrant and relatively safe in tourist zones. Certain regions remain dangerous. Scopolamine (burundanga) drug-assisted robbery is a specific threat.',
+            avoid: [
+                { icon: '🌿', text: 'Rural areas near Venezuela border, Catatumbo region, and certain Pacific coastal regions' },
+                { icon: '🍹', text: 'Accepting any food or drink from strangers you just met — scopolamine slips are real and very dangerous' },
+                { icon: '🚕', text: 'Hailing taxis from the street in Bogotá and Medellín; use Uber, InDriver, or apps only' },
+            ],
+            tips: [
+                { icon: '📱', text: 'InDriver and Uber are widely used and safer than street taxis' },
+                { icon: '🎶', text: 'Medellín has transformed remarkably; El Poblado, Laureles, and Envigado are safe and exciting' },
+            ],
+            emergency: { police: '112', ambulance: '125', fire: '119', general: '123' },
+        },
+        peru: {
+            risk: 'medium',
+            overview: 'Peru has world-class destinations including Cusco, Machu Picchu, and Lima\'s Miraflores. Crime in tourist areas is primarily petty theft and scams. Express kidnapping and robbery in taxis is a concern in Lima.',
+            avoid: [
+                { icon: '🚕', text: 'Street taxis in Lima; use SAFE (app), InDriver, or Uber only' },
+                { icon: '🌃', text: 'Downtown Lima (Centro Histórico) at night and El Callao at any time' },
+                { icon: '🚌', text: 'Overnight bus travel on remote routes; use reputable companies (Cruz del Sur, TEPSA) if taking buses' },
+            ],
+            tips: [
+                { icon: '⛰', text: 'Altitude sickness in Cusco (3400m) is serious; acclimatize for 2 days before Machu Picchu, drink coca tea' },
+                { icon: '🎟', text: 'Machu Picchu requires advance booking; timed entry slots sell out weeks ahead' },
+            ],
+            emergency: { police: '105', ambulance: '106', fire: '116', general: '105' },
+        },
+        'new zealand': {
+            risk: 'low',
+            overview: 'New Zealand is very safe with extremely low crime. The natural environment is the primary hazard — weather changes fast in the mountains. Outdoor adventure is the main draw.',
+            avoid: [
+                { icon: '⛰', text: 'Tramping (hiking) on Great Walks without proper preparation and gear; weather turns without warning' },
+                { icon: '🌊', text: 'Surf beaches with dangerous rip currents; swim between the flags at all patrolled beaches' },
+            ],
+            tips: [
+                { icon: '🚗', text: 'Driving is on the left; international drivers vastly underestimate travel times due to winding mountain roads' },
+                { icon: '🦟', text: 'Sandflies in the South Island are vicious; insect repellent is essential near water' },
+            ],
+            emergency: { police: '111', ambulance: '111', fire: '111', general: '111' },
+        },
+        indonesia: {
+            risk: 'medium',
+            overview: 'Indonesia is a vast archipelago with varying safety levels by region. Bali is the primary tourist destination and is generally safe. Lombok and Java are good. Some eastern regions require research before visiting.',
+            avoid: [
+                { icon: '🌋', text: 'Active volcanoes during alert periods: Gunung Agung, Merapi, Bromo — check government advisories' },
+                { icon: '🌊', text: 'Kuta and Seminyak beaches: rip currents are powerful and have killed tourists' },
+            ],
+            tips: [
+                { icon: '🦟', text: 'Dengue fever is endemic; DEET repellent especially at dawn and dusk' },
+                { icon: '🙏', text: 'Religious respect is important; dress modestly at temples and during religious events' },
+            ],
+            emergency: { police: '110', ambulance: '118', fire: '113', general: '112' },
+        },
+        vietnam: {
+            risk: 'low',
+            overview: 'Vietnam is generally safe for tourists. Traffic is the biggest danger — Ho Chi Minh City and Hanoi have chaotic traffic that requires a technique for crossing roads. Petty theft is present but violent crime against tourists is rare.',
+            avoid: [
+                { icon: '🛵', text: 'Crossing streets without watching for motorbikes: walk slowly and steadily across, they will go around you' },
+                { icon: '🏍', text: 'Handbag and phone snatching by motorbike is common in HCMC; wear bags across the body facing away from the road' },
+            ],
+            tips: [
+                { icon: '🚗', text: 'Grab works throughout Vietnam and is the safest and easiest way to get around cities' },
+                { icon: '🍜', text: 'Street food is excellent and generally safe; look for stalls with high turnover' },
+                { icon: '💊', text: 'Drink bottled water only; ice in established restaurants and hotels is usually fine' },
+            ],
+            scams: [
+                { icon: '🎁', text: 'Shoe shine and helpful stranger scams target tourists near major sights' },
+                { icon: '🚕', text: 'Xe om (motorbike taxis) may overcharge significantly; negotiate before getting on or use Grab' },
+            ],
+            emergency: { police: '113', ambulance: '115', fire: '114', general: '113' },
+        },
+        india: {
+            risk: 'medium',
+            overview: 'India is a diverse country with enormous variation by region. Popular tourist destinations (Rajasthan, Kerala, Goa, Agra) are generally safe with precautions. Petty theft and scams are common near monuments. Women travelers should exercise additional precautions.',
+            avoid: [
+                { icon: '🚕', text: 'Auto-rickshaws and taxis near airports and railway stations without pre-agreeing the meter; use Ola or Uber apps' },
+                { icon: '🌡', text: 'Northern India in May-June: extreme heat (45°C+) with real heatstroke risk' },
+                { icon: '💊', text: 'Tap water anywhere; ice in untrusted establishments; raw salads at street stalls' },
+            ],
+            tips: [
+                { icon: '📱', text: 'Ola and Uber operate in major Indian cities; far safer and more transparent than unmetered local taxis' },
+                { icon: '🌶', text: 'Stomach adjustment to Indian food takes a few days; start mild and build up' },
+                { icon: '🏥', text: 'Private hospitals in India are world-class; carry your travel insurance documentation' },
+            ],
+            scams: [
+                { icon: '🏛', text: 'Taj Mahal scam: touts near the gate sell fake "official" entry tickets; buy only inside the gate' },
+                { icon: '🎁', text: 'Gem export scam: selling gemstones in India for profit at home is heavily taxed and enforced; decline investment pitches' },
+            ],
+            emergency: { police: '100', ambulance: '108', fire: '101', general: '112' },
+        },
+        kenya: {
+            risk: 'medium',
+            overview: 'Kenya is a spectacular safari destination. Nairobi carries elevated urban crime risk. Safari circuit regions (Masai Mara, Amboseli) are safe within lodges and on guided game drives. Certain border regions are high risk.',
+            avoid: [
+                { icon: '🌃', text: 'Nairobi: Eastleigh, Mathare, and Kibera at any time; downtown after dark without a local escort' },
+                { icon: '🚌', text: 'Matatu (minibus) travel at night on intercity routes — dangerous driving and robbery risk' },
+                { icon: '🏖', text: 'Mombasa and Kenyan coast: Somali piracy threat has diminished but the coast near Somalia border remains elevated risk' },
+            ],
+            tips: [
+                { icon: '🦁', text: 'Never exit a vehicle during a game drive without guide permission; predators can move instantly' },
+                { icon: '🦟', text: 'Malaria prophylaxis is essential; start medication before departure as prescribed' },
+                { icon: '🚕', text: 'Use only hotel-dispatched or known taxi services in Nairobi; Uber operates and is significantly safer than street taxis' },
+            ],
+            emergency: { police: '999 / 112', ambulance: '999', fire: '999', general: '112' },
         },
     };
 

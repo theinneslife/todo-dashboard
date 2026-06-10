@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.3 - Travel Command Center</title>
+    <title>TravelFlo v3.4 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -2465,6 +2465,11 @@
         .detail-tab:hover { color: var(--text-primary); }
         .detail-tab.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); font-weight: 600; }
 
+        /* Modal tab panels */
+        .modal-tab-panel { display: none; padding: 0.25rem 0 0.5rem; }
+        .modal-tab-panel.active { display: block; }
+        #modalTabBar { margin: 0.5rem 0 0; }
+
         /* Itinerary */
         .itinerary-day { margin-bottom: 1.5rem; }
         .itinerary-day-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
@@ -2667,7 +2672,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.3</div>
+                    <div class="version-badge">v3.4</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -2918,6 +2923,16 @@
                 <button class="close-btn">&times;</button>
             </div>
 
+            <!-- Modal Tab Bar (only shown in edit/view mode) -->
+            <div id="modalTabBar" class="detail-tabs" style="display:none;">
+                <button class="detail-tab active" data-modal-tab="details" onclick="switchModalTab('details')">Details</button>
+                <button class="detail-tab" data-modal-tab="itinerary" onclick="switchModalTab('itinerary')">Itinerary</button>
+                <button class="detail-tab" data-modal-tab="requirements" onclick="switchModalTab('requirements')">Entry Reqs</button>
+                <button class="detail-tab" data-modal-tab="tasks" onclick="switchModalTab('tasks')">Tasks</button>
+                <button class="detail-tab" data-modal-tab="info" onclick="switchModalTab('info')">Info</button>
+                <button class="detail-tab" data-modal-tab="safety" onclick="switchModalTab('safety')">🛡 Safety</button>
+            </div>
+
             <!-- Template Selection (only on create) -->
             <div id="templateSelection" style="display: none; margin-bottom: 2rem;">
                 <div style="font-weight: 600; margin-bottom: 1rem;">Choose a template:</div>
@@ -3004,6 +3019,13 @@
                     </div>
                 </div>
             </form>
+
+            <!-- Modal Tab Panels (rendered from existing render functions) -->
+            <div id="modalTabItinerary" class="modal-tab-panel"></div>
+            <div id="modalTabRequirements" class="modal-tab-panel"></div>
+            <div id="modalTabTasks" class="modal-tab-panel"></div>
+            <div id="modalTabInfo" class="modal-tab-panel"></div>
+            <div id="modalTabSafety" class="modal-tab-panel"></div>
         </div>
     </div>
 
@@ -3588,10 +3610,24 @@
                 var _ps = document.getElementById('packingSection'); if (_ps) _ps.style.display = 'none';
 
                 if (this.currentEditingTrip) {
-                    // Edit mode
+                    // Edit mode — show tab bar and render all tab content
                     document.getElementById('modalTitle').innerHTML = '<i data-lucide="pencil" style="width:20px;vertical-align:middle"></i> Edit Trip';
                     document.getElementById('templateSelection').style.display = 'none';
                     var _delBtn = document.getElementById('deleteTripBtn'); if (_delBtn) _delBtn.style.display = '';
+                    // Show tab bar, reset to Details tab
+                    var tabBar = document.getElementById('modalTabBar');
+                    if (tabBar) tabBar.style.display = 'flex';
+                    document.querySelectorAll('#modalTabBar .detail-tab').forEach(t => {
+                        t.classList.toggle('active', t.dataset.modalTab === 'details');
+                    });
+                    document.querySelectorAll('.modal-tab-panel').forEach(p => p.style.display = 'none');
+                    document.getElementById('tripForm').style.display = '';
+                    // Pre-render all tab content into modal panels
+                    renderItinerary(this.currentEditingTrip, 'modalTabItinerary');
+                    renderVisaRequirements(this.currentEditingTrip, 'modalTabRequirements');
+                    renderTasks(this.currentEditingTrip, 'modalTabTasks');
+                    renderInfo(this.currentEditingTrip, 'modalTabInfo');
+                    renderSafety(this.currentEditingTrip, 'modalTabSafety');
                     this.populateTripForm(this.currentEditingTrip);
                 var modalPhoto = document.getElementById("modalPhoto");
             if (modalPhoto) {
@@ -3629,9 +3665,13 @@
                         legsArea.innerHTML = this.renderLegsFormSection(this.currentEditingTrip);
                     }
                 } else {
-                    // Create mode - show templates
+                    // Create mode - hide tab bar, show templates
                     document.getElementById('modalTitle').innerHTML = '<i data-lucide="circle-plus" style="width:20px;vertical-align:middle"></i> Add New Trip';
                     var _delBtn2 = document.getElementById('deleteTripBtn'); if (_delBtn2) _delBtn2.style.display = 'none';
+                    var tabBar2 = document.getElementById('modalTabBar');
+                    if (tabBar2) tabBar2.style.display = 'none';
+                    document.getElementById('tripForm').style.display = '';
+                    document.querySelectorAll('.modal-tab-panel').forEach(p => p.style.display = 'none');
                     this.renderTemplateSelection();
                 }
 
@@ -6631,6 +6671,33 @@ this.updateDashboardStats();
             if (window.app) window.app.openTripModal(id || null);
         }
 
+        function switchModalTab(tab) {
+            // Update tab button active states
+            document.querySelectorAll('#modalTabBar .detail-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.modalTab === tab);
+            });
+            // Show/hide the form vs tab panels
+            const form = document.getElementById('tripForm');
+            const panels = document.querySelectorAll('.modal-tab-panel');
+            if (tab === 'details') {
+                if (form) form.style.display = '';
+                panels.forEach(p => p.style.display = 'none');
+            } else {
+                if (form) form.style.display = 'none';
+                panels.forEach(p => p.style.display = 'none');
+                const panelMap = {
+                    itinerary: 'modalTabItinerary',
+                    requirements: 'modalTabRequirements',
+                    tasks: 'modalTabTasks',
+                    info: 'modalTabInfo',
+                    safety: 'modalTabSafety'
+                };
+                const panelEl = document.getElementById(panelMap[tab]);
+                if (panelEl) panelEl.style.display = '';
+            }
+            if (window.lucide) setTimeout(() => lucide.createIcons(), 50);
+        }
+
         function exportTripICS(id) {
             if (window.app && window.app.exportTripICS) window.app.exportTripICS(id);
         }
@@ -7002,8 +7069,9 @@ this.updateDashboardStats();
         renderSafety(trip);
     }
 
-    function renderItinerary(trip) {
-        const container = document.getElementById('tabItinerary');
+    function renderItinerary(trip, containerId) {
+        const container = document.getElementById(containerId || 'tabItinerary');
+        if (!container) return;
         const bookings = (trip.bookings || []).sort((a, b) => {
             const cmp = (a.date || '').localeCompare(b.date || '');
             return cmp !== 0 ? cmp : (a.time || '').localeCompare(b.time || '');
@@ -7105,8 +7173,8 @@ this.updateDashboardStats();
     }
 
 
-    function renderTasks(trip) {
-        const container = document.getElementById('tabTasks');
+    function renderTasks(trip, containerId) {
+        const container = document.getElementById(containerId || 'tabTasks');
         if (!container) return;
         const tasks = trip.tasks || [];
         const phases = [
@@ -7147,8 +7215,8 @@ this.updateDashboardStats();
         container.innerHTML = html;
     }
 
-    function renderInfo(trip) {
-        const container = document.getElementById('tabInfo');
+    function renderInfo(trip, containerId) {
+        const container = document.getElementById(containerId || 'tabInfo');
         if (!container) return;
 
         const companions = trip.companions || [];
@@ -7477,8 +7545,8 @@ this.updateDashboardStats();
         </div>`;
     }
 
-    function renderSafety(trip) {
-        const container = document.getElementById('tabSafety');
+    function renderSafety(trip, containerId) {
+        const container = document.getElementById(containerId || 'tabSafety');
         if (!container) return;
         const country = (trip.destination?.country || trip.country || '').trim().toLowerCase();
         const city = (trip.destination?.city || trip.city || '').trim().toLowerCase();
@@ -7869,8 +7937,8 @@ this.updateDashboardStats();
         return VISA_DB[n] || null;
     }
 
-    function renderVisaRequirements(trip) {
-        const container = document.getElementById('tabRequirements');
+    function renderVisaRequirements(trip, containerId) {
+        const container = document.getElementById(containerId || 'tabRequirements');
         if (!container) return;
 
         const country    = trip.destination?.country;

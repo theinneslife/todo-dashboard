@@ -1630,58 +1630,6 @@
       .macro-cal-grid { grid-template-columns: repeat(10, 1fr); }
     }
 
-    /* ============================================
-       HRV Quick Entry
-       ============================================ */
-    .hrv-entry-section {
-      margin-bottom: 0.875rem;
-      padding-bottom: 0.875rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .hrv-entry-row {
-      display: flex;
-      gap: 0.4rem;
-      align-items: center;
-      margin-top: 0.4rem;
-    }
-    .hrv-entry-input {
-      flex: 1;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 0.75rem;
-      padding: 0.4rem 0.5rem;
-      min-width: 0;
-      transition: border-color 0.2s;
-      -moz-appearance: textfield;
-    }
-    .hrv-entry-input::-webkit-outer-spin-button,
-    .hrv-entry-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    .hrv-entry-input:focus { outline: none; border-color: var(--border-accent); }
-    .hrv-entry-input::placeholder { color: var(--text-muted); font-size: 0.7rem; }
-    .hrv-log-btn {
-      background: rgba(167,139,250,0.15);
-      border: 1px solid rgba(167,139,250,0.35);
-      color: var(--accent-purple);
-      font-family: inherit;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.4rem 0.75rem;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .hrv-log-btn:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.5); }
-    .hrv-entry-confirm {
-      font-size: 0.65rem;
-      color: var(--accent-green);
-      margin-top: 0.25rem;
-      min-height: 1em;
-      font-weight: 500;
-    }
 
     /* ============================================
        Responsive
@@ -1747,7 +1695,7 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.6</span>
+      <span class="version-badge">v1.7</span>
       <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
         <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
         <span id="sync-btn-label">Sync Now</span>
@@ -1948,17 +1896,6 @@
         <div class="card-header">
           <span class="card-title">Recovery</span>
           <span class="card-badge badge-orange" id="recovery-badge">—</span>
-        </div>
-
-        <!-- Manual Quick Entry (fallback when Apple Health hasn't synced HRV/RHR) -->
-        <div class="hrv-entry-section">
-          <div class="streak-label">Log Today</div>
-          <div class="hrv-entry-row">
-            <input class="hrv-entry-input" type="number" id="entry-hrv" placeholder="HRV ms" min="0" max="250">
-            <input class="hrv-entry-input" type="number" id="entry-rhr" placeholder="RHR bpm" min="30" max="120">
-            <button class="hrv-log-btn" onclick="logRecovery()">Log</button>
-          </div>
-          <div class="hrv-entry-confirm" id="hrv-entry-confirm"></div>
         </div>
 
         <!-- Composite Recovery Score -->
@@ -3171,28 +3108,6 @@ function getManualRecovery() {
   return saved.date === today ? saved : null;
 }
 
-function logRecovery() {
-  const hrv   = parseFloat(document.getElementById('entry-hrv').value);
-  const rhr   = parseFloat(document.getElementById('entry-rhr').value);
-  const confirm = document.getElementById('hrv-entry-confirm');
-
-  if (!hrv && !rhr) {
-    confirm.style.color = 'var(--accent-red)';
-    confirm.textContent = 'Enter at least one value';
-    return;
-  }
-
-  const entry = { date: new Date().toISOString().slice(0, 10), hrv, rhr, sleep: 0 };
-  localStorage.setItem('af_recovery_today', JSON.stringify(entry));
-  renderRecovery();
-
-  confirm.style.color = 'var(--accent-green)';
-  confirm.textContent = 'Logged';
-  setTimeout(() => { confirm.textContent = ''; }, 2500);
-
-  document.getElementById('entry-hrv').value = '';
-  document.getElementById('entry-rhr').value = '';
-}
 
 /* ══════════════════════════════════════════════
    Coach Briefing — fetch coach_briefing.json with cache-bust + stale indicator
@@ -3494,6 +3409,8 @@ function buildNutritionSeries() {
         fiber_g: +(18 + rnd() * 15).toFixed(1), water_ml: Math.round(2200 + rnd() * 1300),
       };
     } else {
+      // Skip today's slot when no nutrition has synced yet — avoids zero cliff at chart end
+      if (key === isoDate(today)) continue;
       row = { date: key, _real: false, tss, calories: 0, protein_g: 0, carbs_g: 0, fat_g: 0, fiber_g: 0, water_ml: 0 };
     }
     out.push(row);

@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-10",
-  "generated_at": "2026-06-10T09:00:00.000000Z",
+  "generated_at": "2026-06-10T16:40:16.897418Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -9,27 +9,27 @@
   "coaching": [
     {
       "type": "run",
-      "icon": "🏔️",
+      "icon": "🏃",
       "title": "Today's Run",
-      "message": "Vert work day. Find a steep grade and do 4–6 x 5 min uphill efforts at strong effort (Z3–Z4), walking back down as full recovery. Target 800–1,200 ft of gain total. Keep the top of each rep honest but not maxed — the goal is leg-strength stimulus and hip-flexor drive, not speed. This is key prep for Kranjska Gora's opening climb. If you're on a flat area, substitute 30 min of stair repeats at a tall building. Finish with 10 min easy Z1–Z2 cooldown on flat ground."
+      "message": "You're 100 days out and in taper week 20—this is a sharpness day, not a volume day. Your recovery score is solid at 72/100 and resting HR is 59, so you're primed. Do 6–7 miles with 3×4min at Julian Alps race pace (roughly 7:00–7:15/mi, ~160–165 bpm based on your recent 141–142 avg pace work). Keep the repeats on rolling terrain if possible; the 417 ft you ran yesterday tells me you can handle vert, but today focus on sustaining threshold intensity on undulation rather than grinding steep. Total vert: 300–400 ft max. This maintains neuromuscular sharpness without accumulating fatigue heading into the final push."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Vert days burn more than they feel like — uphill running is roughly 1.5x the caloric cost of flat running per mile. Hit 2,400–2,700 cal today. Load carbs in the 2 hours before (oatmeal, banana, toast) and refuel within 30 min post-run with 30–40 g protein plus 60–80 g fast carbs. Hydration matters more on sustained climbs — drink 500 ml 90 min before and carry water for anything over 60 min."
+      "message": "Your 6.74h sleep at 82.9% efficiency is acceptable but not optimal for taper recovery—sleep debt compounds. Prioritize carbs today: 1.5–2g per lb bodyweight spread across meals and around your workout. For the 6–7 mile effort with threshold work, consume 30–40g simple carbs (sports drink, banana, gel) during or immediately post-run, then a full recovery meal within 90 minutes (carbs + protein, aim for 3:1 ratio). Given your travel schedule, pre-stage your post-run fuel tonight so you're not hunting for it at the airport or hotel tomorrow."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Downhill walking recovery between reps is active rest — keep moving, don't stand still. Post-run, elevate legs 10–15 min and spend 5 min on hip flexor and glute stretches (lunges, pigeon). Quads will be loaded tonight; a contrast shower (90 sec cold after warm) accelerates flush. Sleep 8+ hours — vert work creates more muscle damage than flat running and the rebuild happens overnight."
+      "message": "Tonight is non-negotiable sleep priority. You're averaging 6.74h in taper—aim for 8+ hours to maximize CNS restoration and immune resilience. No early flights if you can avoid it; if travel is happening, sleep first, then travel. Ice bath or 10–12min cold plunge (if available) post-run to manage any systemic inflammation from the threshold repeats. Mobility work on calves and hip flexors for 10 minutes—Julian Alps terrain will demand ankle stability and hip drive; a taper is the ideal window to address minor tightness before it becomes a liability."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "The Julian Alps 50K has 8,000+ ft of gain. Every vert session is a direct deposit into race-day confidence. Today's reps simulate the lung burn and leg fatigue of the first big climb — learn to stay smooth and controlled when it hurts uphill. Breathe through the nose on the lower efforts; switch to mouth when it spikes. That control is what separates finishers from DNFs on alpine courses."
+      "message": "You're 100 days out with a razor-sharp recovery score and healthy vitals. This is the phase where confidence is built on *evidence*, not hope. Your recent 9-mile runs at 141–142 bpm prove you have aerobic chassis; today's threshold repeats prove you can sustain race pace when tired. Use this session to encode that pattern: execute the 4min repeats cleanly, nail the pacing, finish strong. In three weeks when doubt creeps in at mile 35 in Slovenia, you'll have concrete memories of sustained effort—not hypothetical fitness. Train like you race."
     }
   ]
 }

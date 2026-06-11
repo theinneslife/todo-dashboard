@@ -1690,5 +1690,460 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "dc7ad11e-ffec-47ae-a60b-f482154f1c14",
+    "title": "Review Tatari VDR materials in detail",
+    "description": "Just got access to the Tatari virtual data room. Need to review all documents thoroughly before preparing questions.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-14",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "6e070a1b-b70b-46f4-9d70-df110cda3ca0",
+    "title": "Prepare elaborate set of questions on Tatari deal",
+    "description": "After reviewing the VDR, send a more detailed set of questions to the sell-side team. Told them to expect questions by Monday.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-15",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "6bd17832-5478-4e33-a05b-1d3181211de7",
+    "title": "Analyze Tatari revenue growth slowdown (2025 vs 2024)",
+    "description": "Net revenue growth dropped from 31.5% (2024/2023) to 7% (2025/2024) before projected rebound to 30%. Understand the drivers and validate confidence in rebound.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-15",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "3bedffc2-26bd-469f-98ae-54d4d0131ae8",
+    "title": "Evaluate Tatari subsidiary structure and carve-out potential",
+    "description": "Three subsidiaries: Tatari DSP, Upstream TV, Vault Ad Solutions. 95% of revenue from Tatari. Upstream pipes flow through Tatari Corp. Assess whether a carve-out makes sense.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "3e1ab58d-2242-48f9-a760-bd50c334c8ee",
+    "title": "Determine attendance at Cannes Lions Conference week of June 22",
+    "description": "Philippe and his team will be at Cannes the week of June 22nd. Decide if Christopher or team should attend for in-person meetings on the Tatari deal.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-16",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "255277e1-b91f-4b96-b92a-3fb0d8981368",
+    "title": "Prepare initial indication of interest for Tatari",
+    "description": "Sell-side is looking for initial indications in the first half of July. Need to complete diligence and formulate a preliminary offer.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-07-10",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "cadf753c-f63b-4e6c-9f71-9bfb4db86031",
+    "title": "Assess competing offer structure and capital sources",
+    "description": "An existing offer has a lot of structure and questionable capital sources per the banker. Understand what was offered to position competitively.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "04f00d7a-a0a4-4c1f-a442-147721790467",
+    "title": "Evaluate founder retention and cap table dynamics",
+    "description": "Founders own 60%, angels/individuals own 40%, no institutional capital. All three founders (Philippe + two tech co-founders) plan to stay post-transaction. Factor into deal structuring.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "05b35c8e-4dfc-4292-a369-b3b921aa119d",
+    "title": "Research Tatari's key customer base and concentration risk",
+    "description": "~300 brands total; ~100 enterprise spending $10M+/year. Key names include Ro Health, Chime, Nutrifold. Performance/DTC focused. Analyze customer concentration.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "5b7959b9-f28b-4326-b7c4-e21129b35688",
+    "title": "Analyze Tatari's CTV vs linear revenue mix and trajectory",
+    "description": "CTV now >50% of revenue (up from 10% four years ago), linear ~45%. Understand the mix shift implications for valuation and growth sustainability.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "4a3f105f-5c8b-4430-baa2-341d8cff34e3",
+    "title": "Evaluate Tatari's sales team ramp and ROI",
+    "description": "Sales team tripled from 6 to 18 in the last 9 months. Assess whether this investment is driving the projected 30% net revenue growth and what further scaling looks like.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "46024798-5e46-40c0-814e-1c3fb258d65b",
+    "title": "Understand Upstream TV's run-of-network impression business",
+    "description": "Upstream generates ~$5M revenue buying run-of-network impressions. Need to understand this revenue stream's margin profile and growth potential.",
+    "priority": 3,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "36de774c-cf46-4fbd-a2b6-6aab1e7bf8ce",
+    "title": "Assess Tatari's direct publisher connections competitive moat",
+    "description": "Tatari has direct pipes into Disney, Paramount, Fox, Warner Brothers, NBCU via deprecated SSP (Viewpoint acquisition). 90% of CTV inventory flows through top 10 publishers.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-18",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T21:47:36.373Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T21:47:36.373Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

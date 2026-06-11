@@ -1637,5 +1637,40 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "ce6c2dbb-e752-45d0-9404-52c216a9839c",
+    "title": "Pay parking tickets",
+    "description": "Action item mentioned in recording. Need to pay outstanding parking tickets.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-11T16:31:08.706Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-11T16:31:08.706Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

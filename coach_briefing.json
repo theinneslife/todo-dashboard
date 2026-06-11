@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-10",
-  "generated_at": "2026-06-10T16:40:16.897418Z",
+  "generated": "2026-06-11",
+  "generated_at": "2026-06-11T16:58:46.176667Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 100 days out and in taper week 20—this is a sharpness day, not a volume day. Your recovery score is solid at 72/100 and resting HR is 59, so you're primed. Do 6–7 miles with 3×4min at Julian Alps race pace (roughly 7:00–7:15/mi, ~160–165 bpm based on your recent 141–142 avg pace work). Keep the repeats on rolling terrain if possible; the 417 ft you ran yesterday tells me you can handle vert, but today focus on sustaining threshold intensity on undulation rather than grinding steep. Total vert: 300–400 ft max. This maintains neuromuscular sharpness without accumulating fatigue heading into the final push."
+      "message": "Easy 45–50 minutes in Z2 (130–140 bpm), no intervals, no hills. You're in taper week 20, and your recovery score is 46—moderate but not alarming. Your resting HR is stable at 63, which is good. Thursday is your traditional recovery day, and with 27 miles already logged this week, you need to preserve legs for tomorrow's work and Saturday's long run. Keep it conversational, flat terrain if possible. This run serves one purpose: maintain aerobic conditioning without accumulating fatigue."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your 6.74h sleep at 82.9% efficiency is acceptable but not optimal for taper recovery—sleep debt compounds. Prioritize carbs today: 1.5–2g per lb bodyweight spread across meals and around your workout. For the 6–7 mile effort with threshold work, consume 30–40g simple carbs (sports drink, banana, gel) during or immediately post-run, then a full recovery meal within 90 minutes (carbs + protein, aim for 3:1 ratio). Given your travel schedule, pre-stage your post-run fuel tonight so you're not hunting for it at the airport or hotel tomorrow."
+      "message": "You slept 5.7 hours last night—that's well below your 30-day average of 4.67h, which actually means you got a genuinely decent night. Don't squander it. Eat a full breakfast with 60–80g carbs and 20g protein within an hour of waking. During your easy run, skip fuel if it's under 60 minutes. Post-run, consume 30–40g carbs and 15g protein within 30 minutes to initiate glycogen resynthesis. Given the taper phase, your total daily intake should trend toward maintenance (not elevated), but nutrient timing matters more than ever—you're sharpening, not building."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Tonight is non-negotiable sleep priority. You're averaging 6.74h in taper—aim for 8+ hours to maximize CNS restoration and immune resilience. No early flights if you can avoid it; if travel is happening, sleep first, then travel. Ice bath or 10–12min cold plunge (if available) post-run to manage any systemic inflammation from the threshold repeats. Mobility work on calves and hip flexors for 10 minutes—Julian Alps terrain will demand ankle stability and hip drive; a taper is the ideal window to address minor tightness before it becomes a liability."
+      "message": "Your 5.7-hour sleep was solid; aim for 7–8 hours tonight. The Julian Alps 50K demands sustained neuromuscular function over 7–9 hours of variable terrain—sleep is where adaptation happens. Prioritize darkness, no screens after 21:00, and a cool bedroom (65–68°F). Your recovery score of 46 suggests mild fatigue accumulation; use today's easy run and tomorrow's lower volume to let your CNS reset. Elevation in alpine terrain magnifies the cost of poor sleep, so sleep is a non-negotiable training tool, not a luxury."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 100 days out with a razor-sharp recovery score and healthy vitals. This is the phase where confidence is built on *evidence*, not hope. Your recent 9-mile runs at 141–142 bpm prove you have aerobic chassis; today's threshold repeats prove you can sustain race pace when tired. Use this session to encode that pattern: execute the 4min repeats cleanly, nail the pacing, finish strong. In three weeks when doubt creeps in at mile 35 in Slovenia, you'll have concrete memories of sustained effort—not hypothetical fitness. Train like you race."
+      "message": "You're 99 days out—deep in the taper, where momentum feels like it's slipping but sharpness is actually crystallizing. This is when doubt creeps in. Reframe today: easy volume is intentional precision, not coasting. Review your recent 9-miler at 141 bpm (hard effort) and your 3-miler at 118 bpm (recovery)—your ranges are dialed. The Julian Alps will punish sloppy pacing and poor fueling; trust that your 20 weeks of work is locked in. Use these final nine weeks to refine strategy (aid station timing, descent technique, gear) rather than chase fitness gains that won't materialize."
     }
   ]
 }

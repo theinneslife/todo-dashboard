@@ -1643,7 +1643,7 @@
     "title": "Pay parking tickets",
     "description": "Action item mentioned in recording. Need to pay outstanding parking tickets.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1657,10 +1657,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-11T17:43:58.955Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T16:31:08.706Z",
-    "completed_at": null,
+    "completed_at": "2026-06-11T17:43:58.955Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

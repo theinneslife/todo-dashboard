@@ -2215,5 +2215,40 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "6de16646-92fe-4641-ac1c-615f84ee39cb",
+    "title": "Review Mateo's OKRs",
+    "description": "Review Mateo's OKRs as mentioned in voice note titled 'Chichen Itza'.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-06-13",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-12T20:58:16.957Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Chichen itza"
+      }
+    ],
+    "created_at": "2026-06-12T20:58:16.957Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

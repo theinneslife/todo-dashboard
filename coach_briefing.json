@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-12",
-  "generated_at": "2026-06-12T13:00:00Z",
+  "generated_at": "2026-06-12T16:24:40.344379Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Build Phase, 14 weeks to the Julian Alps 50K. Friday is your hill-strength day: 75–90 min on the steepest sustained climb you can find, holding Zone 2–low Zone 3 on the ups and walking the punchiest grades with poles. Power-hike anything over ~15%, exactly as you will on the 2,500m of alpine vert in Slovenia. If you're traveling and stuck flat, sub a 45-min treadmill incline session at 8–12% or a stadium/parking-garage stair repeat block. Focus cue: quiet feet, tall posture, drive from the glutes — not the calves."
+      "message": "Easy 5–6 miles, Z2 (130–140 bpm), minimal vert. You're in week 20 taper and your resting HR dropped to 53 bpm—your body is adapting well. This is a shakeout before tomorrow's long run; keep it conversational, sub-7:30/mi pace. Skip any tempo or hill work. You've already logged 33 miles this week; volume is down ~32% vs. last week, which is exactly right for taper. Focus on leg turnover and mental readiness, not intensity."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Train the gut now so race day is boring. On today's long climb, take in 60–80g carbs/hour starting at minute 30 — alternate a gel (~22g) every 25 min with a few sips of a 6% carb drink. Practice the exact products you'll race with in Kranjska Gora. Afterward, hit 25–35g protein plus ~1g carb/kg bodyweight within 45 min (e.g., Greek yogurt with granola and a banana) to bank the adaptation while you're moving between time zones."
+      "message": "Eat 200–250g carbs today distributed across breakfast, lunch, snack, and dinner. Your sleep jumped to 6.54 hours (88% efficiency) and your 30-day average is still only 5.13 hours—you're catching up, which is good, but tomorrow's long run demands full glycogen stores. Hydrate aggressively: aim for 3–4L by evening. Skip any fasted running; eat a light breakfast (bagel + honey + coffee) 90 minutes before the run."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "After a hill day, the calves and Achilles take the hit. Spend 8–10 min tonight foam-rolling calves, quads, and glutes, then 2 min each side in a wall-supported calf/soleus stretch. Aim for 7.5–8h sleep, and if you're flying, wear compression socks on the leg and hydrate to bodyweight-adjusted needs — dehydration from cabin air blunts the recovery you just earned."
+      "message": "Recovery score is 73/100—solid. No HRV data available, but your RHR trend (down from 61 to 53 bpm) signals strong parasympathetic recovery. Target 7+ hours tonight; you have a long run tomorrow and you're banking sleep debt from travel. Use an ice bath or contrast shower after the run if available; 10 min total is enough. Foam roll calves and quads for 5 minutes before bed—alpine descents will hammer your quads in Slovenia."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build Phase is where the race is quietly won — not in the taper, not on race day, but in showing up for the unglamorous climbs while juggling MNTN and a passport full of stamps. Every steep rep today is a deposit you'll withdraw at the top of an Alpine pass in September. When the legs protest, shrink the task: just get to the next switchback. Mountains reward patience, and so does this block."
+      "message": "You're 98 days out, in controlled taper, and your body is responding. This is the phase where doubt creeps in—the workouts feel easy and your brain starts second-guessing readiness. Resist that. Julian Alps has 2,500m of vert on sparse aid; technique and pacing discipline matter more than max fitness. Use today's shakeout to lock in your descending form and practice breathing under control. Tomorrow you'll test your long-run fueling strategy. Trust the process—you've earned this."
     }
   ]
 }

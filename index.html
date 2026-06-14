@@ -2896,6 +2896,123 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
 
 /* === FIX 3: Logo text contrast in dark mode (legacy — wordmark now has its own dark badge) === */
 
+/* ===== DELETE TASK: INLINE CONFIRM + UNDO TOAST ===== */
+
+/* Slide-fade animation for card exit */
+@keyframes taskCardDelete {
+    0%   { opacity: 1; transform: translateX(0) scaleY(1); max-height: 400px; margin-bottom: 8px; }
+    40%  { opacity: 0; transform: translateX(24px) scaleY(0.95); }
+    100% { opacity: 0; transform: translateX(24px) scaleY(0.8); max-height: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; }
+}
+.task-card.deleting {
+    animation: taskCardDelete 0.2s ease-in forwards;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Inline confirmation overlay that appears on top of card content */
+.delete-confirm-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+    animation: fadeIn 0.15s ease;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+}
+html[data-theme="dark"] .delete-confirm-overlay {
+    background: rgba(22, 33, 62, 0.97);
+}
+.delete-confirm-overlay .delete-confirm-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+    white-space: nowrap;
+}
+html[data-theme="dark"] .delete-confirm-overlay .delete-confirm-label {
+    color: var(--dm-text);
+}
+.delete-confirm-yes {
+    padding: 6px 14px;
+    border-radius: 7px;
+    border: none;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+.delete-confirm-yes:hover { background: #d9281e; }
+.delete-confirm-cancel {
+    background: none;
+    border: none;
+    color: #007aff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 4px;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+.delete-confirm-cancel:hover { color: #0056cc; }
+html[data-theme="dark"] .delete-confirm-cancel { color: #4da3ff; }
+
+/* Undo toast — distinct style so it stands out from regular toasts */
+.delete-undo-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    background: #1d1d1f;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: auto;
+    white-space: nowrap;
+}
+html[data-theme="dark"] .delete-undo-toast { background: #2a2a4a; }
+.delete-undo-toast.visible { opacity: 1; }
+.delete-undo-toast.hiding { opacity: 0; transform: translateX(-50%) translateY(8px); }
+.delete-undo-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+.delete-undo-btn:hover { background: rgba(255,255,255,0.12); }
+.delete-undo-progress {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    background: #ff3b30;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+    transform-origin: left;
+    transition: transform linear;
+}
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js" onerror="var s=document.createElement('script');s.src='https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js';document.head.appendChild(s);"></script>
 </head>
@@ -2922,7 +3039,7 @@ html[data-theme="dark"] .priority-button.active[data-priority="3"] { background-
         <header>
             <div class="header-left">
                 <svg viewBox="0 0 130 40" height="36" style="vertical-align:middle"><defs><linearGradient id="tk-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs><rect x="0" y="4" width="130" height="32" rx="8" fill="#1A1A2E"/><rect x="4" y="8" width="24" height="24" rx="5" fill="url(#tk-g)"/><rect x="8" y="13" width="3.5" height="11" rx="1" fill="#fff" opacity=".95"/><rect x="13.5" y="13" width="3.5" height="8" rx="1" fill="#fff" opacity=".95"/><rect x="19" y="13" width="3.5" height="14" rx="1" fill="#fff" opacity=".95"/><text x="34" y="26" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" letter-spacing="-0.3" fill="#ffffff">Task</text><text x="76" y="26" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" fill="url(#tk-g)">Flo</text><path d="M76 30Q88 25 100 30" stroke="url(#tk-g)" stroke-width="2" fill="none" opacity=".85"/></svg>
-                <span class="version-badge">v4.3</span>
+                <span class="version-badge">v4.4</span>
             </div>
             <a href="travelflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:12px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>TravelFlo</a>
             <a href="athleteflo.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#a78bfa;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:8px;transition:all 0.2s;border:1px solid rgba(167,139,250,0.3);" onmouseover="this.style.background='linear-gradient(135deg,#16213e,#0f3460)';this.style.color='#c4b5fd';this.style.borderColor='rgba(167,139,250,0.5)'" onmouseout="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.color='#a78bfa';this.style.borderColor='rgba(167,139,250,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>AthleteFlo</a>
@@ -4567,6 +4684,17 @@ function getGithubToken() {
             };
             actions.appendChild(activityBtn);
 
+            // Delete button
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'task-action-btn';
+            deleteBtn.innerHTML = '<i data-lucide="trash-2" style="width:14px;height:14px"></i>';
+            deleteBtn.title = 'Delete task';
+            deleteBtn.onclick = (e) => {
+                e.stopPropagation();
+                showDeleteConfirm(task, card);
+            };
+            actions.appendChild(deleteBtn);
+
             footer.appendChild(actions);
             card.appendChild(footer);
 
@@ -4627,6 +4755,154 @@ function getGithubToken() {
 
             await saveTasksToGithub(tasks, 'Update tasks');
             filterTasks();
+        }
+
+        // ===== DELETE TASK: INLINE CONFIRM + UNDO TOAST =====
+
+        // Track the card currently showing delete confirmation (for keyboard support)
+        var _deleteConfirmCard = null;
+
+        function showDeleteConfirm(task, cardEl) {
+            // Cancel any existing confirmation first
+            cancelDeleteConfirm();
+
+            // Prevent drag while confirming
+            cardEl.draggable = false;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'delete-confirm-overlay';
+            overlay.dataset.deleteConfirmFor = task.id;
+
+            const label = document.createElement('span');
+            label.className = 'delete-confirm-label';
+            label.textContent = 'Delete this task?';
+
+            const yesBtn = document.createElement('button');
+            yesBtn.className = 'delete-confirm-yes';
+            yesBtn.textContent = 'Yes, delete';
+            yesBtn.onclick = (e) => {
+                e.stopPropagation();
+                _executeDeleteTask(task, cardEl);
+            };
+
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'delete-confirm-cancel';
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.onclick = (e) => {
+                e.stopPropagation();
+                cancelDeleteConfirm();
+            };
+
+            overlay.appendChild(label);
+            overlay.appendChild(yesBtn);
+            overlay.appendChild(cancelBtn);
+            cardEl.appendChild(overlay);
+            _deleteConfirmCard = cardEl;
+
+            // Auto-cancel if the card scrolls out of view / focus is lost elsewhere
+            overlay.addEventListener('click', (e) => e.stopPropagation());
+        }
+
+        function cancelDeleteConfirm() {
+            if (_deleteConfirmCard) {
+                var overlay = _deleteConfirmCard.querySelector('.delete-confirm-overlay');
+                if (overlay) overlay.remove();
+                _deleteConfirmCard.draggable = true;
+                _deleteConfirmCard = null;
+            }
+        }
+
+        async function _executeDeleteTask(task, cardEl) {
+            _deleteConfirmCard = null;
+
+            // 1. Animate the card out
+            cardEl.classList.add('deleting');
+
+            // 2. Remove from tasks array immediately (optimistic)
+            var deletedIndex = tasks.findIndex(function(t) { return t.id === task.id; });
+            var deletedTask = tasks.splice(deletedIndex, 1)[0];
+
+            // 3. Show undo toast
+            _showDeleteUndoToast(deletedTask, deletedIndex, cardEl);
+
+            // Wait for animation to finish before removing the DOM node
+            setTimeout(function() {
+                if (cardEl.parentNode) cardEl.parentNode.removeChild(cardEl);
+            }, 220);
+        }
+
+        var _deleteUndoTimer = null;
+        var _deleteUndoToastEl = null;
+
+        function _showDeleteUndoToast(deletedTask, deletedIndex, cardEl) {
+            // Remove any existing undo toast
+            if (_deleteUndoToastEl) {
+                clearTimeout(_deleteUndoTimer);
+                _deleteUndoToastEl.remove();
+                _deleteUndoToastEl = null;
+            }
+
+            var toast = document.createElement('div');
+            toast.className = 'delete-undo-toast';
+
+            var msg = document.createElement('span');
+            msg.textContent = 'Task deleted';
+
+            var undoBtn = document.createElement('button');
+            undoBtn.className = 'delete-undo-btn';
+            undoBtn.textContent = 'Undo';
+
+            var progress = document.createElement('div');
+            progress.className = 'delete-undo-progress';
+
+            toast.appendChild(msg);
+            toast.appendChild(undoBtn);
+            toast.appendChild(progress);
+            document.body.appendChild(toast);
+            _deleteUndoToastEl = toast;
+
+            // Animate in
+            requestAnimationFrame(function() {
+                toast.classList.add('visible');
+                // Shrink the progress bar over 5s
+                progress.style.transition = 'transform 5s linear';
+                requestAnimationFrame(function() {
+                    progress.style.transform = 'scaleX(0)';
+                });
+            });
+
+            // Undo handler
+            undoBtn.onclick = function() {
+                clearTimeout(_deleteUndoTimer);
+                // Restore the task at its original index
+                tasks.splice(deletedIndex, 0, deletedTask);
+                // Save & re-render
+                saveTasksToGithub(tasks, 'Restore deleted task');
+                filterTasks();
+                // Dismiss toast
+                _dismissDeleteUndoToast();
+                showToast('Task restored', 'success', 2000);
+            };
+
+            // Auto-commit delete after 5s
+            _deleteUndoTimer = setTimeout(function() {
+                _commitDelete();
+            }, 5000);
+        }
+
+        function _commitDelete() {
+            // Task already removed from array — just persist and clean up toast
+            saveTasksToGithub(tasks, 'Delete task');
+            _dismissDeleteUndoToast();
+        }
+
+        function _dismissDeleteUndoToast() {
+            if (_deleteUndoToastEl) {
+                _deleteUndoToastEl.classList.add('hiding');
+                var el = _deleteUndoToastEl;
+                _deleteUndoToastEl = null;
+                setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 250);
+            }
         }
 
         async function handleDrop(e, columnId) {
@@ -5472,8 +5748,10 @@ document.addEventListener('keydown', (e) => {
             if (e.key === '5') { switchView('timeline'); return; }
             if (e.key === 'n' || e.key === 'N') { document.getElementById('addTaskModal').classList.add('active'); e.preventDefault(); return; }
             if (e.key === '/' && !e.shiftKey) { var si = document.querySelector('.search-input'); if (si) { si.focus(); e.preventDefault(); } return; }
-            // Escape to close modals and clear batch selection
+            // Escape to cancel inline delete confirm, then close modals
             if (e.key === 'Escape') {
+                // Cancel delete confirmation first if showing
+                if (_deleteConfirmCard) { cancelDeleteConfirm(); e.preventDefault(); return; }
                 var scOvl = document.getElementById('shortcutOverlay');
                 if (scOvl && scOvl.classList.contains('active')) { scOvl.classList.remove('active'); return; }
                 // Close any open modals
@@ -5500,6 +5778,12 @@ document.addEventListener('keydown', (e) => {
                 if (!closedModal && batchSelectedIds.length > 0) {
                     clearBatchSelection();
                 }
+            }
+            // Enter to confirm inline delete if showing
+            if (e.key === 'Enter' && _deleteConfirmCard) {
+                var yesBtn = _deleteConfirmCard.querySelector('.delete-confirm-yes');
+                if (yesBtn) yesBtn.click();
+                e.preventDefault(); return;
             }
         });
 

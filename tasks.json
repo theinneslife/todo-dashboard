@@ -1895,7 +1895,7 @@
     "title": "Prepare initial indication of interest for Tatari",
     "description": "Sell-side is looking for initial indications in the first half of July. Need to complete diligence and formulate a preliminary offer.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1909,10 +1909,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-15T16:46:11.880Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T21:47:36.373Z",
-    "completed_at": null,
+    "completed_at": "2026-06-15T16:46:11.880Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

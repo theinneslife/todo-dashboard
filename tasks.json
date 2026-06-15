@@ -1351,7 +1351,7 @@
     "title": "Negotiate Bytedance Contract",
     "description": "50 concurrency limit for the next couple weeks. \n70k min\n\n\nVAT 2-6 weeks, bank account",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1376,17 +1376,24 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-15T18:58:23.624Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-08T19:01:25.179Z",
-    "completed_at": null,
+    "completed_at": "2026-06-15T18:58:23.624Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "fb245e42-b262-4477-96c2-469e82e6508d",

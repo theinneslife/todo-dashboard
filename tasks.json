@@ -2059,7 +2059,7 @@
     "title": "Analyze Tatari's CTV vs linear revenue mix and trajectory",
     "description": "CTV now >50% of revenue (up from 10% four years ago), linear ~45%. Understand the mix shift implications for valuation and growth sustainability.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2073,10 +2073,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-15T16:52:08.093Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T21:47:36.373Z",
-    "completed_at": null,
+    "completed_at": "2026-06-15T16:52:08.093Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

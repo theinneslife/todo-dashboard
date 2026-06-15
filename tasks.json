@@ -2012,7 +2012,7 @@
     "title": "Research Tatari's key customer base and concentration risk",
     "description": "~300 brands total; ~100 enterprise spending $10M+/year. Key names include Ro Health, Chime, Nutrifold. Performance/DTC focused. Analyze customer concentration.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2026,10 +2026,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-15T16:46:29.147Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T21:47:36.373Z",
-    "completed_at": null,
+    "completed_at": "2026-06-15T16:46:29.147Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

@@ -2532,7 +2532,7 @@
     "title": "Ask Tatari about pricing transparency and structure",
     "description": "Expand on their pricing: Are they transparent? Do they charge customers a dynamic CPM or a flat CPM?",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2546,10 +2546,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-16T16:07:51.976Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-16T13:58:38.905Z",
-    "completed_at": null,
+    "completed_at": "2026-06-16T16:07:51.976Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

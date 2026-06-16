@@ -2491,7 +2491,7 @@
     "title": "Send questions to Tatari about back-end ad buying platform",
     "description": "Ask Tatari whether they are using a back-end ad buying platform. This is part of a broader set of due diligence questions to send.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2505,10 +2505,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-16T16:07:48.911Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-16T13:58:38.905Z",
-    "completed_at": null,
+    "completed_at": "2026-06-16T16:07:48.911Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

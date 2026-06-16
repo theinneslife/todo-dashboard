@@ -992,7 +992,7 @@
     "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q2)",
     "description": "Schedule 30-day pre-board alignment call with Mark (mark@mountain.com), Patrick (patrick@mountain.com), and Ashley Graham before the Q2 MNTN Board Meeting (July 28, 2026).",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": "2026-06-28",
@@ -1005,10 +1005,16 @@
         "action": "created",
         "by": "Christopher",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-06-16T16:56:24.160Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-02T00:00:00.000Z",
-    "completed_at": null,
+    "completed_at": "2026-06-16T16:56:24.160Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -1016,7 +1022,7 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "6e5c698f-dbe9-463d-a949-524574555dc7",

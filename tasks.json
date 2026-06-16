@@ -2614,7 +2614,7 @@
     "title": "Ask Tatari about customer contract status",
     "description": "Are all customers under contract? What percentage of total revenue is under contract?",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2628,10 +2628,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-16T16:07:58.610Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-16T13:58:38.905Z",
-    "completed_at": null,
+    "completed_at": "2026-06-16T16:07:58.610Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

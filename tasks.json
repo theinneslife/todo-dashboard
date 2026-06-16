@@ -2256,7 +2256,7 @@
     "title": "Book hotel for Mark and Taylor's wedding",
     "description": "Reserve hotel accommodations for Mark and Taylor's wedding.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2270,10 +2270,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-16T16:55:13.227Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T22:07:21.611Z",
-    "completed_at": null,
+    "completed_at": "2026-06-16T16:55:13.227Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

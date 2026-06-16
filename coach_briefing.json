@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-13",
-  "generated_at": "2026-06-13T15:04:21.446767Z",
+  "generated": "2026-06-16",
+  "generated_at": "2026-06-16T18:07:41.916026Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Saturday long run: 14–16 miles, Z2 aerobic only (140–150 bpm), with 800–1200 ft of vert built in naturally (rolling terrain preferred). You're in taper week 20 with volume already down 32% from last week—this is your last meaningful long effort before final sharpening. Keep it conversational, sub-threshold. Your resting HR is 53 bpm and recovery score is 73/100, so you're genuinely recovered; use this window. Avoid the temptation to test pace; the Julian Alps will demand patience, not speed, on race day."
+      "message": "8–10 miles of easy Z2 (130–140 bpm based on your recent runs). You're in week 21 of taper with 94 days to the Julian Alps 50K—this is maintenance, not stimulus. Your recovery score is 75/100 and resting HR is 58 (below your 30-day avg of 60.1), which means you're adapting well and ready to preserve sharpness without accumulating fatigue. Skip the tempo or intervals; a steady aerobic run on flat or rolling terrain keeps your aerobic engine warm without taxing your CNS. Include 2–3 × 90-second pickups at 10K effort (not race pace) in the final 20 minutes if you feel crisp, but only if effort feels effortless—if it doesn't, finish easy."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Front-load carbs this morning: 60–80g (oats, banana, toast, honey) 90 min pre-run. On the run, take 200–300 calories per hour after the first 60 min—mix gels (30g carbs each) with real food or sports drink to hit 60–80g carbs/hour and keep sodium at 500–700 mg/hour. Post-run within 30 min: 40g protein + 80–100g carbs to cap glycogen repletion. You're 97 days out; alpine efforts demand stable fuel economy, and taper is when you dial the specifics in rather than experiment."
+      "message": "You logged 7.17 hours of sleep last night with 92.8% efficiency—well above your 30-day average of 5.93 hours. That's elite recovery data and suggests your body is primed for good glycogen utilization today. Eat 80–100g of carbs in the 2 hours before the run (oatmeal, toast, banana with almond butter) and consume 30–40g during the run if it stretches past 90 minutes. Post-run: 40g protein + 60g carbs within 30 minutes. With 94 days out, fueling consistency now trains your gut and reinforces metabolic efficiency for the sparse aid stations in Slovenia."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep last night was 6.54 hours at 88.4% efficiency—solid, above your 30-day average of 5.13 hours. Protect tonight: aim for 7.5–8 hours by getting horizontal by 10:30 pm. Taper phase is when sleep quality compounds; prioritize it more than volume. Your resting HR dropped 8 bpm (61.1 → 53 bpm average), which signals real adaptation. Cool-down walk 10–15 min post-run today, then easy mobility or foam roll for hip and calf (alpine terrain will demand ankle/calf stability). No ice bath needed; active recovery is enough."
+      "message": "Your sleep last night was exceptional—maintain that. No HRV data is available in your Apple Health, so you can't fine-tune recovery via HRV trends, but your resting HR trend (58 today vs. 60.1 avg) and recovery score (75/100) both indicate you're in a controlled, recovered state. Prioritize 7–8 hours again tonight: dark room, cool temp (65–68°F), no screens after 21:00. You're in the taper phase where sleep quality amplifies adaptation more than volume does. One massage or mobility session this week is smart; save the deep work for post-race."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're at week 20 of a 22-week cycle with 97 days to Kranjska Gora. The hard work is done. Taper mind games are real—you'll feel sluggish around week 21, and that's normal. Your current recovery data shows you're primed, not overtrained. Use this run to reconnect with the terrain feel and pacing you'll need in Slovenia (steady climbs, minimal power, high Z2 time). Don't chase splits. Come next week, one final sharpening block, then you trust the taper and show up race-ready."
+      "message": "You've logged 6 miles this week after 45.1 last week—that's the intended ~87% volume cut for taper. The mental trap now is feeling undertrained; ignore it. Your body is consolidating 20 weeks of work and sharpening. Use today's easy run to visualize the Kranjska Gora terrain: think through the first climb, where you'll settle your effort, and how you'll pace the final vert when your quads are trashed. This mental rehearsal during low-intensity runs is one of the few ways to gain fitness in taper. You're 94 days out; you're ready, and the work is done."
     }
   ]
 }

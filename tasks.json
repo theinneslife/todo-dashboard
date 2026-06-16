@@ -2695,5 +2695,75 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "cebe3841-2b04-4d4c-9829-cb0af9279126",
+    "title": "Buy Brooke a matching PJ set for Christmas",
+    "description": "Brooke likes matching pajama sets with shorts, tank top, long pants, and long sleeve shirt. Silk is nice but comfort and cuteness are the priority. Consider the brand Slope or similar.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-12-20",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-16T15:03:58.366Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-16T15:03:58.366Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "7b0e6067-c087-4548-abba-f6c615577e12",
+    "title": "Research cute comfortable matching PJ brands",
+    "description": "Brooke mentioned Slope as a cute option. Also look into other brands that offer matching sets in silk or similar comfortable fabrics.",
+    "priority": 3,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-16T15:03:58.366Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-16T15:03:58.366Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

@@ -844,25 +844,19 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "LAX > SAL",
-          "departure": "Jul 30, 2026 2:40 PM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         },
         {
           "airline": "Delta Air Lines DL110/DL996",
-          "route": "EZE > ATL > LAX",
-          "departure": "Jul 26, 2026 8:10 PM",
-          "arrival": "Jul 27, 2026 8:33 AM",
-          "confirmation": "HLWTES",
-          "class": "Delta One / Delta First",
-          "cost": "",
-          "notes": "DL110 EZE-ATL 8:10PM-5:25AM+1 (Delta One), DL996 ATL-LAX 7:00AM-8:33AM",
-          "passengers": ""
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",

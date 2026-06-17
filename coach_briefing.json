@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-16",
-  "generated_at": "2026-06-16T21:00:00Z",
+  "generated": "2026-06-17",
+  "generated_at": "2026-06-17T13:30:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "rest",
-      "icon": "😴",
-      "title": "Rest Day",
-      "message": "Today is a full rest day — and that's the work. You're in Recovery Week (Week 9 of 22), which means your body is consolidating the fitness from the last training block. Resist the urge to sneak in a run. The adaptation happens during rest, not during the session. Do nothing aerobic today."
+      "type": "run",
+      "icon": "🏃",
+      "title": "Hill Repeats — 8 mi (Recovery Week)",
+      "message": "Today is your vert session: 2 mi easy warm-up, then 10x 60-sec uphills walking down to recover, then 2 mi cool-down. This is recovery Week 9, so cap effort at 7/10 — form over fire. Drive from the hips, short quick steps, eyes up. On the steepest reps, practice the efficient power-hike you'll lean on across the Julian Alps' 2,500m of climbing. Let HR settle near the bottom of each rep; this week is about absorbing the build, not adding to it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel for Recovery",
-      "message": "Rest day nutrition shifts slightly — drop total carbs to around 220g (your baseline rest target) and keep protein high at 1.6–1.8g/kg to support muscle repair. Prioritize anti-inflammatory foods today: fatty fish, berries, leafy greens, olive oil. Hydrate consistently; many athletes underdrink on rest days without the sweat cue."
+      "title": "Fuel Right",
+      "message": "An 8-mile hill session under ~90 min doesn't need heavy mid-run fueling — top off with 30-40g carbs 60-90 min before (banana + toast or a gel with water). If you push past 75 min, take 60g carbs in the back half. Within 30 min of finishing, hit ~25-30g protein plus carbs to refill glycogen. With travel and time-zone churn, keep electrolytes up across the day."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Active Recovery",
-      "message": "A short 10–15 min walk, a yoga session, or light mobility work is fine and encouraged — just nothing that elevates heart rate meaningfully. Foam roll calves and quads if they're carrying any fatigue from last week. Target 8+ hours of sleep tonight. If your Whoop or Apple Health shows elevated RHR or low HRV, treat it as confirmation the rest is warranted."
+      "title": "Recovery",
+      "message": "Hill reps load the calves, quads, and Achilles. Post-run, do 5-10 min easy walking before stopping, then foam-roll calves and quads and stretch hip flexors. It's a recovery week — protect sleep tonight (aim 7.5-8 hrs) and keep the rest of the day genuinely easy. No bonus mileage; let the legs bank the adaptation."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Recovery weeks aren't a break from the plan — they are the plan. Elite ultrarunners treat rest days with the same intentionality as hard sessions. 93 days to the Julian Alps. The fitness you've built is compounding right now. Let it."
+      "message": "Recovery weeks test discipline more than hard weeks test grit. Holding back at 7/10 when you feel strong IS the workout. Every controlled rep today is a rehearsal for the patience you'll need 13 weeks from now on the long climbs in Kranjska Gora — where the runners who hike smart and steady are the ones still moving well at km 40."
     }
   ]
 }

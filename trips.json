@@ -1016,10 +1016,10 @@
     },
     {
       "id": "1778268408717",
-      "title": "Los Angeles ",
+      "title": "New York",
       "destination": {
         "city": "New York",
-        "country": "",
+        "country": "USA",
         "timezone": ""
       },
       "dates": {

@@ -15,7 +15,7 @@
   const GATE_KEY      = 'flo_gate_v1';
   const EXPIRY_DAYS   = 30;
   const SALT          = 'flo2026';
-  const EXPECTED_HASH = '90344f60e63ec98566c194796ff07f9bdb6fae2815c341c355827b331a99b4b6';
+  const EXPECTED_HASH = '379ed9fb006d6e41ee64e459e66ca3d8e24d8b5340cc78194859180b301834b3';
 
   // ─── Auth helpers ──────────────────────────────────────────────────────────
 

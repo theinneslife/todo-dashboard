@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-17",
-  "generated_at": "2026-06-17T13:30:00Z",
+  "generated_at": "2026-06-17T14:35:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Hill Repeats — 8 mi (Recovery Week)",
-      "message": "Today is your vert session: 2 mi easy warm-up, then 10x 60-sec uphills walking down to recover, then 2 mi cool-down. This is recovery Week 9, so cap effort at 7/10 — form over fire. Drive from the hips, short quick steps, eyes up. On the steepest reps, practice the efficient power-hike you'll lean on across the Julian Alps' 2,500m of climbing. Let HR settle near the bottom of each rep; this week is about absorbing the build, not adding to it."
+      "message": "Today's session: 2 mi easy warm-up, 10x 60-sec uphills, 2 mi cool-down — 8 mi total. It's a recovery week, so this is controlled, NOT all-out: aim Zone 3 on the climbs (~150-160 bpm, well under your 165 LTHR) and let HR fully settle on the walk-down. Drive with short, powerful steps and a tall chest — that's the exact power-hiking-to-running transition you'll need on the Julian Alps' ~2500m of vert. Form over effort this week; you're absorbing the last three weeks of build, not adding to it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "An 8-mile hill session under ~90 min doesn't need heavy mid-run fueling — top off with 30-40g carbs 60-90 min before (banana + toast or a gel with water). If you push past 75 min, take 60g carbs in the back half. Within 30 min of finishing, hit ~25-30g protein plus carbs to refill glycogen. With travel and time-zone churn, keep electrolytes up across the day."
+      "message": "Short, intense-ish session, so keep it simple: 30-40g easy carbs 60-90 min before (banana + toast or a gel). Under an hour you don't need much on the move — water with electrolytes is plenty. Within 30 min of finishing, hit ~25-30g protein plus carbs to lock in the adaptation. On this lighter day, anchor around ~220g carbs total and lean into anti-inflammatory foods (berries, fatty fish, leafy greens) to support the recovery-week goal."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Hill reps load the calves, quads, and Achilles. Post-run, do 5-10 min easy walking before stopping, then foam-roll calves and quads and stretch hip flexors. It's a recovery week — protect sleep tonight (aim 7.5-8 hrs) and keep the rest of the day genuinely easy. No bonus mileage; let the legs bank the adaptation."
+      "message": "The climbs load your calves, glutes and Achilles hard. Post-run: 10 min easy walk to flush, then foam-roll calves and quads and 5 min of ankle/calf mobility. This is a recovery week — protect sleep (aim 8+ hrs) and resist the urge to add 'bonus' volume. You're traveling, so prioritize legs-up and hydration over anything heroic."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Recovery weeks test discipline more than hard weeks test grit. Holding back at 7/10 when you feel strong IS the workout. Every controlled rep today is a rehearsal for the patience you'll need 13 weeks from now on the long climbs in Kranjska Gora — where the runners who hike smart and steady are the ones still moving well at km 40."
+      "message": "92 days out, mid-build, recovery week — this is where disciplined athletes separate themselves by doing LESS on purpose. Every controlled climb today is a rep at the patience the Julian Alps will demand when the trail tilts up and the smart move is to hike, not hammer. Trust the plan: holding back this week is what lets you peak in August."
     }
   ]
 }

@@ -3004,7 +3004,7 @@
     "title": "Add TikTok to the partnerships list",
     "description": "TikTok was mentioned as a company to add to the partnerships list during the meeting.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -3018,10 +3018,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-17T15:37:51.858Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-17T01:37:12.006Z",
-    "completed_at": null,
+    "completed_at": "2026-06-17T15:37:51.858Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

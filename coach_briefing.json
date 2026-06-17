@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-17",
-  "generated_at": "2026-06-17T14:35:00Z",
+  "generated_at": "2026-06-17T16:41:06.932032Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hill Repeats — 8 mi (Recovery Week)",
-      "message": "Today's session: 2 mi easy warm-up, 10x 60-sec uphills, 2 mi cool-down — 8 mi total. It's a recovery week, so this is controlled, NOT all-out: aim Zone 3 on the climbs (~150-160 bpm, well under your 165 LTHR) and let HR fully settle on the walk-down. Drive with short, powerful steps and a tall chest — that's the exact power-hiking-to-running transition you'll need on the Julian Alps' ~2500m of vert. Form over effort this week; you're absorbing the last three weeks of build, not adding to it."
+      "title": "Today's Run",
+      "message": "Easy 7–8 miles at Z2 (130–140 bpm), rolling terrain, no hard efforts. You're in week 21 taper on a Wednesday, which normally calls for vert work—but your recovery score is 62 (moderate) and sleep last night was only 6.18h. The goal now is retention of sharpness without additional fatigue debt. Dial back the intensity you showed on Sunday (12mi@134bpm) and Monday (6mi@130bpm). This is a confidence run: dial into sub-threshold cruising, feel the legs come alive under minimal stress, and bank the adaptation your peak phase already built. Save the alpine-grade hill repeats for Saturday if you're genuinely fresh."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short, intense-ish session, so keep it simple: 30-40g easy carbs 60-90 min before (banana + toast or a gel). Under an hour you don't need much on the move — water with electrolytes is plenty. Within 30 min of finishing, hit ~25-30g protein plus carbs to lock in the adaptation. On this lighter day, anchor around ~220g carbs total and lean into anti-inflammatory foods (berries, fatty fish, leafy greens) to support the recovery-week goal."
+      "message": "Eat 60–80g carbs + 15–20g protein in the 2 hours before the run; aim for 30–40g carbs + electrolytes during if you go beyond 90 minutes. Post-run: 40g carbs + 25g protein within 30 minutes to start glycogen repletion and cap off a lighter week. You're eating into a taper, so don't under-fuel out of fear of gaining weight—your body needs fuel to consolidate the VO₂ and vert adaptation from peak phase. Skip the energy gels unless you hit 2+ hours; this is a steady-state run, not a race simulation."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "The climbs load your calves, glutes and Achilles hard. Post-run: 10 min easy walk to flush, then foam-roll calves and quads and 5 min of ankle/calf mobility. This is a recovery week — protect sleep (aim 8+ hrs) and resist the urge to add 'bonus' volume. You're traveling, so prioritize legs-up and hydration over anything heroic."
+      "message": "Sleep is the leak in your system right now: 6.18h last night is 1.5+ hours below your 30-day average (4.83h is alarming—confirm that number). Prioritize 8 hours tonight. You're 93 days out from the Alps; travel, work stress, and ambient training load are all eroding recovery. Use ice baths or contrast therapy only if they don't disrupt sleep; otherwise, skip them this week. Elevate your feet for 10–15 minutes post-run, hydrate 500ml+ water in the next 2 hours, and defer any strength work until Friday at earliest."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "92 days out, mid-build, recovery week — this is where disciplined athletes separate themselves by doing LESS on purpose. Every controlled climb today is a rep at the patience the Julian Alps will demand when the trail tilts up and the smart move is to hike, not hammer. Trust the plan: holding back this week is what lets you peak in August."
+      "message": "Taper anxiety is real at this distance and timeline. You're cutting volume hard (6.0mi this week vs. 45.1 last week) and the temptation is to prove fitness by hammering Wednesday or Thursday. Resist it. Your peak phase was solid—12mi at 134bpm, consistent vert work. The Julian Alps 50K will demand alpine judgment and pacing discipline more than raw speed. Use these 13 weeks to dial your nutrition strategy (fuel gels, salt, water intake on sparse aid stations), mentally rehearse the 2,500m descent (quadriceps tendon stress), and trust the work. One confident, easy run today beats a blown taper every time."
     }
   ]
 }

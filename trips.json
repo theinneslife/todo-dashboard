@@ -714,14 +714,11 @@
       "flights": [
         {
           "airline": "Avianca",
-          "route": "Guatemala departure",
-          "departure": "Jun 27, 2026 9:30 AM",
-          "arrival": "",
-          "confirmation": "",
-          "class": "",
-          "cost": "",
-          "notes": "eticket for Christopher Innes and Brooke Scimemi",
-          "passengers": ""
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",

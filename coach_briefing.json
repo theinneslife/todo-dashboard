@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-16",
-  "generated_at": "2026-06-16T18:07:41.916026Z",
+  "generated_at": "2026-06-16T21:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "run",
-      "icon": "🏃",
-      "title": "Today's Run",
-      "message": "8–10 miles of easy Z2 (130–140 bpm based on your recent runs). You're in week 21 of taper with 94 days to the Julian Alps 50K—this is maintenance, not stimulus. Your recovery score is 75/100 and resting HR is 58 (below your 30-day avg of 60.1), which means you're adapting well and ready to preserve sharpness without accumulating fatigue. Skip the tempo or intervals; a steady aerobic run on flat or rolling terrain keeps your aerobic engine warm without taxing your CNS. Include 2–3 × 90-second pickups at 10K effort (not race pace) in the final 20 minutes if you feel crisp, but only if effort feels effortless—if it doesn't, finish easy."
+      "type": "rest",
+      "icon": "😴",
+      "title": "Rest Day",
+      "message": "Today is a full rest day — and that's the work. You're in Recovery Week (Week 9 of 22), which means your body is consolidating the fitness from the last training block. Resist the urge to sneak in a run. The adaptation happens during rest, not during the session. Do nothing aerobic today."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel Right",
-      "message": "You logged 7.17 hours of sleep last night with 92.8% efficiency—well above your 30-day average of 5.93 hours. That's elite recovery data and suggests your body is primed for good glycogen utilization today. Eat 80–100g of carbs in the 2 hours before the run (oatmeal, toast, banana with almond butter) and consume 30–40g during the run if it stretches past 90 minutes. Post-run: 40g protein + 60g carbs within 30 minutes. With 94 days out, fueling consistency now trains your gut and reinforces metabolic efficiency for the sparse aid stations in Slovenia."
+      "title": "Fuel for Recovery",
+      "message": "Rest day nutrition shifts slightly — drop total carbs to around 220g (your baseline rest target) and keep protein high at 1.6–1.8g/kg to support muscle repair. Prioritize anti-inflammatory foods today: fatty fish, berries, leafy greens, olive oil. Hydrate consistently; many athletes underdrink on rest days without the sweat cue."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Recovery",
-      "message": "Your sleep last night was exceptional—maintain that. No HRV data is available in your Apple Health, so you can't fine-tune recovery via HRV trends, but your resting HR trend (58 today vs. 60.1 avg) and recovery score (75/100) both indicate you're in a controlled, recovered state. Prioritize 7–8 hours again tonight: dark room, cool temp (65–68°F), no screens after 21:00. You're in the taper phase where sleep quality amplifies adaptation more than volume does. One massage or mobility session this week is smart; save the deep work for post-race."
+      "title": "Active Recovery",
+      "message": "A short 10–15 min walk, a yoga session, or light mobility work is fine and encouraged — just nothing that elevates heart rate meaningfully. Foam roll calves and quads if they're carrying any fatigue from last week. Target 8+ hours of sleep tonight. If your Whoop or Apple Health shows elevated RHR or low HRV, treat it as confirmation the rest is warranted."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've logged 6 miles this week after 45.1 last week—that's the intended ~87% volume cut for taper. The mental trap now is feeling undertrained; ignore it. Your body is consolidating 20 weeks of work and sharpening. Use today's easy run to visualize the Kranjska Gora terrain: think through the first climb, where you'll settle your effort, and how you'll pace the final vert when your quads are trashed. This mental rehearsal during low-intensity runs is one of the few ways to gain fitness in taper. You're 94 days out; you're ready, and the work is done."
+      "message": "Recovery weeks aren't a break from the plan — they are the plan. Elite ultrarunners treat rest days with the same intentionality as hard sessions. 93 days to the Julian Alps. The fitness you've built is compounding right now. Let it."
     }
   ]
 }

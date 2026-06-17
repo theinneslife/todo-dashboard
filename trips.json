@@ -923,14 +923,11 @@
       "flights": [
         {
           "airline": "Delta Air Lines DL1978/DL825",
-          "route": "SAL > ATL > LAS",
-          "departure": "Aug 9, 2026 1:48 PM",
-          "arrival": "Aug 9, 2026 10:08 PM",
-          "confirmation": "HL94IF",
-          "class": "Delta First Classic",
-          "cost": "",
-          "notes": "DL1978 SAL-ATL 1:48PM-7:30PM, DL825 ATL-LAS 8:55PM-10:08PM",
-          "passengers": ""
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
         }
       ],
       "accommodation": "Il Vento Uno - Penthouse TERRA",

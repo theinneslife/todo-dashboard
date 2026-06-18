@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-18",
-  "generated_at": "2026-06-18T13:45:00Z",
+  "generated_at": "2026-06-18T16:38:43.327679Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5 mi — Recovery Week",
-      "message": "Build Phase, Week 9 of 22, and this is a recovery week — so the only job today is an easy 5 miles in Zone 2 (cap it around 132-145 bpm). It should feel conversational the whole way; if you can't speak in full sentences, you're going too hard. You're at altitude in Antigua (~1,500m), so expect HR to drift 5-10 bpm higher than at sea level — run by effort, not pace, and back off if it creeps into Zone 3. No vert hunting today; save the climbing legs for the next quality block."
+      "title": "Today's Run",
+      "message": "Easy 6–7 miles, Z2 (130–140 bpm), flat or rolling terrain. You're in week 21 of taper with a recovery score of 62/100—moderate, not high. Your last three runs averaged 133–142 bpm, which is solid work, but Thursday's role is to flush legs and stay fresh for Saturday's long run. Keep it conversational. No hills, no tempo, no intervals. This is a shakeout day that maintains aerobic capacity without further stress."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Five easy miles doesn't need heavy fueling — a light carb top-off (banana or toast, ~30g) beforehand is plenty, and you can run it fasted if that's your norm. Hydrate well in the Guatemalan heat: 500ml with electrolytes before you head out. Afterward, hit the 30-45 min window with ~20-30g protein plus carbs to support the recovery-week adaptation. Keep total carbs near your ~220g rest-baseline today since volume is low."
+      "message": "You slept 6.18 hours last night—solid, but in taper you want 7–8 consistently to maximize adaptation and CNS recovery. Eat carbs at breakfast and lunch to top off glycogen; aim for 5–6g/kg bodyweight daily during taper to support the long run on Saturday. Today's easy run won't demand huge intra-run calories, but fuel breakfast well and hydrate steadily throughout the day. Poor sleep compounds fatigue; prioritize tonight's sleep over any \"extra\" training stimulus."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "This is a recovery week — the easy run is the hard part, everything else should be restorative. Prioritize 8 hours of sleep, do 10 minutes of mobility/foam rolling on calves and hips, and keep your scheduled gym session light (mobility and activation, not heavy loading). Resist the urge to add miles; the whole point of this week is to let fitness consolidate before the next build push."
+      "message": "Your 30-day sleep average is 4.83 hours—that's dangerously low for an ultra endurance athlete in peak training, even in taper. Last night's 6.18h is a step up, but you need to stabilize at 7–7.5h minimum through race week to consolidate VO2 max, VO2 kinetics, and injury resilience. Blackout room, no screens after 21:00, consistent bedtime. Resting HR at 60 bpm is solid; no signs of overtraining. Keep easy today to preserve sleep quality tonight."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "92 days to the Julian Alps 50K. A recovery week isn't a step back — it's how you absorb the work and show up stronger for the next block. Discipline this week looks like restraint, not effort. Practice the patience now that you'll need on race day when you hold back early on those alpine climbs so you have legs left for the back half."
+      "message": "You're 92 days out from Julian Alps 50K with ~2,500m of vert—a serious alpine race that will break athletes who haven't trained specifically for sustained climbing. Taper anxiety is real, but the hard work is done. Use this week to mentally rehearse the course profile, test your nutrition strategy, and build confidence in your aerobic base. Your volume is dropping (19.1 mi this week vs 45 last week), which feels like \"detraining\"—it's not. You're sharpening. Trust the process; the mountains reward specificity and patience."
     }
   ]
 }

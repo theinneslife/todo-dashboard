@@ -1,11 +1,20 @@
 {
-  "generated": "2026-06-18T11:15:05.095495Z",
-  "weekly_miles": 14.0,
-  "total_elevation_feet": 1004,
+  "generated": "2026-06-18T15:41:44.461964Z",
+  "weekly_miles": 19.1,
+  "total_elevation_feet": 1070,
   "last_week_miles": 45.1,
   "last_week_elevation_feet": 3192,
   "last_week_sessions": 6,
   "recent_runs": [
+    {
+      "name": "Morning Run",
+      "date": "2026-06-18",
+      "miles": 5.04,
+      "elevation_feet": 66,
+      "duration": 3017,
+      "avg_hr": 133,
+      "max_hr": 149
+    },
     {
       "name": "Hill Repeats",
       "date": "2026-06-17",
@@ -338,15 +347,6 @@
       "duration": 2640,
       "avg_hr": 141,
       "max_hr": 153
-    },
-    {
-      "name": "First recovery run",
-      "date": "2026-04-19",
-      "miles": 4.25,
-      "elevation_feet": 135,
-      "duration": 2844,
-      "avg_hr": 131,
-      "max_hr": 145
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-19",
-  "generated_at": "2026-06-19T13:30:00Z",
+  "generated_at": "2026-06-19T16:10:43.078039Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 8mi Hilly — Build Phase",
-      "message": "Calendar has you down for 8 miles on hilly terrain, ~1,500 ft of vert, all in Zone 2 (125-150 bpm, comfortably conversational). This is aerobic-building work, not a hammer session — if your HR drifts toward 160 on the climbs, hike them. Antigua sits at ~1,500m, so altitude will nudge your HR up a few beats; honor the zone by effort, not pace. Treat every climb as Julian Alps rehearsal: short, efficient steps, hands on quads, eyes up. You're 13 weeks out and squarely in Build — consistency over heroics today."
+      "title": "Today's Run",
+      "message": "Easy 6–7 miles, Z2 (130–140 bpm), rolling terrain if available but no structured vert work. You're 91 days out in full taper (week 21 of 22), and your recovery score sits at 48/100—moderate but not critical. Yesterday's 5-miler at 133 bpm was solid; today is a shakeout to keep the legs loose and the aerobic system engaged without accumulating fatigue. Hold back; the long run Saturday is where you'll find your signal. If you're traveling for work today, a hotel treadmill at easy effort is acceptable—maintain consistency, not intensity."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat a carb-forward breakfast 60-90 min before (your bananas/fruit/oats plan is perfect — aim ~60-80g carbs pre-run). At 8 miles you're near the threshold where intra-run fuel matters; if you'll be out past 75 min, take 30-40g carbs mid-run plus fluid with electrolytes — Antigua's heat and elevation accelerate sweat loss. Within 30 min of finishing, hit your recovery window: ~25-30g protein (tofu works) plus carbs to refill glycogen. Train the gut now so race-day fueling is automatic."
+      "message": "You logged 5.62 hours of sleep last night at 88.8% efficiency—solid, but the 30-day average of 5.03h tells me sleep debt is real. Prioritize carbs today: aim for 6–7g per kg of body weight to top off glycogen before the weekend's long run. Time your biggest carb intake (oats, rice, pasta) within 2 hours post-run; add 20–25g protein. Skip the junk; you need nutrient density. If you're in transit, pack overnight oats and a nut-butter packet—airports and meetings will rob you of fuel if you're reactive."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "After an easy hilly effort, prioritize legs-elevated time and 10 minutes of calf, quad, and glute mobility — the descents load eccentrically even at easy pace. Hydrate aggressively given the altitude. You've got a full social day (dinner, chocolate making) so bank an early-ish wind-down and protect 7-8 hours of sleep tonight; aerobic adaptation is cemented in deep sleep, not on the trail."
+      "message": "Sleep is your limiting factor right now. Five-hour nights are below race prep minimum; aim for 7+ tonight. The Julian Alps 50K demands mental toughness at mile 30–40 when glycogen dips and fatigue stacks—sleep deprivation kills that reserve. Use the taper window to bank 30–60 minutes extra sleep for the next two weeks. If work travel is fragmenting your sleep, move non-critical meetings or decline late dinners. Your resting HR (62 bpm) and the recovery score (48) suggest you can handle today's easy run, but sleep is the non-negotiable lever right now."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Build Phase is where the race is quietly won — no single run feels heroic, but stacked weeks of honest Zone 2 are exactly what carries you up 2,500m of alpine vert in September. Today, practice patience: let easy be easy. The discipline to hold back now is the same discipline that keeps you composed at mile 25 in the Julian Alps. Steady is fast."
+      "message": "You're in the mental taper dip—energy is lower, doubt creeps in, and the distance (50K, 2,500m vert) feels heavier than it did at peak week. That's normal. Use these next 91 days to visualize the hardest sections: the long false summits, the sparse aid stations, the rocky descents in thin air. Walk the technical terrain with mental rehearsal during easy runs. By race day, your legs will have done the work; your mind needs the pre-recorded script. Talk to one teammate or training partner this week who has raced alpine ultras—borrowed confidence is real."
     }
   ]
 }

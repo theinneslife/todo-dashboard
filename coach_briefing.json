@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-18",
-  "generated_at": "2026-06-18T16:38:43.327679Z",
+  "generated": "2026-06-19",
+  "generated_at": "2026-06-19T13:30:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–7 miles, Z2 (130–140 bpm), flat or rolling terrain. You're in week 21 of taper with a recovery score of 62/100—moderate, not high. Your last three runs averaged 133–142 bpm, which is solid work, but Thursday's role is to flush legs and stay fresh for Saturday's long run. Keep it conversational. No hills, no tempo, no intervals. This is a shakeout day that maintains aerobic capacity without further stress."
+      "title": "Easy 8mi Hilly — Build Phase",
+      "message": "Calendar has you down for 8 miles on hilly terrain, ~1,500 ft of vert, all in Zone 2 (125-150 bpm, comfortably conversational). This is aerobic-building work, not a hammer session — if your HR drifts toward 160 on the climbs, hike them. Antigua sits at ~1,500m, so altitude will nudge your HR up a few beats; honor the zone by effort, not pace. Treat every climb as Julian Alps rehearsal: short, efficient steps, hands on quads, eyes up. You're 13 weeks out and squarely in Build — consistency over heroics today."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 6.18 hours last night—solid, but in taper you want 7–8 consistently to maximize adaptation and CNS recovery. Eat carbs at breakfast and lunch to top off glycogen; aim for 5–6g/kg bodyweight daily during taper to support the long run on Saturday. Today's easy run won't demand huge intra-run calories, but fuel breakfast well and hydrate steadily throughout the day. Poor sleep compounds fatigue; prioritize tonight's sleep over any \"extra\" training stimulus."
+      "message": "Eat a carb-forward breakfast 60-90 min before (your bananas/fruit/oats plan is perfect — aim ~60-80g carbs pre-run). At 8 miles you're near the threshold where intra-run fuel matters; if you'll be out past 75 min, take 30-40g carbs mid-run plus fluid with electrolytes — Antigua's heat and elevation accelerate sweat loss. Within 30 min of finishing, hit your recovery window: ~25-30g protein (tofu works) plus carbs to refill glycogen. Train the gut now so race-day fueling is automatic."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your 30-day sleep average is 4.83 hours—that's dangerously low for an ultra endurance athlete in peak training, even in taper. Last night's 6.18h is a step up, but you need to stabilize at 7–7.5h minimum through race week to consolidate VO2 max, VO2 kinetics, and injury resilience. Blackout room, no screens after 21:00, consistent bedtime. Resting HR at 60 bpm is solid; no signs of overtraining. Keep easy today to preserve sleep quality tonight."
+      "message": "After an easy hilly effort, prioritize legs-elevated time and 10 minutes of calf, quad, and glute mobility — the descents load eccentrically even at easy pace. Hydrate aggressively given the altitude. You've got a full social day (dinner, chocolate making) so bank an early-ish wind-down and protect 7-8 hours of sleep tonight; aerobic adaptation is cemented in deep sleep, not on the trail."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 92 days out from Julian Alps 50K with ~2,500m of vert—a serious alpine race that will break athletes who haven't trained specifically for sustained climbing. Taper anxiety is real, but the hard work is done. Use this week to mentally rehearse the course profile, test your nutrition strategy, and build confidence in your aerobic base. Your volume is dropping (19.1 mi this week vs 45 last week), which feels like \"detraining\"—it's not. You're sharpening. Trust the process; the mountains reward specificity and patience."
+      "message": "Build Phase is where the race is quietly won — no single run feels heroic, but stacked weeks of honest Zone 2 are exactly what carries you up 2,500m of alpine vert in September. Today, practice patience: let easy be easy. The discipline to hold back now is the same discipline that keeps you composed at mile 25 in the Julian Alps. Steady is fast."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-19",
-  "generated_at": "2026-06-19T16:10:43.078039Z",
+  "generated": "2026-06-20",
+  "generated_at": "2026-06-20T15:06:28.234066Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 6–7 miles, Z2 (130–140 bpm), rolling terrain if available but no structured vert work. You're 91 days out in full taper (week 21 of 22), and your recovery score sits at 48/100—moderate but not critical. Yesterday's 5-miler at 133 bpm was solid; today is a shakeout to keep the legs loose and the aerobic system engaged without accumulating fatigue. Hold back; the long run Saturday is where you'll find your signal. If you're traveling for work today, a hotel treadmill at easy effort is acceptable—maintain consistency, not intensity."
+      "message": "Saturday long run in taper: 12–14 miles with 1,200–1,400 ft of vert, all Z2 (140–145 bpm). You've logged 27.1 miles this week already; this caps your taper volume responsibly without backing off the alpine stimulus. Your recent runs show solid HR control at 133–142 bpm on hill work—stay disciplined in Z2 today and don't drift into tempo. The Julian Alps 50K's sparse aid and relentless vert demand you stay comfortable on tired legs; this long, steady mountain effort builds that durability without accumulation cost."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 5.62 hours of sleep last night at 88.8% efficiency—solid, but the 30-day average of 5.03h tells me sleep debt is real. Prioritize carbs today: aim for 6–7g per kg of body weight to top off glycogen before the weekend's long run. Time your biggest carb intake (oats, rice, pasta) within 2 hours post-run; add 20–25g protein. Skip the junk; you need nutrient density. If you're in transit, pack overnight oats and a nut-butter packet—airports and meetings will rob you of fuel if you're reactive."
+      "message": "Ingest 40–50g carbs per hour during this run (sports drink, gels, or rice balls—whatever you've tested at race effort). Your sleep efficiency is solid at 88.8%, but 5.62 hours is short; you're running a glycogen deficit. Front-load breakfast 2–3 hours pre-run with 80–100g carbs and 20g protein, then refuel aggressively post-run within 30 minutes (40g carbs + 15g protein) to support recovery in this final taper week. Hydration: 20–24 oz fluid per hour in the Slovenian heat you'll face in September."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your limiting factor right now. Five-hour nights are below race prep minimum; aim for 7+ tonight. The Julian Alps 50K demands mental toughness at mile 30–40 when glycogen dips and fatigue stacks—sleep deprivation kills that reserve. Use the taper window to bank 30–60 minutes extra sleep for the next two weeks. If work travel is fragmenting your sleep, move non-critical meetings or decline late dinners. Your resting HR (62 bpm) and the recovery score (48) suggest you can handle today's easy run, but sleep is the non-negotiable lever right now."
+      "message": "Your recovery score is 48/100 (moderate), which in taper usually signals accumulated fatigue—not alarm, but a clear signal to prioritize sleep and active recovery tomorrow. Tonight: aim for 7–8 hours (you're averaging 5.03h the past 30 days; that's not sustainable three weeks out). Ice bath or 10-minute cold plunge post-run if available; it'll blunt DOMS and support parasympathetic shift. Skip hard gym work; Sunday should be 4–6 easy miles or rest, nothing more."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the mental taper dip—energy is lower, doubt creeps in, and the distance (50K, 2,500m vert) feels heavier than it did at peak week. That's normal. Use these next 91 days to visualize the hardest sections: the long false summits, the sparse aid stations, the rocky descents in thin air. Walk the technical terrain with mental rehearsal during easy runs. By race day, your legs will have done the work; your mind needs the pre-recorded script. Talk to one teammate or training partner this week who has raced alpine ultras—borrowed confidence is real."
+      "message": "You're 90 days out and in taper—this is where doubt creeps in. Your training load has dropped correctly (45.1 miles last week to 27.1 this week), which feels like detraining but is the opposite. Trust the plan. You've built the durability and vertical tolerance; these final three weeks sharpen your nervous system and top off glycogen. Today's run is high-quality, not high-volume. Show up, execute Z2 discipline, and let the work compound. Slovenia's waiting."
     }
   ]
 }

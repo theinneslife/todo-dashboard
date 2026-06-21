@@ -1,11 +1,20 @@
 {
-  "generated": "2026-06-21T17:47:58.206720Z",
-  "weekly_miles": 27.1,
-  "total_elevation_feet": 2385,
+  "generated": "2026-06-21T19:53:34.766533Z",
+  "weekly_miles": 49.1,
+  "total_elevation_feet": 6030,
   "last_week_miles": 45.1,
   "last_week_elevation_feet": 3192,
   "last_week_sessions": 6,
   "recent_runs": [
+    {
+      "name": "Morning Run",
+      "date": "2026-06-21",
+      "miles": 22.01,
+      "elevation_feet": 3645,
+      "duration": 17148,
+      "avg_hr": 133,
+      "max_hr": 163
+    },
     {
       "name": "Recovery: Elevation Day",
       "date": "2026-06-19",

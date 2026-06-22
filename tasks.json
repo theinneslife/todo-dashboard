@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Whoop\nStarlink\nUnderwear\nSocks",
+    "description": "Whoop\nStarlink\nUnderwear\nSocks\nhiking poles\ntoe socks\nrunning food (the feed?)\nToe blister stuff\nSecond Skin",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -75,6 +75,12 @@
       },
       {
         "timestamp": "2026-06-22T19:02:36.714Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-22T19:05:01.425Z",
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"

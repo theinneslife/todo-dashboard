@@ -1691,7 +1691,7 @@
     "title": "Buy hiking poles",
     "description": "From shopping list mentioned in voice note.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai",
@@ -1712,10 +1712,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to shopping"
+      },
+      {
+        "timestamp": "2026-06-22T18:00:03.183Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-19T18:18:27.862Z",
-    "completed_at": null,
+    "completed_at": "2026-06-22T18:00:03.183Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

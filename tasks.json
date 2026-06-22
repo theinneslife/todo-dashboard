@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Deodorant\nWhoop\nStarlink\nBreath Right Strips\nHair Wax\nCologne\nUnderwear\nSocks",
+    "description": "Whoop\nStarlink\nUnderwear\nSocks",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -69,6 +69,12 @@
       },
       {
         "timestamp": "2026-06-09T16:05:21.265Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-22T19:02:36.714Z",
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"

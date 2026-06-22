@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-21",
-  "generated_at": "2026-06-21T15:13:43.613953Z",
+  "generated": "2026-06-22",
+  "generated_at": "2026-06-22T14:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 (130–140 bpm), rolling terrain if available but nothing steep. You're in week 21 taper with 89 days to race—this is about maintaining aerobic base and legs while your CNS recovers from peak phase. Your last three runs averaged 133–142 bpm; dial it back today. Recovery score is 89/100 and resting HR stable at 61, so you have capacity, but respect the taper protocol: lower volume, lower intensity. Sunday is your second long-effort slot this week, but in taper weeks, that means easy, not structured."
+      "title": "Back-to-Back Day 2 — 11 mi",
+      "message": "This is the money session: 11 miles on legs that are already trashed from yesterday. Keep it strictly easy, Zone 1-2 (cap HR near 138, well under your 165 LTHR). On every uphill, power hike — no running the climbs today. That's exactly how you'll move through the Julian Alps' 2,500m of vert. Target the ~1,500ft of gain on tired legs and treat it as your mile-25+ rehearsal. You'll feel rough early; settle in and keep moving. Antigua sits near 1,500m, so the thinner air is a free altitude bonus — respect it and don't chase pace."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 9.21h with 96.4% efficiency Friday night—excellent, but don't treat that as the norm given your travel schedule and 5.86h 30-day average. Before today's run, eat a light carb dose (banana + coffee) 30–45 min prior; post-run, hit 30–40g carbs + 15–20g protein within 30 min to begin glycogen restock. At 50K altitude and sparse aid, your gut needs to handle 60g carbs/hour during the race; easy runs are not the time to practice fueling, but maintain daily carb intake at 6–8g/kg body weight to support recovery and VO₂ adaptation."
+      "message": "Glycogen is depleted from yesterday, so prime before you go: 40-60g carbs an hour out (banana + toast or a gel with coffee). On the run, take 60-80g carbs/hr from the first 30 min — don't wait to feel low. This is gut training as much as leg training, so practice the exact products you'll race in Slovenia. Within 30 min of finishing: 25-30g protein plus carbs (3:1 carb:protein) to slam the recovery window shut."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep 8–9 hours tonight; you banked it Friday, but taper is where adaptation happens in bed, not on the trails. Your 30-day sleep average of 5.86h is unsustainable and will blunt your race-day readiness—non-negotiable: prioritize 7.5–8h minimum for the next 11 weeks, especially travel nights. Use foam roll / lacrosse ball on calves and feet (60 sec each leg) post-run and before bed. No sauna, no ice bath; active recovery only (easy walking, light mobility)."
+      "message": "After a B2B block, prioritize getting horizontal and legs up for 10-15 min once you're refueled. Rehydrate with electrolytes — Guatemala heat plus altitude will have cost you more sodium than it feels like. Easy mobility for hips and calves, light foam roll on quads, and aim for 8+ hours of sleep tonight. The adaptation from this block banks over the next 48 hours, so guard your sleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 89 days from a 2,500m vert alpine race with sparse aid and technical ground—that demands respect and specificity, not fatigue. Taper anxiety is real; resisting the urge to add a hard session or extra miles now is the hardest mental work you'll do. Review your race plan this week: aid station fueling strategy, expected time cutoffs per section, altitude acclimatization (when do you arrive in Kranjska Gora?), and shoe/gear logistics. Mental edge in taper is logistics clarity and sleep debt paydown, not more grit."
+      "message": "Week 10 of 22, 87 days out — you're in the thick of the Build, and this is the work that makes the back half of a 50K feel survivable. The discomfort you'll feel around mile 6 today is the same discomfort you'll meet at km 35 in the Alps. Practice the response now: shoulders down, shorten the stride, keep the feet moving. You're not training to feel good — you're training to keep going when you don't."
     }
   ]
 }

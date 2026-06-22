@@ -1805,6 +1805,18 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-22T17:58:11.593Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
+      },
+      {
+        "timestamp": "2026-06-22T17:58:11.693Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task reopened"
       }
     ],
     "created_at": "2026-06-22T17:41:41.554Z",

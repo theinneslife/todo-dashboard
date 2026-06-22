@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-22T17:43:52.821244Z",
+  "generated": "2026-06-22T20:56:52.367579Z",
   "weekly_miles": 9.2,
   "total_elevation_feet": 1542,
   "last_week_miles": 49.1,
@@ -356,15 +356,6 @@
       "duration": 3085,
       "avg_hr": 131,
       "max_hr": 161
-    },
-    {
-      "name": "Lunch Run",
-      "date": "2026-04-23",
-      "miles": 6.05,
-      "elevation_feet": 249,
-      "duration": 3567,
-      "avg_hr": 143,
-      "max_hr": 164
     }
   ]
 }

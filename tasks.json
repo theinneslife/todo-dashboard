@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Deodorant\nWhoop\nStarlink\nBreath Right Strips\nHair Wax\nCologne\nUnderwear\nSocks\nMorocon oil shampoo and hair cream\nElectrolytes",
+    "description": "Deodorant\nWhoop\nStarlink\nBreath Right Strips\nHair Wax\nCologne\nUnderwear\nSocks\nMorocon oil shampoo and hair cream\nElectrolytes\nToe Socks\nUltra Poles\nToothpaste",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -75,6 +75,12 @@
       },
       {
         "timestamp": "2026-06-11T17:44:33.437Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-22T17:57:54.377Z",
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"

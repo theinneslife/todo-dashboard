@@ -2,7 +2,7 @@
   {
     "id": "shopping-list-001",
     "title": "Shopping List",
-    "description": "Deodorant\nWhoop\nStarlink\nBreath Right Strips\nHair Wax\nCologne\nUnderwear\nSocks\nMorocon oil shampoo and hair cream\nElectrolytes\nToe Socks\nUltra Poles\nToothpaste\nQ Tips\nBody Gel\nShaving Cream\nlotion\n2nd Skin\nBlister Treatment",
+    "description": "Deodorant\nWhoop\nStarlink\nBreath Right Strips\nHair Wax\nCologne\nUnderwear\nSocks",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -69,36 +69,6 @@
       },
       {
         "timestamp": "2026-06-09T16:05:21.265Z",
-        "action": "edited",
-        "by": "Christopher",
-        "details": "Task details updated"
-      },
-      {
-        "timestamp": "2026-06-11T17:44:33.437Z",
-        "action": "edited",
-        "by": "Christopher",
-        "details": "Task details updated"
-      },
-      {
-        "timestamp": "2026-06-22T17:57:54.377Z",
-        "action": "edited",
-        "by": "Christopher",
-        "details": "Task details updated"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:33.858Z",
-        "action": "edited",
-        "by": "Christopher",
-        "details": "Task details updated"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:54.801Z",
-        "action": "edited",
-        "by": "Christopher",
-        "details": "Task details updated"
-      },
-      {
-        "timestamp": "2026-06-22T17:59:49.066Z",
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"
@@ -860,7 +830,7 @@
   {
     "id": "667143a8-3130-4356-8979-e5b4ccedbd3b",
     "title": "Net Revenue Lifting Acquisitions",
-    "description": "TBD — reviewing companies that can lift net revenue",
+    "description": "TBD \u2014 reviewing companies that can lift net revenue",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
@@ -890,14 +860,12 @@
   },
   {
     "id": "8009c0ce-18c3-4bf3-8c53-f74cfebe4b95",
-    "title": "General Catalyst — Fund % of marketing in exchange for % of future revenues",
+    "title": "General Catalyst \u2014 Fund % of marketing in exchange for % of future revenues",
     "description": "Fund % of MNTN marketing in exchange for % of future revenues.",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
-    "labels": [
-      "Parking Lot"
-    ],
+    "labels": [],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
@@ -914,12 +882,74 @@
         "action": "created",
         "by": "Christopher",
         "details": "Task created"
-      },
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "f99be3a9-e971-4f9a-8c0f-f4708a05360d",
+    "title": "MNTN Board Meeting reminder \u2014 Q2 (July 28)",
+    "description": "Q2 MNTN Quarterly Board Meeting is 45 days away (July 28, 2026 at Goodwin Procter LLP, NYC). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by June 28).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-06-13",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [
       {
-        "timestamp": "2026-06-17T17:37:33.761Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to parking"
+        "by": "Christopher",
+        "text": "Board meeting July 28. Need to schedule 30-day pre-call with Mark, Patrick, Ashley Graham by June 28.",
+        "timestamp": "2026-06-02T00:00:00.000Z"
+      }
+    ],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-02T00:00:00.000Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": [],
+    "pinned": true
+  },
+  {
+    "id": "9730ce65-08cc-41af-bb7f-f34fc0a5a425",
+    "title": "Schedule pre-board call \u2014 Mark, Patrick, Ashley Graham (Q2)",
+    "description": "Schedule 30-day pre-board alignment call with Mark (mark@mountain.com), Patrick (patrick@mountain.com), and Ashley Graham before the Q2 MNTN Board Meeting (July 28, 2026).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": "2026-06-28",
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-02T00:00:00.000Z",
+        "action": "created",
+        "by": "Christopher",
+        "details": "Task created"
       }
     ],
     "created_at": "2026-06-02T00:00:00.000Z",
@@ -935,10 +965,10 @@
   },
   {
     "id": "6e5c698f-dbe9-463d-a949-524574555dc7",
-    "title": "MNTN Board Meeting reminder — Q3 (Oct 27)",
+    "title": "MNTN Board Meeting reminder \u2014 Q3 (Oct 27)",
     "description": "Q3 MNTN Quarterly Board Meeting is 45 days away (October 27, 2026 at Latham & Watkins, Century City). Begin prep. Schedule pre-board alignment call with Mark, Patrick, and Ashley Graham 30 days before (by September 27).",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": "2026-09-12",
@@ -951,16 +981,10 @@
         "action": "created",
         "by": "Christopher",
         "details": "Task created"
-      },
-      {
-        "timestamp": "2026-06-22T16:30:01.066Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to completed"
       }
     ],
     "created_at": "2026-06-02T00:00:00.000Z",
-    "completed_at": "2026-06-22T16:30:01.066Z",
+    "completed_at": null,
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -972,10 +996,10 @@
   },
   {
     "id": "46d70aa3-c61a-4dd7-baf6-9e99bfd32ae0",
-    "title": "Schedule pre-board call — Mark, Patrick, Ashley Graham (Q3)",
+    "title": "Schedule pre-board call \u2014 Mark, Patrick, Ashley Graham (Q3)",
     "description": "Schedule 30-day pre-board alignment call with Mark, Patrick, and Ashley Graham before the Q3 MNTN Board Meeting (October 27, 2026).",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": "2026-09-27",
@@ -988,16 +1012,10 @@
         "action": "created",
         "by": "Christopher",
         "details": "Task created"
-      },
-      {
-        "timestamp": "2026-06-22T16:30:09.282Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to completed"
       }
     ],
     "created_at": "2026-06-02T00:00:00.000Z",
-    "completed_at": "2026-06-22T16:30:09.282Z",
+    "completed_at": null,
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -1005,6 +1023,41 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
+    "pinned": false
+  },
+  {
+    "id": "ba13ec0a-00b7-4df6-877f-1175af8c5a59",
+    "title": "Draft Bytedance contract for Mountain as UK entity",
+    "description": "Mountain needs an agreement as a UK entity with ByteDance to be able to sign an agreement for Quick Frame AI.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-01T21:05:52.732Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-01T21:05:52.732Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
     "pinned": false
   },
   {
@@ -1063,6 +1116,48 @@
     "start_date": null,
     "category": null,
     "effort": null
+  },
+  {
+    "id": "00c47341-7450-45c9-ad5c-0b733774e71a",
+    "title": "Buy electrolytes",
+    "description": "Add electrolytes to the shopping list as mentioned in voice note.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai",
+      "Shopping"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-06T16:27:39.836Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-08T17:22:58.883Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to shopping"
+      }
+    ],
+    "created_at": "2026-06-06T16:27:39.836Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   },
   {
     "id": "7036d956-6cec-47a1-b4c6-b48d6ee34d0c",
@@ -1197,6 +1292,48 @@
     "collaborators": []
   },
   {
+    "id": "3f0bd957-4f3b-498a-96fa-d5935023296c",
+    "title": "Negotiate Bytedance Contract",
+    "description": "50 concurrency limit for the next couple weeks. \n70k min\n\n\nVAT 2-6 weeks, bank account",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-08T19:01:25.179Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      },
+      {
+        "timestamp": "2026-06-09T16:43:05.560Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-09T16:43:15.742Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task details updated"
+      }
+    ],
+    "created_at": "2026-06-08T19:01:25.179Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
+  },
+  {
     "id": "fb245e42-b262-4477-96c2-469e82e6508d",
     "title": "Start the process for a new passport",
     "description": "Begin the passport application or renewal process as mentioned in the recording.",
@@ -1250,6 +1387,12 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-11T17:19:52.460108+00:00",
+        "action": "comment",
+        "by": "Christopher",
+        "details": "Talked to Beeswax. There is definitely a path to extend into 2027 and lower our rate now. It would likely require our volume to mirror balloon payments on a mortgage. The entire team is headed to Cannes tomorrow and they will get back to me with a proposal in 2 weeks once they are back. We will review and decide what path we want to take."
       }
     ],
     "created_at": "2026-06-08T22:39:38.806Z",
@@ -1302,8 +1445,8 @@
     "pinned": false
   },
   {
-    "id": "5c1d5a02-c473-498c-b922-a1e8efb45af3",
-    "title": "reach out to anthropic",
+    "id": "b1121fa2-afa5-4809-8874-d9076bb11349",
+    "title": "Get data on MNTN Matched usage from Paulo and Kale",
     "description": "",
     "priority": 1,
     "status": "pending",
@@ -1315,13 +1458,13 @@
     "comments": [],
     "activity_log": [
       {
-        "timestamp": "2026-06-10T20:01:21.311Z",
+        "timestamp": "2026-06-09T17:50:42.953Z",
         "action": "created",
         "by": "System",
         "details": "Task created"
       }
     ],
-    "created_at": "2026-06-10T20:01:21.311Z",
+    "created_at": "2026-06-09T17:50:42.953Z",
     "completed_at": null,
     "completion_notes": null,
     "project": null,
@@ -1332,14 +1475,14 @@
     "collaborators": []
   },
   {
-    "id": "26ac77e3-8a50-4c3a-8f14-282cee367ead",
-    "title": "Get a deal with doubleverify to validate our inventory",
-    "description": "",
+    "id": "ca32d309-f227-4bc1-ba71-5dae06fa8ec0",
+    "title": "Project Dawn \u2014 acquisition review",
+    "description": "Inbound acquisition interest. Review opportunity and determine next steps.",
     "priority": 1,
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "Parking Lot"
+      "corp-dev"
     ],
     "due_date": null,
     "recurrence": null,
@@ -1347,19 +1490,13 @@
     "comments": [],
     "activity_log": [
       {
-        "timestamp": "2026-06-10T20:35:44.531Z",
+        "timestamp": "2026-06-11T18:33:14.424661+00:00",
         "action": "created",
-        "by": "System",
+        "by": "Pace",
         "details": "Task created"
-      },
-      {
-        "timestamp": "2026-06-22T16:28:58.100Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to parking"
       }
     ],
-    "created_at": "2026-06-10T20:35:44.531Z",
+    "created_at": "2026-06-11T18:33:14.424661+00:00",
     "completed_at": null,
     "completion_notes": null,
     "project": null,
@@ -1368,724 +1505,5 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
-  },
-  {
-    "id": "6de16646-92fe-4641-ac1c-615f84ee39cb",
-    "title": "Review Mateo's OKRs",
-    "description": "Review Mateo's OKRs as mentioned in voice note titled 'Chichen Itza'.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": "2026-06-13",
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-12T20:58:16.957Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Chichen itza"
-      }
-    ],
-    "created_at": "2026-06-12T20:58:16.957Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "747cbb8d-5d63-4d28-b20f-f0090a6eb92d",
-    "title": "okr targets",
-    "description": "",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-15T18:49:49.729Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-06-15T18:49:49.729Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "ebeec86c-92a9-4573-bea6-f6d9ea1039d5",
-    "title": "mahooya target - how to take money in the company and invest it in the org",
-    "description": "",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-15T21:14:01.714Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-06-15T21:14:01.714Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "00be007c-192e-4bfa-be22-d3f31a5559c4",
-    "title": "Schedule management presentation with Tatari",
-    "description": "Set up the management presentation with Tatari as soon as possible.",
-    "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": "2026-06-16",
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-16T02:54:07.121Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-17T17:37:06.124Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-16T02:54:07.121Z",
-    "completed_at": "2026-06-17T17:37:06.124Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "7801aabb-c021-40c2-af52-22f805351cf8",
-    "title": "Show more affection and reduce tech/screen time",
-    "description": "Personal reminder to be more affectionate and cut back on technology use. From voice note recorded on 2026-06-16.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Relationships"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-16T13:19:55.509Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-16T16:08:12.814Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to relationships"
-      }
-    ],
-    "created_at": "2026-06-16T13:19:55.509Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "cebe3841-2b04-4d4c-9829-cb0af9279126",
-    "title": "Buy Brooke a matching PJ set for Christmas",
-    "description": "Brooke likes matching pajama sets with shorts, tank top, long pants, and long sleeve shirt. Silk is nice but comfort and cuteness are the priority. Consider the brand Slope or similar.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": "2026-12-20",
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-16T15:03:58.366Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-16T16:07:40.766Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      }
-    ],
-    "created_at": "2026-06-16T15:03:58.366Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "0eaf79bb-516d-406d-93c3-905f43e4a894",
-    "title": "Donate to mark's charity",
-    "description": "https://withjoy.com/taylor-and-mark-oct-2026/page/registry-eadr?afsrc=1&irclickid=wdGUil1aMxyZTMs3wJ1-Ox85UkuTHwXPmwDWTo0&irgwc=1&utm_campaign=wedding&utm_content=Skimbit%20Ltd.&utm_medium=affiliate&utm_source=impactradius",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-16T16:22:01.286Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-06-16T16:22:01.286Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "3513b0a5-2f08-4573-b607-d786b8a427e6",
-    "title": "update travelflo for new york trip",
-    "description": "",
-    "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-17T14:52:49.640Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      },
-      {
-        "timestamp": "2026-06-17T17:42:14.940Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-17T14:52:49.640Z",
-    "completed_at": "2026-06-17T17:42:14.940Z",
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": [],
-    "pinned": false
-  },
-  {
-    "id": "f5ba8fdc-3f34-4776-ae75-b864791b49ce",
-    "title": "1:1s next week",
-    "description": "",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-17T16:48:48.940Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-06-17T16:48:48.940Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "8f521dc2-2c0e-4692-8747-b24ea0fcabc3",
-    "title": "Buy hiking poles",
-    "description": "From shopping list mentioned in voice note.",
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-19T18:18:27.862Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T16:28:44.652Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      },
-      {
-        "timestamp": "2026-06-22T18:00:03.183Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-19T18:18:27.862Z",
-    "completed_at": "2026-06-22T18:00:03.183Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "9ab0f3bb-c7b2-4987-8885-2154999e022a",
-    "title": "Buy Q-tips",
-    "description": "From shopping list recorded on June 22.",
-    "priority": 3,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:41:41.554Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:38.876Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:41:41.554Z",
-    "completed_at": "2026-06-22T17:58:38.876Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "d1102531-8ed7-4fe1-be6e-f958e2bd8e6e",
-    "title": "Buy shampoo",
-    "description": "From shopping list recorded on June 22.",
-    "priority": 3,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:41:41.554Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:07.760Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:41:41.554Z",
-    "completed_at": "2026-06-22T17:58:07.760Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "866ed149-fe97-4e86-b47a-eda742513f4c",
-    "title": "Buy conditioner",
-    "description": "From shopping list recorded on June 22.",
-    "priority": 3,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:41:41.554Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:11.593Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:11.693Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task reopened"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:42.258Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:41:41.554Z",
-    "completed_at": "2026-06-22T17:58:42.258Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "d5375e71-8296-4813-967a-f8dc28322fb1",
-    "title": "Buy body gel",
-    "description": "From shopping list recorded on June 22.",
-    "priority": 3,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:41:41.554Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:45.042Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:41:41.554Z",
-    "completed_at": "2026-06-22T17:58:45.042Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "c5a88abf-d35a-40b7-8ae0-adceda1d846b",
-    "title": "Buy lotion",
-    "description": "From shopping list recorded on June 22.",
-    "priority": 3,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:41:41.554Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:59:02.962Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:41:41.554Z",
-    "completed_at": "2026-06-22T17:59:02.962Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "622ecc14-36f3-43a2-90e4-20ad92aa1580",
-    "title": "Buy Second Skin for blisters",
-    "description": "Shopping list item: second skin blister treatment.",
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:42:56.946Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:57:02.837Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      },
-      {
-        "timestamp": "2026-06-22T17:59:55.317Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:42:56.946Z",
-    "completed_at": "2026-06-22T17:59:55.317Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "afb79e13-7820-40ac-bbd2-afcdc9e68c8a",
-    "title": "Buy toe blister band aids",
-    "description": "Shopping list item: band aids specifically for toe blisters.",
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:42:56.946Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:57:09.436Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      },
-      {
-        "timestamp": "2026-06-22T17:59:59.050Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:42:56.946Z",
-    "completed_at": "2026-06-22T17:59:59.050Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "b682bbd4-7af2-4c21-92cd-5b9497c1ae8a",
-    "title": "Buy toe socks",
-    "description": "Shopping list item: toe socks, likely to help prevent toe blisters.",
-    "priority": 2,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [
-      "otter-ai"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-06-22T17:42:56.946Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-06-22T17:58:01.680Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to completed"
-      }
-    ],
-    "created_at": "2026-06-22T17:42:56.946Z",
-    "completed_at": "2026-06-22T17:58:01.680Z",
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
   }
 ]

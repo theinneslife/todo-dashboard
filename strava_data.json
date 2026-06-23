@@ -1,11 +1,20 @@
 {
-  "generated": "2026-06-23T12:41:25.468901Z",
-  "weekly_miles": 9.2,
-  "total_elevation_feet": 1542,
+  "generated": "2026-06-23T15:55:59.022619Z",
+  "weekly_miles": 11.2,
+  "total_elevation_feet": 1608,
   "last_week_miles": 49.1,
   "last_week_elevation_feet": 6030,
   "last_week_sessions": 5,
   "recent_runs": [
+    {
+      "name": "Easy day",
+      "date": "2026-06-23",
+      "miles": 2.01,
+      "elevation_feet": 66,
+      "duration": 1293,
+      "avg_hr": 134,
+      "max_hr": 148
+    },
     {
       "name": "Back to back run",
       "date": "2026-06-22",
@@ -347,15 +356,6 @@
       "duration": 2700,
       "avg_hr": 0,
       "max_hr": 0
-    },
-    {
-      "name": "Morning Run",
-      "date": "2026-04-24",
-      "miles": 5.01,
-      "elevation_feet": 128,
-      "duration": 3085,
-      "avg_hr": 131,
-      "max_hr": 161
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-22",
-  "generated_at": "2026-06-22T14:00:00Z",
+  "generated": "2026-06-23",
+  "generated_at": "2026-06-23T15:56:31.373084Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Back-to-Back Day 2 — 11 mi",
-      "message": "This is the money session: 11 miles on legs that are already trashed from yesterday. Keep it strictly easy, Zone 1-2 (cap HR near 138, well under your 165 LTHR). On every uphill, power hike — no running the climbs today. That's exactly how you'll move through the Julian Alps' 2,500m of vert. Target the ~1,500ft of gain on tired legs and treat it as your mile-25+ rehearsal. You'll feel rough early; settle in and keep moving. Antigua sits near 1,500m, so the thinner air is a free altitude bonus — respect it and don't chase pace."
+      "title": "Today's Run",
+      "message": "You're 87 days out and in Week 22 taper—this is a sharpness day, not a volume day. Target 6–8 miles at Z2 (130–145 bpm based on your recent runs) with 4–6 × 90-second pickups at 10K pace embedded in the final third. Your RHR is creeping up 2.6 bpm from 30-day average (64 vs. 61.4), which suggests you're still carrying fatigue despite the reduced volume this week; the pickups should feel controlled, not hard. Skip this if you feel flat; a second easy 3-miler instead keeps you sharp without digging the hole deeper."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Glycogen is depleted from yesterday, so prime before you go: 40-60g carbs an hour out (banana + toast or a gel with coffee). On the run, take 60-80g carbs/hr from the first 30 min — don't wait to feel low. This is gut training as much as leg training, so practice the exact products you'll race in Slovenia. Within 30 min of finishing: 25-30g protein plus carbs (3:1 carb:protein) to slam the recovery window shut."
+      "message": "You're at 11.2 miles for the week with a light load ahead—this is not the time to under-eat. Aim for 2.8–3.2 g carbs per kg body weight daily (assuming ~80kg, that's 225–250g), distributed across 4–5 meals to support glycogen repletion and central nervous system recovery. Your sleep last night was exceptional (8.97h @ 94.7% efficiency), so capitalize on that; prioritize 30–40g protein within 30 min post-run and a carb-forward dinner (rice, pasta, potatoes) to lock in adaptation. If travel is in the mix this week, pre-load carbs the day before departure."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "After a B2B block, prioritize getting horizontal and legs up for 10-15 min once you're refueled. Rehydrate with electrolytes — Guatemala heat plus altitude will have cost you more sodium than it feels like. Easy mobility for hips and calves, light foam roll on quads, and aim for 8+ hours of sleep tonight. The adaptation from this block banks over the next 48 hours, so guard your sleep."
+      "message": "Your recovery score of 76 is solid and sleep was elite last night—maintain that discipline. Aim for 8–9 hours again tonight; avoid screens after 10 pm and keep your bedroom cool (65–68°F ideally). Your RHR elevation warrants 10–15 min of easy walking or foam rolling on the lower legs and hips this evening, not aggressive soft-tissue work. With no HRV data available, use RPE and that elevated RHR as your guide: if you feel sluggish or your HR is above 65 bpm at rest tomorrow morning, shift Wednesday's hill work to an easy run instead."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Week 10 of 22, 87 days out — you're in the thick of the Build, and this is the work that makes the back half of a 50K feel survivable. The discomfort you'll feel around mile 6 today is the same discomfort you'll meet at km 35 in the Alps. Practice the response now: shoulders down, shorten the stride, keep the feet moving. You're not training to feel good — you're training to keep going when you don't."
+      "message": "You're 12 weeks from Kranjska Gora and the taper phase is as much mental as physical—this is where doubt creeps in because the hard work is done. Reframe: your aerobic base is locked in, your vert legs are adapted, and the next 87 days are about arriving fresh and nervous, not broken. Use this week's reduced volume to visualize the race: the cold start on the climb, the aid stations at km 15 and 32, the final push in thin air. Your travels for work are actually an asset here—use transition time to mental-rehearse one section per flight."
     }
   ]
 }

@@ -1566,5 +1566,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "fbf58988-2b30-436d-804b-c7015a6e9ade",
+    "title": "bytedance - VAT",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-23T17:16:14.083Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-23T17:16:14.083Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

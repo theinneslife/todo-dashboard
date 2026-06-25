@@ -1,19 +1,28 @@
 {
-  "generated": "2026-06-25T02:58:36.183439Z",
-  "rolling_7d_miles": 46.3,
-  "prior_7d_miles": 37.0,
-  "rolling_7d_elevation": 6635,
-  "prior_7d_elevation": 3654,
-  "rolling_7d_sessions": 5,
+  "generated": "2026-06-25T12:58:35.031080Z",
+  "rolling_7d_miles": 56.7,
+  "prior_7d_miles": 37.1,
+  "rolling_7d_elevation": 11493,
+  "prior_7d_elevation": 3602,
+  "rolling_7d_sessions": 6,
   "prior_7d_sessions": 5,
-  "long_run_30d": 22.0,
-  "prior_long_run_30d": 11.8,
-  "weekly_miles": 11.2,
-  "total_elevation_feet": 1608,
-  "last_week_miles": 49.1,
-  "last_week_elevation_feet": 6031,
-  "last_week_sessions": 5,
+  "long_run_30d": 22.01,
+  "prior_long_run_30d": 11.78,
+  "weekly_miles": 23.2,
+  "total_elevation_feet": 5440,
+  "last_week_miles": 52.5,
+  "last_week_elevation_feet": 7123,
+  "last_week_sessions": 6,
   "recent_runs": [
+    {
+      "name": "Lunch Run",
+      "date": "2026-06-24",
+      "miles": 12.02,
+      "elevation_feet": 3832,
+      "duration": 10940,
+      "avg_hr": 141,
+      "max_hr": 170
+    },
     {
       "name": "Easy day",
       "date": "2026-06-23",
@@ -40,6 +49,15 @@
       "duration": 17148,
       "avg_hr": 133,
       "max_hr": 163
+    },
+    {
+      "name": "Morning Hike",
+      "date": "2026-06-20",
+      "miles": 3.45,
+      "elevation_feet": 1093,
+      "duration": 6440,
+      "avg_hr": 96,
+      "max_hr": 118
     },
     {
       "name": "Recovery: Elevation Day",
@@ -328,6 +346,15 @@
       "duration": 7422,
       "avg_hr": 145,
       "max_hr": 180
+    },
+    {
+      "name": "Lunch Hike",
+      "date": "2026-05-09",
+      "miles": 3.33,
+      "elevation_feet": 781,
+      "duration": 6699,
+      "avg_hr": 96,
+      "max_hr": 136
     },
     {
       "name": "Morning Trail Run",

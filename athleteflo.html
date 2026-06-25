@@ -1723,7 +1723,7 @@
           <path d="M112 33Q128 28 146 33" stroke="url(#af-g)" stroke-width="2" fill="none" opacity=".8"/>
         </svg>
       </a>
-      <span class="version-badge">v1.8</span>
+      <span class="version-badge">v1.9</span>
       <button class="sync-btn" id="sync-btn" onclick="syncNow()" title="Re-fetch coach briefing & recompute date-based fields">
         <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
         <span id="sync-btn-label">Sync Now</span>
@@ -3523,15 +3523,19 @@ function buildNutritionSeries() {
     let row;
     // If the pipeline exported macros but left calories=0 (Cronometer/HAE sync gap),
     // compute an estimate so the chart doesn't show a false zero.
-    const computedCals = real
-      ? (nNum(real.calories) > 0
-          ? nNum(real.calories)
-          : Math.round(nNum(real.protein_g) * 4 + nNum(real.carbs_g) * 4 + nNum(real.fat_g) * 9))
+    const realCals = real ? nNum(real.calories) : 0;
+    const macroEstCals = real
+      ? Math.round(nNum(real.protein_g) * 4 + nNum(real.carbs_g) * 4 + nNum(real.fat_g) * 9)
       : 0;
+    // Use actual calories when > 0; fall back to Atwater macro estimate when HAE exports macros but not calories
+    const computedCals = real
+      ? (realCals > 0 ? realCals : macroEstCals)
+      : 0;
+    const isCalEstimated = real && realCals === 0 && macroEstCals > 50;
     const hasRealNutrition = real && computedCals > 50;
     if (hasRealNutrition) {
       row = {
-        date: key, _real: true, tss,
+        date: key, _real: true, _estimated: isCalEstimated, tss,
         calories: computedCals, protein_g: nNum(real.protein_g),
         carbs_g: nNum(real.carbs_g), fat_g: nNum(real.fat_g),
         fiber_g: nNum(real.fiber_g), water_ml: nNum(real.water_ml),
@@ -3627,9 +3631,13 @@ function drawFuelChart(series) {
       plugins: {
         legend: { display: false },
         tooltip: { ...N_TT, callbacks: {
-          label: c => c.dataset.label === 'TSS'
-            ? `TSS: ${c.parsed.y}`
-            : `Calories: ${c.parsed.y.toLocaleString('en-US')}`,
+          label: c => {
+            if (c.dataset.label === 'TSS') return `TSS: ${c.parsed.y}`;
+            const r = series[c.dataIndex];
+            const prefix = r && r._estimated ? '~' : '';
+            const suffix = r && r._estimated ? ' est.' : '';
+            return `${prefix}Calories: ${c.parsed.y.toLocaleString('en-US')}${suffix}`;
+          },
         } },
       },
       scales: {
@@ -3664,8 +3672,11 @@ function buildMacroCalGrid(series) {
   const cls = { carb: 'mc-carb', protein: 'mc-protein', fat: 'mc-fat', none: 'mc-none' };
   grid.innerHTML = series.map(r => {
     const k = classifyMacroDay(r);
+    const calLabel = r.calories > 0
+      ? (r._estimated ? `~${Math.round(r.calories).toLocaleString('en-US')} kcal est.` : `${Math.round(r.calories).toLocaleString('en-US')} kcal`)
+      : null;
     const title = r.calories > 0
-      ? `${nMonthDay(r.date)} · ${Math.round(r.carbs_g)}C / ${Math.round(r.protein_g)}P / ${Math.round(r.fat_g)}F`
+      ? `${nMonthDay(r.date)} · ${Math.round(r.carbs_g)}C / ${Math.round(r.protein_g)}P / ${Math.round(r.fat_g)}F${calLabel ? ' · ' + calLabel : ''}`
       : `${nMonthDay(r.date)} · no data`;
     return `<div class="macro-cal-cell ${cls[k]}" title="${title}"></div>`;
   }).join('');

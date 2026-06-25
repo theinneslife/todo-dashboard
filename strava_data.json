@@ -1,20 +1,19 @@
 {
-  "generated": "2026-06-25T11:44:56.797448Z",
-  "weekly_miles": 23.2,
-  "total_elevation_feet": 5440,
+  "generated": "2026-06-25T02:58:36.183439Z",
+  "rolling_7d_miles": 46.3,
+  "prior_7d_miles": 37.0,
+  "rolling_7d_elevation": 6635,
+  "prior_7d_elevation": 3654,
+  "rolling_7d_sessions": 5,
+  "prior_7d_sessions": 5,
+  "long_run_30d": 22.0,
+  "prior_long_run_30d": 11.8,
+  "weekly_miles": 11.2,
+  "total_elevation_feet": 1608,
   "last_week_miles": 49.1,
-  "last_week_elevation_feet": 6030,
+  "last_week_elevation_feet": 6031,
   "last_week_sessions": 5,
   "recent_runs": [
-    {
-      "name": "Lunch Run",
-      "date": "2026-06-24",
-      "miles": 12.02,
-      "elevation_feet": 3832,
-      "duration": 10940,
-      "avg_hr": 141,
-      "max_hr": 170
-    },
     {
       "name": "Easy day",
       "date": "2026-06-23",

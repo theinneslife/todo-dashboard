@@ -513,6 +513,32 @@
       margin-left: auto;
     }
 
+    /* Planned session pulled from the Google Calendar training plan */
+    .coach-planned {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      margin: 0.25rem 0 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(96, 165, 250, 0.08);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      border-radius: 8px;
+      color: var(--text-secondary);
+    }
+    .coach-planned-label {
+      font-weight: 700;
+      color: var(--accent-blue);
+      letter-spacing: 0.01em;
+    }
+    .coach-planned-session { font-weight: 600; color: var(--text-primary); }
+    .coach-planned-phase {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
     .coach-notes-list {
       display: flex;
       flex-direction: column;
@@ -1768,6 +1794,7 @@
           <span class="card-title">Coach Notes</span>
           <span class="card-badge badge-blue" id="coach-badge-date">Loading…</span>
         </div>
+        <div class="coach-planned" id="coach-planned" hidden></div>
         <div class="coach-notes-list" id="coach-notes-list">
           <p class="coach-note">Fetching coach feedback…</p>
         </div>
@@ -1974,7 +2001,7 @@
         <div class="cumulative-vert">Cumulative this block: <strong id="vert-cumulative">0 ft</strong></div>
         <div class="b2b-stat-row">
           <span class="b2b-number" id="b2b-count">0</span>
-          <span class="b2b-label">B2B days this block</span>
+          <span class="b2b-label">B2B days last 14 days</span>
         </div>
       </div>
 
@@ -2139,7 +2166,7 @@ const RACE_DATE     = new Date('2026-09-18');
 const RACE_NAME     = 'Julian Alps Trail Run 50K';
 const RACE_LOCATION = 'Julian Alps, Slovenia · Sep 18, 2026';
 const TOTAL_WEEKS   = 22;
-const WEEKLY_VERT_TARGET = 500; // feet
+const WEEKLY_VERT_TARGET = 3000; // feet (Build Week 10/22 toward Julian Alps 50K, 8200 ft total gain)
 
 // Daily nutrition targets — adjust freely. Calories default to 2500.
 const NUTRITION_TARGETS = {
@@ -2378,55 +2405,60 @@ function refreshWeeklyBars() {
 }
 
 /* ══════════════════════════════════════════════
-   This Week's Training Stats (dynamic from Strava)
+   Training Stats — rolling 7-day (mileage/elevation/sessions) and
+   rolling 30-day (long run) windows, dynamic from Strava.
    ══════════════════════════════════════════════ */
-function activitiesInRange(start, end) {
-  return stravaActivities.filter(a => {
-    const d = new Date(a.date); d.setHours(0, 0, 0, 0);
-    return d >= start && d <= end;
-  });
-}
 function refreshTrainingWeek() {
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const weekStart = getMondayOfWeek(today);
-  const weekEnd = new Date(weekStart); weekEnd.setDate(weekStart.getDate() + 6);
-  const lastWeekStart = new Date(weekStart); lastWeekStart.setDate(weekStart.getDate() - 7);
-  // Fair like-for-like: through same day-of-week last week
-  const lastWeekToday = new Date(today); lastWeekToday.setDate(today.getDate() - 7);
-  // Rolling windows for long-run (so partial weeks don't show 0)
-  const sevenAgo    = new Date(today); sevenAgo.setDate(today.getDate() - 6);
-  const fourteenAgo = new Date(today); fourteenAgo.setDate(today.getDate() - 13);
-  const eightAgo    = new Date(today); eightAgo.setDate(today.getDate() - 7);
 
-  const thisWeek = activitiesInRange(weekStart, today);
-  const lastWeek = activitiesInRange(lastWeekStart, lastWeekToday);
+  // Rolling windows (NOT Mon to Sun calendar weeks): the current window is the
+  // last 7 days (today and the six days before it); the prior window is the
+  // 7 days before that. This avoids the "false drop" you'd see early in a
+  // calendar week when 2 days of runs get compared against a full prior week.
+  // daysAgo counts whole calendar days between an activity and today, computed
+  // off the activity's local date string so it matches sync_strava.py exactly.
+  const daysAgo = (dateStr) => {
+    const [y, m, d] = String(dateStr).split('-').map(Number);
+    if (!y || !m || !d) return Infinity;
+    const dt = new Date(y, m - 1, d); dt.setHours(0, 0, 0, 0);
+    return Math.round((today - dt) / 86400000);
+  };
+  const inWindow = (lo, hi) =>
+    stravaActivities.filter(a => { const g = daysAgo(a.date); return g >= lo && g < hi; });
 
-  const sumDist = arr => arr.reduce((s, a) => s + a.dist, 0);
-  const sumElev = arr => arr.reduce((s, a) => s + a.elev, 0);
-  const longRun = arr => arr.reduce((m, a) => Math.max(m, a.dist), 0);
+  const sumDist  = arr => arr.reduce((s, a) => s + (a.dist || 0), 0);
+  const sumElev  = arr => arr.reduce((s, a) => s + (a.elev || 0), 0);
+  const longRun  = arr => arr.reduce((m, a) => Math.max(m, a.dist || 0), 0);
   const sessions = arr => new Set(arr.map(a => a.date)).size;
 
-  // Prefer precomputed values from strava_data.json (authoritative for current
-  // and prior week) and fall back to placeholder activities when unavailable.
+  // Rolling 7-day windows for mileage / elevation / sessions, rolling 30-day
+  // windows for the long run.
+  const cur7   = inWindow(0, 7);
+  const prev7  = inWindow(7, 14);
+  const cur30  = inWindow(0, 30);
+  const prev30 = inWindow(30, 60);
+
+  // Prefer precomputed rolling fields from strava_data.json; fall back to the
+  // activity feed (recent_runs, merged into stravaActivities) when absent.
   const sd = stravaData || {};
-  const num = (v) => typeof v === 'number' ? v : null;
+  const num = (v) => typeof v === 'number' && isFinite(v) ? v : null;
 
-  const mi    = num(sd.weekly_miles)             ?? sumDist(thisWeek);
-  const elev  = num(sd.total_elevation_feet)     ?? sumElev(thisWeek);
-  const ses   = sessions(thisWeek);
-  const miL   = num(sd.last_week_miles)          ?? sumDist(lastWeek);
-  const elevL = num(sd.last_week_elevation_feet) ?? sumElev(lastWeek);
-  const sesL  = num(sd.last_week_sessions)       ?? sessions(lastWeek);
+  const mi    = num(sd.rolling_7d_miles)     ?? sumDist(cur7);
+  const miL   = num(sd.prior_7d_miles)       ?? sumDist(prev7);
+  const elev  = num(sd.rolling_7d_elevation) ?? sumElev(cur7);
+  const elevL = num(sd.prior_7d_elevation)   ?? sumElev(prev7);
+  const ses   = num(sd.rolling_7d_sessions)  ?? sessions(cur7);
+  const sesL  = num(sd.prior_7d_sessions)    ?? sessions(prev7);
+  const lr    = num(sd.long_run_30d)         ?? longRun(cur30);
+  const lrL   = num(sd.prior_long_run_30d)   ?? longRun(prev30);
 
-  const lr  = longRun(activitiesInRange(sevenAgo, today));
-  const lrL = longRun(activitiesInRange(fourteenAgo, eightAgo));
-
-  // Badge: e.g. "May 4–10"
-  const badge = `${fmtMonthDay(weekStart)}–${weekEnd.toLocaleDateString('en-US',{day:'numeric'})}`;
+  // Badge: the rolling 7-day range ending today, e.g. "Jun 17 to 23" (no dashes).
+  const start7 = new Date(today); start7.setDate(today.getDate() - 6);
+  const badge = `${fmtMonthDay(start7)} to ${today.toLocaleDateString('en-US', { day: 'numeric' })}`;
   document.getElementById('training-week-badge').textContent = badge;
 
   document.getElementById('stat-mileage').textContent = mi ? mi.toFixed(0) : '0';
-  setDelta('stat-mileage-delta', mi - miL, 'mi vs last week');
+  setDelta('stat-mileage-delta', mi - miL, 'mi vs prior 7d');
 
   // Elevation: render in k ft when >= 1000
   const elevEl = document.getElementById('stat-elev');
@@ -2441,10 +2473,10 @@ function refreshTrainingWeek() {
   setDelta('stat-elev-delta', elev - elevL, 'ft', { showFt: true });
 
   document.getElementById('stat-longrun').textContent = lr ? lr.toFixed(0) : '0';
-  setDelta('stat-longrun-delta', lr - lrL, 'mi long-run');
+  setDelta('stat-longrun-delta', lr - lrL, 'mi long-run (30d)');
 
   document.getElementById('stat-sessions').textContent = ses;
-  setDelta('stat-sessions-goal', ses - sesL, 'ses vs last week', { integer: true });
+  setDelta('stat-sessions-goal', ses - sesL, 'ses vs prior 7d', { integer: true });
 }
 
 function setDelta(elId, delta, unit, opts = {}) {
@@ -2453,7 +2485,12 @@ function setDelta(elId, delta, unit, opts = {}) {
   const epsilon = (opts.showFt || opts.integer) ? 0.5 : 0.05;
   if (Math.abs(delta) < epsilon) {
     el.classList.add('change-flat');
-    el.textContent = `→ flat vs last week`;
+    // Echo the comparison window from the unit label (e.g. "vs prior 7d") so the
+    // flat state stays accurate now that windows are rolling, not Mon to Sun.
+    const vs = (typeof unit === 'string' && unit.indexOf(' vs ') !== -1)
+      ? unit.slice(unit.indexOf(' vs '))
+      : '';
+    el.textContent = `→ flat${vs}`;
     return;
   }
   const arrow = delta > 0 ? '↑' : '↓';
@@ -3195,6 +3232,106 @@ async function refreshCoachBriefing() {
 }
 
 /* ══════════════════════════════════════════════
+   Today's planned session — Google Calendar (theinneslife@gmail.com)
+   ──────────────────────────────────────────────
+   The training plan lives as all-day events on Christopher's Google Calendar.
+   Event summaries follow the format:  "😴 Rest Day | Build"  or
+   "🏃 Tempo 6mi | Build"  —  i.e. "<emoji> <session> | <phase>".
+   fetchTodayTrainingPlan() fetches today's event and shows it in the coach
+   panel as "Planned: <session>", clearly sourced from the calendar.
+
+   SETUP / AUTHENTICATION
+   This is a static page (GitHub Pages), so it cannot complete a server-side
+   OAuth flow. Pick ONE of the two options below and fill in GCAL:
+
+     Option 1 — API key + PUBLIC calendar (simplest, read-only):
+       • In Google Calendar settings, make the training calendar public.
+       • Create a browser API key in Google Cloud Console, restricted to the
+         Calendar API and to the GitHub Pages origin.
+       • Set GCAL.apiKey and GCAL.calendarId below.
+
+     Option 2 — OAuth 2.0 (private calendar):
+       • Use Google Identity Services (GIS) token client with scope
+           https://www.googleapis.com/auth/calendar.readonly
+       • Have the user sign in once; pass the returned bearer token to
+         GCAL.accessToken (refresh as needed). Do NOT hardcode a token.
+
+   Until GCAL is configured, fetchTodayTrainingPlan() no-ops silently and the
+   coach panel simply omits the planned line — nothing else breaks.
+   ══════════════════════════════════════════════ */
+const GCAL = {
+  apiKey: '',                              // Option 1: browser API key (public calendar)
+  accessToken: '',                         // Option 2: OAuth 2.0 bearer token (calendar.readonly)
+  calendarId: 'theinneslife@gmail.com',    // training-plan calendar
+};
+
+async function fetchTodayTrainingPlan() {
+  const el = document.getElementById('coach-planned');
+  if (!el) return null;
+
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  // "😴 Rest Day | Build" → { session: "Rest Day", phase: "Build" }.
+  const parsePlan = (summary) => {
+    const raw = String(summary || '').trim();
+    if (!raw) return null;
+    const [left, right] = raw.split('|').map(s => s.trim());
+    // Strip a leading emoji / non-alphanumeric prefix from the session label.
+    const session = (left.replace(/^[^\p{L}\p{N}]+/u, '').trim()) || left;
+    return { session, phase: right || '' };
+  };
+
+  const show = (plan) => {
+    if (!plan || !plan.session) { el.hidden = true; el.innerHTML = ''; return; }
+    el.hidden = false;
+    el.innerHTML =
+      '<span class="coach-planned-label">Planned:</span>' +
+      '<span class="coach-planned-session">' + esc(plan.session) + '</span>' +
+      (plan.phase ? '<span class="coach-planned-phase">' + esc(plan.phase) + '</span>' : '');
+  };
+
+  // Not configured yet → no-op, leave the planned line hidden.
+  if (!GCAL.apiKey && !GCAL.accessToken) { show(null); return null; }
+
+  try {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+    const params = new URLSearchParams({
+      timeMin: today.toISOString(),
+      timeMax: tomorrow.toISOString(),
+      singleEvents: 'true',
+      orderBy: 'startTime',
+    });
+    if (GCAL.apiKey) params.set('key', GCAL.apiKey);
+    const url = 'https://www.googleapis.com/calendar/v3/calendars/' +
+      encodeURIComponent(GCAL.calendarId) + '/events?' + params.toString();
+    const headers = GCAL.accessToken ? { Authorization: 'Bearer ' + GCAL.accessToken } : {};
+
+    const res = await fetch(url, { headers });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const events = Array.isArray(data.items) ? data.items : [];
+
+    // Prefer the all-day event whose start date is today; else the first event.
+    const todayStr = isoDate(today);
+    const ev = events.find(e => {
+      const s = e && e.start && (e.start.date || e.start.dateTime || '');
+      return String(s).slice(0, 10) === todayStr;
+    }) || events[0];
+
+    const plan = ev ? parsePlan(ev.summary) : null;
+    show(plan);
+    return plan;
+  } catch (e) {
+    console.warn('AthleteFlo: training plan fetch failed', e);
+    show(null);
+    return null;
+  }
+}
+
+/* ══════════════════════════════════════════════
    Strava — read precomputed data from strava_data.json
    The file is generated and committed by .github/workflows/strava-sync.yml.
    Before the first workflow run the file may be missing; we no-op silently
@@ -3206,7 +3343,7 @@ let stravaData = null;
 async function syncStravaData() {
   let data;
   try {
-    const res = await fetch('./strava_data.json?_=' + Date.now());
+    const res = await fetch('./strava_data.json?_=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) return false;
     data = await res.json();
   } catch {
@@ -3936,6 +4073,24 @@ function sleepSeries() {
 const RECOVERY_BADGE_CLASS = { good: 'badge-green', warn: 'badge-orange', low: 'badge-red' };
 
 function renderRecovery() {
+  // If real HAE sleep exists for today or yesterday, drop any manual recovery
+  // entry so a stale manual log can never override fresh synced data. (The
+  // dashboard already prefers real data, but clearing the key also stops the
+  // manual value from being used as a fallback once real sleep has arrived.)
+  (function dropStaleManualRecovery() {
+    const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+    const tod  = (nutritionData && nutritionData.today) ? nutritionData.today : null;
+    const todayKey = isoDate(new Date());
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    const yesterdayKey = isoDate(y);
+    const hasFreshSleep = [tod, ...hist].some(h =>
+      h && (h.date === todayKey || h.date === yesterdayKey) &&
+      typeof h.sleep_hours === 'number' && h.sleep_hours > 0);
+    if (hasFreshSleep) {
+      try { localStorage.removeItem('af_recovery_today'); } catch (e) { /* ignore */ }
+    }
+  })();
+
   const series = sleepSeries();
   const real = series.filter(s => s.hours != null);
   const manual = getManualRecovery();   // {hrv, rhr, sleep} for today, or null
@@ -3963,34 +4118,44 @@ function renderRecovery() {
   // ── Composite recovery score badge + prominent display ──────────────────
   const recScore = computeRecoveryScore();
   const recStyle = recoveryScoreStyle(recScore);
+
+  // Staleness check: if the most recent entry with recovery data is > 3 days old,
+  // show "--" and a date warning rather than silently displaying an outdated score.
+  // This mirrors the sleep tile's behavior of showing "--" when data is stale.
+  const _rHist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
+  const _rTod  = nutritionData && nutritionData.today;
+  const _latestHAE = [_rTod, ..._rHist].find(h => h && (h.hrv_ms || h.resting_hr || h.sleep_hours));
+  const _latestDate = _latestHAE && _latestHAE.date ? new Date(_latestHAE.date + 'T00:00:00') : null;
+  const _daysStale  = _latestDate ? Math.floor((Date.now() - _latestDate.getTime()) / 86400000) : null;
+  const isRecoveryStale = _daysStale !== null && _daysStale > 3;
+
   if (badge) {
-    badge.className = 'card-badge ' + recStyle.cls;
-    badge.textContent = recScore !== null
-      ? recScore + ' · ' + recStyle.label
-      : recStyle.label;
+    badge.className = 'card-badge ' + (isRecoveryStale ? 'badge-orange' : recStyle.cls);
+    badge.textContent = isRecoveryStale
+      ? 'Stale'
+      : (recScore !== null ? recScore + ' · ' + recStyle.label : recStyle.label);
   }
   // Big score number
   const scoreNum   = document.getElementById('rec-score-num');
   const scoreLabel = document.getElementById('rec-score-label');
   const scoreSub   = document.getElementById('rec-score-sub');
   if (scoreNum) {
-    scoreNum.textContent = recScore !== null ? recScore : '--';
-    scoreNum.style.color = recStyle.color;
+    scoreNum.textContent = (isRecoveryStale || recScore === null) ? '--' : recScore;
+    scoreNum.style.color = isRecoveryStale ? 'var(--text-muted)' : recStyle.color;
   }
-  if (scoreLabel) scoreLabel.style.color = recStyle.color;
+  if (scoreLabel) scoreLabel.style.color = isRecoveryStale ? 'var(--text-muted)' : recStyle.color;
   if (scoreSub) {
-    // Brief summary of what data is driving the score
-    const parts = [];
-    if (recScore !== null) {
+    if (isRecoveryStale) {
+      scoreSub.textContent = 'Data stale as of ' + nMonthDay(_latestHAE.date);
+    } else if (recScore !== null) {
+      // Brief summary of what data is driving the score
+      const parts = [];
       parts.push(recStyle.label);
       // Show which signals are contributing
-      const hist = (nutritionData && Array.isArray(nutritionData.history)) ? nutritionData.history : [];
-      const tod  = nutritionData && nutritionData.today;
-      const latestHAE = [tod, ...hist].find(h => h && (h.hrv_ms || h.resting_hr || h.sleep_hours));
-      if (latestHAE) {
-        if (latestHAE.hrv_ms)     parts.push('HRV');
-        if (latestHAE.resting_hr) parts.push('RHR');
-        if (latestHAE.sleep_hours) parts.push('Sleep');
+      if (_latestHAE) {
+        if (_latestHAE.hrv_ms)      parts.push('HRV');
+        if (_latestHAE.resting_hr)  parts.push('RHR');
+        if (_latestHAE.sleep_hours) parts.push('Sleep');
       }
       if (parts.length > 1) scoreSub.textContent = 'from ' + parts.slice(1).join(' + ');
       else scoreSub.textContent = '';
@@ -4105,6 +4270,7 @@ async function syncNow() {
     try { await syncStravaData(); } catch (e) { console.warn('Strava sync failed:', e); }
     try { await syncNutritionData(); } catch (e) { console.warn('Nutrition sync failed:', e); }
     await refreshCoachBriefing();
+    try { await fetchTodayTrainingPlan(); } catch (e) { console.warn('Training plan fetch failed:', e); }
     refreshCountdown();
     refreshPeriodization();
     refreshTrainingWeek();
@@ -4167,7 +4333,12 @@ async function syncNow() {
     }
   })();
 
-  await Promise.all([refreshCoachBriefing(), stravaReady, syncNutritionData()]);
+  await Promise.all([
+    refreshCoachBriefing(),
+    fetchTodayTrainingPlan(),
+    stravaReady,
+    syncNutritionData(),
+  ]);
   updateLastSyncLabel();
 })();
 </script>

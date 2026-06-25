@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-24",
-  "generated_at": "2026-06-24T15:35:41.696228Z",
+  "generated_at": "2026-06-24T07:50:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -9,27 +9,27 @@
   "coaching": [
     {
       "type": "run",
-      "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Wednesday in taper means vert work, but you're only 12 days out—dial it back. Do 6–8 miles with 800–1000 ft of climbing at Z2 effort (140–150 bpm), broken into 3–4 short hill repeats of 8–12 min each. Your RHR is 56 (down 5 bpm from your 30-day avg of 61), which signals good adaptation, but your last three runs averaged 133 bpm—you're still cooking. This session keeps your legs sharp on alpine terrain without depleting glycogen or CNS reserves you need for taper. Focus on foot placement and descent technique; the descent matters more than the climb in Slovenia."
+      "icon": "🏔️",
+      "title": "Vert Block — 12 mi | ~3,000 ft",
+      "message": "Calendar says Vert Block today — 12 miles, ~3,000 ft gain. This is a Julian Alps deposit day. Chase elevation, not pace. Power hike every significant ascent hard and efficiently — hiking IS the race skill. Target Zone 2-3 on climbs, Zone 1-2 on descents. The 50K has 8,200 ft of gain; every foot you climb today is ground you've already claimed in September."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel Right",
-      "message": "You slept 6h 22m at 91.5% efficiency—solid but not premium. Prioritize a carb-forward breakfast (80–100g carbs: oats, banana, honey) 2–3 hours before the run. During the run, carry 1–2 gels if you're above 7 miles; post-run, consume 40–60g carbs + 20g protein within 30 min to arrest the cortisol spike from taper anxiety. With 86 days to race, you're calorie-neutral on taper weeks—don't crash hard, but don't chase every run with extra calories. Stay deliberate."
+      "title": "Fuel for 3+ Hours of Climbing",
+      "message": "Pre-run (90 min out): 60-80g carbs — oatmeal, banana, rice. During: 60-80g carbs/hr from the first hour, don't wait. At this vert, you'll be out 3+ hours — practice your Julian Alps race fueling now. One gel every 30-45 min, paired with water. Post-run recovery window is critical: within 30 min, hit 30-40g protein + 60-80g carbs to rebuild the glycogen you just burned."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Recovery",
-      "message": "Recovery score 71 is solid; you're genuinely recovered. Sleep was 6h 36m—acceptable in a taper, but with travel for work likely in the picture, aim for 7–7.5h tonight. No HRV data is a gap; if you have the Apple Watch hardware, ensure the device is worn consistently at night (loose enough to move, snug enough to contact skin). Cold water immersion or ice baths are off the table this close to race day—stick to 10–15 min easy Z1 spinning on a stationary bike or walk if needed for active recovery."
+      "title": "Post-Vert Protocol",
+      "message": "Vert days load quads, glutes, and hip flexors hard. After the session: elevate legs for 15-20 min, then 10 min foam roll targeting IT band and glutes. If you have compression socks, wear them for the evening. Prioritize sleep tonight — adaptation from this climb block happens overnight. Dinner at Welton tonight, so stay well-hydrated through the afternoon."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "Mental Edge",
-      "message": "You're at 22 of 22 weeks—the plan is delivered. Your weekly volume has dropped from 49.1 miles last week to 11.2 so far this week, which is textbook taper protocol. This is when doubt creeps in; resist the urge to 'make up' volume or test fitness. The Julian Alps will demand 2500m of vert over 50K in thin air at altitude; your training is sufficient. Use the next 12 days to visualize the course, dial in gear (socks, nutrition timing, descent confidence), and sleep hard. The race is won now, in the taper."
+      "title": "Build Phase Mindset",
+      "message": "86 days out and you're in Build Week 10 — the hard work window. The Julian Alps will ask you to climb when your legs are already tired. Today trains that exact scenario. Every 1,000 ft of gain is a deposit you won't have to make on race day. Power hiking efficiently is a skill — own it, don't apologize for it. The runners who run the uphills early rarely make the finish."
     }
   ]
 }

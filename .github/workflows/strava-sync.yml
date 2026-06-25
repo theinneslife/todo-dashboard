@@ -63,8 +63,21 @@ jobs:
             # start_date_local is naive ISO; treat as local for week-bucketing.
             return datetime.datetime.fromisoformat(a['start_date_local'].replace('Z', ''))
 
-          # Filter runs and bucket into this-week / last-week.
-          runs = [a for a in activities if a.get('type') == 'Run']
+          # Filter to running-equivalent activities. type=='Run' covers road and
+          # trail runs. Hike and Walk are included so vert-heavy sessions logged
+          # as hikes count toward training load and the fitness curve. VirtualRun
+          # covers treadmill efforts. sport_type is checked as a secondary key
+          # for newer Strava API responses where type may be 'Workout'.
+          RUN_TYPES = {
+            'Run', 'Trail Run', 'TrailRun', 'VirtualRun',
+            'Hike', 'Walk',
+          }
+          def is_running_activity(a):
+              t = a.get('type', '')
+              st = a.get('sport_type', '')
+              return t in RUN_TYPES or st in RUN_TYPES
+
+          runs = [a for a in activities if is_running_activity(a)]
           this_week, last_week = [], []
           for a in runs:
             ts = parse_local(a)
@@ -106,8 +119,27 @@ jobs:
               'max_hr': round(max_hr) if max_hr else 0,
             })
 
+          # Rolling-7d and 30d stats (last 7/14/30 calendar days, not ISO weeks)
+          seven_days_ago    = now - datetime.timedelta(days=7)
+          fourteen_days_ago = now - datetime.timedelta(days=14)
+          thirty_days_ago   = now - datetime.timedelta(days=30)
+          sixty_days_ago    = now - datetime.timedelta(days=60)
+
+          cur7     = [a for a in runs if parse_local(a) >= seven_days_ago]
+          prev7    = [a for a in runs if fourteen_days_ago <= parse_local(a) < seven_days_ago]
+          cur30    = [a for a in runs if parse_local(a) >= thirty_days_ago]
+          prior_30 = [a for a in runs if sixty_days_ago <= parse_local(a) < thirty_days_ago]
+
           output = {
             'generated': datetime.datetime.utcnow().isoformat() + 'Z',
+            'rolling_7d_miles': sum_miles(cur7),
+            'prior_7d_miles': sum_miles(prev7),
+            'rolling_7d_elevation': sum_elev_ft(cur7),
+            'prior_7d_elevation': sum_elev_ft(prev7),
+            'rolling_7d_sessions': session_count(cur7),
+            'prior_7d_sessions': session_count(prev7),
+            'long_run_30d': round(max((a['distance'] for a in cur30), default=0) / METERS_PER_MILE, 2),
+            'prior_long_run_30d': round(max((a['distance'] for a in prior_30), default=0) / METERS_PER_MILE, 2),
             'weekly_miles': weekly_miles,
             'total_elevation_feet': total_elevation_feet,
             'last_week_miles': last_week_miles,

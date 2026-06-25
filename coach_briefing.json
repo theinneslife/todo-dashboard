@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-25",
-  "generated_at": "2026-06-25T12:59:12.260509Z",
+  "generated_at": "2026-06-25T07:35:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 only (135–145 bpm), no vert work. You're in week 22 taper and your recovery score is 48/100—moderate but not alarming. Yesterday's 12-miler at 141 avg was solid, but you need to let that stimulus settle. Thursday is a traditional easy day anyway. Stay below 140 bpm; if you drift above it, dial it back. This is about maintaining aerobic feel without adding stress to the nervous system with 85 days to the race."
+      "title": "Easy 5 Miles | Zone 2 — Build Phase",
+      "message": "Phase 3, Week 10 of 22. 85 days to Julian Alps. Your calendar says easy 5 miles at Zone 2 — keep it conversational, HR under 155. You're in Antigua at ~1500m elevation, so effort will feel harder than flat sea-level pace; run by feel and heart rate, not by pace. Cobblestones on the main streets — head to the Alameda or out toward the hills for smoother footing and bonus vert practice. Morning temps are ideal. This is aerobic banking, not a workout — if it feels too easy, you're doing it right."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're averaging 4.77 hours sleep over 30 days—that's low for an athlete in taper. Priority today: carb-load slightly above baseline (aim for 6–8g per kg bodyweight) and front-load breakfast and lunch before your run. During the easy 6–8 miler, you don't need gels unless you're extending beyond 90 minutes. Post-run, get 20–30g protein and 60–80g carbs within 30 minutes to support recovery and glycogen repletion before Friday's shakeout."
+      "message": "Pre-run (30–45 min before): 40–60g carbs — banana + toast or oats. Water + a small amount of sodium if you've been sweating. At 5 miles Zone 2, no mid-run fueling needed, but carry 500ml water given the altitude and Guatemala heat. Post-run within 30 minutes: 60–80g carbs + 20–30g protein — eggs, fruit, and a tortilla hit all the marks locally. Today's training load is moderate, so target ~280–300g total carbs for the day to support muscle glycogen recovery ahead of tomorrow."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Recovery",
-      "message": "Your sleep efficiency is 73% (acceptable) but your absolute volume is the issue—6 hours last night, 4.77-hour average. With travel for work, I know you're constrained, but aim for 7+ hours tonight and Friday. No caffeine after 2 p.m. The Julian Alps requires sharp legs and a clear head; sleep debt will erode both. If you're traveling, negotiate one night in a quiet hotel without meetings before 8 a.m."
+      "title": "Recovery Protocol",
+      "message": "You already hit the gym this morning before the run — that's a meaningful combined load for a travel day. Post-run: 5 min easy walking cooldown, then 10 min hip flexor and calf mobility (cobbletones and altitude both tighten the posterior chain). Compression socks if you have them, especially if you're traveling or sitting long this afternoon. Aim for 7.5–8 hours tonight — altitude and travel fatigue compound. Sleep is the cheapest performance lever you have right now."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 85 days out and in the final taper phase. Mentally, this is where doubts creep in—the volume is dropping, intensity is selective, and your brain wants to prove fitness. Resist it. Trust the 22 weeks of work. Your last 12-miler with 3,832 ft vert is proof the engine is built. Use these next two weeks to visualize the alpine terrain, walk through aid station logistics, and get your head calm. Race day execution beats a perfect training log."
+      "message": "12 weeks out is where the race gets built or broken. The athletes who show up in Kranjska Gora strong aren't the ones who had perfect training — they're the ones who stayed consistent through the messy weeks. You're training across time zones, in Guatemala, squeezing miles between corp dev calls. Every session you complete in imperfect conditions is proof that you can handle the unpredictability of race day in the Julian Alps. This 5-miler counts. Log it."
     }
   ]
 }

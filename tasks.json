@@ -2048,5 +2048,35 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "6feb544e-1075-4341-953a-9dae91bde8cb",
+    "title": "call rocket mortgage back",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-25T16:33:25.304Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-06-25T16:33:25.304Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

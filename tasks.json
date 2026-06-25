@@ -1750,7 +1750,7 @@
     "title": "iberia airlines account",
     "description": "171250947",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -1769,17 +1769,24 @@
         "action": "edited",
         "by": "Christopher",
         "details": "Task details updated"
+      },
+      {
+        "timestamp": "2026-06-25T02:40:25.590Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-24T02:09:48.812Z",
-    "completed_at": null,
+    "completed_at": "2026-06-25T02:40:25.590Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "118dda8b-f5cd-464c-bd51-b75dd78bad97",

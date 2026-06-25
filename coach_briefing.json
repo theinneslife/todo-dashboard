@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-24",
-  "generated_at": "2026-06-24T07:50:00Z",
+  "generated": "2026-06-25",
+  "generated_at": "2026-06-25T12:59:12.260509Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -9,27 +9,27 @@
   "coaching": [
     {
       "type": "run",
-      "icon": "🏔️",
-      "title": "Vert Block — 12 mi | ~3,000 ft",
-      "message": "Calendar says Vert Block today — 12 miles, ~3,000 ft gain. This is a Julian Alps deposit day. Chase elevation, not pace. Power hike every significant ascent hard and efficiently — hiking IS the race skill. Target Zone 2-3 on climbs, Zone 1-2 on descents. The 50K has 8,200 ft of gain; every foot you climb today is ground you've already claimed in September."
+      "icon": "🏃",
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 only (135–145 bpm), no vert work. You're in week 22 taper and your recovery score is 48/100—moderate but not alarming. Yesterday's 12-miler at 141 avg was solid, but you need to let that stimulus settle. Thursday is a traditional easy day anyway. Stay below 140 bpm; if you drift above it, dial it back. This is about maintaining aerobic feel without adding stress to the nervous system with 85 days to the race."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel for 3+ Hours of Climbing",
-      "message": "Pre-run (90 min out): 60-80g carbs — oatmeal, banana, rice. During: 60-80g carbs/hr from the first hour, don't wait. At this vert, you'll be out 3+ hours — practice your Julian Alps race fueling now. One gel every 30-45 min, paired with water. Post-run recovery window is critical: within 30 min, hit 30-40g protein + 60-80g carbs to rebuild the glycogen you just burned."
+      "title": "Fuel Right",
+      "message": "You're averaging 4.77 hours sleep over 30 days—that's low for an athlete in taper. Priority today: carb-load slightly above baseline (aim for 6–8g per kg bodyweight) and front-load breakfast and lunch before your run. During the easy 6–8 miler, you don't need gels unless you're extending beyond 90 minutes. Post-run, get 20–30g protein and 60–80g carbs within 30 minutes to support recovery and glycogen repletion before Friday's shakeout."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Post-Vert Protocol",
-      "message": "Vert days load quads, glutes, and hip flexors hard. After the session: elevate legs for 15-20 min, then 10 min foam roll targeting IT band and glutes. If you have compression socks, wear them for the evening. Prioritize sleep tonight — adaptation from this climb block happens overnight. Dinner at Welton tonight, so stay well-hydrated through the afternoon."
+      "title": "Recovery",
+      "message": "Your sleep efficiency is 73% (acceptable) but your absolute volume is the issue—6 hours last night, 4.77-hour average. With travel for work, I know you're constrained, but aim for 7+ hours tonight and Friday. No caffeine after 2 p.m. The Julian Alps requires sharp legs and a clear head; sleep debt will erode both. If you're traveling, negotiate one night in a quiet hotel without meetings before 8 a.m."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "Build Phase Mindset",
-      "message": "86 days out and you're in Build Week 10 — the hard work window. The Julian Alps will ask you to climb when your legs are already tired. Today trains that exact scenario. Every 1,000 ft of gain is a deposit you won't have to make on race day. Power hiking efficiently is a skill — own it, don't apologize for it. The runners who run the uphills early rarely make the finish."
+      "title": "Mental Edge",
+      "message": "You're 85 days out and in the final taper phase. Mentally, this is where doubts creep in—the volume is dropping, intensity is selective, and your brain wants to prove fitness. Resist it. Trust the 22 weeks of work. Your last 12-miler with 3,832 ft vert is proof the engine is built. Use these next two weeks to visualize the alpine terrain, walk through aid station logistics, and get your head calm. Race day execution beats a perfect training log."
     }
   ]
 }

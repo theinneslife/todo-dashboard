@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-25",
-  "generated_at": "2026-06-25T07:35:00Z",
+  "generated_at": "2026-06-25T15:43:18.338684Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5 Miles | Zone 2 — Build Phase",
-      "message": "Phase 3, Week 10 of 22. 85 days to Julian Alps. Your calendar says easy 5 miles at Zone 2 — keep it conversational, HR under 155. You're in Antigua at ~1500m elevation, so effort will feel harder than flat sea-level pace; run by feel and heart rate, not by pace. Cobblestones on the main streets — head to the Alameda or out toward the hills for smoother footing and bonus vert practice. Morning temps are ideal. This is aerobic banking, not a workout — if it feels too easy, you're doing it right."
+      "title": "Today's Run",
+      "message": "Easy 8–10 miles, Z2 (130–140 bpm), rolling terrain if available but nothing steep. Yesterday's 12-miler at 141 bpm was solid work; today you dial back hard. You're 85 days out in taper—volume is already cut 56% week-over-week, so the stimulus is retention, not accumulation. Your RHR is 56 (down from 61 avg), which is clean recovery signal. Keep today conversational and use it to shake out the legs before Saturday's final long effort. No vert pushing."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Pre-run (30–45 min before): 40–60g carbs — banana + toast or oats. Water + a small amount of sodium if you've been sweating. At 5 miles Zone 2, no mid-run fueling needed, but carry 500ml water given the altitude and Guatemala heat. Post-run within 30 minutes: 60–80g carbs + 20–30g protein — eggs, fruit, and a tortilla hit all the marks locally. Today's training load is moderate, so target ~280–300g total carbs for the day to support muscle glycogen recovery ahead of tomorrow."
+      "message": "You're sleeping 6.36h per night on a 91.5% efficiency—solid but not surplus. Eat breakfast with real carbs (100–120g) before you run; don't do fasted Z2 work this deep in taper when sleep is moderate. Post-run, hit 30–40g protein and 60g carbs within 30 minutes to anchor glycogen before tomorrow's travel (I assume you're still moving for work). Hydrate to pale urine; at your mileage volume, you're not depleted, but the alpine race won't forgive dehydration prep."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Recovery Protocol",
-      "message": "You already hit the gym this morning before the run — that's a meaningful combined load for a travel day. Post-run: 5 min easy walking cooldown, then 10 min hip flexor and calf mobility (cobbletones and altitude both tighten the posterior chain). Compression socks if you have them, especially if you're traveling or sitting long this afternoon. Aim for 7.5–8 hours tonight — altitude and travel fatigue compound. Sleep is the cheapest performance lever you have right now."
+      "title": "Recovery",
+      "message": "Recovery score is 71—green light, but sleep duration is the limiting factor. Tonight, aim for 7+ hours; taper is where you cash in sleep debt, not rack it up. No sauna, no aggressive massage. If work travel today is heavy, prioritize one nap (20–30 min) in the afternoon over anything else. Cold plunging is unnecessary and counterproductive this week; your nervous system doesn't need additional stressor. Sleep is your biggest training tool right now."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "12 weeks out is where the race gets built or broken. The athletes who show up in Kranjska Gora strong aren't the ones who had perfect training — they're the ones who stayed consistent through the messy weeks. You're training across time zones, in Guatemala, squeezing miles between corp dev calls. Every session you complete in imperfect conditions is proof that you can handle the unpredictability of race day in the Julian Alps. This 5-miler counts. Log it."
+      "message": "You're 12 weeks from the start line. This is the week you stop doubting the preparation and start visualizing execution. The Julian Alps 50K is technical and sparse on aid—mental brittleness kills people there, not fitness. Use today's easy run to rehearse your self-talk for the high-elevation sections around km 35–45 when legs are empty. By Saturday, you'll have logged 35+ miles this taper week with controlled intensity; that's enough to confirm readiness without digging the hole deeper."
     }
   ]
 }

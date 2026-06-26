@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Phoenix: Tatari Acquisition Brief</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #21253a;
+    --border: #2e3350;
+    --accent: #4f8ef7;
+    --accent2: #f7c948;
+    --green: #3ecf8e;
+    --red: #f06a6a;
+    --orange: #f09a3e;
+    --text: #e8eaf0;
+    --text-muted: #8b90a8;
+    --text-dim: #5c6080;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 0 0 60px 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0d1321 0%, #1a2540 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 48px 28px;
+  }
+  .header-meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .verdict-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .verdict-pill {
+    padding: 7px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .verdict-pill.explore { background: rgba(79,142,247,0.18); color: var(--accent); border: 1px solid rgba(79,142,247,0.35); }
+  .verdict-pill.valuation { background: rgba(247,201,72,0.15); color: var(--accent2); border: 1px solid rgba(247,201,72,0.3); }
+  .verdict-pill.confidence { background: rgba(62,207,142,0.13); color: var(--green); border: 1px solid rgba(62,207,142,0.3); }
+
+  /* LAYOUT */
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+  .section { margin-top: 40px; }
+  .section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* STAT GRID */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .stat-card.highlight { border-color: rgba(79,142,247,0.4); background: rgba(79,142,247,0.07); }
+  .stat-card.green { border-color: rgba(62,207,142,0.35); background: rgba(62,207,142,0.06); }
+  .stat-card.yellow { border-color: rgba(247,201,72,0.3); background: rgba(247,201,72,0.05); }
+  .stat-card.red { border-color: rgba(240,106,106,0.3); background: rgba(240,106,106,0.05); }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .card p, .card li { color: var(--text-muted); font-size: 13px; line-height: 1.65; }
+  .card ul { padding-left: 16px; }
+  .card li { margin-bottom: 5px; }
+
+  /* BIZ LINES */
+  .biz-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 700px) { .biz-grid { grid-template-columns: 1fr; } }
+  .biz-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .biz-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .biz-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .biz-card .biz-entity {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .biz-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FINANCIAL TABLE */
+  .fin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .fin-table th {
+    text-align: right;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .fin-table th:first-child { text-align: left; }
+  .fin-table td {
+    text-align: right;
+    padding: 9px 14px;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(46,51,80,0.5);
+  }
+  .fin-table td:first-child { text-align: left; color: var(--text); }
+  .fin-table tr:last-child td { border-bottom: none; }
+  .fin-table .row-bold td { color: #fff; font-weight: 600; }
+  .fin-table .row-bold td:first-child { color: #fff; }
+  .fin-table .actual { color: var(--text-muted); }
+  .fin-table .proj { color: var(--accent); }
+  .fin-table .green-text { color: var(--green); }
+  .fin-table .yellow-text { color: var(--accent2); }
+
+  /* TAG ROW */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+  .tag {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    font-weight: 500;
+    background: var(--surface2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .tag.green { background: rgba(62,207,142,0.1); color: var(--green); border-color: rgba(62,207,142,0.25); }
+  .tag.yellow { background: rgba(247,201,72,0.1); color: var(--accent2); border-color: rgba(247,201,72,0.25); }
+  .tag.red { background: rgba(240,106,106,0.1); color: var(--red); border-color: rgba(240,106,106,0.25); }
+  .tag.blue { background: rgba(79,142,247,0.1); color: var(--accent); border-color: rgba(79,142,247,0.25); }
+
+  /* RISK ROW */
+  .risk-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(46,51,80,0.5);
+  }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-badge {
+    flex-shrink: 0;
+    padding: 3px 9px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .risk-badge.high { background: rgba(240,106,106,0.15); color: var(--red); border: 1px solid rgba(240,106,106,0.3); }
+  .risk-badge.med { background: rgba(247,201,72,0.12); color: var(--accent2); border: 1px solid rgba(247,201,72,0.25); }
+  .risk-badge.low { background: rgba(62,207,142,0.1); color: var(--green); border: 1px solid rgba(62,207,142,0.25); }
+  .risk-content { flex: 1; }
+  .risk-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .risk-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+
+  /* SYNERGY GRID */
+  .syn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .syn-grid { grid-template-columns: 1fr; } }
+  .syn-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .syn-card h4 { font-size: 12.5px; font-weight: 600; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .syn-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot.green { background: var(--green); }
+  .dot.yellow { background: var(--accent2); }
+  .dot.red { background: var(--red); }
+  .dot.blue { background: var(--accent); }
+
+  /* VALUATION BOX */
+  .val-box {
+    background: linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(62,207,142,0.05) 100%);
+    border: 1px solid rgba(79,142,247,0.3);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .val-range { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .val-range span { color: var(--accent); }
+  .val-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .val-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .val-item h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-dim); margin-bottom: 4px; }
+  .val-item p { font-size: 13px; color: var(--text-muted); }
+
+  /* RECOMMENDATION */
+  .rec-box {
+    background: rgba(62,207,142,0.07);
+    border: 1px solid rgba(62,207,142,0.25);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .rec-verdict { font-size: 22px; font-weight: 800; color: var(--green); margin-bottom: 8px; }
+  .rec-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+  .rec-body strong { color: var(--text); }
+
+  /* PEOPLE */
+  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .person-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .person-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .person-title { font-size: 11.5px; color: var(--accent); margin-top: 2px; }
+  .person-shares { font-size: 11px; color: var(--text-dim); margin-top: 5px; }
+
+  /* COMP TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .comp-table th {
+    text-align: left;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .comp-table td {
+    padding: 9px 12px;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(46,51,80,0.5);
+    vertical-align: top;
+  }
+  .comp-table td:first-child { font-weight: 600; color: var(--text); }
+  .comp-table tr.mntn-row td { background: rgba(79,142,247,0.05); }
+  .comp-table tr.tatari-row td { background: rgba(247,201,72,0.04); }
+  .comp-table .check { color: var(--green); font-weight: 700; }
+  .comp-table .x-mark { color: var(--red); }
+  .comp-table .partial { color: var(--accent2); }
+
+  /* FOOTER */
+  .brief-footer {
+    margin-top: 60px;
+    padding: 20px 48px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .divider { height: 1px; background: var(--border); margin: 32px 0 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="container">
+    <div class="header-meta">MNTN Corp Dev &nbsp;&bull;&nbsp; Confidential &nbsp;&bull;&nbsp; June 11, 2026 &nbsp;&bull;&nbsp; Sell-side Advisor: GP Bullhound</div>
+    <h1>Project Phoenix: <span>Tatari</span> Acquisition Brief</h1>
+    <div class="header-sub">Comprehensive diligence summary across 7 VDR documents &nbsp;&bull;&nbsp; Infra TV, Inc. (parent) &nbsp;&bull;&nbsp; Tatari, Inc. + Upstream TV + Vault Ad Solutions</div>
+    <div class="verdict-bar">
+      <div class="verdict-pill explore">Recommendation: Actively Explore</div>
+      <div class="verdict-pill valuation">Indicative Range: $400M to $600M</div>
+      <div class="verdict-pill confidence">No Institutional Debt. Bootstrap Profitable.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SNAPSHOT STATS -->
+  <div class="section">
+    <div class="section-title">Key Metrics Snapshot</div>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="stat-label">2025 Net Revenue (Actual)</div>
+        <div class="stat-value">$86.6M</div>
+        <div class="stat-sub">Gross Media: $687.2M | Take Rate: 12.6%</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-label">2026 Net Revenue (Projected)</div>
+        <div class="stat-value">$111.3M</div>
+        <div class="stat-sub">+28.6% YoY | Take Rate rising to 14.4%</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Gross Margin (2025 Actual)</div>
+        <div class="stat-value">83.1%</div>
+        <div class="stat-sub">Expanding: 85.6% projected 2026, 86.0% by 2028</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">EBITDA (2025 Actual)</div>
+        <div class="stat-value">$6.8M</div>
+        <div class="stat-sub">7.9% margin; $3.3M in 2026 (investment year); $37M by 2028</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-label">Total Headcount</div>
+        <div class="stat-value">334</div>
+        <div class="stat-sub">301 employees + 8 contractors + 25 contingent workers</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-label">Engineering Headcount</div>
+        <div class="stat-value">~98</div>
+        <div class="stat-sub">29.9% of total workforce (from geo summary); Eng dept runs ~Employee 221 to 332</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Data Science Headcount</div>
+        <div class="stat-value">~38</div>
+        <div class="stat-sub">10.8% of total; proprietary TV device graph and measurement IP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Clients</div>
+        <div class="stat-value">300+</div>
+        <div class="stat-sub">10 Enterprise (34% of rev), 50 Mid-Size (32%), 266 Growth (25%), 100 Agency</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">2025 Gross Media Volume</div>
+        <div class="stat-value">$687M</div>
+        <div class="stat-sub">Linear: $435M (63.6%) | CTV: $249M (36.4%)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pipeline (May 2026)</div>
+        <div class="stat-value">$19.3M</div>
+        <div class="stat-sub">Weighted: $10.9M | 72 opportunities across Q2-Q4 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Balance Sheet Cash</div>
+        <div class="stat-value">$201M</div>
+        <div class="stat-sub">Cash + marketable securities (Mar 2026); No institutional debt</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Patents</div>
+        <div class="stat-value">13 Granted</div>
+        <div class="stat-sub">8 additional filed; recognized as "Most Innovative TV Advertising Technology"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSINESS LINES -->
+  <div class="section">
+    <div class="section-title">What Tatari Does: Three Integrated Business Lines</div>
+    <div class="biz-grid">
+      <div class="biz-card">
+        <div class="biz-icon">📺</div>
+        <h3>Tatari (Demand Tech)</h3>
+        <div class="biz-entity">Tatari, Inc. &nbsp;|&nbsp; FEIN: 81-3734795</div>
+        <p>The core platform. AI-enabled, performance-native CTV media buying across Linear, Streaming, and Online Video. Provides brands and agencies full transparency into pricing and inventory. Operates as a DSP-like interface but with direct publisher integrations rather than relying on programmatic auctions. 300+ advertiser clients. Services brands direct and also licenses the platform to ~100 independent agencies (launched late 2022; agencies now 9% of net revenue). Clients funnel from Growth (under $2M media) through Mid-Size ($2M-$10M) to Enterprise ($10M+). Enterprise = 10 clients but 34% of net revenue.</p>
+      </div>
+      <div class="biz-card">
+        <div class="biz-icon">⚡</div>
+        <h3>Upstream TV (Supply Tech)</h3>
+        <div class="biz-entity">Upstream TV, Inc. &nbsp;|&nbsp; FEIN: 85-1296931</div>
+        <p>A next-generation DSP/supply mediation layer. Buys remnant impressions in bulk (approx. $10 CPM run-of-site), enriches them with Tatari's household data, AI audience models, and contextual signals, then resells to Tatari clients at approximately $20 CPM, generating a $2 per thousand impression margin. 60M+ impressions per day. No programmatic tax. Enables 67% more impressions for the same budget versus standard programmatic buys. Warner Bros. Discovery described it: "[Tatari] is roughly 3 years ahead of the market." Just entering meaningful scale: $1.8M net revenue in 2025, projecting $5M in 2026 and $20.8M by 2027.</p>
+      </div>
+      <div class="biz-card">
+        <div class="biz-icon">🔐</div>
+        <h3>Vault Ad Solutions (Data + Measurement)</h3>
+        <div class="biz-entity">Vault Ad Solutions, Inc. &nbsp;|&nbsp; FEIN: 93-1723392</div>
+        <p>Deterministic, neutral, privacy-native identity and attribution across the Convergent TV spectrum. Proprietary TV device graph built over 8+ years. 100M+ household events ingested daily. Data partnerships with Experian, Comscore, Samba TV, Nielsen, Kantar, Vizio, Oracle. Enables true household-level measurement (not panel-based estimates), closed-loop attribution, next-day results, and multi-dimensional analysis (publishers, time, segments, incrementality). Current revenue is minimal (sub $1M), but it is the data moat that powers everything else and is a potential standalone licensing business.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <h3>Why Three? Are They Integrated?</h3>
+      <p>The three entities are legally separate but operationally a single flywheel. Tatari drives demand and client relationships. Vault's device graph and measurement layer provides the data advantage that justifies Tatari's performance claims. Upstream uses Vault's identity data to intelligently route and enrich supply, then routes inventory back to Tatari's demand side. The integration is the moat: no other competitor in CTV has all three layers owned and operating in a closed loop. The "three business lines" structure is partly a GP Bullhound presentation device to show growth vectors beyond the core DSP platform, and partly real: Upstream and Vault are separately incorporated subsidiaries, each with independent revenue trajectories.</p>
+    </div>
+  </div>
+
+  <!-- FINANCIAL DETAIL -->
+  <div class="section">
+    <div class="section-title">Financial Detail (Unaudited)</div>
+    <div class="card">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>($M)</th>
+            <th class="actual">2023 A</th>
+            <th class="actual">2024 A</th>
+            <th class="actual">2025 A</th>
+            <th class="proj">2026 P</th>
+            <th class="proj">2027 P</th>
+            <th class="proj">2028 P</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-bold">
+            <td>Gross Media</td>
+            <td>$539.8</td>
+            <td>$692.5</td>
+            <td>$687.2</td>
+            <td class="proj">$775.6</td>
+            <td class="proj">$899.9</td>
+            <td class="proj">$1,063</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">Linear</td>
+            <td>$405.8</td>
+            <td>$488.0</td>
+            <td>$435.4</td>
+            <td class="proj">$464.5</td>
+            <td class="proj"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">CTV / Streaming</td>
+            <td>$134.0</td>
+            <td>$204.5</td>
+            <td>$249.1</td>
+            <td class="proj">$311.1</td>
+            <td class="proj"></td>
+            <td></td>
+          </tr>
+          <tr class="row-bold">
+            <td>Net Revenue (Take)</td>
+            <td>$61.5</td>
+            <td>$80.9</td>
+            <td>$86.6</td>
+            <td class="proj">$111.3</td>
+            <td class="proj">$149.7</td>
+            <td class="proj">$190.9</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">YoY Growth</td>
+            <td></td>
+            <td>+31.5%</td>
+            <td>+7.1%</td>
+            <td class="proj green-text">+28.6%</td>
+            <td class="proj green-text">+34.5%</td>
+            <td class="proj green-text">+27.5%</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">Take Rate</td>
+            <td>11.4%</td>
+            <td>11.7%</td>
+            <td>12.6%</td>
+            <td class="proj">14.4%</td>
+            <td class="proj">16.6%</td>
+            <td class="proj">18.0%</td>
+          </tr>
+          <tr class="row-bold">
+            <td>Gross Profit</td>
+            <td>$48.4</td>
+            <td>$66.3</td>
+            <td>$71.9</td>
+            <td class="proj">$95.3</td>
+            <td class="proj">$127.9</td>
+            <td class="proj">$164.1</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">Gross Margin</td>
+            <td>78.7%</td>
+            <td>81.9%</td>
+            <td class="green-text">83.1%</td>
+            <td class="proj green-text">85.6%</td>
+            <td class="proj green-text">85.5%</td>
+            <td class="proj green-text">86.0%</td>
+          </tr>
+          <tr class="row-bold">
+            <td>EBITDA</td>
+            <td>($5.5)</td>
+            <td>$8.7</td>
+            <td>$6.8</td>
+            <td class="proj yellow-text">$3.3</td>
+            <td class="proj green-text">$21.3</td>
+            <td class="proj green-text">$37.0</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px; font-size:12px;">EBITDA Margin</td>
+            <td style="color:var(--red);">(9.0%)</td>
+            <td>10.7%</td>
+            <td>7.9%</td>
+            <td class="proj yellow-text">2.9%</td>
+            <td class="proj">14.3%</td>
+            <td class="proj green-text">19.4%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px; font-size:12px; color:var(--text-dim);">
+        Note: 2025 gross media declined slightly (-1.1%) due to linear softness ($488M to $435M), offset by CTV growth (+21.8%). Net revenue grew only 7.1% in 2025 but accelerating to projected 28.6% in 2026 driven by take-rate expansion (Upstream contribution + Vault licensing) and mix shift to higher-margin CTV/Enterprise clients. 2026 EBITDA dip is a deliberate investment year (labor and marketing step-up).
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENUE BY FEE TYPE -->
+  <div class="section">
+    <div class="section-title">Revenue Quality and Take-Rate Expansion Story</div>
+    <div class="two-col">
+      <div class="card">
+        <h3>Revenue by Fee Type (2025 Actual)</h3>
+        <table class="fin-table">
+          <thead><tr><th>Fee Type</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+          <tbody>
+            <tr><td>Tech Fees (software platform)</td><td>$49.7M</td><td>$64.2M</td><td>$67.2M</td></tr>
+            <tr><td>Data Fees (Vault, licensed data)</td><td>$8.7M</td><td>$11.8M</td><td>$12.0M</td></tr>
+            <tr><td>Service Fees (managed service)</td><td>$1.2M</td><td>$4.0M</td><td>$5.0M</td></tr>
+            <tr><td>Upstream Marketplace</td><td></td><td></td><td>$0.3M</td></tr>
+            <tr><td>Other</td><td></td><td>$0.2M</td><td>$1.8M</td></tr>
+            <tr class="row-bold"><td>Total Net Revenue</td><td>$61.5M</td><td>$80.9M</td><td>$86.6M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Why Take Rate Expands Significantly (12.6% to 18%)</h3>
+        <ul>
+          <li>Upstream scales from $0.3M (2025) to $32.2M (2028) net revenue, all incremental high-margin supply tech income on top of Tatari fees</li>
+          <li>Client mix shifts toward Enterprise and Agency (higher rates, lower churn)</li>
+          <li>PAO (Performance-as-Outcome) clients pay on outcomes, not CPMs, driving higher effective take rates</li>
+          <li>Vault data licensing revenues begin to scale independently</li>
+          <li>Agency platform licenses (launched late 2022) now 9% of net revenue and growing</li>
+        </ul>
+        <div style="margin-top:10px; font-size:12px; color:var(--text-dim);">The take-rate expansion from 12.6% to 18% over 3 years is the most important financial story here. It means Tatari's revenue can grow faster than gross media volume even in a flat spend environment.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOMERS AND CONCENTRATION -->
+  <div class="section">
+    <div class="section-title">Customers and Concentration Risk</div>
+    <div class="two-col">
+      <div class="card">
+        <h3>Client Segmentation (by Net Revenue Contribution, 2025)</h3>
+        <table class="fin-table">
+          <thead><tr><th>Tier</th><th>Clients</th><th>Media/Client</th><th>% of Net Rev</th></tr></thead>
+          <tbody>
+            <tr><td>Enterprise</td><td>10</td><td>$10M+</td><td>34%</td></tr>
+            <tr><td>Mid-Size</td><td>50</td><td>$2M-$10M</td><td>32%</td></tr>
+            <tr><td>Growth</td><td>266</td><td>under $2M</td><td>25%</td></tr>
+            <tr><td>Agency</td><td>~100</td><td>Variable</td><td>9%</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px; font-size:12px; color:var(--text-dim);">
+          Top 10 enterprise clients = 34% of net revenue. This is meaningful concentration risk. However, the 266 Growth clients provide a deep pipeline feeding up the funnel toward Enterprise over time.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Representative Named Clients (from Case Studies)</h3>
+        <div class="tag-row">
+          <span class="tag blue">Ro / Roman</span>
+          <span class="tag blue">Chime</span>
+          <span class="tag blue">Nutrafol</span>
+          <span class="tag blue">Rocket Money</span>
+          <span class="tag blue">Calm</span>
+          <span class="tag blue">Saatva</span>
+          <span class="tag blue">Graza</span>
+          <span class="tag blue">Vuori</span>
+          <span class="tag blue">Teladoc Health</span>
+          <span class="tag blue">Gusto</span>
+          <span class="tag blue">Figma</span>
+          <span class="tag blue">Avocado Mattress</span>
+          <span class="tag blue">fuboTV</span>
+          <span class="tag blue">Made In</span>
+          <span class="tag blue">Glossier</span>
+          <span class="tag blue">Boost Mobile</span>
+          <span class="tag blue">Ibotta</span>
+        </div>
+        <div style="margin-top:12px; font-size:12px; color:var(--text-dim);">
+          Skews heavily DTC/performance brands (health, fintech, apparel, D2C CPG) rather than Fortune 500 brand advertisers. This is complementary but not identical to MNTN's performance brand client base. Meaningful overlap in fintech, health, and DTC categories.
+        </div>
+        <div style="margin-top:10px;">
+          <h3 style="margin-bottom:8px;">Client Verticals</h3>
+          <div class="tag-row">
+            <span class="tag">Healthcare / Telehealth</span>
+            <span class="tag">Fintech</span>
+            <span class="tag">DTC Apparel / Footwear</span>
+            <span class="tag">Home Goods</span>
+            <span class="tag">B2B SaaS</span>
+            <span class="tag">Mental Health / Wellness</span>
+            <span class="tag">Streaming / Media</span>
+            <span class="tag">Consumer Services</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORG AND PEOPLE -->
+  <div class="section">
+    <div class="section-title">Leadership and Ownership Structure</div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-name">Philip Inghelbrecht</div>
+        <div class="person-title">Co-Founder and Active CEO</div>
+        <div class="person-shares">28.13% fully diluted | 40% Class A voting</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">Michael Swinson</div>
+        <div class="person-title">Co-Founder and Chief Data Scientist</div>
+        <div class="person-shares">21.61% fully diluted | 30% Class A voting</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">Joel Lander</div>
+        <div class="person-title">Co-Founder and Creative Consultant</div>
+        <div class="person-shares">14.52% fully diluted | 30% Class A voting</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">Michael Levit</div>
+        <div class="person-title">Outside Director</div>
+        <div class="person-shares">4.51% fully diluted | Board seat</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;" class="card">
+      <h3>Key Ownership Facts for Deal Structure</h3>
+      <ul>
+        <li>Three founders control 100% of Class A voting stock. Any deal requires all three founders to agree.</li>
+        <li>No institutional capital or debt. Company is fully founder-owned. No VC liquidation preferences, no debt covenants to navigate.</li>
+        <li>Total shares outstanding: 17.4M (fully diluted: ~20M including option pool of 676K shares not yet issued).</li>
+        <li>Two equity incentive plans (2016 and 2022) have created meaningful employee options. This needs to be addressed in deal structure (accelerated vesting vs. carve-out vs. rollover).</li>
+        <li>Legal entity to acquire: Infra TV, Inc. (parent Delaware corporation). The three subsidiaries are Tatari, Inc., Upstream TV, Inc., and Vault Ad Solutions, Inc.</li>
+        <li>General Counsel: Greg Schwartz (signed entity structure certification).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE POSITIONING -->
+  <div class="section">
+    <div class="section-title">Competitive Positioning: Tatari vs. MNTN and Key Competitors</div>
+    <div class="card">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Tatari</th>
+            <th>MNTN</th>
+            <th>iSpot</th>
+            <th>Innovid</th>
+            <th>VideoAmp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary model</td>
+            <td>Full-stack DSP (buy + measure + supply)</td>
+            <td>CTV performance platform (buy + measure)</td>
+            <td>TV measurement and attribution</td>
+            <td>CTV delivery and measurement</td>
+            <td>TV currency/measurement</td>
+          </tr>
+          <tr>
+            <td>Linear TV coverage</td>
+            <td class="check">Full upfront + remnant</td>
+            <td class="partial">Limited / no linear</td>
+            <td class="check">Core product</td>
+            <td class="x-mark">CTV-only</td>
+            <td class="check">Core product</td>
+          </tr>
+          <tr>
+            <td>CTV buying</td>
+            <td class="check">Full access, direct integrations</td>
+            <td class="check">Core product</td>
+            <td class="x-mark">Measurement only</td>
+            <td class="check">Ad serving layer</td>
+            <td class="x-mark">Measurement only</td>
+          </tr>
+          <tr>
+            <td>Own supply tech (SSP-like)</td>
+            <td class="check">Upstream TV (proprietary)</td>
+            <td class="x-mark">No</td>
+            <td class="x-mark">No</td>
+            <td class="x-mark">No</td>
+            <td class="x-mark">No</td>
+          </tr>
+          <tr>
+            <td>Proprietary device graph</td>
+            <td class="check">Vault (8+ years, 100M+ events/day)</td>
+            <td class="x-mark">No (licensed 3P data)</td>
+            <td class="partial">Partial</td>
+            <td class="partial">Partial</td>
+            <td class="partial">Partial</td>
+          </tr>
+          <tr>
+            <td>Revenue model</td>
+            <td>SaaS + take-rate on media</td>
+            <td>SaaS + % of media</td>
+            <td>SaaS licensing</td>
+            <td>SaaS + CPM</td>
+            <td>SaaS licensing + data</td>
+          </tr>
+          <tr>
+            <td>Profitability</td>
+            <td>EBITDA positive (7.9% margin)</td>
+            <td>EBITDA positive (strong)</td>
+            <td>Likely unprofitable</td>
+            <td>Near break-even / losses</td>
+            <td>Loss-making</td>
+          </tr>
+          <tr>
+            <td>Client focus</td>
+            <td>DTC / performance brands + agencies</td>
+            <td>DTC / performance brands</td>
+            <td>Agencies + broadcasters</td>
+            <td>Enterprise brands + agencies</td>
+            <td>Agencies + broadcasters</td>
+          </tr>
+          <tr>
+            <td>Net revenue scale</td>
+            <td>$86.6M (2025)</td>
+            <td>~$290M (2025)</td>
+            <td>~$100M est.</td>
+            <td>~$120M est.</td>
+            <td>Private / not disclosed</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px; font-size:12px; color:var(--text-dim);">Tatari's differentiation is the full vertical stack: demand + supply + data in a single closed loop. No other independent player has all three. iSpot and VideoAmp are measurement companies; they don't buy media. Innovid delivers media but does not have its own supply tech or a proprietary device graph. MNTN is the closest functional comp, but MNTN does not touch linear TV and does not have its own supply-side technology. Tatari's $10 CPM bulk purchase / $20 CPM resale through Upstream is a genuine economic moat with no equivalent in the market.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGIC FIT -->
+  <div class="section">
+    <div class="section-title">Strategic Fit with MNTN: Synergies, Gaps Filled, and Conflicts</div>
+    <div class="syn-grid">
+      <div class="syn-card">
+        <h4><span class="dot green"></span>Linear TV Access: MNTN's Biggest Gap</h4>
+        <p>MNTN is a streaming-only platform. Tatari generates $435M of gross media in linear TV annually (63.6% of its total). Acquiring Tatari gives MNTN immediate access to the $47B national linear and $22B local linear markets where it currently has zero presence. Convergent TV buyers increasingly need one platform for both. This is the single most compelling strategic argument for the deal.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot green"></span>Proprietary Device Graph Amplifies MNTN Measurement</h4>
+        <p>Vault's 8-year, 100M+ event-per-day device graph is a genuine data asset MNTN does not have. Embedding this into MNTN's measurement and attribution layer would significantly improve frequency capping, cross-screen attribution, and household-level reporting across MNTN's existing CTV client base, without building it from scratch.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot green"></span>Upstream Supply Tech: Economics for MNTN's Buy Side</h4>
+        <p>Tatari's Upstream product buys impressions at $10 CPM and resells at $20 CPM, capturing the $2/CPM spread. This supply mediation layer could be extended to MNTN's CTV inventory, potentially improving unit economics for MNTN clients and generating incremental high-margin revenue. MNTN currently relies on third-party supply (DSP auctions). Owning the supply layer is a meaningful structural advantage.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot green"></span>Client Cross-Sell: Significant Overlap in DTC Verticals</h4>
+        <p>Both companies serve performance-oriented DTC brands (health, fintech, apparel, consumer services). Tatari clients would be natural upsells to MNTN's streaming capabilities. MNTN clients would benefit from Tatari's linear buying. The combined platform could credibly offer "all of TV" to a shared DTC audience, significantly expanding wallet share per client.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot green"></span>Agency Revenue Stream: New Distribution for MNTN</h4>
+        <p>Tatari launched an agency licensing model in late 2022. It now has 100 agencies on the platform generating 9% of net revenue. MNTN has minimal agency distribution. Tatari's agency network is a meaningful new distribution channel MNTN could leverage immediately post-acquisition.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot yellow"></span>Engineering Talent Acquisition: 98 Engineers</h4>
+        <p>~98 engineers (29.9% of headcount) focused on Publisher Platform, Buying and Optimization, and Reporting and Measurement. The Data Science team (~38 people) built the device graph and measurement tech over 8 years. This is deep, hard-to-replicate institutional knowledge. Key risk: retention post-acquisition requires thoughtful incentive design.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot yellow"></span>Potential Product Conflict: CTV Overlap</h4>
+        <p>Both MNTN and Tatari offer CTV buying and measurement. CTV is 36.4% of Tatari's gross media and growing fast. There will be overlap in streaming inventory access, measurement methodology, and client-facing product. A combined entity would need a clear product integration roadmap to avoid confusion and client churn. This is a manageable integration challenge, not a dealbreaker, but needs a plan before close.</p>
+      </div>
+      <div class="syn-card">
+        <h4><span class="dot red"></span>Culture and Founder Risk</h4>
+        <p>Philip Inghelbrecht holds 40% voting control and is active CEO. Michael Swinson (Chief Data Scientist) holds 30% voting. Both need to be retained for at least 2-3 years post-close. The data science IP (Vault, Upstream AI models) lives largely in Swinson and his team. Losing either founder within 12 months of close would be damaging. Deal structure must include multi-year employment agreements and meaningful equity roll.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUATION -->
+  <div class="section">
+    <div class="section-title">Valuation Framework</div>
+    <div class="val-box">
+      <div class="val-label">Indicative Acquisition Range (Net Revenue Multiple)</div>
+      <div class="val-range">$400M <span>to</span> $600M</div>
+      <div style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Based on 2026P net revenue of $111.3M at 3.5x to 5.5x. Midpoint: ~$500M (~4.5x NTM revenue). MNTN has $210M+ cash, giving substantial capacity for all-cash or cash/equity structure.</div>
+      <div class="val-row">
+        <div class="val-item">
+          <h5>Bear Case ($350M to $400M)</h5>
+          <p>3.0-3.5x 2026P NTM revenue. Justified if gross media growth disappoints, take-rate expansion stalls, or 2025's flat gross media (-1.1%) signals structural linear headwinds. Equivalent to 47-55x 2025 EBITDA.</p>
+        </div>
+        <div class="val-item">
+          <h5>Base Case ($450M to $550M)</h5>
+          <p>4.0-5.0x 2026P NTM revenue. Reflects take-rate expansion story, Upstream growth optionality, device graph IP, and a clean balance sheet with no institutional debt. Management projections show $190.9M revenue and $37M EBITDA by 2028.</p>
+        </div>
+        <div class="val-item">
+          <h5>Bull Case ($550M to $700M)</h5>
+          <p>5.0-6.0x NTM revenue. Justified if Upstream scales to $20M+ quickly and the combined entity can credibly market "all of Convergent TV" to MNTN's existing base, plus strategic scarcity premium for the only profitable full-stack CTV operator in market.</p>
+        </div>
+        <div class="val-item">
+          <h5>Deal Structure Thoughts</h5>
+          <p>Prefer all-cash or majority-cash given MNTN's $210M cash position and access to debt markets. Earnout component tied to 2027 revenue milestones ($149.7M target) could align interests and reduce upfront price risk. Equity rollover for founders (20-25% of consideration) preferred for retention.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:12px 16px;">
+      Comparable transactions: Innovid went public at ~$1.3B in 2021 on ~$120M revenue (10x+). VideoAmp raised at ~$1.4B (speculative, money-losing). Tatari is more profitable than either. However, the private market has repriced adtech significantly since 2021. A 4-5x NTM net revenue multiple on a profitable, growing platform is a realistic negotiating anchor. GP Bullhound will likely anchor to 6-8x; MNTN should anchor to 3.5-4.5x and meet in the middle.
+    </div>
+  </div>
+
+  <!-- RISKS AND QUESTIONS -->
+  <div class="section">
+    <div class="section-title">Key Risks and Open Questions</div>
+    <div class="card">
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div class="risk-content">
+          <div class="risk-title">Linear TV Structural Decline</div>
+          <div class="risk-desc">Linear gross media declined from $488M (2024) to $435M (2025), down 10.9% YoY. Linear is still 63.6% of gross media. If cord-cutting accelerates, Tatari's largest revenue segment shrinks. The company is betting that linear inventory becomes more valuable as it becomes scarcer (fewer eyeballs = higher CPMs and more premium placement) and that it can move clients "up the stack" to streaming. Tatari's own projections assume linear declines modestly. Validate this assumption in diligence.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div class="risk-content">
+          <div class="risk-title">Enterprise Client Concentration</div>
+          <div class="risk-desc">10 Enterprise clients represent 34% of net revenue. Losing 2-3 Enterprise clients post-acquisition (disruption fear, competitive pressure, or key-person departure) could materially impair revenue. Need the top 10 client list, contract terms, and renewal history before signing LOI.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div class="risk-content">
+          <div class="risk-title">Founder Retention: Inghelbrecht and Swinson</div>
+          <div class="risk-desc">Philip Inghelbrecht is the operating CEO. Michael Swinson built the data science foundation that underpins Vault and Upstream. Both hold significant voting control and equity. If either walks within 18 months of close, the acquirer faces real risk of IP erosion and culture damage. Multi-year employment agreements with meaningful retention equity are non-negotiable in any deal.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div class="risk-content">
+          <div class="risk-title">2026 Revenue Acceleration Assumption</div>
+          <div class="risk-desc">Net revenue growth was 7.1% in 2025 (slowed significantly from 31.5% in 2024). Management projects 28.6% in 2026 driven by Upstream scaling and take-rate expansion. This is a meaningful acceleration that requires validation. The $19.3M current pipeline ($10.9M weighted) supports near-term growth but does not fully bridge the implied $24.7M revenue step-up. Ask for monthly revenue run-rates Q1 2026 to confirm the trajectory.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div class="risk-content">
+          <div class="risk-title">Accounts Payable: $103.4M vs. Receivables $55.8M</div>
+          <div class="risk-desc">The balance sheet shows $103.4M in accounts payable (Q1 2026) vs. $55.8M in receivables. AP significantly exceeds AR, which is normal for a media-buying business (Tatari pays publishers before it collects from clients), but the working capital deficit needs to be modeled carefully in deal structure. The $201M in cash/securities is more than adequate coverage, but confirm timing of cash cycles in diligence.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div class="risk-content">
+          <div class="risk-title">Product Integration Complexity</div>
+          <div class="risk-desc">MNTN's CTV platform and Tatari's CTV platform overlap on streaming inventory access, measurement, and client-facing UX. A combined entity needs a 12-18 month product integration roadmap before close. Risk: clients of both platforms are confused, or the CTV products cannibalize each other before integration is complete. Key question: does Tatari become MNTN's linear layer while MNTN remains the CTV lead, or do they fully merge into a single convergent TV platform?</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div class="risk-content">
+          <div class="risk-title">Geographic Talent Risk: Ukraine and Eastern Europe</div>
+          <div class="risk-desc">The employee census shows engineering talent in Ukraine (Zaporizhzhia, Kyiv, Vovchynetske village) and Czechia. Given geopolitical instability in Ukraine, there is operational risk in this workforce. Quantify the Ukraine engineering headcount as part of diligence and assess business continuity plans.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge low">Low</div>
+        <div class="risk-content">
+          <div class="risk-title">Vault Revenue Still Minimal</div>
+          <div class="risk-desc">Vault Ad Solutions (privacy/identity data) has sub-$1M current revenue despite 8+ years of asset building. The device graph is real and used internally, but standalone licensing monetization has not been proven. This is upside optionality, not a revenue-to-be-acquired. Do not pay for Vault as a standalone revenue business; treat it as a data infrastructure asset.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge low">Low</div>
+        <div class="risk-content">
+          <div class="risk-title">Financial Statements are Unaudited</div>
+          <div class="risk-desc">All financials in the VDR are explicitly marked unaudited. Revenue recognition practices (gross vs. net treatment of media buys, Upstream accounting) need audit-quality review before any LOI is signed. Deferred revenue of $85.2M (Q1 2026) should be understood in terms of timing and contractual obligations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div class="section">
+    <div class="section-title">Acquisition Recommendation</div>
+    <div class="rec-box">
+      <div class="rec-verdict">Recommendation: Actively Explore / Proceed to LOI</div>
+      <div class="rec-body">
+        <strong>The strategic case is compelling.</strong> Tatari fills MNTN's single most important capability gap: access to linear TV. No other asset in the market gives MNTN immediate, profitable, at-scale linear TV buying capability with a fully developed technology stack. The Tatari platform touches $687M of gross media, serves 300+ brands, has 13 granted patents, and generates positive EBITDA at an 83%+ gross margin. The device graph (Vault) and supply mediation layer (Upstream) are genuine moats with no direct competitive equivalent.
+        <br><br>
+        <strong>The financial profile is unusually clean for a transaction of this size:</strong> no institutional debt, no VC liquidation preferences, founder-controlled, profitable, with $201M in cash and securities on the balance sheet. This reduces deal complexity significantly.
+        <br><br>
+        <strong>The critical path:</strong> (1) Obtain Q1 2026 monthly revenue run-rates to validate the 2026 growth re-acceleration. (2) Obtain the top 10 Enterprise client list with contract terms and renewal history. (3) Negotiate multi-year retention agreements with Inghelbrecht and Swinson as a prerequisite to LOI. (4) Commission a product integration scoping exercise to determine how Tatari's CTV layer and MNTN's CTV layer get consolidated. (5) Run the Ukraine engineering headcount analysis.
+        <br><br>
+        <strong>Price anchor:</strong> Open negotiations at $400M-$450M (3.5-4x 2026P NTM revenue), walk away above $650M (6x). The most likely deal lands in the $480M-$560M range with an earnout of up to $50M tied to 2027 revenue milestones, plus equity rollover for both founders at 20% of total consideration. MNTN's $210M cash covers roughly half the deal; the remainder would require modest leverage or stock issuance.
+        <br><br>
+        <strong>One important flag:</strong> The 2025 net revenue growth of 7.1% (down from 31.5% in 2024) is a yellow flag. Before advancing to full diligence, confirm this is a deliberate transition year rather than evidence of market saturation or competitive pressure. The projections show a sharp recovery, but those projections come from the seller.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+</div>
+
+<div class="brief-footer">
+  <div class="container">
+    Project Phoenix | Tatari Acquisition Brief | Prepared by MNTN Corp Dev | June 11, 2026 | Confidential | Based on GP Bullhound sell-side VDR materials. All figures unaudited per seller disclosure. This brief is for internal MNTN evaluation only.
+  </div>
+</div>
+
+</body>
+</html>

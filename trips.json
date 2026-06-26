@@ -1,0 +1,1040 @@
+{
+  "trips": [
+    {
+      "id": "1",
+      "title": "New York City",
+      "destination": {
+        "city": "New York City",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-04-06",
+        "end": "2026-04-11"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_1_1",
+          "type": "flight",
+          "title": "Delta Air Lines DL650",
+          "details": {
+            "bRoute": "HNL > JFK",
+            "bDepDate": "Apr 6, 2026 5:24 PM",
+            "bArrDate": "Apr 7, 2026 9:00 AM",
+            "bClass": "Economy",
+            "bConfirmation": "JN4VEP",
+            "bCost": "",
+            "bNotes": "",
+            "bPassengers": "Christopher Innes"
+          }
+        },
+        {
+          "id": "b_1_acc",
+          "type": "accommodation",
+          "title": "Stunning view+terrasse/Hells Kitchen",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "548 W 48th St, New York, NY 10036, USA",
+            "bConfirmation": "HMYHDJ9ETP",
+            "bCheckin": "Apr 6, 2026 4:00 PM",
+            "bCheckout": "Apr 11, 2026 11:00 AM",
+            "bNights": "5",
+            "bCost": "$7,742 USD",
+            "bHost": "LuxQuarters",
+            "bPhone": "",
+            "bNotes": "",
+            "bIncludes": ""
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [],
+      "notes": "QA Test Note - verify persistence",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL650",
+          "route": "HNL > JFK",
+          "departure": "Apr 6, 2026 5:24 PM",
+          "arrival": "Apr 7, 2026 9:00 AM",
+          "confirmation": "JN4VEP",
+          "class": "Economy",
+          "cost": "",
+          "notes": "",
+          "passengers": "Christopher Innes"
+        }
+      ],
+      "accommodation": "Stunning view+terrasse/Hells Kitchen",
+      "budget": 7742,
+      "expenses": [],
+      "packingList": {
+        "Essentials": [
+          {
+            "item": "Passport",
+            "checked": false
+          },
+          {
+            "item": "Wallet",
+            "checked": false
+          },
+          {
+            "item": "Phone",
+            "checked": false
+          },
+          {
+            "item": "ID",
+            "checked": false
+          }
+        ],
+        "Clothing": [
+          {
+            "item": "Underwear",
+            "checked": false
+          },
+          {
+            "item": "Socks",
+            "checked": false
+          },
+          {
+            "item": "Comfortable shoes",
+            "checked": false
+          }
+        ],
+        "Toiletries": [
+          {
+            "item": "Toothbrush",
+            "checked": false
+          },
+          {
+            "item": "Toothpaste",
+            "checked": false
+          },
+          {
+            "item": "Deodorant",
+            "checked": false
+          }
+        ],
+        "Electronics": [
+          {
+            "item": "Charger",
+            "checked": false
+          },
+          {
+            "item": "Headphones",
+            "checked": false
+          }
+        ],
+        "Documents": [
+          {
+            "item": "Travel documents",
+            "checked": false
+          },
+          {
+            "item": "Insurance info",
+            "checked": false
+          }
+        ]
+      },
+      "colorIndex": 0,
+      "legs": []
+    },
+    {
+      "id": "3",
+      "title": "Los Cabos",
+      "destination": {
+        "city": "Los Cabos",
+        "country": "Mexico",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-04-17",
+        "end": "2026-04-24"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_3_f1",
+          "type": "flight",
+          "title": "Delta Air Lines DL1315/DL1945",
+          "details": {
+            "bRoute": "IAH > ATL > SJD",
+            "bDepDate": "Apr 17, 2026 7:00 AM",
+            "bArrDate": "Apr 17, 2026 1:04 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HHY9O6",
+            "bSeats": "01D / 03B",
+            "bNotes": "DL1315 IAH-ATL 7:00AM-10:04AM, DL1945 ATL-SJD 11:36AM-1:04PM"
+          }
+        },
+        {
+          "id": "b_3_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL1876",
+          "details": {
+            "bRoute": "SJD > LAX",
+            "bDepDate": "Apr 24, 2026 2:00 PM",
+            "bArrDate": "Apr 24, 2026 4:43 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HH9APE",
+            "bSeats": "04A",
+            "bNotes": "Los Cabos to Los Angeles"
+          }
+        },
+        {
+          "id": "b_3_acc1",
+          "type": "accommodation",
+          "title": "Condominium in Cabo San Lucas",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Cabo San Lucas, Baja California Sur 23453, Mexico",
+            "bConfirmation": "HMYAWZ52EQ",
+            "bCheckin": "Apr 17, 2026 4:00 PM",
+            "bCheckout": "Apr 21, 2026 11:00 AM",
+            "bNights": "4",
+            "bHost": "Laura & Nick @ The Cabo Way",
+            "bListingUrl": "https://www.airbnb.com/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMYAWZ52EQ"
+          }
+        },
+        {
+          "id": "b_3_acc2",
+          "type": "accommodation",
+          "title": "House in Cabo Bello",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Paseo de los Cabos Lote H117, Cabo Bello, Baja California Sur 23455, Mexico",
+            "bConfirmation": "HMQTY8Y2FR",
+            "bCheckin": "Apr 20, 2026 3:00 PM",
+            "bCheckout": "Apr 24, 2026 11:00 AM",
+            "bNights": "4",
+            "bHost": "Agueda",
+            "bListingUrl": "https://www.airbnb.com/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMQTY8Y2FR"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL1315/DL1945",
+          "route": "IAH > ATL > SJD",
+          "departure": "Apr 17, 2026 7:00 AM",
+          "arrival": "Apr 17, 2026 1:04 PM",
+          "confirmation": "HHY9O6",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL1315 IAH-ATL 7:00AM-10:04AM, DL1945 ATL-SJD 11:36AM-1:04PM",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines DL1876",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026 2:00 PM",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "confirmation": "HH9APE",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Los Cabos to Los Angeles",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "Condominium in Cabo San Lucas",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1,
+      "legs": []
+    },
+    {
+      "id": "4",
+      "title": "Los Angeles",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-04-24",
+        "end": "2026-05-01"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_4_f1",
+          "type": "flight",
+          "title": "Delta Air Lines DL1876",
+          "details": {
+            "bRoute": "SJD > LAX",
+            "bDepDate": "Apr 24, 2026 2:00 PM",
+            "bArrDate": "Apr 24, 2026 4:43 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HH9APE",
+            "bSeats": "04A",
+            "bNotes": "Arriving from Los Cabos"
+          }
+        },
+        {
+          "id": "b_4_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL968/DL5535",
+          "details": {
+            "bRoute": "LGA > ATL > LFT",
+            "bDepDate": "May 1, 2026 5:00 PM",
+            "bArrDate": "May 1, 2026 10:12 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "GT6REO",
+            "bSeats": "03B / 02A",
+            "bNotes": "DL968 LGA-ATL 5:00PM-7:36PM, DL5535 ATL-LFT 9:20PM-10:12PM (Endeavor Air)"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL1876",
+          "route": "SJD > LAX",
+          "departure": "Apr 24, 2026 2:00 PM",
+          "arrival": "Apr 24, 2026 4:43 PM",
+          "confirmation": "HH9APE",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Arriving from Los Cabos",
+          "passengers": ""
+        },
+        {
+          "airline": "Delta Air Lines DL968/DL5535",
+          "route": "LGA > ATL > LFT",
+          "departure": "May 1, 2026 5:00 PM",
+          "arrival": "May 1, 2026 10:12 PM",
+          "confirmation": "GT6REO",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL968 LGA-ATL 5:00PM-7:36PM, DL5535 ATL-LFT 9:20PM-10:12PM (Endeavor Air)",
+          "passengers": ""
+        }
+      ],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 2,
+      "legs": []
+    },
+    {
+      "id": "5",
+      "title": "Johannesburg",
+      "destination": {
+        "city": "Johannesburg",
+        "country": "South Africa",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-04-30",
+        "end": "2026-05-02"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_5_1",
+          "type": "flight",
+          "title": "Flightnetwork",
+          "details": {
+            "bRoute": "JNB > MQP",
+            "bDepDate": "May 2, 2026 11:05 AM",
+            "bArrDate": "May 2, 2026 12:00 PM",
+            "bConfirmation": "1124-346-110",
+            "bCost": "$652.29 USD",
+            "bPassengers": "Christopher Innes, Brooke Scimemi"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "route": "JNB > MQP",
+          "departure": "May 2, 2026 11:05 AM",
+          "arrival": "May 2, 2026 12:00 PM",
+          "confirmation": "1124-346-110",
+          "class": "",
+          "cost": "$652.29 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": null,
+      "budget": 652.29,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 3,
+      "legs": []
+    },
+    {
+      "id": "6",
+      "title": "Singita Safari (Sabi Sand)",
+      "destination": {
+        "city": "Singita Safari (Sabi Sand)",
+        "country": "South Africa",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-02",
+        "end": "2026-05-06"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_6_1",
+          "type": "flight",
+          "title": "Flightnetwork",
+          "details": {
+            "bRoute": "MQP > CPT",
+            "bDepDate": "May 6, 2026 3:10 PM",
+            "bArrDate": "May 6, 2026 5:50 PM",
+            "bConfirmation": "1125-931-158",
+            "bCost": "$472.19 USD",
+            "bPassengers": "Christopher Innes, Brooke Scimemi"
+          }
+        },
+        {
+          "id": "b_6_2",
+          "type": "flight",
+          "title": "Flightnetwork",
+          "details": {
+            "bRoute": "JNB > CPT",
+            "bDepDate": "May 6, 2026 5:40 PM",
+            "bArrDate": "May 6, 2026 7:55 PM",
+            "bConfirmation": "1127-650-787",
+            "bCost": "$857.72 USD",
+            "bNotes": "Alternative routing via Johannesburg",
+            "bPassengers": "Christopher Innes, Brooke Scimemi"
+          }
+        },
+        {
+          "id": "b_6_acc",
+          "type": "accommodation",
+          "title": "Singita Boulders Lodge - River Suite",
+          "details": {
+            "bProvider": "Singita",
+            "bConfirmation": "Res14331",
+            "bCheckin": "May 2, 2026",
+            "bCheckout": "May 6, 2026",
+            "bNights": "4",
+            "bCost": "ZAR 56,310 per adult per night",
+            "bPhone": "Stephanie Schwatlo +27 79 6088081",
+            "bNotes": "Booked for Brookes 30th birthday (May 4)",
+            "bIncludes": "All meals, beverages, game drives, walking safaris, transfers"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Flightnetwork",
+          "route": "MQP > CPT",
+          "departure": "May 6, 2026 3:10 PM",
+          "arrival": "May 6, 2026 5:50 PM",
+          "confirmation": "1125-931-158",
+          "class": "",
+          "cost": "$472.19 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        },
+        {
+          "airline": "Flightnetwork",
+          "route": "JNB > CPT",
+          "departure": "May 6, 2026 5:40 PM",
+          "arrival": "May 6, 2026 7:55 PM",
+          "confirmation": "1127-650-787",
+          "class": "",
+          "cost": "$857.72 USD",
+          "notes": "Alternative routing via Johannesburg",
+          "passengers": "Christopher Innes, Brooke Scimemi"
+        }
+      ],
+      "accommodation": "Singita Boulders Lodge - River Suite",
+      "budget": 57639.91,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
+    },
+    {
+      "id": "7",
+      "title": "Cape Town",
+      "destination": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-06",
+        "end": "2026-05-15"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 5,
+      "legs": []
+    },
+    {
+      "id": "8",
+      "title": "Dubrovnik",
+      "destination": {
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-15",
+        "end": "2026-05-29"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_8_1",
+          "type": "flight",
+          "title": "Delta/KLM DL9171/DL9225",
+          "details": {
+            "bRoute": "DBV > AMS > LAX",
+            "bDepDate": "May 29, 2026 6:30 AM",
+            "bArrDate": "May 29, 2026 11:50 AM",
+            "bClass": "Europe Business / World Business",
+            "bConfirmation": "GHBJWI",
+            "bCost": "EUR 4,315.62",
+            "bNotes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
+            "bPassengers": "Brooke Scimemi",
+            "bSeats": "03F / 07G"
+          }
+        },
+        {
+          "id": "b_8_acc",
+          "type": "accommodation",
+          "title": "Maxima Comoda",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Zagrebacka Ul. 22, 20000, Dubrovnik, Croatia",
+            "bConfirmation": "HMZKNPNPRQ",
+            "bCheckin": "May 15, 2026 3:00 PM",
+            "bCheckout": "May 29, 2026 10:00 AM",
+            "bNights": "14",
+            "bCost": "$18,098.50 USD",
+            "bHost": "Maxima Comoda - Premium Properties D.O.O.",
+            "bPhone": "+385 91 527 5007"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta/KLM DL9171/DL9225",
+          "route": "DBV > AMS > LAX",
+          "departure": "May 29, 2026 6:30 AM",
+          "arrival": "May 29, 2026 11:50 AM",
+          "confirmation": "GHBJWI",
+          "class": "Europe Business / World Business",
+          "cost": "EUR 4,315.62",
+          "notes": "DL9171 KLM City Hopper (DBV-AMS), DL9225 KLM (AMS-LAX)",
+          "passengers": "Brooke Scimemi"
+        }
+      ],
+      "accommodation": "Maxima Comoda",
+      "budget": 22414.12,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 6,
+      "legs": []
+    },
+    {
+      "id": "9",
+      "title": "Playa del Carmen",
+      "destination": {
+        "city": "Playa del Carmen",
+        "country": "Mexico",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-05-30",
+        "end": "2026-06-13"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_9_f1",
+          "type": "flight",
+          "title": "Delta Air Lines DL615",
+          "details": {
+            "bRoute": "LAX > CUN",
+            "bDepDate": "May 30, 2026 10:18 AM",
+            "bArrDate": "May 30, 2026 4:55 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "GGY5ZF",
+            "bSeats": "04A",
+            "bNotes": "Los Angeles to Cancun"
+          }
+        },
+        {
+          "id": "b_9_acc",
+          "type": "accommodation",
+          "title": "donQuijote Spanish School",
+          "details": {
+            "bProvider": "donQuijote",
+            "bAddress": "Calle 6 s/n entre Avenidas 35 y 40, Centro, 77710 Playa del Carmen",
+            "bPhone": "+52-984-8730755",
+            "bNotes": "Intensive Spanish 20. Arrive 08:00 first day. Part of Latin America program ($2,938 total). Student: Brooke Scimemi."
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL615",
+          "route": "LAX > CUN",
+          "departure": "May 30, 2026 10:18 AM",
+          "arrival": "May 30, 2026 4:55 PM",
+          "confirmation": "GGY5ZF",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "Los Angeles to Cancun",
+          "passengers": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 7,
+      "legs": []
+    },
+    {
+      "id": "10",
+      "title": "Antigua Guatemala",
+      "destination": {
+        "city": "Antigua Guatemala",
+        "country": "Guatemala",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-06-13",
+        "end": "2026-06-27"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_10_1",
+          "type": "flight",
+          "title": "Avianca",
+          "details": {
+            "bRoute": "Guatemala departure",
+            "bDepDate": "Jun 27, 2026 9:30 AM",
+            "bNotes": "eticket for Christopher Innes and Brooke Scimemi"
+          }
+        },
+        {
+          "id": "b_10_acc",
+          "type": "accommodation",
+          "title": "donQuijote Spanish School",
+          "details": {
+            "bProvider": "donQuijote",
+            "bAddress": "6ta Avenida Norte 16-16A 03001, Antigua Guatemala",
+            "bPhone": "+502 7932 1500",
+            "bNotes": "Intensive Spanish 20. Arrive 07:00 Monday for Orientation."
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 8,
+      "legs": []
+    },
+    {
+      "id": "11",
+      "title": "Bogota",
+      "destination": {
+        "city": "Bogota",
+        "country": "Colombia",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-06-27",
+        "end": "2026-07-11"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_11_1",
+          "type": "flight",
+          "title": "Avianca",
+          "details": {
+            "bRoute": "BOG > EZE",
+            "bDepDate": "Jul 11, 2026",
+            "bClass": "Business Flex",
+            "bConfirmation": "AJ2LFB",
+            "bCost": "$3,014.00 USD",
+            "bPassengers": "Christopher Innes, Brooke Scimemi"
+          }
+        },
+        {
+          "id": "b_11_acc",
+          "type": "accommodation",
+          "title": "donQuijote Spanish School",
+          "details": {
+            "bProvider": "donQuijote",
+            "bAddress": "Calle 69 No. 11a-09, Barrio Quinta Camacho, Bogota",
+            "bPhone": "+57 18138674",
+            "bNotes": "Intensive Spanish 20. Arrive 09:00 first day."
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 3014,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 9,
+      "legs": []
+    },
+    {
+      "id": "12",
+      "title": "Buenos Aires",
+      "destination": {
+        "city": "Buenos Aires",
+        "country": "Argentina",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-07-11",
+        "end": "2026-07-26"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_12_1",
+          "type": "flight",
+          "title": "Avianca",
+          "details": {
+            "bRoute": "LAX > SAL",
+            "bDepDate": "Jul 30, 2026 2:40 PM",
+            "bNotes": "eticket for Christopher Innes and Brooke Scimemi"
+          }
+        },
+        {
+          "id": "b_12_f2",
+          "type": "flight",
+          "title": "Delta Air Lines DL110/DL996",
+          "details": {
+            "bRoute": "EZE > ATL > LAX",
+            "bDepDate": "Jul 26, 2026 8:10 PM",
+            "bArrDate": "Jul 27, 2026 8:33 AM",
+            "bClass": "Delta One / Delta First",
+            "bConfirmation": "HLWTES",
+            "bSeats": "02G / 02A",
+            "bNotes": "DL110 EZE-ATL 8:10PM-5:25AM+1 (Delta One), DL996 ATL-LAX 7:00AM-8:33AM"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Avianca",
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
+        },
+        {
+          "airline": "Delta Air Lines DL110/DL996",
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
+        }
+      ],
+      "accommodation": "donQuijote Spanish School",
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0,
+      "legs": []
+    },
+    {
+      "id": "13",
+      "title": "El Salvador",
+      "destination": {
+        "city": "El Salvador",
+        "country": "El Salvador",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-07-30",
+        "end": "2026-08-09"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [
+        {
+          "id": "b_13_f1",
+          "type": "flight",
+          "title": "Delta Air Lines DL1978/DL825",
+          "details": {
+            "bRoute": "SAL > ATL > LAS",
+            "bDepDate": "Aug 9, 2026 1:48 PM",
+            "bArrDate": "Aug 9, 2026 10:08 PM",
+            "bClass": "Delta First Classic",
+            "bConfirmation": "HL94IF",
+            "bSeats": "03A / 02A",
+            "bNotes": "DL1978 SAL-ATL 1:48PM-7:30PM, DL825 ATL-LAS 8:55PM-10:08PM"
+          }
+        },
+        {
+          "id": "b_13_acc",
+          "type": "accommodation",
+          "title": "Il Vento Uno - Penthouse TERRA",
+          "details": {
+            "bProvider": "Airbnb",
+            "bAddress": "Pje Libertad, San Salvador",
+            "bConfirmation": "HMNDWCQ3C8",
+            "bCheckin": "Jul 30, 2026 3:00 PM",
+            "bCheckout": "Aug 9, 2026 11:00 AM",
+            "bNights": "10",
+            "bCost": "$3,727.00 USD",
+            "bHost": "Rosa Alba",
+            "bPhone": "+503 7482 4049"
+          }
+        }
+      ],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta Air Lines DL1978/DL825",
+          "number": "",
+          "depAirport": "",
+          "arrAirport": "",
+          "depTime": "",
+          "arrTime": ""
+        }
+      ],
+      "accommodation": "Il Vento Uno - Penthouse TERRA",
+      "budget": 3727,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1,
+      "legs": []
+    },
+    {
+      "id": "14",
+      "title": "Las Vegas",
+      "destination": {
+        "city": "Las Vegas",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-08-09",
+        "end": "2026-08-09"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": " Arriving via DL825 from ATL at 10:08 PM (from El Salvador)",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": [],
+      "colorIndex": 2,
+      "legs": []
+    },
+    {
+      "id": "15",
+      "title": "Atlanta",
+      "destination": {
+        "city": "Atlanta",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-01-01",
+        "end": "2026-01-01"
+      },
+      "status": "completed",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [
+        {
+          "name": "Brooke Scimemi",
+          "email": ""
+        }
+      ],
+      "notes": "Transit only - connection point (SAL>ATL>LAS on Aug 9)",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": [],
+      "colorIndex": 3,
+      "legs": []
+    },
+    {
+      "id": "1778268408717",
+      "title": "New York",
+      "destination": {
+        "city": "New York",
+        "country": "",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-07-26",
+        "end": "2026-07-30"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
+      "flights": [
+        {
+          "airline": "Delta",
+          "number": "DL 0110",
+          "depAirport": "EZE",
+          "arrAirport": "NYC",
+          "depTime": "2026-07-26T20:10",
+          "arrTime": "2026-07-27T09:55"
+        }
+      ],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
+    }
+  ],
+  "templates": [],
+  "settings": {}
+}

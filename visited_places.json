@@ -1,0 +1,28 @@
+{
+  "description": "Places Christopher and Brooke have traveled together",
+  "places": [
+    { "name": "Venice", "country": "Italy", "lat": 45.4408, "lng": 12.3155 },
+    { "name": "Zurich", "country": "Switzerland", "lat": 47.3769, "lng": 8.5417 },
+    { "name": "Istanbul", "country": "Turkey", "lat": 41.0082, "lng": 28.9784 },
+    { "name": "Cappadocia", "country": "Turkey", "lat": 38.6731, "lng": 34.8283 },
+    { "name": "Russell", "country": "New Zealand", "lat": -35.2635, "lng": 174.1229 },
+    { "name": "Auckland", "country": "New Zealand", "lat": -36.8509, "lng": 174.7645 },
+    { "name": "Sydney", "country": "Australia", "lat": -33.8688, "lng": 151.2093 },
+    { "name": "Melbourne", "country": "Australia", "lat": -37.8136, "lng": 144.9631 },
+    { "name": "Maui Coast Bay", "country": "Fiji", "lat": -17.9000, "lng": 177.4000 },
+    { "name": "Papeete", "country": "Tahiti", "lat": -17.5334, "lng": -149.5667 },
+    { "name": "Moorea", "country": "Tahiti", "lat": -17.5333, "lng": -149.8319 },
+    { "name": "Honolulu", "country": "Hawaii", "lat": 21.3069, "lng": -157.8583 },
+    { "name": "New York", "country": "USA", "lat": 40.7128, "lng": -74.0060 },
+    { "name": "Lake Charles", "country": "USA", "lat": 30.2266, "lng": -93.2174 },
+    { "name": "Los Cabos", "country": "Mexico", "lat": 22.8905, "lng": -109.9167 },
+    { "name": "Frankfurt", "country": "Germany", "lat": 50.1109, "lng": 8.6821 },
+    { "name": "Johannesburg", "country": "South Africa", "lat": -26.2041, "lng": 28.0473 },
+    { "name": "Sabi Sands", "country": "South Africa", "lat": -24.9000, "lng": 31.5000 },
+    { "name": "Cape Town", "country": "South Africa", "lat": -33.9249, "lng": 18.4241 },
+    { "name": "Lisbon", "country": "Portugal", "lat": 38.7223, "lng": -9.1393 },
+    { "name": "Algarve", "country": "Portugal", "lat": 37.0179, "lng": -7.9307 },
+    { "name": "Amsterdam", "country": "Netherlands", "lat": 52.3676, "lng": 4.9041 },
+    { "name": "Brussels", "country": "Belgium", "lat": 50.8503, "lng": 4.3517 }
+  ]
+}

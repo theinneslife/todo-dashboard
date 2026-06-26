@@ -1,0 +1,9 @@
+
+# Auto-added by restore: prevent bloat and secret exposure
+node_modules/
+.claude/worktrees/
+*.credentials.json
+growlab_credentials.json
+*.b64
+.DS_Store
+**/.DS_Store

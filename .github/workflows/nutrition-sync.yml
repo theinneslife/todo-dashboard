@@ -1,0 +1,443 @@
+name: Nutrition Sync
+
+# Triggered by Health Auto Export (iOS) which POSTs Apple Health nutrition data
+# to the repository_dispatch endpoint once a day. The metrics payload arrives in
+# github.event.client_payload.
+on:
+  repository_dispatch:
+    types: [nutrition-sync]
+  workflow_dispatch:        # allow manual trigger for testing
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse nutrition payload and update nutrition_data.json
+        env:
+          # Serialize the whole client_payload to JSON and hand it to Python via an
+          # env var. This avoids any shell-injection / quoting issues with the body.
+          CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, datetime, statistics
+
+          payload_raw = os.environ.get('CLIENT_PAYLOAD', '') or '{}'
+          try:
+              payload = json.loads(payload_raw)
+          except json.JSONDecodeError:
+              payload = {}
+          if not isinstance(payload, dict):
+              payload = {}
+
+          DATA_FILE = 'nutrition_data.json'
+
+          # ---- Default / empty schema -------------------------------------------
+          def empty_entry(date=''):
+              return {
+                  'date': date,
+                  'calories': 0,
+                  'protein_g': 0,
+                  'carbs_g': 0,
+                  'fat_g': 0,
+                  'fiber_g': 0,
+                  'water_ml': 0,
+                  # Sleep (Apple Health "Sleep Analysis"). None == no data yet,
+                  # which the AthleteFlo recovery section renders as a placeholder.
+                  'sleep_hours': None,
+                  'time_in_bed_hours': None,
+                  'sleep_efficiency_pct': None,
+                  # Recovery vitals (Apple Health, optional). None until HAE sends
+                  # them — the recovery section shows "Waiting for data".
+                  'hrv_ms': None,
+                  'resting_hr': None,
+                  # Composite 0-100 recovery score (Whoop-style). Computed from
+                  # HRV vs 30-day baseline, RHR trend, sleep quality.
+                  'recovery_score': None,
+              }
+
+          def default_doc():
+              return {'last_updated': '', 'today': empty_entry(), 'history': []}
+
+          # ---- Load existing file (or start fresh) ------------------------------
+          try:
+              with open(DATA_FILE) as f:
+                  doc = json.load(f)
+              if not isinstance(doc, dict):
+                  doc = default_doc()
+          except (FileNotFoundError, json.JSONDecodeError):
+              doc = default_doc()
+          doc.setdefault('history', [])
+          doc.setdefault('today', empty_entry())
+
+          # ---- Normalize Health Auto Export metric names -----------------------
+          # HAE may send display names ("Dietary Energy") or snake_case
+          # ("dietary_energy"). Normalize to a comparable key.
+          def norm(name):
+              return ''.join(c for c in str(name).lower() if c.isalnum())
+
+          NAME_MAP = {
+              'dietaryenergy': 'calories',
+              'calories': 'calories',
+              'protein': 'protein_g',
+              'carbohydrates': 'carbs_g',
+              'carbs': 'carbs_g',
+              'totalfat': 'fat_g',
+              'dietaryfat': 'fat_g',
+              'fat': 'fat_g',
+              'dietaryfiber': 'fiber_g',
+              'fiber': 'fiber_g',
+              'fibre': 'fiber_g',
+              'dietarywater': 'water_ml',
+              'water': 'water_ml',
+          }
+
+          # ---- Locate the metrics list, tolerating both shapes ------------------
+          # Simplified: {"data": [ {name, qty, unit}, ... ]}
+          # Native HAE: {"data": {"metrics": [ {name, units, data:[{date, qty}]}, ... ]}}
+          data = payload.get('data', payload)
+          if isinstance(data, dict):
+              metrics = data.get('metrics', [])
+          elif isinstance(data, list):
+              metrics = data
+          else:
+              metrics = []
+
+          def to_number(v):
+              try:
+                  return float(v)
+              except (TypeError, ValueError):
+                  return 0.0
+
+          def metric_qty(m):
+              # A metric carries either a top-level qty, or a list of dated samples
+              # under "data" that we sum into a daily total.
+              if 'qty' in m and m['qty'] is not None:
+                  return to_number(m['qty'])
+              samples = m.get('data')
+              if isinstance(samples, list):
+                  return sum(to_number(s.get('qty')) for s in samples if isinstance(s, dict))
+              return 0.0
+
+          def metric_unit(m):
+              return str(m.get('unit') or m.get('units') or '').lower()
+
+          def metric_avg(m):
+              # Like metric_qty, but AVERAGES dated samples instead of summing.
+              # Correct for rate-style metrics (HRV, resting HR) where a daily
+              # value should not be added across samples.
+              if 'qty' in m and m['qty'] is not None:
+                  return to_number(m['qty'])
+              samples = m.get('data')
+              if isinstance(samples, list):
+                  vals = [to_number(s.get('qty')) for s in samples
+                          if isinstance(s, dict) and s.get('qty') is not None]
+                  if vals:
+                      return sum(vals) / len(vals)
+              return 0.0
+
+          def sample_date(m):
+              samples = m.get('data')
+              if isinstance(samples, list):
+                  for s in samples:
+                      if isinstance(s, dict) and s.get('date'):
+                          # HAE dates look like "2026-05-29 00:00:00 -0700"
+                          return str(s['date'])[:10]
+              return None
+
+          # ---- Log what HAE actually sent --------------------------------------
+          # Surface every metric name + unit arriving in the payload so a field
+          # mismatch (e.g. an unexpected sleep metric name) is visible in the
+          # Actions log instead of silently producing null.
+          print(f"Received {len(metrics)} metric(s) from HAE payload:")
+          for m in metrics:
+              if isinstance(m, dict):
+                  n_samples = len(m['data']) if isinstance(m.get('data'), list) else 0
+                  print(f"  - name={m.get('name')!r} unit={metric_unit(m)!r} "
+                        f"qty={m.get('qty')!r} samples={n_samples}")
+
+          # ---- Accumulate fields ------------------------------------------------
+          entry = empty_entry()
+          found_date = None
+          for m in metrics:
+              if not isinstance(m, dict):
+                  continue
+              field = NAME_MAP.get(norm(m.get('name', '')))
+              if not field:
+                  continue
+              qty = metric_qty(m)
+              if field == 'water_ml':
+                  unit = metric_unit(m)
+                  # HAE actually sends water as US fluid ounces ("fl_oz_us"),
+                  # NOT liters — the old liters-only path left water near zero.
+                  # 1 US fl oz = 29.5735 ml. Check fl oz first, then fall back
+                  # to the liter -> ml conversion: "ml"/"mL" is already ml; a
+                  # bare "l"/"liter"/"litre" (no "m") means liters.
+                  if 'fl_oz' in unit or 'floz' in unit or 'fluidounce' in unit:
+                      qty *= 29.5735
+                  elif 'ml' not in unit and (unit.startswith('l') or 'liter' in unit or 'litre' in unit):
+                      qty *= 1000
+              entry[field] = round(qty) if field == 'calories' else round(qty, 1)
+              found_date = found_date or sample_date(m)
+
+          # ---- Sleep parsing (Apple Health "Sleep Analysis") -------------------
+          # NOTE ON MISSING SLEEP: real HAE payloads inspected so far carry 49
+          # metrics with NONE sleep-related, and every metric arrives with
+          # samples=0 because HAE's "Summarize Data" mode collapses per-sample
+          # records into a single daily qty. Sleep STAGE data (core/deep/rem,
+          # asleep/inBed) only exists in the per-sample records, so to get sleep
+          # here you must either:
+          #   (a) disable "Summarize Data" in HAE so per-sample sleep records
+          #       are sent (the stage-summing logic below depends on them), OR
+          #   (b) accept that Whoop-sourced sleep typically isn't written to
+          #       Apple Health until the next morning, so today's export may
+          #       legitimately have no sleep yet.
+          # The name checks below already cover "sleep_analysis" -> norm() ->
+          # "sleepanalysis" (in SLEEP_ASLEEP), so no field-name fix is needed;
+          # the gap is the payload not containing sleep at all.
+          #
+          # HAE sends sleep under a variety of names; "asleep" duration and
+          # "time in bed" may arrive as separate metrics, as a single qty, or as
+          # per-sample breakdown fields (asleep / inBed) on a "Sleep Analysis"
+          # metric. Normalize everything to hours.
+          # norm() strips spaces/case, so "Time Asleep" -> "timeasleep",
+          # "Sleep Analysis" -> "sleepanalysis", etc. Cover every HAE variant.
+          SLEEP_ASLEEP = {'sleepanalysis', 'asleep', 'sleeping', 'sleep',
+                          'timeasleep', 'totalsleep', 'sleepdurationasleep',
+                          'asleepunspecified'}
+          SLEEP_INBED  = {'timeinbed', 'inbed', 'bedtime'}
+
+          def to_hours(value, unit):
+              unit = str(unit or '').lower()
+              if 'min' in unit:
+                  return value / 60.0
+              if unit in ('s', 'sec', 'secs', 'second', 'seconds'):
+                  return value / 3600.0
+              return value  # 'hr' / 'h' / 'hours' or unitless → assume hours
+
+          def sample_sum(samples, *keys):
+              # Sum the FIRST present key per sample — keys are ALIASES for one value.
+              total = 0.0
+              for s in samples:
+                  if not isinstance(s, dict):
+                      continue
+                  for k in keys:
+                      if s.get(k) is not None:
+                          total += to_number(s.get(k))
+                          break
+              return total
+
+          def sample_sum_stages(samples, *keys):
+              # Sum ALL present keys per sample — keys are ADDITIVE sleep stages.
+              total = 0.0
+              for s in samples:
+                  if not isinstance(s, dict):
+                      continue
+                  for k in keys:
+                      if s.get(k) is not None:
+                          total += to_number(s.get(k))
+              return total
+
+          sleep_hours = None
+          time_in_bed_hours = None
+          for m in metrics:
+              if not isinstance(m, dict):
+                  continue
+              key = norm(m.get('name', ''))
+              if key not in SLEEP_ASLEEP and key not in SLEEP_INBED:
+                  continue
+              unit = metric_unit(m)
+              samples = m.get('data') if isinstance(m.get('data'), list) else []
+              asleep_s = sample_sum(samples, 'asleep', 'totalSleep', 'sleepDurationAsleep')
+              if asleep_s <= 0:
+                  # Modern Apple Health / HAE splits "asleep" into Core/Deep/REM stages
+                  # with NO single asleep field — total sleep is their sum (awake
+                  # excluded). This is the usual reason sleep_hours came back null.
+                  asleep_s = sample_sum_stages(samples, 'core', 'deep', 'rem',
+                                               'asleepCore', 'asleepDeep', 'asleepREM',
+                                               'sleepCore', 'sleepDeep', 'sleepREM')
+              inbed_s  = sample_sum(samples, 'inBed', 'timeInBed')
+              if key in SLEEP_ASLEEP:
+                  val = asleep_s if asleep_s > 0 else metric_qty(m)
+                  if val:
+                      sleep_hours = (sleep_hours or 0) + to_hours(val, unit)
+                  if inbed_s > 0:
+                      time_in_bed_hours = (time_in_bed_hours or 0) + to_hours(inbed_s, unit)
+              else:  # time in bed
+                  val = inbed_s if inbed_s > 0 else metric_qty(m)
+                  if val:
+                      time_in_bed_hours = (time_in_bed_hours or 0) + to_hours(val, unit)
+              found_date = found_date or sample_date(m)
+
+          # If only asleep duration arrived, treat time-in-bed as the same.
+          if sleep_hours is not None and time_in_bed_hours is None:
+              time_in_bed_hours = sleep_hours
+
+          if sleep_hours and time_in_bed_hours:
+              entry['sleep_efficiency_pct'] = round(sleep_hours / time_in_bed_hours * 100, 1)
+          entry['sleep_hours'] = round(sleep_hours, 2) if sleep_hours is not None else None
+          entry['time_in_bed_hours'] = round(time_in_bed_hours, 2) if time_in_bed_hours is not None else None
+
+          # ---- Recovery vitals: HRV + Resting HR (optional) --------------------
+          # Apple Health "Heart Rate Variability" (ms) and "Resting Heart Rate"
+          # (bpm). Averaged across samples, not summed.
+          HRV_NAMES = {'heartratevariability', 'heartratevariabilitysdnn', 'hrv'}
+          RHR_NAMES = {'restingheartrate', 'restinghr'}
+          hrv_ms = None
+          resting_hr = None
+          for m in metrics:
+              if not isinstance(m, dict):
+                  continue
+              key = norm(m.get('name', ''))
+              if key in HRV_NAMES:
+                  val = metric_avg(m)
+                  if val:
+                      hrv_ms = round(val, 1)
+                  found_date = found_date or sample_date(m)
+              elif key in RHR_NAMES:
+                  val = metric_avg(m)
+                  if val:
+                      resting_hr = round(val)
+                  found_date = found_date or sample_date(m)
+          entry['hrv_ms'] = hrv_ms
+          entry['resting_hr'] = resting_hr
+
+          # ---- Determine the entry date ----------------------------------------
+          # Priority: explicit date in payload > date carried on a sample > today (UTC).
+          date = (payload.get('date')
+                  or (data.get('date') if isinstance(data, dict) else None)
+                  or found_date
+                  or datetime.datetime.utcnow().strftime('%Y-%m-%d'))
+          date = str(date)[:10]
+          entry['date'] = date
+
+          # ---- Merge with any existing entry for the same date -----------------
+          # Sleep and nutrition often arrive in *separate* HAE exports, so a
+          # nutrition-only payload must not wipe sleep already recorded today
+          # (and vice-versa). Carry forward prior values for fields this payload
+          # left empty: 0 for nutrition counters, None for the sleep fields.
+          def find_prior(date):
+              if isinstance(doc.get('today'), dict) and doc['today'].get('date') == date:
+                  return doc['today']
+              for h in doc['history']:
+                  if isinstance(h, dict) and h.get('date') == date:
+                      return h
+              return None
+
+          prior = find_prior(date)
+          if prior:
+              for k, v in entry.items():
+                  if k == 'date':
+                      continue
+                  if (v is None or v == 0) and prior.get(k) not in (None, 0):
+                      entry[k] = prior[k]
+              # Recompute efficiency if the merge filled in both sleep numbers.
+              if entry.get('sleep_efficiency_pct') is None \
+                 and entry.get('sleep_hours') and entry.get('time_in_bed_hours'):
+                  entry['sleep_efficiency_pct'] = round(
+                      entry['sleep_hours'] / entry['time_in_bed_hours'] * 100, 1)
+
+          # ---- Composite recovery score (0-100, Whoop-style) ------------------
+          # Weights: HRV 45%, RHR 25%, Sleep 30%. Recomputed AFTER the merge so
+          # we use the most complete picture of today's vitals.
+          # Uses last 30 days of history as rolling baselines. Graceful: computes
+          # a partial score from whichever metrics are available; None if nothing.
+          def recovery_score_from_entry(entry_data, prior_history):
+              scores = []
+              weights = []
+              recent = [h for h in prior_history if isinstance(h, dict)][:30]
+
+              # HRV score (45%): z-score vs 30-day rolling mean/sd.
+              hrv_today = entry_data.get('hrv_ms')
+              if hrv_today and hrv_today > 0:
+                  hrv_vals = [h['hrv_ms'] for h in recent
+                              if h.get('hrv_ms') and h['hrv_ms'] > 0]
+                  if len(hrv_vals) >= 3:
+                      hrv_avg = statistics.mean(hrv_vals)
+                      hrv_sd  = max(statistics.stdev(hrv_vals), hrv_avg * 0.05)
+                      hrv_z   = (hrv_today - hrv_avg) / hrv_sd
+                      # Clamp: +2 SD = 100, 0 SD = 70, -2 SD = 0
+                      hrv_score = min(100, max(0, 70 + hrv_z * 15))
+                  else:
+                      # Not enough history: use absolute scale anchored to typical athlete
+                      # ~50 ms SDNN baseline; +20 above = great, -20 = poor.
+                      hrv_score = min(100, max(0, 50 + (hrv_today - 50) * 1.0))
+                  scores.append(hrv_score)
+                  weights.append(45)
+
+              # RHR score (25%): lower than recent baseline = better recovery.
+              rhr_today = entry_data.get('resting_hr')
+              if rhr_today and rhr_today > 0:
+                  rhr_vals = [h['resting_hr'] for h in recent
+                              if h.get('resting_hr') and h['resting_hr'] > 0]
+                  if len(rhr_vals) >= 3:
+                      rhr_avg = statistics.mean(rhr_vals)
+                      rhr_delta = rhr_today - rhr_avg  # positive = elevated = bad
+                      # 0 delta = 70; -3 bpm = 90; +5 bpm = 0
+                      rhr_score = min(100, max(0, 70 - rhr_delta * 8))
+                  else:
+                      # Absolute: 55 bpm anchor = 80; each bpm above costs ~2 points
+                      rhr_score = min(100, max(0, 80 - (rhr_today - 55) * 2))
+                  scores.append(rhr_score)
+                  weights.append(25)
+
+              # Sleep score (30%): target 8h = 90+; efficiency modifier.
+              sleep_h = entry_data.get('sleep_hours')
+              if sleep_h and sleep_h > 0:
+                  # Linear: 4h = 0, 7h = 75, 8h = 87.5, 9h = 100
+                  sleep_score = min(100, max(0, (sleep_h - 4.0) / 5.0 * 100))
+                  # Efficiency modifier: below 85% reduces by up to 15 points
+                  eff = entry_data.get('sleep_efficiency_pct')
+                  if eff is not None and eff < 85:
+                      sleep_score = max(0, sleep_score - (85 - eff) * 0.5)
+                  scores.append(sleep_score)
+                  weights.append(30)
+
+              if not scores:
+                  return None
+
+              total_w = sum(weights)
+              raw = sum(s * w for s, w in zip(scores, weights)) / total_w
+              return int(round(raw))
+
+          computed_score = recovery_score_from_entry(entry, doc['history'])
+          # Preserve prior score if this payload added no new recovery metrics
+          if computed_score is None and prior and prior.get('recovery_score') is not None:
+              computed_score = prior['recovery_score']
+          entry['recovery_score'] = computed_score
+
+          # ---- Update today + history (dedup by date, keep last 30) ------------
+          doc['today'] = entry
+          history = [h for h in doc['history']
+                     if isinstance(h, dict) and h.get('date') != date]
+          history.insert(0, entry)
+          doc['history'] = history[:30]
+          doc['last_updated'] = datetime.datetime.utcnow().isoformat() + 'Z'
+
+          with open(DATA_FILE, 'w') as f:
+              json.dump(doc, f, indent=2)
+          print(f"Updated {DATA_FILE} for {date}: "
+                f"cal={entry['calories']} protein={entry['protein_g']}g "
+                f"carbs={entry['carbs_g']}g fat={entry['fat_g']}g "
+                f"fiber={entry['fiber_g']}g water={entry['water_ml']}ml "
+                f"sleep={entry['sleep_hours']}h "
+                f"inbed={entry['time_in_bed_hours']}h "
+                f"eff={entry['sleep_efficiency_pct']}% "
+                f"hrv={entry['hrv_ms']}ms "
+                f"rhr={entry['resting_hr']}bpm "
+                f"recovery={entry['recovery_score']} "
+                f"(history={len(doc['history'])} days)")
+          PYEOF
+
+      - name: Commit and push nutrition_data.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add nutrition_data.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: update nutrition_data.json [skip ci]"
+          git pull --rebase origin main && git push origin main

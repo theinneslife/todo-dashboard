@@ -1,0 +1,7 @@
+name = "nutrition-shim"
+main = "src/index.js"
+compatibility_date = "2025-05-29"
+
+# GITHUB_PAT is stored as a Worker secret, not here.
+# Set it after first deploy with:
+#   npx wrangler secret put GITHUB_PAT

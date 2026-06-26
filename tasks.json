@@ -2113,5 +2113,40 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "ca23e686-63f5-4f30-a819-09767c634b2d",
+    "title": "Buy flourless chocolate cake",
+    "description": "Mentioned in voice note as something to purchase.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-06-26T16:35:54.331Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-06-26T16:35:54.331Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

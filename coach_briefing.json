@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-26",
-  "generated_at": "2026-06-26T14:02:11Z",
+  "generated": "2026-06-27",
+  "generated_at": "2026-06-27T14:24:35.274809Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 8 mi + Strides",
-      "message": "Build Phase, Week 11 of 22 — 84 days to Julian Alps. Today's session is 8 miles Zone 2 (HR under 155 bpm, fully conversational) with 4x 20-second strides at the very end. The strides should feel controlled and fast — not all-out — with 60-90 sec walk recovery between each. This is a travel day with a move to Guatemala City this afternoon, so get the run done early. Keep pace honest: the strides add neuromuscular stimulus without digging into your aerobic reserves. Julian Alps demands power hiking efficiency — let your form be deliberate even on flat terrain today."
+      "title": "Today's Run",
+      "message": "Saturday long run: 13–15 miles with 800–1000 ft of vert at Z2 (130–145 bpm), finishing with 2–3 miles at race-pace effort (145–155 bpm). You're in week 22 taper, so this is your final big vert stimulus before the 83-day runway to Kranjska Gora. Your recovery score is 56/100 (moderate), and yesterday's 8.57 mi at 129 bpm suggests you're not residually fatigued—go hard on the vert work, but dial back total volume vs. peak weeks. The alpine terrain demands sharp leg strength on steep grades; this run locks that in."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "For an 8-mile easy run, eat a light carb-forward snack 30-45 min pre-run — banana, toast with honey, or a small bowl of oats (~40-50g carbs). At Zone 2 pace you don't need fuel during the run itself. Post-run recovery window is critical on a travel day: within 30-45 min, hit 60-80g carbs + 25-30g protein (eggs, Greek yogurt, chicken with rice) to lock in adaptation before the transit stress. Stay ahead of hydration throughout the day — altitude and travel dehydrate you faster than you think. Target 3L of water before arriving in Guatemala City."
+      "message": "You've averaged 6.41h sleep over 30 days and clocked only 5.92h last night—sleep debt matters more than usual right now. Front-load carbs today: 90–120g in the 2 hours before the run (oatmeal, fruit, toast), then 40–60g every 45 min during the long run if it exceeds 90 min. Post-run, consume 1.2g carbs per kg body weight within 30 min with 20g protein to arrest the taper's loss of glycogen flux. Your HRV data is missing, so use pace discipline as your proxy: if you drift above 155 bpm in Z2 sections, you're under-fueled and need to back off intensity slightly."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Travel days create hidden recovery debt — airport stress, sitting, time zone shifts, and inconsistent food all spike cortisol and blunt adaptation. After your run, prioritize 10 min of dynamic mobility (hip circles, leg swings, calf raises) before you pack. During the transit to Guatemala City, get up and walk every 45-60 minutes if possible. Tonight: aim for 8+ hours of sleep in the new location even if the schedule fights you — this is where this week's training consolidates. Keep alcohol off the table tonight; it will trash your sleep quality and slow muscle repair."
+      "message": "Sleep is the leak in your tank right now: 5.92h with 87% efficiency is acceptable but not ideal at 11 weeks out. Tonight, prioritize 7+ hours—aim for bedtime 30 min earlier than normal, dim lights by 21:00, and avoid work email after 20:30. Your resting HR is stable at 60 bpm (30-day avg 60.9), which is clean, but combine that short night with moderate recovery score and you have no margin for error. Consider a 20–30 min nap this afternoon post-run if work permits; even 15 min can offset sleep debt before a taper week where retention matters."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 12 weeks out and in the heart of the build — this is exactly where the race is won or lost. The athletes who toe the line at Julian Alps confident aren't the ones who trained the hardest; they're the ones who were consistent when it was inconvenient. Running 8 miles before packing up and moving cities is a demonstration of the discipline that will get you through 31 miles of Alpine terrain. Bank it. Every low-key, unglamorous easy day stacks into race-day capability. Kranjska Gora is coming — stay the course."
+      "message": "You're in the taper mindset now—the volume drop is real and can feel like backing down, but it's not. This long run is your final full vert test before 11 weeks of volume reduction and neural sharpening. Use today to dial in your race-pace feel on steep terrain: hit that 2–3 mile finish at 145–155 bpm and feel how your quads and glutes respond on the descent. That feedback loop—hard effort under controlled recovery conditions—is what separates a trained ultra runner from one who just logged miles. Trust the taper, execute clean, and log this run as evidence that you're ready."
     }
   ]
 }

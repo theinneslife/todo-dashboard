@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bogotá — Christopher & Brooke's Field Guide</title>
+<meta name="description" content="A two-week field guide to Bogotá — restaurants, coffee, fitness, weekend trips, luxury shopping, and everything worth knowing. June 2026.">
+<meta property="og:title" content="Bogotá — Christopher & Brooke's Field Guide · June 2026">
+<meta property="og:description" content="2,640 metres up in the Andes. World-ranked tables, fourth-wave coffee, and Sunday streets closed to cars. El Chicó and beyond.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1593475729837-2c4b2eb98c2a?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #b8862f;
+  --gold-light: #d4a847;
+  --gold-deep: #7a5618;
+  --gold-bg: #fdf3e0;
+  --emerald: #1d6649;
+  --emerald-light: #2a8a62;
+  --emerald-deep: #11422e;
+  --emerald-bg: #eaf4ef;
+  --rust: #a03d27;
+  --rust-bg: #fdf0ec;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1593475729837-2c4b2eb98c2a?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 30%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · June 2026 · Two weeks</div>
+    <h1>Bogotá,<br><em>in constant motion</em></h1>
+    <p class="hero-sub">2,640 metres up in the Andes — a city of world-ranked tables, fourth-wave coffee, emerald light and Sunday streets closed to cars. Your base in El Chicó puts nearly all of it inside a short ride.</p>
+    <div class="hero-meta">Carrera 17 #93A-52 · El Chicó / Parque 93</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Bogotá</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>The essentials, up front: money, the rate, how people actually talk, and how to stay sharp. Bogotá rewards confidence and quiet awareness in equal measure.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Colombian Peso</div>
+      <p>COP · symbol $ (often written $20.000 = 20,000 pesos)</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ 3,430</div>
+      <p>1 USD ≈ 3,420–3,450 COP (late June 2026). Drop three zeros and triple it for a rough USD figure.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude</h4>
+      <div class="big">2,640 m</div>
+      <p>≈8,660 ft. Expect harder breathing on your first 2–3 runs. It's the elevation, not your fitness. Hydrate aggressively.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Didi</div>
+      <p>Both work and are the safe default. Sit up front so it reads as a friend's car. Never hail a yellow street cab.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a local — Bogotano slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>¿Quiubo / Quihubo?</b> — What's up?</div>
+        <div class="slang-item"><b>Parce / Parcero</b> — Buddy, mate</div>
+        <div class="slang-item"><b>Bacano / Chévere</b> — Cool, awesome</div>
+        <div class="slang-item"><b>Una chimba</b> — Seriously great (vulgar-ish)</div>
+        <div class="slang-item"><b>Berraco</b> — Tough / impressive person</div>
+        <div class="slang-item"><b>Tinto</b> — Small black coffee (not wine here!)</div>
+        <div class="slang-item"><b>Rumba / Rumbear</b> — Party / to go out</div>
+        <div class="slang-item"><b>Guayabo</b> — Hangover</div>
+        <div class="slang-item"><b>Lucas / Mil</b> — "Cinco lucas" = 5,000 pesos</div>
+        <div class="slang-item"><b>¿Me regala…?</b> — "May I have…?" (polite)</div>
+        <div class="slang-item"><b>Dar papaya</b> — Make yourself an easy target</div>
+        <div class="slang-item"><b>Listo / De una</b> — OK, done / Let's do it</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying sharp — safety</h4>
+      <ul class="safety-list">
+        <li><b>"No dar papaya"</b> is the local rule: don't flash phone, watch, or cash on the street.</li>
+        <li>Your zone (Chicó / Parque 93 / Zona T) is among the safest — walk it freely by day.</li>
+        <li>Use Uber/Didi after dark rather than walking long stretches, even in the north.</li>
+        <li>La Candelaria is fine in daylight on busy streets; don't wander empty side-streets.</li>
+        <li>Withdraw cash from ATMs inside malls or banks, not street machines.</li>
+        <li>Carry a card + small cash; leave passport in the safe, a photo on your phone.</li>
+        <li>Tap water in the north is generally safe to drink; bottled is the easy default.</li>
+        <li>Emergency line: <b>123</b>. Tourist police are present around Zona T.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the ride</h2>
+    <p>Everything here is within a 30-minute Uber of Carrera 17 #93A-52 — most are 5–15 minutes. Book the top tier (El Chato, Leo) a week-plus ahead; have your host call if a foreign card won't go through online.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">El Chato</div><div class="row-desc">#1 in Latin America (2025). Book upstairs for the tasting menu at the glass-walled kitchen. Your single must-book — do it day one.</div></div>
+        <span class="pill pill-gold">Chapinero Alto</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Leo</div><div class="row-desc">Leonor Espinosa's biodiversity tasting menu — Amazonian ants, mojojoy larvae. Nightcap upstairs at La Sala de Laura.</div></div>
+        <span class="pill pill-gold">La Macarena</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Oda</div><div class="row-desc">Winner of the 2025 Latin America's 50 Best sustainability award. One of the city's most interesting newer tables.</div></div>
+        <span class="pill pill-gold">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">El Cielo</div><div class="row-desc">Juan Manuel Barrientos's theatrical, multisensory tasting format in a light-filled room.</div></div>
+        <span class="pill pill-gold">Zona G</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Modern Colombian &amp; standouts</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Debora</div><div class="row-desc">Jacobo Bonilla's sleek modern-Colombian room — river, coast &amp; countryside; the chipi chipi clam is a highlight.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Harry Sasson</div><div class="row-desc">The godfather of Bogotá dining in a Tudor mansion. Start with arepa &amp; pan de yuca, then the brisket.</div></div>
+        <span class="pill pill-emerald">Zona G</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Tremé</div><div class="row-desc">New Orleans-meets-Colombia with live jazz &amp; serious mixology. Order the smoked NOLA baby back ribs.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Prudencia</div><div class="row-desc">Rotating wood-fired lunch menu downtown. Pairs perfectly with a Candelaria afternoon.</div></div>
+        <span class="pill pill-emerald">La Candelaria</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Villanos en Bermudas</div><div class="row-desc">One of the city's best wine-bar-meets-tasting rooms. Quietly excellent.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Mesa Franca</div><div class="row-desc">Creative small plates and natural wine; a perennial local favorite.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Selma</div><div class="row-desc">Intimate, ingredient-driven set menu — one of the more memorable seats in the city.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Nueve</div><div class="row-desc">Refined cooking in a handsome Quinta Camacho townhouse.</div></div>
+        <span class="pill pill-emerald">Quinta Camacho</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Salvo Patria</div><div class="row-desc">Farm-to-table neighborhood institution; great brunch and garden energy.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Gamberro</div><div class="row-desc">Lively Italian; the more energetic of the adjacent pair. Go for a fun night.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Cacio &amp; Pepe</div><div class="row-desc">The quieter, pasta-focused sibling next door. Reliable and warm.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Central Cevichería</div><div class="row-desc">The move for bright, Peruvian-style ceviche close to home.</div></div>
+        <span class="pill pill-emerald">Zona Rosa</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Osaka</div><div class="row-desc">Polished Nikkei (Peruvian-Japanese) — sleek room, strong cocktails.</div></div>
+        <span class="pill pill-emerald">Zona Rosa</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Salón Tropical</div><div class="row-desc">Rooftop, good crowd, tropical-leaning plates — a fun pre-night-out table.</div></div>
+        <span class="pill pill-emerald">Chapinero</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Café Bar Universal</div><div class="row-desc">Natural wine + creative seasonal small plates in an artful, laid-back room.</div></div>
+        <span class="pill pill-emerald">La Macarena</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Andrés Carne de Res</div><div class="row-desc">World-famous dinner-into-party spectacle. ~45 min to Chía — book 9pm &amp; arrange a round-trip driver.</div></div>
+        <span class="pill pill-rust">Chía · 1 big night</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1607000975408-2cd6a5d9c1c5?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A city that eats seriously</h3>
+    <p>Once a culinary backwater, Bogotá now lands among Latin America's very best — built on Andean, Pacific, Amazonian and Caribbean ingredients, and chefs who trained at Noma, Per Se and Robuchon before coming home.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops, all close</h2>
+    <p>Your location is a coffee jackpot — Chicó, Chapinero, Zona G, Quinta Camacho and Usaquén are the five densest specialty clusters in the country, all inside a 15-minute ride. Order a <em>tinto</em> like a local.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Azahar — Parque 93</div><div class="row-desc">On your doorstep. Plants, natural light, varied seating; they roast their own.</div></div><span class="pill pill-gold">Parque 93</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Libertario — Parque 93</div><div class="row-desc">Single-estate program from La Palma y El Tucán, steps from home.</div></div><span class="pill pill-gold">Parque 93</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Tropicalia</div><div class="row-desc">SCA 2022 Coffee Design Award; a world top-ten space with coffee growing in pots outside.</div></div><span class="pill pill-emerald">Chapinero</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Amor Perfecto — Chapinero Alto</div><div class="row-desc">The 1990s flagship that set Colombia's third-wave standard; trains national champions.</div></div><span class="pill pill-emerald">Chapinero Alto</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Colo Coffee — Usaquén</div><div class="row-desc">Award-winning architectural space; the Quinta Camacho garden location is a stunner too.</div></div><span class="pill pill-emerald">Usaquén</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Varietale</div><div class="row-desc">Roastery in a restored former convent with a leafy outdoor yard.</div></div><span class="pill pill-emerald">Chapinero</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Café Cultor Casa</div><div class="row-desc">Green shipping-container build, garden rooftop &amp; water feature; supports 10,000+ farmers.</div></div><span class="pill pill-emerald">Zona G</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Catación Pública</div><div class="row-desc">Tiny SCA-certified lab; come mornings for public cuppings.</div></div><span class="pill pill-emerald">Usaquén</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Bourbon Coffee Roasters</div><div class="row-desc">Per-microlot roasting, single-origin Colombian focus.</div></div><span class="pill pill-emerald">Quinta Camacho</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Café 18</div><div class="row-desc">Rare varietals and a precise, nerdy filter program.</div></div><span class="pill pill-emerald">Chapinero</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Devoción — Usaquén</div><div class="row-desc">Brooklyn-roaster origins; gorgeous, farm-fresh green-coffee ethos.</div></div><span class="pill pill-emerald">Usaquén</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Pergamino</div><div class="row-desc">Medellín's beloved roaster, well-dialed espresso.</div></div><span class="pill pill-emerald">Chicó</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Café San Alberto</div><div class="row-desc">Premium estate coffee; ask about the "Coffee Baptism" tasting flight.</div></div><span class="pill pill-emerald">Zona G</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Juan Valdez — Zona G flagship</div><div class="row-desc">Three storeys with a rooftop terrace — the polished, reliable national icon.</div></div><span class="pill pill-emerald">Zona G</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Masa</div><div class="row-desc">Bakery-café with excellent brunch; pastries worth the calories.</div></div><span class="pill pill-emerald">Zona G</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Árbol del Pan</div><div class="row-desc">Outstanding bread alongside the coffee — a neighborhood gem.</div></div><span class="pill pill-emerald">Quinta Camacho</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Les Amis Bizcochería</div><div class="row-desc">French-leaning patisserie &amp; coffee for an afternoon sit.</div></div><span class="pill pill-emerald">Quinta Camacho</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Abunda</div><div class="row-desc">Calm, design-forward room for filter and a laptop hour.</div></div><span class="pill pill-emerald">Chicó</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Catación Pública — Lab cupping</div><div class="row-desc">Worth a second visit for a guided cupping when you have an hour to spare.</div></div><span class="pill pill-emerald">Usaquén</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Tostao</div><div class="row-desc">The everyday peso-friendly <em>tinto</em> stop on nearly every corner.</div></div><span class="pill pill-slate">Citywide</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One neat experience a day</h2>
+    <p>You've done a volcano, chocolate and cooking classes lately — so here's a progression of distinct, hands-on afternoons, building from light to genuinely memorable.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature</span>
+        <h3>Emerald ring-making</h3>
+        <p class="card-loc">Small private workshop · book ahead</p>
+        <p>Carve and set your own emerald ring and walk out wearing it. Colombia is the world's largest emerald exporter — nobody tells you to do this, and it's the one you'll show off for years.</p>
+        <p class="card-note">Book early via Viator / GetYourGuide; spots are limited.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>Graffiti tour, La Candelaria</h3>
+        <p class="card-loc">Historic centre</p>
+        <p>Bogotá is a world graffiti capital; a guide untangles the tags and politics you'd walk straight past. Pair with Prudencia for lunch and the Gold Museum.</p>
+        <p class="card-note">Daylight only, busy streets. Mid-stay is ideal.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Food</span>
+        <h3>Paloquemao fruit tour</h3>
+        <p class="card-loc">Plaza de Mercado</p>
+        <p>A guide walks you through pyramids of exotic fruit — try lulo (best as juice) and spiky guanabana. Among the best-rated food experiences in the city. Go earlier in the day.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Golden hour</span>
+        <h3>Monserrate at sunset</h3>
+        <p class="card-loc">3,150 m mountain church</p>
+        <p>Funicular or cable car up for the full-city panorama. Given your base you could hike it — but sunset is the point.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Athletic &amp; absurd</span>
+        <h3>Tejo</h3>
+        <p class="card-loc">Local cancha + beer</p>
+        <p>Colombia's national sport: hurl clay discs at gunpowder targets that explode on a hit. Ridiculous, social, fantastic.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Half-day out</span>
+        <h3>Lake Guatavita</h3>
+        <p class="card-loc">~1.5–2 hr NE</p>
+        <p>The sacred Muisca lake behind the El Dorado legend — a serene escape if you want a longer afternoon with a story attached.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Villa de Leyva &amp; your 14-mile Sunday</h2>
+    <p>The right call over Zipaquirá: a whitewashed colonial town with one of South America's largest plazas, a near-desert microclimate, vineyards, and quiet runnable terrain that makes your long run a pleasure.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Hire a driver — don't rent</h3>
+      <p>It's a 3–4 hr drive (156 km) on narrow, curvy mountain roads with aggressive overtaking, plus Pico y Placa plate restrictions that can bar a rental on a given day. A private round-trip driver lets you nap, work, and arrive fresh. Stop at the <b>Zipaquirá Salt Cathedral</b> on the way up.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday AM</span>
+        <span class="timeline-text">Drive up with the Zipaquirá Salt Cathedral stop; arrive Villa de Leyva early afternoon. Plaza Mayor, Ain Karim vineyard, the Terracotta House.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — the 14-miler</span>
+        <span class="timeline-text">Run early from the plaza toward Pozos Azules (turquoise desert pools) and the El Fósil road — quiet, scenic, ~600 m lower than Bogotá so you'll breathe easier. Dry climate, highs ~22°C / lows ~12°C. Front-load hydration; have your driver crew a turnaround.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday PM</span>
+        <span class="timeline-text">Lunch, then the relaxed drive back to Bogotá.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Alt for a tougher run:</b> Suesca (~1 hr out) offers trail and rock-country routes — but Villa de Leyva is the stronger all-around weekend.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight, and tomorrow after the run</h2>
+    <p>Tomorrow is a Sunday — which is perfect timing. Two of Bogotá's best things happen <em>only</em> on Sundays, and they bracket your day beautifully.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · chill</span>
+        <h3>Salvo Patria or Mesa Franca</h3>
+        <p class="card-loc">Chapinero · 8–12 min ride</p>
+        <p>Low-key, excellent, no-fuss. Salvo Patria for garden-table warmth and natural wine; Mesa Franca for creative small plates at the bar. Either is the easy, unpretentious first night you want after travel.</p>
+        <p class="card-note">Walk-in friendly earlier; book if after 8pm.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Tomorrow night · fancy</span>
+        <h3>El Chato</h3>
+        <p class="card-loc">Chapinero Alto · ~12 min</p>
+        <p>Your marquee dinner — #1 in Latin America. Reserve the upstairs tasting menu at the glass-walled kitchen. If El Chato can't seat you, pivot to Leo. Book this the moment you read this.</p>
+        <p class="card-note">A week+ lead is normal; have your host call.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Tomorrow (Sunday), after your run</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Morning — La Ciclovía</span>
+        <span class="timeline-text">Over 120 km of city roads close to cars 7am–2pm every Sunday. This is a safe, scenic, flat run venue right outside your door — the first program of its kind in the world.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recovery coffee</span>
+        <span class="timeline-text">Roll into Azahar or Libertario at Parque 93 — both walkable from home — for a long flat white and pastries.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — Usaquén Sunday market</span>
+        <span class="timeline-text">The colonial-village quarter turns into an open-air artisan fair: live music, local makers, boho-chic strolling. The single best Sunday-afternoon move in the city, ~12 min north.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Then — Monserrate at golden hour</span>
+        <span class="timeline-text">If you've got legs left, cap the day with the sunset panorama before your fancy dinner.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>The golden mile &amp; beyond</h2>
+    <p>Your zone <em>is</em> the luxury district. El Retiro's "Calle del Sol" (Carrera 14, between Calles 82–84) gathers the most exclusive Colombian and international houses, minutes from home.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Flagship</span>
+        <h3>Centro Comercial Andino</h3>
+        <p class="card-loc">Cra 11 #82-71 · Zona Rosa</p>
+        <p>The city's flagship luxury mall (~205 stores): Louis Vuitton, Dolce &amp; Gabbana, Hugo Boss, Ralph Lauren, plus premium Colombian labels. Marble, security, top-floor dining.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Boutique</span>
+        <h3>El Retiro</h3>
+        <p class="card-loc">Steps from Andino</p>
+        <p>Warmer, artsier, calmer. Colombian designers and fine jewelers dominate; gourmet dining upstairs. Best for one-of-a-kind pieces.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Designer + tech</span>
+        <h3>Atlantis Plaza</h3>
+        <p class="card-loc">Zona Rosa</p>
+        <p>Smaller and polished — designer fashion, luxury tech, gourmet dining under one roof. A quick high-end fix.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Colombian houses</span>
+        <h3>The boutiques</h3>
+        <p class="card-loc">Calle del Sol &amp; around</p>
+        <p>Silvia Tcherassi, Mario Hernández (leather), Vélez (shoes &amp; leather), Pepa Pombo (knitwear). The names to bring home.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Independent</span>
+        <h3>Concept stores, Zona T</h3>
+        <p class="card-loc">Cra 13 area</p>
+        <p>Discrepante (sustainable Colombian design &amp; gifts) and Union Tailors (custom performance menswear, by appointment) for pieces nobody has back home.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Lifestyle</span>
+        <h3>Loto del Sur</h3>
+        <p class="card-loc">Multiple · north</p>
+        <p>Botanical soaps, creams and scents with beautiful packaging — the gift/splurge everyone secretly wants.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, pole &amp; gyms near you</h2>
+    <p>All within your home radius in the north. Most boutique studios sell drop-in or short passes — message ahead on WhatsApp/Instagram to reserve, since classes fill.</p>
+  </div>
+
+  <div class="validated-banner fade-in">All studios below confirmed operating as of June 2026.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium · closest</span>
+          <h3>Good Club de Bienestar</h3>
+          <p class="card-loc">Cra 11A #97-23 · Chicó (also Rosales)</p>
+          <p>Polished wellness club — reformer, private studio, group &amp; water activities. Offers a free wellness-pass trial. Closest premium option to your door.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Classical · founded 2003</span>
+          <h3>Pilates 1880</h3>
+          <p class="card-loc">El Nogal &amp; Parque Virrey locations</p>
+          <p>One of Bogotá's original classical reformer studios. Semi-personalized, max 4 per class — proper pedigree instruction, walkable from Zona T.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Boutique</span>
+          <h3>Clau Pilates Estudio</h3>
+          <p class="card-loc">Cra 11A #94A-31 · Chicó</p>
+          <p>Small, personal reformer studio right in Chicó. Easy drop-in vibe for a couple of sessions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Intense</span>
+          <h3>Pulse Pilates</h3>
+          <p class="card-loc">Av. Calle 116 #18-96</p>
+          <p>The high-intensity 50-min reformer burn — class packs available. For when you want it to hurt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Well-equipped</span>
+          <h3>Power Pole Studio</h3>
+          <p class="card-loc">Cra 16 #93-11 (near Parque 93) · also Suba</p>
+          <p>Stainless &amp; bronze poles over 3.5 m, competition-grade. Pole, aerial silks, pole sport, twerk. The serious all-rounder — and the Parque 93 location is practically on your doorstep.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Chapinero</span>
+          <h3>Pole Studio 54</h3>
+          <p class="card-loc">Cra 18 #60-24 · Chapinero</p>
+          <p>Pole plus GAP, bachata, twerk and yoga — flexible class menu, central location.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">By appointment</span>
+          <h3>Pole Dance by Michelle</h3>
+          <p class="card-loc">Chapinero</p>
+          <p>Technique-forward studio for all levels in a welcoming, professional space. Message on Instagram/WhatsApp to confirm schedule.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best near home</span>
+          <h3>Bodytech Chicó</h3>
+          <p class="card-loc">Av. 19 #102-31, p3 · ~5 min</p>
+          <p>The country's leading medical-sport club: full equipment, sauna &amp; steam, huge class roster. Buy day passes or a <em>tiquetera</em> (multi-visit pack) — ideal for two weeks. Other branches at Cabrera, Calle 90, Carrera 11.</p>
+          <p class="card-note">Passes are often cheaper via gimnasios.com.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Boutique chain</span>
+          <h3>Action Black</h3>
+          <p class="card-loc">Multiple north locations</p>
+          <p>Where style-conscious locals train — sharp design, strong group classes, day access available.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Value</span>
+          <h3>Smart Fit</h3>
+          <p class="card-loc">Citywide</p>
+          <p>Clean, well-equipped, inexpensive day/short-term access for a no-frills lift between studio classes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Free &amp; outdoor</span>
+          <h3>Parque El Virrey / Ciclovía</h3>
+          <p class="card-loc">Linear park · Chicó</p>
+          <p>Your built-in running and calisthenics venue — a tree-lined path minutes away, plus the Sunday Ciclovía network for car-free miles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Whole-Foods-style groceries</h2>
+    <p>For cooking-for-two nights, the upscale fresh-markets and organics are clustered right around Chicó — most within a few minutes on foot or a short ride.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Stores confirmed operating June 2026. Note: Pomona supermarkets rebranded fully to Carulla in 2012 — the "Pomona" near Calle 102 is now <b>Carulla Calle 102</b>.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Closest premium</span>
+        <h3>Carulla Calle 102</h3>
+        <p class="card-loc">Av. Cra 19 #101-66 · Chicó</p>
+        <p>The former Pomona, now Carulla since 2012. Go-to for quality produce, imported cheeses, and hard-to-find ingredients. Right by Bodytech Chicó. The rebrand didn't change the quality.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">FreshMarket</span>
+        <h3>Carulla FreshMarket</h3>
+        <p class="card-loc">Ac. 85 #15-29 · Calle 85 (rooftop terrace)</p>
+        <p>The premium supermarket format — excellent prepared foods, wine, bakery and organics. The Calle 85 location has a rooftop terrace overlooking the plaza.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic</span>
+        <h3>Agriverd</h3>
+        <p class="card-loc">Online delivery + select partner stores · Chicó area</p>
+        <p>Dedicated organic label — clean produce, pantry staples and health foods. Primarily an online/delivery brand; confirm current retail availability on arrival.</p>
+        <div class="card-warning">Retail location unconfirmed — check agriverd.com or ask your host before making a trip.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Farmers market</span>
+        <h3>Perseverancia / Usaquén Sundays</h3>
+        <p class="card-loc">La Perseverancia · Usaquén</p>
+        <p>For a market morning: fresh produce and prepared Colombian food at La Perseverancia, or the Sunday organic stalls in Usaquén. The Sunday Usaquén market is also a perfect afternoon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Bogotá field guide · June 2026<br>
+    Rates and openings shift — confirm reservations and passes on arrival.
+  </div>
+  <span class="footer-verified">✓ Businesses validated June 2026 · Pomona → Carulla corrected · all studios confirmed open</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

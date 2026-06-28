@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New York City — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A field guide to New York City — restaurants, coffee, fitness, weekend trips, luxury shopping, and everything worth knowing. April &amp; July 2026.">
+<meta property="og:title" content="New York City — Christopher &amp; Brooke's Field Guide · July 2026">
+<meta property="og:description" content="Sea level. Eight million stories. The center of everything. West Village base, Michelin tables, world-class coffee, and a 16-mile Hudson Valley trail run.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c9a84c;
+  --gold-light: #d9bc6e;
+  --gold-deep: #7a6420;
+  --gold-bg: #fdf8e8;
+  --emerald: #1e3a5f;
+  --emerald-light: #2a5180;
+  --emerald-deep: #0d1f35;
+  --emerald-bg: #e9eef5;
+  --rust: #8b2635;
+  --rust-bg: #fdf0f2;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8,14,24,0.05) 0%,
+    rgba(8,14,24,0.15) 40%,
+    rgba(8,14,24,0.76) 80%,
+    rgba(8,14,24,0.90) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8cede;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8cede;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · April 6–11 &amp; July 26–30, 2026</div>
+    <h1>New York City,<br><em>where ambition never sleeps</em></h1>
+    <p class="hero-sub">Sea level. Eight million stories. The center of everything. The West Village puts the city's best tables, the world's finest coffee, Central Park long runs, and a helicopter-to-the-Hamptons weekend within reach of your front door.</p>
+    <div class="hero-meta">West Village · Manhattan</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">New York City</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>NYC runs on confidence and stamina. Your West Village base is one of the best locations in the city — walkable to the best restaurants, a quick cab to Midtown, and right on the Hudson River path. A few things to keep front of mind before you hit the pavement.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">US Dollar</div>
+      <p>USD · $ — no conversion needed. Tip 20% at restaurants and bars. It's not optional here.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Subway + Uber</div>
+      <p>Tap-to-pay with your bank card (OMNY system) — no MetroCard needed. $2.90/ride. Uber/Lyft for anything after midnight or when carrying bags.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Climate — April</h4>
+      <div class="big">52–65°F</div>
+      <p>April 6–11: crisp, variable. Central Park in bloom. Ideal running weather — layer up for mornings. Light rain jacket is smart.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Climate — July</h4>
+      <div class="big">75–92°F</div>
+      <p>July 26–30: hot and humid. Run by 6:30am max. Carry more water than you think. The Hudson River Path has shade; the Park drive has sun.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Your Running Base</h4>
+      <div class="big">West Village</div>
+      <p>Hudson River Greenway runs from the Village north to the GWB — flat, paved, traffic-free. For loops: 6.1-mile Central Park outer loop takes ~20 min by cab. Stack 3 loops for your 18-miler.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Dining Culture</h4>
+      <div class="big">Book Early</div>
+      <p>Carbone, Per Se, EMP: reserve 30–60 days out. Resy, OpenTable, and phone are all in play. Walk-in at the bar is possible at some spots after 9:30pm.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Sound like a local — New York City speak</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>"The City"</b> — Always means Manhattan, even if you're already in it</div>
+        <div class="slang-item"><b>"On line"</b> — New Yorkers stand on line, not in line</div>
+        <div class="slang-item"><b>"Deadass"</b> — Seriously, for real (gen Z native but universal now)</div>
+        <div class="slang-item"><b>"Bodega"</b> — Corner store; also "bodega cat" is a lifestyle icon</div>
+        <div class="slang-item"><b>"Slice"</b> — One piece of pizza, eaten folded. $4–6. Always fold.</div>
+        <div class="slang-item"><b>"Regular coffee"</b> — At a bodega: coffee with milk and two sugars. Don't fight it.</div>
+        <div class="slang-item"><b>"Schlep"</b> — A long, annoying journey. "It's a schlep to the Bronx."</div>
+        <div class="slang-item"><b>"B&T"</b> — Bridge and Tunnel: anyone coming from NJ or outer boroughs</div>
+        <div class="slang-item"><b>"No cap"</b> — No lie, for real. Used unironically by everyone under 40.</div>
+        <div class="slang-item"><b>"Uptown / Downtown"</b> — Directions. Never say "north" or "south."</div>
+        <div class="slang-item"><b>"The 1 train"</b> — Always say "the" before a train line. It's "the A," "the 6."</div>
+        <div class="slang-item"><b>"Lit" / "Slaps"</b> — Still in use. "That meal slaps" = excellent.</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying sharp — safety</h4>
+      <ul class="safety-list">
+        <li>West Village, SoHo, Tribeca, and the UWS are among the safest neighborhoods in the city.</li>
+        <li>On the subway: keep your phone in your pocket. Phone-snatching happens near the doors — hold on.</li>
+        <li>Times Square is safe but overwhelming with crowds. Stay alert; not a place to be distracted.</li>
+        <li>For late-night runs (July heat), the Hudson River Greenway is well-lit and has other runners at all hours.</li>
+        <li>Uber/Lyft after midnight is better than the subway if you've had drinks, especially in unfamiliar areas.</li>
+        <li>Emergency: <b>911</b>. NYPD is responsive in all Manhattan neighborhoods.</li>
+        <li>Carry a card and small cash. Most places are contactless now; some great spots (Lucali) are cash-only.</li>
+        <li>Tourists: don't stop in the middle of the sidewalk. Step to the right and keep moving — it's a rule.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the reservation</h2>
+    <p>New York has more Michelin stars than any city in the United States. Book the top tier — Eleven Madison Park, Per Se, Le Bernardin — 30–60 days out. Have your hotel concierge call for the hardest seats. The Village-based spots are walk-in friendly for a well-timed late arrival.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">Three-star Michelin &amp; world-class tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Eleven Madison Park</div><div class="row-desc">NYC's flagship fine-dining experience, 3 Michelin stars — plant-based tasting menu in a soaring Art Deco dining room. $365/person. Book 30+ days out on Resy. Your marquee NYC dinner.</div></div>
+        <span class="pill pill-gold">Flatiron</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Le Bernardin</div><div class="row-desc">Eric Ripert's 3-star seafood temple — the most technically precise kitchen in America. The pressed yellowfin tuna is a New York rite of passage. Book 30 days out.</div></div>
+        <span class="pill pill-gold">Midtown West</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Per Se</div><div class="row-desc">Thomas Keller's 3-star room above Columbus Circle — the 9-course tasting menu is $400+ and among the finest meals on earth. Overture of salmon cornet. Book 60 days ahead.</div></div>
+        <span class="pill pill-gold">Columbus Circle</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Jungsik</div><div class="row-desc">The first Korean restaurant in the US to earn 3 Michelin stars (late 2024). Refined Korean flavors in a sleek Tribeca dining room. One of the city's most important recent elevations.</div></div>
+        <span class="pill pill-gold">Tribeca</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Chef's Table at Brooklyn Fare</div><div class="row-desc">18 seats, no phones, no menu — César Ramirez's omakase is a spiritual experience. 3 Michelin stars. Brooklyn's absolute finest, 30-min ride from the Village.</div></div>
+        <span class="pill pill-gold">Brooklyn</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Must-book standouts — Michelin 1–2 star &amp; James Beard-level</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Carbone</div><div class="row-desc">The city's most mythologized dinner — red-sauce Italian in a 1950s room with tuxedoed captains. The rigatoni vodka is in the conversation for best pasta in NYC. Call exactly 30 days out at 10am.</div></div>
+        <span class="pill pill-emerald">Greenwich Village</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Atomix</div><div class="row-desc">2 Michelin stars, Korean fine dining with a 10-course tasting menu presented on illustrated cards. Elegant, conceptual, and worth every minute of the reservation chase.</div></div>
+        <span class="pill pill-emerald">NoMad</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Cosme</div><div class="row-desc">Enrique Olvera's 1-star modern Mexican — the duck carnitas is legendary. One of the best rooms in the Flatiron and the benchmark for elevated Mexican in the city.</div></div>
+        <span class="pill pill-emerald">Flatiron</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Marea</div><div class="row-desc">2 Michelin stars, Italian coastal — the fusilli with red wine-braised octopus and bone marrow is the dish. Polished service, a serious wine program, and genuinely beautiful pasta.</div></div>
+        <span class="pill pill-emerald">Columbus Circle</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Le Coucou</div><div class="row-desc">Daniel Rose's 1-star French brasserie in the 11 Howard hotel — Parisian in spirit but better executed than most of Paris. Sole meunière, roast chicken for two, unhurried service.</div></div>
+        <span class="pill pill-emerald">SoHo</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Don Angie</div><div class="row-desc">Scott Tacinelli and Angie Rito's inventive Italian-American in the Village — the pinwheel lasagna is a showstopper. One of the hardest reservations in the neighborhood. Well worth the effort.</div></div>
+        <span class="pill pill-emerald">West Village</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Gramercy Tavern</div><div class="row-desc">Danny Meyer's 1-star American institution — seasonal, farm-to-table, warm without being stuffy. Walk-in at the tavern room for a great meal without a reservation.</div></div>
+        <span class="pill pill-emerald">Gramercy</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">COQODAQ</div><div class="row-desc">Korean fried chicken reimagined as a fine-dining experience — with caviar service and a two-hour wait list. One of the hottest new tables in the Flatiron. Plan to go early or be on the list.</div></div>
+        <span class="pill pill-emerald">Flatiron</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">The River Café</div><div class="row-desc">Waterfront under the Brooklyn Bridge — romantic, 1-Michelin-star, American. Book the window seat. One of the great "occasion" dinners in New York, ~25 min from the Village by Uber.</div></div>
+        <span class="pill pill-emerald">DUMBO, Brooklyn</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Estela</div><div class="row-desc">Ignacio Mattos' 1-star NoLita restaurant — burrata with salsa verde, beef tartare with sunflower. A benchmark of ingredient-forward New York cooking. Walk-in at the bar is possible.</div></div>
+        <span class="pill pill-emerald">NoLita</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Neighborhood favorites — no reservation required (usually)</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Via Carota</div><div class="row-desc">Rita Sodi and Jody Williams' Italian market cooking — the insalata verde and ribollita are unbeatable. West Village walk-to. No reservations; show up at 6pm or 9:30pm to get in cleanly.</div></div>
+        <span class="pill pill-rust">West Village</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Frenchette</div><div class="row-desc">Natural wine French bistro from the Balthazar veterans — moules frites, steak tartare, a room that feels like an actual Parisian brasserie. One of the most fun dinners in Tribeca.</div></div>
+        <span class="pill pill-rust">Tribeca</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Aquavit</div><div class="row-desc">Emma Bengtsson's Nordic tasting menu — herring, gravlax, and cloudberry preparations that feel completely unique in the city. 2 Michelin stars, polished Midtown room.</div></div>
+        <span class="pill pill-rust">Midtown</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Dirt Candy</div><div class="row-desc">Amanda Cohen's vegetable fine dining — multi-course, creative, nothing like what "vegetarian" used to mean. Book ahead; one of the great creative restaurants on the Lower East Side.</div></div>
+        <span class="pill pill-rust">Lower East Side</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Lucali</div><div class="row-desc">Brooklyn's legendary thin-crust pizza — cash only, BYOB (bring a bottle of red wine), and one of the great no-frills meals in New York. ~30 min by Uber. Line up at 5pm or call ahead for a spot.</div></div>
+        <span class="pill pill-rust">Carroll Gardens, BK · 1 big night</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A dining capital without parallel</h3>
+    <p>New York has more Michelin-starred restaurants than any American city — 72 and counting. But the city's best meals aren't always found there: a $4 bodega slice, a late-night ramen in the East Village, or Via Carota at 9:30pm on a Tuesday will be just as memorable as the tasting menus.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops worth the detour</h2>
+    <p>New York punches above its weight in specialty coffee — and the West Village, SoHo, and East Village cluster is where most of the serious work is being done. Third Rail is your walk-out-the-door default. Everything else is a worthy 10-minute cab or short subway ride.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Third Rail Coffee</div><div class="row-desc">Your neighborhood anchor — serious espresso, understated room, the best daily option walking distance from the Village. Their filter program is reliably excellent.</div></div><span class="pill pill-gold">West Village</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Devoción</div><div class="row-desc">Beans flown in fresh from Colombia, roasted on-site in Williamsburg. Claims the shortest farm-to-cup time in the industry. The stunning plant-filled flagship in Williamsburg is worth the ride.</div></div><span class="pill pill-gold">Williamsburg</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Sey Coffee</div><div class="row-desc">Full-transparency roastery — they publish exactly what they pay farmers (often 3–4x Fair Trade). Best light roast and filter program in Brooklyn. Serious coffee, serious ethics.</div></div><span class="pill pill-emerald">Bushwick, Brooklyn</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">La Cabra</div><div class="row-desc">Danish transplant that brought Scandinavian light-roast aesthetics to the East Village — some of the most complex, nuanced coffees in the city alongside exceptional Danish pastries.</div></div><span class="pill pill-emerald">East Village</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Felix Roasting Co.</div><div class="row-desc">The most beautiful café in Manhattan — velvet chairs, copper tin ceilings, hickory-smoked lattes served under a glass dome. Order the Signature Felix and stay for an hour.</div></div><span class="pill pill-emerald">NoMad</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Abraço</div><div class="row-desc">Tiny 9-seat East Village espresso bar with one of the most precise pour-over programs in the city. The olive oil cake is legendary. Cash only.</div></div><span class="pill pill-emerald">East Village</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">WatchHouse</div><div class="row-desc">London's finest specialty café finally landed in SoHo — minimal design, outstanding single-origins, and some of the most consistent espresso in the neighborhood. A fast favorite.</div></div><span class="pill pill-emerald">SoHo</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Butler</div><div class="row-desc">Relaxed, neighborhood West Village café — good filter, good wifi, great pastries, and a place to settle in for a slow morning. Your second walk-to option.</div></div><span class="pill pill-emerald">West Village</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Ninth Street Espresso</div><div class="row-desc">A founding father of NYC's specialty wave — stripped-back menu, total focus on the cup. Their espresso helped define what New York coffee could be. Multiple locations.</div></div><span class="pill pill-emerald">East Village / Chelsea</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Variety Coffee Roasters</div><div class="row-desc">Their Lucky Shot espresso is the most consistent in the city — a warm, reliable café with multiple Manhattan and Brooklyn locations. Good for a quick, no-fuss excellent cup.</div></div><span class="pill pill-emerald">West Village + more</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Partners Coffee</div><div class="row-desc">The DUMBO flagship is the standout location — an airy, high-ceilinged warehouse space with excellent single-origins and a great light-roast filter menu. Worth the Brooklyn trip.</div></div><span class="pill pill-emerald">DUMBO + Tribeca</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Culture Espresso</div><div class="row-desc">The Midtown anchor for specialty coffee — smart, clean, quick service and a cookie that's absurdly good. Your espresso stop after any Midtown dinner or meeting.</div></div><span class="pill pill-emerald">Midtown West</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Everyman Espresso</div><div class="row-desc">East Village and Union Square outposts from one of the city's original specialty stalwarts. Consistently excellent, always welcoming — a no-fuss, high-quality cup.</div></div><span class="pill pill-emerald">East Village / Union Sq</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Joe Coffee</div><div class="row-desc">The roaster that opened on Waverly Place in 2003 and helped start all of this in New York. Multiple locations; the Greenwich Village original is the one to visit.</div></div><span class="pill pill-emerald">Greenwich Village</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Black Brick Coffee</div><div class="row-desc">High-ceilinged Nolita café with a strong espresso program and a great crowd — one of those mid-afternoon stops that extends into two hours without noticing.</div></div><span class="pill pill-emerald">Nolita</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Saltwater Coffee</div><div class="row-desc">Williamsburg newcomer building a quiet reputation for an outstanding filter program. Small, focused, a contrast to the busier neighborhood options.</div></div><span class="pill pill-emerald">Williamsburg</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Toby's Estate</div><div class="row-desc">Australian roaster with multiple NYC locations — the West Village outpost is a warm neighborhood spot with a serious single-origin roster and excellent brunch adjacency.</div></div><span class="pill pill-emerald">West Village + more</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Birch Coffee</div><div class="row-desc">Good-spirited roaster with multiple outposts — philosophy of generosity in every cup. The NoMad and Flatiron locations are the best for a sit-and-work morning.</div></div><span class="pill pill-emerald">Multiple / Flatiron</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Black Fox Coffee</div><div class="row-desc">The FiDi specialty anchor — polished, precise, and exceptional for a post-run or pre-meeting espresso near the Financial District and Lower Manhattan.</div></div><span class="pill pill-emerald">Financial District</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Blue Bottle Coffee</div><div class="row-desc">The California icon now fully at home in New York — clean aesthetics, reliable quality. The Chelsea Market and Rockefeller Center locations are the most beautiful.</div></div><span class="pill pill-slate">Chelsea / Multiple</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>Eight experiences built for your pace</h2>
+    <p>You've done chocolate, cooking classes, and volcano hikes — so here's a New York progression of afternoons, building from low-key Village wandering to genuinely memorable. Each stands alone; stack them however the day allows.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature NYC</span>
+        <h3>Aire Ancient Baths</h3>
+        <p class="card-loc">Tribeca · book ahead</p>
+        <p>Thermal spa caves beneath a 19th-century stable — six pools from arctic cold to 99°F thermal, candlelit and silent. The best spa afternoon in the city by a wide margin. Book a 90-min bath and add a massage. This is what you do on recovery days.</p>
+        <p class="card-note">Book 1–2 weeks ahead at beaire.com/nueva-york. A perfect post-long-run ritual.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Urban trail</span>
+        <h3>The High Line + Chelsea Galleries</h3>
+        <p class="card-loc">Chelsea · free</p>
+        <p>Walk the High Line end-to-end (2.3 miles of elevated park on a former rail line), then drop into Gagosian, Hauser &amp; Wirth, or Pace Gallery — the greatest concentration of blue-chip contemporary art in the world. Free to enter almost everything. Pairs with a Via Carota dinner perfectly.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>Whitney Museum of American Art</h3>
+        <p class="card-loc">Meatpacking District</p>
+        <p>The best modern American art museum in the city — Hopper, Basquiat, Kara Walker, Cindy Sherman. The rooftop deck has unobstructed Hudson River and High Line views. Spend two hours, have a drink at the rooftop bar, and walk 10 minutes to dinner in the Village.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Island escape</span>
+        <h3>Governors Island</h3>
+        <p class="card-loc">Ferry from Lower Manhattan · May–October</p>
+        <p>Car-free, bike-friendly island with sweeping views of the Statue of Liberty and Lower Manhattan skyline. The Hills are genuinely surprising — 70-ft elevated paths above a pastoral landscape. Open weekends in April and daily in summer. Free ferry on weekdays before noon.</p>
+        <p class="card-note">Perfect for July visit — ferry runs daily July 26–30.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Brooklyn day</span>
+        <h3>Brooklyn Bridge walk + DUMBO</h3>
+        <p class="card-loc">Manhattan Bridge → DUMBO → The River Café</p>
+        <p>Walk the bridge (1.1 miles), drop into DUMBO for coffee at Partners and photography at the Manhattan Bridge archway, then book dinner at The River Café right underneath the bridge. One of NYC's great full-afternoon loops — unique at golden hour in April light.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Food market</span>
+        <h3>Smorgasburg</h3>
+        <p class="card-loc">Williamsburg (Sat) · Prospect Park (Sun) · April–Oct</p>
+        <p>America's largest weekly open-air food market — 100+ local vendors, everything from Ramen Burger to Sri Lankan street food to excellent tacos. Saturday in Williamsburg is the classic. Go around noon, eat until you can't, walk the waterfront south. The July visit lines up perfectly.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Elevated views</span>
+        <h3>The Edge at Hudson Yards</h3>
+        <p class="card-loc">West Side · Hudson Yards</p>
+        <p>The highest outdoor sky deck in the Western Hemisphere — glass floor, 1,100 feet above the city, 360-degree views. Sunset is the move. Go with champagne from the outdoor bar and look for the Empire State and Central Park at the same time. 10 minutes from the Village by taxi.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Books + wander</span>
+        <h3>The Strand + East Village wander</h3>
+        <p class="card-loc">Union Square → East Village</p>
+        <p>Eighteen miles of books at The Strand (the best bookshop in the country), then wander east into Alphabet City — Tompkins Square Park, Veniero's Pastry for a cannoli (since 1894), and the best falafel at Mamoun's. The East Village has a specific energy unlike any other neighborhood. End at Abraço for coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BAND 2 — HUDSON VALLEY
+     ═══════════════════════════════════════ -->
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>Hudson Valley: trail terrain built for an ultra runner</h3>
+    <p>Cold Spring and the Hudson Highlands are 90 minutes from Grand Central by train — no car needed. The trails above the Hudson River offer 16–18 miles of genuine elevation, technical footing, and views that make a long run feel earned. It's the right weekend move for serious training.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Hudson Valley &amp; your 16-mile Sunday</h2>
+    <p>Cold Spring, NY is your weekend call — 1.5 hours north on Metro-North from Grand Central (no car), trail running on Hudson Highlands State Park, stunning river views, and a legitimate small-town main street with a great inn and dinner. Perfect for both the April and July visits (start the July run by 6am for heat management).</p>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the Hudson Valley weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday — Train from Grand Central</span>
+        <span class="timeline-text">Metro-North Hudson Line to Cold Spring — 1 hr 25 min, ~$20/person each way. No car needed, no traffic, no parking. Arrive by noon. Check into Hudson House of Cold Spring (riverfront inn, right on the water) or The Roundhouse in nearby Beacon. Walk Cold Spring's Main Street, browse antique shops, and have dinner at Hudson House or grab a table at Riverview Restaurant overlooking the Hudson.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday AM — The 16-18 mile run</span>
+        <span class="timeline-text">Start at 6am (July) or 7am (April) from Cold Spring Village. The Breakneck Ridge → Wilkinson Memorial Trail → Bull Hill loop covers 16–18 miles with 2,800+ feet of elevation gain — proper ultra training terrain. The Breakneck trailhead is a 10-min Uber from Cold Spring. Hudson River views from every ridgeline. Bring 2L of water minimum; no aid stations. Brooke can crew you at the Cornish Estate ruins at the 10-mile mark.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday midday — Recovery in town</span>
+        <span class="timeline-text">Post-run: Cold Spring Depot for brunch or Hudson House for a proper meal. Walk the riverfront promenade. The afternoon light on the Hudson from the Cold Spring bandstand is one of the quieter beautiful things in the Northeast — stay for it.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday PM — Train back to the city</span>
+        <span class="timeline-text">Take the 4pm or 5pm Metro-North back to Grand Central. You're in Midtown in 90 minutes. Have a quiet dinner in the Village — Via Carota walk-in, no reservation pressure.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>July alternative:</b> If peak-summer beach is the vibe over trail running, the Hamptons are a different kind of weekend — LIRR or Hampton Jitney to Amagansett or Sag Harbor. Long flat beach runs (the ocean route from Amagansett to Montauk is 16 miles one-way), Hamptons beaches, and a dinner at Nick &amp; Toni's or The American Hotel in Sag Harbor. Book accommodation 4–6 weeks ahead for July.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight, and your first big dinner</h2>
+    <p>Two picks — a soft first night and a marquee table. The July 26 visit starts on a Sunday, which is perfect for the quieter Village at its best. The April 6 Monday is low-key and walkable. Both visits suit the same pattern.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · chill</span>
+        <h3>Via Carota or Frenchette</h3>
+        <p class="card-loc">West Village / Tribeca · walk or 8-min cab</p>
+        <p>Via Carota for a vegetable-forward Italian dinner that feels like a warm embrace — show up at 6pm or after 9:30pm for a table. Frenchette in Tribeca for natural wine and moules frites if you want a livelier room with more buzz. Either is the right unpretentious, excellent first night you want after travel.</p>
+        <p class="card-note">Both are walk-in friendly at off-peak times. No pressure, no formality.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">This trip's big dinner</span>
+        <h3>Eleven Madison Park</h3>
+        <p class="card-loc">Flatiron · 20 min by Uber</p>
+        <p>Your marquee NYC dinner — 3 Michelin stars, a soaring Art Deco room, and a plant-based tasting menu that Daniel Humm's kitchen has turned into one of the finest meals in the country. $365/person before wine. Book on Resy immediately — 30+ days out is the rule. If EMP is sold out, pivot to Le Bernardin or Per Se.</p>
+        <p class="card-note">Book this the moment you read this. Resy, or call the restaurant directly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Sunday in New York (July 26 visit opens this way)</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Morning run</span>
+        <span class="timeline-text">Hudson River Greenway north from the Village — 8–10 flat, traffic-free miles with the sunrise over the water. Get out by 6:30am in July. On Sundays, the Greenway is quiet until 8am, then suddenly fills with cyclists and joggers.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recovery coffee</span>
+        <span class="timeline-text">Third Rail on your walk home — or Butler for a longer sit with pastries. Both are walkable. Order a cortado and the almond croissant wherever they have one.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — Smorgasburg</span>
+        <span class="timeline-text">Sundays in Prospect Park, Brooklyn (May–November) — 100+ food vendors, a great crowd, Brooklyn at its most Saturday-afternoon best. Hop the A or C train from the Village, 35 minutes.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunset — The Edge or rooftop bar</span>
+        <span class="timeline-text">Head to The Edge at Hudson Yards for champagne 1,100 feet above the city, or stay closer to home and watch the sunset from the Hudson River Park piers — free, unobstructed, and one of the better ways to end a New York Sunday.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>Madison Avenue, SoHo &amp; Meatpacking</h2>
+    <p>New York's three luxury shopping districts are each distinct: Madison Avenue is the formal jewel-box tier, SoHo is the walkable flagship circuit, and the Meatpacking District is where fashion-forward boutiques meet the High Line crowd. All three are within 20 minutes of the Village.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The Avenue</span>
+        <h3>Madison Avenue (UES)</h3>
+        <p class="card-loc">60th–80th Street, Upper East Side</p>
+        <p>The most exclusive shopping stretch in the country — Hermès (with its flagship cocktail bar and rooftop garden), Chanel, Prada, Giorgio Armani, Cartier, and the new Kujten cashmere flagship. Take a cab uptown, start at 72nd, walk south. Pair with lunch at Majorelle or Sant Ambroeus nearby.</p>
+        <p class="card-note">The Hermès flagship at 62nd has a cocktail bar and VIP lounge — worth the visit alone.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Walkable &amp; vibrant</span>
+        <h3>SoHo Flagship Circuit</h3>
+        <p class="card-loc">Prince to Houston, Broadway to West Broadway</p>
+        <p>Prada, Louis Vuitton, Gucci, Longines (new boutique on SoHo's cobblestones), Supreme, and dozens of independents across cast-iron loft buildings. WatchHouse coffee for a break mid-shop. SoHo pairs easily with a Nolita or Estela dinner after.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Fashion-forward</span>
+        <h3>Meatpacking District</h3>
+        <p class="card-loc">Gansevoort to 14th, near the High Line</p>
+        <p>Diane von Fürstenberg's flagship, Baccarat crystal's U.S. flagship (relocated here from Madison), the Apple Store, Flogger, and a run of directional boutiques. Cap the afternoon with a drink at The Standard Biergarten below or drinks at Catch Rooftop.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Department store</span>
+        <h3>Bergdorf Goodman</h3>
+        <p class="card-loc">Fifth Avenue at 57th Street</p>
+        <p>The finest department store in America — seven floors of curated luxury fashion and home goods overlooking Central Park South. The women's floor and the shoe salon are benchmarks. Bergdorf's is the edit you can't get anywhere else under one roof.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Independent</span>
+        <h3>The Row &amp; West Village Boutiques</h3>
+        <p class="card-loc">Bleecker Street, West Village</p>
+        <p>The Olsen sisters' quiet luxury label has a townhouse boutique on Bleecker that's worth a dedicated visit — minimalist, beautifully made, the opposite of logos. Bleecker between Perry and Bank has a concentration of independent boutiques that reward wandering.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Books &amp; culture</span>
+        <h3>The Strand + McNally Jackson</h3>
+        <p class="card-loc">Union Sq · NoLita</p>
+        <p>18 miles of books at The Strand (Union Square) and the best independent bookshop experience at McNally Jackson (NoLita) — where the staff recommendations are genuinely excellent and the travel section is curated for people like you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, pole &amp; gyms in Manhattan</h2>
+    <p>The West Village is extremely well-served for boutique fitness. Most reformer and pole studios require booking 24–48 hours ahead via ClassPass, Mindbody, or the studio app. Equinox day passes are available at any of their 14+ Manhattan locations — the SoHo and West Village clubs are your closest.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios below confirmed operating as of June 2026. Book via ClassPass or studio apps — classes in NYC fill within hours of opening.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium · closest</span>
+          <h3>New York Pilates</h3>
+          <p class="card-loc">Multiple Manhattan locations</p>
+          <p>The New York Times called it "downtown chic" — luxe reformer studios with expert instructors and an electric atmosphere. The Bowery and Studio locations are the flagships. Book on their app; classes sell out fast. The studio Brooke will love most in the city.</p>
+          <p class="card-note">newyorkpilates.com — book 48 hrs ahead minimum.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Boutique · intimate</span>
+          <h3>KZ Pilates+</h3>
+          <p class="card-loc">Upper West Side / Multiple</p>
+          <p>Semi-private Core Collective Sessions capped at four participants — classical Pilates principles with modern innovation. The smallest class size in the city means more instruction and better form. Perfect for a serious session when you want real attention.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">High-intensity</span>
+          <h3>SLT (Strengthen Lengthen Tone)</h3>
+          <p class="card-loc">14 NYC locations</p>
+          <p>A 50-minute megaformer reformer workout — dynamic, cardio-infused, and harder than it looks. 14 Manhattan locations means there's always a slot somewhere. The go-to for a cross-training reformer session that complements ultra running.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">New &amp; excellent</span>
+          <h3>Reforming Pilates — RP Townhouse</h3>
+          <p class="card-loc">109 W 17th St, Chelsea</p>
+          <p>The luxury boutique brand's new 7,000 sq ft Chelsea flagship — 10 reformers per room, beautiful design, premium instruction. One of the most stylish studios to open in NYC recently. Book early; it's already a scene.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole &amp; aerial studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Best in the city</span>
+          <h3>Body &amp; Pole</h3>
+          <p class="card-loc">Heart of Manhattan</p>
+          <p>NYC's premier pole and aerial studio — 170+ weekly classes led by world-renowned instructors. Pole dance, aerial silks, hoop, flexibility conditioning, and more. Founded in 2010, this is where the professionals train and where serious students go first. Book via Mindbody.</p>
+          <p class="card-note">bodyandpole.com — the definitive NYC pole studio.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Midtown</span>
+          <h3>Foxy Fitness &amp; Pole</h3>
+          <p class="card-loc">Near Penn Station · Midtown</p>
+          <p>Award-winning instructors, small group classes for individualized training, two blocks from Penn Station and the PATH. Well-organized, welcoming, and excellent for technique. Great option if you want something convenient to Midtown logistics.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Lower East Side</span>
+          <h3>Lovely Lioness Pole Dance &amp; Aerial</h3>
+          <p class="card-loc">Lower East Side</p>
+          <p>Welcoming, woman-owned studio with a strong community vibe — pole, aerial hoop, and silks. Excellent for a drop-in class with enthusiastic teaching. Book via ClassPass or directly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day passes &amp; short-term access</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best near home</span>
+          <h3>Equinox — SoHo or West Village</h3>
+          <p class="card-loc">Multiple Manhattan locations</p>
+          <p>The gold standard for Manhattan gym access — full equipment, steam rooms, top-tier group classes (SoulCycle, Precision Running, yoga), and upscale locker rooms. Day passes available ($50); their SoHo club is the most beautiful. Ask at the front desk for a 7-day visitor pass for the best value.</p>
+          <p class="card-note">equinox.com — day passes $50/day; 7-day visitor pass is better value.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium</span>
+          <h3>Life Time Fitness</h3>
+          <p class="card-loc">Midtown Manhattan</p>
+          <p>Full-service athletic country club vibe — pools, saunas, spa, group classes, and excellent equipment. Day passes available for visitors. The Midtown location is one of the largest premium fitness facilities in the city.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Your free venue</span>
+          <h3>Hudson River Greenway</h3>
+          <p class="card-loc">Battery Park to George Washington Bridge</p>
+          <p>12 miles of car-free, well-lit, paved running path along the west side of Manhattan — your built-in daily run venue. Flat, scenic, populated with other runners at all hours. Zero cost, zero commute from the Village. This is where your 50-60 mile weeks actually happen.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Central Park</span>
+          <h3>Central Park Road Loops</h3>
+          <p class="card-loc">6.1 miles per loop · 20 min from Village</p>
+          <p>The classic: one full outer loop is 6.1 miles with about 260 feet of rolling elevation gain — run three for your 18-miler. Car-free on weekends and weekday mornings. The Reservoir inner loop (1.58 miles) is flat and great for intervals. The New York Road Runners group runs here 100+ times a year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Premium groceries &amp; markets near you</h2>
+    <p>The Village and surrounding neighborhoods have excellent premium grocery options — Whole Foods, the Chelsea Market, Eataly, and the Union Square Greenmarket are all close. For cooking-for-two nights, you have everything you need within a 10-minute walk or cab.</p>
+  </div>
+
+  <div class="validated-banner fade-in">All locations confirmed operating 2026. The Erewhon in NYC is currently members-only (Kith Ivy club) — for the Erewhon experience, Happier Grocery is the equivalent open-to-all option.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Closest premium</span>
+        <h3>Whole Foods Market — SoHo</h3>
+        <p class="card-loc">270 Greenwich St, Tribeca (nearest) + multiple</p>
+        <p>The closest full-service premium grocery to the Village — excellent produce, a good hot bar, and everything you need for a home cook night. The Tribeca location at 270 Greenwich is the best nearby option; the Columbus Circle location is larger and has an extraordinary prepared foods section.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">The NYC Erewhon</span>
+        <h3>Happier Grocery</h3>
+        <p class="card-loc">Multiple Manhattan locations</p>
+        <p>NYC's answer to Erewhon — premium organic, natural products, cult-favorite smoothies, wellness tinctures, and the kind of inventory that Whole Foods doesn't carry. The staff is genuinely knowledgeable. Worth a dedicated visit when the Erewhon energy calls.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Food destination</span>
+        <h3>Eataly NYC Flatiron</h3>
+        <p class="card-loc">200 Fifth Ave, Flatiron District</p>
+        <p>The 50,000 sq ft Italian food hall — buy the best Italian olive oil, pasta, cheese, and charcuterie in the city, plus excellent made-to-order pasta and a great wine shop. Go for shopping and stay for a Negroni at the rooftop bar. The best single food destination in NYC after the farmers market.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Farmers market</span>
+        <h3>Union Square Greenmarket</h3>
+        <p class="card-loc">Union Square · Mon, Wed, Fri, Sat · year-round</p>
+        <p>The best farmers market in New York — 140+ regional farms and producers, peak late spring and summer. Sat and Wed are the fullest days. Load up on Hudson Valley produce, raw milk cheese, and fresh herbs for home cooking. 15 min by subway from the Village.</p>
+        <p class="card-note">Saturday morning is the essential NYC ritual — go before 10am for the best selection.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Chelsea Market</span>
+        <h3>Chelsea Market</h3>
+        <p class="card-loc">75 Ninth Ave, Chelsea</p>
+        <p>Food hall and market in a former Nabisco factory — the Lobster Place for impeccable seafood, Buon Italia for imported Italian pantry staples, and Amy's Bread for the best sourdough in the neighborhood. 10 minutes from the Village on foot; combines naturally with a High Line afternoon.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">UWS institution</span>
+        <h3>Citarella</h3>
+        <p class="card-loc">Multiple Manhattan · Upper West Side flagship</p>
+        <p>The city's finest specialty grocer — outstanding seafood, prime meats, prepared foods, and a deli counter that puts most restaurants to shame. The UWS flagship is the best location; order a whole roasted chicken and eat it like a New Yorker.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · New York City field guide · April &amp; July 2026<br>
+    Rates, reservations, and studio schedules shift — confirm bookings on arrival. Book restaurants as early as possible.
+  </div>
+  <span class="footer-verified">✓ Restaurants, studios, and markets validated June 2026 · Michelin stars current as of 2025 Guide</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

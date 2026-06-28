@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Cabos — Christopher &amp; Brooke's Field Guide · April 2026</title>
+<meta name="description" content="A week at Land's End — fine dining, specialty coffee, fitness, a La Paz whale-shark weekend, luxury shopping, and everything worth knowing. April 2026.">
+<meta property="og:title" content="Los Cabos — Christopher &amp; Brooke's Field Guide · April 2026">
+<meta property="og:description" content="Where the desert meets the sea at the end of the Baja. San José del Cabo &amp; the Corridor.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1559826775-0a6a52c1040b?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS — Los Cabos retheme: desert sand + Sea of Cortez blue
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #d4944a;
+  --gold-light: #e8b070;
+  --gold-deep: #8a5818;
+  --gold-bg: #fdf5e8;
+  --emerald: #1a7a9c;
+  --emerald-light: #2196bc;
+  --emerald-deep: #0e4d63;
+  --emerald-bg: #e5f3f9;
+  --rust: #b84a2a;
+  --rust-bg: #fdf0ec;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1559826775-0a6a52c1040b?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+  background-color: #1a4a6a;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,24,38,0.05) 0%,
+    rgba(10,24,38,0.15) 40%,
+    rgba(10,24,38,0.78) 80%,
+    rgba(10,24,38,0.90) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(212,185,140,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(212,185,140,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.45);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(212,185,140,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(225,237,244,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 0.65rem;
+}
+.hero-sub2 {
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  max-width: 560px;
+  color: rgba(200,220,232,0.8);
+  font-style: italic;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(212,185,140,0.88);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(225,242,252,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(212,185,140,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(212,185,140,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(215,235,246,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #a8d4e8;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.warning-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--rust);
+  line-height: 1.45;
+}
+.warning-banner::before {
+  content: "⚠";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #a8d4e8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · April 17–24, 2026 · One week</div>
+    <h1>Los Cabos,<br><em>Land's End</em></h1>
+    <p class="hero-sub">Where the desert meets the sea at the end of the Baja.</p>
+    <p class="hero-sub2">Sea level. Desert and Pacific. The original luxury escape.</p>
+    <div class="hero-meta">San José del Cabo · The Corridor</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Los Cabos</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     00 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>Sea level, desert sun, and Sea of Cortez blue. April is genuinely the best month to be here — mild days, low humidity, whale sharks at the tail of their season. The essentials up front.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Mexican Peso</div>
+      <p>MXN · symbol $. USD accepted nearly everywhere along the Corridor — but you'll get better rates paying in pesos at local spots.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ 17.50</div>
+      <p>1 USD ≈ 17.30–17.70 MXN (June 2026 — likely similar in April). Divide pesos by 17.5 for a quick dollar figure.</p>
+    </div>
+    <div class="fact-card">
+      <h4>April Climate</h4>
+      <div class="big">22–28°C</div>
+      <p>Days warm and dry, lows ~17–20°C. Desert UV is intense even at this temperature. Run before 7:30am. Humidity is still low — ideal. The one week before summer's heat arrives.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Hotel</div>
+      <p>Uber operates in both Cabo San Lucas and San José. Corridor resorts: pre-book hotel shuttles or private transfers — the 30km stretch between towns has no reliable street hail.</p>
+    </div>
+
+    <div class="fact-card" style="grid-column: span 1; background: linear-gradient(135deg, #e5f3f9, #d4ecf7); border-color: #a8d4e8;">
+      <h4>Running — April Notes</h4>
+      <div class="big" style="font-size:1.4rem; color: var(--emerald-deep);">5:30–7:30am</div>
+      <p>Desert heat and UV hit hard by 9am even in April. Run early — Malecón San José at sunrise is flat, paved, quiet, and beautiful. Carry at least 20oz more water than you think you need. The dry Baja air dehydrates faster than anywhere in Latin America. No altitude adjustment needed: you're at sea level.</p>
+      <p style="margin-top:.5rem; font-size:.82rem; font-style:italic; color:var(--emerald-deep);">Best routes: Malecón / Paseo de los Pescadores (San José) · Estero de San José trail (soft, birdy) · Medano Beach at low tide (sand work) · Pedregal hills (Cabo San Lucas, elevation, technical)</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a Bajacaliforniano</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Órale</b> — OK / Let's go / Right on</div>
+        <div class="slang-item"><b>Güey / Wey</b> — Dude, mate</div>
+        <div class="slang-item"><b>¿Qué onda?</b> — What's up?</div>
+        <div class="slang-item"><b>Chido / Chida</b> — Cool, awesome</div>
+        <div class="slang-item"><b>No manches</b> — No way! (mild)</div>
+        <div class="slang-item"><b>Ahorita</b> — Could mean now, soon, or never — clarify</div>
+        <div class="slang-item"><b>A toda madre</b> — Excellent, the best</div>
+        <div class="slang-item"><b>Cuate</b> — Buddy, friend</div>
+        <div class="slang-item"><b>Mande</b> — Polite "pardon?" or "yes?"</div>
+        <div class="slang-item"><b>Cotorrear</b> — To hang out / chill / chat</div>
+        <div class="slang-item"><b>¿Me regala…?</b> — "May I have…?" (polite)</div>
+        <div class="slang-item"><b>El norte / La noche</b> — "Up the peninsula" / "tonight"</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Safety — Los Cabos tourist zone</h4>
+      <ul class="safety-list">
+        <li>Los Cabos is consistently ranked Mexico's safest tourist destination. The Marina, Medano Beach, Art District and Corridor are low-risk.</li>
+        <li>Use Uber after dark rather than hailing random taxis on the street. Hotel-arranged transport is always the safe default.</li>
+        <li>Don't leave bags or valuables on the beach unattended, even in broad daylight near busy stretches.</li>
+        <li>The marina area in Cabo San Lucas is busy and safe at night. Dark beach stretches away from the main strip: take a cab.</li>
+        <li>San José del Cabo centro and Art District are walkable and safe by day; Uber after a late dinner.</li>
+        <li>Avoid drinking tap water — use bottled or resort-filtered. Ice at major restaurants is fine.</li>
+        <li>Withdraw cash from ATMs inside La Comer, Costco, or bank branches — not outdoor street machines.</li>
+        <li>Emergency line: <b>911</b>. Hospital Ángeles Los Cabos (San José) is the area's top private hospital.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     01 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the ride</h2>
+    <p>Los Cabos punches far above its size. Cliff-face dining rooms above the Pacific, a farm-to-table movement rooted in the Sierra de la Laguna foothills, and serious chefs who've set up serious tables in the Corridor and San José Art District. Book the top tier at least two weeks ahead.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class tier — book immediately</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">El Farallon</div><div class="row-desc">The apex of Baja dining. Carved into the sea cliffs at the Waldorf Astoria Pedregal, accessed through a candlelit tunnel cut through the mountain. Pacific seafood market-to-table, the most dramatic setting in Los Cabos. Two-week booking lead minimum.</div></div>
+        <span class="pill pill-gold">Pedregal Cliffs · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Manta — The Cape, A Thompson Hotel</div><div class="row-desc">Enrique Olvera (Pujol, Atla) helms this Baja-Pacific Rim seafood menu from a cliff-edge room above Land's End. The aguachile and raw bar are exceptional. One of the most serious culinary efforts in the entire corridor. Book it early.</div></div>
+        <span class="pill pill-gold">Land's End · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Cocina de Autor — Grand Velas Los Cabos</div><div class="row-desc">The most technically ambitious kitchen in Los Cabos — avant-garde tasting format with rotating Michelin-starred visiting chefs. An ultra-luxury resort table that earns its price. Pairs well with a spa day at the same property.</div></div>
+        <span class="pill pill-gold">Corridor</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Jazamango</div><div class="row-desc">Chef Javier Plascencia's farm-driven room in San José's Art District. The definitive Baja California farm-to-table restaurant — produce-first, ingredient-obsessed, beautiful terrace. The most respected local-ingredients table in the region. Book ahead.</div></div>
+        <span class="pill pill-gold">Art District · SJdC</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Modern Baja &amp; standouts</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Acre</div><div class="row-desc">Four acres of organic palm grove turned into an open-air restaurant and mezcalería. Michelin Guide recognition. The wood-fire whole fish and the slow-roasted pork are the moves. Magical for an evening — the setting alone is worth it.</div></div>
+        <span class="pill pill-emerald">SJdC foothills</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Flora Farms</div><div class="row-desc">The culinary institution of Los Cabos, set on an organic farm in the Sierra foothills. Wood-fired oven, smoker, fresh house cheeses, pick-your-own garden. A must for Sunday brunch or early dinner — plan to linger. It's a 20-min drive from the Corridor.</div></div>
+        <span class="pill pill-emerald">Sierra foothills · SJdC</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Don Manuel's — One&Only Palmilla</div><div class="row-desc">The Palmilla's flagship: Mediterranean-Baja tasting menus, impeccable service, 180-degree Pacific views. The wine list is one of the best in Baja. Dress the occasion — this is a proper evening.</div></div>
+        <span class="pill pill-emerald">Palmilla · Corridor</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Sunset Monalisa</div><div class="row-desc">Built directly into the cliff face south of CSL, every table faces El Arco and Land's End. Italian-Baja hybrid menu — the food is good, the view at golden hour is the main event. Book a 6:30–7pm table in April for the full effect.</div></div>
+        <span class="pill pill-emerald">Pedregal · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Agua by Larbi — Marquis Los Cabos</div><div class="row-desc">Moroccan-American chef Larbi Dahrouch's surprisingly avant-garde tasting menu inside a Corridor luxury resort. Unexpectedly personal cooking for a hotel table — one of the better-kept secrets on the strip.</div></div>
+        <span class="pill pill-emerald">Corridor</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Mi Casa</div><div class="row-desc">The most refined traditional Mexican restaurant in Cabo San Lucas — adobado meats, chiles en nogada, mole negro, house margaritas. Family-owned courtyard with warmth no resort table can manufacture. A classic for good reason.</div></div>
+        <span class="pill pill-emerald">Centro · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Edith's Restaurant</div><div class="row-desc">A Cabo San Lucas landmark since 1985. Mesquite-fired grills, the famous garlic-cactus Caesar salad, guayabera-clad lifers who've been here for decades. Order the handmade tortillas and the carne asada. The kind of place that makes you understand why people keep coming back to Cabo.</div></div>
+        <span class="pill pill-emerald">CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Hacienda Cocina y Cantina</div><div class="row-desc">Waterfront palapa on Medano Beach — the most beautiful dining room right on the water. Refined regional Mexican, sunset views of the marina. The power lunch spot of the Corridor set.</div></div>
+        <span class="pill pill-emerald">Medano Beach · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Suviche</div><div class="row-desc">The Peruvian-Japanese Nikkei doing excellent tiradito and causa in a clean, modern room. One of the most interesting menus outside the resort belt — serious ceviches, layered flavors, strong cocktail program.</div></div>
+        <span class="pill pill-emerald">CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Bar Esquina — Bahia Hotel</div><div class="row-desc">Mediterranean-Baja terrace restaurant at San José's quietly elegant boutique hotel. One of the best sunset dining spots without full resort pricing. Good crudos, excellent cocktails, unhurried pacing.</div></div>
+        <span class="pill pill-emerald">SJdC beach</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">KO Restaurant</div><div class="row-desc">Modern Mexican in the Art District — handmade tortillas, regional moles, an exceptional tequila and mezcal list. A neighborhood joint with a serious kitchen that flies under the resort radar.</div></div>
+        <span class="pill pill-emerald">Art District · SJdC</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Toro Latin Kitchen</div><div class="row-desc">Latin steakhouse with a serious dry-aged program and strong cocktails in a contemporary room. The move for a carnivore night with good wine — well above the tourist-strip steakhouse.</div></div>
+        <span class="pill pill-emerald">SJdC</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">El Merkado</div><div class="row-desc">San José's gourmet indoor market: artisanal stalls, an organic produce section, an excellent coffee counter, charcuterie, fresh tortillas. Arrive Saturday morning and eat your way through it — a proper food-lover's morning.</div></div>
+        <span class="pill pill-emerald">SJdC</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Los Tres Gallos</div><div class="row-desc">The most charming traditional Mexican courtyard in CSL — colonial building near centro, authentically run without tourist-trap markup. For a relaxed, local-feeling dinner away from the marina scene.</div></div>
+        <span class="pill pill-emerald">Centro · CSL</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Capo</div><div class="row-desc">Polished Italian in a quiet corner of the Corridor — handmade pasta, whole branzino, a short list of very good Italian wines. The low-key Thursday dinner when you don't want to think too hard.</div></div>
+        <span class="pill pill-emerald">Corridor</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">The Office on the Beach</div><div class="row-desc">The classic flip-flops-and-fishbowl-margarita, feet-in-the-sand Medano Beach institution. Not fine dining — but it is Los Cabos, distilled. Go for lunch once, order the fish tacos and a frozen something, and enjoy it completely unironically.</div></div>
+        <span class="pill pill-rust">Medano Beach · once</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop'); background-color:#2a6a3a;"></div>
+  <div class="band-txt">
+    <h3>A dining scene that punches up</h3>
+    <p>Los Cabos was once known only for resort buffets and fish tacos. Today it carries Michelin Guide recognition, a farm-to-table movement anchored in the Sierra de la Laguna, and Enrique Olvera himself running a cliff-top kitchen. The table has been worth making reservations for.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     02 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Specialty coffee in the desert</h2>
+    <p>Los Cabos is not Bogotá — the specialty scene is smaller and concentrated in San José del Cabo and near the marina. But the best spots are genuinely good, and the early-morning pre-run coffee ritual is well-served. The Art District cluster is where to build your morning habit.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">Top tier — specialty program</div>
+    <div class="ranked-list">
+      <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">The Breakdown</div><div class="row-desc">The best specialty coffee in Los Cabos. Single-origin pour-overs, hand-shaken cold brews, local artisan pastries. The serious coffee person's base in SJdC — airy, design-forward, unhurried.</div></div><span class="pill pill-gold">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">A'rido Coffee Community</div><div class="row-desc">Artisanal specialty café with a minimalist desert aesthetic that actually matches the landscape. Rotating single-origins, thoughtful baristas, quality baked goods from local producers.</div></div><span class="pill pill-gold">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Coffee Lab</div><div class="row-desc">SJdC's cupping-and-tasting-focused café. Filter program with a serious bent — come when you want to taste rather than just caffeinate. The most technically minded shop in the region.</div></div><span class="pill pill-gold">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Land's End Coffee Roaster</div><div class="row-desc">Three-minute walk from the Cabo San Lucas marina. House-roasted beans, espresso and pour-over bar, good pastries. The best cup in CSL proper — a three-block detour from the marina worth making.</div></div><span class="pill pill-gold">Marina · CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Baja Beans Coffee Roasters</div><div class="row-desc">Small-batch Baja roaster sourcing from small producers across Chiapas and Veracruz. Pick up a bag of beans to brew at the villa — excellent medium roast with chocolate and dried-fruit notes.</div></div><span class="pill pill-emerald">SJdC / Todos Santos</span></div>
+    </div>
+
+    <div class="list-group-label">Solid secondaries</div>
+    <div class="ranked-list">
+      <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Casasola Café &amp; Brunch</div><div class="row-desc">Waterfront café on the marina — reliable espresso, excellent natural light, good brunch menu. The social morning stop before a boat tour or dive day.</div></div><span class="pill pill-emerald">Marina · CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Neutral Cafe — Waldorf Astoria Pedregal</div><div class="row-desc">Resort café with expert baristas, premium equipment, and three brewing methods including immersion and pour-over. Worth the drive to the cliffs for the experience even if you're not staying.</div></div><span class="pill pill-emerald">Pedregal · CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Cosecha Café</div><div class="row-desc">Farm-to-cup philosophy sourcing from small Oaxacan and Chiapan producers. Garden seating, excellent cold brew, the most laid-back patio in SJdC for an afternoon slow-down.</div></div><span class="pill pill-emerald">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">El Ganzo Hotel Café</div><div class="row-desc">The boutique hotel's ground-floor café is open to non-guests. Excellent espresso, rotating art exhibitions from regional artists, cool creative crowd. The anti-resort-coffee stop in SJdC.</div></div><span class="pill pill-emerald">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">El Merkado Coffee Counter</div><div class="row-desc">Inside the gourmet market — one of the cleaner espresso bars in SJdC. Pair with the market's fresh tortillas and charcuterie for a Saturday breakfast ritual.</div></div><span class="pill pill-emerald">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Sip Cabo</div><div class="row-desc">Popular with locals for proper filter coffee and tea lattes in a cozy corner setup. Good early-morning hours for the pre-run cup.</div></div><span class="pill pill-emerald">CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Cabo Coffee Company</div><div class="row-desc">The local roaster brand with multiple locations — more reliable than chains, house-roasted beans, consistent espresso. The dependable neighborhood backup when your first choice is full.</div></div><span class="pill pill-emerald">Multiple · CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Flora Farms Café</div><div class="row-desc">When you're at Flora for a farm dinner or brunch, have an espresso in the garden after. The in-house program is simple but sourced — the setting makes a good cup taste remarkable.</div></div><span class="pill pill-slate">Sierra foothills · with dinner</span></div>
+      <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Patio café, Acre</div><div class="row-desc">Pre-dinner: arrive early and have a mezcal cocktail or a cold coffee in the palm grove before your table. The aperitivo ritual in the jungle-like canopy is one of the better ways to start an evening in Los Cabos.</div></div><span class="pill pill-slate">SJdC foothills · with dinner</span></div>
+      <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Misión Coffee</div><div class="row-desc">Named for the region's Jesuit mission history. A balanced medium-roast blend popular with the local expat community and the most walkable-to café in downtown SJdC.</div></div><span class="pill pill-slate">SJdC centro</span></div>
+      <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Brew Room Los Cabos</div><div class="row-desc">Specialty pour-over bar near the marina strip, quieter than the tourist-facing cafés. A filter-forward shop for the post-run debrief with Brooke.</div></div><span class="pill pill-slate">CSL</span></div>
+      <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Cataviña Coffee &amp; Co.</div><div class="row-desc">Baja-sourced roaster doing good pour-overs and an unusually good chai latte. Good for a slow afternoon in the Art District between galleries.</div></div><span class="pill pill-slate">SJdC</span></div>
+      <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">El Tri Coffee — Todos Santos</div><div class="row-desc">On the weekend trip: exceptional specialty café in Todos Santos' art town worth timing your Saturday morning for. Single-origins, excellent pastries, a slow breakfast before the drive back.</div></div><span class="pill pill-slate">Todos Santos · weekend</span></div>
+      <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Encantos Coffee Bar</div><div class="row-desc">The most accessible quality stop in the heart of the resort Corridor for a quick quality hit between activities or post-beach. Reliable and convenient when proximity matters.</div></div><span class="pill pill-slate">Corridor</span></div>
+      <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">La Comer Café Counter</div><div class="row-desc">In a pinch on a grocery run: the premium supermarket's café counter does a reliable Americano. Not remarkable — just there when you need it without a detour.</div></div><span class="pill pill-slate">SJdC · backup</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1400&auto=format&fit=crop'); background-color:#0e4d63;"></div>
+  <div class="band-txt">
+    <h3>The Sea of Cortez &amp; the far south</h3>
+    <p>Jacques Cousteau called it the world's aquarium. In April, whale sharks still cruise the warm shallows near La Paz, humpbacks breach off Land's End, and Cabo Pulmo's living coral reef — a UNESCO Biosphere Reserve — holds more marine density than almost anywhere in the Pacific. Get underwater.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One experience a day</h2>
+    <p>April is the sweet spot. Desert wildflowers are at peak bloom after winter rains, whale season is at its tail end, the water temperature is perfect, and the crowds are thinning from spring break. Here is a progression from easygoing to genuinely unforgettable.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature · day one</span>
+        <h3>El Arco glass-bottom boat</h3>
+        <p class="card-loc">Cabo San Lucas Marina · 30–45 min</p>
+        <p>The mandatory first afternoon. Glass-bottom boat around Land's End: El Arco arch from the water, Pelican Rock, Neptune's Finger sea lion colony, the exact point where the Pacific meets the Sea of Cortez. Book directly at the marina dock on arrival — tours run all morning and early afternoon. Choose a late morning departure for better light on the Arch.</p>
+        <p class="card-note">The private charter version (sunset slot, champagne) is the upgrade worth making for one evening.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">April special</span>
+        <h3>Whale watching — tail of season</h3>
+        <p class="card-loc">CSL Marina · 2–3 hr tour</p>
+        <p>Humpback whale season in Los Cabos runs December through April. Your trip falls right at the final days — book the first morning of your trip before season closes entirely. Operators with early-April availability: Cabo Adventures and Sunrider tours. Not guaranteed, but April humpbacks are still common. A gray or humpback breach 200 meters off your boat is a memory that stays.</p>
+        <p class="card-note">Book day one of your trip — don't wait. Some operators close April 15; others run through end of April.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Best underwater</span>
+        <h3>Cabo Pulmo snorkeling</h3>
+        <p class="card-loc">~1.5–2 hr drive NE · East Cape</p>
+        <p>A UNESCO World Biosphere Reserve with the only living coral reef in the Sea of Cortez. Marine density here rivals the Galápagos — bull sharks, schooling fish walls, sea turtles, stingrays. Book a guided day trip from Los Cabos with gear and lunch included. Plan for a full day: the drive is worthwhile. April water temp is ~24°C — perfect.</p>
+        <p class="card-note">Book via Cabo Trek or a reputable dive operator. The East Cape road is paved and manageable.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Desert &amp; wildflowers</span>
+        <h3>ATV / UTV desert tour</h3>
+        <p class="card-loc">Corridor desert trailheads</p>
+        <p>Fire up a UTV and head through the Sierra arroyos and desert tracks to Migrino Beach. April is wildflower peak — the cardon cacti bloom and the desert floor turns color after winter rains. Most operators offer a 2–3 hour guided circuit with a Pacific beach stop at the end. Cabo Adventures and Desert Park Tours are the reputable options. Dusty but glorious.</p>
+        <p class="card-note">Alternatively: a camel + ATV combo from the same outfitters — absurd and worth it.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Sunset ritual</span>
+        <h3>Private sunset sailing cruise</h3>
+        <p class="card-loc">CSL Marina · 2 hr</p>
+        <p>Catamaran at golden hour from the marina: champagne, appetizers, El Arco silhouetted against the sun going into the Pacific. Every Los Cabos visitor does this once — the difference between a shared group tour and a private charter is enormous. Book the private version for just the two of you. Magical April evening light.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Wild &amp; quiet</span>
+        <h3>Estero de San José kayaking</h3>
+        <p class="card-loc">San José del Cabo · morning</p>
+        <p>The SJdC estuary is a protected freshwater lagoon where the river meets the sea — 350+ bird species, blue herons, pelicans, ospreys. A morning kayak here is silent, wild, and completely at odds with the resort strip 10 minutes away. Run the Malecón, shower, paddle the estuary. That's a morning.</p>
+        <p class="card-note">Go with a guide for best routes and bird identification — several operators based at the estuary entrance.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Sport</span>
+        <h3>Half-day sportfishing charter</h3>
+        <p class="card-loc">CSL Marina · 4–5 hr AM</p>
+        <p>April is excellent for dorado (mahi-mahi) and yellowfin tuna in the Sea of Cortez. Book a private panga or a larger sportfisher from the marina — several charter operators rate well on TripAdvisor. Have them pack the catch on ice and drop it at your villa or arrange a cook-it-yourself dinner. Baja sportfishing is world-famous for good reason.</p>
+        <p class="card-note">Best outfitters: Pisces Sportfishing, Gaviota Sportfishing. Book 48 hrs ahead minimum.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Art &amp; culture</span>
+        <h3>Thursday Art Walk — SJdC Gallery District</h3>
+        <p class="card-loc">Art District · San José del Cabo</p>
+        <p>You arrive on April 17 — a Thursday. The Gallery District's famous Art Walk runs October through June, every Thursday 5–9pm. About 20 galleries open simultaneously, artists in residence, street food, live music. The premier cultural event in Baja California Sur, and you walk into it on night one. Have dinner at Jazamango or Bar Esquina after.</p>
+        <p class="card-note">April 17 Art Walk is your first night. Don't miss it.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Mountain escape</span>
+        <h3>Sierra de la Laguna day hike</h3>
+        <p class="card-loc">~45 min drive into the Sierra</p>
+        <p>A half-day hike into the mountains that rise behind the Corridor — oak and pine forest above 1,500m, condors, ocelot country, and temperatures 10°C cooler than the coast. April is the last good month before the approach dries out entirely. Hire a local guide in Todos Santos for a combined weekend-trip hike, or drive up from the Corridor independently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · WEEKEND SIDE-TRIP
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>La Paz &amp; Todos Santos — the two-day Baja circuit</h2>
+    <p>The right call for your long-run weekend: combine Todos Santos (1.5 hrs north on Hwy 19 — Baja's surf-and-art town) with La Paz (3 hrs from Los Cabos) for whale sharks in the sea. April 17 is your arrival Thursday; your first full weekend is April 19–20. Go early, while April whale shark availability lasts.</p>
+  </div>
+
+  <div class="warning-banner fade-in">
+    <strong>Whale shark season alert:</strong> La Paz whale shark season officially runs October through early April. Some operators extend to mid-April in good conditions — others close March 31. Call Baja Whale Shark or Cabo Trek directly when you arrive April 17 to confirm availability for April 19. If season has closed, Todos Santos alone is an excellent weekend.
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop'); background-color:#1a7a9c;"></div>
+    <div class="band-txt">
+      <h3>Drive Highway 19 — it's one of the great Baja roads</h3>
+      <p>Highway 19 north from Cabo San Lucas to Todos Santos runs along the Pacific coast through farmland, desert, and surf beaches. A private driver is the move: the road is good but the Pacific views demand your attention, not the wheel. Stop at Playa Los Cerritos (a long, flat beach) for a look before Todos Santos. Rent a car only if you want full flexibility on the La Paz leg.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend — April 19–20</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday early morning — The long run</span>
+        <span class="timeline-text">Run from your Corridor hotel before departure. Malecón San José (flat, 5–6 mi loop), or Medano Beach at low tide for 8–10 miles on sand. Target 5:30am start for a 16+ mile session before the car. Carry 40+ oz of fluid; the Baja air will take it. Then shower, eat, and drive north.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday AM — Drive to Todos Santos</span>
+        <span class="timeline-text">1.5 hours on Hwy 19. Stop at Playa Los Cerritos (a long surf beach, beautiful even in April) on the way in. Arrive Todos Santos by 10am.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday in Todos Santos</span>
+        <span class="timeline-text">The Hotel California (yes, that one), the Art District galleries, El Mercadito food market for lunch, El Tri Coffee for a slow afternoon flat white. The town is genuinely charming — whitewashed, artsy, cool for the desert. Stay overnight at Hotel Guaycura or the Todos Santos Inn if you want the full experience.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — La Paz whale sharks (if season open)</span>
+        <span class="timeline-text">Drive from Todos Santos to La Paz (2 hrs). Morning boat tour with Baja Whale Shark or similar — 2–3 hours in the water with whale sharks in the Bay of La Paz, the gentle giants that can reach 12 meters. Return south on Hwy 1 to Los Cabos by evening. The drive back is stunning at sunset through the Baja desert.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">If whale sharks are closed — full Todos Santos</span>
+        <span class="timeline-text">Spend Sunday morning at Playa Punta Lobos (surf beach, dramatic blowhole cliffs) and hike the El Faro lighthouse trail (2 hrs, Pacific views, manageable for a recovery-day effort). Drive back via Pescadero and Cerritos. Still an excellent weekend — Todos Santos doesn't need La Paz to be the right call.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.4rem;font-size:.92rem;color:var(--ink-soft)"><strong>Long-run terrain note:</strong> Todos Santos and the surrounding coast offers runnable flat beach road from town toward Cerritos — quiet, scenic, low traffic, cool morning air off the Pacific. Sea-level, no altitude adjustment. An 18–22 mile out-and-back is entirely feasible before 9am. The alternative on a weekend-only long run: the Malecón San José pre-departure loop is flat, paved, and adds up fast.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Luxury Shopping</div>
+    <h2>Art, design &amp; the marina promenade</h2>
+    <p>The shopping landscape has shifted in April 2026. Puerto Paraíso — the Corridor's flagship mall — is temporarily closed. The Art District in San José is where the interesting pieces live, and the marina promenade still has the best jewelry and tequila boutiques in CSL.</p>
+  </div>
+
+  <div class="warning-banner fade-in">
+    <strong>Puerto Paraíso Mall is CLOSED.</strong> As of April 8, 2026, the mall has been placed under an emergency suspension of all commercial operations following a water main collapse, ceiling failure, and electrical incident. The closure is indefinite pending a structural and electrical safety audit. Do not plan a visit. All alternatives below remain open.
+  </div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Best destination</span>
+        <h3>San José del Cabo Gallery District</h3>
+        <p class="card-loc">Art District · SJdC centro</p>
+        <p>About 20 high-end galleries showcasing original paintings, sculpture, photography, handcrafted jewelry, and investment-grade indigenous art. The best galleries — Galería de Ida Victoria, Galería Los Cabos, Arte Baja — mix established Mexican artists with international contemporary work. Go on Thursday for the Art Walk (5–9pm, Oct–June), or during the day when you can linger with gallery owners.</p>
+        <p class="card-note">You arrive on a Thursday — the Art Walk is your first evening. Plan dinner in the Art District after.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Marina luxury</span>
+        <h3>Boulevard Marina &amp; Medano Strip</h3>
+        <p class="card-loc">CSL Marina promenade</p>
+        <p>The marina promenade runs the length of the waterfront with jewelry stores, upscale swimwear boutiques, leather goods, and high-quality Cuban cigar shops. Ultrafemme and Ultima Joya carry quality watches and fine jewelry. Not a mall — an open-air luxury strip. Go in the late afternoon when the light hits the water and browse without a destination.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Independent</span>
+        <h3>Sur Baja Mercado</h3>
+        <p class="card-loc">SJdC</p>
+        <p>Curated artisan goods from Baja makers — hand-thrown pottery, woven textiles, natural cosmetics, small-batch hot sauces and mezcals. The edit-forward boutique that sources things you can't find at a marina souvenir shop. The Baja equivalent of a serious concept store.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Farm luxury</span>
+        <h3>Flora Farms Shop</h3>
+        <p class="card-loc">Sierra foothills · SJdC</p>
+        <p>Organic products, branded farm goods, artisan Baja pantry items, and the best selection of local mezcal and wine in one curated shop. Buy olive oil, local honey, and a bottle of Baja nebbiolo when you're there for dinner. The gift that actually says where you were.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Agave</span>
+        <h3>Specialty tequila &amp; mezcal boutiques</h3>
+        <p class="card-loc">Marina area · CSL</p>
+        <p>Several serious agave-spirits shops near the marina carry expressions you can't find in the US — small-batch mezcals from Oaxaca, aged reposados, limited artisanal runs. Mexican customs allows bringing bottles back. Los Cabos tequila shops are well-curated by design — the tourist market demands quality here. Ask for the in-house sommelier's pick.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Hotel California</span>
+        <h3>Todos Santos boutiques</h3>
+        <p class="card-loc">Todos Santos · weekend trip</p>
+        <p>On the weekend trip: Todos Santos' main street and art district has excellent small boutiques — Mexican textile designers, silver jewelry makers, surfer-artisan clothing. The Hotel California gift shop is actually good. Bring cash; many small shops don't take cards reliably.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · FITNESS
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Move</div>
+    <h2>Pilates, pole &amp; gyms in the desert</h2>
+    <p>The boutique fitness scene is growing fast in Los Cabos, anchored in San José del Cabo and near the CSL marina. Most studios require a WhatsApp or Instagram message to reserve — don't walk in cold. The premium resort gyms are excellent and most can be accessed by non-guests for a day fee.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios below confirmed operating as of June 2026. Confirm specific class schedules directly — boutique studios in resort towns can shift hours seasonally.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best in region</span>
+          <h3>Indigo Pilates &amp; Fitness Studio</h3>
+          <p class="card-loc">Plaza Soleil, Calle Libertad esq. Calle de Los Mares · CSL</p>
+          <p>The established reformer studio in Cabo San Lucas, operating for 10+ years. Reformer, Cadillac, Tower, Chair, and Barre classes — full equipment program at a proper professional studio. Drop-ins welcome; message ahead via their website to reserve a spot. The longest-running, most credentialed reformer operation in Los Cabos.</p>
+          <p class="card-note">indigopilates.mx — book 24 hrs ahead; classes fill quickly in April.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">SJdC option</span>
+          <h3>We Pilates Studio</h3>
+          <p class="card-loc">San José del Cabo</p>
+          <p>Contemporary reformer studio in SJdC — the most accessible option if you're staying in the Art District or Corridor. All levels reformer with group, private, and duo class formats. Clean, modern space with good equipment. The best option for a drop-in session on the SJdC side.</p>
+          <p class="card-note">wepilates-studio.com — DM on Instagram to reserve.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Boutique</span>
+          <h3>Body Bliss Pilates</h3>
+          <p class="card-loc">Los Cabos</p>
+          <p>Smaller boutique studio with one-time session options and membership plans. A more personal, lower-volume option if Indigo is booked out. bodyblisscabo.com for scheduling and rates.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Backup</span>
+          <h3>F&amp;F Pilates Reformer Center</h3>
+          <p class="card-loc">Cabo San Lucas</p>
+          <p>Reformer-focused boutique operation in CSL. A solid third option if the above are full — check their Facebook page for current hours and availability before making the drive.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Best equipped · CSL</span>
+          <h3>Dolls Kingdom Pole Dance Fitness</h3>
+          <p class="card-loc">Calle 12 de Octubre · Cabo San Lucas</p>
+          <p>The most established pole fitness studio in Los Cabos — pole fitness, aerial silks, aerial aro, hip-hop, and yoga classes for all levels in a proper, well-equipped space. Welcoming to drop-ins. WhatsApp: +52 624 157 3738 or email dollskingdompoledance@hotmail.com to confirm schedule and reserve. Instagram: @dollskingdompolestudio.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">SJdC option</span>
+          <h3>Koi Pole Fitness Studio</h3>
+          <p class="card-loc">San José del Cabo</p>
+          <p>The San José pole option — more convenient if you're based in SJdC or the Corridor. Check their Facebook or Instagram for current schedule before booking: the studio is smaller and class times shift seasonally.</p>
+          <p class="card-note">DM @koipolestudio on Facebook to confirm April schedule.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day passes &amp; resort access</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Premium day access</span>
+          <h3>Waldorf Astoria Pedregal Spa &amp; Gym</h3>
+          <p class="card-loc">Pedregal Cliffs · CSL</p>
+          <p>World-class equipment, cliff-face gym with Pacific views, spa access, infinity pool. Day guest access is available — call ahead, rates run $75–150 USD/day but include full facilities. Combine with El Farallon dinner for a full Pedregal day. The most spectacular gym setting in all of Los Cabos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Boutique · SJdC</span>
+          <h3>El Ganzo Hotel Gym</h3>
+          <p class="card-loc">San José del Cabo</p>
+          <p>The boutique hotel's gym is open to non-guests. Good equipment, rooftop pool access, and the hotel's cool creative energy. A more intimate setting than the mega-resort gyms — better for a focused session without the scene.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Local solid</span>
+          <h3>Las Brisas Sport Club</h3>
+          <p class="card-loc">San José del Cabo</p>
+          <p>The premium local gym in SJdC — full equipment, pool, group classes, and day pass access. Where Corridor expats and serious locals train. More affordable than resort day passes and often less crowded. Ask about a week pass for a better rate.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Value · no-frills</span>
+          <h3>Smart Fit</h3>
+          <p class="card-loc">CSL and SJdC · multiple</p>
+          <p>Clean, modern, and cheap — day passes available at the front desk. Good for a 6am session between pilates or pole days when you just need iron and space. No pretense, functional equipment, everywhere.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Free &amp; great</span>
+          <h3>Malecón San José running loop</h3>
+          <p class="card-loc">Paseo de los Pescadores · SJdC</p>
+          <p>Your built-in free gym: the paved waterfront promenade along the estuary and Pacific-side beach is flat, safe, lit in the early morning, and stunning at sunrise. A 3-mile out-and-back or longer depending on the day. The best free fitness in Los Cabos, and the correct start to every morning here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · The Pantry</div>
+    <h2>Whole-Foods-style groceries</h2>
+    <p>For cooking-at-the-villa nights, Los Cabos has a surprisingly strong premium grocery infrastructure — La Comer (the region's Whole Foods equivalent) has two accessible locations, and there's a dedicated organic grocer and a good gourmet Saturday market in SJdC.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Stores confirmed operating as of June 2026. La Comer is the headline choice — consistently stocked, excellent quality, Whole Foods comparison earns its way.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Main shop</span>
+        <h3>La Comer — San José del Cabo</h3>
+        <p class="card-loc">Paseo Malecon San Jose S/N · SJdC · open 7am–11pm</p>
+        <p>The premium supermarket that replaced Mega and redefined grocery shopping in Los Cabos. Wide aisles, excellent produce section, strong organic and health-food department, seafood counter with octopus, tuna steaks, and fresh lobster, in-house bakery, wine wall. Reviewers call it "Whole Foods quality in Baja." The main weekly shop stop.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Corridor option</span>
+        <h3>La Comer — Palmilla / Corridor</h3>
+        <p class="card-loc">Carretera Mexico 1, Palmilla · Corridor</p>
+        <p>The second La Comer location, more convenient if you're staying in a Corridor resort. Same quality and selection as the SJdC flagship. Particularly useful for a grocery run after returning from Cabo Pulmo or another full-day excursion — open late.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic-focused</span>
+        <h3>Supermarket Santa Carmela</h3>
+        <p class="card-loc">CSL and SJdC locations</p>
+        <p>The dedicated organic grocer in Los Cabos, operating since 2000. Organic produce, imported health foods, clean pantry staples, natural cleaning products. A smaller-footprint store with higher organic percentage than La Comer — the move for a health-food-focused shop or when you want to be confident about sourcing.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">California Ranch</span>
+        <h3>California Ranch Market</h3>
+        <p class="card-loc">Corridor / SJdC</p>
+        <p>The expat community's grocery institution — US-style selection with imported brands, excellent deli counter, good wine and beer section. Well-stocked with the familiar-from-home items that La Comer sometimes misses. The "safe" choice when you need exactly what you're looking for.</p>
+        <p class="card-note">californiaranchmarket.com — also does grocery delivery to Corridor resorts.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Saturday morning</span>
+        <h3>El Merkado — Saturday market</h3>
+        <p class="card-loc">Art District · SJdC · Saturdays</p>
+        <p>The gourmet indoor market in the Art District opens Saturday morning with artisan food stalls alongside the permanent vendors. Fresh local tortillas, aged cheeses from Ensenada, Baja chorizos, seasonal produce, local honey, and the excellent coffee counter. Build your villa-cooking Saturday around a market visit.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Bulk &amp; backup</span>
+        <h3>Costco — San José del Cabo</h3>
+        <p class="card-loc">SJdC</p>
+        <p>Yes, there's a Costco, and yes, it's very good. The Corridor expat community swears by it for quality-to-price on produce, protein, and pantry staples. Worth one visit for bulk purchases — wine, olive oil, protein, and the excellent bakery section — particularly for a longer stay with villa cooking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Los Cabos field guide · April 17–24, 2026<br>
+    Rates and openings shift — confirm reservations, studio schedules, and whale shark availability on arrival.<br>
+    Puerto Paraíso Mall confirmed closed April 2026 · Whale shark season ends early-mid April — call operators day one.
+  </div>
+  <span class="footer-verified">✓ Businesses validated June 2026 · Puerto Paraíso closure flagged · whale shark season caveat included</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

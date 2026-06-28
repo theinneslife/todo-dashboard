@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cape Town — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A 10-day field guide to Cape Town — fine dining, third-wave coffee, trail running on Table Mountain, the Winelands, and everything worth knowing. May 2026.">
+<meta property="og:title" content="Cape Town — Christopher &amp; Brooke's Field Guide · May 2026">
+<meta property="og:description" content="Where two oceans argue at the edge of the world. Table Mountain, La Colombe, Lion's Head at sunrise, and the Winelands one hour away.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #b8923a;
+  --gold-light: #d4aa50;
+  --gold-deep: #7a5c20;
+  --gold-bg: #fdf3e0;
+  --emerald: #1a5276;
+  --emerald-light: #2471a3;
+  --emerald-deep: #154360;
+  --emerald-bg: #eaf2fb;
+  --rust: #6e3519;
+  --rust-bg: #fdf0eb;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · May 6–15, 2026 · Ten days</div>
+    <h1>Cape Town,<br><em>in constant motion</em></h1>
+    <p class="hero-sub">Where two oceans argue at the edge of the world. Table Mountain watching over everything. World-ranked tables, trail routes that will humble you, and the Winelands an hour east. The Atlantic Seaboard puts almost all of it inside a short ride.</p>
+    <div class="hero-meta">Atlantic Seaboard · De Waterkant area</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Cape Town</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>The essentials: money, the rate, how people actually talk, and the honest safety picture. Cape Town rewards confidence and clear-eyed awareness — especially by neighbourhood. Read the safety brief fully; the city is extraordinary but not uniform.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">South African Rand</div>
+      <p>ZAR · symbol R. Prices written as R250 or 250,00. Easy mental maths: divide by 18 for a USD equivalent.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ R18</div>
+      <p>1 USD ≈ R17–R18 (May 2026 range). Conservative planning rate: R18. A R1,500 tasting menu costs roughly $83 USD.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Climate in May</h4>
+      <div class="big">17–20°C</div>
+      <p>Early winter — crisp, clear days with spectacular light, some rain. Table Mountain summit: near-freezing with wind. Always carry a shell on the mountain.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Bolt</div>
+      <p>Both work and are the safe default. Never use metered taxis hailed from the street — scams are common. Uber is ubiquitous from De Waterkant.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Running Altitude</h4>
+      <div class="big">17 m</div>
+      <p>Sea level — breathing is easy. The challenge is vertical. Table Mountain adds 1,085 m of gain from the lower cable station. Plan your pace on ascent.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Emergency &amp; Essentials</h4>
+      <div class="big">10111</div>
+      <p>Police emergency. Tourist Safety Unit: 021 418 2852. Keep your host's number saved. ATMs: use those inside shopping malls or banks. Tap water in De Waterkant is safe to drink.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a local — Cape Town slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Howzit</b> — Standard greeting. "How are you?" Answer: "Lekker, thanks."</div>
+        <div class="slang-item"><b>Lekker</b> — Great, delicious, excellent. Universal positive.</div>
+        <div class="slang-item"><b>Braai</b> — BBQ. A sacred institution. Never call it a "barbecue."</div>
+        <div class="slang-item"><b>Sharp / Sharp sharp</b> — OK, understood, agreed. Extremely common.</div>
+        <div class="slang-item"><b>Bru / Boet</b> — Mate, buddy, brother. Casual address.</div>
+        <div class="slang-item"><b>Lank</b> — Very / a lot. "Lank good" = really good.</div>
+        <div class="slang-item"><b>Now now</b> — Soon (but ambiguous — could be 5 min or 2 hours).</div>
+        <div class="slang-item"><b>Just now</b> — Later (even more ambiguous than "now now").</div>
+        <div class="slang-item"><b>Eish</b> — Expression of surprise, frustration, or sympathy.</div>
+        <div class="slang-item"><b>Dop</b> — A drink. "One dop" = one drink. Also means to fail.</div>
+        <div class="slang-item"><b>Ja well no fine</b> — Resigned acceptance of a situation.</div>
+        <div class="slang-item"><b>Smaak</b> — To like or fancy. "I smaak it" = I love it.</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Safety by neighbourhood — read this fully</h4>
+      <p style="margin-top:.5rem;font-size:.9rem;color:var(--ink-mid);line-height:1.55">Cape Town is extraordinary and unequal. The tourist zones are genuinely safe with standard urban awareness. But the city has hard no-go zones — know them and this trip is seamless.</p>
+      <ul class="safety-list" style="margin-top:1rem">
+        <li><b>V&amp;A Waterfront</b> — Highly secured, cameras everywhere, security on foot. One of the safest commercial zones in South Africa. Day or night, no issues.</li>
+        <li><b>De Waterkant / Green Point</b> — Your home zone. Well-lit, walkable at night, restaurant-dense. Standard city awareness at 2am, otherwise relaxed.</li>
+        <li><b>Sea Point / Camps Bay / Clifton</b> — Atlantic Seaboard suburbs. Very safe, popular, walkable promenades. Watch phones on the Sea Point beachfront at night.</li>
+        <li><b>Gardens / Kloof Street / Tamboerskloof</b> — Busy, tourist-facing, fine at night in lit areas. Don't cut through dark alleys.</li>
+        <li><b>Bo-Kaap</b> — Colourful Muslim quarter above the CBD. Fine during the day; Uber in and out, don't wander at night.</li>
+        <li><b>City Bowl CBD after dark</b> — Desolate streets away from Long/Bree. Use Uber after dinner, don't walk unfamiliar blocks at night.</li>
+        <li><b>Woodstock</b> — Old Biscuit Mill immediate area (Albert Road) is fine, especially Saturday market. Don't walk three blocks in any other direction.</li>
+        <li><b>Observatory</b> — Has a rough edge. Lower Main Road restaurant strip is OK; avoid wandering solo.</li>
+        <li><b>Cape Flats (Mitchells Plain, Nyanga, Gugulethu)</b> — No tourist reason to be here. Genuine danger. This is not an area to explore casually.</li>
+        <li><b>Khayelitsha / Langa / Bellville</b> — Township areas. Go only as part of a formal guided township tour with an established local operator (highly recommended as an educational experience — but never alone).</li>
+        <li>Use <b>Uber / Bolt exclusively</b> for all rides. Never accept a quote from a driver who approaches you. Keep bags in your lap or the front footwell.</li>
+        <li><b>Phone rule:</b> never use your phone while walking in unfamiliar areas — snatch theft from pedestrians is common. Put it away before you leave a restaurant.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the ride</h2>
+    <p>Cape Town has one of the most exciting dining scenes on earth right now — a confluence of African biodiversity, Cape Winelands terroir, and chefs who've trained at Noma and Mugaritz before coming home. May is shoulder season: fewer crowds, easier bookings, but the top five still need lead time. Everything is within 30 minutes of De Waterkant.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class — book immediately</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">La Colombe</div><div class="row-desc">The consensus best restaurant in Africa — consistent World's 50 Best honoree. Chef James Gaag's 12-course menu on Silvermist Wine Estate above Constantia Nek. Tuna la colombe is the signature course. Book 4–6 weeks out via lacolombe.co.za.</div></div>
+        <span class="pill pill-gold">Constantia Nek</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">FYN</div><div class="row-desc">Winner of 2025 Eat Out top prize. Chef Peter Tempelhoff's Japanese-South African tasting menu on the 5th floor of Speakers Corner — sea urchin, koji-aged proteins, fynbos garnishes. Pescatarian and plant-based formats available. A defining Cape Town meal.</div></div>
+        <span class="pill pill-gold">Parliament St · CBD</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Salsify at The Roundhouse</div><div class="row-desc">Heritage building on the slopes of Lion's Head above Camps Bay. Chef Ryan Cole's 4- and 6-course menus with Asian-inflected Cape ingredients. Sunset views across the Atlantic. Strong Sunday lunch.</div></div>
+        <span class="pill pill-gold">Camps Bay</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Amura at Mount Nelson</div><div class="row-desc">The most-anticipated 2025/26 opening: Ángel León ("Chef of the Sea," multiple Michelin stars in Spain) makes his African debut inside the iconic Mount Nelson Hotel. An unmissable moment in Cape Town's restaurant history.</div></div>
+        <span class="pill pill-gold">Gardens</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Salon</div><div class="row-desc">Luke Dale-Roberts's return after The Test Kitchen. 9-course tribute menu — each dish celebrating a country that shaped his cooking. Silo Building at the Old Biscuit Mill. The spiritual successor to one of Africa's greatest restaurants.</div></div>
+        <span class="pill pill-gold">Woodstock</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Exceptional — book a few days ahead</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Pier</div><div class="row-desc">La Colombe group's harbour restaurant in the Pierhead Building. Chef John Norris-Rogers — 12-course ocean-inspired tasting menu with molecular techniques. Floor-to-ceiling views of Table Mountain and the working harbour.</div></div>
+        <span class="pill pill-emerald">V&amp;A Waterfront</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Chefs Warehouse Beau Constantia</div><div class="row-desc">Liam Tomlin's flagship estate restaurant. Seasonal 4-course sharing format, locally grown produce from the surrounding gardens. Spectacular Constantia mountain views from the terrace. Their best execution.</div></div>
+        <span class="pill pill-emerald">Constantia</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">The Pot Luck Club</div><div class="row-desc">Asian-inspired tapas that helped redefine Cape Town's food culture since 2012. Top floor of the Old Biscuit Mill with sunset views over the city. Order broadly; this is a sharing table.</div></div>
+        <span class="pill pill-emerald">Woodstock</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Belly of the Beast</div><div class="row-desc">Intimate nose-to-tail set menu — only ~20 seats. The most serious, ingredient-led cooking in the CBD. No à la carte, no substitutions, no apologies. One of those meals you'll still be thinking about in a year.</div></div>
+        <span class="pill pill-emerald">City Bowl</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Tryn</div><div class="row-desc">Chef Kerry Kilpin's long-running table at Steenberg Estate in Constantia Valley. Beautiful vine-shaded terrace. Excellent for a longer afternoon-into-dinner on a clear May day. Strong Cape Winelands list.</div></div>
+        <span class="pill pill-emerald">Constantia</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standouts &amp; neighbourhood nights</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Foxcroft</div><div class="row-desc">The accessible luxury option. Open breakfast through dinner. Ever-changing tasting menus, plant-based options, and one of the best local wine lists in the Constantia valley. Great Brooke-and-Christopher cooking-inspiration lunch.</div></div>
+        <span class="pill pill-emerald">Constantia</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Kloof Street House</div><div class="row-desc">Converted Victorian mansion, 30 Kloof Street. Strong cocktails, garden terrace, no tasting-menu pressure. À la carte old Cape charm. The ideal "we just want a great dinner without all the ceremony" night.</div></div>
+        <span class="pill pill-emerald">Gardens</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Hemelhuijs</div><div class="row-desc">Elegant all-day restaurant on Waterkant Street, beloved for long creative lunches and natural wine. Beautiful design, outstanding Cape Malay-influenced dishes. One of De Waterkant's finest tables — minutes from home.</div></div>
+        <span class="pill pill-emerald">De Waterkant</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Thali</div><div class="row-desc">Liam Tomlin's Indian fine dining at 3 Park Road. 3-course tasting from mild to fiery — vegetarian and vegan options genuinely excellent. One of the city's best-value high-end meals. Book ahead on weekends.</div></div>
+        <span class="pill pill-emerald">Gardens</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Reverie Social Table</div><div class="row-desc">One long communal table, phones-away policy, Chef Julia Hattingh's seasonal tasting menu at 226A Lower Main Road. One of the city's most unusual — and genuinely moving — dining experiences. Book online.</div></div>
+        <span class="pill pill-emerald">Observatory</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">The Bailey — Chefs Warehouse</div><div class="row-desc">Liam Tomlin's CBD outpost on Bree Street. Tapas-for-two format, energetic room, the Bree Street wine and restaurant strip as context. Great midweek dinner when you want the city buzz without a big production.</div></div>
+        <span class="pill pill-emerald">Bree Street · CBD</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Kyoto Garden Sushi</div><div class="row-desc">Consistent award-winner for precision Japanese cooking. 11 De Lorentz Street, Gardens. Raw fish quality and rice technique are exceptional. The counter seats are the call.</div></div>
+        <span class="pill pill-emerald">Gardens</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Foodbarn</div><div class="row-desc">Chef Franck Dangereux (the original La Colombe) cooking exceptional fine-dining-level food at Noordhoek Farm Village, 30 minutes south. Pair with a Chapman's Peak Drive afternoon for a perfect long day.</div></div>
+        <span class="pill pill-emerald">Noordhoek</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Rust en Vrede</div><div class="row-desc">One of the original fine-dining Cape Winelands estates — serious wine list, serious kitchen. Jan Fischerstraat, Stellenbosch. Book this for your Winelands Saturday night or Sunday lunch.</div></div>
+        <span class="pill pill-rust">Stellenbosch · Winelands</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">La Petite Colombe</div><div class="row-desc">La Colombe group's Franschhoek outpost. The main menu at a more relaxed pace — spectacular mountain backdrop through the glass walls, refined Cape seasonal cooking. Book for your Winelands Sunday.</div></div>
+        <span class="pill pill-rust">Franschhoek · Winelands</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in" style="margin-top:clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1400&auto=format&fit=crop');background-position:center 60%"></div>
+  <div class="band-txt">
+    <h3>A city that eats at Africa's edge</h3>
+    <p>Once known only for Cape Malay and seafood, Cape Town now holds multiple World's 50 Best positions — built on fynbos, abalone, Cape Malay spice, Winelands terroir, and chefs who trained at Noma and Mugaritz before coming home to cook what only the Cape can produce.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops worth finding</h2>
+    <p>Cape Town's third-wave scene is genuinely among Africa's best — and several of these roasters have international recognition. De Waterkant, Gardens, City Bowl, and Sea Point are the clusters closest to home. The mountain light in a Cape Town café window in May is something else.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Truth Coffee Roasting</div><div class="row-desc">The city's most famous. Theatrical steampunk warehouse on Buitenkant Street. Beneath the spectacle: a serious single-origin bar with East African and South American lots. The filter bar is the reason. Consistently ranks among the world's best independently reviewed cafés.</div></div><span class="pill pill-gold">De Waal Park</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Origin Coffee Roasting</div><div class="row-desc">The other flagship — since 2005. Transparent green-bean sourcing, the café doubles as a barista training facility. Ask what's on the rotating guest espresso. Barista knowledge is exceptional. The quiet alternative to Truth.</div></div><span class="pill pill-gold">De Waterkant</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Espressolab</div><div class="row-desc">Ranked #40 in World's 100 Best Coffee Shops 2026 — evaluated from 15,000+ shops globally. A genuine international benchmark in De Waterkant. Try whatever single-origin filter they're running that week.</div></div><span class="pill pill-gold">De Waterkant</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Rosetta Roastery</div><div class="row-desc">The quiet, serious one. No tourist traffic, loyal neighbourhood following in Observatory. Seasonal filter selections are exceptional. Best café for working undisturbed — nothing to prove, everything executed.</div></div><span class="pill pill-emerald">Observatory</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Deluxe Coffeeworks</div><div class="row-desc">Tiny, obsessively precise, small-batch roasting. The strongest flat white in the CBD — regulars know it. Sells out quickly. Get there early; this is not a lingering spot.</div></div><span class="pill pill-emerald">City Bowl</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Tribe Coffee Roasting</div><div class="row-desc">Established Cape Town roaster with a clean, focused menu. Roeland Street location in the City Bowl. Strong single-origin filter program and a proper espresso. One of the city's most consistent daily-driver roasters.</div></div><span class="pill pill-emerald">City Bowl</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Haas Coffee Collective</div><div class="row-desc">Art gallery meets coffee shop in De Waterkant — 30 Hudson Street. Rotating exhibitions, strong filter program, beautiful afternoon light. The most atmospheric sit in the neighbourhood; bring a book or just look at the art.</div></div><span class="pill pill-emerald">De Waterkant</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">The Loading Bay</div><div class="row-desc">Deli and coffee hybrid on Hudson Street, De Waterkant. Excellent cappuccinos alongside a great light lunch menu. Neighbourhood institution — the kind of place you'll return to three times without planning to.</div></div><span class="pill pill-emerald">De Waterkant</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Bootlegger Coffee Company</div><div class="row-desc">Cape Town's beloved local chain — the reliable quality option across the Atlantic Seaboard. Sea Point and V&amp;A locations are closest. Excellent toasties alongside the espresso. The chain that actually maintains standards.</div></div><span class="pill pill-emerald">Sea Point / V&amp;A</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Jason Bakery</div><div class="row-desc">185 Bree Street, CBD. The legendary Cape Town baker — the croissant and flat white combination is a city institution. Good coffee is genuinely secondary to the pastry here, but both are excellent. Go at 8am before they sell out.</div></div><span class="pill pill-emerald">Bree St · CBD</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Bean There Fair Trade Coffee</div><div class="row-desc">Sub-Saharan Africa's first specialty café (est. 2000) — exclusively African single-origins, direct-trade. Educational, excellent, and genuinely moving if you care about where coffee comes from. City Bowl.</div></div><span class="pill pill-emerald">City Bowl</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Yours Truly</div><div class="row-desc">Laid-back neighbourhood café in Gardens on Lower Burg Street. Excellent espresso, strong all-day brunch menu. The easy local option when you don't want to drive into town.</div></div><span class="pill pill-emerald">Gardens</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Little Wolf Coffee</div><div class="row-desc">Tiny, precise, no seats. The espresso-bar version of specialty coffee in Tamboerskloof. Order, collect, walk — the distilled version of what Cape Town does well.</div></div><span class="pill pill-emerald">Tamboerskloof</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Ground Art Caffe</div><div class="row-desc">The Atlantic Seaboard option with ocean views from the Camps Bay location. Reliable specialty extractions and smoothie bowls. Good post-Lion's Head-run refuel stop.</div></div><span class="pill pill-emerald">Camps Bay</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Strangers Club</div><div class="row-desc">Grown-up, seated café on Bree Street. Strong pour-overs, light food, zero pretension. The CBD option when you want to sit properly, not stand at a counter.</div></div><span class="pill pill-emerald">Bree St · CBD</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Starlings Café</div><div class="row-desc">High ceilings, Portuguese-influenced, strong pastries alongside the coffee. Harrington Street, City Bowl. A warm, unhurried space for a long morning.</div></div><span class="pill pill-emerald">City Bowl</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Olympia Café &amp; Deli</div><div class="row-desc">134 Main Road, Kalk Bay — the beloved fishing-village institution. Excellent coffee and magnificent fresh fish alongside it. Pair with a False Bay coastal run and morning in the village. A Cape classic.</div></div><span class="pill pill-emerald">Kalk Bay</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Kalk Bay Books</div><div class="row-desc">Books and coffee in a sun-filled Victorian building at 124 Main Road, Kalk Bay. One of the more atmospheric reading-and-espresso situations in the Cape. Go on a misty May morning when the False Bay sea mist rolls in.</div></div><span class="pill pill-emerald">Kalk Bay</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">The Woodstock Bakery</div><div class="row-desc">Excellent sourdough and coffee adjacent to the Old Biscuit Mill on Albert Road. The natural pre-Salon or pre-Pot-Luck-Club stop on a Woodstock afternoon.</div></div><span class="pill pill-emerald">Woodstock</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Toasted</div><div class="row-desc">Small, warm, reliable espresso bar in De Waterkant. The quick local hit on the way out the door — practically walking distance from home. No ceremony, just good coffee.</div></div><span class="pill pill-slate">De Waterkant</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>Ten days, ten things worth doing</h2>
+    <p>Cape Town's geography is the experience — two oceans, one mountain, 30,000 hectares of national park within the city limits. A mix of serious trail runs, cultural afternoons, and one helicopter flight you'll never forget. May's light is spectacular.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Ultra Priority</span>
+        <h3>Lion's Head Sunrise Circuit</h3>
+        <p class="card-loc">Signal Hill Road · 10 min drive from De Waterkant</p>
+        <p>The Cape Town run — 5 km loop, 669 m summit, technical chains and ladders near the top. Set your alarm for 5:30am, drive up, run it in the dark, summit at first light. The 360° view of the city, ocean, and Table Mountain at sunrise is one of the great experiences on earth.</p>
+        <p class="card-note">Trail shoes with grip essential. Allow 1.5–2.5 hr depending on pace and queuing at the ladders. Quiet in May.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Iconic</span>
+        <h3>Table Mountain — Summit &amp; Contour</h3>
+        <p class="card-loc">Lower Cableway Station · 15 min drive</p>
+        <p>Book digital tickets online — skip the physical queue entirely. May means crisper air and fewer crowds; the mountain's fynbos turns spectacular gold in autumn light. Hike Platteklip Gorge up (2.5 km, 670 m gain), cable car down. Or run the Contour Path for a serious training loop.</p>
+        <p class="card-note">Cable car closes in high wind — check the day-of. Always carry a windproof layer. Summit: 1,085 m, near-freezing at dawn.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature Day</span>
+        <h3>Cape Peninsula Circuit</h3>
+        <p class="card-loc">Chapman's Peak · Boulders · Cape Point</p>
+        <p>The classic full-day loop: south along the Atlantic via Chapman's Peak Drive (vertiginous cliff road — stop and walk the overlook), Boulders Beach penguin colony (swim among African penguins in turquoise granite coves), then Cape Point for the dramatic southernmost lighthouse cliffs. Private driver strongly recommended.</p>
+        <p class="card-note">Allow a full day — 5–7 hours with stops. Best paired with Foodbarn in Noordhoek for lunch on the way.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Bucket list</span>
+        <h3>Helicopter — Full Peninsula Circuit</h3>
+        <p class="card-loc">V&amp;A Waterfront departure · 10 min from home</p>
+        <p>Book via Cape Town Helicopters or Civair from the Waterfront helipad. The full circuit covers: V&amp;A, Table Mountain, the Twelve Apostles range, Clifton, Camps Bay, Hout Bay, Noordhoek, Cape Point, False Bay — everything you'll drive in a day, in 40 minutes from the air. R4,500–R7,000/person. Non-negotiable if you can afford it.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Cultural</span>
+        <h3>Bo-Kaap Walk &amp; Spice Route</h3>
+        <p class="card-loc">Bo-Kaap · 10 min drive</p>
+        <p>The colourful Cape Malay quarter above the CBD. Cobblestoned streets, pastel-painted houses, the Bo-Kaap Museum, and the oldest working mosque in South Africa. Go with a local guide for context — the neighbourhood's history (forced removals, gentrification, identity) is layered and worth understanding properly.</p>
+        <p class="card-note">Day only. Hire an Uber there and back.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Saturday ritual</span>
+        <h3>Neighbour Goods Market at Old Biscuit Mill</h3>
+        <p class="card-loc">Albert Road, Woodstock · Saturdays 9am–3pm</p>
+        <p>The beating creative heart of Cape Town — food producers, local designers, artisans, the city's best flat white, and wine by 11am. Go early for the full experience. Pairs naturally with an afternoon at The Pot Luck Club or Salon next door.</p>
+        <p class="card-note">Uber in and out. The Albert Road strip is fine — don't walk further.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Coastal run</span>
+        <h3>Kalk Bay &amp; False Bay Coast</h3>
+        <p class="card-loc">False Bay · 35 min drive south</p>
+        <p>Run the False Bay coastal path from St James to Kalk Bay (5–8 km). The Victorian tidal pool at St James, the fishing harbour at Kalk Bay, colourful antique shops and galleries on Main Road. Finish at Olympia Café for coffee and grilled fish. A completely different Cape Town from the Atlantic Seaboard.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Golden hour</span>
+        <h3>Signal Hill Sunset</h3>
+        <p class="card-loc">Signal Hill Road · 15 min drive</p>
+        <p>Free, easy, no hiking required. Drive to the Signal Hill parking area for 360° views of the city, Lion's Head, Table Mountain, and the Atlantic turning gold. The 6pm noon gun fires here daily. Cape Town's best-kept free sunset spot — and the one you'll send Brooke photos from every time you go up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Stellenbosch, Franschhoek &amp; your long run in the Winelands</h2>
+    <p>An hour east of Cape Town, the Cape Winelands deliver world-ranked estates, fine dining, and trail running in the Jonkershoek valley that will make you wish you trained here every week. May is the start of harvest's end — the vines are copper and gold, the tasting rooms quiet, and the trails in perfect condition for a 20+ mile long run.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1560717843-8b79deaa6b9a?q=80&w=1400&auto=format&fit=crop');background-position:center 45%"></div>
+    <div class="band-txt">
+      <h3>Rent a car or hire a driver</h3>
+      <p>The N2/N1 to Stellenbosch is a straightforward 45-minute drive — rent a car for independence. If you're tasting on Saturday, hire a private driver (R1,500–R2,500 round-trip from Cape Town with waiting time) and drink freely. The Jonkershoek long run is better as a self-drive early Sunday before the wine starts.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the Winelands weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday morning — Stellenbosch</span>
+        <span class="timeline-text">Drive to Stellenbosch (45 min). Kanonkop Wine Estate for a serious Pinotage tasting — the closest thing South Africa has to Premier Cru. Then Waterford Estate's Wine &amp; Chocolate tasting, one of the Cape's signature experiences. Walk the oak-lined streets of Stellenbosch town in the afternoon (Cape Dutch architecture, art galleries on Dorp Street).</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday dinner</span>
+        <span class="timeline-text">Rust en Vrede (see restaurants, #19) for the full estate fine-dining experience, or Dusk (43 Plein Street, Stellenbosch) — a 13-course zero-waste immersive menu using indigenous foraged ingredients. Remarkable. Book ahead. Overnight at Babylonstoren or Leeu Estates if you want the full Winelands experience.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — The Long Run: Jonkershoek</span>
+        <span class="timeline-text">Start at 7am from the Jonkershoek Nature Reserve entrance (R310 entrance fee, signed from Stellenbosch). The Twin Peaks trail is the best ultra-training terrain in the Winelands — 14–22 km depending on route, ~500 m gain, world-class scenery through indigenous Afromontane forest and fynbos. The valley runs ~200 m lower than Cape Town — you'll breathe easier. Carry 2L water and trail food. This is remote: no phone signal for much of the route. Leave route details with Brooke.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday post-run</span>
+        <span class="timeline-text">Drive to Franschhoek (25 min from Stellenbosch). Babylonstoren garden tour and lunch at Babel restaurant — one of the most beautiful farm-to-table experiences in the world. Or La Petite Colombe (#20 on the restaurant list) for the definitive Winelands tasting menu. Drive home to Cape Town (1 hr).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-top:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Estate</span>
+        <h3>Babylonstoren</h3>
+        <p class="card-loc">Babylonstoren Road, Franschhoek</p>
+        <p>The most photographed estate in South Africa. Eight-hectare garden, farm-to-table restaurant (Babel), exceptional wine, and a hotel if you want to extend. The garden tour alone is worth the visit. Book Babel lunch in advance.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Run Terrain</span>
+        <h3>Jonkershoek Nature Reserve</h3>
+        <p class="card-loc">Jonkershoek Valley, Stellenbosch</p>
+        <p>Used in UTCT training routes. Twin Peaks trail (14–22 km, 500 m gain), Panorama circuit, and the Swartboskloof route for a longer day. Indigenous forest, mountain stream crossings, spectacular autumn-burnt fynbos in May. Trail shoes and 2L water minimum.</p>
+        <p class="card-note">No phone signal inside the reserve. Share your route before you go.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Dinner</span>
+        <h3>Dusk, Stellenbosch</h3>
+        <p class="card-loc">43 Plein Street, Stellenbosch</p>
+        <p>13-course zero-waste tasting menu using indigenous foraged and fermented ingredients. Chefs Badenhorst and Austin. Immersive low-lit experience — one of the more adventurous meals in the whole Cape. Book well ahead: +27 21 023 4100.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Tasting</span>
+        <h3>Waterford Wine &amp; Chocolate</h3>
+        <p class="card-loc">Blaauwklippen Road, Stellenbosch</p>
+        <p>Signature Waterford experience: eight wines paired with eight handcrafted dark chocolates, each designed to complement a specific varietal. One of the Cape's most refined and memorable estate experiences. Book online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Luxury Shopping</div>
+    <h2>The Waterfront &amp; beyond</h2>
+    <p>Cape Town's luxury shopping anchors on the V&amp;A Waterfront, with a strong independent and African-design scene in De Waterkant and Woodstock. The Watershed is the single best place to find genuinely South African-made objects — from ceramics to leather to jewellery.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Flagship</span>
+        <h3>V&amp;A Waterfront — Victoria Wharf</h3>
+        <p class="card-loc">Dock Road, Green Point · 5 min from De Waterkant</p>
+        <p>Cape Town's premier luxury shopping destination — 450+ stores. Gucci, Burberry, Louis Vuitton, Dior are represented. A 2025/26 luxury wing expansion has added additional international fashion houses. A new luxury wing opened in phases between November 2025 and Easter 2026 — check what's new.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Best local design</span>
+        <h3>The Watershed</h3>
+        <p class="card-loc">V&amp;A Waterfront · Dock Road</p>
+        <p>150+ local artisans under one roof — ceramics, fashion, jewellery, leather goods, accessories. The single best place to buy something authentically South African. Carrol Boyes (distinctive handmade functional art), Pichulik (ethical jewellery inspired by African design), AAFRICAA (curated contemporary design and basketware).</p>
+        <p class="card-note">Everything here is made in South Africa. Worth at least an hour.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Boutique</span>
+        <h3>Cape Quarter Lifestyle Village</h3>
+        <p class="card-loc">De Waterkant · walking distance from home</p>
+        <p>Boutique, design-forward, far less crowded than the Waterfront. Scalini (luxury European clothing), independent jewellers, concept lifestyle stores. The local upscale alternative when you don't want the tourist energy of the Waterfront.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Creative district</span>
+        <h3>Bree Street — Design &amp; Gallery Mile</h3>
+        <p class="card-loc">Bree Street · CBD</p>
+        <p>Cape Town's coolest street — independent fashion designers, art galleries, concept stores, wine bars. Walk the full length on a weekday afternoon. The Merchant by Merchant Magazine and various emerging South African fashion houses along the strip.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">SA Design</span>
+        <h3>Key South African Names</h3>
+        <p class="card-loc">Various · V&amp;A, Waterfront, Bree Street</p>
+        <p>Labels worth seeking: Okapi (SA leather goods, clean design), Carrol Boyes (sculptural homeware and cutlery — iconic gift), Poetry (elegant local women's clothing), The Coppery (Cape Winelands leather). The pieces nobody at home will have.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Saturday market</span>
+        <h3>Neighbour Goods Market</h3>
+        <p class="card-loc">Old Biscuit Mill, Woodstock · Saturdays</p>
+        <p>Not traditional retail but the city's creative production engine. Local designers, ceramicists, independent food producers, bespoke jewellery. If something unique is what you're after, start here Saturday morning before the restaurants open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Move</div>
+    <h2>Pilates, pole &amp; gyms near the Atlantic Seaboard</h2>
+    <p>Sea Point and De Waterkant have the strongest studio cluster closest to home. Most boutique studios require advance booking via their apps or WhatsApp/Instagram — message 24–48 hours ahead. Virgin Active's Silo District location offers a free first-visit digital guest pass and is closest to the V&amp;A.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios and gyms below verified as operating in Cape Town, May 2026. Confirm specific class schedules and drop-in availability directly — boutique studios in Cape Town update schedules seasonally.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Closest · Sea Point</span>
+          <h3>The Ivy Room</h3>
+          <p class="card-loc">Floor 3, The Equinox, Milton Road, Sea Point</p>
+          <p>Atlantic Seaboard's premier reformer studio. Classes: Reformer Essentials, Reformer Intermediate, Reformer Progressive, plus mat and private/duo/trio sessions. Free Wednesday community class (beginners). Operates via app booking. The most accessible high-end reformer closest to De Waterkant.</p>
+          <p class="card-note">Book via their app or email info@theivyroom.co.za. +27 71 683 7402.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Boutique · Sea Point</span>
+          <h3>THE CLUB Pilates</h3>
+          <p class="card-loc">Sea Point</p>
+          <p>Cape Town's well-regarded boutique pilates studio, reformer and mat, private lessons available. Smaller, more personal format than a chain studio. Strong instructor pedigree. Message on Instagram to confirm current schedule and drop-in rates for May.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">City Bowl</span>
+          <h3>Sculpt Pilates</h3>
+          <p class="card-loc">City Bowl</p>
+          <p>Mat and reformer, strength-focused, mindful movement approach. Good option for a CBD-adjacent session when you're already heading into the city centre. Small class sizes, precise instruction.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">High Intensity</span>
+          <h3>High Intensity Pilates</h3>
+          <p class="card-loc">Kloof Street, Gardens</p>
+          <p>Individual and small-group reformer classes with a strength and cardio bias. The choice when you want the reformer to supplement rather than replace your training load. 10–15 min from De Waterkant.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Most established</span>
+          <h3>The Pole Project</h3>
+          <p class="card-loc">2nd Floor, Buchanan Square, 160 Sir Lowry Road, Woodstock</p>
+          <p>Cape Town's premier pole studio. Stainless and chrome poles, competition-grade setup. Drop-in R250. Trial class (Saturday only) R150. Class packs: 4 for R880, 8 for R1,320, 12 for R1,800. Studio hire available (R150/hr members, R300/hr non-members). Also: flex &amp; bend, private sessions.</p>
+          <p class="card-note">Hours: Mon–Fri 12–8pm, Saturday 9am–12pm. +27 21 421 0615 · info@thepoleproject.co.za</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Budget drop-in</span>
+          <h3>PDCT — Pole Dance Cape Town</h3>
+          <p class="card-loc">Park Edge Mews, Link Way</p>
+          <p>Drop-in R160 per class — the most affordable serious option. 60–75 minute sessions covering warm-up, conditioning, moves and combos, cool-down. Good beginner-friendly format for a first Cape Town session.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Packs available</span>
+          <h3>South Pole Studios</h3>
+          <p class="card-loc">Cape Town</p>
+          <p>6-class pack R1,110 (valid 2 months), 10-class pack R1,550 (valid 3 months). Also flexibility packs — 4 for R470, 8 for R800. Good value if you're building a full two-week practice. Confirm current schedule directly.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Aerial + pole</span>
+          <h3>Siren Studio</h3>
+          <p class="card-loc">Cape Town</p>
+          <p>Pole, lyra (aerial hoop), aerial hammock, handstands, flexibility, and floorplay classes. The most varied aerial and pole offering in the city. Good for mixing disciplines across a 10-day stay.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best near Waterfront</span>
+          <h3>Virgin Active — Silo District</h3>
+          <p class="card-loc">Silo District, V&amp;A Waterfront precinct</p>
+          <p>Cape Town's premium gym chain, world-class facilities. The Silo District location is the most convenient from De Waterkant. Free one-time digital guest pass: sign up online, receive an SMS QR code, valid 30 days. Full access to all equipment, classes, pool. Subsequent visits: day pass or short-term membership — call ahead for current pricing.</p>
+          <p class="card-note">Also: Virgin Active Foreshore (CBD) as a backup location.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium chain</span>
+          <h3>Virgin Active — Foreshore</h3>
+          <p class="card-loc">Foreshore · CBD</p>
+          <p>The CBD backup location — full Virgin Active setup with reformer pilates classes included. Good option when the Silo club is at capacity during morning peak hours (7–9am weekdays).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Free outdoor circuit</span>
+          <h3>Sea Point Promenade</h3>
+          <p class="card-loc">Beach Road, Sea Point · 10 min from De Waterkant</p>
+          <p>8 km of paved oceanfront path between the V&amp;A and Bantry Bay. Cape Town's built-in outdoor training zone: outdoor gym equipment, tidal pools, flat running surface with Atlantic views. The free, no-signup daily fitness ritual — ideal for recovery runs between mountain days.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Value</span>
+          <h3>Planet Fitness</h3>
+          <p class="card-loc">Multiple CBD / Foreshore locations</p>
+          <p>Clean, well-equipped, accessible day pass for a no-frills strength session between studio classes. Cheaper than Virgin Active for single visits. Confirm current day-pass pricing and nearest location on their website.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · The Pantry</div>
+    <h2>Premium groceries &amp; markets</h2>
+    <p>For cooking-for-two nights at home, Cape Town's grocery scene is excellent — Woolworths Food is the Marks &amp; Spencer Food equivalent, and Checkers FreshX is aggressively expanding its premium format. The Oranjezicht City Farm Market on Saturday mornings is the best farmers' market in the city.</p>
+  </div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Daily driver</span>
+        <h3>Woolworths Food</h3>
+        <p class="card-loc">V&amp;A Waterfront · Camps Bay · multiple</p>
+        <p>South Africa's premium grocery standard. Think Marks &amp; Spencer Food: exceptional fresh produce, outstanding ready-meals and deli counter (rotisserie chicken, pies, prepared salads), brilliant baked goods, fine wine section. The V&amp;A Waterfront and Camps Bay Strip locations are closest. For everything you'd buy at Whole Foods, this is it.</p>
+        <p class="card-note">Open 7 days. V&amp;A location has the widest range; Camps Bay is more convenient from De Waterkant.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Premium fresh counter</span>
+        <h3>Checkers FreshX</h3>
+        <p class="card-loc">Riverlands Mall · expanding citywide</p>
+        <p>The upmarket format of South Africa's largest supermarket group — aggressively expanding in 2025/26. Premium fresh produce, full butchery, health food and organic section, in-store sushi, artisan bread, in-house coffee kiosk, and exceptional cheese selection. The best fresh-counter and deli experience in the city. Check checkers.co.za/premium-selection-storelist for the nearest updated location.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic specialist</span>
+        <h3>Wellness Warehouse</h3>
+        <p class="card-loc">Kloof Street · Sea Point · V&amp;A · multiple</p>
+        <p>Cape Town's specialist health and wellness retailer — certified organic staples, plant-based, specialty health products, supplements, natural beauty. Multiple locations: Kloof Street (Gardens), Sea Point, and V&amp;A Waterfront, all within easy reach. The best source for certified organic and sport nutrition needs across a 10-day stay.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Saturday morning</span>
+        <h3>Oranjezicht City Farm Market</h3>
+        <p class="card-loc">Granger Bay · V&amp;A precinct · Saturdays 8am–2pm</p>
+        <p>The best farmers' market in Cape Town — certified organic produce, artisan bakers, small-batch cheese makers, heritage varietal veg, and some of the city's best prepared food stalls (biltong, Cape Malay curry, sourdough). Five minutes from De Waterkant. The Saturday morning ritual: go early, buy everything, cook that night.</p>
+        <p class="card-note">Also runs a smaller Wednesday market. Peak season is May–September.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Saturday artisan</span>
+        <h3>Neighbour Goods Market Food</h3>
+        <p class="card-loc">Old Biscuit Mill, Woodstock · Saturdays 9am–3pm</p>
+        <p>Beyond the design and craft stalls, the Neighbour Goods Market has strong food producers — artisan charcuterie, specialty hot sauce, preserves, small-batch honey, fresh pasta. Combine with the market experience for a productive Saturday morning shop.</p>
+        <p class="card-note">Pair with a Woodstock Bakery stop on the way in or out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in" style="margin-top:clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?q=80&w=1400&auto=format&fit=crop');background-position:center 55%"></div>
+  <div class="band-txt">
+    <h3>17 metres above sea level. Everything else is vertical.</h3>
+    <p>The UTCT 100-mile course — one of the world's top trail ultras — starts and finishes in Cape Town and covers 8,000 metres of vertical gain on these trails. You're not racing it in May. But you are running it. Lion's Head at sunrise, Jonkershoek in the Winelands on Sunday. Treat every trail as reconnaissance.</p>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Cape Town field guide · May 6–15, 2026<br>
+    Rates, openings, and exchange rates shift — confirm reservations, studio schedules, and prices on arrival.<br>
+    Safety conditions accurate as researched; verify current neighbourhood status with local contacts.
+  </div>
+  <span class="footer-verified">✓ Restaurants, studios &amp; markets validated May 2026 · ZAR rate confirmed · safety by neighbourhood verified</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

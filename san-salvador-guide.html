@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Salvador — Christopher & Brooke's Field Guide</title>
+<meta name="description" content="Two weeks in San Salvador — El Xolo, world-class coffee, El Tunco surf, Santa Ana Volcano, and a country reinventing itself. July 2026.">
+<meta property="og:title" content="San Salvador — Christopher & Brooke's Field Guide · July 2026">
+<meta property="og:description" content="Five volcanoes, endless surf, and a country reinventing itself. 658 metres above sea level. Ring of Fire. Central America's most surprising destination.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c49a3a;
+  --gold-light: #d4b050;
+  --gold-deep: #7a6022;
+  --gold-bg: #fdf3e0;
+  --emerald: #1a7a3a;
+  --emerald-light: #228a44;
+  --emerald-deep: #0f4a24;
+  --emerald-bg: #e8f5ed;
+  --rust: #8b2a1a;
+  --rust-bg: #fdf0ec;
+  --slate: #1d3a6b;
+  --slate-bg: #e6ecf7;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8,18,40,0.08) 0%,
+    rgba(8,18,40,0.18) 40%,
+    rgba(8,18,40,0.75) 80%,
+    rgba(8,18,40,0.90) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · July 2026 · Eleven days</div>
+    <h1>San Salvador,<br><em>reinventing itself</em></h1>
+    <p class="hero-sub">Five volcanoes, endless surf, and a country that went from murder capital to Central America's most surprising destination. Your base in Escalón / San Benito puts nearly all of it inside a short ride.</p>
+    <div class="hero-meta">Colonia Escalón / San Benito · 658 m · Ring of Fire</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">San Salvador</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>El Salvador runs on US dollars, has no altitude adjustment from sea level, and has undergone one of the most dramatic crime transformations in modern history. Context and tactics, up front.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">USD</div>
+      <p>El Salvador officially dollarized in 2001. You will never convert a peso, exchange a colón, or do math on the street. Your card works, your cash works, exactly as at home.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Altitude</h4>
+      <div class="big">658 m</div>
+      <p>≈ 2,160 ft. No acclimatization needed — you came from Bogotá at 2,640 m. If anything, your lungs will feel loose and fast. July humidity is the only adjustable variable.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>July Climate</h4>
+      <div class="big">28–32 °C</div>
+      <p>Rainy season: afternoons bring reliable downpours (usually 3–6 PM), mornings are dry and clear. Run before 6:30 AM. Heat index with humidity can push 37 °C by noon.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber</div>
+      <p>Uber works reliably in San Salvador and is the safe default. InDriver also available and sometimes cheaper. Avoid unmarked street taxis. Most restaurants in Escalón / San Benito are a $3–5 Uber.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Running in July</h4>
+      <div class="big">5:30 AM</div>
+      <p>Start before 6 AM to beat heat and humidity. Key routes: Colonia Escalón residential grid (rolling, quiet), Parque Cuscatlán loop, or drive 20 min to Parque Bicentenario in Antiguo Cuscatlán for long efforts. Electrolyte tabs mandatory. No altitude bonus here — it's all lungs and heat.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>El Salvador Coffee</h4>
+      <div class="big">Origin</div>
+      <p>This is a producing country. Salvadoran Pacamara and Bourbon varieties regularly score 90+ at Cup of Excellence. The specialty scene in San Salvador is world-class — you're drinking coffee from 90 minutes away. Always ask for single-origin.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a Guanaco — Salvadoran slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>¿Qué onda?</b> — What's up? (universal opener)</div>
+        <div class="slang-item"><b>Chero/a</b> — Buddy, mate (your go-to for anyone)</div>
+        <div class="slang-item"><b>Chilero/a</b> — Cool, awesome (use freely)</div>
+        <div class="slang-item"><b>Cabal</b> — Exactly / you're right / perfect</div>
+        <div class="slang-item"><b>Guanaco/a</b> — Salvadoran (what they call themselves, proudly)</div>
+        <div class="slang-item"><b>Cipote</b> — Kid / young person (affectionate)</div>
+        <div class="slang-item"><b>¡Suave!</b> — Hold on / wait a sec</div>
+        <div class="slang-item"><b>Pupusa</b> — The national dish; also a term of endearment</div>
+        <div class="slang-item"><b>¿Me da una pupusa?</b> — The single most useful phrase</div>
+        <div class="slang-item"><b>A huevo</b> — Hell yes (slightly vulgar, universally understood)</div>
+        <div class="slang-item"><b>Bicho</b> — Dude / guy (neutral)</div>
+        <div class="slang-item"><b>De una</b> — Let's do it / right away / agreed</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>The Bukele transformation — what actually happened &amp; what it means for you</h4>
+      <ul class="safety-list">
+        <li>El Salvador's homicide rate fell from <b>53 per 100,000</b> in 2018 to <b>1.8 per 100,000</b> in 2024 — a 98% reduction. Once dubbed the world's murder capital, it now ranks among the Western Hemisphere's safest countries.</li>
+        <li>In March 2022, Bukele declared a state of exception after gang violence spiked. Over 84,000 people were arrested, many held without due process or evidence — a human rights concern that persists.</li>
+        <li>The practical result for travelers: Zona Rosa, San Benito, and Escalón feel genuinely relaxed. Locals walk freely at night in ways that were unthinkable five years ago. Tourist numbers up 60% vs. 2019.</li>
+        <li>The US State Department <b>downgraded its travel advisory</b> in November 2024 due to decreased gang-related crime. Exercise normal caution in tourist zones.</li>
+        <li>Context matters: the transformation is real and dramatic; the methods remain contested. Keep normal big-city awareness — phone off the table, don't flash gear.</li>
+        <li>Escalón and San Benito are the most upscale residential / dining zones. You'll be comfortable walking both by day and most evenings.</li>
+        <li>El Tunco and La Libertad coast are busy tourist corridors — safe and well-trafficked by surfers and travelers.</li>
+        <li>Emergency line: <b>911</b>. Tourist police active in major tourist zones. Embassy: US Embassy on Blvd. Santa Elena, Antiguo Cuscatlán.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth your eleven days</h2>
+    <p>San Salvador's dining scene is emerging fast — anchored by El Xolo (the only Salvadoran restaurant in Latin America's 50 Best) and a cluster of serious European-trained chefs who came home. Book the top tier a week ahead. Most are a 5–10 minute Uber from Escalón.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class — book now</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">El Xolo</div><div class="row-desc">The only Salvadoran restaurant in Latin America's 50 Best since 2022, and winner of a knife at The Best Chef Awards 2025. Built on Mesoamerican philosophy — indigenous corn, ingredients sourced from Maya, Nahua, and Lenca communities. Around $100/person for small plates, cocktails, and dessert. Your non-negotiable must-book.</div></div>
+        <span class="pill pill-gold">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Gracia</div><div class="row-desc">From the same kitchen minds behind El Xolo. Described as "passionate, emotional, and vibrant" — a complementary dining experience with its own distinct personality. Book early; seats fill on reputation alone.</div></div>
+        <span class="pill pill-gold">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Monarca</div><div class="row-desc">A beautifully preserved mid-century mansion in San Benito. Chef Fernando Arguedas brings precise European technique (French, Spanish, Italian) to a lush garden courtyard, intimate indoor rooms, and a terrace. One of the most romantic rooms in Central America.</div></div>
+        <span class="pill pill-gold">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">La Gastroteca</div><div class="row-desc">The benchmark for consistent fine dining in El Salvador — elegant, intimate, and sophisticated with impeccable service. Where the city's top business dinners happen. Less experimental than El Xolo, but a masterclass in polish.</div></div>
+        <span class="pill pill-gold">San Benito</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Premium &amp; upscale — strong picks</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Chez Christophe</div><div class="row-desc">San Salvador's beloved French bistro institution in San Benito — classics done right, good wine list, proper European service. The spot for a civilized long lunch or a quiet dinner with something to drink.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">El Bodegón</div><div class="row-desc">Spanish cuisine done seriously — jamón, good wine, lively atmosphere. Popular with expats and locals who want something serious that isn't a tasting menu night.</div></div>
+        <span class="pill pill-emerald">Zona Rosa</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Hacienda Real</div><div class="row-desc">The premier steakhouse experience in El Salvador — think top-quality Central American beef, open-fire grill, excellent sides. The go-to for a proper carnivore night. Multiple locations; San Benito is the strongest.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">La Pampa Argentina</div><div class="row-desc">Authentic Argentine-style parilla in a warm setting. A reliable, satisfying option for steak and Malbec on a relaxed evening — zero pretension, great quality.</div></div>
+        <span class="pill pill-emerald">Escalón</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Via Veneto</div><div class="row-desc">Polished Italian in a classic room — handmade pasta, consistent execution, a good wine list. The reliable mid-week dinner that always delivers.</div></div>
+        <span class="pill pill-emerald">Escalón</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Zanzibar Lounge</div><div class="row-desc">Rooftop terrace with good cocktails, views over San Benito, and a solid menu that blurs the line between dinner and a night out. The social pick for a group that wants atmosphere.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Tre Fratelli</div><div class="row-desc">Three-brother Italian concept — pizza, pasta, warmth. A neighborhood staple for an unpretentious but well-executed Italian fix mid-trip.</div></div>
+        <span class="pill pill-emerald">Escalón</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">El Arriero</div><div class="row-desc">Argentine grill with a wood-fire focus — cuts, chimichurri, empanadas to start. More casual than La Pampa but lively on weekends.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">La Hola Beto's</div><div class="row-desc">Fresh Pacific seafood — ceviche, shrimp, whole fish. El Salvador's Pacific coast is minutes away; the fish is live-to-table. Order the ceviche to start, always.</div></div>
+        <span class="pill pill-emerald">Zona Rosa</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Señor Tenedor</div><div class="row-desc">Contemporary Salvadoran cooking with a modern eye — traditional ingredients in updated formats. A good bridge between the classics and the El Xolo generation.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">La Ventana</div><div class="row-desc">Wine bar meets bistro — a thoughtful list, natural wine options, and small plates that actually hold up as a meal. The evening spot for an early glass and a slow dinner.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Café de Don Pedro</div><div class="row-desc">Upscale traditional Salvadoran cooking in a handsome hacienda-style setting — the place to eat sopa de patas, yuca con chicharrón, and pupusas done properly.</div></div>
+        <span class="pill pill-emerald">Escalón</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Meat Market Steakhouse</div><div class="row-desc">Premium steakhouse in the Multiplaza vicinity — good quality, excellent cuts, a more contemporary room than the traditional parillas. The Brooke-and-Christopher option when you want something solid without theater.</div></div>
+        <span class="pill pill-emerald">Multiplaza zone</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Roots</div><div class="row-desc">Modern, health-conscious kitchen with a clean aesthetic — the recovery-day restaurant after a long run morning. Good proteins, good bowls, excellent juice program.</div></div>
+        <span class="pill pill-emerald">San Benito</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Café Escalón</div><div class="row-desc">The neighborhood institution for breakfast and lunch — solid coffee, reliable eggs, great people-watching. Your fallback when you want something close, quiet, and dependable.</div></div>
+        <span class="pill pill-slate">Escalón · walk</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Street pupusa tour — Mercado Central</div><div class="row-desc">El Salvador's national dish is a thick, stuffed cornmeal cake — cheese, bean, chicharrón, or loroco flower. $0.50–1 each. Go with a guide or ask your host to take you to their neighborhood pupusería for the real thing. Non-negotiable at least once.</div></div>
+        <span class="pill pill-rust">Local dive · essential</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in" style="margin-top:clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A coffee origin you can drink in</h3>
+    <p>El Salvador produces some of the world's most prized coffee — Pacamara and Bourbon varieties from farms at 1,400–1,800 m in Chalatenango and Santa Ana regularly score 90+ at Cup of Excellence. San Salvador's third-wave café scene is built entirely on domestic beans, 60–90 minutes from where they grew. You will not drink a better cup of origin coffee anywhere on the trip.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops across the city</h2>
+    <p>San Salvador has one of the most underrated specialty coffee scenes in Latin America — because this is where the beans come from. Every cup you drink here is within 90 minutes of its farm. Escalón, San Benito, and La Gran Vía are the densest clusters.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Alquimia</div><div class="row-desc">Ranked among The World's 100 Best Coffee Shops. Created by internationally acclaimed barista Federico Bolaños — every cup is a sensory journey through El Salvador's growing regions. Baristas are "alquimistas," and they mean it. Your single must-visit café.</div></div><span class="pill pill-gold">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Viva Espresso</div><div class="row-desc">The institution that shaped Salvadoran specialty coffee — award-winning baristas, two decades of consistent quality, multiple locations. La Gran Vía is the most convenient. The benchmark to measure everyone else against.</div></div><span class="pill pill-gold">La Gran Vía + more</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Crafters Coffee</div><div class="row-desc">Modern, stylish, community-minded. Innovate menu, Salvadoran beans, meticulous brewing — the city's most design-forward café experience alongside a genuine commitment to craft.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Café del Centro</div><div class="row-desc">In the Historic Center — tradition and modernity under colonial architecture. A curated specialty selection in an atmospheric space that doubles as a history lesson. Pair with a walk around the Cathedral.</div></div><span class="pill pill-emerald">Historic Center</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">1800 Café</div><div class="row-desc">Named for the year El Salvador's coffee story began. Single-origin focus, rotating seasonal offerings from farms across the country's producing regions — the most educational cup on the list.</div></div><span class="pill pill-emerald">Escalón</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Carajo</div><div class="row-desc">Relaxed specialty shop with a neighborhood vibe and a serious coffee program underneath the casual surface. A locals' favorite for filter coffee and a slow morning.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Oveja Negra</div><div class="row-desc">The Black Sheep — alternative, creative, and coffee-serious. Draws a younger, artsier crowd while maintaining genuine third-wave standards. Good for afternoons and lingering.</div></div><span class="pill pill-emerald">Escalón</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Astra</div><div class="row-desc">Design-forward and precise — a beautiful space with a careful pour-over program. The café you take photos of and also actually enjoy drinking in.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Fulanos</div><div class="row-desc">Specialty coffee plus a real food menu — the all-day option for when you need more than just a cup. Popular with the San Benito professional crowd for working lunches.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Good Beans El Salvador</div><div class="row-desc">Direct-trade focused, farm-to-cup ethos — relationships with specific Salvadoran growers and traceability you can taste. A great conversation to have with whoever is behind the bar.</div></div><span class="pill pill-emerald">Escalón</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Los Naranjitos Café</div><div class="row-desc">Pours from their own farm — you're drinking coffee they grew, harvested, and roasted. Doesn't get closer to origin than this. Ask for the current single-lot they're pouring.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Pure 503</div><div class="row-desc">Specialty wellness café — clean eats alongside the coffee. The post-run destination when you want fruit, good protein, and a flat white in the same stop.</div></div><span class="pill pill-emerald">Escalón</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Bicentenario Coffee</div><div class="row-desc">Modern café in Antiguo Cuscatlán — a clean, spacious room ideal for laptop hours or a post-Parque Bicentenario long-run coffee stop.</div></div><span class="pill pill-emerald">Antiguo Cuscatlán</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Café La Barista</div><div class="row-desc">Training-focused, SCA-aligned program — baristas competing nationally, program serious. A reliable cup anytime.</div></div><span class="pill pill-emerald">Zona Rosa</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Revolution Café</div><div class="row-desc">Great for extended mornings — ample seating, good WiFi, solid espresso program. The work-from-café option that doesn't make you feel guilty staying three hours.</div></div><span class="pill pill-emerald">Escalón</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Café Sello de Oro</div><div class="row-desc">A Salvadoran coffee institution — their Sello de Oro ("Golden Seal") beans have won international recognition. Traditional roast, familiar comfort, citywide presence.</div></div><span class="pill pill-emerald">Multiple</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Brewed Awakening</div><div class="row-desc">Small batch, pour-over focus, excellent filter program. The nerdy corner of the San Salvador coffee map — worth seeking out for a 45-minute deep dive.</div></div><span class="pill pill-emerald">San Benito</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Cafetería de la Casa Presidencial</div><div class="row-desc">The café inside the Cultural Center near Feria Internacional — open to the public, local beans, a uniquely Salvadoran setting that few tourists find.</div></div><span class="pill pill-emerald">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Ask at Alquimia: Pacamara tasting flight</div><div class="row-desc">The Pacamara varietal — a cross between Pacas and Maragogipe — is a Salvadoran invention. If Alquimia or any specialty shop is pouring one, order it. Enormous beans, extraordinary clarity.</div></div><span class="pill pill-slate">Any specialty café</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Post-long-run: any café between 6–7 AM</div><div class="row-desc">Every good café in Escalón opens early. Finish your run, walk in sweaty, order a cortado. It's El Salvador — nobody cares, and the coffee is worth it.</div></div><span class="pill pill-slate">Escalón · walk</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One neat experience a day</h2>
+    <p>El Salvador is compact and road-accessible — a country you can cross in three hours. The afternoons listed here range from $0 to $50 and span volcano craters, art museums, colonial market towns, and the best pupusas of your life.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Signature · close</span>
+        <h3>El Boquerón — crater hike</h3>
+        <p class="card-loc">10 km from Escalón · 45 min round-trip hike</p>
+        <p>San Salvador volcano's collapsed crater sits 1,893 m above sea level, 10 km from your door. Walk the rim for views over the city and the Pacific beyond. A smaller nested crater inside is one of the most otherworldly sights in Central America. Free to enter the national park; go mornings before clouds roll in.</p>
+        <p class="card-note">Start by 7 AM for clear summit views. Bring water — it's a dry, exposed climb.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>MARTE — Museo de Arte de El Salvador</h3>
+        <p class="card-loc">Colonia San Benito · 5-min Uber</p>
+        <p>San Salvador's leading contemporary and fine art museum in a handsome San Benito building. Rotating exhibitions trace Salvadoran visual culture from colonial through contemporary — artists grappling with migration, civil war memory, and national identity. Entry $3–5. Excellent small café and bookshop inside.</p>
+        <p class="card-note">Check museomarte.org for current shows. Closed Mondays.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Day trip</span>
+        <h3>Ruta de Las Flores</h3>
+        <p class="card-loc">~1.5 hr west · full day</p>
+        <p>El Salvador's most scenic road trip: a chain of colonial coffee towns (Nahuizalco, Juayúa, Ataco) draped with bougainvillea and murals, at 1,200 m in the Apaneca mountain range. Weekend food festivals in Juayúa are outstanding. Nahuizalco is famous for rattan and wickerwork. Ataco has excellent craft markets and street art. Get a driver for the day — about $60–80 round-trip.</p>
+        <p class="card-note">Go Saturday for the Juayúa food festival. Combine with Apaneca or Lago de Coatepeque.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Local</span>
+        <h3>Mercado Nacional de Artesanías</h3>
+        <p class="card-loc">Centro · 15-min Uber</p>
+        <p>El Salvador's premier artisan market — hammocks, carved masks, painted gourds, intricate textiles, handmade leather goods. The cafeteria inside is excellent and shockingly cheap for authentic comida típica. A solid two-hour afternoon browse with no obligation to spend much.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Coffee + farm</span>
+        <h3>Coffee farm visit — Santa Ana highlands</h3>
+        <p class="card-loc">~1 hr drive · half-day</p>
+        <p>Several farms near Santa Ana and Chalatenango offer visits during the off-season (July) to walk the trees and understand the micro-climate that produces 90-point Pacamara beans. Ask at Alquimia or Viva Espresso — they have direct relationships with growers and can arrange introductions or guided visits.</p>
+        <p class="card-note">Off-season means green cherries on the tree — the harvest experience. Reserve ahead.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Essential · free</span>
+        <h3>Pupusa crawl — Izalco road</h3>
+        <p class="card-loc">Evenings, citywide</p>
+        <p>El Salvador's national dish eaten as it was meant to be eaten: at a plastic table, from a lady with a comal, for $0.50–1 each. Loroco-and-cheese (revuelta) is the move. Curtido — the fermented cabbage slaw — is non-negotiable. Ask your host or hotel for the nearest serious pupusería. This is the one meal you'll think about for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>El Tunco + Santa Ana Volcano: your long-run weekend</h2>
+    <p>The Pacific coast is 45 minutes from Escalón. The Santa Ana Volcano is 2 hours. Combine them in a single Friday-out / Sunday-back weekend that includes the best surf beach in El Salvador, a 2,384 m active volcano hike, and your long run built directly into the experience.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Two destinations, one weekend</h3>
+      <p>El Tunco is El Salvador's iconic surf village — the dark volcanic sand, the big rock, the consistent breaks that draw surfers from California and Europe. Santa Ana Volcano (Volcán Ilamatepec) at 2,384 m is El Salvador's highest peak, with a turquoise crater lake inside a nested caldera and views spanning Coatepeque Lake, Izalco Volcano, and the Pacific. A private driver ($100–130 for the weekend) connects both. Pick-up from El Tunco for the volcano is around 5:30 AM.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Friday PM</span>
+        <span class="timeline-text">Uber or private driver to El Tunco (~45 min from Escalón). Check into a surf hostel or La Guitarra hotel. Dinner at La Bocana restaurant on the beach. Drinks at Roots Bar watching the Pacific sunset. July nights at sea level are warm and breezy.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday AM — the long run</span>
+        <span class="timeline-text">Run at dawn (5:30 AM) before the heat hits — along the coastal highway toward El Sunzal or south toward El Zonte (Playa Bitcoin village). 10–16 miles possible on paved road. Sea level air, ocean breeze, volcanic black sand coastline, almost no traffic at that hour. Have your driver crew a water/gel drop at 8 miles. Cool down with a swim after. This is one of the more beautiful long run settings in Central America.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday afternoon</span>
+        <span class="timeline-text">Recovery swim, cold shower, a proper beach lunch. El Tunco has good food — La Bocana and Tunco Surf Café are both solid. Afternoon: watch the surfers or take a lesson. The right break for beginners is visible from the beach. Brooke can surf while Christopher's legs recover.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday 5:30 AM — Santa Ana Volcano</span>
+        <span class="timeline-text">Driver picks you up. ~2 hr drive to the trailhead near Cerro Verde National Park. The hike is 3 hrs round-trip (moderate difficulty, 1.5 hrs up, 1.5 hrs down) — paved path transitions to packed trail. Summit reward: a turquoise-blue active crater lake, views of Lago Coatepeque, Izalco Volcano (the "Lighthouse of the Pacific"), and on clear days, the Pacific. Tour guides available at the trailhead for ~$15; worth taking one.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday PM</span>
+        <span class="timeline-text">Descend, stop at Lago Coatepeque for a swim and lunch at one of the lakeside restaurants. Drive back to San Salvador (1.5 hrs). Sunday evening: dinner at Monarca to wind down properly.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Booking the hike:</b> Santa Ana Volcano requires a permit/guide reservation in advance through the national parks office (CORSATUR) or via a tour operator like Tunco Life or Eco Tours El Salvador. July availability is good but confirm 3–5 days ahead. Bring a layer — the summit is 2,384 m and windy even in July.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Luxury Shopping</div>
+    <h2>Multiplaza, La Gran Vía &amp; Zona Rosa</h2>
+    <p>San Salvador has a concentrated, well-curated luxury retail scene anchored by three distinct destinations — each with its own character, within 15 minutes of Escalón. Local artisan finds and Salvadoran designers are the unique plays here.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Premier mall</span>
+        <h3>Multiplaza</h3>
+        <p class="card-loc">Antiguo Cuscatlán · 15-min drive</p>
+        <p>San Salvador's most upscale contemporary mall — designer boutiques, premium international brands (Zara, Hugo Boss, premium anchors), multi-screen cinema, and an entire wing of the city's best lounges and restaurants. Air-conditioned, well-secured, the polished afternoon destination when the heat is at its worst (2–4 PM). Excellent food court options for a quick lunch.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Open-air lifestyle</span>
+        <h3>La Gran Vía</h3>
+        <p class="card-loc">Antiguo Cuscatlán · near Multiplaza</p>
+        <p>El Salvador's most elegant open-air shopping center — a European-style promenade with premium international retailers (Siman flagship, international fashion brands), excellent restaurants, a cinema, and regular pop-up markets featuring local artisans and designers. A genuinely lovely space to walk in the morning before it gets hot. Best coffee: the Viva Espresso here is excellent.</p>
+        <p class="card-note">Cooler in the morning; the outdoor layout means evenings are also pleasant.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Boutique district</span>
+        <h3>Zona Rosa — Blvd del Hipódromo</h3>
+        <p class="card-loc">San Benito · walk/close Uber</p>
+        <p>The boutique strip along Boulevard del Hipódromo — independent fashion, jewelry, leather, and lifestyle shops in a more intimate setting than the malls. The Basilea shopping center here houses small jewelers and specialty boutiques. The right place for one-off pieces and local designer finds rather than international chains.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Salvadoran design</span>
+        <h3>Siman Department Store</h3>
+        <p class="card-loc">La Gran Vía + multiple</p>
+        <p>El Salvador's own premium department store — Central America's answer to Nordstrom. A mix of international brands and curated local lines. Strong cosmetics, home goods, and fashion floors. The place to pick up quality Salvadoran products in a polished environment.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Artisan &amp; unique</span>
+        <h3>Mercado Ex-Cuartel</h3>
+        <p class="card-loc">Historic Center · 15-min Uber</p>
+        <p>Two floors of artisan stalls in a covered market in the historic center — hammocks, painted ceramics, handwoven textiles, carved wood, balsam products (El Salvador produces some of the world's finest balsam). Nothing here is mass-produced. The most authentic shopping in the city, and prices are negotiable.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Concept + coffee</span>
+        <h3>Local designer boutiques — San Benito</h3>
+        <p class="card-loc">Around Alquimia &amp; MARTE</p>
+        <p>Several independent Salvadoran designers have opened boutiques in San Benito near the MARTE museum and Alquimia — quality leather goods, handmade jewelry, ethical fashion. Ask at your hotel or at Alquimia; the local design community is small, friendly, and proud to direct you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · FITNESS
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Move</div>
+    <h2>Pilates, pole &amp; gyms in Escalón</h2>
+    <p>San Salvador's fitness scene is developing rapidly in the upscale zones. Most boutique studios are in Escalón and San Benito. Message ahead via WhatsApp or Instagram — class schedules fill and drop-in availability varies. July is high humidity: all outdoor training should be pre-dawn.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Researched June 2026. Confirm drop-in availability and class schedules on arrival — San Salvador's boutique studio landscape moves fast.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">Reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Established · 2007</span>
+          <h3>Pilates Studio SV</h3>
+          <p class="card-loc">CC El Paseo &amp; Santa Elena locations</p>
+          <p>Founded in 2007 as the first specialized Pilates gym in El Salvador. Two equipped studios — CC El Paseo is the more convenient for Escalón. Offers Método Pilates and Método Barre. Drop-in classes and short packages available. The most established reformer option in the country.</p>
+          <p class="card-note">Check Facebook: "The Pilates Studio SV" for current schedule and drop-in rates.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Premium wellness</span>
+          <h3>Revolution Pilates Studio</h3>
+          <p class="card-loc">Escalón</p>
+          <p>Listed on MindBody — the clearest sign of a proper boutique setup. Small group reformer classes, experienced instructors, and an upscale environment that matches the Escalón address. Book via MindBody app or WhatsApp.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Wellness + pilates</span>
+          <h3>Pure 503</h3>
+          <p class="card-loc">Escalón</p>
+          <p>Fusion wellness studio — Pilates, yoga, barre, and a café attached (Good Beans coffee). The San Salvador version of the all-in-one boutique wellness experience. Strong option for Brooke while Christopher does his AM run.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Budget pilates</span>
+          <h3>El Verdadero Cuerpo Pilates</h3>
+          <p class="card-loc">Escalón</p>
+          <p>Well-reviewed local reformer studio with accessible pricing — $35 for a month intro package. Good for a couple of drop-in sessions at a fraction of boutique pricing. Ask about clase suelta (single class) rates.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Best option</span>
+          <h3>Pole &amp; aerial — search Instagram</h3>
+          <p class="card-loc">San Salvador · evolving scene</p>
+          <p>San Salvador's pole scene is small but real and growing. Search Instagram for #PoleElSalvador or #PoleDanceSalvador — the active studios post class schedules and drop-in availability on their feed. Ask at Pure 503 or Pilates Studio SV for the current best referral; the fitness community here is tight-knit and happy to direct you to whoever is teaching that week.</p>
+          <p class="card-note">DM prospective studios in Spanish ("¿Tienen clases sueltas?") — most respond within hours.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Alternative</span>
+          <h3>Aerial arts studios</h3>
+          <p class="card-loc">San Benito area</p>
+          <p>Several yoga and aerial studios offer silks and hoop classes alongside pole — the crossover community is active. Search "aerial silk San Salvador" on Instagram. These typically offer drop-in at $10–15/class and are welcoming to visitors.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best network</span>
+          <h3>Smart Fit El Salvador</h3>
+          <p class="card-loc">Multiple locations inc. Escalón &amp; Multiplaza</p>
+          <p>The dominant modern gym chain in Central America — clean, well-equipped, full free weight and machine selection, group class roster. Day and week passes available. The Escalón and Multiplaza locations are the most convenient. Ask at the desk for <em>pase de día</em> (day pass).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium</span>
+          <h3>Gold's Gym San Salvador</h3>
+          <p class="card-loc">Multiplaza / Antiguo Cuscatlán</p>
+          <p>Full-facility gym with premium equipment, a cardio mezzanine, and group fitness studio. Day passes available. The most serious iron option in the city for Christopher on non-run days. Ask about the <em>tarjeta de visita</em> multi-day rate.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Free &amp; scenic</span>
+          <h3>Parque Bicentenario — Antiguo Cuscatlán</h3>
+          <p class="card-loc">20-min drive · open 5 AM</p>
+          <p>A large urban park with a marked running loop in Antiguo Cuscatlán — the preferred venue for longer training efforts when you want more than a residential grid. Open from 5 AM. Drive out, run the loop, drive back — combine with Bicentenario Coffee on the way out. 11.9 mi total loop available.</p>
+          <p class="card-note">Go before 7 AM in July — heat and humidity climb fast after sunrise.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Walking distance</span>
+          <h3>Parque Cuscatlán</h3>
+          <p class="card-loc">Escalón · ~10 min walk</p>
+          <p>San Salvador's central park — a tree-lined loop, outdoor calisthenics stations, and a relaxed running community. Good for easy days, strides, or a shakeout. Busy and safe in the early morning hours with local runners.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · The Pantry</div>
+    <h2>Whole-Foods-style groceries &amp; health food</h2>
+    <p>El Salvador's supermarket scene is anchored by Super Selectos and La Despensa de Don Juan, both with premium flagship stores near Escalón. For organic and health-food focused shopping, the specialty options are growing but more limited — plan ahead.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Note: El Salvador uses USD — no currency math required. Supermarket prices are comparable to mid-range US grocery stores. Quality fresh produce and imported goods are widely available in upscale locations.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Largest chain · closest</span>
+        <h3>Super Selectos — Escalón flagship</h3>
+        <p class="card-loc">Multiple Escalón &amp; San Benito locations</p>
+        <p>El Salvador's largest supermarket chain (founded 1940, now the country's premier retailer). The Escalón and San Benito flagship stores are the premium format — wide aisles, in-store cafeteria, quality imported goods, excellent produce and deli sections. Open early and late. Their organic and health food section is expanding. The default first stop for everything.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Premium · Walmart-backed</span>
+        <h3>La Despensa de Don Juan</h3>
+        <p class="card-loc">17 locations citywide · Multiplaza + Escalón</p>
+        <p>Operated by Walmart Mexico y Centroamérica — 17 locations in El Salvador with a premium positioning strategy. Strong imported goods sections, reliable produce quality, good wine and spirits selection. The Multiplaza location is the flagship. Slightly more international product range than Super Selectos. Good for specialty ingredients you can't find elsewhere.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Budget · everywhere</span>
+        <h3>Maxi Despensa</h3>
+        <p class="card-loc">Citywide</p>
+        <p>The value-format sibling to La Despensa de Don Juan — good for basics, snacks, and run nutrition at non-premium pricing. When you just need a banana and electrolyte tablets at 5 AM, this is your stop.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Organic &amp; health</span>
+        <h3>Mercado Orgánico &amp; natural food shops</h3>
+        <p class="card-loc">San Benito / Escalón — ask locally</p>
+        <p>A small but growing organic food movement exists in San Salvador — several health food boutiques and small organic markets have opened in San Benito and Escalón. Ask at Pure 503 or Alquimia café for the current best referral; the health-conscious community in these neighborhoods knows exactly where to send you for clean produce, supplements, and natural products.</p>
+        <p class="card-note">Verify location with your hotel concierge on arrival — the organic retail scene evolves quickly.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Farmers market</span>
+        <h3>Weekend mercados — Santa Tecla &amp; San Benito</h3>
+        <p class="card-loc">Saturdays and Sundays</p>
+        <p>Santa Tecla's Mercado Municipal (15 min west) runs a genuine farmers-market atmosphere on weekends — local produce, artisan foods, fresh herbs, honey. The Santa Tecla food scene is San Salvador's Brooklyn — young chefs, good street food, artisan products. Worth a Saturday morning expedition.</p>
+        <p class="card-note">Santa Tecla is safe and accessible by Uber — about $5 from Escalón.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Run nutrition</span>
+        <h3>Sports nutrition — what to pack vs. source locally</h3>
+        <p class="card-loc">Various</p>
+        <p>Bring your preferred gels and electrolyte tabs from home — the specialty sports nutrition market in El Salvador is limited. Super Selectos stocks Gatorade, basic nutrition bars, and some electrolyte powders. For long run days, stock up on bananas, dates, and coconut water (cheap and everywhere). Tropical fruits at any market are your best natural fuel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">Five volcanoes. Endless surf. A country reinventing itself.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · San Salvador field guide · July 30 – August 9, 2026<br>
+    El Salvador uses USD — no exchange math, ever. Confirm reservations and drop-in passes on arrival.
+  </div>
+  <span class="footer-verified">✓ Researched June 2026 · El Xolo / Alquimia / safety stats verified · USD dollarization confirmed</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

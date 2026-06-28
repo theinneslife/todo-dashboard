@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las Vegas — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A field guide to Las Vegas — Michelin dining, specialty coffee, Red Rock running, luxury spas, and everything worth knowing. August 2026.">
+<meta property="og:title" content="Las Vegas — Christopher &amp; Brooke's Field Guide · August 2026">
+<meta property="og:description" content="610 metres in the Mojave. World-class tables, neon-lit nights, Red Rock at dawn, and the desert's most extraordinary fever dream.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1581351721010-8cf859cb14c5?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS — Neon Gold + Desert Midnight
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #d4aa00;
+  --gold-light: #e8c820;
+  --gold-deep: #7a6200;
+  --gold-bg: #fdf9e0;
+  --emerald: #4a1a8b;
+  --emerald-light: #6b35c0;
+  --emerald-deep: #2e0e5c;
+  --emerald-bg: #eeebf8;
+  --rust: #cc3a00;
+  --rust-bg: #fdf0eb;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1581351721010-8cf859cb14c5?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6,2,20,0.05) 0%,
+    rgba(6,2,20,0.15) 40%,
+    rgba(6,2,20,0.78) 80%,
+    rgba(6,2,20,0.92) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,100,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,100,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,100,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,100,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,226,255,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,100,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,100,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(225,220,255,0.92);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #c5b8e8;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #c5b8e8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · August 2026</div>
+    <h1>Las Vegas,<br><em>fever dream</em></h1>
+    <p class="hero-sub">The desert's most extraordinary fever dream — world-class tables, neon-drenched nights, and Red Rock Canyon at dawn before the Mojave wakes up. 610 metres. 42°C. Everything on.</p>
+    <div class="hero-meta">The Strip · Summerlin / Arts District beyond</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Las Vegas</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>The essentials: money (you're already in USD), the neighborhoods that matter, and the one thing that overrides every plan — the August desert heat. Read the running warning first.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+
+    <div class="fact-card" style="background:linear-gradient(135deg,#fff4f0,#fde8e0);border-color:#e5b8ac;">
+      <h4 style="color:var(--rust);">&#9888; August Running — CRITICAL</h4>
+      <div class="big" style="color:var(--rust);font-size:1.6rem;">42°C / 108°F</div>
+      <p style="color:#7a2a10;font-weight:500;">Outdoor running: <strong>5am–7am only</strong>, maximum. By 8am the pavement radiates 60°C+. All quality workouts — long runs, tempo, anything over 8 miles — go on the treadmill. Red Rock runs require a 4:45am trailhead arrival. This is not optional for your training safety.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">USD</div>
+      <p>No exchange needed. Nevada has <strong>no state income tax</strong>. Sales tax in Clark County ≈ 8.375%. Tipping: 20% standard at restaurants, $2–5/drink at bars.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Altitude &amp; Climate</h4>
+      <div class="big">610 m</div>
+      <p>2,001 ft — no altitude adjustment. Average August high 40–42°C / 104–108°F. Lows still 28–30°C / 83°F. Humidity very low — deceptively dangerous. Drink 500ml water before stepping outside.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Lyft</div>
+      <p>The default. Surge prices spike hard 2am–3am after shows let out — book early or walk to a casino entry for lower pickup demand. The Strip is 6.7 km — never walk it in August daytime.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Resort Fees</h4>
+      <div class="big">$30–60</div>
+      <p>Per night, on top of your room rate — an unavoidable Strip reality. Ask at check-in if any fee can be credited to food &amp; beverage. Casino hotel hosts can sometimes waive for VIP guests.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Know the city — insider orientation</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>"Off-Strip"</b> — Where the real restaurants are: Chinatown (Spring Mountain Rd), Arts District, Summerlin</div>
+        <div class="slang-item"><b>Chinatown Corridor</b> — Spring Mountain Rd, 10 min west of Strip; the best food concentration in the city</div>
+        <div class="slang-item"><b>The Arts District</b> — 18b Creative District, Downtown; galleries, Vesta coffee, First Friday events</div>
+        <div class="slang-item"><b>The Sphere</b> — MSG's 18,600-seat LED orb; opened 2023; the new Vegas icon at the north end of Strip</div>
+        <div class="slang-item"><b>Dayclub</b> — Pool party that becomes a club: Encore Beach Club, Wet Republic; starts at noon</div>
+        <div class="slang-item"><b>Comp</b> — Complimentary hotel/casino perk; a casino host relationship unlocks room upgrades and dining credits</div>
+        <div class="slang-item"><b>Locals casino</b> — Station Casinos (Red Rock Resort, Green Valley Ranch) are where residents actually go</div>
+        <div class="slang-item"><b>The 5am window</b> — The only safe outdoor running slot in August; trailhead arrivals needed by 4:45am</div>
+        <div class="slang-item"><b>Fremont vs. Strip</b> — Strip is the resort corridor; Downtown Fremont is grittier, more local, home to the Arts District</div>
+        <div class="slang-item"><b>Table minimum</b> — Minimum bet to sit at a casino table; ranges $10 (weekday) to $100+ (weekend Strip)</div>
+        <div class="slang-item"><b>The $20 trick</b> — Slip a folded $20 under your ID at hotel check-in and ask about room upgrades. Works more than it should.</div>
+        <div class="slang-item"><b>LVNV</b> — How locals hashtag and refer to the metro area; marks you as knowing the city</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying sharp</h4>
+      <ul class="safety-list">
+        <li>The tourist corridor (Strip, Fremont St Experience) is heavily policed and generally safe — stay alert to pickpockets in crowds.</li>
+        <li>Never accept drinks from strangers at clubs; keep yours in hand. Drug-facilitated incidents are rare but real in nightlife.</li>
+        <li>Heat safety: carry water at all times outside. If dizzy or nauseated in the heat, find the nearest casino lobby immediately — AC is everywhere.</li>
+        <li>Petty theft increases near Fremont East; keep bags zipped and phones pocketed at night.</li>
+        <li>Emergency: <strong>911</strong>. Resort security is extremely visible on the Strip and responsive — flag any staff member.</li>
+        <li>Driving: if you rent a car, Nevada allows right on red. I-15 through town can gridlock on weekend nights — Uber is faster.</li>
+        <li>No outdoor liquor at casinos but open-container is legal on Las Vegas Blvd pedestrian areas — the one city where your walk-and-sip is legal.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth every booking</h2>
+    <p>Las Vegas is genuinely one of the great dining cities on earth — the resort economics allow chef talent that couldn't exist elsewhere. Book the top four as soon as possible; é by José Andrés requires weeks of lead time. The off-Strip gems (Chinatown, Spring Mountain) need no booking and outperform half the Strip.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class tier — book immediately</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Joël Robuchon</div><div class="row-desc">Three Michelin stars, Forbes Five-Star, AAA Five Diamond — the pinnacle of Las Vegas fine dining. France's Chef of the Century; the 16-course <em>Menu Dégustation</em> in a jewel-box dining room at MGM Grand. The one non-negotiable table. Book 2–3 weeks ahead.</div></div>
+        <span class="pill pill-gold">MGM Grand</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">é by José Andrés</div><div class="row-desc">Eight seats. Two seatings per night. Twenty avant-garde courses in a theatrical back-kitchen room. The most inaccessible table in the city — and the most memorable. Reserve by email months in advance; confirmation is not guaranteed.</div></div>
+        <span class="pill pill-gold">The Venetian</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Picasso</div><div class="row-desc">Original Picasso paintings on the walls (not prints), French-Spanish tasting menu, Bellagio fountain views. Julian Serrano's kitchen has held two Michelin stars. The most romantically correct table in the city for you and Brooke.</div></div>
+        <span class="pill pill-gold">Bellagio</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Gymkhana</div><div class="row-desc">The two-Michelin-starred London original transplanted to Aria. Chef Srikant Kumar's boldly spiced Indian fine dining — tandoori masala lamb chops, venison biryani, precisely dialed acidity. An entirely different meal than anything else in the city.</div></div>
+        <span class="pill pill-gold">Aria</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standout fine dining</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Partage</div><div class="row-desc">The most compelling off-Strip table in Vegas. The team trained in Michelin kitchens in France before moving here together. Quiet room, precise service, chef's table directly over the kitchen. The city's best-kept serious secret. Walk-in possible, or book a week ahead.</div></div>
+        <span class="pill pill-emerald">Off-Strip / West</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Kaiseki Yuzu</div><div class="row-desc">Traditional Japanese kaiseki in Chinatown — one of the most rewarding dining experiences in the city, in a neighborhood with increasingly fierce ultra-premium Japanese competition. Call ahead; tasting format requires advance notice.</div></div>
+        <span class="pill pill-emerald">Chinatown</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Raku</div><div class="row-desc">Anthony Bourdain's Las Vegas table. Japanese charcoal grill in Chinatown — silken house-made tofu, superb offal skewers, a singular sake list. The meal that proves Vegas has a serious food city beyond the resort campus. Cash and reservations; book ahead.</div></div>
+        <span class="pill pill-emerald">Chinatown</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Pisces at Wynn</div><div class="row-desc">Chef Martin Heierling's quiet masterclass — whole spiny lobsters, grilled Mediterranean fish, presentations that feel intentional and speak to genuine fine-dining precision. The Wynn dining campus is unparalleled; Pisces is its sleeper.</div></div>
+        <span class="pill pill-emerald">Wynn</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">L'Atelier de Joël Robuchon</div><div class="row-desc">Counter seating at an open kitchen — all the Robuchon craftsmanship in à la carte format without the ceremony (or the price tag) of the main room next door. Walk-in possible. The pommes purée alone justifies the visit.</div></div>
+        <span class="pill pill-emerald">MGM Grand</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Lotus of Siam</div><div class="row-desc">James Beard-recognized northern Thai — the legitimately legendary Las Vegas table that has nothing to do with casinos. The wine list is a world-class Riesling collection, a complete non sequitur that makes total sense. Book ahead; east of the Strip, ~10 min Uber.</div></div>
+        <span class="pill pill-emerald">East of Strip</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Sparrow + Wolf</div><div class="row-desc">Spring Mountain Road's chef-community hangout — inventive modern American in an unpretentious room. The kind of table where the industry goes after their own shift. Outstanding value for the quality.</div></div>
+        <span class="pill pill-emerald">Spring Mountain</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Estiatorio Milos</div><div class="row-desc">Greek whole fish sold by the kilo, pristine Mediterranean ingredients, and a bright room that feels transported from Athens. The octopus is the best in the city. Book for a weekend night.</div></div>
+        <span class="pill pill-emerald">Cosmopolitan</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Reliable classics worth your night</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Carbone</div><div class="row-desc">Italian-American red sauce made theatrical — the room, the service, the rigatoni vodka. Aria's most energetic table; good for a fun, loud, excellent dinner. Book early for weekends.</div></div>
+        <span class="pill pill-slate">Aria</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Bazaar Meat by José Andrés</div><div class="row-desc">A carnivore cathedral — whole wood-fired animals, avant-garde sides, theatrical service. José Andrés's range across Vegas is remarkable; this is his most primal room. At the Sahara.</div></div>
+        <span class="pill pill-slate">Sahara Las Vegas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Prime by Jean-Georges</div><div class="row-desc">The Bellagio fountain steak experience — beautifully executed, romantic, reliable. Jean-Georges Vongerichten's kitchen over the water; not trying to be exciting, just very, very good.</div></div>
+        <span class="pill pill-slate">Bellagio</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Bavette's</div><div class="row-desc">Dark, intimate French bistro-steakhouse at Park MGM — the right call for a Monday night or a quieter evening for two. Great wine list, no pretense, excellent steak frites.</div></div>
+        <span class="pill pill-slate">Park MGM</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Nobu</div><div class="row-desc">The Las Vegas Nobu has maintained its standard for decades — black cod miso remains the city's default luxury moment. A safe, excellent call for any night. Caesars Palace location.</div></div>
+        <span class="pill pill-slate">Caesars Palace</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Costa di Mare</div><div class="row-desc">Wynn's quieter Mediterranean seafood room overlooking the pool lagoon — whole Adriatic fish, hand-crafted pasta, and an atmosphere that feels genuinely calm by Vegas standards.</div></div>
+        <span class="pill pill-slate">Wynn</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Hatsya</div><div class="row-desc">Intimate omakase counter inside Wynn — precision Japanese in a serene, beautiful setting. The Wynn dining campus is the strongest single concentration of fine dining in the city; Hatsya is its hidden gem.</div></div>
+        <span class="pill pill-slate">Wynn</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Secret Pizza — 3rd Floor, Caesars</div><div class="row-desc">Down an unmarked corridor on the third floor of Caesars with zero signage — you have to find it. Classic New York-style slices, cash only, open until 3am. The Vegas insider's late-night move that every foodie eventually discovers. Worth the hunt.</div></div>
+        <span class="pill pill-rust">Secret · Cash only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A city that bets on its kitchens</h3>
+    <p>The economics are counterintuitive: resort mega-profits subsidize culinary talent at a level most cities can't match. Joël Robuchon, José Andrés, Jean-Georges, and a generation of Michelin-trained French expats all found their stage here. The off-Strip Chinatown corridor — a $12 Uber from the center — contains some of the best Japanese, Thai, and Korean food in America.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops beyond the casino floor</h2>
+    <p>Las Vegas's specialty coffee scene has transformed over the last five years — clustering in the Arts District, Downtown, Chinatown, and Summerlin, all accessible before the heat locks you indoors. Vesta is the city's anchor; go there first.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Vesta Coffee Roasters — Arts District</div><div class="row-desc">The city's best. In-house roastery, 98% scratch-made food, full traceability on every origin. The flagship at 1114 S Casino Center Blvd opens 7am — the perfect post-5am-run destination. Try the miso caramel latte.</div></div><span class="pill pill-gold">Arts District</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Vesta Coffee Roasters — West Sahara</div><div class="row-desc">Same Vesta quality at 9031 W Sahara Ave — more neighborhood feel, convenient for Summerlin. Consistent across all four locations.</div></div><span class="pill pill-gold">W Sahara / Summerlin Edge</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Vesta Coffee Roasters — Durango</div><div class="row-desc">The SW Las Vegas outpost at 6915 S Durango Dr — closest to Red Rock Canyon trailheads for a post-run coffee before the heat wins.</div></div><span class="pill pill-gold">SW Las Vegas</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">PublicUs</div><div class="row-desc">The Downtown community coffee institution — excellent pour-overs, outstanding brunch food, and a genuinely local crowd. The coffee shop where residents who actually live in Vegas go.</div></div><span class="pill pill-emerald">Downtown</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Gabi Coffee + Kitchen</div><div class="row-desc">The coffee destination inside the Chinatown corridor — great fuel before or after Raku, Kaiseki Yuzu, or Sparrow + Wolf. Specialty drinks plus solid food.</div></div><span class="pill pill-emerald">Chinatown</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Mothership Coffee Roasters</div><div class="row-desc">Well-loved local roaster with multiple locations — clean, reliable specialty program and a welcoming neighborhood feel.</div></div><span class="pill pill-emerald">Multiple</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Makers &amp; Finders Coffee</div><div class="row-desc">Arts District anchor alongside Vesta — Central American-inspired café serving arepas alongside exceptional espresso. The neighborhood gathering spot.</div></div><span class="pill pill-emerald">Arts District</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Sambalatte</div><div class="row-desc">The polished Italian-style espresso group — multiple Strip-adjacent and residential locations, consistent and reliable for a fast, excellent cortado.</div></div><span class="pill pill-emerald">Multiple / Strip-adjacent</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Brew It Coffee House</div><div class="row-desc">Single-origin pour-over focus with farm-to-table breakfast and lunch — the pour-over program is taken seriously here. Good for a slow morning.</div></div><span class="pill pill-emerald">West Las Vegas</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Oak &amp; Ivy — Container Park</div><div class="row-desc">Downtown Container Park's coffee outpost — a pleasantly eccentric outdoor-mall setting, specialty drinks, good morning vibes before the heat arrives.</div></div><span class="pill pill-emerald">Downtown</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Esther's Kitchen (coffee bar)</div><div class="row-desc">Arts District's beloved Italian-inspired restaurant also runs an excellent espresso bar — best visited during their café hours before the dinner service crowd arrives.</div></div><span class="pill pill-emerald">Arts District</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">The Writer's Block</div><div class="row-desc">Independent bookshop and community space in Downtown Las Vegas with a quality coffee program — the one place that feels like a real neighborhood cultural institution.</div></div><span class="pill pill-emerald">Downtown</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Eataly Coffee Bar (Park MGM)</div><div class="row-desc">Italian coffee bar within the Eataly food market — superb cortado and excellent pastries in a Strip-accessible location. Open early. No casino energy whatsoever.</div></div><span class="pill pill-slate">Park MGM</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Espressamente illy</div><div class="row-desc">Premium Italian espresso on the Strip — reliable, precise, and a genuine alternative when you need quality without leaving the casino campus.</div></div><span class="pill pill-slate">Strip locations</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">DW Bistro</div><div class="row-desc">Off-Strip neighborhood café with Caribbean-inspired food — a local favorite for coffee and a proper morning meal away from the tourist corridor.</div></div><span class="pill pill-slate">West Las Vegas</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Bonjour Fête</div><div class="row-desc">French café vibes in Henderson — beautiful space, croissants worth making the trip for, and specialty espresso that matches. The southeast side's best.</div></div><span class="pill pill-slate">Henderson</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Club Café at Wynn</div><div class="row-desc">The Wynn campus coffee option — open early, polished, convenient if you're already on the Strip. Not destination specialty, but elevated by casino standards.</div></div><span class="pill pill-slate">Wynn</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Aiya Las Vegas</div><div class="row-desc">Japanese matcha house and specialty coffee — the go-to when Brooke wants a ceremonial-grade matcha latte instead of espresso. Beautiful presentation.</div></div><span class="pill pill-slate">Chinatown area</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Café Americano at Caesars</div><div class="row-desc">24-hour Strip coffee café — genuinely decent quality for the format. The right answer at 4am before a Red Rock start when nothing else is open.</div></div><span class="pill pill-slate">Caesars Palace</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Dutch Bros Coffee</div><div class="row-desc">The West Coast drive-through chain with multiple LV locations — enormous menu, good cold brew, and a fast option when you're en route and need fuel. The reliable everyday.</div></div><span class="pill pill-slate">Multiple / drive-through</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One extraordinary experience per afternoon</h2>
+    <p>Las Vegas afternoons are genuinely better than its reputation suggests — the city has museums, immersive art, helicopter flights, and a creative district that surprises everyone. Do these in the AC-cooled late afternoon and early evening when the desert heat is at its worst outdoors.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature · must-do</span>
+        <h3>Neon Museum Night Tour</h3>
+        <p class="card-loc">770 Las Vegas Blvd N · Downtown</p>
+        <p>Over 250 retired neon signs from Vegas's demolished casino history — the original Stardust, Caesar's Palace chariot, Moulin Rouge. The night tour ($35–45) is significantly more atmospheric than the day. The single most Las Vegas thing you can do that isn't gambling.</p>
+        <p class="card-note">Book at neonmuseum.org; night tours sell out. Go after 9pm.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Immersive · 3 hours</span>
+        <h3>Lost Spirits Distillery at AREA15</h3>
+        <p class="card-loc">AREA15 · off I-15</p>
+        <p>The most genuinely surprising 3 hours in Vegas — a theatrical immersive experience inside a working rum distillery, built like a 19th-century nautical adventure story. $65/person including tastings. Nothing else in the city is remotely like this.</p>
+        <p class="card-note">Book at loststirits.com; limited daily capacity.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Night flight</span>
+        <h3>Neon Night Flight — Helicopter + Museum</h3>
+        <p class="card-loc">Papillon Helicopters + Neon Museum</p>
+        <p>Papillon's combo: a helicopter flight over the lit Strip at night, then ground-level at the Neon Museum. Seeing Vegas from above before walking among its retired signs is an unbeatable double. ~$175/person. The premium evening out.</p>
+        <p class="card-note">Book through Papillon; combinations sell fast in summer.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Arts</span>
+        <h3>Arts District Walk + Omega Mart</h3>
+        <p class="card-loc">18b Arts District · Downtown</p>
+        <p>Start at Vesta for coffee, walk the 18b Creative District galleries, then Uber to AREA15 for Omega Mart — Meow Wolf's absurdist hypermarket installation ($49). The Arts District's First Friday (first Friday of each month) turns the whole neighborhood into an outdoor gallery.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>The Mob Museum</h3>
+        <p class="card-loc">300 Stewart Ave · Downtown</p>
+        <p>Surprisingly excellent — three floors of organized crime history in a former federal courthouse where actual mob trials were held. Half a day; the distillery basement bar serves genuine Prohibition-era cocktails. Far better than the name suggests.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Show · book ahead</span>
+        <h3>Cirque du Soleil O</h3>
+        <p class="card-loc">Bellagio · permanent theatre</p>
+        <p>The aquatic Cirque masterpiece — a 1.5-million-gallon stage that transforms from pool to stage. Performed since 1998 and still the benchmark Las Vegas show. Book days to weeks ahead via Cirque's site; premium seats are the call here.</p>
+        <p class="card-note">Tues–Sat. Premium seating recommended for the full visual experience.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Landmark</span>
+        <h3>The Sphere</h3>
+        <p class="card-loc">Las Vegas Blvd N · near Venetian</p>
+        <p>MSG's 18,600-seat LED orb — the new Vegas architectural icon. Exterior LED shows are free to watch from the Strip. Interior shows (concerts, films, events) require tickets. Even just driving past at night is spectacular.</p>
+        <p class="card-note">Check what's playing at thespherevegas.com before committing to tickets.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Day-trip hybrid</span>
+        <h3>Grand Canyon Helicopter Tour</h3>
+        <p class="card-loc">Departing from Vegas (45-min flight each way)</p>
+        <p>Papillon, Maverick, or Sundance operate Grand Canyon helicopter tours — a full-day experience ($400–650/person) that lands on the Canyon floor for a champagne picnic. One of the most dramatic days possible from Las Vegas. Book a week ahead in summer.</p>
+        <p class="card-note">Early AM departures avoid afternoon turbulence and extreme heat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BAND 2 — RED ROCK
+     ═══════════════════════════════════════ -->
+<div class="band fade-in" style="margin-top:clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>The 5am run window — Red Rock Canyon</h3>
+    <p>In August, Red Rock is only accessible as a run destination before the sun rises fully. A 4:45am trailhead arrival gives you a 2-hour window of tolerable heat — enough for 14–16 miles on ancient Aztec sandstone before the canyon becomes a furnace. The trade: you run by headlamp into one of the most beautiful desert landscapes in America, finish at sunrise, and have the entire resort day ahead of you.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend Run</div>
+    <h2>Red Rock Canyon — your 14-mile desert long run</h2>
+    <p>Valley of Fire is off the table in August (trails officially closed May 15–Sept 30, history of fatalities and rescues). Zion is 2.5 hours and still brutally hot. Red Rock Canyon, 17 miles from the Strip, is your call — ancient Aztec sandstone, 185,000 acres, 30 miles of trail, and a 13-mile scenic road loop. The catch: you're running in the dark, and you're done by 7:30am.</p>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The weekend long run — Red Rock Canyon</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Friday night — prep</span>
+        <span class="timeline-text">Lay everything out the night before: headlamp, hydration vest, 2L of water minimum, two bottles of electrolytes, 3–4 gels. Set alarm for 4:15am. Don't eat heavy Friday dinner — a late Joel Robuchon tasting menu is not a pre-long-run meal.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">4:15am — Wake + fuel</span>
+        <span class="timeline-text">Light breakfast: banana, oat bar, coffee. Uber to Red Rock Canyon Visitor Center parking (~25 min from Strip, $15). Temps at 4:30am in August: still 29–32°C. Hot, but survivable with hydration discipline.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">5:00am — Start running</span>
+        <span class="timeline-text">Grand Circle Loop: 11 miles, 1,100 ft gain, Aztec sandstone and desert wash terrain. For your 14–16 mile target, extend via the Calico Hills connector before looping back. Headlamp mandatory for the first 45 minutes. The sunrise over the red escarpment is the payoff.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">7:00am–7:30am — Mandatory finish</span>
+        <span class="timeline-text">Hard stop by 7:30am regardless of mileage. Temps hit 38°C+ by 8am and the exposed sandstone radiates additional heat. Walk if needed to hit your finish point — no heroics. Uber back to the Strip; you'll be at your hotel by 8am.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">8am onwards — Recovery</span>
+        <span class="timeline-text">This is where Vegas delivers: Canyon Ranch or Qua Baths spa day, pool at Wynn or Encore, room service brunch for you and Brooke. The rest of the weekend is entirely resort mode. You've earned it at 7:30am.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.4rem;font-size:.92rem;color:var(--ink-soft)"><strong>Alternative if you want a calmer long run:</strong> The Las Vegas Strip itself, 5–7am — flat, spectacular, 24hr foot traffic for safety, AC in every casino if you need to duck in. Not trail running, but logistically the easiest possible long run from any Strip hotel. Treadmill at Canyon Ranch or Wynn gym for anything requiring quality pace work.</p>
+  <p style="margin-top:.8rem;font-size:.92rem;color:var(--ink-soft)"><strong>Do NOT attempt:</strong> Valley of Fire (trails closed, no shade, rescue history), River Mountains Loop in the AM heat, or any run after 8am in August without AC access every mile.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight and tomorrow — Sunday arrival, August 9</h2>
+    <p>August 9 is a Sunday. The right move tonight is easy and legendary — no ceremony after a travel day. Save the tasting menu theatrics for the first full evening once you're rested and present.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · Sunday · chill</span>
+        <h3>Raku or Lotus of Siam</h3>
+        <p class="card-loc">Chinatown · ~12 min Uber</p>
+        <p>Both legendary, both walkable from a cab drop, both outstanding without ceremony. Raku for Japanese charcoal grill (Bourdain's pick); Lotus of Siam for northern Thai with that insane Riesling list. Walk-in or same-day booking. Zero performance required — just exceptional food.</p>
+        <p class="card-note">Call ahead from the Uber. Both can usually seat two on a Sunday evening.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Tomorrow · Monday · marquee</span>
+        <h3>Partage or Kaiseki Yuzu</h3>
+        <p class="card-loc">Off-Strip · ~15 min Uber</p>
+        <p>Monday night at Partage — the Michelin-trained French team in their quiet off-Strip room — is the ideal first real dinner. Or Kaiseki Yuzu in Chinatown for the most rewarding Japanese experience in the city. Both require advance reservations; book the moment you read this. These are not walk-in tables.</p>
+        <p class="card-note">If you want Robuchon or Picasso for the first big night, book those now — lead time is 2–3 weeks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Monday (August 10) — first full day</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">5:00am — Strip run</span>
+        <span class="timeline-text">Your first Vegas run: the Strip from your hotel south to Mandalay Bay and back, or north to the Sphere. 4–8 miles depending on pace. The Strip at dawn is genuinely spectacular — no crowds, neon still lit, air still possible to breathe. Done by 7am.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">7:00am — Vesta Arts District</span>
+        <span class="timeline-text">Uber to Vesta Coffee Roasters (Arts District flagship, opens 7am). Best coffee in the city, scratch food, relaxed local crowd. Walk the 18b Arts District neighborhood for an hour while it's cool — see the murals and gallery windows before the heat locks everything down.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Midday — Pool or spa</span>
+        <span class="timeline-text">Noon to 4pm is indoors-only territory. Wynn or Encore pool (with a cabana reservation), Canyon Ranch for a treatment, or simply the hotel room with room service. This is not laziness — it is August in the Mojave Desert.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Evening — Marquee dinner</span>
+        <span class="timeline-text">Your Monday reservation at Partage or Kaiseki Yuzu, or any of the top-tier tables if booked in advance. The Strip comes alive after 7pm when the temperature drops to merely uncomfortable. This is when Las Vegas is at its best.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>The Strip's three great shopping palaces</h2>
+    <p>Las Vegas concentrates more flagship luxury retail per mile than almost anywhere on earth — and the climate-controlled mega-malls are genuinely the best midday refuge from the August heat. The three anchors are Crystals, the Forum Shops, and the Wynn Esplanade. Each has a distinct character.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Flagship · most architectural</span>
+        <h3>The Shops at Crystals</h3>
+        <p class="card-loc">CityCenter · between Bellagio and Aria</p>
+        <p>50+ luxury houses in a Frank Gehry-adjacent architectural showpiece — the most visually dramatic mall in Las Vegas. Houses Chanel, Hermès, Gucci, Prada, Fendi, Tom Ford, Cartier, Tiffany &amp; Co., and the largest Louis Vuitton store in North America. The building itself is worth an hour.</p>
+        <p class="card-note">Validated parking via Aria. Midday is ideal — fully air-conditioned, never feels crowded for its size.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Highest volume · most brands</span>
+        <h3>Forum Shops at Caesars</h3>
+        <p class="card-loc">Caesars Palace · Strip</p>
+        <p>160+ specialty shops and restaurants — the top-performing retail center in Las Vegas by sales per square foot. The Roman streetscape is theatrical kitsch done at scale. Versace, Dolce &amp; Gabbana, Salvatore Ferragamo, Christian Louboutin, and nearly every heritage house represented. Best for sheer coverage.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Most elegant · quietest</span>
+        <h3>Wynn Esplanade &amp; Wynn Plaza</h3>
+        <p class="card-loc">Wynn Las Vegas · Strip</p>
+        <p>Arguably the most elegant shopping environment in the city — calmer, more curated, and visually coherent. The Rolex boutique here has one of the largest selections in the country. Alexander McQueen, Brioni, Chanel, Oscar de la Renta. If you want one shopping stop, make it here.</p>
+        <p class="card-note">The Wynn lobby and conservatory are worth walking through even without shopping intent.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Jewelry · watches</span>
+        <h3>Crystals Anchors: Hermès + Louis Vuitton</h3>
+        <p class="card-loc">Crystals at CityCenter</p>
+        <p>The Hermès and Louis Vuitton flagships at Crystals are both among the brand's largest U.S. locations. LV's three-story glass tower is the North American flagship. For fine jewelry: Cartier and Tiffany are both at Crystals; Harry Winston is at Bellagio.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Value · outlet</span>
+        <h3>Las Vegas Premium Outlets</h3>
+        <p class="card-loc">South outlet (near Mandalay) or North (near Fremont)</p>
+        <p>Designer outlets if you want Burberry, Coach, Michael Kors, Salvatore Ferragamo, or St. John at 25–65% off. Not glamorous but occasionally excellent finds. South location is more manageable; do it in an Uber, not a walk.</p>
+        <p class="card-note">Go early morning — the outdoor sections become unbearable after 10am in August.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Beyond fashion</span>
+        <h3>Harry Winston at Bellagio</h3>
+        <p class="card-loc">Bellagio · Via Bellagio</p>
+        <p>The Via Bellagio corridor connects Chanel, Prada, Gucci, Giorgio Armani, and Harry Winston in a calm, gallery-like environment. For fine jewelry, Winston is the call. For a simpler browse, Via Bellagio is the gentlest luxury corridor in the city.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Spas, pilates, pole &amp; gyms</h2>
+    <p>The heat makes Las Vegas an accidental wellness city in August — world-class spa facilities, serious pilates studios in Summerlin, and pole/aerial schools that are among the best in the country. All outdoor fitness is 5–7am only; everything else is climate-controlled and excellent.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios and spas confirmed operating as of June 2026. For boutique studios, reserve by DM or phone — August is busy season and class capacity is limited.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">Spa &amp; recovery — day passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best overall · $50 day pass</span>
+          <h3>Canyon Ranch Spa (Venetian)</h3>
+          <p class="card-loc">The Venetian · Strip</p>
+          <p>Forbes Five-Star. The $50 day pass includes the full Aquavana hydrotherapy circuit — eight thermal experiences including Finnish sauna, herbal steam room, experiential showers, and a salt room. One of the most complete spa day experiences available in the country. Book treatments to waive the day pass fee.</p>
+          <p class="card-note">Day pass waived with any 50-min+ treatment. Book at canyonranch.com.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Most dramatic · 50,000 sq ft</span>
+          <h3>Qua Baths &amp; Spa</h3>
+          <p class="card-loc">Caesars Palace · Strip</p>
+          <p>The most theatrically scaled spa in Las Vegas — three Roman baths (Tepidarium, Caldarium, Frigidarium), an Arctic Ice Room, sauna, and a 2-hour bath ritual. The sheer scale is unlike anything else on the Strip. Day access included with treatments; the Arctic Ice Room is the signature moment.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Hammam · $45 day pass</span>
+          <h3>Sahra Spa</h3>
+          <p class="card-loc">Cosmopolitan · Strip</p>
+          <p>The only Strip spa with an authentic hammam — traditional Middle Eastern steam bath with exfoliation ritual. $45 day pass includes hammam, steam room, sauna, and relaxation lounge. Desert-ritual treatments are themed to the Mojave and feel genuinely appropriate to where you are.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Forbes Five-Star · most intimate</span>
+          <h3>The Spa at Wynn</h3>
+          <p class="card-loc">Wynn Las Vegas · Strip</p>
+          <p>Smaller and more intimate than Qua or Canyon Ranch — Forbes Five-Star, beautiful pool garden access, and genuinely skilled therapists. Best for couples' treatments if you and Brooke want a spa morning together. Cabana bookings for the Wynn pool add the full resort experience.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">High-end reformer pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Summerlin · full class menu</span>
+          <h3>Club Pilates Summerlin</h3>
+          <p class="card-loc">7460 W Lake Mead Blvd, Ste E1 · Summerlin</p>
+          <p>Full reformer studio with classes ranging from restorative (Center + Balance, Restore) to high-intensity (F.I.T., Cardio Sculpt, Reformer Flow). All levels welcomed. ClassPass-accessible; drop-in also available. The most logistically convenient quality studio if you're west-side.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Modern · SW Las Vegas</span>
+          <h3>Reform Social Club</h3>
+          <p class="card-loc">SW Las Vegas</p>
+          <p>Contemporary reformer Pilates on state-of-the-art equipment — class range from restorative Stretch sessions to high-energy Cardio. Boutique feel with a social element; the crowd is local and serious. Book through their site or ClassPass.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Elevated group format</span>
+          <h3>The Good Place LV</h3>
+          <p class="card-loc">Las Vegas</p>
+          <p>Elevated take on group reformer — all levels, all goals, with instructors who understand athletic clients. A good fit given your training base. Reserve through thegoodplacelv.com; classes fill in August.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Classical instruction</span>
+          <h3>The Pilates Studio Las Vegas</h3>
+          <p class="card-loc">Las Vegas</p>
+          <p>Classical Pilates methodology — proper lineage instruction for those who want technique-forward work rather than a fitness class. Smaller, more personal, worth a session if classical is your preference.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole &amp; aerial studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">The city's best · legendary</span>
+          <h3>Pole Fitness Studio</h3>
+          <p class="card-loc">4265 Arville St · near Palms</p>
+          <p>Las Vegas's premier pole studio — owned by Fawnia Mondey, the world's first pole dancing instructor, celebrating 30 years of teaching. Five dedicated rooms (three pole-only), 400+ monthly in-person classes: pole, aerial pole, lyra, aerial silks, yoga, rings. The national benchmark. A serious studio for a serious student.</p>
+          <p class="card-note">ClassPass and drop-in available; book ahead for aerial silks classes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Working performers teach</span>
+          <h3>Shine Alternative Fitness</h3>
+          <p class="card-loc">SW Las Vegas · near Summerlin</p>
+          <p>Aerial silks, aerial yoga, pole fitness, aerial hoop, flexibility, and handstand training — all instructors are working aerial or circus performers. The highest-caliber teaching staff of any non-Pole Fitness Studio option in the city. Open since 2012.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Off-Strip convenient</span>
+          <h3>Crash Academy LV</h3>
+          <p class="card-loc">Near the Strip</p>
+          <p>Las Vegas's premier pole and aerial studio conveniently located right off the Strip — the most accessible option if you don't want to Uber across town. Good class variety and welcoming to all levels.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Bungee + aerial + pole</span>
+          <h3>Pole Kisses Bungee &amp; Aerial Fitness</h3>
+          <p class="card-loc">1366 W Cheyenne Ave · N Las Vegas</p>
+          <p>2,866 sq ft of bungee fitness, aerial, and pole in the Cheyenne Marketplace. The bungee classes are a genuinely unusual variation — great if Brooke wants something different from the standard aerial menu. Private events available.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best value · multi-gym access</span>
+          <h3>Las Vegas Premium Fitness Pass</h3>
+          <p class="card-loc">Multiple partner gyms across the city</p>
+          <p>$69 for 1–5 entries to the top gyms across the city, valid up to 1 year from purchase. Up to 50% savings vs. individual day passes. No time restrictions. Buy via Viator or travelersuniverse.com. The smartest option for a multi-week stay where you want gym flexibility.</p>
+          <p class="card-note">Free cancellation up to 2 hours before use. Each entry valid 30 days after first redemption.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Training-focused</span>
+          <h3>Dragon's Lair Gym</h3>
+          <p class="card-loc">Las Vegas</p>
+          <p>Serious training facility with flexible passes — 3-day, 6-day, weekly, and monthly options. Strength-focused, no-nonsense equipment, good for a heavy lift session. Buy passes directly at thedragonslairgym.com.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Large format · ClassPass</span>
+          <h3>EŌS Fitness</h3>
+          <p class="card-loc">Multiple Las Vegas locations</p>
+          <p>Well-equipped large-format gym accessible via ClassPass or TrainAway day passes. Multiple locations including NW Las Vegas — good coverage for wherever you're staying. Clean, well-maintained, solid class roster.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Resort gym · always open</span>
+          <h3>Wynn / Encore Athletic Club</h3>
+          <p class="card-loc">Wynn Las Vegas · Strip</p>
+          <p>If you're staying on the Strip, most resort gyms are well-equipped and open 24 hours — critical for 4:30am treadmill sessions when it's too hot for outdoor runs. The Wynn's gym is among the best resort-hotel facilities. Treadmill at 5am beats any outdoor run in August.</p>
+          <p class="card-note">24hr access; most resort gyms allow guest use with a valid room key.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Whole-Foods-caliber groceries</h2>
+    <p>Las Vegas is well-served by premium grocery chains — multiple Whole Foods and Sprouts locations spread across the city. The Strip-adjacent options are Uber-convenient; the Summerlin and Henderson locations are larger and have better produce sections.</p>
+  </div>
+
+  <div class="validated-banner fade-in">All stores confirmed operating June 2026. Multiple locations of each chain — addresses below are primary recommendations.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Premium · closest to Strip</span>
+        <h3>Whole Foods Market — Town Square</h3>
+        <p class="card-loc">6689 Las Vegas Blvd S · South Strip</p>
+        <p>The most convenient Whole Foods for Strip-based stays — full-service flagship with excellent produce, prepared foods hot bar, sushi counter, wide organic selection, and one of the best wine sections in the city. ~10 min Uber from most Strip hotels.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic · affordable</span>
+        <h3>Sprouts Farmers Market — W Sahara</h3>
+        <p class="card-loc">10000 W Sahara Ave · Summerlin edge</p>
+        <p>The largest Sprouts in the Vegas metro area — exceptional organic produce, natural supplements, hormone-free meats, and bulk section. Good for stocking a kitchen for a longer stay. Also at Rainbow Blvd, Centennial, Lake Mead, and Tropicana Ave locations across the city.</p>
+        <p class="card-note">W Sahara location has the best produce selection. Centennial is closest to north Summerlin.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic · value pricing</span>
+        <h3>Natural Grocers</h3>
+        <p class="card-loc">Multiple Las Vegas locations</p>
+        <p>100% organic produce commitment — everything in the produce section is certified organic, no exceptions. Lower price point than Whole Foods; excellent supplements section. A good secondary stop for bulk staples, protein powders, and specialty health items.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Upscale grocery chain</span>
+        <h3>Smith's Marketplace</h3>
+        <p class="card-loc">Multiple locations</p>
+        <p>Kroger's upscale format with a strong organic/natural section, full butcher counter, and in-store Starbucks. The Simple Truth organic label covers most staples. Larger than Whole Foods, less premium — good for bulk restocking mid-stay on everyday items.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Market format</span>
+        <h3>Eataly (Park MGM)</h3>
+        <p class="card-loc">Park MGM · Strip</p>
+        <p>Italian food market on the Strip — imported pastas, olive oils, cured meats, fresh mozzarella, and artisan cheeses for a cooking-for-two evening. Not a full grocery, but unbeatable for Italian ingredients and a casual lunch counter. Open daily.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Trader Joe's</span>
+        <h3>Trader Joe's — Multiple Locations</h3>
+        <p class="card-loc">E Sahara, S Las Vegas Blvd, Summerlin</p>
+        <p>The reliable TJ's presence across the metro — good for quick pantry staples, snacks, frozen meals, and their excellent $4–8 wine section. Multiple locations including near the Strip on S Las Vegas Blvd. The familiar face when you need it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Las Vegas field guide · August 2026<br>
+    Rates, openings, and trail conditions shift — confirm reservations and passes on arrival.<br>
+    Valley of Fire trail closures confirmed May 15–Sept 30. Red Rock early AM only. All treadmill after 7:30am.
+  </div>
+  <span class="footer-verified">✓ Restaurants, studios &amp; spas verified June 2026 · Heat warnings reflect August Mojave conditions · Valley of Fire seasonal closure confirmed</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

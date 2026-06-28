@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buenos Aires — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A two-week field guide to Buenos Aires — Michelin restaurants, specialty coffee, pilates, pole, weekend ferry to Colonia, luxury shopping on Alvear, and everything worth knowing. July 2026.">
+<meta property="og:title" content="Buenos Aires — Christopher &amp; Brooke's Field Guide · July 2026">
+<meta property="og:description" content="Sea level. South Atlantic light. The Paris of South America — Michelin tables, specialty coffee, tango, and 15 miles in Bosques de Palermo. Palermo Soho and beyond.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1568392429534-64e0ef9cc1c5?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c8914a;
+  --gold-light: #d9a965;
+  --gold-deep: #7a5a28;
+  --gold-bg: #fdf5e8;
+  --emerald: #8b1a2f;
+  --emerald-light: #b02238;
+  --emerald-deep: #5a0d1c;
+  --emerald-bg: #f8e8eb;
+  --rust: #a03d27;
+  --rust-bg: #fdf0ec;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1568392429534-64e0ef9cc1c5?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,4,6,0.05) 0%,
+    rgba(12,4,6,0.12) 40%,
+    rgba(12,4,6,0.75) 80%,
+    rgba(12,4,6,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,207,178,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,207,178,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,207,178,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(240,207,178,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(240,214,200,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,207,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,207,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(240,220,214,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #dbb8c2;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #dbb8c2;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · July 2026 · Two weeks</div>
+    <h1>Buenos Aires,<br><em>Where passion lives in every note.</em></h1>
+    <p class="hero-sub">Sea level. South Atlantic light. The Paris of South America — Michelin stars, live-fire asado, tango at midnight, and your best city running of the year. Palermo Soho puts almost all of it within 15 minutes.</p>
+    <div class="hero-meta">Palermo Soho, Buenos Aires</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Buenos Aires</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>The essentials, up front: the peso, the blue dollar rate, how people actually talk, and how to stay sharp. Buenos Aires rewards confidence and quiet local knowledge in equal measure — especially at the money changer.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Argentine Peso</div>
+      <p>ARS · symbol $ (written $1.500 = 1,500 pesos). Drop three zeros for a rough dollar figure at the official rate.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Official Rate</h4>
+      <div class="big">≈ 1,422</div>
+      <p>1 USD ≈ 1,420–1,450 ARS at banks and ATMs (mid-2026). This is what you get from any standard exchange.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Blue Dollar Rate</h4>
+      <div class="big">≈ 1,514</div>
+      <p>The parallel market rate (late June 2026) — about 6–7% better than official. Use licensed casas de cambio in Palermo, never street changers.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude &amp; Climate</h4>
+      <div class="big">Sea Level</div>
+      <p>July is mid-winter: highs ~14°C / 57°F, lows ~7°C / 44°F. Crisp, clear mornings — ideal for running. No acclimatisation needed whatsoever.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Cabify</div>
+      <p>Both work reliably and are the safe default. SUBE card (buy at kioscos) for subway (Subte) and buses. Never hail unmarked street cabs.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Running Base</h4>
+      <div class="big">Bosques de Palermo</div>
+      <p>980-acre park 5 min walk from Palermo Soho. Paved + unpaved circuits, lakeside paths, good surfaces. Best city-centre ultra training base in South America.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a Porteño — Buenos Aires slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Che</b> — Hey / mate (as in Guevara — it's literally just "hey")</div>
+        <div class="slang-item"><b>Boludo/a</b> — Between close friends: "dude / bro." To strangers: a real insult. Read the room.</div>
+        <div class="slang-item"><b>Copado/a</b> — Cool, awesome, great</div>
+        <div class="slang-item"><b>Pinta</b> — Looks good / vibe ("tiene buena pinta" = looks delicious)</div>
+        <div class="slang-item"><b>Quilombo</b> — Chaos, mess, commotion</div>
+        <div class="slang-item"><b>Laburo</b> — Work / job</div>
+        <div class="slang-item"><b>Re-</b> — Prefix meaning "very" (re-copado = very cool)</div>
+        <div class="slang-item"><b>¿Todo bien?</b> — Everything good? Standard street greeting</div>
+        <div class="slang-item"><b>Trucho/a</b> — Fake, dodgy, counterfeit</div>
+        <div class="slang-item"><b>Morfi / Morfar</b> — Food / to eat</div>
+        <div class="slang-item"><b>Pibe / Piba</b> — Young guy / young woman</div>
+        <div class="slang-item"><b>Vos</b> — "You" (replaces "tú" in Argentine Spanish)</div>
+        <div class="slang-item"><b>Mina / Tipo</b> — Woman / guy (casual)</div>
+        <div class="slang-item"><b>Canchero</b> — Suave, self-assured, cool about it</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying sharp — safety</h4>
+      <ul class="safety-list">
+        <li><b>Palermo Soho and Hollywood</b> are among Buenos Aires' safest barrios — walk freely by day and early evening.</li>
+        <li>Be alert in San Telmo after midnight, especially around Plaza Dorrego once the tourist crowd thins.</li>
+        <li>La Boca: visit Caminito by day only and do not wander off the tourist corridor — full stop.</li>
+        <li>Don't use your phone visibly while walking; pockets over handbags for both of you.</li>
+        <li>Use Uber or Cabify after dark — reliable, traceable, priced in pesos on your card at the official rate.</li>
+        <li>Blue dollar exchanges: licensed <em>casas de cambio</em> in Palermo or "cuevas" your host recommends. Never street changers ("¿cambio, cambio?").</li>
+        <li>ATMs dispense pesos at the official rate; withdraw from bank-lobby machines, not street-facing ones.</li>
+        <li>Medical emergency: <b>Hospital Británico de Buenos Aires</b> (Perdriel 74) is the go-to private hospital for English-speaking travellers.</li>
+        <li>Emergencies: <b>911</b> (police/all), <b>107</b> (ambulance), <b>100</b> (fire).</li>
+        <li>Tap water in Palermo is technically safe but many locals drink filtered or bottled. Your call.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the ride</h2>
+    <p>Everything here is within a 25-minute Uber of Palermo Soho — most are 5–15 minutes. Book the top tier (Aramburu, Trescha, Don Julio) two to three weeks ahead; they fill on international demand. Don Julio and Tegui are practically on your doorstep.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Aramburu Restó</div><div class="row-desc">Two Michelin stars. 18-course tasting menu — precise, playful, confident. The finest room in Argentina right now. Book 2–3 weeks ahead; ~USD $300 pp.</div></div>
+        <span class="pill pill-gold">Constitución · 20 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Trescha</div><div class="row-desc">One Michelin star. Chef Tomás Trechanski seats just ten guests for an experimental 15-course menu. The most intimate Michelin experience in the city — your single must-book.</div></div>
+        <span class="pill pill-gold">Palermo · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Don Julio</div><div class="row-desc">Latin America's 50 Best alumni, perennial world top-50 parrilla. Order the bife de chorizo with a Malbec from the 1,500-bottle cellar. Arrives done, no medium-rare debate needed. Book 10+ days ahead.</div></div>
+        <span class="pill pill-gold">Palermo · 8 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Tegui</div><div class="row-desc">Jorge Monopoli's flagship modern-Argentine tasting menu, set behind a graffiti-marked door. Precise technique, southern ingredients, wine pairings that punch. Reserve a week ahead.</div></div>
+        <span class="pill pill-gold">Palermo · 8 min</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Top-tier Argentine &amp; fire cooking</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Fogón Asado</div><div class="row-desc">#22 World's Best Steak Restaurants 2026. A tasting-menu approach to traditional asado — everything cooked live over open fire. Theatrical, delicious, a true Buenos Aires original.</div></div>
+        <span class="pill pill-emerald">San Telmo · 18 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">El Baqueano</div><div class="row-desc">Native ingredients: river fish, Patagonian game, forgotten vegetables. The most thoughtful sustainable table in the city. Chefs Fernando Rivarola &amp; Gabriela Lafuente. Book ahead.</div></div>
+        <span class="pill pill-emerald">San Telmo · 18 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Chila</div><div class="row-desc">Refined modern tasting menu on the Puerto Madero waterfront. Rio de la Plata light floods the room at sunset. Beautiful occasion dinner.</div></div>
+        <span class="pill pill-emerald">Puerto Madero · 20 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Paraje Arévalo</div><div class="row-desc">The insider's move: a natural-wine-focused tasting room with one of the smartest Argentine cellars in the city. Intimate, no frills, memorably good.</div></div>
+        <span class="pill pill-emerald">Palermo · 5 min</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standouts &amp; neighbourhood favourites</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Mishiguene</div><div class="row-desc">Upscale Ashkenazi-Argentine fusion by Tomás Kalika — babka French toast, elevated Jewish cooking translated beautifully. Walk-in at the bar for a lighter version.</div></div>
+        <span class="pill pill-emerald">Palermo · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Sacro</div><div class="row-desc">The best plant-forward fine dining in Buenos Aires, full stop. No compromise, no substitutions vibe — the kitchen just produces something complete.</div></div>
+        <span class="pill pill-emerald">Palermo · 8 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Gran Bar Danzón</div><div class="row-desc">The legendary wine bar that started it all in Recoleta — still the city's best cellar and best-value modern Argentine kitchen. Late-night crowd, excellent vibe.</div></div>
+        <span class="pill pill-emerald">Recoleta · 15 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">La Cabrera</div><div class="row-desc">Palermo's beloved pampas parrilla — famous for the spread of 15 side dishes that arrive alongside the beef. Less cerebral than Don Julio, more social. Expect a queue or book.</div></div>
+        <span class="pill pill-emerald">Palermo · 5 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">El Preferido de Palermo</div><div class="row-desc">Jorge Monopoli's casual bodegón in a 1952 corner store — great vermouth hour, honest empanadas, neighbourhood warmth. The perfect low-key Tuesday dinner.</div></div>
+        <span class="pill pill-emerald">Palermo · 6 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Osaka</div><div class="row-desc">Polished Nikkei (Peruvian-Japanese) — the BA branch of the Lima original. Strong pisco sours, impeccable tuna tataki, elegant room.</div></div>
+        <span class="pill pill-emerald">Palermo · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">La Mar Cebichería</div><div class="row-desc">Gastón Acurio's famous ceviche bar — fresh catches, tiger's milk lechers, the best pisco sour in the city outside Peru. Bustling and fun.</div></div>
+        <span class="pill pill-emerald">Palermo · 8 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Crizia</div><div class="row-desc">Seafood-forward fine dining — impeccable product, restrained technique. The place to go when you want fish done properly in a red-meat city.</div></div>
+        <span class="pill pill-emerald">Palermo · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Elena</div><div class="row-desc">The grand brasserie inside the Four Seasons — power-lunch energy, stunning room, proper afternoon steak. Good for a special slow lunch when you're near Recoleta.</div></div>
+        <span class="pill pill-emerald">Recoleta · 15 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Siamo nel Forno</div><div class="row-desc">The best Neapolitan sourdough pizza in Buenos Aires — proper blistered crust, San Marzano, imported fior di latte. Worth it every time. Book or arrive early.</div></div>
+        <span class="pill pill-emerald">Palermo · 7 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Rufino</div><div class="row-desc">Natural wine bar with a serious kitchen — rotating seasonal small plates, Argentine producers, neighbourhood-crowd energy. Great for a two-person, no-fuss wine night.</div></div>
+        <span class="pill pill-emerald">Palermo · 5 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Almacén Secreto</div><div class="row-desc">Hidden Palermo natural wine bodega with small plates — they open the cellar on Fridays. Exactly the kind of find locals don't want you to know about.</div></div>
+        <span class="pill pill-rust">Palermo · hidden gem</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A city that eats with conviction</h3>
+    <p>Buenos Aires now holds two Michelin stars, claims some of the world's most-ranked steakhouses, and has quietly built one of South America's most exciting natural wine scenes — all at prices that make Parisian dining look expensive.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops, all close</h2>
+    <p>Palermo is the undisputed heart of Buenos Aires' third-wave scene — LAB, Cuervo, Malcriada, and a dozen others within a 10-minute walk of each other. San Telmo still has the best old-school <em>cafés de barrio</em> if you want the full Porteño experience.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">LAB Coffee Roasters</div><div class="row-desc">The trailblazer. Own-roasted single-origin, precise prep, warm timber fit-out. The reference point for BA specialty coffee. Go here first.</div></div><span class="pill pill-gold">Palermo · Humboldt 1542</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Cuervo Café</div><div class="row-desc">Pioneer of the scene — founded by musicians Pablo Tokatlian &amp; Agustín Caro. Music plays a starring role; regulars are artists and locals. Exceptional espresso.</div></div><span class="pill pill-gold">Palermo Holly</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Malcriada</div><div class="row-desc">Recently expanded to a larger Palermo space — comfort, warmth, and consistently well-dialed pour-overs. The best brunch pastries on the block.</div></div><span class="pill pill-gold">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Hobby Café</div><div class="row-desc">Modern aesthetic, laid-back vibe — a go-to for catch-ups, remote work, or brunch. Well-crafted espressos and pour-overs, warm atmosphere.</div></div><span class="pill pill-gold">Palermo · Malabia 1343</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Ninina Bakery</div><div class="row-desc">Tel Aviv-inspired café and bakery — the croissants are genuinely remarkable, the coffee is excellent, the IG photos inevitable. Busy brunch spot.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Birkin Café</div><div class="row-desc">Arguably the most aesthetic coffee shop in Buenos Aires — the room is a work of art. Lavender lattes, good cortados, excellent natural light.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Pani</div><div class="row-desc">Natural wine bar by night, excellent morning coffee by day — Palermo's favourite dual-purpose spot. Order the toast and settle in.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">The Shelter Coffee Roasters</div><div class="row-desc">Micro-roastery with a serious filter program — if you want a cupping session or to talk about process, this is the place.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Lattente</div><div class="row-desc">Pellegrini-style Italian counter espresso — stand, drink, go. A beautiful, un-fussy approach to great espresso in a city that still loves its cortado.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Proper Coffee</div><div class="row-desc">Clean, Scandi-influenced specialty room — filter-focused with seasonal single-origins on rotation. Great for focused work or a slow morning.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Fuente Café</div><div class="row-desc">Neighbourhood third-wave — a quieter, more local Palermo option when LAB has a queue. Reliably good and unhurried.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Grillwork</div><div class="row-desc">Toast + specialty coffee — the simple formula done well. Avocado toast with excellent coffee in a relaxed Palermo setting.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Tucán Coffee</div><div class="row-desc">Third-wave Palermo roastery with a focused menu and knowledgeable staff — a solid second-stop after LAB if you're doing a coffee-bar morning.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Anónimo Coffee Roasters</div><div class="row-desc">The serious roastery operation — they supply a number of the city's top cafés. Worth a trip to Villa Crespo for the origin-focused menu.</div></div><span class="pill pill-emerald">Villa Crespo · 10 min</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Coffee Town</div><div class="row-desc">Intimate roastery with public cupping sessions — book a Saturday session to taste across the portfolio in one sitting.</div></div><span class="pill pill-emerald">Palermo</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">El Federal</div><div class="row-desc">A landmark 1864 café with painted tile floors, carved wood bar, and a proper cortado — the finest surviving <em>café de barrio</em> in the city.</div></div><span class="pill pill-emerald">San Telmo · 18 min</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Café Tortoni</div><div class="row-desc">The iconic 1858 literary café on Avenida de Mayo — touristy but genuine, with marble tables and waiters in white jackets. Worth one visit for the atmosphere alone.</div></div><span class="pill pill-emerald">Centro · 20 min</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Florería Atlántico</div><div class="row-desc">A flower shop that conceals one of the world's best cocktail bars in its basement — excellent coffee by day, legendary natural wine &amp; cocktails by night.</div></div><span class="pill pill-emerald">Retiro · 18 min</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Café San Juan</div><div class="row-desc">Beloved corner café and casual restaurant in San Telmo — the neighbourhooders' pick. Great cortado, simple food, no pretension.</div></div><span class="pill pill-slate">San Telmo · 18 min</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Felicità</div><div class="row-desc">Italian-style espresso counter for a quick, proper shot on the go — the everyday coffee stop in Palermo when you just need to move.</div></div><span class="pill pill-slate">Palermo · daily ritual</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One neat experience a day</h2>
+    <p>Fifteen days means fifteen afternoons — here are nine distinct experiences that each deliver something the city does like nowhere else. Ordered from lightest to most memorable, and including one you'd only know about as a local.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature · must-do</span>
+        <h3>Private tango lesson + milonga</h3>
+        <p class="card-loc">Estudio DNI Tango or El Beso · book ahead</p>
+        <p>One private lesson in the afternoon ($60–80 pp), then show up for the beginner milonga at La Catedral (Sarmiento 4006) at 11pm — three levels, all welcome, live orchestra some nights. The Buenos Aires experience you can't skip. Brooke leads.</p>
+        <p class="card-note">La Catedral charges ~$15 ARS entry. Book the lesson on Viator or direct with DNI Tango.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>MALBA — Latin American Art Museum</h3>
+        <p class="card-loc">Av. Figueroa Alcorta 3415 · Palermo · 10 min walk</p>
+        <p>Frida Kahlo, Diego Rivera, Tarsila do Amaral — the finest Latin American art museum on the continent, and it's practically on your doorstep in Palermo. Go on a weekday morning for empty rooms. The building itself is stunning.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Market</span>
+        <h3>Feria de San Telmo (Sundays only)</h3>
+        <p class="card-loc">Plaza Dorrego, San Telmo</p>
+        <p>One of South America's great Sunday markets — antiques, leather, vintage silver maté sets, live tango, street food. Arrives at 10am, peaks at noon. Pair with coffee at El Federal and lunch at Fogón Asado for the perfect Sunday.</p>
+        <p class="card-note">Sunday only, 10am–5pm. Goes rain or shine.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Athletic</span>
+        <h3>Reserva Ecológica Costanera Sur</h3>
+        <p class="card-loc">Av. Tristán Achával Rodríguez 1550 · Puerto Madero</p>
+        <p>A 350-hectare urban nature reserve on the Río de la Plata — capybara, 300 bird species, river views. Run the perimeter for ~10km of gravel and dirt trail for a genuine escape from the city without leaving it. Sunrise or sunset are the moves.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Neighbourhood</span>
+        <h3>La Boca / Caminito colour walk</h3>
+        <p class="card-loc">La Boca neighbourhood</p>
+        <p>The corrugated-iron rainbow houses of Caminito street — best seen in an early afternoon when the light is warm and photographers haven't yet taken over. Take a cab to and from; don't walk the neighbourhood perimeter. Stop at a parrilla on El Caminito itself.</p>
+        <p class="card-note">Daytime only on the tourist strip. Do not wander toward the port.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Architecture</span>
+        <h3>Recoleta Cemetery + neighbourhood stroll</h3>
+        <p class="card-loc">Junín 1760 · Recoleta</p>
+        <p>Evita's tomb, marble mausoleums, and the city's finest 19th-century funerary architecture in one walled city. Free to enter. Pair with the nearby MALBA-adjacent galleries and an Alvear Avenue walk for a refined afternoon out.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Day trip</span>
+        <h3>Tigre Delta half-day</h3>
+        <p class="card-loc">Tigre · 45 min train from Retiro</p>
+        <p>Take the Tren de la Costa from Retiro, then a launch (low wooden river boat) up the Paraná Delta — a labyrinth of islands, rustic restaurants, and zero cars. Lunch at one of the riverside parrillas; back by 6pm. The city's best nearby escape.</p>
+        <p class="card-note">Launches depart Tigre station pier. No booking needed in winter.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Hidden gem</span>
+        <h3>Florería Atlántico at night</h3>
+        <p class="card-loc">Arroyo 872 · Retiro · 18 min</p>
+        <p>The flower shop closes, a secret door opens into the basement, and you're in one of the world's 50 best bars. Gin-focused, Latin botanicals, extraordinary cocktail theatre. The move for a special night that doesn't involve food. No reservation needed but go before midnight.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Palermo ritual</span>
+        <h3>Bosques de Palermo — 10K shakeout</h3>
+        <p class="card-loc">Parque Tres de Febrero · 5 min walk</p>
+        <p>On recovery days, run the park circuit through the Rosedal (8,000 roses in winter — bare but beautiful), past the lake, and back. 5–10km of varied paved + dirt surface. The city's best built-in training base. No gear needed beyond shoes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Colonia del Sacramento &amp; your 17-mile Sunday</h2>
+    <p>The obvious and correct call: a 1h15m Buquebus ferry across the Río de la Plata to Uruguay's prettiest town — UNESCO-listed cobblestones, Portuguese lighthouse, and riverside paths perfectly suited to a long run in cool winter air.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1578488015989-be37dbf67e6b?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Ferry, not flight — it's that close</h3>
+      <p>Buquebus departs from Puerto Madero (15 min Uber from Palermo). Fast crossing is about 45 min; regular crossing 1h15m. Buy tickets 5–7 days ahead — <b>take your passport</b>, this is a border crossing. Colonia Express and Seacat Colonia also operate the route at lower prices. Round-trip on Buquebus runs ~USD $110–170 per person.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday — Early ferry</span>
+        <span class="timeline-text">Catch the 8am or 9am crossing from Puerto Madero. Arrive Colonia before 11am. Drop bags at your hotel (Sheraton Colonia or Posada del Gobernador for a luxury night). Walk the UNESCO Historic Quarter: cobblestones, lighthouse, old city wall, Plaza Mayor. Afternoon wine at Charco restaurant on the riverfront.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — The 17-miler</span>
+        <span class="timeline-text">Start at 6:30am before the town wakes. Run the Rambla (riverside promenade) east for 4 miles, then take the Camino Real road into the countryside — flat to gently rolling, quiet asphalt, cool 10–12°C air. Turn around at mile 8.5 and come back via the interior. Bring your own hydration for miles 6–12; Brooke can crew the midpoint. Winter air at sea level = you'll feel like a machine. Cooldown along the waterfront.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday afternoon</span>
+        <span class="timeline-text">Post-run breakfast at Pulpería de los Faroles. Wander the antique shops on Calle de los Suspiros. Ferry back at 5pm or 7pm — you'll be in Palermo in time for a quiet dinner at home or El Preferido.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>For a bigger run weekend:</b> Book two nights and extend Sunday's route north along the Rambla to Real de San Carlos for a full 20-miler. The terrain is flat-to-rolling — great for effort building at sea level before any altitude race prep.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight (Saturday) and tomorrow after the run</h2>
+    <p>You arrive July 11, a Saturday. Tomorrow is Sunday — which means the Feria de San Telmo, the city's best outdoor run, and a slow late-afternoon Palermo wander. Start easy tonight.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · low-key</span>
+        <h3>El Preferido de Palermo or Rufino</h3>
+        <p class="card-loc">Palermo · 5–7 min walk</p>
+        <p>Both are easy, excellent, no-fuss. El Preferido for corner-table warmth, empanadas, and a quiet Malbec after travel. Rufino for natural wine and a seasonal plate at the bar. Either is the right uncomplicated first night in a city this good.</p>
+        <p class="card-note">Walk-in friendly before 9pm. Rufino is particularly relaxed on Saturday nights.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The big dinner · book now</span>
+        <h3>Trescha or Don Julio</h3>
+        <p class="card-loc">Palermo · 8–10 min</p>
+        <p>Your marquee dinner for the stay — book this the moment you read this. Trescha for the intimate 10-seat Michelin experience (15 courses, ~$200 pp). Don Julio for the great parrilla night if you want energy and wine. Both require 10+ days lead time from a Buenos Aires number.</p>
+        <p class="card-note">Try the WhatsApp booking link for Don Julio. For Trescha, email directly via their site.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Tomorrow (Sunday, July 12) — after your morning run</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Morning — Run in Bosques de Palermo</span>
+        <span class="timeline-text">An easy 8–12K through Parque Tres de Febrero — lakeside paths, the Rosedal circuit, cool winter air at sea level. Legs will feel great. Start at the corner of Av. del Libertador and Av. Sarmiento.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recovery coffee</span>
+        <span class="timeline-text">LAB Coffee Roasters on Humboldt — the warm room, own-roasted beans, and excellent flat whites are the ideal post-run ritual. Pastry from Malcriada next door if you need fuel.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — Feria de San Telmo</span>
+        <span class="timeline-text">Uber 15 min to Plaza Dorrego for the city's great Sunday market — antiques, silver maté gourds, live tango, leather goods, street food. Arrive by noon when it's buzzing. This is the single best Sunday-afternoon move in the city.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Late afternoon — Rooftop sunset</span>
+        <span class="timeline-text">Head back to Palermo and catch sunset from any of the neighbourhood rooftop bars before dinner. The winter light here at 6pm is extraordinary — that's the South Atlantic pulling the colours.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>Alvear Avenue &amp; beyond</h2>
+    <p>Avenida Alvear in Recoleta is the most prestigious shopping street in South America — five blocks of French-palace facades, Hermès, Louis Vuitton, Cartier, and emerging Argentine houses. Palermo Soho is where the interesting local designers live.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Premier street</span>
+        <h3>Avenida Alvear</h3>
+        <p class="card-loc">Recoleta · 15 min Uber</p>
+        <p>Five blocks of French Belle Époque palaces and the city's most prestigious houses — Hermès (corner of Ayacucho), Louis Vuitton, Cartier, Ralph Lauren. New arrivals include Dolce &amp; Gabbana and Gucci. The visual experience alone is worth the ride.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">New 2026</span>
+        <h3>OH! Buenos Aires</h3>
+        <p class="card-loc">Plaza Intendente Alvear · Recoleta</p>
+        <p>Opened 2026: a new open-air luxury mall in Recoleta with panoramic gastronomic terraces and art spaces. Golden Goose, Vilbrequin and international luxury confirmed. The city's most talked-about new retail destination — pair with an Alvear walk.</p>
+        <p class="card-note">New opening — confirm current tenants and hours on arrival; first months may have limited stock.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Designer local</span>
+        <h3>Palermo Soho boutiques</h3>
+        <p class="card-loc">Thames, El Salvador, Malabia · walkable</p>
+        <p>The neighbourhood streets you're living in: Rapsodia (premium boho knits), El Método (concept menswear), Mishka (handcrafted Argentine leather shoes, a local institution). Better pieces than most malls, no tourist markup on the hidden blocks.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Premium leather</span>
+        <h3>Cuero Argentina</h3>
+        <p class="card-loc">Palermo Soho</p>
+        <p>Argentine handcrafted leather bags, belts, and wallets made in the workshop. The leather quality and price-point combination is genuinely hard to beat anywhere in the world. Made-to-measure options available with a few days' notice.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Wine destination</span>
+        <h3>Grand Cru Winery Store</h3>
+        <p class="card-loc">Palermo</p>
+        <p>The city's best curated wine boutique — small-production Malbec, Torrontés, and natural wines from Mendoza, Salta, and Patagonia. The sommelier team knows exactly what's drinking well. Perfect for shipping a case home.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Concept</span>
+        <h3>Marcelo Grosman concept store</h3>
+        <p class="card-loc">Palermo Soho</p>
+        <p>One of Buenos Aires' finest contemporary design spaces — jewellery, objects, art books, and independent Argentine fashion under one roof. The kind of thing you can't find at home. The pieces worth shipping back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, pole &amp; gyms in Palermo</h2>
+    <p>Buenos Aires has a serious wellness culture — Palermo and Recoleta are dense with boutique studios. Most sell drop-in or short-pass options; message ahead on WhatsApp or Instagram to reserve, since classes fill, especially on winter mornings.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios below confirmed operating as of June 2026. Buenos Aires studios often adjust winter schedules — WhatsApp before your first visit to confirm class times.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Premium · closest</span>
+          <h3>Toulouse Pilates</h3>
+          <p class="card-loc">Gorostiaga 1663 · Las Cañitas (adj. Palermo) · 8 min</p>
+          <p>Circuit-format reformer including Reformer, Cadillac, Chair, Mat, and equipment rotations. One of the most recommended studios in the city — professional instruction, high-end machines, consistent quality. Message via their English-language site.</p>
+          <p class="card-note">Book ahead at toulousepilates.com — classes typically fill 24h out.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Boutique · Recoleta</span>
+          <h3>Ánima Pilates</h3>
+          <p class="card-loc">Recoleta · 15 min Uber</p>
+          <p>Boutique reformer studio offering Pilates Reformer, Mat, Barre, Yoga, and Stretching — the full wellness menu. Intimate class sizes and strong instructor quality. Popular with Recoleta professionals. Book via animaestudiopilates.com.ar.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Name says it all</span>
+          <h3>Reformer.com.ar</h3>
+          <p class="card-loc">Multiple locations · Buenos Aires</p>
+          <p>Premium reformer-specialist studio with several branches across the city. The name is the pitch — reformer-only, serious focus, well-equipped. Check reformer.com.ar for the branch closest to Palermo Soho.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Palermo drop-in</span>
+          <h3>Ayla Pilates Reformer</h3>
+          <p class="card-loc">Palermo · Facebook verified open</p>
+          <p>Palermo's dedicated reformer studio — a small, welcoming space well-suited to a few drop-in sessions. Contact via their Facebook page to confirm drop-in availability and class schedule.</p>
+          <div class="card-warning">Confirm current schedule directly before visiting — smaller studios may adjust winter hours.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Classical method</span>
+          <h3>Pilates Center Buenos Aires</h3>
+          <p class="card-loc">Recoleta</p>
+          <p>Classical Pilates method with reformer and mat classes, monthly and short-stay passes. A solid option if you want a more traditional, controlled style rather than circuit format.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">World-ranked</span>
+          <h3>Art Dance Studio</h3>
+          <p class="card-loc">Buenos Aires</p>
+          <p>Over 10 years in operation — selected in 2012 and 2015 as one of the world's best 7 pole studios by the International Pole Dance Fitness Association. Pole dance, aerial acrobatics, and full curriculum at a genuinely serious level.</p>
+          <p class="card-note">Book via artdancestudio.com.ar — English support available.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">All-levels welcome</span>
+          <h3>Escuela Pole Fusion</h3>
+          <p class="card-loc">Buenos Aires · escuelapolefusion.com</p>
+          <p>Start from zero at any age, any time of year — this is the open-door ethos of the school. Welcoming instructors, all levels catered for. Good option for Brooke if she wants a friendly intro session without previous experience.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Sport + flexibility</span>
+          <h3>Let's Pole</h3>
+          <p class="card-loc">CABA · @letspole on Instagram</p>
+          <p>Pole Sport, Flexibility, and Acro Flow classes — a more athletic-focused pole program. Good choice if you want to mix aerial conditioning with Brooke's training week. Book via their Linktree.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Central option</span>
+          <h3>El Club del Pole</h3>
+          <p class="card-loc">Buenos Aires · poleranking.com listed</p>
+          <p>Centrally located pole studio with a strong community and varied schedule — includes pole sport, heels, and flexibility. Message ahead on Instagram to confirm class availability.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best in class</span>
+          <h3>Megatlon</h3>
+          <p class="card-loc">Multiple Palermo locations</p>
+          <p>The city's premium gym chain — full equipment, group classes, sauna, and clean facilities. Sells day passes and short-term memberships well-suited to a two-week stay. The Palermo branch is the most convenient from your base.</p>
+          <p class="card-note">Day pass purchase often works at the front desk; bring ID. Some branches require prior registration online.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Boutique chain</span>
+          <h3>Sport Club</h3>
+          <p class="card-loc">Multiple locations</p>
+          <p>Mid-tier boutique gym with a strong class roster (HIIT, strength, yoga) and day pass access. Better amenities than Smart Fit, less premium than Megatlon — the practical middle ground.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Value option</span>
+          <h3>Smart Fit</h3>
+          <p class="card-loc">Citywide</p>
+          <p>Clean, well-equipped, inexpensive. Citywide network means there's always one nearby. Good for a no-frills lift session between studio days when you just need a rack and a cable machine.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Free &amp; spectacular</span>
+          <h3>Parque Tres de Febrero / Bosques de Palermo</h3>
+          <p class="card-loc">Av. del Libertador · 5 min walk</p>
+          <p>Your 980-acre backyard — paved circuits, lakeside paths, dirt trails, and outdoor gym stations scattered throughout. On 50–60 mi/week training, this park is your long-run anchor. July mornings are 8–10°C, dry, and perfect for mileage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Whole-Foods-style groceries &amp; markets</h2>
+    <p>For cooking-for-two nights in Palermo, the premium options are excellent and remarkably close — Jumbo at Alto Palermo is the workhorse, the Saturday organic market at Sabe la Tierra is the discovery, and La Esquina de las Flores handles everything in between.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Stores confirmed operating June 2026. The Sabe la Tierra market runs Saturdays only — note the day before planning a market morning.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Closest full-range</span>
+        <h3>Jumbo Palermo</h3>
+        <p class="card-loc">Av. Bullrich 345 (Alto Palermo mall) · 10 min Uber</p>
+        <p>The city's best premium supermarket — excellent fresh produce, imported cheeses, curated wine section, top-quality charcuterie, proper bakery. The Whole Foods equivalent of Buenos Aires. Go here for a proper weekly shop.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Saturday market</span>
+        <h3>Sabe La Tierra</h3>
+        <p class="card-loc">Palermo · Saturdays</p>
+        <p>High-quality organic producers' market — direct from farm, artisan cheeses, sourdough, heritage vegetables, honey, jams. The best Saturday morning ritual in the city. Pair with LAB Coffee for a perfect start. Exact location varies — check their Instagram before going.</p>
+        <p class="card-note">Saturday mornings only, approx. 9am–2pm. Follow @sabela.tierra on IG for location updates.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Health food daily</span>
+        <h3>La Esquina de las Flores</h3>
+        <p class="card-loc">Honduras 4901 · Palermo · walkable</p>
+        <p>The city's landmark natural and health food store — organic produce, whole grains, superfoods, supplements, herbal teas, and a deli counter. Very walkable from Palermo Soho. The everyday organic stop when you want something specific.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic specialist</span>
+        <h3>Buenos Aires Verdes</h3>
+        <p class="card-loc">Palermo + Belgrano · multiple</p>
+        <p>Organic-focused grocer operating since 2010 in Palermo and Belgrano. Good quality, fair prices, reliable organic produce, and health pantry staples. A solid second option to La Esquina de las Flores for organic essentials.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Gourmet market</span>
+        <h3>Mercado de San Telmo</h3>
+        <p class="card-loc">Defensa 961 · San Telmo · 18 min Uber</p>
+        <p>The 1897 covered market with stunning cast-iron architecture — cheese counter, wine merchants, spice stalls, artisan deli, prepared foods. Not for weekly shopping but worth a dedicated afternoon trip to the San Telmo neighbourhood.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Premium deli</span>
+        <h3>Argentina Orgánica</h3>
+        <p class="card-loc">Palermo · 30+ years organic</p>
+        <p>One of the pioneers of organic food in Argentina — 30+ years of sourcing, sustainability credentials, and a curated pantry including imported organic products unavailable in regular supermarkets. Good for specialty staples.</p>
+        <div class="card-warning">Confirm current retail hours on arrival — some locations operate reduced winter schedules.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Buenos Aires field guide · July 2026<br>
+    Rates and openings shift — confirm reservations, studio hours, and exchange rates on arrival. The blue dollar rate moves weekly.
+  </div>
+  <span class="footer-verified">✓ Businesses validated June 2026 · Michelin data current · exchange rate confirmed 25 June 2026</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

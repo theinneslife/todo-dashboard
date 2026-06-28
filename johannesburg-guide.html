@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johannesburg — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A three-day field guide to Johannesburg — restaurants, coffee, fitness, Pilanesberg safari, luxury shopping, and everything worth knowing. April 2026.">
+<meta property="og:title" content="Johannesburg — Christopher &amp; Brooke's Field Guide · April 2026">
+<meta property="og:description" content="1,753 metres up on the Highveld. Africa's economic capital — open-fire cooking, Sandton fine dining, and a Big Five park two and a half hours away.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS — African gold + savanna green retheme
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c49a3a;
+  --gold-light: #d4b055;
+  --gold-deep: #7a5f1a;
+  --gold-bg: #fef5e0;
+  --emerald: #2d5a27;
+  --emerald-light: #3d7a34;
+  --emerald-deep: #1a3c17;
+  --emerald-bg: #eaf2e7;
+  --rust: #8b3a1a;
+  --rust-bg: #fdf0eb;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+  background-color: #1a2e1a;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · April 30 – May 2, 2026 · En route to Singita</div>
+    <h1>Johannesburg,<br><em>raw and brilliant</em></h1>
+    <p class="hero-sub">1,753 metres up on the Highveld — Africa's economic capital, built from gold and ambition. Sandton gleams with open-fire kitchens and designer glass. Pilanesberg's Big Five wait two and a half hours north. Three days. Make them count.</p>
+    <div class="hero-meta">Sandton / Rosebank · Highveld · Gauteng</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Johannesburg</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>Joburg rewards the prepared traveller and punishes the careless one. The money, the rate, how people talk, and — critically — how to navigate safely. Read the safety card fully before you step out.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">South African Rand</div>
+      <p>ZAR · symbol R. Prices written R450 = 450 rand. Notes: R10, R20, R50, R100, R200.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ R17</div>
+      <p>1 USD ≈ R17 (April/May 2026 estimate). Divide by 17 for a quick USD check. R500 ≈ $29. R1,000 ≈ $59.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude</h4>
+      <div class="big">1,753 m</div>
+      <p>≈ 5,751 ft — Highveld plateau. Expect noticeably harder breathing on your first 1–2 runs. Not your fitness. Hydrate aggressively. April/May is autumn: highs 20–24°C, lows 8–12°C, dry, sunny.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Bolt</div>
+      <p>Both work in Sandton/Rosebank and are the safe default. Gautrain runs O.R. Tambo → Sandton in 15 min — use it from the airport. No street taxis. No minibus taxis.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a local — South African slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Howzit</b> — How are you? (standard greeting)</div>
+        <div class="slang-item"><b>Lekker</b> — Nice, great, delicious, cool</div>
+        <div class="slang-item"><b>Eish</b> — Expression of surprise, dismay, or emphasis</div>
+        <div class="slang-item"><b>Sharp</b> — OK, understood, got it, cool</div>
+        <div class="slang-item"><b>Just now</b> — In a while (NOT immediately — could be 30 min)</div>
+        <div class="slang-item"><b>Now now</b> — Sooner than just now, but still not right now</div>
+        <div class="slang-item"><b>Jol</b> — A party or a good time; "let's jol" = let's go out</div>
+        <div class="slang-item"><b>Braai</b> — BBQ; sacred South African institution</div>
+        <div class="slang-item"><b>Bru / Boet</b> — Mate, brother (bru is more Cape; boet is Joburg)</div>
+        <div class="slang-item"><b>Sies</b> — Gross, disgusting (pronounced "sis")</div>
+        <div class="slang-item"><b>Shame</b> — Sympathy or cuteness ("Ag shame, that's adorable")</div>
+        <div class="slang-item"><b>Robot</b> — Traffic light. "Turn left at the robot."</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>⚠ Safety — read this fully. Joburg is not like other cities.</h4>
+      <ul class="safety-list">
+        <li><b>Sandton and Rosebank are legitimately safe</b> during the day — private security everywhere, busy streets, mall entrances with guards. Walk these zones freely in daylight.</li>
+        <li><b>No walking after dark anywhere</b> — not even in Sandton. Uber door-to-door, every time, no exceptions. This is non-negotiable in Joburg.</li>
+        <li><b>The CBD, Hillbrow, Berea, and Joubert Park</b> are no-go zones for tourists, day or night. Do not go, even as a curiosity drive.</li>
+        <li><b>Uber only</b> — never hail a street cab, never take a minibus taxi (minibus taxis are high-risk for crime). Bolt is also safe.</li>
+        <li><b>Smash-and-grab is real</b> — keep bags on your lap, not on seats. Lock car doors as soon as you get in. Don't leave anything visible on seats at red lights.</li>
+        <li><b>No phones out on the street</b> — not to navigate, not to photograph. Step inside a doorway or café. Same rule for cameras and visible watches.</li>
+        <li><b>ATMs: Sandton City mall ATMs only</b> — inside the mall, during the day. Never use outdoor/street ATMs, even in Sandton.</li>
+        <li><b>Maboneng and Braamfontein</b> are creative hubs with tours — go with a guide or join a tour group. They're improving but require awareness; solo wandering is not advised.</li>
+        <li><b>Soweto tours: guided only</b> — with a reputable operator. The township is safe on a guided tour and genuinely extraordinary; just don't self-drive it solo.</li>
+        <li><b>Private transfers</b> from O.R. Tambo for airport runs if not taking Gautrain. Pre-book your hotel's driver or a verified service — don't use unmarked "taxi" offers at arrivals.</li>
+        <li>Emergency: <b>10111</b> (police) · <b>10177</b> (ambulance) · <b>112</b> (mobile emergency)</li>
+        <li>The short version: <b>Sandton/Rosebank by day = fine. Anywhere by night = Uber.</b> Act confident, stay alert, don't flash valuables. Thousands of visitors come and go without incident every week.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth booking</h2>
+    <p>Johannesburg's food scene is genuinely world-class and vastly underrated — the clusters are Rosebank's Keyes Art Mile, Parkhurst's 4th Avenue, Sandton, and the Melrose Arch precinct. Open-fire cooking, Mozambican seafood, Japanese-SA fusion, and modern African tasting menus all within a 20-minute Uber. Book Marble and Nobu at least a week ahead.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Marble</div><div class="row-desc">David Higgs's open-fire theatre in the Keyes Art Mile — 90+ dishes grilled over a Michigan Grill Works hearth. Luxe One Star 2026 plus Pioneer Award. Your single must-book. Go for the sharing plates format; the tomahawk and the wood-roasted cauliflower are both essential.</div></div>
+        <span class="pill pill-gold">Rosebank</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Nobu Johannesburg</div><div class="row-desc">The flagship at Sandton Sun Hotel — black cod miso, yellowtail sashimi jalapeño, wagyu tataki. Polished service, exceptional sake program. Book the omakase counter if available. One of the better Nobu locations globally.</div></div>
+        <span class="pill pill-gold">Sandton</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">The Saxon Restaurant</div><div class="row-desc">Inside the Saxon Boutique Hotel in Sandhurst — where Nelson Mandela wrote the final pages of Long Walk to Freedom. Intimate, extraordinary wine list, deeply South African menu. The most luxurious room in Joburg.</div></div>
+        <span class="pill pill-gold">Sandhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">DW Eleven-13</div><div class="row-desc">Dunkeld West institution — one of the longest-running fine dining tables in Joburg, consistently excellent. Chef Marthinus Ferreira's contemporary SA tasting menus; book well ahead. Signature slow-braised short rib and the eight-course omakase.</div></div>
+        <span class="pill pill-gold">Dunkeld West</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Signature Restaurant</div><div class="row-desc">Panoramic views of the Sandton skyline, live piano, refined European menu and one of the city's most extensive wine cellars. InterContinental Sandton Towers. The classic Sandton splurge night.</div></div>
+        <span class="pill pill-gold">Sandton</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Modern Joburg &amp; standouts</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">The Prawnery</div><div class="row-desc">Joburg's best seafood room — Mozambican peri-peri prawns, fresh oysters, whole fish, and lobster. The most-celebrated prawn destination in the city. Two locations (Sandton and Rosebank); both excellent.</div></div>
+        <span class="pill pill-emerald">Rosebank / Sandton</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Proud Mary</div><div class="row-desc">Contemporary dining at the design-forward Hyde Hotel — caper butter sole, wagyu burger with fresh truffle, smart cocktails. The most stylish room in Rosebank right now; book for a weeknight dinner with Brooke.</div></div>
+        <span class="pill pill-emerald">Rosebank</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">The Grillhouse Rosebank</div><div class="row-desc">Art deco interior, legendary sticky ribs, prime aged beef since 1994. The definitive Joburg steakhouse; the Rosebank location is the original and best. Expect a room full of deal-makers and serious eaters.</div></div>
+        <span class="pill pill-emerald">Rosebank</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Zioux</div><div class="row-desc">Ultra-premium contemporary dining at The Marc in Sandton — one of Joburg's most talked-about recent openings. Dramatic interior, ambitious menu, strong cocktail program. The place locals go when they want to be seen and eat well simultaneously.</div></div>
+        <span class="pill pill-emerald">Sandton</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">The Bull Run</div><div class="row-desc">Sandton steakhouse with serious credentials since 2000 — prime cuts of beef, lamb, venison, and ostrich. The ostrich fillet is the move if you haven't had it. Reliable, polished, consistently full.</div></div>
+        <span class="pill pill-emerald">Sandton</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Adega</div><div class="row-desc">Joburg's beloved Portuguese institution — piri piri chicken done properly, outstanding whole grilled fish, exceptional wine list heavy on Alentejo and Douro. Parkhurst's most enduring restaurant. Excellent for a long, relaxed dinner.</div></div>
+        <span class="pill pill-emerald">Parkhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Soi</div><div class="row-desc">Authentic Thai in Parkhurst — massaman lamb curry, pad see ew, exceptional green papaya salad. Warm, personal service and a loyal local following. One of the best Thai tables in SA.</div></div>
+        <span class="pill pill-emerald">Parkhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Wombles</div><div class="row-desc">One of Joburg's longest-running upscale rooms — Melrose Estate's fine dining institution. Consistently excellent, unhurried service, strong SA wine list. The choice when you want something classic and guaranteed.</div></div>
+        <span class="pill pill-emerald">Melrose</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Cecconi's</div><div class="row-desc">Italian-Californian dining at Melrose Arch — house-made pasta, imported burrata, excellent Negroni program. The lightest, most relaxed of the Melrose Arch dining rooms. Good for a cooking-for-two alternative on a night in; or an easy dinner out.</div></div>
+        <span class="pill pill-emerald">Melrose Arch</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Bombay Brasserie</div><div class="row-desc">Elevated Indian dining in Parkhurst — tandoor-roasted meats, Chettinad lamb, excellent cocktail menu. The best Indian table in Joburg by a margin; book a table on the terrace for an evening drink before dinner.</div></div>
+        <span class="pill pill-emerald">Parkhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Hussar Grill</div><div class="row-desc">South Africa's premium steakhouse chain — the Rosebank location is the strongest. Aged prime beef graded and signed by the buyer. Not as buzzy as Marble but more reliable on any given night and no booking stress.</div></div>
+        <span class="pill pill-emerald">Rosebank</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Tashas Rosebank</div><div class="row-desc">The flagship location of Joburg's premium all-day dining institution. Excellent breakfast and brunch (the eggs Benedict and avocado toast are genuinely good), strong coffee, beautiful room. Best for the morning after arrival.</div></div>
+        <span class="pill pill-emerald">Rosebank</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Nice on 4th</div><div class="row-desc">Parkhurst's beloved brunch destination — excellent eggs, proper coffee, garden seating. Arrive by 9:30am on weekends or expect a wait. The right move after a long run on the Braamfontein Spruit.</div></div>
+        <span class="pill pill-emerald">Parkhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Nuno's</div><div class="row-desc">Mediterranean-Portuguese in Parkhurst — grilled octopus, whole fish, lamb chops, natural wine-forward list. Quieter than Adega, equally good on a Tuesday. The neighbourhood table you return to all week.</div></div>
+        <span class="pill pill-emerald">Parkhurst</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Chefs Warehouse at Maison</div><div class="row-desc">The Joburg outpost of the Cape Town-born sharing-plates institution — rotating seasonal menu, no à la carte. Set sharing format only. Outstanding value for the calibre of cooking. Book at least a week ahead.</div></div>
+        <span class="pill pill-rust">Dunkeld · book ahead</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1565299507177-b0ac66763828?q=80&w=1400&auto=format&fit=crop'); background-color:#2d2010;"></div>
+  <div class="band-txt">
+    <h3>A city that eats seriously</h3>
+    <p>Joburg's food scene is one of Africa's best and one of the world's most underrated — built on Mozambican seafood, South African braai culture, Japanese-SA fusion, and a new generation of chefs cooking with genuine ambition. The Keyes Art Mile in Rosebank and Parkhurst's 4th Avenue are the two best dining corridors on the continent.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops, all within reach</h2>
+    <p>Joburg's specialty coffee scene is serious — Father Coffee has been exporting beans globally since 2014. The clusters are Rosebank's Keyes Art Mile, Parkhurst's 4th Avenue, Maboneng's Arts on Main precinct, and scattered across the northern suburbs. Most open 7am and many run to 5pm.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Father Coffee</div><div class="row-desc">Joburg's most acclaimed specialty roastery — ~60 unique single-origin offerings per year, precise espresso and exceptional filter program. The global benchmark for SA specialty. Both V60 and Chemex available. Go here first.</div></div><span class="pill pill-gold">Rosebank</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Motherland Coffee</div><div class="row-desc">All-African specialty program — every blend sourced from a different African growing region. Exceptional roasting and a space that feels like a proper third-wave destination. Multiple Joburg locations.</div></div><span class="pill pill-gold">Rosebank / Sandton</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Bean There</div><div class="row-desc">South Africa's original fair-trade specialty roastery — direct relationships with 12+ African farms. Excellent pour-overs, knowledgeable baristas, airy Newtown and Rosebank locations. The coffee nerd's pilgrimage.</div></div><span class="pill pill-emerald">Rosebank / Newtown</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">4th Avenue Coffee Roasters</div><div class="row-desc">Wonderfully eccentric Parkhurst roastery — the enormous pink coffee roaster in the window is unmissable. They roast on-site daily; the aromas alone justify the visit. Single origins and excellent blends.</div></div><span class="pill pill-emerald">Parkhurst</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Freshly Ground</div><div class="row-desc">Keyes Avenue staple in Rosebank — art-inspired interior, spacious seating, 'haven for creativity and conversation.' Strong espresso program with proper milk technique. Good food menu for a sit-down breakfast.</div></div><span class="pill pill-emerald">Rosebank</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Home of the Bean</div><div class="row-desc">Maboneng's cornerstone café inside Arts on Main — where the urban regeneration of Joburg's east was caffeinated. Connected to the street art scene; murals by SA's best artists line the interior. The cultural café of record.</div></div><span class="pill pill-emerald">Maboneng</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Firebird Coffee</div><div class="row-desc">Charmingly minimalistic Maboneng roastery — stripped-back space where coffee is the point. Outstanding single-origin filter, serious barista craft. The most focused specialty shop in the arts precinct.</div></div><span class="pill pill-emerald">Maboneng</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Arbour Café &amp; Courtyard</div><div class="row-desc">Garden courtyard setting at The Zone on Oxford Rd — charming, unhurried, excellent flat whites and pastries. The right coffee stop after a Rosebank shopping circuit.</div></div><span class="pill pill-emerald">Rosebank</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Rosetta Roastery</div><div class="row-desc">Braamfontein specialty roastery with a serious filter program — rotating origins, knowledgeable staff, and a space that doubles as a creative industry hub. Best alongside a Neighbourgoods Market morning.</div></div><span class="pill pill-emerald">Braamfontein</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Nice on 4th</div><div class="row-desc">Parkhurst's definitive morning café — excellent flat whites alongside their food menu. The coffee is as good as the brunch. Arrive early; the courtyard fills fast on weekends.</div></div><span class="pill pill-emerald">Parkhurst</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Bootlegger Coffee</div><div class="row-desc">Cape Town transplant that's earned its Sandton City place — clean roasting, reliable espresso, sharp all-day food menu. Best option inside Sandton City mall for a shopping-day coffee.</div></div><span class="pill pill-emerald">Sandton City</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Craft Coffee</div><div class="row-desc">Melville's serious specialty option — small, focused, excellent hand-brewed filter. A local neighbourhood staple in one of Joburg's most characterful areas. Pair with a Melville morning wander.</div></div><span class="pill pill-emerald">Melville</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Tashas Rosebank</div><div class="row-desc">The coffee at Tashas is properly good — consistent, well-extracted, and served in a beautiful room. The best choice when you want excellent coffee alongside a full meal.</div></div><span class="pill pill-emerald">Rosebank</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">The Foyer Coffee Shop</div><div class="row-desc">Northcliff's charming neighbourhood café — homemade baked goods, excellent pastries, proper coffee in a space that feels like a friend's well-appointed kitchen.</div></div><span class="pill pill-emerald">Northcliff</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Canteen</div><div class="row-desc">Sandton-area creative-industry café — pared-back design, serious about extraction, popular with the agency and design crowd. Strong pour-overs and an excellent lunch menu.</div></div><span class="pill pill-emerald">Sandton</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Shift Espresso Bar</div><div class="row-desc">Compact specialty bar that takes coffee seriously without the attitude — clean, precise, unfussy. The locals' everyday spot in its neighbourhood; excellent cortado.</div></div><span class="pill pill-emerald">Northern suburbs</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Two Dogs One Cat</div><div class="row-desc">Parkhurst area café with warmth and character — good filter program, outstanding homemade cake, the kind of neighbourhood spot you'd go to every morning if you lived nearby.</div></div><span class="pill pill-emerald">Parkhurst area</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Cof</div><div class="row-desc">Rosebank specialty micro-roaster — tiny space, precise craft, obsessive about provenance. One of the more technically excellent cups in the city; ask what's on filter today.</div></div><span class="pill pill-emerald">Rosebank</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Truth Coffee Sandton</div><div class="row-desc">The Joburg outpost of Cape Town's legendary steampunk café — theatrical space, serious coffee, excellent extraction. The most visually dramatic coffee experience in the city.</div></div><span class="pill pill-emerald">Sandton</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Checkers FreshX Starbucks (Rosebank)</div><div class="row-desc">Joburg's first in-supermarket Starbucks — inside the spectacular Checkers FreshX at Rosebank Mall. Not specialty, but convenient. The right call when you're grocery shopping and need a familiar latte.</div></div><span class="pill pill-slate">Rosebank Mall</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOON EXPERIENCES
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>Three days, six moves</h2>
+    <p>Joburg asks you to engage with its contradictions — the astonishing, world-class Apartheid Museum alongside the gleaming towers of Sandton; Soweto's Vilakazi Street alongside the Maboneng arts scene. The city rewards curiosity and punishes tourist-bubble isolation.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Essential · half day</span>
+        <h3>Apartheid Museum</h3>
+        <p class="card-loc">Gold Reef City area · 30 min Uber from Sandton</p>
+        <p>Among the most powerful museums anywhere in the world — a meticulously designed journey through the history and dismantling of apartheid. Allow 3 hours minimum; you'll want more. The entrance experience (being assigned 'White' or 'Non-White' at random) is unforgettable and intentional.</p>
+        <p class="card-note">Go on your first full day, before anything else. It contextualises the entire city.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Guided · half day</span>
+        <h3>Soweto Township Tour</h3>
+        <p class="card-loc">Soweto · 20 min drive from Sandton</p>
+        <p>Guided tour of the world's most famous township — Vilakazi Street (the only street to have housed two Nobel Laureates: Mandela and Tutu), the Hector Pieterson Memorial, the Orlando Towers. Not a poverty tour — a living, vibrant city of 1.3 million people. Profound and energising in equal measure.</p>
+        <p class="card-note">Book with Urban Buds or similar reputable operator. Guided only — do not self-drive.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Culture</span>
+        <h3>Constitution Hill</h3>
+        <p class="card-loc">Braamfontein · 20 min from Sandton</p>
+        <p>South Africa's Constitutional Court sits on the site of a notorious old prison — Number Four — where Gandhi, Mandela, and thousands of others were held. The architecture of the court incorporates prison bricks, prisoners' handprints, and stories. Guided tour is essential.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Arts + market</span>
+        <h3>Maboneng Precinct + Market on Main</h3>
+        <p class="card-loc">Maboneng · 25 min from Sandton</p>
+        <p>"Place of light" in Sotho — Joburg's most creative precinct, a warehouse district turned arts hub with galleries, studios, street murals, boutiques, and Joburg's best Sunday market (Market on Main, every Sunday 10am–3pm). Home of the Bean and Firebird Coffee are both here.</p>
+        <p class="card-note">Market on Main runs Sundays. May 1 (Workers' Day) may have a special market — confirm ahead.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Unexpected</span>
+        <h3>Gold Reef City + Old Mine Tour</h3>
+        <p class="card-loc">South of Sandton · 30 min</p>
+        <p>Joburg was literally built on gold — descend into a real 19th-century working gold mine shaft (220m underground) to understand why this city exists. Adjacent to the Apartheid Museum, making it an easy half-day double.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature Joburg</span>
+        <h3>Neighbourgoods Market</h3>
+        <p class="card-loc">Braamfontein · Saturdays 9am–2pm</p>
+        <p>Joburg's best Saturday morning market — artisan food, excellent coffee from Rosetta Roastery on-site, local makers, craft beer, and a crowd of the city's most interesting people. Runs Saturday 9am–2pm. May 2 is a Saturday — your perfect final morning before heading to Singita.</p>
+        <p class="card-note">Go by Uber; Braamfontein is fine on market day with the crowd present.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND SIDE-TRIP
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Side-Trip</div>
+    <h2>Pilanesberg — Big Five, malaria-free, 2.5 hours</h2>
+    <p>The cleanest Big Five safari from Joburg: 140km northwest in the North West Province, built inside the crater of an ancient volcano, malaria-free, home to 7,000 animals including lion, elephant, rhino, leopard, and buffalo. May 1 is Workers' Day — a public holiday in SA, with the reserve fully operational. Build this as a May 1 day trip.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1400&auto=format&fit=crop'); background-color:#2d3a1a;"></div>
+    <div class="band-txt">
+      <h3>Drive or hire a guide?</h3>
+      <p>Self-drive in Pilanesberg is genuinely viable — 2WD roads throughout, well-marked game loops, and the intimacy of stopping when you want. Hire a high-clearance rental from OR Tambo (Avis or Budget, booked ahead). Alternatively, hire a driver-guide from Sandton — they'll know the best game loops and sighting hotspots. The guided open-jeep safari from Joburg (via Viator/GetYourGuide) is the easiest option for a single day. Leave Sandton by 4:30–5:00am to hit the gate at opening (6:30am in autumn) for the best game movement.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>May 1 · Workers' Day · The day trip shape</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">4:00am wake — long run in Joburg first</span>
+        <span class="timeline-text">Do your long run before the drive. Emmarentia Dam loop (Joburg's best urban running venue) or the Braamfontein Spruit trail: a 15–20km continuous green corridor from Emmarentia through Delta Park toward Parkhurst. Run with one other person minimum; 5–6am is safe and well-trafficked by Joburg runners. Altitude note: at 1,753m your pace will feel ~45 sec/mile harder than sea level. That's the air, not your fitness — don't chase the watch. Conditions: autumn dawn, 8–12°C at start, dry. Carry water; the Spruit has no fountains.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recover + drive north</span>
+        <span class="timeline-text">Quick shower, load the car — Pilanesberg is 2 hrs 15 min on the N14/R565. Arrive at Manyane or Bakubung gate for the mid-morning game circuit (still good movement until ~10:30am). Elephant and rhino are frequently seen in the Mankwe Dam area.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Game drive 9:30am–1:00pm</span>
+        <span class="timeline-text">Best loop: Manyane Gate → Mankwe Dam hide → Lengau Loop → Ruighoek Loop → Buffalo Thorn Loop. The Mankwe Dam hide is a fixed hide over water — lion, rhino, and elephant all drink here. April/May is excellent: vegetation thinning after summer rain, making animals far easier to spot than January/February.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Lunch at Bakubung or Tshukudu</span>
+        <span class="timeline-text">Bakubung Bush Lodge has a solid lunch restaurant overlook the waterhole (elephants visible from your table). Tshukudu Game Lodge is more intimate and upmarket. Book a table when you reserve the day trip.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon circuit + drive back</span>
+        <span class="timeline-text">Optional second game circuit 3–5:30pm (sunset movement is good), then the 2.5-hr drive back to Sandton. Dinner reservation at Marble or Nobu when you're back — you'll have earned it.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Run safety inside Pilanesberg:</b> Do not run inside the reserve — Big Five wildlife means running is genuinely dangerous. All running should be done in Joburg before the drive. If you want trail running near the park, Sun City Resort (adjacent) has running paths and a maintained road loop through the resort grounds.</p>
+
+  <p style="margin-top:0.8rem;font-size:.92rem;color:var(--ink-soft)"><b>Alt for a full overnight:</b> Bakubung Bush Lodge or Tshukudu Game Lodge both do overnights — a May 1 overnight + early May 2 game drive before heading south toward Singita would be spectacular. You'd miss the Neighbourgoods Market but gain a dawn drive.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>April 30 arrival + May 1 morning</h2>
+    <p>You arrive Thursday April 30. May 1 is Workers' Day (public holiday). May 2, Saturday, you leave for Singita. Three days to get the most of Africa's most misunderstood city.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · arrival dinner</span>
+        <h3>Proud Mary or Tashas Rosebank</h3>
+        <p class="card-loc">Rosebank · 5–10 min from Sandton hotels</p>
+        <p>After a long travel day: Proud Mary for something elegant and unhurried (contemporary dining at the Hyde Hotel, book ahead), or Tashas for something reliably excellent and low-decision-overhead. Both walkable from Rosebank hotels, both excellent. Proud Mary if you want to feel the city; Tashas if you want easy.</p>
+        <p class="card-note">Proud Mary: book ahead. Tashas: walk-in fine at most hours.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">May 1 · big dinner</span>
+        <h3>Marble</h3>
+        <p class="card-loc">Keyes Art Mile, Rosebank · 10 min</p>
+        <p>Book this before you board the plane to Joburg. Workers' Day means the city is buzzing; Marble fills fast. Open-fire everything, the best room in Rosebank, David Higgs's 90+ dish menu. The definitive Joburg fine dining experience. If Marble is full, Nobu Johannesburg at Sandton Sun is your alternate — equally bookable and equally unmissable.</p>
+        <p class="card-note">Book via marble.restaurant — minimum a week ahead.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>May 2 · Saturday · Last morning before Singita</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">7:30am — Father Coffee</span>
+        <span class="timeline-text">Rosebank's finest roastery for the send-off coffee. If you're near Sandton, Motherland or Bootlegger in Sandton City work well. Start the morning early.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">9:00am–12:00pm — Neighbourgoods Market</span>
+        <span class="timeline-text">Braamfontein's Saturday market (9am–2pm) is a perfect final Joburg morning — artisan food, local makers, excellent coffee from Rosetta Roastery on-site. Go by Uber; the market crowd makes Braamfontein completely safe on Saturday mornings. Buy local honey, biltong, and Cape-style preserves for the safari cooler.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — depart for Singita</span>
+        <span class="timeline-text">Depending on your Singita property (Sabi Sand / Kruger area is ~5–6 hrs drive, or a light aircraft from Lanseria airport). Your Joburg days were the gateway — what comes next is something else entirely.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1400&auto=format&fit=crop'); background-color:#3a2a10;"></div>
+  <div class="band-txt">
+    <h3>The savanna waits</h3>
+    <p>Pilanesberg sits inside an ancient volcanic crater 140km north — home to lion, elephant, rhino, leopard, and buffalo in a malaria-free reserve that rivals anything on the continent. A 5am departure from Sandton puts you at the gate as it opens in the cool autumn dawn.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     07 · LUXURY SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>Diamond Walk &amp; beyond</h2>
+    <p>Sandton City and the adjacent Nelson Mandela Square form one of Africa's largest and most prestigious retail complexes. The Diamond Walk inside Sandton City is your European luxury-brand corridor. Rosebank Mall and Melrose Arch round out the circuit.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Flagship</span>
+        <h3>Sandton City — Diamond Walk</h3>
+        <p class="card-loc">Sandton · walkable from Sandton hotels</p>
+        <p>Africa's most prestigious shopping destination. The Diamond Walk corridor houses Prada, Gucci, Louis Vuitton, Dolce &amp; Gabbana, Alexander McQueen, Giorgio Armani, Jimmy Choo, and Cartier. A newly opened Rolex Boutique by Shemer is the star addition for 2025/26. Security-managed, immaculate.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Connected complex</span>
+        <h3>Nelson Mandela Square</h3>
+        <p class="card-loc">Adjacent to Sandton City</p>
+        <p>Piazza-style square with 60+ exclusive boutiques, fine dining restaurants, and an iconic oversized Mandela statue. Fabiani, Roberto Botticelli, Browns Jewellers, Presidential, and Lorenzi leatherware. The best place for premium South African menswear and leather goods. Outdoor dining terraces overlooking the square.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Design + contemporary</span>
+        <h3>Rosebank Mall</h3>
+        <p class="card-loc">Rosebank · Gautrain accessible</p>
+        <p>The more design-forward, younger-skewing mall — boutique South African fashion, concept stores, Checkers FreshX on the ground floor. Less European luxury than Sandton, more interesting independent retail. The Rosebank Rooftop Market runs Sundays (worth a check).</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Lifestyle precinct</span>
+        <h3>Melrose Arch</h3>
+        <p class="card-loc">Melrose · 15 min Uber from Sandton</p>
+        <p>Pedestrian-friendly mixed-use precinct — European in feel, with upscale boutiques, design studios, galleries, and Cecconi's restaurant. The most pleasant shopping streetscape in Joburg; easy to wander without being inside a mall. Premium lifestyle brands and local independents.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">SA designers</span>
+        <h3>Local labels to find</h3>
+        <p class="card-loc">Scattered across Sandton / Rosebank</p>
+        <p>Fabiani (SA's finest menswear house), Stuttafords (heritage department store), Woolworths Clothing (genuinely excellent SA-made basics and tailoring), Kingsley Heath (premium menswear). South African tailoring is outstanding quality for the price — an R2,500 shirt here ($147) is R8,000 elsewhere.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Gifts + craft</span>
+        <h3>Joburg-specific takes</h3>
+        <p class="card-loc">Various</p>
+        <p>African Craft Market at Rosebank (outdoor, curated beadwork, carvings, textiles — genuine craft, not tourist junk). The Market on Main in Maboneng (Sundays) for independent SA designers. Biltong from any supermarket deli section — the good stuff travels well vacuum-packed for safari snacking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · FITNESS
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Running, Pilates, pole &amp; gyms</h2>
+    <p>Joburg at 1,753m — expect your first run to feel like your easy pace requires effort. That's the altitude, not the city. The Braamfontein Spruit trail is one of Africa's best urban running corridors. All studios confirm booking via WhatsApp or Instagram; drop-ins work but classes fill.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios below confirmed operating April/May 2026. Contact ahead on WhatsApp/Instagram to book classes — boutique studios fill quickly.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">Running — routes &amp; altitude notes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best trail — your go-to</span>
+          <h3>Braamfontein Spruit</h3>
+          <p class="card-loc">Emmarentia → Parkhurst → Bryanston · 15–20km linear</p>
+          <p>Joburg's finest urban running corridor — a 15–20km continuous trail following the Spruit river through Emmarentia Dam, Delta Park, Parkhurst, and Bryanston. Green, shaded (autumn foliage), largely traffic-free. Start at Emmarentia Dam. Run with one other person; 5:30–7:30am is the safest window when the trail is most populated by locals.</p>
+          <p class="card-note">Groups of 2+ strongly recommended. Mornings only.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Altitude training</span>
+          <h3>Emmarentia Dam Loop</h3>
+          <p class="card-loc">Emmarentia · ~5km lake loop</p>
+          <p>The Joburg runner's morning ritual — a scenic lake loop through Emmarentia Dam and Botanical Gardens. Parkrun happens here Saturday mornings (7:30am, free entry — May 2 is a Saturday). The altitude at 1,753m means a 8:00/mi effort feels like 7:30 back home. Front-load hydration the night before; the Highveld air is bone dry in autumn.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Safe flat route</span>
+          <h3>Zoo Lake / Parkview</h3>
+          <p class="card-loc">Parkview · 20 min from Sandton</p>
+          <p>Zoo Lake loop and the Westcliff Stairs for a strength variation. Parkview is one of Joburg's safest northern suburbs — the lake loop is busy with runners from 6am. Combine with the Westcliff Stairs for a brutal altitude-added elevation session.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Closest · Sandton</span>
+          <h3>COCO Pilates</h3>
+          <p class="card-loc">Sandton</p>
+          <p>Premium reformer and classical Pilates studio in Sandton — expert instruction, beginner through advanced. The most convenient option from Sandton hotels. Book via website or WhatsApp; classes are capped at 6–8 per session.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Boutique · Morningside</span>
+          <h3>REN Movement Studio</h3>
+          <p class="card-loc">Central Square, Morningside (Sandton)</p>
+          <p>Contemporary reformer studio offering a full range of class levels at Central Square Sandton — one of Joburg's most design-forward wellness spaces. Reformer, barre, stretch, and yoga. Drop-in and short passes available.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Classical foundation</span>
+          <h3>Dynamic Posture Pilates</h3>
+          <p class="card-loc">Rivonia, Sandton</p>
+          <p>Friendly modern studio in Rivonia — various levels, classical method, excellent for injury prevention work after high mileage weeks. Small class sizes, personal attention. The right choice if you want corrective work.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Fourways</span>
+          <h3>MD Pilates</h3>
+          <p class="card-loc">Fourways · 20 min from Sandton</p>
+          <p>Boutique reformer studio in the heart of Fourways — polished, professional, well-regarded. A little further north but worth it if the Sandton options are full. Confirm schedule and drop-in availability on WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best equipped</span>
+          <h3>iPole Dance Studios</h3>
+          <p class="card-loc">Sandton</p>
+          <p>Joburg's leading pole studio in Sandton — empowerment-focused, beginner to advanced levels, high-quality equipment. All-levels classes, strength-focused pole fitness, and an excellent welcome for visiting pole dancers. Book a drop-in via their website or Instagram ahead of arrival.</p>
+          <p class="card-note">Confirm drop-in availability on Instagram DM before your trip.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Full-service studio</span>
+          <h3>Pole Fitness Joburg</h3>
+          <p class="card-loc">Northern Joburg</p>
+          <p>Pole plus aerial silks, barre, and flexibility — the broader movement studio option if you want more variety alongside pole. Check their current schedule on Instagram and message ahead to reserve.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; visitor passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best in Sandton</span>
+          <h3>Virgin Active Alice Lane</h3>
+          <p class="card-loc">Alice Lane, Sandton</p>
+          <p>The premium Virgin Active in Sandton — bespoke reformer Pilates studio, Suspension Yoga, 25m pool, full weight floor. Complimentary guest passes available (ask at reception). Closest serious gym to the Sandton hotel cluster.</p>
+          <p class="card-note">Ask at reception about complimentary guest passes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Full facility</span>
+          <h3>Virgin Active Morningside</h3>
+          <p class="card-loc">Morningside, Sandton</p>
+          <p>Full Virgin Active with reformer Pilates studio and a 25m five-lane lap pool. Excellent for post-long-run recovery swims. Free guest passes available; confirm at the desk. The pool is properly maintained.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Value · citywide</span>
+          <h3>Anytime Fitness Sandton</h3>
+          <p class="card-loc">Sandton / multiple</p>
+          <p>Clean, 24-hour access, solid equipment and affordable day pass. The no-frills option for a lift or treadmill session when you're doing active recovery between outdoor runs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Whole-Foods-level groceries</h2>
+    <p>South African grocery at the premium end punches well above its price — Woolworths Food is the clear leader (no connection to the US brand), with produce, prepared meals, and wines at a genuinely excellent standard. Checkers FreshX is the premium competitor with spectacular concept stores.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Woolworths Food and Checkers FreshX both confirmed operating in Sandton and Rosebank. Woolworths Food is distinct from Woolworths clothing — it's South Africa's Whole Foods equivalent.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Gold standard · SA</span>
+        <h3>Woolworths Food — Sandton City</h3>
+        <p class="card-loc">Sandton City Shopping Centre</p>
+        <p>South Africa's finest food retailer — outstanding produce, prepared meals at a very high level, premium cheese counter, excellent wine section (SA wines here are spectacular value), and a bakery. The Sandton City store is the flagship. This is your daily stop; the ready-meal options are genuinely worth buying for a hotel-room dinner.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Premium concept</span>
+        <h3>Checkers FreshX — Rosebank Mall</h3>
+        <p class="card-loc">Rosebank Mall, ground floor</p>
+        <p>Joburg's most spectacular supermarket experience — honey bar, hand-stretched stone-baked pizza, chocolatier bar, in-store Starbucks, rodizio grill meats, sushi counter. Launched in Rosebank as the showpiece format. The cheese counter and imported wines are exceptional. Go when you want the experience, not just the groceries.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Woolworths · Rosebank</span>
+        <h3>Woolworths Food — Rosebank Mall</h3>
+        <p class="card-loc">Rosebank Mall</p>
+        <p>Second Woolworths Food option if you're based in Rosebank — the same outstanding produce, excellent prepared sushi and salad bars, and the full wine section. More convenient than Sandton City for a grocery run after a Rosebank dinner.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Organic</span>
+        <h3>The Fresh Earth Food Store</h3>
+        <p class="card-loc">Greenside / Northcliff · 20 min from Sandton</p>
+        <p>Joburg's dedicated organic and health food store — local farm produce, cold-pressed juices, organic protein, supplements, and a deli section. The move if you're looking for clean fuel for a high-mileage training block. Confirm current hours ahead of visit.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Saturday market</span>
+        <h3>Neighbourgoods Market</h3>
+        <p class="card-loc">Braamfontein · Saturdays 9am–2pm</p>
+        <p>The best fresh market experience in Joburg — artisan produce, local honey, biltong suppliers, fresh bread, cold-pressed juices, and excellent street food. A social experience as much as a grocery run. Go by Uber on May 2 before departing for Singita.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Safari provisions</span>
+        <h3>Biltong &amp; road food at any Woolworths</h3>
+        <p class="card-loc">Sandton City / Rosebank Mall</p>
+        <p>Before Singita: stock a small cooler bag from Woolworths Food. Biltong (SA's air-dried beef — better than jerky), droëwors (dried sausage), Woolworths premium nuts, and a bottle of Stellenbosch Chenin Blanc. The provender of the Highveld road.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Johannesburg field guide · April 2026 · En route to Singita<br>
+    Rates, openings, and studio schedules change — confirm reservations and passes on arrival.
+  </div>
+  <span class="footer-verified">✓ Restaurants &amp; studios cross-referenced June 2026 · Exchange rate: 1 USD ≈ R17 (April/May 2026 estimate) · Pilanesberg gate times: 06:30 autumn open</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

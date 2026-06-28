@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playa del Carmen — Christopher &amp; Brooke's Field Guide · June 2026</title>
+<meta name="description" content="A two-week field guide to Playa del Carmen — restaurants, coffee, cenotes, fitness, weekend trips, luxury shopping, and everything worth knowing. May–June 2026.">
+<meta property="og:title" content="Playa del Carmen — Christopher &amp; Brooke's Field Guide · June 2026">
+<meta property="og:description" content="Turquoise water, limestone cenotes, and the pulse of the Riviera. Sea level. Caribbean. Jungle meets the coast.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS — Caribbean retheme
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #e8a14a;
+  --gold-light: #f0b860;
+  --gold-deep: #9a6020;
+  --gold-bg: #fef5e2;
+  --emerald: #0d7a6b;
+  --emerald-light: #1a9988;
+  --emerald-deep: #084d44;
+  --emerald-bg: #e6f5f3;
+  --rust: #cc4a2a;
+  --rust-bg: #fdf0eb;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #0d6b5f;
+  background-image: url("https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4,28,24,0.05) 0%,
+    rgba(4,28,24,0.14) 40%,
+    rgba(4,28,24,0.75) 80%,
+    rgba(4,28,24,0.90) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,220,130,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,220,130,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255,220,130,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,210,110,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+  background: inherit;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,220,130,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,220,130,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================================
+   HEAT ALERT
+   ===================================================================== */
+.heat-alert {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border: 1.5px solid #e8a14a;
+  border-radius: var(--radius-md);
+  padding: 1.3rem 1.5rem;
+  margin-top: 1rem;
+}
+.heat-alert h4 {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a4500;
+  margin-bottom: 0.5rem;
+}
+.heat-alert p {
+  font-size: 0.9rem;
+  color: #5a3200;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · May 30 – June 13, 2026 · Two weeks</div>
+    <h1>Playa del<br><em>Carmen</em></h1>
+    <p class="hero-sub">Turquoise water, limestone cenotes, and the pulse of the Riviera. Sea level. Caribbean heat. Jungle meets the coast — with the world's finest underwater caves right outside the door.</p>
+    <div class="hero-meta">Playacar · South of 5th Ave</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Playa del Carmen</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>Sea level, the Caribbean, and June heat that demands respect. The 5th Avenue tourist corridor is well-patrolled and walkable; Playacar is a gated residential area immediately south. Here's everything upfront.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Mexican Peso</div>
+      <p>MXN · symbol $ (e.g. $350 = 350 pesos). USD is widely accepted on 5th Ave, but you lose on the rate. Pay in MXN where possible.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ 17.5</div>
+      <p>1 USD ≈ 17.3–17.7 MXN (late June 2026). Use ATMs inside banks or Oxxo convenience stores, not street machines. Santander and HSBC ATMs are reliable.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude &amp; Climate</h4>
+      <div class="big">Sea level</div>
+      <p>No altitude penalty — your lungs are fine. The issue is heat: highs 29–32°C (84–90°F), humidity 75–80%, UV index 12–13 (extreme). Feels like 40–44°C with the heat index.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / InDriver</div>
+      <p>Both work reliably. Uber is the safest and most consistent. Avoid unmarked cabs on 5th Ave. Collectivos (shared vans on Hwy 307) run cheaply to Tulum and beyond for day trips.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Running — Critical</h4>
+      <div class="big">5:00–6:30am</div>
+      <p>This is your only safe outdoor run window in June. Sunrise is ~5:50am. After 7am, heat index climbs to dangerous territory — even at 6am it's 27°C and 80% RH. Slow your pace 90 sec/mi from goal pace minimum. Run 5th Ave (shaded pedestrian) or beach south toward Playacar. Carry water every 20 min. No exceptions.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Neighborhoods</h4>
+      <div class="big">Playacar</div>
+      <p>Your base. Gated, quiet, residential — the cleanest and safest area in PDC. 5th Ave starts at the north gate. The main tourist strip runs north from Calle 1 to Calle 46. North of Calle 30 is more local, less touristy, and where most specialty coffee and good restaurants cluster.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a Riviera local — essential Spanish for Quintana Roo</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>¿Qué onda?</b> — What's up? (universal Mexican greeting)</div>
+        <div class="slang-item"><b>Chido / Chida</b> — Cool, awesome (Mexican equivalent of chévere)</div>
+        <div class="slang-item"><b>Güey / Wey</b> — Dude, man (neutral, very common)</div>
+        <div class="slang-item"><b>Cenote</b> — Pronounced "seh-NO-teh" — not "SEE-note"</div>
+        <div class="slang-item"><b>La Quinta</b> — What locals call 5th Avenue (La Quinta Avenida)</div>
+        <div class="slang-item"><b>Chela</b> — Beer. "Una chela bien fría" = cold beer</div>
+        <div class="slang-item"><b>No manches</b> — No way / are you serious (polite version of stronger phrase)</div>
+        <div class="slang-item"><b>Ahorita</b> — "Right now" but actually means any time from now to never</div>
+        <div class="slang-item"><b>Palapa</b> — Thatched-roof beach hut / beach club structure</div>
+        <div class="slang-item"><b>¿Me das la cuenta?</b> — Can I have the bill?</div>
+        <div class="slang-item"><b>¡Qué calor!</b> — It's so hot! (you will say this constantly)</div>
+        <div class="slang-item"><b>Cuánto cuesta</b> — How much does it cost?</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Safety — Playa del Carmen June 2026</h4>
+      <ul class="safety-list">
+        <li>5th Ave is heavily policed and tourist-dense — walk it freely day or night.</li>
+        <li>Playacar is gated residential — one of the safest neighborhoods on the Riviera Maya.</li>
+        <li>Avoid Colosio, Villas del Sol and colonias (neighborhoods) away from the tourist zone.</li>
+        <li>Quintana Roo violent crime has trended down consistently through 2025–2026 per state data.</li>
+        <li>Early morning runs (5–6:30am): 5th Ave and Playacar streets are safe; stay on lit routes.</li>
+        <li>ATMs: use machines inside banks, Oxxo stores, or Chedraui — not standalone street ATMs.</li>
+        <li>Carry a card + small MXN cash. Passport stays in the room safe; photo on your phone.</li>
+        <li>Emergency: <b>911</b>. Tourist police patrol the 5th Ave corridor. Playacar has its own security.</li>
+        <li>Reef-safe sunscreen only at cenotes — this is Quintana Roo law, enforced on-site.</li>
+        <li>Sargassum season (seaweed): check howisthesargassum.com before beach days. Varies by week.</li>
+      </ul>
+    </div>
+
+    <div class="fact-card heat-alert" style="grid-column: 1 / -1; background: linear-gradient(135deg, #fff3e0, #ffe8cc); border-color: #e8a14a;">
+      <h4>🌡 Running in June — Ultra-runner Heat Protocol</h4>
+      <p>June in Playa is among the most challenging running environments in the Americas. Heat index regularly hits 40–44°C. Your 50–60 mi/week program needs serious adaptation: run window is 5:00–6:30am only; expect pace to slow 90–120 sec/mile from your normal; double your electrolyte intake; carry a soft flask even for 30-min runs. The beach south of the ferry pier toward Playacar has a sea breeze at that hour — it's marginally more forgiving than inland streets. 5th Ave pedestrian zone is shaded by buildings in early morning. For long run days (14+ miles), have Brooke or your driver crew you with water every 3–4 miles — heat cramps are real at sea level in June with this humidity. Consider scheduling your longest efforts on cooler (post-rain) mornings; afternoon thunderstorms overnight can drop temps 2–3°C by 5am.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth making a reservation for</h2>
+    <p>PDC has evolved well beyond its tourist-strip reputation. The top resort restaurants (Rosewood Mayakoba, Grand Velas, Hotel Xcaret) rival anything in Mexico City. Book resort tables 2–3 weeks ahead; La Cueva del Chango and Carbón are walk-in friendly earlier in the evening.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class / destination dining</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Alux</div><div class="row-desc">Dinner inside a 10,000-year-old natural limestone cave — candlelit pathways, stalactites overhead, contemporary Mexican with Mayan influence. Grilled octopus and tomahawk steak are the moves. Book 1–2 weeks ahead; request the cave main room, not the bar area.</div></div>
+        <span class="pill pill-gold">Av. Juárez</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Casa del Lago · Rosewood Mayakoba</div><div class="row-desc">AAA Five Diamond rating. Mediterranean-inspired, farm-sourced, understated luxury set over a jungle lagoon. The single most refined room in the area — arrive early for a cocktail at Zapote Bar (internationally recognized for Yucatán-inspired craft cocktails) then move to the table.</div></div>
+        <span class="pill pill-gold">Mayakoba · 15 min N</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Cocina de Autor · Grand Velas</div><div class="row-desc">Avant-garde tasting menu conceptualized by Michelin-starred duo Bruno Oteiza and Mikel Alonso. One of Mexico's most creative dining experiences: unexpected textures, Yucatecan ingredients deconstructed. Book 2–3 weeks ahead; this is a proper evening commitment.</div></div>
+        <span class="pill pill-gold">Grand Velas · 20 min N</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Ha · Hotel Xcaret Arte</div><div class="row-desc">Farm-to-coast concept — sustainable sourcing, local fishermen, Mayan culinary traditions fused with modern technique. The natural-element architecture is jaw-dropping. A full evening: arrive for the Xcaret property itself, then dinner.</div></div>
+        <span class="pill pill-gold">Hotel Xcaret · 20 min S</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standout town restaurants — 5th Ave and beyond</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Encanta · Thompson Playa del Carmen</div><div class="row-desc">Rooftop terrace, modern Mexican with locally sourced ingredients, artfully plated. Brilliant mezcal program. The sleek hotel setting makes this feel like a city restaurant — a nice contrast to the resort tier above.</div></div>
+        <span class="pill pill-emerald">5th Ave / Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">La Cueva del Chango</div><div class="row-desc">The beloved Playa institution: an open jungle garden on Calle 38, organic ingredients, traditional Mexican breakfast and lunch. Omelets, huevos rancheros, fresh agua frescas — the best post-long-run recovery meal in town. Go before noon; it gets packed.</div></div>
+        <span class="pill pill-emerald">Calle 38</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Carbón</div><div class="row-desc">Wood-fire grill done right — excellent cuts of beef, whole grilled fish, charred vegetables. The open kitchen and live fire make it one of the more exciting rooms on the strip. Walk-in or book the day of.</div></div>
+        <span class="pill pill-emerald">5th Ave corridor</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Puerto Madero</div><div class="row-desc">Argentine steakhouse — the best cuts on the Riviera Maya for a proper red-meat night. Ask for the bife de chorizo or the imported Angus ribeye. Solid wine list with South American options.</div></div>
+        <span class="pill pill-emerald">Calle 10 Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Diez · Hotel Básico</div><div class="row-desc">Rooftop pool and restaurant on one of PDC's quirkiest boutique hotels. Elevated comfort food, good cocktails, fun vibe — the kind of place for a midweek dinner that doesn't feel like effort.</div></div>
+        <span class="pill pill-emerald">5th Ave / Calle 10</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Zenzi Kitchen &amp; Beach Bar</div><div class="row-desc">The beachfront option: live music, international menu that actually delivers, cold drinks, and the sea breeze you need. Best at sunset when the day-trippers have left. On the beach, north of ferry pier.</div></div>
+        <span class="pill pill-emerald">Playa Norte beach</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Chicha del Barrio</div><div class="row-desc">Peruvian-inspired: ceviches, tiraditos, causa — the bright, acidic flavors you want in the heat. Creative and clean. A solid lighter-format evening if you're cenote-weary and want something precise.</div></div>
+        <span class="pill pill-emerald">Calle 34 Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">La Famiglia Ristorante</div><div class="row-desc">Wood-fire pasta and pizza that's better than it has any right to be in a beach town. Reliable, warm service — a great at-home cooking-for-two night alternative when you want to stay near Playacar.</div></div>
+        <span class="pill pill-emerald">5th Ave South</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Babe's Noodle Bar &amp; Grill</div><div class="row-desc">A 30-year PDC landmark: Thai-inspired noodles, curries, and grilled items in a reliable, casual setting. Perfect for a relaxed weeknight. The pad thai and green curry hold up. One of the few places that ages well.</div></div>
+        <span class="pill pill-emerald">Calle 10 / 5th Ave</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Kaxapa Factory</div><div class="row-desc">Venezuelan arepas done properly — local institution, beloved by expats and travelers alike. The Reina Pepiada (avocado and chicken) and the pabellón (black beans, beef, plantain) are the classics. Inexpensive, satisfying, great for lunch.</div></div>
+        <span class="pill pill-emerald">5th Ave / Calle 24</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">El Fogón</div><div class="row-desc">The legendary taco stop — al pastor straight off the trompo, pork cheek, chorizo. Counter seating, zero pretension, the line tells you everything you need to know. End your big nights here at midnight or go for a morning post-run taco.</div></div>
+        <span class="pill pill-rust">Av. 30 Norte · 24 hrs</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Mariscos El Galeón</div><div class="row-desc">Old-school local mariscos: aguachile, shrimp tostadas, whole grilled fish. The kind of place no tourist guide sends you to, which is why it's excellent. Lunch is the move — order the aguachile negro and a Michelada.</div></div>
+        <span class="pill pill-rust">Local · Av. 30</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Raw Love Café</div><div class="row-desc">The recovery restaurant — acai bowls, smoothies, grain bowls, cold-pressed juices. Vegan and vegetarian-forward, exactly what you want after a brutal early morning run. Bright, clean, consistently good.</div></div>
+        <span class="pill pill-emerald">Calle 34 / 5th Ave</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Pelícanos · Puerto Morelos</div><div class="row-desc">A 20-minute drive north, Puerto Morelos is the quiet fishing village where locals actually eat. Pelícanos is right on the waterfront — fresh catch, ceviche, and whole fish at honest prices. Worth a lunch detour.</div></div>
+        <span class="pill pill-slate">Puerto Morelos · 25 min N</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Cha Benté</div><div class="row-desc">One of the newer places getting attention — elevated Yucatecan cuisine, cochinita pibil and poc chuc done with care. The kind of restaurant that makes you glad you wandered off 5th Ave.</div></div>
+        <span class="pill pill-emerald">Calle 38 area</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Hartwood · Tulum (trip option)</div><div class="row-desc">The most famous table in Tulum — James Beard-recognized, wood-fire only, no electricity, ingredients foraged daily. No reservations. Get there at 5:30pm when they open and wait. Worth building a Tulum day around.</div></div>
+        <span class="pill pill-rust">Tulum · 45 min S</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in" style="margin-top: clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop'); background-color:#0d7a6b;"></div>
+  <div class="band-txt">
+    <h3>Beyond the tourist strip</h3>
+    <p>Playa del Carmen's best dining isn't on 5th Avenue — it's in the resort estates north of town, in the organic garden restaurants behind the pedestrian strip, and in the local mariscos places on Avenida 30 that serve the people who actually live here. Two weeks is enough time to work through all of it.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Fifteen coffee shops worth the walk</h2>
+    <p>PDC's specialty coffee scene is concentrated along 5th Ave and the side streets between Calle 28 and Calle 40. Ah Cacao is the local institution; Vika and Café Kaawa represent the newer specialty wave. Explore the blocks north of Calle 30 — that's where the best indie cafés are emerging.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Ah Cacao Chocolate Café</div><div class="row-desc">The original and most iconic. Mayan cacao in everything — hot chocolate, cacao lattes, mocha. Also serious espresso drinks. Multiple 5th Ave locations; the one near Calle 38 is the most pleasant. The cacao pastries are mandatory.</div></div><span class="pill pill-gold">Multiple · 5th Ave</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Vika Café</div><div class="row-desc">The specialty standout: exceptional espresso and filter, gorgeous medialuna (Argentine croissant), sunny patio. Newer and quieter than Ah Cacao — this is where you go when you want to actually taste the coffee.</div></div><span class="pill pill-gold">5th Ave Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Café Kaawa</div><div class="row-desc">A genuine roasting operation — they sort, roast, bag and cup on site in the Nicte Ha neighborhood (north PDC). No signage; you have to know about it. Buy whole beans to take home. Call ahead or follow on Instagram before making the trip.</div></div><span class="pill pill-emerald">Nicte Ha · N PDC</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Jungle Coffee</div><div class="row-desc">Third-wave specialty in a lush jungle-courtyard setting — plants everywhere, laid-back vibe, strong filter program. A good laptop-and-coffee morning spot when the heat keeps you off the streets by 8am.</div></div><span class="pill pill-emerald">Calle 34 area</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Kinto Coffee Bar</div><div class="row-desc">Specialty espresso, co-working energy, strong cold brew program. Popular with digital nomads — not the quietest, but the coffee is dialed. Good pastry selection and reliable wifi.</div></div><span class="pill pill-emerald">5th Ave</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">MamaEarth Café</div><div class="row-desc">Organic, plant-forward, earthy and warm. Coffee alongside green juices, grain bowls and smoothies. Exactly the post-run refuel spot if Raw Love is full. Clean, health-focused, consistently good.</div></div><span class="pill pill-emerald">5th Ave Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Raw Love Café (coffee)</div><div class="row-desc">Also earns a place on this list for cold brew and mylk lattes. Their cold-pressed coffee with oat milk and cacao is an excellent post-run recovery drink. Same location as in the restaurant section.</div></div><span class="pill pill-emerald">Calle 34</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Selva Café</div><div class="row-desc">Jungle-themed café, single-origin program, beautiful presentation. The kind of place that makes good Instagram content while also making good coffee — genuinely both.</div></div><span class="pill pill-emerald">Calle 28 area</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Core Coffee</div><div class="row-desc">Specialty espresso bar, clean and minimal — good for a quick precise shot before a morning activity. Not a lingering space but the quality is there.</div></div><span class="pill pill-emerald">5th Ave</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">La Fondita</div><div class="row-desc">Classic Mexican breakfast café — café de olla (cinnamon-spiced), chilaquiles, huevos a la mexicana. Not specialty coffee by third-wave standards, but the experience is genuinely Mexican and the café de olla is wonderful.</div></div><span class="pill pill-emerald">5th Ave South</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Noir Coffee Bar</div><div class="row-desc">Dark, atmospheric, good espresso and an excellent cold brew rotation. For an afternoon pick-up when you need to escape the heat and want something slightly moody. Good natural wine list too.</div></div><span class="pill pill-slate">Calle 12 Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Café Punta del Cielo</div><div class="row-desc">Mexico's best national specialty roaster chain — consistent, reliable, good single-origin Mexican coffees. Not as exciting as the indie places, but a solid default on days when you just want a well-made cortado close to the action.</div></div><span class="pill pill-slate">5th Ave / Multiple</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Zapote Bar · Rosewood Mayakoba</div><div class="row-desc">Listed here for the espresso-to-cocktail arc: starts strong on coffee, equally strong on mezcal-forward cocktails. Go for brunch coffee, stay for the pre-lunch drink. The Yucatecan botanical cocktails are some of the best on the Riviera.</div></div><span class="pill pill-gold">Mayakoba · 15 min N</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Papaya Playa Project Bar</div><div class="row-desc">Cold brew and morning smoothies on a beachfront palapa — Tulum-adjacent energy in PDC, open-air, chill. The morning coffee isn't specialty-caliber but the setting earns its place in this rotation.</div></div><span class="pill pill-slate">Beach · North</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Maya Miel</div><div class="row-desc">Honey-forward café using local Melipona bee honey (stingless, indigenous to Yucatán). Unique and worth one visit for the miel-de-abeja latte. Genuinely interesting and very local.</div></div><span class="pill pill-rust">Local find</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>Eight experiences worth the afternoon</h2>
+    <p>You have cenotes on your doorstep, Mayan ruins within an hour, and an entire ecosystem of adventure that most tourists only scratch the surface of. The trick: go early (cenotes get crowded by 11am), use reef-safe sunscreen (law), and save the beach clubs for late afternoon when the light is best.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature experience</span>
+        <h3>Rio Secreto — underground river</h3>
+        <p class="card-loc">15 min from Playacar · guided tour required</p>
+        <p>A flooded cave system you swim and walk through — rock formations, silent underground rivers, cathedral-scale chambers. Unlike standard cenotes, this is guided (you wear a wetsuit and helmet), which keeps it small-group and uncrowded. The most memorable single experience near PDC. Book the private tour.</p>
+        <p class="card-note">Private tour: ~$160 USD per couple. Book directly at riosecretopark.com.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Best open cenote</span>
+        <h3>Cenote Azul</h3>
+        <p class="card-loc">20 min south · off Hwy 307</p>
+        <p>The best family-style open cenote near PDC — vast, turquoise, with depths from 1m to 10m and the most fish species of any cenote in the area. Go by 9am. Cliff jump platform ~5m, crystal water, jungle surroundings. Reef-safe sunscreen only — they check.</p>
+        <p class="card-note">Go on a weekday morning. Weekends get crowded by noon.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Cave + open</span>
+        <h3>Dos Ojos — The Pit</h3>
+        <p class="card-loc">45 min south near Tulum</p>
+        <p>Two cenotes: Dos Ojos (interconnected cave system, snorkel through Mayan underworld) and The Pit, a vertical shaft dropping 40m straight down with sunlight beams creating laser-like rays through the water. Otherworldly. Add a half-day snorkel tour for the cave section.</p>
+        <p class="card-note">Combine with a Tulum ruins morning for a full day trip.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Secret</span>
+        <h3>Cenote Cristalino</h3>
+        <p class="card-loc">25 min south</p>
+        <p>Small, intimate, and less-known than Azul next door — crystal-clear with a cave section to explore and rocky ledges to jump from. Especially good light in the morning. Small entrance fee, never gets as crowded as its neighbor. One of the most photogenic in the area.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Full day</span>
+        <h3>Xel-Há Aquatic Park</h3>
+        <p class="card-loc">50 min south · all-inclusive</p>
+        <p>The all-inclusive snorkel eco-park — a natural inlet of turquoise water, mangroves, cenotes, and hammocks in the water. Snorkel with hundreds of tropical fish, cliff jump into the inlet, float a jungle river. The "lazy river" section is legitimately beautiful. Better than Xcaret for water activities.</p>
+        <p class="card-note">All-inclusive price worth it; includes food, drinks, equipment.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Ruins</span>
+        <h3>Cobá Ruins + Cenote</h3>
+        <p class="card-loc">1.5 hr northwest</p>
+        <p>The only major Mayan pyramid you can still climb (for now — restrictions are being discussed). Nohoch Mul pyramid: 42 metres up, 120 steps, and a view over unbroken jungle that goes to the horizon. Not crowded like Chichén Itzá. Combine with a swim at a nearby cenote for a full morning.</p>
+        <p class="card-note">Leave by 6:30am to reach before the heat hits. Rent a bike on-site to navigate between temples.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Wildlife</span>
+        <h3>Akumal — sea turtles</h3>
+        <p class="card-loc">35 min south</p>
+        <p>Snorkel with wild sea turtles grazing on seagrass in Akumal Bay — one of the most reliable turtle-sighting spots in the Caribbean. Early morning (7–9am) is the clearest and least crowded. A guide is required in the bay now; they're stationed on the beach. Two hours is enough; combine with a cenote on the way back.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Afternoon unwind</span>
+        <h3>Mamita's / Coralina beach clubs</h3>
+        <p class="card-loc">Beach · North 5th Ave</p>
+        <p>For a late-afternoon beach club day: Mamita's is the social Playa classic with good music, loungers and acceptable food. Coralina is quieter and slightly more refined. Both are best 3–6pm when the day-trippers leave and the light goes golden. Check sargassum conditions first.</p>
+        <p class="card-note">Check howisthesargassum.com the morning of before committing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in" style="margin-top: clamp(3rem,6vh,5rem)">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1400&auto=format&fit=crop'); background-color:#084d44;"></div>
+  <div class="band-txt">
+    <h3>Tulum — 45 minutes that change the afternoon</h3>
+    <p>The ruins of Tulum sit on a cliff above the Caribbean — the only Mayan city built on a coastline. After 9am the tour buses arrive; go first thing. Then drive a kilometer south to the hotel zone for a late breakfast and a swim at one of the world's more beautiful beaches. It pairs perfectly with Dos Ojos cenote on the drive back.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Tulum overnight, and your early long run</h2>
+    <p>The right weekend call: one night in Tulum (45 min south), where you get the ruins, the beach hotel zone, Hartwood dinner, and a long run on the Sian Ka'an road at 5am before driving back on Sunday. Bacalar is the more ambitious alternative if you want 2–3 nights.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1591017403997-44a5c56e1a59?q=80&w=1400&auto=format&fit=crop'); background-color:#0d7a6b;"></div>
+    <div class="band-txt">
+      <h3>Drive, don't stress — 45 minutes each way</h3>
+      <p>Tulum is 60 km south on the straight Hwy 307 — an easy drive. Rent a car (or hire a driver for the whole weekend) and avoid the ADO bus if you want freedom to leave early for your long run. Road quality is excellent. Uber to Tulum exists but surge pricing on early Sunday mornings makes it unpredictable — having your own wheels or a contracted driver matters.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the Tulum weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday Morning</span>
+        <span class="timeline-text">Drive to Tulum, arrive by 8am. Tulum ruins open at 8am — arrive before the buses (9am+). The cliff views over the Caribbean are unlike any ruins in Mexico. Give it 1.5 hours. Then drive the 1km south into the hotel zone.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday Afternoon</span>
+        <span class="timeline-text">Check into your hotel (Azulik, Papaya Playa, or Nomade for the experience). Cenote swim — Dos Ojos or Gran Cenote are 5–10 min from the hotel zone. Beach time at your hotel in the afternoon: Tulum beach is one of the best in Mexico when sargassum is clear.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday Evening — Hartwood</span>
+        <span class="timeline-text">Arrive at Hartwood at 5:30pm when they open and put your name in. No reservations, all wood-fire, ingredients foraged that morning. This is James Beard-recognized, internationally famous — the wait is part of it. Order everything. After dinner: Nomade or Gitano for a drink.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — The Long Run (5:00am)</span>
+        <span class="timeline-text">Start no later than 5:00am. The Sian Ka'an Biosphere Reserve road (Carretera Tulum-Boca Paila) runs dead flat south through protected jungle — no traffic at that hour, wildlife, incredible silence. 14–18 miles is achievable in the 5:00–7:00am window before heat becomes dangerous. Have Brooke or your driver meet you every 4 miles with water + Maurten. Same heat protocol applies: same humidity as PDC, same temperature. You're not escaping the conditions, but starting earlier helps.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday 8am</span>
+        <span class="timeline-text">Recovery breakfast, cenote swim to cool down, slow drive back to Playacar. Stop at Cenote Azul on the way for a final swim.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Bacalar alternative (2–3 nights):</b> The Laguna de Bacalar is 3 hours south — the "lagoon of seven colors" is one of the most beautiful freshwater bodies in the world. Kayak at sunrise, rope swings into the turquoise channels, Fort San Felipe. Running there: flat lakeside road, same heat conditions but slightly less humid than the coast. Worth it for a longer mid-trip escape, not a tight weekend.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight's dinner, and a big table to book immediately</h2>
+    <p>Arrival night should be easy — La Cueva del Chango for a casual first evening, or Encanta for a rooftop cocktail and dinner. The marquee reservation to lock in the moment you land is Cocina de Autor at Grand Velas, which books 2–3 weeks ahead.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · easy arrival</span>
+        <h3>La Cueva del Chango or Encanta</h3>
+        <p class="card-loc">Both walkable or 5 min from Playacar</p>
+        <p>La Cueva del Chango for a relaxed garden dinner — organic, local, unpretentious. Or Encanta at the Thompson for a rooftop mezcal cocktail and modern Mexican. Either is the arrival night you want after travel: excellent food, no pressure.</p>
+        <p class="card-note">La Cueva closes at 11pm. Encanta is best between 7–9pm for the rooftop breeze.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Book this week · marquee night</span>
+        <h3>Cocina de Autor · Grand Velas</h3>
+        <p class="card-loc">Grand Velas · ~20 min north</p>
+        <p>Your headline reservation. Michelin-starred chef duo tasting menu — reserve for mid-trip when you've settled in and want a full evening commitment. Book 2–3 weeks ahead; call directly if the online system is difficult for non-guests.</p>
+        <p class="card-note">Also book: Alux (1 week ahead) and Casa del Lago at Rosewood (1–2 weeks).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>The first full day (after the early run)</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">5:00–6:30am — Run</span>
+        <span class="timeline-text">5th Ave pedestrian zone north (shaded, ~1.5km from Playacar gate) or beach south toward Playacar beach. Keep it easy — this is acclimatization day. 60 min easy, not a workout. Carry water. Back before 7am.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">7:30am — Recovery coffee</span>
+        <span class="timeline-text">Ah Cacao on 5th Ave for a cacao latte and a pastry. Or Vika if you want proper third-wave. Both are 5 minutes from Playacar gate. The morning on 5th Ave before 9am is genuinely pleasant — quiet, cool-ish, local vendors setting up.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">9am–2pm — Cenote morning</span>
+        <span class="timeline-text">Rio Secreto for the underground river (book ahead) or Cenote Azul (20 min south). Either way, you're in the water by 9:30am when it's still cool and the crowds haven't arrived. This is the ideal post-run recovery: cold cenote water after a hot run is extraordinary.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon</span>
+        <span class="timeline-text">Air conditioning, lunch at Raw Love or La Cueva del Chango, nap. The heat between 1pm and 5pm is not for walking. Save energy for the evening.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>5th Avenue &amp; beyond</h2>
+    <p>La Quinta Avenida has evolved: alongside the souvenir shops are genuine designer boutiques, Mayan craft specialists, and artisan jewelry. The real luxury tier is at Paseo del Carmen and Luxury Avenue Boutique Mall. Tulum adds independent concept stores worth the drive.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Designer flagship</span>
+        <h3>Luxury Avenue Boutique Mall</h3>
+        <p class="card-loc">5th Ave · Centro</p>
+        <p>The upscale anchor of 5th Ave: Montblanc, Swarovski, Tumi, Longchamp, Cartier. Air-conditioned, elegant, full premium service. The place to pick up quality goods when you don't want to deal with the heat outside. Also houses a good spa and salon.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Outdoor mall</span>
+        <h3>Paseo del Carmen</h3>
+        <p class="card-loc">Entrance to 5th Ave · Playacar</p>
+        <p>Mediterranean-style open mall at the south end of 5th Ave — closest to your Playacar base. Lacoste, Hugo Boss, Tommy Hilfiger, Armani Exchange, Zara. Walkable from home for an evening browse. Also has good restaurants for a casual dinner without going far.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Mexican craftsmanship</span>
+        <h3>Pineda Covalin</h3>
+        <p class="card-loc">5th Ave</p>
+        <p>Mexico's most sophisticated silk and textile house — clothing, scarves, ties, and accessories printed with pre-Columbian iconography. The quality is genuine (silk, not polyester) and the pieces are genuinely Mexican. The most elegant souvenir on the strip.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Artisan jewelry</span>
+        <h3>Caracol Púrpura</h3>
+        <p class="card-loc">5th Ave</p>
+        <p>Mexican artisan jewelry and clothing — amber, obsidian, jade, silver set in contemporary Mayan-inspired designs. The amber collection is extraordinary (Chiapas amber, not Baltic). Pieces you can't get anywhere else at home. Take your time here.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Artisan market</span>
+        <h3>30th Ave Artisan Market</h3>
+        <p class="card-loc">Av. 30 Norte area</p>
+        <p>The local artisan market (less tourist-curated than 5th Ave shops) — embroidered textiles, hammocks, hand-painted ceramics, leather goods. Haggling is expected and normal. Go weekday mornings when it's cooler and the vendors have energy to engage.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Tulum boutiques (day trip)</span>
+        <h3>Tulum hotel zone boutiques</h3>
+        <p class="card-loc">Carretera Tulum-Boca Paila</p>
+        <p>The hotel zone road has independent concept boutiques that are genuinely excellent: sustainable resort wear, hand-dyed linens, local ceramics, Mayan-inspired jewelry. This is the one place in the Riviera Maya that has true independent design energy. Combine with a Tulum dinner day.</p>
+        <p class="card-note">Best shops: Coqui Coqui boutique, La Valise store, and the small Mayan design houses around km 6–8.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, pole &amp; gyms in PDC</h2>
+    <p>PDC has a solid pilates and fitness scene, though Tulum (45 min) has the more sophisticated boutique wellness studios. Most PDC studios are within a 10–15 min Uber of Playacar. Book classes via WhatsApp or Instagram DM — studio websites are often not current.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Studios below confirmed operating as of June 2026. Message each on Instagram/WhatsApp to check current schedules before your visit — class times shift seasonally.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Premium · best equipment</span>
+          <h3>Precision Pilates Playa</h3>
+          <p class="card-loc">5th Ave corridor · Playa del Carmen</p>
+          <p>The premier reformer studio in PDC — certified Balanced Body host site, Allegro 2 reformers, comprehensive-certified instructors. Drop-in classes and short passes available. The most professional setup in town; serious instruction for serious athletes.</p>
+          <p class="card-note">Book via their website or Instagram. Day pass and session packs available.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Contemporary</span>
+          <h3>Pilates Republic</h3>
+          <p class="card-loc">Av. 15, between Calle 8 y 10</p>
+          <p>Contemporary reformer Pilates studio in the heart of PDC — mindful movement, good instructors, clean space. More accessible location than Precision Pilates; good for a midweek class when you want something close and efficient.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Tulum · elevated</span>
+          <h3>Holy Body Pilates · Tulum</h3>
+          <p class="card-loc">La Veleta neighborhood · Tulum · 45 min</p>
+          <p>The best reformer studio in the area is actually in Tulum — Holy Body is exceptional in quality and atmosphere. Worth the drive on a Tulum day. The La Veleta neighborhood is the boutique wellness hub of Tulum Centro; this is the standout.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Tulum option</span>
+          <h3>Amazonia Pilates Lab · Tulum</h3>
+          <p class="card-loc">Av. Tulum, Tulum Centro · 45 min</p>
+          <p>Second strong Tulum option — reformer Pilates in a boutique studio setting. Pair with Holy Body for a full Tulum wellness day: morning pilates, cenote, Hartwood dinner.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">PDC · longest-running</span>
+          <h3>Rouge Pole Fitness</h3>
+          <p class="card-loc">Playa del Carmen</p>
+          <p>The first and longest-established pole fitness school in PDC — 9+ years operating, multiple instructors, all levels welcome. Drop-in classes, a comfortable space, and a genuinely supportive community. Message on Facebook/Instagram for current schedule and drop-in rates.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">5th Ave</span>
+          <h3>Pole Boudoir</h3>
+          <p class="card-loc">5th Ave · Playa del Carmen</p>
+          <p>On the main strip — accessible and well-located. Classes in pole, aerial, and sensual movement. Updated as of early 2026 on Yelp. Good for a drop-in class when you want something close without an Uber.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">10th Ave</span>
+          <h3>Oh My Pole!</h3>
+          <p class="card-loc">10 Av. Sur · Playa del Carmen</p>
+          <p>Popular PDC pole studio — active Instagram presence (@ohmypolepdc), multiple class levels, clean facility. Drop-in friendly; message ahead to confirm schedule. Well-regarded in the local fitness community.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Av. Paraíso</span>
+          <h3>L'Atelier Pole Dance</h3>
+          <p class="card-loc">Av. del Paraíso · Playa del Carmen</p>
+          <p>French-owned boutique studio with a specific sensual/artistic approach to pole. Smaller, more intimate — a different energy than the fitness-first studios. Good for a single drop-in class when you want variety.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; short passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best equipment · PDC</span>
+          <h3>The Gym Playa del Carmen</h3>
+          <p class="card-loc">Central PDC</p>
+          <p>The most upscale gym in Playa del Carmen — best equipment, central location, day passes available (~300–400 MXN). The go-to for strength work between studio classes. Bring your passport for the day-pass requirement. Card payment only.</p>
+          <p class="card-note">Day pass ≈ $17–22 USD. Short-term passes available for the two-week window.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Affordable backup</span>
+          <h3>Smart Fit</h3>
+          <p class="card-loc">Multiple locations · PDC</p>
+          <p>Clean, well-equipped, very affordable day pass (~100 MXN / ~$6 USD). Not premium but reliable — solid for a no-frills early morning lift when you want to stay cool and move before the heat builds. Locations on Av. 30 and CTM.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Outdoors · free</span>
+          <h3>Playacar Golf Club perimeter</h3>
+          <p class="card-loc">Playacar Phase II · your backyard</p>
+          <p>The Playacar golf course has perimeter paths used by residents for morning runs and walks — flat, quiet, shaded in parts. Not a formal running path but very accessible from Playacar accommodations. Best used 5–6:30am. Zero cost, zero hassle.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Beach</span>
+          <h3>Playacar beach (south)</h3>
+          <p class="card-loc">South of ferry pier toward Playacar</p>
+          <p>The beach south of the ferry terminal has firmer sand than the central beach and a consistent sea breeze at 5am. 4km of runnable beach with less human traffic in early morning. The breeze drops the feels-like temperature 2–3 degrees — meaningfully helpful at 5am.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Whole-Foods-style groceries &amp; markets</h2>
+    <p>PDC has a solid organic and specialty food scene. The Chedraui Selecto is the most convenient premium supermarket. The weekly eco-markets are the best source for local organic produce and artisan food products.</p>
+  </div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Closest premium</span>
+        <h3>Chedraui Selecto</h3>
+        <p class="card-loc">Multiple locations · PDC / Playacar area</p>
+        <p>The premium tier of the Chedraui supermarket chain — wide produce selection, imported goods, good wine and spirits section, fresh bakery. Not Whole Foods, but close enough for a Mexican beach town. The Playacar area location is the most convenient for your base.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic</span>
+        <h3>Wo' Market</h3>
+        <p class="card-loc">5th Ave Norte area</p>
+        <p>Eco-conscious organic grocery — organic produce, natural snacks, refill products, and sustainable household goods. Closest thing to a true health food store in PDC. Great for stocking up on electrolytes, protein, clean snacks, and produce for cooking-at-home nights.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Natural + café</span>
+        <h3>Bio Natural</h3>
+        <p class="card-loc">5th Ave area</p>
+        <p>Organic grocery store with a small café attached — wholesome prepared foods, organic produce, natural supplements. The prepared food counter (grain bowls, salads) is excellent for a quick healthy lunch without cooking. Good pantry staples and hard-to-find health items.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Natural goods</span>
+        <h3>Balab Health Market</h3>
+        <p class="card-loc">Central PDC</p>
+        <p>Natural foods, superfoods, and sustainable products — coconut yogurt, gluten-free baked goods, local honey, organic nut butters. Smaller than Wo' Market but with a curated selection that's more focused on specialty items.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Eco-market</span>
+        <h3>Mercado Ecológico · Parque La Ceiba</h3>
+        <p class="card-loc">3rd Saturday of month · 11am–6pm</p>
+        <p>The best farmers market in PDC — local organic produce, artisan baked goods, homemade jams and nut butters, local honey, natural soap, empanadas and French pastries. Worth building a Saturday morning around. Confirm dates as scheduling can shift.</p>
+        <p class="card-note">Also: Les Alizes Condominiums (Fridays 9–11am) and Kava Kasa (Tuesdays 11am–1pm) for smaller weekly markets.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">DAC</span>
+        <h3>DAC Market</h3>
+        <p class="card-loc">Central PDC</p>
+        <p>Local produce market with organic finds alongside conventional — great prices, genuinely fresh tropical fruit (mango, mamey, papaya, guanábana), and local vegetables. Where the expats who live here actually shop. Less curated than the organic stores but fresher and cheaper.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Playa del Carmen field guide · May 30 – June 13, 2026<br>
+    Rates and openings shift — confirm restaurant reservations, studio schedules, and cenote hours on arrival.<br>
+    Check howisthesargassum.com before beach days. Run before 6:30am, every day, no exceptions.
+  </div>
+  <span class="footer-verified">✓ Research validated June 2026 · Exchange rate 1 USD ≈ 17.5 MXN · All studios confirmed operating</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

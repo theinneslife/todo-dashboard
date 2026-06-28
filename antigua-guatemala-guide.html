@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antigua Guatemala — Christopher & Brooke's Field Guide</title>
+<meta name="description" content="A two-week field guide to Antigua Guatemala — restaurants, coffee, fitness, weekend trips, luxury shopping, altitude running, and everything worth knowing. June 2026.">
+<meta property="og:title" content="Antigua Guatemala — Christopher & Brooke's Field Guide · June 2026">
+<meta property="og:description" content="Colonial stone and volcanic fire. 1,530 meters. Cobblestones. Three volcanoes on the horizon.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1591620723771-6f02c419b34e?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c87941;
+  --gold-light: #d9924f;
+  --gold-deep: #7a4a1e;
+  --gold-bg: #fdf0e0;
+  --emerald: #1a6b45;
+  --emerald-light: #228054;
+  --emerald-deep: #0e4229;
+  --emerald-bg: #e8f4ee;
+  --rust: #9b3522;
+  --rust-bg: #fdf0ec;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1591620723771-6f02c419b34e?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+  background: rgba(0,0,0,0.18);
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · June 13–27, 2026 · Two weeks</div>
+    <h1>Antigua,<br><em>colonial stone &amp; volcanic fire</em></h1>
+    <p class="hero-sub">1,530 meters above sea level — a UNESCO colonial jewel ringed by three volcanoes, some of the world's finest coffee grown at its edges, and a dining scene that routinely outpunches its size. Cobblestones and cathedral ruins on every corner. Three volcanoes on the horizon.</p>
+    <div class="hero-meta">Central Park / Calle del Arco area · Antigua Guatemala</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Antigua Guatemala</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>The essentials, up front: altitude that will humble your first run, cobblestones that will humble your tuk-tuk ride, money, and how people actually talk here. Antigua rewards slow pace and sharp awareness — which, coming off Bogotá at 2,640m, you already own the altitude half.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Guatemalan Quetzal</div>
+      <p>GTQ · symbol Q. USD widely accepted in tourist areas but you'll get better rates using quetzales for daily spending.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ Q 7.63</div>
+      <p>1 USD ≈ Q 7.60–7.65 (late June 2026). One of Central America's most stable currencies — has held the Q7.60–7.80 band since 2022. Divide by 7.6 for fast USD math.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude</h4>
+      <div class="big">1,530 m</div>
+      <p>≈ 5,020 ft. Significantly lower than Bogotá's 2,640m — you'll actually breathe easier here. Still, first 48 hours: slow your pace ~8–10%, hydrate more than feels necessary. By day 3, your legs will feel unusually fast.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Tuk-tuks &amp; private</div>
+      <p>Inside Antigua: tuk-tuks (auto-rickshaws) are the local move — Q10–20 for most hops. Beyond city limits: always private driver, never public bus. Uber coverage is limited here.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Running at 1,530 m</h4>
+      <div class="big">Adjust &amp; Own It</div>
+      <p>Coming from Bogotá (2,640m), Antigua is lower — you may feel a surge of power. Cobblestones in the historic core require trail shoes or trail-aware road shoes. Best flat route: the Jocatenango loop (4–5 mi). Hills: Cerro de la Cruz. Trails: Acatenango foothills.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Navigation</h4>
+      <div class="big">Grid + Compass</div>
+      <p>Antigua runs on a colonial grid: Calles run E-W, Avenidas run N-S. Everything is tagged Norte/Sur/Oriente/Poniente from the Parque Central. It clicks within 20 minutes of walking.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a local — Guatemalan &amp; Antigüeño slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>¡Buenas!</b> — Universal greeting at any hour</div>
+        <div class="slang-item"><b>Chapín / Chapina</b> — A Guatemalan person (endearing)</div>
+        <div class="slang-item"><b>Chucho</b> — Dog (you'll see many strays)</div>
+        <div class="slang-item"><b>Güiro / Güira</b> — Kid, young one</div>
+        <div class="slang-item"><b>Mañoso</b> — Picky, fussy</div>
+        <div class="slang-item"><b>¿Qué onda, vos?</b> — What's up? (casual)</div>
+        <div class="slang-item"><b>Vos</b> — You (used instead of tú; very Guatemalan)</div>
+        <div class="slang-item"><b>Clavo</b> — A problem or mess ("¡Qué clavo!")</div>
+        <div class="slang-item"><b>Pisto</b> — Money / cash</div>
+        <div class="slang-item"><b>¡Aguas!</b> — Watch out! / Heads up!</div>
+        <div class="slang-item"><b>Cabal</b> — Exactly / Precisely / That's right</div>
+        <div class="slang-item"><b>Shuco</b> — Dirty / messy (also a local hot-dog style)</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying sharp — safety in Antigua</h4>
+      <ul class="safety-list">
+        <li>Antigua is Guatemala's safest destination for tourists — the historic core is walkable day and night on busy streets.</li>
+        <li>The main tourist zone (Parque Central, 5a Avenida Norte, Calle del Arco) has visible tourist police presence.</li>
+        <li>Stick to well-lit central streets after dark; less-trafficked alleys are not recommended late at night.</li>
+        <li>Tuk-tuks are safe for short hops; agree on the price before you get in (most rides are Q10–20 in-town).</li>
+        <li>For any trip outside Antigua — Lake Atitlán, Acatenango, Guatemala City — use a private driver, not public buses.</li>
+        <li>Less-frequented hike trails can attract opportunistic crime; use operators with security presence or police escort.</li>
+        <li>Don't drink tap water — bottled only. Restaurants serving tourists typically use purified water for cooking and ice.</li>
+        <li>ATMs: use machines inside banks or inside La Bodegona. Avoid street ATMs at night.</li>
+        <li>Tourist emergency: <b>1500</b> (INGUAT tourist assistance line). General emergency: <b>110</b> (police).</li>
+        <li>Passport safe in your room; carry a phone photo instead plus one card and modest cash.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the walk</h2>
+    <p>Antigua punches absurdly above its weight for a city of 45,000 — colonial courtyards hide some of Guatemala's best tables, and the whole city is walkable or a five-minute tuk-tuk ride. Book the top tier (Hector's, Mesón Panza Verde) a week ahead; many fill on weekends during high season.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">Fine dining tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Hector's Bistro</div><div class="row-desc">Antigua's undisputed #1 — a tiny 20-seat room run by chef Hector Pérez, with a rotating menu of creative Guatemalan-European plates. No substitutions; full trust. Book as far ahead as possible.</div></div>
+        <span class="pill pill-gold">Central</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Mesón Panza Verde</div><div class="row-desc">The city's most refined atmosphere — a garden-wrapped colonial mansion with candlelit courtyards and an internationally trained kitchen. Best wine list in the city. The splurge night.</div></div>
+        <span class="pill pill-gold">Sur</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">El Sereno</div><div class="row-desc">Elevated Guatemalan cuisine in a dramatic, lantern-lit courtyard. The churrasco and grilled fish preparations are exceptional. Strong cocktail program.</div></div>
+        <span class="pill pill-gold">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Clio's Antigua</div><div class="row-desc">French-inspired event-space restaurant with proper fine dining execution — orange duck, mushroom steak, crème brûlée flight. The most polished full-experience night after Hector's.</div></div>
+        <span class="pill pill-gold">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Libra</div><div class="row-desc">The most refined all-round newcomer — exceptional food, warm hospitality, beautifully curated interior. One of the city's most consistent high-end experiences.</div></div>
+        <span class="pill pill-gold">Norte</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standout mid-tier &amp; neighborhood favorites</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Fridas</div><div class="row-desc">Colorful, Frida Kahlo–themed Mexican-Guatemalan kitchen beloved by locals. Great margaritas, lively energy, reliably good food. The fun dinner option.</div></div>
+        <span class="pill pill-emerald">5a Av Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Samsara</div><div class="row-desc">Top-rated health-focused kitchen — superb salads, grain bowls, and acai plates. The go-to for a light, nutrient-forward meal before or after a long run.</div></div>
+        <span class="pill pill-emerald">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Café No Sé</div><div class="row-desc">An Antigua institution — half mezcal bar, half creative kitchen, fully packed most nights. Order the tacos, try the mezcal flight.</div></div>
+        <span class="pill pill-emerald">1a Av Sur</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Bistrot Cinq</div><div class="row-desc">Classic French bistro from the team behind Mesón Panza Verde — good steak-frites, great wine, unpretentious. The easy, reliable midweek dinner.</div></div>
+        <span class="pill pill-emerald">Sur</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Néctar</div><div class="row-desc">Garden-set creative cooking in a restored colonial home; the tasting format pairs well with their local spirit selection.</div></div>
+        <span class="pill pill-emerald">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">La Cuevita de los Urquizú</div><div class="row-desc">Traditional Guatemalan home cooking in a classic setting — pepián, kak'ik, chiles rellenos done right. The authentic local night.</div></div>
+        <span class="pill pill-emerald">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Vivo Restaurant</div><div class="row-desc">Creative Guatemalan-fusion with an open kitchen and good cocktail program. Popular with a younger upscale crowd.</div></div>
+        <span class="pill pill-emerald">Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Sobremesa</div><div class="row-desc">Tapas-style small plates, natural wine, cozy room — the casual drinking-and-eating bar that belongs on every rotation.</div></div>
+        <span class="pill pill-emerald">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Fuego</div><div class="row-desc">Rooftop bar and restaurant with direct views toward Volcán de Fuego. Atmosphere over food, but a key sundowner spot when there's lava visible.</div></div>
+        <span class="pill pill-emerald">Centro · Rooftop</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">La Peña de Sol Latino</div><div class="row-desc">Live marimba music, traditional Guatemalan menu, covered courtyard — the classic colonial dinner-entertainment experience.</div></div>
+        <span class="pill pill-emerald">5a Av Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Rainbow Café</div><div class="row-desc">Long-standing Antigua institution for breakfasts and relaxed lunches. Excellent granola and strong coffee; terrace seating overlooks 7a Av.</div></div>
+        <span class="pill pill-emerald">7a Av Sur</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Angie Angie</div><div class="row-desc">Budget-smart, big-flavored — popular for hearty plates with local ingredients. Often packed at midday with travelers and long-term expats.</div></div>
+        <span class="pill pill-emerald">Centro</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">El Viejo Cajón</div><div class="row-desc">Warm, rustic steakhouse with well-aged Guatemalan beef cuts and a good local wine selection. A solid meat night.</div></div>
+        <span class="pill pill-emerald">Sur</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Las Palmas</div><div class="row-desc">Outdoor courtyard, wood-fired oven, relaxed vibe — excellent pizza and salads. The cook-for-two-without-thinking night.</div></div>
+        <span class="pill pill-emerald">Norte</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">La Fonda de la Calle Real</div><div class="row-desc">Beloved multi-floor classic serving traditional Guatemalan cuisine since 1975. Pepián negro, hilachas, jocón — the historic standard-bearer. Multiple locations; the 5a Av branch is closest to the park.</div></div>
+        <span class="pill pill-rust">5a Av Norte · Classic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A coffee region that eats seriously</h3>
+    <p>Antigua sits inside one of Guatemala's five great coffee growing zones — volcanic soil, altitude, and consistent rainfall produce some of the world's most recognized single-origin beans. The same agricultural richness flows into the kitchen: fresh corn, black beans, local chiles, and an indigenous culinary tradition that's been developing for centuries. The best restaurants here cook with all of it.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops in one of the world's great growing regions</h2>
+    <p>You're in the middle of it — Antigua coffee is a recognized origin denomination. The volcanic soil, 1,500m elevation, and wet/dry climate cycle produce a distinctively complex cup. Most of the best roasters here source directly from farms you can see from the city.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Artista de Café</div><div class="row-desc">The most serious specialty outfit in the city — pour-overs, cold brew, expertly dialed espresso, fresh pastries. Precise, professional, worth the pilgrimage.</div></div><span class="pill pill-gold">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">12 Onzas</div><div class="row-desc">Coffee from their own award-winning farm in Chimaltenango — as direct-trade as it gets. Try the single-origin filter; beautiful courtyard setting.</div></div><span class="pill pill-gold">5a Av Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Alegría Café</div><div class="row-desc">Near Parque Central serving exclusively Finca Gascón coffee — one specific estate, every cup. A purist's stop. Clean, focused menu.</div></div><span class="pill pill-gold">Parque Central</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">The River Coffee House</div><div class="row-desc">Founded by a Guatemalan-American couple focused on minority employment. Strong third-wave program, friendly community energy, excellent pour-overs.</div></div><span class="pill pill-emerald">Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Café Condesa</div><div class="row-desc">In the courtyard of Casa del Conde, steps from the park. Roaster-direct sourcing, solid brunch food, leafy colonial setting. Great morning stop.</div></div><span class="pill pill-emerald">Parque Central</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">La Hermitage</div><div class="row-desc">Light-filled, cozy rooms with local art; well-trained baristas and consistent specialty espresso. Reliable midday retreat.</div></div><span class="pill pill-emerald">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Finca Las Nubes</div><div class="row-desc">Café and coffee-education space linked directly to a producing farm. The place to take a short cupping or origin-education session.</div></div><span class="pill pill-emerald">Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Café Flor</div><div class="row-desc">Relaxed, plant-filled space popular with digital nomads. Solid espresso bar, good pastries, reliable wifi. The work-from-coffee-shop of choice.</div></div><span class="pill pill-emerald">4a Calle</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Nim Café</div><div class="row-desc">Part of the Nim Po't textile complex — grab a cortado before or after browsing the huipiles. Cultural immersion with caffeine.</div></div><span class="pill pill-emerald">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Fábrica de Café</div><div class="row-desc">On-site micro roaster with visible drums and strong filter. Come in the morning when the roasting is fresh.</div></div><span class="pill pill-emerald">Sur</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Hecto's Café</div><div class="row-desc">From the same creative family as Hector's Bistro — a lighter, casual all-day space for excellent coffee and simple breakfast plates.</div></div><span class="pill pill-emerald">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Panza Verde Café</div><div class="row-desc">The daytime café face of Mesón Panza Verde — impeccable coffee and pastries in the hotel garden. A quiet, garden-terrace luxury break.</div></div><span class="pill pill-emerald">Sur</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Café Sky</div><div class="row-desc">Rooftop café with wide views of Cerro de la Cruz and the volcanoes. Coffee is solid; the setting is unbeatable for a morning debrief.</div></div><span class="pill pill-emerald">Centro · Rooftop</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Brújula Café</div><div class="row-desc">Specialty pour-overs, strong aeropress game, light food menu. Understated room; serious about the cup.</div></div><span class="pill pill-emerald">Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Epicure Café</div><div class="row-desc">Cozy European-style café with excellent croissants and a tight espresso program. The leisurely breakfast option.</div></div><span class="pill pill-emerald">Poniente</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Café La Escudilla</div><div class="row-desc">Long-established expat favorite on the eastern edge of center. Quiet terrace, consistent coffee, great people-watching on quieter streets.</div></div><span class="pill pill-emerald">Oriente</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Las Palmas Café</div><div class="row-desc">Low-key courtyard spot with fresh fruit smoothies alongside the espresso bar. Post-morning-run recovery stop.</div></div><span class="pill pill-emerald">Norte</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">La Reyna Coffee</div><div class="row-desc">Women-led roasting co-op with direct ties to indigenous farming communities. Excellent filter; ethically significant.</div></div><span class="pill pill-emerald">Sur</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Café 2D</div><div class="row-desc">Graphic-design-forward space, strong cold brew, open late. The creative energy makes it a good afternoon option when you want something with visual personality.</div></div><span class="pill pill-emerald">Centro</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Saúl's Café</div><div class="row-desc">The reliable everyday café — consistent espresso, friendly staff, Q20 café americano. On almost every street corner variant — the tinto of Antigua.</div></div><span class="pill pill-slate">Citywide</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One neat experience a day</h2>
+    <p>Antigua is a walking museum — colonial ruins, jade culture, Indigenous textile arts, volcano sightlines, chocolate from its cacao origins. A different afternoon every day for two weeks is doable without repeating.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature</span>
+        <h3>ChocoMuseo bean-to-bar workshop</h3>
+        <p class="card-loc">4a Calle Poniente #8 · near Parque Central</p>
+        <p>Guatemalan cacao has indigenous roots going back thousands of years — this 2-hour hands-on workshop takes you through the full process: raw cacao to finished chocolate, with a Mayan ceremonial cacao drink at the end. Walk out with what you made. One of the top-rated experiences in the city for good reason.</p>
+        <p class="card-note">Walk-in most days; book ahead for groups. Q200–280.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Textile arts</span>
+        <h3>Backstrap weaving class, San Antonio Aguas Calientes</h3>
+        <p class="card-loc">20 min from Antigua by shuttle or tuk-tuk</p>
+        <p>The women's weaving co-op in this small Maya-Kaqchikel village teaches the backstrap loom — the same technique used for centuries to produce the huipiles at Nim Po't. A genuinely immersive half-afternoon; bring Brooke. The village market is excellent for picking up pieces direct from the makers.</p>
+        <p class="card-note">Ask at your accommodation for the current best co-op contact.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Architecture</span>
+        <h3>Santa Catalina Arch &amp; Calle del Arco golden hour</h3>
+        <p class="card-loc">4a Calle Poniente &amp; 5a Av Norte</p>
+        <p>The most iconic image in Guatemala — a colonial arch that once let cloistered nuns cross between convent buildings without being seen. At golden hour, with Volcán de Agua framed in the background, it's genuinely one of the most beautiful urban views in the Americas. Arrive 30 minutes before sunset.</p>
+        <p class="card-note">Free. Crowds peak around sunset — arrive slightly early.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Colonial ruins</span>
+        <h3>La Recolección &amp; San Francisco ruins</h3>
+        <p class="card-loc">Within walking distance of Centro</p>
+        <p>Antigua's ruins are UNESCO-protected and dramatically beautiful — roofless baroque churches frozen mid-collapse by the 1773 earthquake. La Recolección is the most photogenic (admission Q50); San Francisco has the tomb of the venerated Hermano Pedro. An eerie, gorgeous hour.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Cerro de la Cruz</span>
+        <h3>Hilltop cross — dawn or dusk</h3>
+        <p class="card-loc">North of Centro · 1.6 km from Parque Central</p>
+        <p>A stone-paved path climbs 121m to a giant iron cross above the city. At dawn you'll have it to yourself with the volcanoes clear. At dusk, city lights spread below you. Go with a guide or in a small group — the path is safe when others are present, but not for solo pre-dawn runs.</p>
+        <p class="card-note">Municipal shuttles run from the Centro in the morning.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Coffee origin</span>
+        <h3>Coffee finca tour — origin in your hands</h3>
+        <p class="card-loc">Finca Filadelfia or La Azotea · 15 min from Centro</p>
+        <p>Finca Filadelfia is a working coffee estate on the slopes of Acatenango that offers guided tours through cultivation, wet-milling, drying, and cupping. La Azotea combines coffee and jade history in a single afternoon. If you're serious about coffee, seeing origin up close in Antigua is unmissable.</p>
+        <p class="card-note">Book online or at the gate; Filadelfia has the most polished operation.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Jade culture</span>
+        <h3>Casa del Jade museum &amp; workshop</h3>
+        <p class="card-loc">4a Calle Oriente</p>
+        <p>The Maya considered jade more precious than gold — Casa del Jade explains why, through artifacts, a jade workshop you can watch, and retail pieces of genuine quality. More cultural depth than a typical jewelry shop. Worth spending an hour even if you're not buying.</p>
+        <p class="card-note">Museum entry Q30; pieces are investment-grade. Verify hours on arrival.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Market morning</span>
+        <h3>Compañía de Jesús handicraft market</h3>
+        <p class="card-loc">6a Av Norte · former Jesuit church</p>
+        <p>Set inside the ruins of a 17th-century Jesuit church — rows of textiles, jade, leather, and ceramic vendors under the remaining stone arches. The most atmospheric market in the city; far superior to the main tourist market. Best on Saturday mornings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Lake Atitlán — or Acatenango crater</h2>
+    <p>Two completely different weekends depending on whether you want to run at altitude or summit a 3,976m volcano. Both are under 3 hours with a private driver. Both deliver views you won't forget. Here's how to plan each.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1541686560-e9c8f7e2d1b3?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Always hire a private driver — no public buses</h3>
+      <p>The Pan-American Highway to Lake Atitlán (76 km, ~2.5 hrs) is narrow, winding, and high-stakes. Guatemala's public buses ("chicken buses") are statistically dangerous and not for tourists. A round-trip private driver costs $60–100 and lets you control timing, make stops, and arrive in one piece. Never rent a car for this route unless you know the roads.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>Option A — Lake Atitlán long-run weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday AM</span>
+        <span class="timeline-text">Early departure from Antigua (7–8am). Arrive Panajachel by 10am. Lancha (water taxi) to San Marcos La Laguna or San Juan — the best base for trail access and village atmosphere.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday afternoon</span>
+        <span class="timeline-text">Explore San Juan's women's weaving collective and lakefront paths. Dinner in San Marcos or back in Panajachel — Restaurante Circus is the top dining option near Panajachel.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — the long run (14–18 mi)</span>
+        <span class="timeline-text">Run the lakeside trail between villages: San Juan → San Pedro → Santiago (or back). Terrain is hilly volcanic trail — plan for ~1,500 ft of elevation. Lake Atitlán sits at 1,562m — nearly identical to Antigua, so no altitude adjustment needed. Lush, humid, spectacular lakeside views. Hydrate with sealed water only; carry more than you think you need. Have your driver or a local crew a turnaround point.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday PM</span>
+        <span class="timeline-text">Post-run lunch in San Pedro or Panajachel, then the 2.5-hr drive back to Antigua. Home by 6–7pm.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.4rem">
+    <div class="timeline tl-gold fade-in">
+      <div class="timeline-header">
+        <h3>Option B — Acatenango crater overnight (the harder, more epic call)</h3>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-item">
+          <span class="timeline-label">The setup</span>
+          <span class="timeline-text">Acatenango is 3,976m (13,045 ft) — one of the tallest volcanoes in Central America. Overnight at base camp (~3,600m) positions you directly across a saddle from Volcán de Fuego, which erupts every 15–30 minutes through the night. The best natural light show in the region.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-label">Day 1 — ascent</span>
+          <span class="timeline-text">Depart Antigua 8am with a guiding operator. 4–5 hrs of steep ascending trail (1,500m vertical gain from the trailhead). Arrive base camp mid-afternoon. Watch Fuego erupt at sunset. Temperature drops to 3–5°C overnight — bring real layers.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-label">Day 2 — summit &amp; descent</span>
+          <span class="timeline-text">3am wake-up, 1-hour summit push in the dark. Sunrise from 3,976m over a sea of clouds. Descend 3–4 hours, back in Antigua by early afternoon. This counts as your long run for the week — the descent alone is a serious trail effort.</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-label">Operators</span>
+          <span class="timeline-text">OX Expeditions and Trek Guatemala both run excellent overnight packages ($50–150). For Christopher's fitness level, this is very doable — but be honest with the guide about your ultra background so they pace you appropriately through the ascent.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Running note for both options:</b> At 1,500–1,560m, you're at nearly identical altitude to Antigua — no major adjustment needed if you've already acclimatized here for the first few days. Acatenango's summit push at 3,976m is the exception — expect significant breathing difficulty in the final 400m vertical.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight, and your first fancy dinner</h2>
+    <p>Antigua is compact enough that nothing is more than 10 minutes away on foot or tuk-tuk. First night: easy and excellent. Second big night: the table that defines the trip.</p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · chill</span>
+        <h3>Café No Sé or Sobremesa</h3>
+        <p class="card-loc">1a Av Sur / Centro · 5 min walk</p>
+        <p>Café No Sé for mezcal, tacos, and the low-lit, reliably excellent Antigüeño bar atmosphere — walk-in friendly most nights. Or Sobremesa for natural wine and small plates in a quieter, more intimate room. Either is the right first-night energy: good food, no drama, properly landed.</p>
+        <p class="card-note">Walk-in friendly before 8pm; after that it fills.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The marquee dinner · book immediately</span>
+        <h3>Hector's Bistro</h3>
+        <p class="card-loc">Centro · ~5 min walk</p>
+        <p>Twenty seats. Chef Hector Pérez. Rotating creative Guatemalan-European menu with no substitutions and no compromises. The best meal available in Antigua — and one of the finest in Central America. Book the moment you arrive; a week ahead is standard. If full, pivot to Mesón Panza Verde as the equally memorable alternative.</p>
+        <p class="card-note">Reserve via WhatsApp or in person the day you arrive. They fill up.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>The perfect Antigua morning-after</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Early run — Jocatenango Loop</span>
+        <span class="timeline-text">The most runnable flat option from the Centro — a 4–5 mile loop through San Felipe and Jocatenango with rolling terrain and cobblestone-free stretches. Or head to the Cerro de la Cruz path for a climbing 5K that rewards with city views. Best before 7am to avoid foot traffic and the midday sun.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recovery coffee</span>
+        <span class="timeline-text">Walk to Artista de Café or Alegría Café for your post-run pour-over. Both open by 7am; both are within 10 minutes of most Centro accommodations. Order the single-origin filter and ask what's newest in from the Antigua origin.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Mid-morning — Santa Catalina Arch</span>
+        <span class="timeline-text">The most iconic shot in Guatemala is 30 seconds from most hotels — worth seeing both in early morning light (fewer tourists, soft sun from the east) and at golden hour (Agua volcano backlit in the frame). Walk 5a Av Norte for the full Calle del Arco experience.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — ChocoMuseo or a finca tour</span>
+        <span class="timeline-text">Day one sets the tone: ChocoMuseo if you want something hands-on and central; Finca Filadelfia if you want to see coffee at origin within 15 minutes of the city.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>Jade, textiles &amp; the best of Central American craft</h2>
+    <p>Antigua doesn't have a luxury mall — it has something better: some of the world's finest indigenous textile work, pre-Columbian jade jewelry, artisan leather, and handwoven goods that you genuinely cannot find at home. This is where you invest in the real thing.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Essential · Textiles</span>
+        <h3>Nim Po't Centro de Textiles Tradicionales</h3>
+        <p class="card-loc">5a Av Norte #29</p>
+        <p>The single best textile destination in Guatemala — functioning simultaneously as retail space, cultural center, and museum. Curates museum-quality huipiles, antique pieces no longer produced, and contemporary work by identified master weavers. Prices are fixed (no bargaining) and reflect fair trade practice. Staff explain the specific village origin and symbolic meaning of each piece. If you buy one textile in Guatemala, buy it here.</p>
+        <p class="card-note">Set prices, no haggling. Budget Q500–Q5,000+ for quality pieces.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Jade jewelry</span>
+        <h3>Casa del Jade</h3>
+        <p class="card-loc">4a Calle Oriente</p>
+        <p>The finest jade jewelry in Antigua — and the most culturally informed purchase you can make. Maya jade (jadeíte) was more valuable than gold; Casa del Jade's artisans work with this lineage consciously. Includes a museum tour explaining jade history and Mayan significance. The retail pieces are serious investment quality, with provenance.</p>
+        <p class="card-note">Museum tour Q50 (credited toward purchase). Worth seeing even if you don't buy.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Jade market</span>
+        <h3>Jades S.A.</h3>
+        <p class="card-loc">4a Calle Oriente · near Casa del Jade</p>
+        <p>The competing jade house with an equally strong reputation and slightly broader range. Both Jades S.A. and Casa del Jade produce excellent work — visit both and compare. Their certification guarantees genuine Guatemalan jadeíte, not serpentine (the common imitation).</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Handicraft market</span>
+        <h3>Compañía de Jesús market</h3>
+        <p class="card-loc">6a Av Norte · inside Jesuit ruins</p>
+        <p>Antigua's most atmospheric market, set inside the partially standing walls of a 17th-century Jesuit church. Leather goods, ceramics, woodwork, weavings — negotiate here, unlike Nim Po't. Best on Saturday mornings when vendors are most numerous and produce the freshest stock.</p>
+        <p class="card-note">Bargaining is expected and good-natured. Starting counter-offer: 60% of asking price.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Artisan leather</span>
+        <h3>La Casa del Cuero</h3>
+        <p class="card-loc">Centro</p>
+        <p>Handmade Guatemalan leather goods — bags, belts, sandals, wallets — at a quality level that competes with European artisan work at a fraction of the cost. Custom work available with a few days' lead time. The belts and tote bags are particularly strong.</p>
+        <p class="card-note">Custom orders: allow 3–5 days. Most items available immediately.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Concept boutique</span>
+        <h3>Colección Casa</h3>
+        <p class="card-loc">5a Av Norte</p>
+        <p>Curated home goods and lifestyle objects with strong Guatemalan design identity — ceramics, weavings, artisan soaps, decorative pieces. The most design-forward gift shop in the city; well-edited, beautiful packaging. For pieces that travel well and look intentional on a shelf back home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, gyms &amp; fitness in a small colonial city</h2>
+    <p>Antigua is a small city — the boutique fitness scene is genuinely limited compared to Bogotá or larger Latin American capitals. Being honest about that is more useful than padding. Here's what's actually here.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Fitness options in Antigua are limited — this is a complete list of what currently operates, verified June 2026. Book studios via WhatsApp or Instagram; they fill class-by-class with expats and long-termers.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">Reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Best available · Reformer</span>
+          <h3>Intensity Pilates Antigua</h3>
+          <p class="card-loc">Centro · Casa El Jaulon</p>
+          <p>The highest-quality Reformer Pilates studio in Antigua — certified instructors, proper equipment, small group classes capped to maintain quality. Popular with the expat community; runs a consistent weekly schedule. Book 24–48 hrs ahead via WhatsApp or their Instagram.</p>
+          <p class="card-note">Drop-in pass available. DM on Instagram or WhatsApp to reserve.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Yoga &amp; Pilates</span>
+          <h3>Healing Hands Studio</h3>
+          <p class="card-loc">Sur</p>
+          <p>Physical therapy and wellness studio with mat Pilates and yoga classes alongside sports massage and physiotherapy. If your legs need recovery work after Acatenango or a hard long run, this is the address. Sports massage available by appointment.</p>
+          <p class="card-note">Particularly good for runners needing soft-tissue recovery work.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole dance studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Honest note</span>
+          <h3>No dedicated pole studio in Antigua</h3>
+          <p class="card-loc">Guatemala City · 45 min away</p>
+          <p>There is no established pole dance studio operating in Antigua as of June 2026. The nearest options are in Guatemala City — a 45-minute drive. Given the trip is two weeks, it may be worth checking Guatemala City options if you're willing to make a day of it, but this is not a realistic daily or weekly option from Antigua. Honest is better than a bad lead.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms with day passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Best equipped · day pass</span>
+          <h3>La Fábrica</h3>
+          <p class="card-loc">Centro / Norte</p>
+          <p>The best-equipped gym in Antigua — weights, functional training, calisthenics, boxing, spinning, physiotherapy, and dance classes. Day pass (entrada diaria) costs Q42 (~$5.50 USD). Weekly and monthly passes also available. Certified trainers on site. The right default if you need a strength session.</p>
+          <p class="card-note">Day pass Q42. No reservation needed — walk in.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Budget · accessible</span>
+          <h3>Antigua's Gym</h3>
+          <p class="card-loc">Centro</p>
+          <p>More basic facility — free weights, cardio machines, resistance equipment. Day pass Q35–40. Well-reviewed for what it is; a solid backup if La Fábrica is full or you need something purely functional. Long-standing local gym with familiar faces.</p>
+          <p class="card-note">Day pass available. Hours vary; confirm on arrival.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Volcano trails</span>
+          <h3>Your best gym is outside</h3>
+          <p class="card-loc">Cerro de la Cruz / Acatenango foothills</p>
+          <p>At 50–60 miles/week training for a 50K, your real training environment is the terrain around Antigua. Cerro de la Cruz (121m climb, 1.6 km from the park) for threshold climbing. The Jocatenango loop for flat tempo. Acatenango foothills for proper trail. These are your workouts — the gym fills gaps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · Stock the Kitchen</div>
+    <h2>Groceries, markets &amp; premium provisions</h2>
+    <p>Antigua doesn't have a Whole Foods analog, but it has something close — fresh indigenous produce, an organic specialty store, and one of the liveliest daily markets in Central America. Here's where to shop for a proper cook-at-home week.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Main supermarket</span>
+        <h3>La Bodegona</h3>
+        <p class="card-loc">4a Calle Poniente #27</p>
+        <p>The primary full-service supermarket in Antigua — split into household goods and a conventional grocery with fresh produce, dairy, meat, and imported packaged goods. Not a luxury market, but the most complete option in the city for full weekly provisioning. The fresh produce here is serviceable; for premium fruit and vegetables, pair it with Mercado Central.</p>
+        <p class="card-note">Main Antigua supermarket. In-town ATM inside is the safest cash machine.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Organic · premium</span>
+        <h3>Orgánica</h3>
+        <p class="card-loc">Centro</p>
+        <p>The only organic products supermarket in Antigua — natural and organic packaged goods, supplements, health foods, specialty teas, and some fresh organic produce. Smaller inventory than La Bodegona but significantly higher quality. The place to find certified organic coffee, local honey, chia, and imported health items. Your Whole Foods equivalent.</p>
+        <p class="card-note">Premium pricing. Best for organic staples and specialty health items.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Fresh produce</span>
+        <h3>Mercado Central</h3>
+        <p class="card-loc">3a Calle Poniente · near Mercado de Artesanías</p>
+        <p>The local fresh market — the best produce in the city, bought directly from small farmers. Fruit, vegetables, herbs, dried chiles, beans, local cheese, fresh corn tortillas, and flowers. Busiest and freshest early morning (6–9am). The produce here is significantly better than La Bodegona's packaged equivalent. Bring a tote bag and cash (Q bills).</p>
+        <p class="card-note">Cash only. Peak freshness 6–10am. Tuesday, Thursday, Saturday are the biggest market days.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Imported goods</span>
+        <h3>La Torre (nearest branch)</h3>
+        <p class="card-loc">Carretera a Ciudad Vieja · 10 min by tuk-tuk</p>
+        <p>Guatemala's premium supermarket chain — closest to Antigua. Carries the widest selection of imported products, specialty cheeses, wines, organic items, and international brands. If you need specific imported items (parmesan, quality wine, specialty olive oil) that La Bodegona doesn't carry, La Torre is worth the tuk-tuk ride.</p>
+        <p class="card-note">10–15 min from Centro. Best for wine and specialty imports.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Saturday only</span>
+        <h3>Saturday farmers' market</h3>
+        <p class="card-loc">Various locations · ask locally</p>
+        <p>A small Saturday morning market (location varies; ask your accommodation) where local organic and small-scale farmers sell directly. Atypically good for sourcing heirloom corn varieties, local honey, artisan cheese, herbs, and fermented products. One of the best mornings you can have in Antigua.</p>
+        <p class="card-note">Location changes seasonally — confirm the week before.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">For long runs</span>
+        <h3>Nutrition &amp; fueling logistics</h3>
+        <p class="card-loc">La Bodegona + Orgánica + online</p>
+        <p>La Bodegona stocks basic electrolyte drinks and energy bars (Gatorade, local brands). Orgánica carries chia, natural energy foods, and some imported sports nutrition. For gels and specific running nutrition not available locally, bring from home or order ahead. Banana and coconut water from Mercado Central are your best natural fueling options for long runs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pullquote fade-in">
+    <p>"Antigua rewards a slow pace. The slower you move, the more it gives you."</p>
+    <cite>Field note · June 2026</cite>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-sig">Christopher &amp; Brooke — Antigua Guatemala, June 2026</div>
+  <div class="footer-sub">In constant motion.<br>
+  Rates, hours, and restaurant availability shift — confirm anything time-sensitive on arrival.<br>
+  Exchange rate: 1 USD ≈ Q 7.63 · Altitude: 1,530m / 5,020 ft · Emergency: 110 · Tourist line: 1500</div>
+  <div class="footer-verified">Researched &amp; compiled June 2026 · Verify before you go</div>
+</footer>
+
+<script>
+// Hero image load animation
+(function() {
+  const bg = document.getElementById('heroBg');
+  if (!bg) return;
+  const img = new Image();
+  img.onload = function() { bg.classList.add('loaded'); };
+  img.src = bg.style.backgroundImage
+    ? bg.style.backgroundImage.replace(/url\(["']?(.*?)["']?\)/, '$1')
+    : 'https://images.unsplash.com/photo-1591620723771-6f02c419b34e?q=90&w=2400&auto=format&fit=crop';
+  bg.classList.add('loaded');
+})();
+
+// Intersection Observer for fade-in animations
+(function() {
+  const els = document.querySelectorAll('.fade-in');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>

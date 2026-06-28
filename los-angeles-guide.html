@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Angeles — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A one-week field guide to Los Angeles — restaurants, coffee, fitness, Joshua Tree, luxury shopping, and everything worth knowing. April 2026.">
+<meta property="og:title" content="Los Angeles — Christopher &amp; Brooke's Field Guide · April 2026">
+<meta property="og:description" content="Elevation: 233 ft. Pacific light. Endless summer. West Hollywood &amp; Silver Lake — where every sunrise is a second act.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1534430480872-3498386e7856?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #e8834a;
+  --gold-light: #f0a472;
+  --gold-deep: #9e4a1a;
+  --gold-bg: #fef3ec;
+  --emerald: #1a6b6b;
+  --emerald-light: #238888;
+  --emerald-deep: #0d3f3f;
+  --emerald-bg: #e8f4f4;
+  --rust: #c4462a;
+  --rust-bg: #fdf0ec;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1534430480872-3498386e7856?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,210,185,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,210,185,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255,210,185,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,205,180,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff7f3, #feeee6);
+  border: 1px solid #f0c9b0;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #e8b898;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend & tonight)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,210,185,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,210,185,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #a0cdcd;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #a0cdcd;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · April 2026 · One week</div>
+    <h1>Los Angeles,<br><em>in constant motion</em></h1>
+    <p class="hero-sub">Where every sunrise is a second act. Elevation: 233 ft. Pacific light. Endless summer. Your base in West Hollywood and Silver Lake puts Michelin tables, third-wave roasters, Griffith trails, and the Pacific all within reach.</p>
+    <div class="hero-meta">West Hollywood / Silver Lake · April 24 – May 1</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Los Angeles</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#tonight">Tonight</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>LA is a city of parallel universes — WeHo's restaurant row, Silver Lake's coffee and record stores, Venice's barefoot-billionaire energy. Getting around is either a freeway roulette or a Lyft; running is the only sensible traffic bypass. April is the sweet spot before the heat and before tourist season peaks.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">US Dollar</div>
+      <p>USD · No conversion needed. Tipping 18–22% is standard at restaurants. Many LA coffee spots are cash-friendly but card is universal.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Lyft / Drive</div>
+      <p>Lyft and Uber both work. For WeHo–Silver Lake–Venice, Lyft is the default. A rental car opens Malibu, Joshua Tree, and Pacific Coast Highway — get one for the weekend.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Climate — April</h4>
+      <div class="big">68°F avg</div>
+      <p>Low humidity, Pacific breezes, daytime highs 68–74°F, mornings around 54°F. Layers for early runs. May gray (marine layer) can roll in at dawn — burns off by 10am.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Neighborhoods</h4>
+      <div class="big">WeHo + SilLake</div>
+      <p>West Hollywood for dining, nightlife, Equinox, Whole Foods. Silver Lake for coffee, running Griffith, record shops, and the best casual restaurant scene in the city.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Driving Culture</h4>
+      <div class="big">The 405</div>
+      <p>Use freeway numbers with "the" — the 405, the 101, the 10. Rush hour is 7–9am and 4–7pm and genuinely painful. Run or Lyft at those times, drive everything else.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Parking</h4>
+      <div class="big">Read signs</div>
+      <p>Street sweeping signs are enforced ruthlessly. Apps: ParkMobile for meters, SpotHero for garages. The Grove, Abbot Kinney, and Melrose all have paid lots — budget 15 min to find a spot.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a local — LA &amp; SoCal slang</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>No cap</b> — No lie, for real ("that omakase was no cap the best")</div>
+        <div class="slang-item"><b>Fire</b> — Exceptional, outstanding ("the black cod is fire")</div>
+        <div class="slang-item"><b>Low-key</b> — Somewhat, quietly ("low-key obsessed with Erewhon")</div>
+        <div class="slang-item"><b>The Industry</b> — Hollywood / entertainment world (everything)</div>
+        <div class="slang-item"><b>WeHo</b> — West Hollywood</div>
+        <div class="slang-item"><b>SilLake</b> — Silver Lake</div>
+        <div class="slang-item"><b>PCH</b> — Pacific Coast Highway (Hwy 1, the coastal road)</div>
+        <div class="slang-item"><b>DTLA</b> — Downtown Los Angeles</div>
+        <div class="slang-item"><b>It's giving…</b> — It has the vibe of ("this place is giving Tokyo")</div>
+        <div class="slang-item"><b>Bougie</b> — Upscale, fancy (not always an insult)</div>
+        <div class="slang-item"><b>Salty</b> — Annoyed or bitter about something</div>
+        <div class="slang-item"><b>That's a vibe</b> — Captures a good mood or aesthetic perfectly</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying smart — safety in LA</h4>
+      <ul class="safety-list">
+        <li>WeHo and Silver Lake are safe, walkable neighborhoods by day and after dark.</li>
+        <li><b>Never leave anything visible in a parked car.</b> Smash-and-grab is the most common crime — empty the car every time.</li>
+        <li>Runyon Canyon, Griffith Park, and The Strand are safe for solo dawn runs; bring a phone and ID.</li>
+        <li>Some blocks near DTLA and Skid Row have significant homeless encampments — walk with normal urban awareness.</li>
+        <li>Venice Boardwalk is lively and mostly fine; the alleys behind it deserve less attention at night.</li>
+        <li>Wildfire smoke is rare in April but check AQI before long trail runs in canyon areas.</li>
+        <li>Tap water is safe. Ocean swimming: check surfrider.org for beach water quality before going in.</li>
+        <li>Emergency: <b>911</b>. Non-emergency LAPD: <b>877-ASK-LAPD</b>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the ride</h2>
+    <p>The 2026 Michelin Guide California was announced June 24 — Providence holds its three stars; Kato earned a second. n/naka remains the hardest reservation in the city, weeks out minimum. Book the top tier before you land; everything else can be walk-in or same-week.</p>
+  </div>
+
+  <div class="validated-banner fade-in">2026 Michelin Guide California stars reflected below. Somni (formerly 3-star) lost its rating in the June 24 announcement — not listed. All other restaurants verified open April 2026.</div>
+
+  <div class="fade-in">
+    <div class="list-group-label">Michelin-starred tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Providence ★★★</div><div class="row-desc">Three stars, still standing. Michael Cimarusti's seafood cathedral on Melrose — a 20-course procession through California's coastal waters. The definitive LA fine dining experience. Book 4–6 weeks out.</div></div>
+        <span class="pill pill-gold">Hollywood</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Kato ★★</div><div class="row-desc">Jonathan Yao's Taiwanese-inflected omakase in DTLA earned its second star in 2026. Intimate, brilliant, and deeply personal — one of the most original tasting menus in America right now.</div></div>
+        <span class="pill pill-gold">DTLA</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">n/naka ★</div><div class="row-desc">Niki Nakayama's 13-course kaiseki in a converted Palms bungalow. The hardest reservation in LA — book weeks ahead the moment you read this. Every plate looks like it was composed for a photograph.</div></div>
+        <span class="pill pill-gold">Palms</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Holbox ★</div><div class="row-desc">Gilberto Cetina Jr.'s Mexican seafood counter in Grand Central Market. Counter service meets Michelin — the tostadas are legendary. Arrive at opening or queue.</div></div>
+        <span class="pill pill-gold">DTLA · GCM</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Standout &amp; essential LA tables</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Osteria Mozza</div><div class="row-desc">Nancy Silverton's landmark — start at the mozzarella bar and order everything the bartender suggests. The burrata with seasonal accompaniments is worth a special trip. Book ahead.</div></div>
+        <span class="pill pill-emerald">Hollywood</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Nobu Malibu</div><div class="row-desc">Deck tables over the Pacific, black cod miso, and a sunset that earns the price of everything. Book a 7pm table for the full sky show. The single most romantic dinner in the city.</div></div>
+        <span class="pill pill-emerald">Malibu</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Gjelina</div><div class="row-desc">Venice's cornerstone wood-fired table — charred romanesco pizza, burrata, seasonal vegetable plates. The best thing on Abbot Kinney. Book 3–4 days ahead; walk-in at the bar early.</div></div>
+        <span class="pill pill-emerald">Venice</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Bestia</div><div class="row-desc">Ori Menashe's loud, electric Arts District Italian. Order the whole roasted suckling pig if available; the handmade pastas are exceptional. No quiet night here — that's the point.</div></div>
+        <span class="pill pill-emerald">Arts District</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Bavel</div><div class="row-desc">Same team as Bestia, Middle Eastern canon — whole roasted lamb shawarma, hummus from the wood oven. Go with four people so you can order everything. As good as it gets in this genre.</div></div>
+        <span class="pill pill-emerald">Arts District</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">République</div><div class="row-desc">Walter Manzke's French bistro in a stunning 1929 Wilton building. The weekend brunch is one of LA's best rituals — croissants, tartines, a full pastry counter. Dinner is equally serious.</div></div>
+        <span class="pill pill-emerald">Mid-Wilshire</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Horses</div><div class="row-desc">The WeHo room of the moment — chic, French-ish, great natural wine list. The kind of place where you linger over a second bottle without planning to. Buzzy but genuinely good.</div></div>
+        <span class="pill pill-emerald">West Hollywood</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Night + Market Song</div><div class="row-desc">Andy Ricker-influenced Thai-American — spicy, loud, and excellent. The nam prik ong and boat noodles convert skeptics. Silver Lake's most beloved dinner, no reservations.</div></div>
+        <span class="pill pill-emerald">Silver Lake</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Rustic Canyon</div><div class="row-desc">Jeremy Fox's seasonal California kitchen — driven entirely by what's at the Santa Monica Farmers Market that morning. Santa Monica's neighborhood legend; quiet, ingredient-obsessed.</div></div>
+        <span class="pill pill-emerald">Santa Monica</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Felix Trattoria</div><div class="row-desc">Evan Funke's handmade pasta temple on Abbot Kinney. Every shape is rolled by hand in an open pasta lab. Order from the pasta menu exclusively and don't rush it.</div></div>
+        <span class="pill pill-emerald">Venice</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Jon &amp; Vinny's</div><div class="row-desc">Italian-American with a cult following — the chicken parmigiana is the dish people drive across the city for. No reservations. Get there early or expect a wait that's worth it.</div></div>
+        <span class="pill pill-emerald">Fairfax</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Gjusta</div><div class="row-desc">The Venice bakery-deli-café that defies categorization — smoked fish, exceptional pastries, incredible grain bowls. A morning institution. Expect a line; it's always worth it.</div></div>
+        <span class="pill pill-emerald">Venice</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Otium</div><div class="row-desc">Timothy Hollingsworth's California cuisine next to The Broad — elegant, seasonal, great for a group. The ideal pre- or post-museum dinner in DTLA.</div></div>
+        <span class="pill pill-emerald">DTLA</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Salt's Cure</div><div class="row-desc">Whole-animal butchery meets California-comfort in West Hollywood. The cured meats and weekend brunch are cult favorites. Walk-in friendly mid-week.</div></div>
+        <span class="pill pill-emerald">West Hollywood</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Spago</div><div class="row-desc">Wolfgang Puck's legendary Beverly Hills flagship — the smoked salmon pizza started California cuisine. Old Hollywood energy, serious food, and the people-watching is half the dinner.</div></div>
+        <span class="pill pill-emerald">Beverly Hills</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Bar Ama</div><div class="row-desc">Josef Centeno's Tex-Mex downtown — queso fundido, enchiladas, smoky mezcal cocktails. Fun, not precious. The DTLA dinner that doesn't take itself seriously and is better for it.</div></div>
+        <span class="pill pill-rust">DTLA · casual</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop')"></div>
+  <div class="band-txt">
+    <h3>A city that rewrote what California cooking means</h3>
+    <p>From Chez Panisse's reverberations down the coast to a generation of LA chefs who trained in Tokyo, Mexico City, and Copenhagen — Los Angeles now runs one of the most genuinely exciting restaurant scenes in the world. Michelin caught up. The city was always ahead of the stars.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Twenty coffee shops, all within reach</h2>
+    <p>LA's third-wave movement started in Silver Lake in the early 2000s and never stopped. The city now has one of the deepest specialty coffee benches in America — Intelligentsia, Go Get Em Tiger, and a wave of roaster-cafés across Silver Lake, WeHo, Culver City, and Venice. Your morning run ends at great coffee.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Intelligentsia Coffee — Sunset Strip</div><div class="row-desc">The original that started LA's third wave. The Silver Lake Sunset location is a cultural anchor — pour-overs, single origin, and the best people-watching in the neighborhood.</div></div><span class="pill pill-gold">Silver Lake</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Endorffeine</div><div class="row-desc">Biochemist-turned-barista Jack Benchakul — James Beard Semifinalist 2026. The Matcha Palm Sugar Latte is a study in precision; the sourcing is impeccable. The most interesting cup in the city right now.</div></div><span class="pill pill-gold">Chinatown</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Go Get Em Tiger (GGET)</div><div class="row-desc">LA's most beloved daily-driver specialty chain — the Kyoto iced latte is iconic. Larchmont Village is the original; six other locations including Los Feliz are all excellent.</div></div><span class="pill pill-gold">Larchmont / citywide</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Picaresca</div><div class="row-desc">Boyle Heights roaster with a second location opened in 2026 — roasts fresh weekly, Latin American sourcing, and some consider it the best roaster in LA right now. Criminally underrated.</div></div><span class="pill pill-emerald">Boyle Heights</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Kumquat Coffee</div><div class="row-desc">Woman-owned, Historic Filipinotown — specialty coffee made inclusive and community-focused without sacrificing quality. Beautiful sourcing, thoughtful approach, welcoming room.</div></div><span class="pill pill-emerald">Historic Filipinotown</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Cognoscenti Coffee</div><div class="row-desc">One of LA's earliest third-wave players, started as a pop-up in 2009. Multiple locations; Culver City is the flagship. Impeccable filter program.</div></div><span class="pill pill-emerald">Culver City</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Verve Coffee Roasters</div><div class="row-desc">Santa Cruz roaster transplant — consistently excellent espresso, beautiful beans, clean aesthetic. The Santa Monica location is ideal post-beach or post-Strand run.</div></div><span class="pill pill-emerald">Santa Monica</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Maru Coffee</div><div class="row-desc">Design-forward precision in Silver Lake and Los Feliz. The filter program is serious; the space is calm and beautiful. Your Silver Lake post-run stop.</div></div><span class="pill pill-emerald">Silver Lake / Los Feliz</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Dinosaur Coffee</div><div class="row-desc">Silver Lake's neighborhood hang — great natural light, consistent espresso bar, the vibe of the street captured in a single room. Morning ritual material.</div></div><span class="pill pill-emerald">Silver Lake</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Lamill Coffee</div><div class="row-desc">Silver Lake institution — quietly serious filter program, good sourcing notes, calm setting for a long morning with your laptop. Less scene-y than its neighbors.</div></div><span class="pill pill-emerald">Silver Lake</span></div>
+    <div class="ranked-row"><span class="rank-num">11</span><div class="row-main"><div class="row-name">Alfred Coffee</div><div class="row-desc">"But First, Coffee" — WeHo's stylish, Instagrammable chain that's also actually good. The Melrose location is a corridor institution. Multiple locations across the city.</div></div><span class="pill pill-emerald">West Hollywood</span></div>
+    <div class="ranked-row"><span class="rank-num">12</span><div class="row-main"><div class="row-name">Blue Bottle Coffee</div><div class="row-desc">Japanese-influenced precision from the Bay Area — the Venice location is spacious with excellent drip. Reliable when you need a calm, no-drama morning cup.</div></div><span class="pill pill-emerald">Venice</span></div>
+    <div class="ranked-row"><span class="rank-num">13</span><div class="row-main"><div class="row-name">Groundwork Coffee</div><div class="row-desc">LA's own organic, direct-trade roaster — the Venice original is a neighborhood fixture. Community-minded, solid espresso, good pastries. Hollywood location if you're on that side.</div></div><span class="pill pill-emerald">Venice / Hollywood</span></div>
+    <div class="ranked-row"><span class="rank-num">14</span><div class="row-main"><div class="row-name">Café Dulce</div><div class="row-desc">Japanese-American pastries, matcha, and coffee in Little Tokyo — excellent morning stop before exploring DTLA. The mochi donuts are not to be skipped.</div></div><span class="pill pill-emerald">Little Tokyo</span></div>
+    <div class="ranked-row"><span class="rank-num">15</span><div class="row-main"><div class="row-name">Cafecito Organico</div><div class="row-desc">USDA certified organic, direct-trade sourcing from Latin America. Echo Park gem — the kind of neighborhood coffee bar that makes a neighborhood worth living in.</div></div><span class="pill pill-emerald">Echo Park</span></div>
+    <div class="ranked-row"><span class="rank-num">16</span><div class="row-main"><div class="row-name">Bar Nine Coffee</div><div class="row-desc">Culver City roaster-café with beautiful sourcing notes displayed prominently. Great for long laptop hours — calm, serious about coffee, spacious.</div></div><span class="pill pill-emerald">Culver City</span></div>
+    <div class="ranked-row"><span class="rank-num">17</span><div class="row-main"><div class="row-name">Stumptown Coffee</div><div class="row-desc">Pacific Northwest heavyweight with reliable espresso — the Arts District / WeHo locations are spacious and consistent. The cold brew nitro is a post-run ritual in itself.</div></div><span class="pill pill-emerald">WeHo / Arts District</span></div>
+    <div class="ranked-row"><span class="rank-num">18</span><div class="row-main"><div class="row-name">Dayglow</div><div class="row-desc">The Instagram café done right — colorful, photogenic, without sacrificing quality. WeHo location. For when you want the cup and the photo and the vibe all at once.</div></div><span class="pill pill-emerald">West Hollywood</span></div>
+    <div class="ranked-row"><span class="rank-num">19</span><div class="row-main"><div class="row-name">Funnel Mill Rare Coffee</div><div class="row-desc">Santa Monica's serious rare-bean destination — a hushed, almost reverent room for expensive, extraordinary cups. The siphon service is a performance. Worth a pilgrimage.</div></div><span class="pill pill-emerald">Santa Monica</span></div>
+    <div class="ranked-row"><span class="rank-num">20</span><div class="row-main"><div class="row-name">Jones Coffee Roasters</div><div class="row-desc">Pasadena institution with 30+ years of craft — worth the drive east if you're exploring Pasadena or the Rose Bowl running route. The original LA neighborhood roaster.</div></div><span class="pill pill-slate">Pasadena</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOONS
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>Six afternoons that define the city</h2>
+    <p>LA resists the "attractions" frame — it's best experienced through neighborhoods and light. These six progressively unfold the city from beauty through culture through coast, with one genuinely non-obvious LA experience in the mix.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Signature</span>
+        <h3>Getty Center</h3>
+        <p class="card-loc">Brentwood · Free admission, timed reservation required</p>
+        <p>Richard Meier's hilltop complex houses one of the world's great Impressionist collections, but April is really about the Central Garden — azalea maze in full bloom, seasonal plantings at peak. Stay through golden hour when the travertine stone turns amber. Book the timed entry in advance; stay the whole afternoon and have lunch at the café.</p>
+        <p class="card-note">The Central Garden in April is as beautiful as any garden in California. Don't rush through.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Athletic + iconic</span>
+        <h3>Griffith Observatory at dusk</h3>
+        <p class="card-loc">Los Feliz · Hike up or drive</p>
+        <p>Hike the 3-mile trail from the Greek Theatre parking lot (adds a real climb to your day) or drive up and walk the observatory terrace. The moment when the city transitions from natural to electric light — golden hour collapsing into the grid of LA — is the most affecting view in the city. Free. Go at 7pm.</p>
+        <p class="card-note">Running credit: the hike up from Los Feliz is genuinely hard — 600ft gain in 1.5 miles.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Street-level</span>
+        <h3>Abbot Kinney Boulevard</h3>
+        <p class="card-loc">Venice · Walk the whole mile</p>
+        <p>The best single street in LA for wandering — a mile of independent design, coffee, fashion, bookshops, and some of the city's best restaurants. Start at Gjusta for breakfast or Gjelina for dinner. Midday is ideal for browsing; the street fills up by late afternoon. Pair with the beachfront path for a full Venice day.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The drive</span>
+        <h3>PCH to Malibu + Getty Villa</h3>
+        <p class="card-loc">Pacific Coast Highway · Rent a convertible</p>
+        <p>Rent a convertible for this one — the Pacific on your left, Santa Monica Mountains on your right, open road. Stop at El Matador Beach (dramatic sea stacks, worth a 30-min scramble), continue to the Getty Villa (a reconstructed Roman country house full of extraordinary antiquities; free, book ahead), then Neptune's Net for grilled fish at a beach shack that's been there forever.</p>
+        <p class="card-note">Getty Villa requires a timed reservation — book before you go.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Contemporary art</span>
+        <h3>The Broad + Grand Central Market</h3>
+        <p class="card-loc">DTLA · Free timed entry</p>
+        <p>Jeff Koons, Basquiat, Kara Walker, and Cindy Sherman in one building — free with a timed-entry reservation. Walk two blocks to Grand Central Market for the best cheap eating in the city, including the famous Holbox tostadas. Cap the afternoon at Bar Ama or Otium for dinner.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Genuinely LA</span>
+        <h3>Runyon Canyon at golden hour</h3>
+        <p class="card-loc">Hollywood Hills · Free</p>
+        <p>Two miles of moderately hard trail rising above Hollywood, open at dawn and until sunset. The view from the ridge catches the entire basin from the ocean to downtown. More LA energy than any tourist attraction — equal parts serious hike and social scene. Sunset is the move. Bring water.</p>
+        <p class="card-note">Can combine with a Fairfax dinner afterward — Jon &amp; Vinny's, Republique, or Salt's Cure are all close.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Joshua Tree &amp; your 16-mile desert run</h2>
+    <p>April is the sweet spot for Joshua Tree — wildflowers potentially still showing, morning lows in the low 50s for running, afternoon highs in the mid-70s before summer heat sets in. Two hours forty-five minutes from WeHo on the I-10 East. This is the stronger all-around weekend over Santa Barbara for a long run: dramatic terrain, no trails like it in the world.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Drive it yourself — it's a straight shot</h3>
+      <p>Unlike mountain roads elsewhere, the I-10 East to Joshua Tree is as simple as California driving gets — two hours of freeway, then 45 minutes of park road. Leave WeHo by 7am Saturday to beat desert heat. A rental car with a cooler loaded before you leave is all the crew logistics you need for the long run. No Pico y Placa, no mountain hairpins.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend — April 26–27</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday AM — Drive out</span>
+        <span class="timeline-text">Leave WeHo 7am. I-10 East to Hwy 62. Stop at Chiriaco Summit café (historic WWII-era diner, oddly great pie) if you need a break. Enter the park via the West Entrance at Joshua Tree village. Hit Barker Dam trailhead to walk the short loop and get a feel for the terrain before Sunday's run.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday PM — Pioneertown</span>
+        <span class="timeline-text">Drive 10 minutes north to Pioneertown — a preserved 1940s movie set that became a real town. Pappy &amp; Harriet's Pioneertown Palace is a legendary roadhouse: live music most nights, mesquite-grilled ribs, cold beer under the desert stars. This is the Saturday night of the trip. Book a table ahead.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday 6am — The 16-18 miler</span>
+        <span class="timeline-text">Start the Boy Scout Trail from the Quail Springs trailhead (park Hwy, 5 miles east of the West Entrance). The trail runs north 8 miles to the park boundary through surreal boulder fields and Joshua tree groves — turn around at mile 8 for your 16-mile. Sandy, rocky terrain; no shade; morning lows 48–55°F at 6am in April rising to ~72°F by 10am. Start no later than 6:30am to finish before heat. Carry minimum 2L water — no water sources on trail. No crew access mid-route; leave a cooler at the car for your finish.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday PM — Drive back</span>
+        <span class="timeline-text">Post-run recovery: Crossroads Café in Joshua Tree village for scrambled eggs and locally roasted coffee. Slow drive back along Hwy 62 to I-10, back in WeHo by 4–5pm. Legs earned a Nobu reservation this week.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:.92rem;color:var(--ink-soft)"><b>Santa Barbara alternative:</b> 90 minutes north on the 101. Flat beach run along Cabrillo Blvd (ocean-front, 10-mile out-and-back along the coast), wine country in the Funk Zone, and a much more relaxed Saturday night at The Lark or Bouchon. Choose this if you want zero logistics and a 16-miler on pavement with ocean views.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · TONIGHT & TOMORROW
+     ═══════════════════════════════════════ -->
+<section id="tonight">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Right Now</div>
+    <h2>Tonight (Thursday) and tomorrow after the run</h2>
+    <p>You land April 24 — Thursday. Keep tonight easy: you've traveled, you want to feel the city without fighting it. Tomorrow Friday is when you eat seriously. Book n/naka or Kato for Friday night <em>before you read the rest of this.</em></p>
+  </div>
+
+  <div class="card-grid fade-in" style="margin-bottom:1.4rem">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Tonight · easy</span>
+        <h3>Gjusta or Gjelina</h3>
+        <p class="card-loc">Venice · 15–20 min from WeHo</p>
+        <p>Gjusta for a late, unpretentious plate from the case — smoked fish, a grain bowl, a pastry. If you want a proper table, Gjelina next door is the wood-fired Venice classic. Either is the right energy for a Thursday arrival: excellent food, low-key atmosphere, no booking drama.</p>
+        <p class="card-note">Walk Abbot Kinney after dinner — the street at night is a different LA than the day.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Tomorrow night · the marquee</span>
+        <h3>n/naka or Kato</h3>
+        <p class="card-loc">Palms / DTLA · book now</p>
+        <p>n/naka is the hardest reservation in LA — Niki Nakayama's 13-course kaiseki is worth weeks of planning. If n/naka is full, Kato (two Michelin stars, 2026) is the other answer: Jonathan Yao's Taiwanese omakase is arguably the more exciting room right now. Either way, book the moment you land and be prepared for a 2–3 hour dinner.</p>
+        <p class="card-note">n/naka books weeks out. Kato: reserve via Tock. Both are worth whatever hoops you jump through.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Friday, after morning coffee and a run</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Morning — Griffith Park or Runyon</span>
+        <span class="timeline-text">Griffith Park's trails from the Fern Dell entrance give you 5–10 miles of shaded canyon running with no cars. Runyon Canyon from the Hollywood entrance is harder (600ft) and shorter but rewards with the ridge view. Both are 15 minutes from WeHo.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Recovery coffee</span>
+        <span class="timeline-text">Go Get Em Tiger on Larchmont — walkable from Griffith, the Kyoto latte is the post-run ritual. Or Intelligentsia on Sunset if you're coming from Silver Lake direction. Both are exceptional and never feel like a tourist stop.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Afternoon — The Getty or The Broad</span>
+        <span class="timeline-text">The Getty Center for a slow afternoon in the gardens (reserve before you go; it's free). Or The Broad in DTLA for 2 hours of contemporary art followed by Grand Central Market for the best cheap eat in LA at Holbox's counter.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Evening — the Michelin reservation</span>
+        <span class="timeline-text">n/naka or Kato. Budget 2.5–3 hours. These are the kinds of meals you still talk about two years later. Don't schedule anything after.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Luxury Shopping</div>
+    <h2>Rodeo Drive, Melrose &amp; beyond</h2>
+    <p>Beverly Hills has the flagship houses; Melrose has the serious concept stores; Abbot Kinney has the independent luxury; and Fairfax has the pieces you can't find anywhere else. LA's shopping geography is as spread as the city itself — plan by neighborhood, not by a single mall.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The Strip</span>
+        <h3>Rodeo Drive</h3>
+        <p class="card-loc">Beverly Hills · 2-block stretch</p>
+        <p>More than 100 luxury brands on two blocks — Chanel, Dior, Hermès (newly expanded to 25,000 sq ft), Cartier, Valentino. The Louis Vuitton Frank Gehry-designed flagship is in development and worth checking. The Rodeo Collection gallery mall is quieter for serious browsing. Come late morning on a weekday to avoid the tour bus crowd.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Concept store</span>
+        <h3>Maxfield</h3>
+        <p class="card-loc">Melrose Ave · the real one</p>
+        <p>LA's most serious independent concept boutique — Rick Owens, Comme des Garçons, Maison Margiela, Raf Simons, rarities you won't find at department stores. The building is an event in itself. This is where serious LA fashion people shop; not a tourist destination, a destination.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Curated luxury</span>
+        <h3>The Webster LA</h3>
+        <p class="card-loc">West Hollywood</p>
+        <p>The Miami luxury concept store's LA outpost — tightly curated selection of fashion, art, and accessories across multiple designers. Beautiful space, excellent edit. The WeHo location pulls from a different sensibility than the Rodeo Drive flagships.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Gucci Salon</span>
+        <h3>Gucci Salon Melrose</h3>
+        <p class="card-loc">Melrose Ave · appointment preferred</p>
+        <p>Gucci's high-concept exclusive salon on Melrose — a different experience from the Rodeo Drive flagship. Custom pieces, private shopping, a genuinely elevated level of service. Best experienced as an appointment rather than a drop-in.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">LA institution</span>
+        <h3>Fred Segal</h3>
+        <p class="card-loc">West Hollywood</p>
+        <p>The WeHo institution that invented the LA boutique concept — curated fashion, accessories, beauty, and a rotating cast of emerging designers. The energy is effortlessly LA in the best sense: polished but not precious.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Local luxury basics</span>
+        <h3>James Perse</h3>
+        <p class="card-loc">Multiple · Melrose, Malibu</p>
+        <p>LA-born luxury basics — the cashmere tees, the travel-weight shirts, the shorts that work from morning run to dinner. Perfect for topping up a travel wardrobe with things you'll wear for years. The Melrose flagship is the full experience.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Independent, Venice</span>
+        <h3>Abbot Kinney Boulevard</h3>
+        <p class="card-loc">Venice · the whole mile</p>
+        <p>Local designers, concept stores, vintage, and galleries. Tortoise General Store for beautiful Japanese-made goods; Warby Parker got its start here; Heist for jewelry. The independent luxury LA version — nothing here is what you'd find at a mall.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">The Grove</span>
+        <h3>The Grove + Original Farmers Market</h3>
+        <p class="card-loc">Fairfax District</p>
+        <p>LA's nicest outdoor mall adjoining the 1930s Original Farmers Market — Nordstrom, Apple, luxury beauty, and a dozen good food stalls in the adjacent market. If you need everything in one place, this is the move. The trolley running between them is a genuinely charming touch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · MOVEMENT
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · Move</div>
+    <h2>Pilates, pole, gyms &amp; your running routes</h2>
+    <p>LA is the wellness capital of the world — the density of premium fitness options per square mile rivals any city on the planet. WeHo and Silver Lake together have more boutique pilates and pole studios than most countries. Most accept drop-in; book ahead via their apps or Instagram for boutique classes.</p>
+  </div>
+
+  <div class="validated-banner fade-in">All studios and gyms below confirmed operating April 2026. Reserve boutique classes 2–3 days ahead — popular slots fill in hours.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">High-end reformer Pilates</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">WeHo · premium</span>
+          <h3>Reform Pilates LA</h3>
+          <p class="card-loc">8250 W 3rd St · West Hollywood (also Westwood)</p>
+          <p>Results-driven reformer in the heart of WeHo — the Westwood location is a larger, elevated expansion of the original. Strong instruction, well-maintained equipment, consistent class quality. The WeHo standard.</p>
+          <p class="card-note">Book 48 hours ahead; weekend mornings fill immediately.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Heated rooftop</span>
+          <h3>Be Kind Studios</h3>
+          <p class="card-loc">West Hollywood</p>
+          <p>Modern reformer workouts plus a rooftop heated reformer experience — the signature Be Kind class is high-energy and challenging. Recovery sessions also available. The most complete reformer offering in WeHo right now.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Beverly Hills</span>
+          <h3>Village Life Pilates</h3>
+          <p class="card-loc">Beverly Hills</p>
+          <p>Athletic boutique reformer in Beverly Hills — precise instruction, small classes, serious approach. Close to Rodeo Drive; pair with a shopping afternoon.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Silver Lake</span>
+          <h3>Avenir-LA</h3>
+          <p class="card-loc">Silver Lake</p>
+          <p>Premium Silver Lake pilates studio with private and semi-private sessions — different membership options available including single-class drop-in. The Silver Lake answer to WeHo's boutique scene.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Semi-private · DTLA</span>
+          <h3>Hess Pilates</h3>
+          <p class="card-loc">Downtown Los Angeles</p>
+          <p>Intimate boutique experience — only 7 reformers per class for a semi-private feel. Precise, classical instruction in DTLA. Ideal if you're spending time near the Arts District or The Broad.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole studios</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Competition-grade · 2026 champs</span>
+          <h3>The Vertitude LA</h3>
+          <p class="card-loc">Los Angeles</p>
+          <p>The most decorated studio in the city — students took 1 gold, 1 silver, and 2 bronze at the 2026 Pole Sport Organization Pacific Pole Championships. Serious instruction across all levels. The place you go if you want to be challenged.</p>
+          <p class="card-note">Book well in advance — classes fill fast given the competitive community.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Inclusive · all levels</span>
+          <h3>BeSpun</h3>
+          <p class="card-loc">Los Angeles</p>
+          <p>Extremely supportive environment with zero ego — every level welcome, zero judgment, excellent instruction. The studio travelers and beginners most often recommend. Drop-in friendly.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Community studio</span>
+          <h3>Spin City LA</h3>
+          <p class="card-loc">Los Angeles</p>
+          <p>Studio rental space offering classes, workshops, and studio rentals for LA's community of pole dancers and movement artists. Flexible — ideal for an experienced practitioner who wants studio time and a class option.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day passes &amp; running</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Premium · multiple locations</span>
+          <h3>Equinox</h3>
+          <p class="card-loc">WeHo / Beverly Hills / Sunset Strip / citywide</p>
+          <p>The LA standard for a premium gym experience — day passes available (~$35), full equipment, sauna, classes, and the city's best-equipped facilities. The WeHo location is the one. If you're at home in Equinox elsewhere, this is your gym.</p>
+          <p class="card-note">Day pass or buy a short-term package at the front desk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">HIIT</span>
+          <h3>Barry's Bootcamp</h3>
+          <p class="card-loc">West Hollywood / multiple</p>
+          <p>The treadmill + floor intervals class that took over LA — high-energy 50-minute sessions with class packs available. The WeHo location is the original; lines for popular instructors form. Excellent cross-training between long run days.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Free trial</span>
+          <h3>Easton Gym Co.</h3>
+          <p class="card-loc">Hollywood / Studio City / El Segundo</p>
+          <p>Free first-day trial plus a free intro session with a personal trainer. Premium equipment, smaller than Equinox, more neighborhood gym energy. Good for a day when Equinox is out of your way.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Running — free</span>
+          <h3>Griffith Park Trails</h3>
+          <p class="card-loc">Los Feliz / Hollywood Hills</p>
+          <p>4,200 acres with 53 miles of trails and fire roads. The Mount Hollywood Loop (8.1 miles, 1,200ft gain) is your ultra training route inside the city. Fern Dell entrance for shaded canyon start. Open at dawn. Carry water — no aid stations on most routes.</p>
+          <p class="card-note">Weekly long run option: 14-mile Griffith full loop connects multiple trailheads.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Running — flat</span>
+          <h3>The Strand (Marvin Braude Bike Trail)</h3>
+          <p class="card-loc">Santa Monica → Redondo Beach</p>
+          <p>22 miles of flat, ocean-breeze-filled beachfront path — Santa Monica Pier south to Redondo Beach. Your zero-elevation alternative to Griffith when you need easy miles. Run at dawn before cyclists fill the path. The Pacific on your left the entire way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     09 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">08 · The Pantry</div>
+    <h2>Erewhon and the premium grocery scene</h2>
+    <p>LA invented the premium grocery store as lifestyle destination — Erewhon is the apex, but the city has a full ecosystem of farmers markets, organic grocers, and specialty shops that make cooking-for-two nights genuinely excellent. Erewhon is not optional; it is a Los Angeles experience in itself.</p>
+  </div>
+
+  <div class="band fade-in" style="margin: clamp(2rem,4vh,3rem) auto clamp(2rem,4vh,3rem)">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Erewhon: the store that's also an event</h3>
+      <p>13 locations, all in greater LA. Think Whole Foods on steroids — niche organic brands, functional beverages, boutique supplements, the finest produce, and smoothie bars where $22 drinks are considered normal. The WeHo, Venice, and Silver Lake locations are the closest. Their in-house smoothie bar is genuinely excellent. Budget twice what you think.</p>
+    </div>
+  </div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The icon · 13 LA locations</span>
+        <h3>Erewhon Market</h3>
+        <p class="card-loc">Venice · West Hollywood · Silver Lake · Calabasas · citywide</p>
+        <p>The luxury organic experience — strict ingredient standards, boutique and small-batch brands, $20–30 smoothies that are legitimately good. Organic produce, specialty supplements, prepared foods that rival restaurant quality. The Venice and WeHo locations are closest. This is not a grocery run; it's an afternoon in itself.</p>
+        <p class="card-note">The smoothie bar collaborations (celebrity partnerships) change seasonally — worth trying whatever's current.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Reliable · multiple</span>
+        <h3>Whole Foods Market</h3>
+        <p class="card-loc">WeHo (Santa Monica Blvd) · Silver Lake · Westwood · multiple</p>
+        <p>Wide selection, reliable quality, strong prepared foods section, good wine. The WeHo location on Santa Monica Blvd is close and well-stocked. Silver Lake has the local neighborhood feel. For when you want everything in one place without the Erewhon premium.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Wednesday + Saturday</span>
+        <h3>Santa Monica Farmers Market</h3>
+        <p class="card-loc">Arizona Ave · Santa Monica</p>
+        <p>One of the most important farmers markets in America — many of LA's best chefs (including Jeremy Fox of Rustic Canyon) shop here on Wednesday mornings. Extraordinary seasonal produce, local honey, cut flowers, prepared food vendors. Wednesday 8am–1pm is the premium market; Saturday has the larger crowd.</p>
+        <p class="card-note">Wednesday 8–11am is when the chefs are there — the best window for produce selection.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Sunday market</span>
+        <h3>Hollywood Farmers Market</h3>
+        <p class="card-loc">Ivar Ave · Hollywood · Sundays 8am–1pm</p>
+        <p>The largest and busiest Sunday market in the city — 160+ vendors, exceptional variety, and the best prepared food selection of any LA market. Excellent for stocking up if your Sunday isn't the Joshua Tree weekend.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Sunday boutique</span>
+        <h3>Melrose Place Farmers Market</h3>
+        <p class="card-loc">Melrose Place · Sundays 10am–2pm</p>
+        <p>Smaller, curated, and chic — the farmers market that feels like a design event. Organic produce, artisan food, and the same aesthetic energy as the surrounding boutiques. Pairs perfectly with a Melrose shopping afternoon.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Regional upscale chain</span>
+        <h3>Gelson's Markets</h3>
+        <p class="card-loc">Fairfax · Los Feliz · Beverly Hills · multiple</p>
+        <p>The upscale regional alternative to Whole Foods — excellent butcher counter, great cheese selection, strong wine and spirits. The Fairfax location is convenient for WeHo; Los Feliz is perfect after Griffith. Feels like a neighborhood grocery done properly.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Veteran organic</span>
+        <h3>Rainbow Acres Natural Foods</h3>
+        <p class="card-loc">Mar Vista</p>
+        <p>A comprehensive selection of organic and natural groceries, supplements, and health products — a veteran of LA's natural food scene before it was fashionable. Knowledgeable staff, friendly atmosphere, and a local-institution quality that Erewhon's rapid expansion can't replicate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Los Angeles field guide · April 2026<br>
+    Rates, reservations, and studio hours shift — confirm everything on arrival.
+  </div>
+  <span class="footer-verified">✓ 2026 Michelin stars verified June 24 · Studios confirmed open · Erewhon 13 LA locations confirmed</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

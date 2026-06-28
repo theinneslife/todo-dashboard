@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubrovnik — Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="A two-week field guide to Dubrovnik — restaurants, coffee, fitness, weekend trips, luxury shopping, and everything worth knowing. May 2026.">
+<meta property="og:title" content="Dubrovnik — Christopher &amp; Brooke's Field Guide · May 2026">
+<meta property="og:description" content="4 metres. Limestone. Medieval walls meeting the open sea. Old Town and Lapad as base. May 2026.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555990793-da11153b2473?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c4a35a;
+  --gold-light: #d4b870;
+  --gold-deep: #7a6030;
+  --gold-bg: #fdf5e6;
+  --emerald: #1a5276;
+  --emerald-light: #2471a3;
+  --emerald-deep: #0e3460;
+  --emerald-bg: #eaf3fb;
+  --rust: #8b4513;
+  --rust-bg: #fdf0e8;
+  --slate: #3d4a5c;
+  --slate-bg: #eceff4;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1555990793-da11153b2473?q=90&w=2400&auto=format&fit=crop");
+  background-color: #0e3460;
+  background-size: cover;
+  background-position: center 35%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,8,4,0.05) 0%,
+    rgba(12,8,4,0.12) 40%,
+    rgba(12,8,4,0.75) 80%,
+    rgba(12,8,4,0.88) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · May 2026 · Two weeks</div>
+    <h1>Dubrovnik,<br><em>pearl of the Adriatic</em></h1>
+    <p class="hero-sub">The pearl of the Adriatic, perfectly preserved. 4 metres. Limestone. Medieval walls meeting the open sea — and one of Europe's most dramatic stages for fine dining, island-hopping, and early-morning miles on the mountain above the city.</p>
+    <div class="hero-meta">Old Town / Lapad · May 15–29, 2026</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Dubrovnik</span>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#do">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shop">Shopping</a>
+    <a href="#move">Fitness</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     01 · TRAVEL BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Orientation</div>
+    <h2>What to know before you move</h2>
+    <p>Dubrovnik is small — the entire walled Old Town is walkable in 20 minutes — which means you'll feel the tourist pressure more acutely than in a sprawling city. The wins are the walls, the water, and the off-hours magic when the cruise crowds evaporate. Plan around those windows.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">Euro</div>
+      <p>EUR · symbol €. Croatia adopted the euro in January 2023 — no kuna, no exchange needed if you're arriving from another Eurozone country.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Exchange Rate</h4>
+      <div class="big">≈ $1.13</div>
+      <p>1 EUR ≈ 1.13–1.15 USD (June 2026). A quick €50 dinner is roughly $57. Use Wise or Revolut for card payments to avoid bank fees.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Altitude &amp; Climate</h4>
+      <div class="big">Sea level</div>
+      <p>No altitude effect — your lungs will thank you. May averages 22–26°C (72–79°F), low humidity. Morning runs before 8am are ideal before the heat builds.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Getting Around</h4>
+      <div class="big">Uber / Taxi</div>
+      <p>Uber works in Dubrovnik. Local Radio Taxi is reliable (call or app). Old Town is car-free — everything inside the walls is on foot. Ferries handle island days.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Crowd Strategy</h4>
+      <div class="big">Walls: 8am</div>
+      <p>Cruise ships dock 9am–6pm and dump 10,000+ people into a town of 1,500 residents. Walk the walls at 8am or after 6pm. Avoid Stradun midday. Eat on side alleys.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Dubrovnik Card</h4>
+      <div class="big">1–3 days</div>
+      <p>Covers city walls entry, Lokrum ferry, museums, and all bus lines. A good deal if you're doing the walls + Lokrum in the same window. Purchase at the Pile Gate.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Ferry Transport</h4>
+      <div class="big">Jadrolinija</div>
+      <p>The national ferry operator. Catamaran to Hvar (~3 hrs), ferry to the Elaphiti Islands (30 min). Check jadrolinija.hr for May 2026 schedules; seasonal services ramp up in May.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Old Town Access</h4>
+      <div class="big">Pile Gate</div>
+      <p>Main entrance is Pile Gate (west) or Ploče Gate (east). If you're in Lapad, the No. 6 bus runs to Pile Gate in ~15 min. Taxis wait outside both gates.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Talk like a Dalmatian — Croatian phrases &amp; local words</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Bok / Bog</b> — Hi / Bye (casual, used constantly)</div>
+        <div class="slang-item"><b>Hvala (puno)</b> — Thank you (very much)</div>
+        <div class="slang-item"><b>Molim</b> — Please / You're welcome</div>
+        <div class="slang-item"><b>Živjeli!</b> — Cheers! (toast with wine)</div>
+        <div class="slang-item"><b>Konoba</b> — Traditional Dalmatian tavern</div>
+        <div class="slang-item"><b>Peka</b> — Slow-cooked meat/veg under embers (order ahead)</div>
+        <div class="slang-item"><b>Fjaka</b> — The sweet Dalmatian art of doing nothing</div>
+        <div class="slang-item"><b>Bura</b> — Cold NE wind; causes rough ferry seas</div>
+        <div class="slang-item"><b>Račun, molim</b> — Check, please</div>
+        <div class="slang-item"><b>Plavac Mali</b> — Local red grape, the wine to drink</div>
+        <div class="slang-item"><b>Crni rižot</b> — Black cuttlefish risotto, the dish</div>
+        <div class="slang-item"><b>Ima li mjesta?</b> — Is there a table available?</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Staying smart — safety &amp; practical notes</h4>
+      <ul class="safety-list">
+        <li>Dubrovnik is one of Europe's safest cities. Petty theft near cruise ship crowds is the main concern — use a crossbody bag on Stradun.</li>
+        <li>The walls get slippery after rain — limestone is polished smooth. Wear actual shoes, not flip-flops.</li>
+        <li>Stradun restaurants are almost universally tourist traps with inflated prices and mediocre food. Eat one alley off the main drag.</li>
+        <li>ATMs are plentiful inside Old Town and at Gruž port. Avoid dynamic currency conversion (always choose "pay in EUR").</li>
+        <li>May is shoulder season — better prices and lower crowds than June–September, but confirm ferry schedules as some only run daily from June.</li>
+        <li>10% tip is appropriate in restaurants; round up for drinks. Add it in cash — card tip machines are rare.</li>
+        <li>Swimming: Old Town beaches are rocky. Banje Beach (near Ploče Gate) is the closest good swim. Lapad's Copacabana Beach is calmer.</li>
+        <li>Emergency number: <b>112</b>. Police: <b>192</b>. Tourist police are stationed near Pile Gate in summer.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · The Table</div>
+    <h2>Twenty restaurants worth the seat</h2>
+    <p>Dubrovnik is a small city with a big reputation — which means the gap between the genuine gems and the tourist-trap Stradun places is enormous. One Michelin star in the whole city. A handful of genuinely extraordinary tables. And a strong tradition of honest konoba cooking that beats most European cities on seafood. Book 360 and Nautika well ahead — everything else is walkable or within a short ride.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">World-class / Michelin tier</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">Restaurant 360 ★</div><div class="row-desc">Dubrovnik's only Michelin star (held since 2018). Set into the city walls above the Old Harbour — the most dramatic dining room in Croatia. Modern Croatian cuisine; the squid ink pasta with Adriatic langoustine and saffron emulsion is the dish. Book 2–3 weeks ahead. Worth every minute of effort.</div></div>
+        <span class="pill pill-gold">Old Town walls</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Nautika</div><div class="row-desc">The grand old institution of Dubrovnik dining — terraces carved into the cliff above Pile Gate, with Fort Lovrijenac reflected in the sea below. Upscale Adriatic seafood, polished service, and one of Europe's great restaurant settings. Grilled Adriatic fish and shellfish platters. Book ahead.</div></div>
+        <span class="pill pill-gold">Pile Gate</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Stara Loza</div><div class="row-desc">Housed in Dubrovnik's former courthouse inside the Old Town, with high vaulted ceilings and a refined contemporary Croatian menu. Quieter and more intimate than 360 — a strong fallback if the star table is full.</div></div>
+        <span class="pill pill-gold">Old Town</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Creative &amp; modern — the real gems</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Zuzori</div><div class="row-desc">Dubrovnik's most exciting newer table — tucked into an Old Town side alley, modern Mediterranean cooking that rotates seasonally. Fresh local ingredients, no gimmicks, genuinely considered wine list. Michelin-recommended. This is the one locals tell visitors to find.</div></div>
+        <span class="pill pill-emerald">Old Town</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Kopun</div><div class="row-desc">A slow-food restaurant in a 15th-century noble family's courtyard — named after the traditional capon dish that once graced Dubrovnik's feast tables. Stone arches, warm candlelight, and a menu anchored in Dalmatian heritage. The capon in truffle sauce is the move.</div></div>
+        <span class="pill pill-emerald">Old Town</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Restaurant Orhan</div><div class="row-desc">Perched directly on the water beneath Fort Lovrijenac — dinner with one of the most romantic settings in town. Grilled fish, fresh oysters from Ston, and a terrace where the fortress is so close you feel like you're eating inside a film set.</div></div>
+        <span class="pill pill-emerald">Below Fort Lovrijenac</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Barba</div><div class="row-desc">Small, unassuming, genuinely excellent — the kind of place locals don't want to tell tourists about. Fresh fish small plates, natural wine selection, and an honest price-to-quality ratio that's rare in Old Town. Great for a lower-key dinner night.</div></div>
+        <span class="pill pill-emerald">Lapad</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Shizuku by Matthew Skala</div><div class="row-desc">Japanese-Croatian fusion in a beautiful room near the Old Town. The chef draws from the Adriatic's seafood with Japanese technique — elegant, unusual, and one of the most interesting meals in the city.</div></div>
+        <span class="pill pill-emerald">Near Old Town</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">Classic konobas &amp; honest seafood</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Konoba Bonaca</div><div class="row-desc">A short drive from Old Town, consistently rated the best traditional Dalmatian restaurant in the area. Lamb and octopus peka cooked under embers — order it 24 hours ahead. No views, all substance. Locals swear by it.</div></div>
+        <span class="pill pill-rust">Outside Old Town · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Bota Šare</div><div class="row-desc">Gundulić Square's best table — Ston oysters fresh from the farm, Pag cheese, mussels in white wine. Ston (40 min south) grows some of Europe's finest oysters. This is the right place to eat them. Lively square setting.</div></div>
+        <span class="pill pill-emerald">Old Town · Gundulić Square</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Kamenice</div><div class="row-desc">A 30+ year institution on Gundulić Square. Famous mussels in buzara broth, fried calamari, and freshly shucked oysters. Loud, lively, always packed. Arrive at opening or accept a wait. Genuinely excellent despite the tourist foot traffic.</div></div>
+        <span class="pill pill-emerald">Old Town · Gundulić Square</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Konoba Lokanda Peskarija</div><div class="row-desc">Right on the Old Harbour, the black cuttlefish risotto (crni rižot) here is the reference version in Dubrovnik. Touristy in feel, real in quality. Go for lunch to beat the dinner rush and grab a harbour-view table.</div></div>
+        <span class="pill pill-emerald">Old Harbour</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">Proto Fish Restaurant</div><div class="row-desc">Operating since 1886 — the grandfather of Dubrovnik seafood dining. Upstairs terrace with Old Town views, refined shellfish platters and grilled Adriatic fish. More polished than a konoba, less theatrical than 360. A reliable, historic choice.</div></div>
+        <span class="pill pill-emerald">Old Town</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Fish Bar El Pulpo</div><div class="row-desc">Lapad's best-kept secret for fresh fish — locals eat here rather than fighting the Old Town tourist circuit. Octopus, sea bass, scallops, and oysters from Croatian producers. Relaxed, casual, delicious. The counter seat is the move.</div></div>
+        <span class="pill pill-rust">Lapad</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Gradska Kavana Arsenal</div><div class="row-desc">Inside the historic Arsenal building at the Old Port — a grand atmospheric dining room with high stone ceilings. Mediterranean seafood, great cocktails, and one of the best terraces in the harbour. A strong choice for a big group or celebration dinner.</div></div>
+        <span class="pill pill-emerald">Old Harbour</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">16</span>
+        <div class="row-main"><div class="row-name">Konoba Dubrava</div><div class="row-desc">Hidden in the hillside below Srđ mountain, away from Old Town entirely. Traditional Dalmatian cooking in a rural konoba setting — fresh mountain air, peka on order, and stone-wall serenity. 10 minutes by car. A great post-run recovery lunch.</div></div>
+        <span class="pill pill-rust">Srđ Hillside · 10 min</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">17</span>
+        <div class="row-main"><div class="row-name">Restaurant More</div><div class="row-desc">Contemporary seafood in Lapad with a large sea-facing terrace. Polished service, a broad Plavac Mali wine list, and sunsets that run to the horizon. The smarter choice for dinner if you're based in Lapad and want something upscale nearby.</div></div>
+        <span class="pill pill-rust">Lapad</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">18</span>
+        <div class="row-main"><div class="row-name">Mea Culpa</div><div class="row-desc">Dubrovnik's best pizza — and genuinely worth knowing because sometimes you need an excellent, unpretentious €12 meal in the Old Town that isn't trying to impress you. Locals love it. Skip the Stradun tourist traps and come here instead.</div></div>
+        <span class="pill pill-emerald">Old Town</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">19</span>
+        <div class="row-main"><div class="row-name">Azur</div><div class="row-desc">Asian-Mediterranean fusion near the Old Town with a buzzy creative crowd. Interesting sake and cocktail list, creative small plates. The right choice for a lighter, more global night when you want a break from Dalmatian seafood.</div></div>
+        <span class="pill pill-emerald">Near Old Town</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">20</span>
+        <div class="row-main"><div class="row-name">Taj Mahal</div><div class="row-desc">Bosnian cuisine — the right call for a change-of-pace lunch. Excellent ćevapi, burek, and slow-cooked lamb. One of the few Old Town restaurants with authentic Balkan food and honest prices. A great reset between fine dining nights.</div></div>
+        <span class="pill pill-slate">Old Town · Casual</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band fade-in">
+  <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=1400&auto=format&fit=crop'); background-color:#1a5276;"></div>
+  <div class="band-txt">
+    <h3>One Michelin star, and a city that eats from the sea</h3>
+    <p>Dubrovnik is small enough that the dining scene is curated by necessity — but what it does, it does at the highest level. Adriatic langoustine, Ston oysters, black cuttlefish risotto, and octopus peka slow-cooked under embers. The secret is getting off Stradun and one alley deeper.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Cup</div>
+    <h2>Specialty coffee — honest assessment</h2>
+    <p>Here's the truth: Dubrovnik is a small medieval city that runs primarily on tourism, and its specialty coffee scene reflects that. Zagreb and Split have Croatia's world-class roasters and third-wave café culture. Dubrovnik has one standout specialty roaster (Cogito), a handful of genuinely good café bars, and a strong Croatian coffee-drinking <em>culture</em> — long, social, lingering — that's worth leaning into even if the extraction methods aren't SCA-certified. You'll find excellent coffee; you won't find twenty specialty shops.</p>
+  </div>
+
+  <div class="ranked-list fade-in">
+    <div class="ranked-row"><span class="rank-num">01</span><div class="row-main"><div class="row-name">Cogito Coffee — Old Town / Ploče Gate</div><div class="row-desc">The standout. Croatia's most respected specialty roaster, with two Dubrovnik locations — one inside Old Town and one at the Ploče Gate. Light-to-medium roasts, excellent filter and espresso, and connected to the Life According to KAWA souvenir shop. This is your home base for real specialty coffee.</div></div><span class="pill pill-gold">Old Town / Ploče Gate</span></div>
+    <div class="ranked-row"><span class="rank-num">02</span><div class="row-main"><div class="row-name">Cogito Coffee — Old Town Branch</div><div class="row-desc">The smaller, calmer Old Town location. Better for a slow morning filter before the Stradun fills with cruise crowds. Single-origin offerings, precise pour-over on request.</div></div><span class="pill pill-gold">Old Town</span></div>
+    <div class="ranked-row"><span class="rank-num">03</span><div class="row-main"><div class="row-name">Life According to KAWA</div><div class="row-desc">The Ploče Gate flagship — part café, part concept store selling hand-roasted Cogito beans alongside local crafts. The most complete specialty experience in Dubrovnik and a solid spot to grab coffee before the walls walk.</div></div><span class="pill pill-gold">Ploče Gate</span></div>
+    <div class="ranked-row"><span class="rank-num">04</span><div class="row-main"><div class="row-name">Caffe Bar Time Out</div><div class="row-desc">The best terrace café in Old Town — a prime perch for morning coffee while the light hits the limestone. Quality espresso and a genuinely local atmosphere before the crowds arrive. Come before 9am.</div></div><span class="pill pill-emerald">Old Town terrace</span></div>
+    <div class="ranked-row"><span class="rank-num">05</span><div class="row-main"><div class="row-name">Soul Caffe &amp; Rakhija Bar</div><div class="row-desc">Tucked away from the main drag — the kind of neighbourhood café Dubrovnik is short on. Good espresso in the morning, Croatian rakhija (fruit brandy) in the evening. The sort of local place that still exists if you find it.</div></div><span class="pill pill-emerald">Old Town side alley</span></div>
+    <div class="ranked-row"><span class="rank-num">06</span><div class="row-main"><div class="row-name">Festival Café</div><div class="row-desc">Well-regarded café in the Old Town with reliable espresso and a comfortable spot to sit with your laptop or a book between morning activities. Consistent, friendly, not a tourist trap.</div></div><span class="pill pill-emerald">Old Town</span></div>
+    <div class="ranked-row"><span class="rank-num">07</span><div class="row-main"><div class="row-name">Gradska Kavana Arsenal — morning coffee</div><div class="row-desc">The Arsenal's café section opens early and serves decent espresso with a front-row seat to the Old Harbour waking up. Not specialty-grade, but the setting is unbeatable at 7am with a flat white and the boats.</div></div><span class="pill pill-emerald">Old Harbour</span></div>
+    <div class="ranked-row"><span class="rank-num">08</span><div class="row-main"><div class="row-name">Buža Bar — coffee with a cliff</div><div class="row-desc">The famous hole-in-the-wall bar clinging to the outside of the Old Town walls above the sea. Technically a bar, but they serve coffee and it's the most memorable caffeine delivery mechanism in Croatia. Morning Americano with your legs dangling over the Adriatic.</div></div><span class="pill pill-rust">Old Town walls · cliff</span></div>
+    <div class="ranked-row"><span class="rank-num">09</span><div class="row-main"><div class="row-name">Lapad neighbourhood café bars</div><div class="row-desc">If you're based in Lapad, the strip around Lapad Bay has several solid local café bars where you can get a proper espresso without Old Town tourist pricing. Explore the bay-front on your post-run walk and pick one.</div></div><span class="pill pill-slate">Lapad Bay</span></div>
+    <div class="ranked-row"><span class="rank-num">10</span><div class="row-main"><div class="row-name">Cable Car Top Station Café</div><div class="row-desc">After the Srđ summit run or hike, the café at the top of the cable car has espresso and a 360° view of Dubrovnik, the islands, and the Adriatic. Not specialty, but extraordinary context. Earn it first.</div></div><span class="pill pill-slate">Srđ summit</span></div>
+  </div>
+
+  <p style="margin-top:1.4rem; font-size:0.9rem; color:var(--ink-soft); font-style:italic;">Zagreb's Cogito Coffee flagship roastery and Split's specialty café scene are Croatia's real coffee cities. If you want a day trip with serious café culture as a secondary goal, Split is 3.5 hours north and worth it.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · AFTERNOON EXPERIENCES
+     ═══════════════════════════════════════ -->
+<section id="do">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Afternoons</div>
+    <h2>One experience per afternoon</h2>
+    <p>Dubrovnik is compact enough that you'll work through the main experiences in the first three days — the genius is in layering them well and finding the moments the city reveals itself outside tourist hours. Two weeks gives you plenty of room to go slow.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Walk first, early</span>
+        <h3>City Walls — 8am, before the world</h3>
+        <p class="card-loc">Old Town · 2km circuit · ~1.5 hrs</p>
+        <p>The 2km wall walk is mandatory and genuinely spectacular — but timing is everything. At 8am you share it with a handful of people and the orange rooftops glow in morning light. At 10am it's a cruise ship queue. Pay at the Pile Gate ticket office; the Dubrovnik Card includes entry.</p>
+        <p class="card-note">Go Day 1 or Day 2. Then use your extra early mornings for the Srđ run instead.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Signature</span>
+        <h3>Sea Kayaking to Lokrum &amp; Betina Cave</h3>
+        <p class="card-loc">Banje Beach launch · half day</p>
+        <p>Launch from below Old Town, paddle around the city walls from the sea, cross to Lokrum Island, and slip into Betina Cave — accessible only by kayak. Sunset tours end with the walls lit gold against the water. One of the best activities in Dubrovnik and impossible from a boat. Book via X-Adventure or Wall of Dubrovnik tours.</p>
+        <p class="card-note">3h morning or 2h afternoon / sunset options. Book 2–3 days ahead in May.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Island afternoon</span>
+        <h3>Lokrum Island</h3>
+        <p class="card-loc">10 min ferry from Old Harbour</p>
+        <p>The small, lush island directly offshore — peacocks roam free, a Dead Sea saltwater lake sits in the middle of the island for swimming, Benedictine monastery ruins to explore, and a Game of Thrones connection (it was filmed here). Ferry runs every 30 min from the Old Harbour. Spend a whole afternoon and swim.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Golden hour</span>
+        <h3>Dubrovnik Cable Car — Srđ at Sunset</h3>
+        <p class="card-loc">Top of Srđ mountain · 412m</p>
+        <p>The cable car delivers you to the summit in 4 minutes with views of the Old Town, the Elaphiti Islands, and on a clear day as far as Montenegro. Time it for 30 minutes before sunset and you'll watch the light go gold over the limestone. Alternatively, run/hike up the switchback trail (your morning workout) and cable car down.</p>
+        <p class="card-note">Cable car runs until late. ~€18 return. Book online to skip the queue.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Day trip</span>
+        <h3>Mostar, Bosnia &amp; Herzegovina</h3>
+        <p class="card-loc">~2.5 hrs by car · full day</p>
+        <p>One of the most dramatic day-trip contrasts in Europe — Ottoman mosques, the rebuilt Stari Most bridge over the Neretva, and a Balkan bazaar atmosphere entirely unlike anything on the Adriatic coast. Hire a driver or join a small group tour from Dubrovnik. Budget the whole day; it's worth it.</p>
+        <p class="card-note">Bring passport. Bosnia is not EU — border crossing needed. Use Bosnia's convertible mark (BAM) in cash; some shops take EUR.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Islands &amp; swimming</span>
+        <h3>Elaphiti Islands — Lopud &amp; Šipan</h3>
+        <p class="card-loc">Jadrolinija ferry from Gruž port</p>
+        <p>The small island chain northwest of Dubrovnik — car-free Lopud has one of Croatia's best sandy beaches (Šunj), and Šipan is the largest with a sleepy, off-season vibe in May. A perfect lazy day: ferry over, walk, swim, konoba lunch, ferry back. Early May means almost no crowds.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">After dark</span>
+        <h3>Cave Bar More</h3>
+        <p class="card-loc">Lapad · carved into sea cliff</p>
+        <p>A cocktail bar literally built inside a sea cave, with the Adriatic visible through the cave opening. One of those Dubrovnik experiences that sounds gimmicky but genuinely delivers — especially at night with the water lit below. Go for pre-dinner drinks, not as a nightclub.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Fort &amp; fortress</span>
+        <h3>Fort Lovrijenac — Love's Fortress</h3>
+        <p class="card-loc">Above Pile Gate · just outside walls</p>
+        <p>The freestanding fortress on the cliff outside the Pile Gate. The walls are 12 metres thick on the seaward side (rumour: to prevent it being turned against Dubrovnik). The inscription above the door — "Non bene pro toto libertas venditur auro" (Freedom is not to be sold for all the world's gold) — sets the tone. The Hamlet performances staged here in summer are extraordinary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · WEEKEND TRIP
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Kotor Bay, Montenegro — &amp; your long run on the water</h2>
+    <p>The strongest weekend option from Dubrovnik — Kotor is 1.5 hours south by car (or 3 hours by seasonal catamaran). A UNESCO-listed medieval city enclosed by its own walls, set inside one of Europe's largest fjord-like bays. The running is legitimately excellent: a flat coastal path along the Bay of Kotor for easy miles, plus the infamous Ladder of Kotor switchbacks for vertical work. Bring your passport.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1585061118754-be1cb74ee2b4?q=80&w=1400&auto=format&fit=crop'); background-color:#0e3460;"></div>
+    <div class="band-txt">
+      <h3>Drive, don't ferry — for this trip</h3>
+      <p>The Dubrovnik–Kotor catamaran runs seasonally (typically June–September); for May, check Kompas/Adriatic Lines for availability — it may not be running yet. If not, hire a driver for the 1.5-hour coastal road through Montenegro. The drive itself is spectacular and the border crossing is typically under 20 minutes with EU/US passports. Budget €80–100 round-trip for a driver.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the Kotor weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday — Arrive &amp; explore Kotor Old Town</span>
+        <span class="timeline-text">Drive down early, arrive by 10am. Walk Kotor's compact Old Town (smaller than Dubrovnik but equally magnificent — winding stone lanes, the 12th-century Cathedral of Saint Tryphon, squares full of cats). Boat across the bay to the Our Lady of the Rocks islet church. Evening in Kotor — stay overnight for the long run.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday AM — The Long Run: 14–20 miles</span>
+        <span class="timeline-text">Launch from Kotor Old Town along the Bay of Kotor coastal path — flat, paved, utterly scenic along the fjord's edge. The Gurdić Bastion to Dobrota loop is 8.5 miles (13.7km) of easy coastal running with mountain reflections in the water. For a longer effort (17+ miles), extend to the Cathedral of Saint Tryphon loop with significant elevation — or add the Ladder of Kotor switchbacks (ancient stone path, 1,350 steps, technical and steep) as a power-hike segment. Kotor sits at sea level; you won't have any altitude adjustment. Temps in May: 18–22°C by 8am. Take water from hotels — the coastal path has no aid stations.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday — Post-run recovery</span>
+        <span class="timeline-text">Lunch at a konoba on the waterfront (octopus or grilled sea bass), swim in the bay, then the relaxed 1.5-hour drive back to Dubrovnik by late afternoon. Arrive home by 5–6pm.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.4rem;font-size:.92rem;color:var(--ink-soft)"><b>Alt weekend — Hvar Island:</b> Fast catamaran from Dubrovnik (~3 hrs, seasonal May schedule — confirm with Jadrolinija). Hvar Town is Croatia's most glamorous island — lavender fields, all-day beach clubs, and Stari Grad Plain (a UNESCO site). Trail running on Hvar is rolling vineyard terrain with sea views. Slightly shorter drive but longer ferry commitment. Better for a full-weekend beach-and-wine mood than a serious run focus.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · LUXURY SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · Luxury Shopping</div>
+    <h2>What to actually buy in Dubrovnik</h2>
+    <p>Dubrovnik is not a luxury shopping destination in the way Paris or Milan are — and Old Town's retail is largely tourist-grade souvenir shops. But a handful of genuinely excellent boutiques and one world-famous artisan product make this worth a considered morning. The cravat was invented in Croatia. This is where you buy one.</p>
+  </div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The must-buy</span>
+        <h3>Croata — Museum Concept Store</h3>
+        <p class="card-loc">Pred Dvorom 2 · Old Town (near Rector's Palace)</p>
+        <p>The cravat (kravat) was invented by Croatian soldiers in the 17th century — the word "cravat" is derived from "Croat." Croata is the boutique to buy one: silk ties, scarves, and shawls, plus a dedicated history exhibit. The store is open daily 9am–10pm. Dignitaries and celebrities come here specifically. One of the few things you genuinely cannot get at the same level anywhere else.</p>
+        <p class="card-note">Multiple patterns, some limited-edition. Also makes excellent gifts.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">International luxury</span>
+        <h3>Maria Store</h3>
+        <p class="card-loc">Near Stradun · Old Town</p>
+        <p>One of the very few places in Croatia stocking genuine international luxury — Givenchy, Lanvin, Valentino, Saint Laurent, Stella McCartney. A small, curated boutique rather than a department store. Strategic for a specific piece if you want something from those houses without the Stradun tourist pricing.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Fine jewellery</span>
+        <h3>Old Town Filigree Jewellers</h3>
+        <p class="card-loc">Old Town side alleys</p>
+        <p>Dubrovnik has a centuries-long goldsmithing tradition — filigree silver and gold jewellery made in-house by local artisans. Look in the side alleys off Stradun rather than the tourist-facing main strip. Small pieces are handmade and genuinely beautiful; a ring or earrings from a proper Old Town jeweller is the understated Dubrovnik take-home.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Wine to take home</span>
+        <h3>Vinoteka Milišić</h3>
+        <p class="card-loc">Old Town · near Pile Gate</p>
+        <p>The best wine shop in Dubrovnik — Plavac Mali reds from the Pelješac peninsula (Croatia's Napa), Pošip whites from Korčula, and dessert wines from Hvar. Buy bottles to drink in your apartment. The Dingač designation from Pelješac is the one to know. Staff are knowledgeable.</p>
+        <p class="card-note">Wines pack well in your checked bag with a wine sleeve. Buy on departure day.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Local cosmetics</span>
+        <h3>Life According to KAWA / Local Artisan Shops</h3>
+        <p class="card-loc">Ploče Gate · Old Town</p>
+        <p>The KAWA concept store (attached to Cogito Coffee at Ploče Gate) stocks hand-roasted beans, local craft products, and curated Croatian goods. Also look for lavender products — brought in from Hvar where lavender grows prolifically — in the artisan market stalls in the Old Town alleys.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Honest note</span>
+        <h3>Skip the Stradun shops</h3>
+        <p class="card-loc">Avoid main drag retail</p>
+        <p>The souvenir and retail shops on Stradun itself are almost universally overpriced tourist merchandise — magnets, replica armour, and mass-produced "Croatian" products. One alley off Stradun and you'll find the genuine artisans. The quality difference is significant; the prices are often lower too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · FITNESS
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · Move</div>
+    <h2>Running, pilates &amp; gyms — honest picture</h2>
+    <p>Dubrovnik is small and built primarily for tourism, not resident wellness infrastructure. The running is excellent and the terrain is genuinely challenging for an ultra runner. Pilates options are limited but exist. There is no established dedicated pole studio in the city — the nearest serious studio is in Split (3.5 hrs north). What's here is named below, with full honesty about limitations.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Running is the superpower here — Srđ mountain offers 800+ feet of switchback vertical directly from the city, and the coastal paths are runnable at sea level. Lean into the terrain.</div>
+
+  <div class="fade-in">
+    <div class="grid-subhead">Running — your real fitness anchor</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Summit route</span>
+          <h3>Srđ Mountain Switchbacks</h3>
+          <p class="card-loc">Trail from Old Town / cable car station</p>
+          <p>The signature Dubrovnik run — 800 feet (244m) of elevation gain in roughly 2km of steep switchback. Launch from the cable car base near Ploče Gate, follow the Way of the Cross trail to the summit fortress at 412m. Views: entire Old Town, islands, Montenegro. Hit it before 7:30am in May to beat heat and catch sunrise. Add the ridge for extra mileage north or south.</p>
+          <p class="card-note">AllTrails: "Dubrovnik – Srđ (Way of the Cross)" · technical limestone steps · bring water.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Base miles</span>
+          <h3>Lapad Peninsula Loop</h3>
+          <p class="card-loc">Lapad Bay perimeter</p>
+          <p>The 6.4km loop around the Lapad peninsula is the flat easy-miles option — coastal path, pine trees, sea views, light traffic. Perfect for recovery runs and easy aerobic days. Extend by adding the Babin Kuk arm for an additional 4km. The harbour-front stretch in the early morning is quiet and beautiful.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Long-run option</span>
+          <h3>Harbour to Lokrum — Coastal Path East</h3>
+          <p class="card-loc">Old Harbour east towards Ploče</p>
+          <p>Follow the coastal promenade east from Old Town past Banje Beach and continue along the shoreline. Can extend toward Cavtat (15km one-way) on roads with intermittent trail sections — the coastal views are rewarding and road traffic is manageable at 6am. Run out-and-back for a long effort day.</p>
+          <p class="card-note">GarminConnect and Komoot have 10+ documented routes around Dubrovnik.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pilates — limited but available</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best option</span>
+          <h3>BodyMove Studio — Rixos Libertas Hotel</h3>
+          <p class="card-loc">Liechtensteinov put 3 · Lapad</p>
+          <p>Pilates, yoga, and massage at the Rixos Libertas hotel's wellness centre. The most professionally equipped studio in Dubrovnik. Guest day passes for the spa and fitness facilities are available — call the hotel directly to confirm drop-in rates and pilates session availability for May.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Small studio</span>
+          <h3>Fusion Fitness — Sun Gardens Resort</h3>
+          <p class="card-loc">Orašac · 15 min from Old Town</p>
+          <p>Sun Gardens Dubrovnik's premium resort wellness centre includes reformer pilates as part of its fitness programming. Day spa and fitness passes available for non-guests. A beautiful setting — outdoor pools, Adriatic views — if you want to make a half-day of it.</p>
+          <p class="card-note">Book directly with the resort; day pass availability varies by season.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-slate">Holistic</span>
+          <h3>Body Balance Centar</h3>
+          <p class="card-loc">Dubrovnik city</p>
+          <p>A Dubrovnik pilates and physiotherapy studio combining mat and reformer work with personalised attention. Smaller class sizes — book directly via Instagram DM or WhatsApp. Good for a private session or small group class during the week.</p>
+          <p class="card-note">Message ahead — schedules and drop-in availability vary.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Pole — honest note</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Not available locally</span>
+          <h3>No dedicated pole studio in Dubrovnik</h3>
+          <p class="card-loc">Nearest: Split (3.5 hrs) or Zagreb (5 hrs)</p>
+          <p>Dubrovnik simply doesn't have an established dedicated pole fitness studio. The city is too small and too tourism-focused for the resident wellness infrastructure that supports pole studios in Zagreb, Split, or larger Croatian cities. Split has several established studios if you're willing to make a day trip of it — worth combining with Split's café scene. Don't waste an afternoon hunting for something that isn't there.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-subhead">Gyms — day &amp; week passes</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-gold">Best equipped</span>
+          <h3>Athletic Club Dubrovnik</h3>
+          <p class="card-loc">Lapad area</p>
+          <p>The most complete gym in the city with full equipment, group classes, and a professional setup. Day passes and weekly passes available. The go-to for straightforward strength work when you want a proper gym session rather than a hotel fitness room.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-emerald">Hotel gym</span>
+          <h3>Hilton Imperial / Hotel Excelsior Gyms</h3>
+          <p class="card-loc">Old Town adjacent</p>
+          <p>Both five-star hotels near Old Town offer day spa and gym access to non-guests. The Hilton Imperial is walkable from Old Town; the Excelsior is on the Ploče coast. Call ahead to confirm day-access availability and pricing for non-guests — rates are typically €20–35 for gym + pool.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-tag tag-rust">Outdoor</span>
+          <h3>Banje Beach Calisthenics + Stairs</h3>
+          <p class="card-loc">Below Old Town walls · Banje Beach</p>
+          <p>The outdoor stairs and calisthenics areas below the Old Town are your free option. The 999 steps of the Srđ trail are the best free vertical training in Croatia. Combine with beach stretching and the morning Adriatic for recovery sessions. The city itself is the gym — 40-50 flights of stone stairs daily without trying.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · The Pantry</div>
+    <h2>Groceries &amp; cooking-for-two nights</h2>
+    <p>Dubrovnik's grocery infrastructure is functional rather than Whole-Foods-level — it's a small city and the premium organic supermarket scene that exists in Zagreb hasn't fully reached here. What's available is listed below. The fresh produce market at Gundulić Square is the highlight — the same square where Kamenice serves oysters, the morning market runs daily with excellent local fruit, vegetables, and cheese.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Tommy is the dominant local supermarket chain in Dubrovnik-Neretva County. Bio-Bio at Tommy Gruž is the city's only dedicated organic shop.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Main supermarket</span>
+        <h3>Tommy Hypermarket — Gruž</h3>
+        <p class="card-loc">Gruž port area · 10 min from Old Town</p>
+        <p>The dominant Dubrovnik-Neretva County supermarket chain and the best full-service option in the city. Strong fresh produce section, wide wine selection (Plavac Mali, Pošip, Graševina at good prices), in-house bakery, and solid deli counter. Parking is free with purchase. The biggest and most stocked location is at Gruž port — a short taxi or bus ride from Old Town.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Organic</span>
+        <h3>Bio-Bio — Tommy Gruž Shopping Centre</h3>
+        <p class="card-loc">Tommy Gruž complex · ground floor outside</p>
+        <p>Dubrovnik's only dedicated organic and health food shop — located just outside the Tommy Gruž shopping centre. Organic produce, vegetarian pantry staples, natural cosmetics, and a café bar. Small but genuinely focused on quality. If you want organic, this is the only real answer in the city.</p>
+        <p class="card-note">Combine with a Tommy supermarket run in the same trip.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Fresh market</span>
+        <h3>Gundulić Square Morning Market</h3>
+        <p class="card-loc">Old Town · Gundulić Square · daily mornings</p>
+        <p>The same square where Kamenice and Bota Šare serve oysters at lunch runs a produce market every morning from around 7am. Local farmers bring tomatoes, herbs, citrus, cheeses, and olive oil from Dalmatian producers. This is the cooking-for-two highlight — excellent quality, beautiful setting, reasonable prices. Go early on a rest-day morning.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Convenience</span>
+        <h3>Konzum — Multiple Locations</h3>
+        <p class="card-loc">Old Town adjacent + Lapad</p>
+        <p>Croatia's largest supermarket chain, with several locations near Old Town and in Lapad. Smaller than Tommy and without the organic bio section, but walkable from most accommodation for everyday grocery needs. Good bakery section and solid wine aisle. Lidl is also present in the city for budget staples.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Wine &amp; provisions</span>
+        <h3>Vinoteka Milišić — take-home bottles</h3>
+        <p class="card-loc">Old Town · near Pile Gate</p>
+        <p>For cooking nights and in-apartment wine, Vinoteka Milišić is where to buy Dalmatian bottles rather than the supermarket. Dingač and Postup Plavac Mali reds from Pelješac, Pošip white from Korčula, and local olive oil and fig preserves. Staff speak English and will help you pair wine to what you're cooking.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Runner's fuel</span>
+        <h3>DM Drogerie Markt</h3>
+        <p class="card-loc">Lapad + Gruž locations</p>
+        <p>Croatia's equivalent of a Boots or Walgreens — DM carries a solid range of sports nutrition, electrolyte tablets (High5, GU, local brands), protein bars, and health food. Better stocked for running nutrition than any supermarket in the city. Stock up on gels and electrolytes here rather than hunting for a running shop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">In constant motion.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Dubrovnik field guide · May 15–29, 2026<br>
+    Rates and openings shift — confirm ferry schedules (May is shoulder season), restaurant bookings, and studio availability on arrival. The ferry catamaran to Kotor/Montenegro runs seasonally — check current Kompas/Adriatic Lines schedules for May 2026.
+  </div>
+  <span class="footer-verified">✓ Researched June 2026 · Michelin Guide Croatia confirmed · EUR currency confirmed (no kuna since Jan 2023) · pole studio note verified</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-27",
-  "generated_at": "2026-06-27T14:24:35.274809Z",
+  "generated": "2026-06-28",
+  "generated_at": "2026-06-28T14:44:44.723122Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Saturday long run: 13–15 miles with 800–1000 ft of vert at Z2 (130–145 bpm), finishing with 2–3 miles at race-pace effort (145–155 bpm). You're in week 22 taper, so this is your final big vert stimulus before the 83-day runway to Kranjska Gora. Your recovery score is 56/100 (moderate), and yesterday's 8.57 mi at 129 bpm suggests you're not residually fatigued—go hard on the vert work, but dial back total volume vs. peak weeks. The alpine terrain demands sharp leg strength on steep grades; this run locks that in."
+      "message": "Easy 6–8 miles, Z2 only (120–135 bpm), mostly flat or rolling. You're 82 days out and in week 22 taper—this is about staying sharp without accumulating fatigue before the Julian Alps push. Your recovery score is 85/100 and sleep last night was 8.23h at 89% efficiency; you're in good shape to absorb one more solid week. Save any tempo or vert for Tuesday or Wednesday. Sunday is your second long effort window, but in taper, that means keeping the aerobic engine warm, not testing it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You've averaged 6.41h sleep over 30 days and clocked only 5.92h last night—sleep debt matters more than usual right now. Front-load carbs today: 90–120g in the 2 hours before the run (oatmeal, fruit, toast), then 40–60g every 45 min during the long run if it exceeds 90 min. Post-run, consume 1.2g carbs per kg body weight within 30 min with 20g protein to arrest the taper's loss of glycogen flux. Your HRV data is missing, so use pace discipline as your proxy: if you drift above 155 bpm in Z2 sections, you're under-fueled and need to back off intensity slightly."
+      "message": "Get 60–80g carbs + 20g protein within 30 min of finishing. On an 8-mile easy run you won't need gels, but front-load breakfast: oats, fruit, some fat. You're traveling constantly for work; pack a recovery bottle (sports drink + whey isolate) so you don't skip refuel during airport layovers. Taper weeks are when small fueling slips compound—your glycogen stores are the baseline fitness you've built over 22 weeks. Don't waste it by eating poorly on Sundays."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is the leak in your tank right now: 5.92h with 87% efficiency is acceptable but not ideal at 11 weeks out. Tonight, prioritize 7+ hours—aim for bedtime 30 min earlier than normal, dim lights by 21:00, and avoid work email after 20:30. Your resting HR is stable at 60 bpm (30-day avg 60.9), which is clean, but combine that short night with moderate recovery score and you have no margin for error. Consider a 20–30 min nap this afternoon post-run if work permits; even 15 min can offset sleep debt before a taper week where retention matters."
+      "message": "Sleep is your north star right now: keep targeting 8+ hours and protect it like a race. Your 30-day average is 6.58h, which is undershooting for someone at your training load—last night's 8.23h was an anomaly, not a trend. In taper, consistency matters more than heroic mileage. Add 15–20 min of easy mobility (hips, ankles, calves) post-run; Julian Alps is rocky and technical, and ankle stability under fatigue is non-negotiable. No massage gun aggression today."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the taper mindset now—the volume drop is real and can feel like backing down, but it's not. This long run is your final full vert test before 11 weeks of volume reduction and neural sharpening. Use today to dial in your race-pace feel on steep terrain: hit that 2–3 mile finish at 145–155 bpm and feel how your quads and glutes respond on the descent. That feedback loop—hard effort under controlled recovery conditions—is what separates a trained ultra runner from one who just logged miles. Trust the taper, execute clean, and log this run as evidence that you're ready."
+      "message": "You're 11.7 weeks from Kranjska Gora. The heavy lifting is done—week 20–21 peaked your system. Now your job is *retention*, not growth. Taper anxiety is real for 50K athletes; expect your legs to feel flat for 1–2 more weeks as your central nervous system downregulates. That's not weakness; it's adaptation. Review your race plan once: aid stations, vert profile splits, shoe/sock setup on technical descents. Mental prep now beats scrambling in September."
     }
   ]
 }

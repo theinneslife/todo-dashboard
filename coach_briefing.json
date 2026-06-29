@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-29",
-  "generated_at": "2026-06-29T07:00:00Z",
+  "generated_at": "2026-06-29T16:35:23.162230Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Monday Easy Run",
-      "message": "81 days out — you're deep in Peak Phase. Monday is for flushing the legs, not adding fatigue. Target 45–55 min at Zone 1–2 (HR under 140 bpm), fully conversational. If you're on trails, even better — ankle stability and terrain feel are Julian Alps currency. Keep cadence up, let the effort dictate the pace, and stop the moment anything feels off. Note: calendar was unavailable today so this defaults to phase + day-of-week logic."
+      "title": "Today's Run",
+      "message": "Easy 45–50 minutes, Z2 (140–150 bpm max), rolling terrain. You're in week 23 of a 22-week plan—you've extended taper, which is fine given your travel schedule and the 81 days out. Yesterday's 12-miler at 131 avg was solid vert work; today you flush that out without adding stress. Your resting HR (63 bpm) is 2.3 bpm above your 30-day avg, which suggests residual fatigue or travel dehydration. Keep it conversational. No hills, no surges. If you feel flat, dial back to 40 minutes."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Post-weekend recovery window is still open. Prioritize glycogen restock today: target 280–320g carbs (elevated above rest-day baseline to support the easy run and ongoing tissue repair). Lean protein at every meal — 30–40g per sitting — for muscle synthesis. Add anti-inflammatory foods: berries, leafy greens, wild salmon or sardines if accessible. Hydrate aggressively — travel + altitude + training compresses recovery if you're dehydrated."
+      "message": "You slept 8.46 hours at 95% efficiency—excellent. That's your recovery asset this week. Eat 1.2g carb/kg body weight today (assuming ~80kg, ~96g net carbs) spread across 4–5 meals to refuel the vert damage from yesterday without overloading your gut pre-run. Prioritize low FODMAP carbs and salt; you're traveling and probably dehydrated (resting HR elevation). Post-run, hit 20–25g protein + 40g carbs within 30 minutes to lock in adaptation."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Post-run: 10 minutes of targeted mobility — hip flexors, calves, IT band, and glute medius. Foam roll quads and calves slowly, 60–90 sec per side. If your legs feel heavy from the weekend, elevate for 15 min while doing nasal breathing. Tonight's non-negotiable: 8+ hours of sleep. Peak phase adaptation happens at night — protect that window like a key workout."
+      "message": "Your sleep score is your differentiator right now—protect it ruthlessly over the next 11 weeks. Keep bedtime consistent despite travel; 8+ hours is non-negotiable in taper. Recovery score is 72/100 (recovered), so you're cleared to run, but don't add mobility or strength work today. Walk 20 minutes post-run if legs feel stiff. Ice bath or cold water immersion only if you're experiencing genuine soreness; otherwise, it's noise and will disrupt sleep quality."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "11.5 weeks to Kranjska Gora. The fitness you're building now is the fitness you'll run on in September. Easy Mondays are not junk miles — they're the connective tissue of a big block. Every controlled effort today keeps Thursday's quality session honest. The Julian Alps don't care how hard you trained; they care how well you recovered. Own this day."
+      "message": "You're 11 weeks from Kranjska Gora. The hardest work is done; taper is about showing up smart, not proving fitness. Your last 48.8-mile week showed you can hold the volume. Use these 81 days to dial race strategy: pacing on descent (where 2,500m vert will hurt), nutrition windows at sparse aid stations, and mental rehearsal of the second half when quads are trashed. Run easy today and trust the block."
     }
   ]
 }

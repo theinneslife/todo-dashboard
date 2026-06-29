@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28T23:58:13.512742Z",
+  "generated": "2026-06-29T03:35:40.728088Z",
   "rolling_7d_miles": 48.8,
   "prior_7d_miles": 52.5,
   "rolling_7d_elevation": 7841,
@@ -8,10 +8,10 @@
   "prior_7d_sessions": 6,
   "long_run_30d": 22.01,
   "prior_long_run_30d": 12.21,
-  "weekly_miles": 48.8,
-  "total_elevation_feet": 7841,
-  "last_week_miles": 52.5,
-  "last_week_elevation_feet": 7123,
+  "weekly_miles": 0.0,
+  "total_elevation_feet": 0,
+  "last_week_miles": 48.8,
+  "last_week_elevation_feet": 7841,
   "last_week_sessions": 6,
   "recent_runs": [
     {

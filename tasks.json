@@ -2262,7 +2262,7 @@
     "title": "Schedule follow-up conversation to unpack Totari's data science stack",
     "description": "Speaker 3 said 'I'd love to unpack the data science a bit more, maybe this is for a future conversation.' Coordinate a deeper technical session.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2276,10 +2276,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-30T17:38:08.097Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T16:42:49.876Z",
-    "completed_at": null,
+    "completed_at": "2026-06-30T17:38:08.097Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

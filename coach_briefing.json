@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-29",
-  "generated_at": "2026-06-29T16:35:23.162230Z",
+  "generated": "2026-06-30",
+  "generated_at": "2026-06-30T15:24:06.501300Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 45–50 minutes, Z2 (140–150 bpm max), rolling terrain. You're in week 23 of a 22-week plan—you've extended taper, which is fine given your travel schedule and the 81 days out. Yesterday's 12-miler at 131 avg was solid vert work; today you flush that out without adding stress. Your resting HR (63 bpm) is 2.3 bpm above your 30-day avg, which suggests residual fatigue or travel dehydration. Keep it conversational. No hills, no surges. If you feel flat, dial back to 40 minutes."
+      "message": "Easy 6–8 miles, Z2 (130–140 bpm), rolling terrain. You're in week 23 of a 22-week plan—you're tapered and recovered hard (RHR 57, 9.5h sleep). Tuesday is normally quality day, but in taper, quality means *maintaining* leg turnover without metabolic stress. This isn't a threshold or VO2 workout. Keep HR under 140, focus on smooth footfalls on uneven ground to prep for alpine technicality, and call it done by 8 miles max. You've earned restraint."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 8.46 hours at 95% efficiency—excellent. That's your recovery asset this week. Eat 1.2g carb/kg body weight today (assuming ~80kg, ~96g net carbs) spread across 4–5 meals to refuel the vert damage from yesterday without overloading your gut pre-run. Prioritize low FODMAP carbs and salt; you're traveling and probably dehydrated (resting HR elevation). Post-run, hit 20–25g protein + 40g carbs within 30 minutes to lock in adaptation."
+      "message": "Front-load carbs today: 250–300g distributed across breakfast, lunch, pre-run, and post-run. Your glycogen stores are critical in taper—you're not burning it off as aggressively as peak phase, so carbs won't spike excess weight. Aim for 60–80g carbs within 30 min post-run with 15–20g protein. Given your travel schedule, prioritize simple carbs (rice, pasta, fruit, bagels) over fiber-heavy options that could complicate digestion before race week."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep score is your differentiator right now—protect it ruthlessly over the next 11 weeks. Keep bedtime consistent despite travel; 8+ hours is non-negotiable in taper. Recovery score is 72/100 (recovered), so you're cleared to run, but don't add mobility or strength work today. Walk 20 minutes post-run if legs feel stiff. Ice bath or cold water immersion only if you're experiencing genuine soreness; otherwise, it's noise and will disrupt sleep quality."
+      "message": "You've had exceptional sleep the last two nights (9.5h at 93% efficiency), and your recovery score is maxed. Protect it: 9+ hours again tonight, cool room (≤65°F), no screens after 21:30. Your resting HR at 57 is excellent—stay there. In 80 days, you need the nervous system calm and parasympathetic tone high. This sleep volume is your competitive edge right now; don't trade it for work email."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 11 weeks from Kranjska Gora. The hardest work is done; taper is about showing up smart, not proving fitness. Your last 48.8-mile week showed you can hold the volume. Use these 81 days to dial race strategy: pacing on descent (where 2,500m vert will hurt), nutrition windows at sparse aid stations, and mental rehearsal of the second half when quads are trashed. Run easy today and trust the block."
+      "message": "You're 80 days out and fully recovered—resist the urge to \"make up\" for taper volume by adding mileage or intensity. The impulse is normal; it's also how athletes derail peaking phases. Your recent runs show you're fit (12mi at Z2 HR 131 is solid), and taper works by *rest*, not by panic. Use these next three weeks to nail logistics, study the Julian Alps course profile, and mentally rehearse the 2,500m vert. That's where your competitive advantage lives."
     }
   ]
 }

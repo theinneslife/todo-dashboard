@@ -2590,7 +2590,7 @@
     "title": "Review Totari's next-day measurement claim across all TV types",
     "description": "Totari claims to be the only company providing next-day measurement for any type of TV (linear and streaming). Validate this claim and assess competitive differentiation.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2604,10 +2604,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-30T17:38:28.548Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T16:42:49.876Z",
-    "completed_at": null,
+    "completed_at": "2026-06-30T17:38:28.548Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

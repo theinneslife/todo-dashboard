@@ -2631,7 +2631,7 @@
     "title": "Look into Totari's self-serve platform for complex linear plan building",
     "description": "Totari is pushing toward self-serve capabilities where buyers build complex linear plans without Totari involvement. Evaluate if this is a competitive threat to our platform.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2645,10 +2645,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-30T17:38:31.880Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T16:42:49.876Z",
-    "completed_at": null,
+    "completed_at": "2026-06-30T17:38:31.880Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

@@ -2672,7 +2672,7 @@
     "title": "Compile notes on Totari's company profile and competitive intel",
     "description": "Totari has ~300 employees, 55-60% engineering/data science, US-based with ~20 engineers in Ukraine/Europe. They claim more data scientists than iSpot. Document for competitive analysis.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2686,10 +2686,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-30T17:38:36.247Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T16:42:49.876Z",
-    "completed_at": null,
+    "completed_at": "2026-06-30T17:38:36.247Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

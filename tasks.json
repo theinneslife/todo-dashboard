@@ -2467,7 +2467,7 @@
     "title": "Investigate Totari's media planning engine and LLM-driven planning",
     "description": "Totari uses large language models to generate cross-linear/streaming media plans in seconds across ~40,000 linear and tens of thousands of streaming entities. Assess our capabilities vs. theirs.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2481,10 +2481,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-06-30T17:38:21.448Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T16:42:49.876Z",
-    "completed_at": null,
+    "completed_at": "2026-06-30T17:38:21.448Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

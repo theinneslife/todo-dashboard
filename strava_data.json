@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-02T07:59:12.970062Z",
+  "generated": "2026-07-02T10:39:25.882407Z",
   "rolling_7d_miles": 45.6,
   "prior_7d_miles": 61.7,
   "rolling_7d_elevation": 4003,
@@ -434,15 +434,6 @@
       "miles": 7.0,
       "elevation_feet": 0,
       "duration": 4200,
-      "avg_hr": 0,
-      "max_hr": 0
-    },
-    {
-      "name": "Treadmill",
-      "date": "2026-05-03",
-      "miles": 4.5,
-      "elevation_feet": 0,
-      "duration": 2700,
       "avg_hr": 0,
       "max_hr": 0
     }

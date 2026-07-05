@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-04",
-  "generated_at": "2026-07-04T14:24:51.367800Z",
+  "generated": "2026-07-05",
+  "generated_at": "2026-07-05T14:26:56.626244Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Saturday long run: 14–16 miles with 1,200–1,400 ft of vert, Z2 aerobic effort (130–138 bpm). You're in taper week 21, so volume is intentionally reduced from peak (you ran 48.8 mi last week, now at 37.1 mi so far). Your recovery score of 52/100 is moderate—not suppressed enough to skip, but not license to surge. Keep the effort conversational and anchor to terrain that mirrors Kranjska Gora: sustained climbs on firm, rolling ground. This is a sharpness run, not a fitness run. Finish strong but not empty."
+      "message": "Easy 8–10 miles, Z2 only (120–135 bpm), no vert work. You're 75 days out in taper week 23, and your resting HR is 4 bpm elevated from your 30-day average—a sign CNS fatigue is still present despite decent recovery score. Your last three runs (12.05mi@139, 12.01mi@144, 8.03mi@131) averaged mid-Z3; that's appropriate for peak phase, but taper means backing off intensity completely now. Sunday is your second long effort window, but in taper, this is a shakeout day. Keep it conversational, sub-140 bpm, and if you have travel tomorrow for work, keep it short and easy—75 days is enough time to stay sharp without grinding."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 6h 27m with 94.7% efficiency—solid sleep quality, but total duration is 36 minutes below your 30-day average. This signals either travel fatigue or accumulated stress. Eat 120–150g of carbs during the run (gels, sports drink, or real food depending on aid station availability on your route). Post-run within 30 min: 40–50g protein + 80–100g carbs to arrest muscle protein breakdown and replenish glycogen. Tonight, prioritize a high-carb dinner (rice, pasta, or potatoes) and aim for 8h of sleep—your body is in supercompensation phase and needs that recovery window."
+      "message": "You slept 8.55h with 92.5% efficiency—excellent. Capitalize on that recovery by eating a full breakfast with 80–100g carbs, 25–30g protein, and healthy fat within 90 minutes of waking. During today's easy run, sip water only unless you exceed 90 minutes, then carry a single gel or bottle of sports drink. Post-run, refuel within 30 minutes with 30–40g carbs + 15–20g protein to lock in glycogen before travel (if applicable). Taper doesn't mean eating less—it means eating smart to support CNS and glycogen resynthesis while reducing training load."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Resting HR is 63 bpm, 1.8 bpm above your 30-day average—a minor tick upward that warrants attention but isn't a red flag. After this long run, use an ice bath (10–15 min at 50–55°F) or cold shower to suppress DOMS and accelerate parasympathetic tone; your recovery score will thank you. Compression gear (calf sleeves, tights) for 2–3 hours post-run. Aim for 8+ hours tonight. Tomorrow is easy recovery (6–8 miles, Z1) with no vert—treat it as a flush day before you dial back further Monday–Wednesday."
+      "message": "Your elevated resting HR and slight recovery dip suggest lingering fatigue, not illness. Prioritize 8+ hours again tonight—you've proven you can hit 8.5h consistently, so repeat that. Avoid caffeine after 2 PM, especially if you're traveling tomorrow. Consider 5–10 minutes of easy mobility or foam rolling post-run, but skip intense stretching or additional stressors. Your HRV data is missing, so you can't micro-manage based on autonomic tone, but consistent sleep and taper volume will lower that RHR back to 60–61 by race week. Hydration: drink to pale urine color throughout the day, not just around the run."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 76 days from Kranjska Gora and in the final taper stretch. The workload is lighter by design, but your mind may feel restless—that's normal and means fitness is intact. Use today's long run to practice race-day logistics: test your hydration bottle, fuel timing, and mental anchors on climbs. The Julian Alps demand patience on ascents and controlled descents; rehearse eating while moving uphill at moderate effort. Trust the taper. You've done the work. Now you're sharpening the tool."
+      "message": "Taper anxiety is real at 75 days out—you've built a solid block and now you're pulling back, which feels counterintuitive. That elevated resting HR is partly nervous system fatigue, partly taper fidget. Commit to the plan: your peak block (wk 16–19) delivered the vert and pace work; now your job is sleep, easy runs, and trust. Review one section of the Julian Alps 50K route mentally—elevation profile, aid station locations, technical descents—but don't obsess. You're a 40-something executive who runs 6 days a week; you've already proved discipline. Use these 75 days to stay fresh, not to cram."
     }
   ]
 }

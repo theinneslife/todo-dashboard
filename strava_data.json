@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-05T05:53:06.622269Z",
+  "generated": "2026-07-05T08:37:21.430085Z",
   "rolling_7d_miles": 49.1,
-  "prior_7d_miles": 58.8,
+  "prior_7d_miles": 36.8,
   "rolling_7d_elevation": 5299,
-  "prior_7d_elevation": 9390,
+  "prior_7d_elevation": 5745,
   "rolling_7d_sessions": 5,
-  "prior_7d_sessions": 6,
+  "prior_7d_sessions": 5,
   "long_run_30d": 22.01,
   "prior_long_run_30d": 14.01,
   "weekly_miles": 37.1,
@@ -436,15 +436,6 @@
       "duration": 4233,
       "avg_hr": 134,
       "max_hr": 149
-    },
-    {
-      "name": "Treadmill",
-      "date": "2026-05-06",
-      "miles": 7.0,
-      "elevation_feet": 0,
-      "duration": 4200,
-      "avg_hr": 0,
-      "max_hr": 0
     }
   ]
 }

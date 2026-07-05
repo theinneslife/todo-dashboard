@@ -3026,5 +3026,40 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "69a72e9a-491e-41f1-a7d6-249f19e2a998",
+    "title": "Buy a medium running vest",
+    "description": "Purchase a running vest in size medium.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-07-05T15:36:33.835Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-07-05T15:36:33.835Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

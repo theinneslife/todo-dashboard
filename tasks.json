@@ -2962,7 +2962,7 @@
     "title": "Research getting a tattoo in Barcelona",
     "description": "Mentioned getting a tattoo in Barcelona. Look into tattoo shops, artists, and availability in Barcelona.",
     "priority": 2,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -2982,10 +2982,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to completed"
+      },
+      {
+        "timestamp": "2026-07-06T17:31:02.309Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task reopened"
       }
     ],
     "created_at": "2026-07-03T15:59:40.922Z",
-    "completed_at": "2026-07-06T17:30:57.831Z",
+    "completed_at": null,
     "completion_notes": null,
     "project": null,
     "depends_on": [],

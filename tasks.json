@@ -3032,7 +3032,7 @@
     "title": "Buy a medium running vest",
     "description": "Purchase a running vest in size medium.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -3046,10 +3046,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-07-06T17:30:44.509Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-07-05T15:36:33.835Z",
-    "completed_at": null,
+    "completed_at": "2026-07-06T17:30:44.509Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

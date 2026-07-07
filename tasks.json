@@ -3109,7 +3109,7 @@
   },
   {
     "id": "c4f3e617-9f20-4ba2-9f3a-5876394c389b",
-    "title": "sales tasks",
+    "title": "Sales - Newsrooms and Accountability",
     "description": "Raise the SDR quota immediately\nQualitive problem - team needs to be trained how to ask questions. \n\ndaily newsrooms - leaders\nSales reps\nSDRS\nL&E joins",
     "priority": 1,
     "status": "pending",
@@ -3125,6 +3125,12 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-07-07T19:54:56.552Z",
+        "action": "edited",
+        "by": "Christopher",
+        "details": "Task edited"
       }
     ],
     "created_at": "2026-07-06T18:13:15.984Z",

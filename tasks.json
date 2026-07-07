@@ -827,7 +827,9 @@
     "priority": 1,
     "status": "pending",
     "mode": "manual",
-    "labels": [],
+    "labels": [
+      "Parking Lot"
+    ],
     "due_date": null,
     "recurrence": null,
     "subtasks": [],
@@ -844,6 +846,12 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-07-07T19:53:45.544Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to parking"
       }
     ],
     "created_at": "2026-06-01T17:06:34.341Z",

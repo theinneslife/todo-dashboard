@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-06",
-  "generated_at": "2026-07-06T16:15:14.798299Z",
+  "generated": "2026-07-07",
+  "generated_at": "2026-07-07T15:41:32.006300Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (120–135 bpm), mostly flat or rolling terrain. You ran 20 miles with 2,989 ft vert yesterday at 136 bpm average—a solid near-race-pace effort for week 24—so today is structural recovery, not a throwaway. Your resting HR is 59 bpm (solid) but sleep was only 6.07 hours and recovery score sits at 63 (moderate), which means your CNS is not fully primed. Skip any tempo or threshold work; the taper phase prioritizes retention of fitness with minimal accumulated fatigue. Stick to conversational pace, focus on leg turnover and ease, and call it done by mile 10. This week's volume should drop 30–40% from last week's 57.1 miles as you wind toward 74 days out."
+      "message": "You're in week 24 of taper—call this a sharpness day, not a hard day. Run 8–10 miles with 4 × 3min at 10K pace (around 142–145 bpm, based on your recent 136–139 zone) with 2min easy recovery between reps. Stay well short of yesterday's 126 bpm average; this is neuromuscular priming, not lactate work. Your recovery score is 81—solid—so you can afford this, but don't bleed into the long run energy needed for Saturday. Finish with 2 miles easy."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Post-run today: 40–50g carbs + 20–25g protein within 30 minutes (e.g., rice cakes with almond butter, banana with Greek yogurt). Because you logged a big glycogen spend yesterday and sleep depth was below your 7-hour average, prioritize carb replenishment at lunch and dinner—aim for 5–7g carbs per kg body weight across the day to fully restock. During today's easy 8–10 miler, water only if you're out >75 minutes; no need to fuel an easy run. Stay hydrated across meals; your resting HR improvement (59 vs. your 30-day avg of 61.2) suggests decent autonomic recovery, but short sleep can mask true fatigue state."
+      "message": "You slept 8 hours with 97% efficiency last night—exceptional. Eat a full breakfast (carbs + protein) 2–3 hours before the run: 75–100g carbs, 20–25g protein. During the run, skip fuel if you're under 90 minutes; post-run, take in 40–50g carbs + 15–20g protein within 30min to drive glycogen repletion before Saturday's long effort. With frequent travel, pack your own bars and electrolyte mix; don't rely on hotel/airport timing."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Tonight is non-negotiable: target 7.5–8 hours in bed. Your 6.07-hour night was efficient (92.5%), but sleep volume is the limiter in taper—quality matters less than quantity when you're 74 days out. No caffeine after 2 p.m., dim lights by 10 p.m., and consider a 20-minute afternoon nap if work travel permits. Your moderate recovery score (63) likely reflects the 20-miler's muscular load on top of travel-induced sleep fragmentation; sleep debt compounds in taper and blunts your ability to hold sharpness. A good night tonight sets up Tuesday's quality work correctly."
+      "message": "Your 8+ hours of sleep and 61 bpm resting HR show you're tracking well into taper. Maintain that sleep priority—aim for 8–8.5 hours again tonight, especially with 5 more hard sessions before Slovenia. No data on HRV, so use perceived readiness and that recovery score as your guides. Light stretching or 10min easy walking on your travel day (if you're flying); no sauna or aggressive mobility work until after the race."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in taper now—the mind game shifts from \"am I fit enough?\" to \"am I staying sharp?\" Yesterday's 20 miler at 136 bpm average, with 2,989 ft vert, proved you have the engine for the Julian Alps' 2,500m demand. Today's easy run isn't a confidence killer; it's a refresh. Use it to dial in your pre-dawn routine, test your gear, and visualize a section of the course. The anxiety spike in taper is real and normal; your recovery score at 63 and short sleep will amplify it. Trust the plan—74 days of taper is where discipline meets restraint. Don't run extra tomorrow to prove you're ready."
+      "message": "You're 73 days out and in controlled taper—this is when doubt creeps in. Your volume dropped from 57 miles last week to 7.3 so far this week, which is correct, but it *feels* like detraining. It's not. Today's 8–10 miles with tempo reps keeps your aerobic engine primed and your confidence intact without the cumulative fatigue that hammered you in peak. Trust the plan; Saturday's long run will reinforce that you're ready for 2,500m vert in the Alps."
     }
   ]
 }

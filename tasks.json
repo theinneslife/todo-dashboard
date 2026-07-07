@@ -3262,7 +3262,7 @@
     "title": "Get newsrooms moving",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -3275,10 +3275,16 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-07-07T20:20:17.727Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-07-07T19:54:12.452Z",
-    "completed_at": null,
+    "completed_at": "2026-07-07T20:20:17.727Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,

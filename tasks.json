@@ -1588,7 +1588,7 @@
     "title": "Project Dawn — acquisition review",
     "description": "Inbound acquisition interest. Review opportunity and determine next steps.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "corp-dev",
@@ -1610,17 +1610,24 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to parking"
+      },
+      {
+        "timestamp": "2026-07-07T20:15:06.761Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-11T18:33:14.424661+00:00",
-    "completed_at": null,
+    "completed_at": "2026-07-07T20:15:06.761Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "41b8b4a4-41a4-425d-bb61-69935c7c1a2a",

@@ -3225,7 +3225,8 @@
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": true
   },
   {
     "id": "7def415c-0cd8-4174-89c9-925da58cb9f1",

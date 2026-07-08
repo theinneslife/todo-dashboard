@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-07",
-  "generated_at": "2026-07-07T15:41:32.006300Z",
+  "generated": "2026-07-08",
+  "generated_at": "2026-07-08T15:13:27.938455Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're in week 24 of taper—call this a sharpness day, not a hard day. Run 8–10 miles with 4 × 3min at 10K pace (around 142–145 bpm, based on your recent 136–139 zone) with 2min easy recovery between reps. Stay well short of yesterday's 126 bpm average; this is neuromuscular priming, not lactate work. Your recovery score is 81—solid—so you can afford this, but don't bleed into the long run energy needed for Saturday. Finish with 2 miles easy."
+      "message": "You're 72 days out in taper with a 81/100 recovery score and 8+ hours of sleep—you're primed. Today is Wednesday; normally vert work, but you've already banked 57 miles last week and only 7.3 this week. Do a controlled 8–10 mile hill repeats session: 2mi easy, then 5×800m hill at 85–88% max HR (around 155–160 bpm based on your recent 136–139 bpm work), 2min recovery jog between reps, 2mi easy out. This maintains your alpine leg strength and neuromuscular sharpness without adding volume junk. Your recent long run was 20mi; you don't need to chase mileage now—you need precision."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 8 hours with 97% efficiency last night—exceptional. Eat a full breakfast (carbs + protein) 2–3 hours before the run: 75–100g carbs, 20–25g protein. During the run, skip fuel if you're under 90 minutes; post-run, take in 40–50g carbs + 15–20g protein within 30min to drive glycogen repletion before Saturday's long effort. With frequent travel, pack your own bars and electrolyte mix; don't rely on hotel/airport timing."
+      "message": "With hill repeats at 85–88% intensity, you'll burn glycogen hard. Eat a carb-forward meal 2–3 hours before the run (50–60g carbs: oats, banana, toast). During the 8–10 miler take 20–30g carbs if it runs past 75 minutes (sports drink or gel). Post-run within 30min: 20g protein + 60–80g carbs to restock glycogen and prime adaptation. Your 7.11h average sleep and today's 8.08h is excellent—don't undereat now or you'll blunt recovery before taper week finishes."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your 8+ hours of sleep and 61 bpm resting HR show you're tracking well into taper. Maintain that sleep priority—aim for 8–8.5 hours again tonight, especially with 5 more hard sessions before Slovenia. No data on HRV, so use perceived readiness and that recovery score as your guides. Light stretching or 10min easy walking on your travel day (if you're flying); no sauna or aggressive mobility work until after the race."
+      "message": "Your resting HR is steady at 60 bpm and recovery score is high; you're not carrying fatigue. Sleep has been strong (8+ hours last night). Post-run, do 10–15min of easy walking or 200m strides to flush lactate, then ice bath or cold plunge if you have access (2–3min, 50–59°F). No aggressive strength work today—save that for non-running days. Your nervous system needs to consolidate this vert stimulus without cumulative load."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 73 days out and in controlled taper—this is when doubt creeps in. Your volume dropped from 57 miles last week to 7.3 so far this week, which is correct, but it *feels* like detraining. It's not. Today's 8–10 miles with tempo reps keeps your aerobic engine primed and your confidence intact without the cumulative fatigue that hammered you in peak. Trust the plan; Saturday's long run will reinforce that you're ready for 2,500m vert in the Alps."
+      "message": "You're in taper with 10 weeks to Julian Alps; the hardest training is behind you. Today's hill repeats serve two purposes: they remind your legs what race pace feels like on vert, and they confirm you're still sharp. Don't chase numbers or feel defensive about cutting volume—the 50K will test your aerobic base (built in Build 1–2) and your mental toughness in the final 10 miles. Use these hill reps to build confidence that your engine still responds. Recovery week is next; trust the plan."
     }
   ]
 }

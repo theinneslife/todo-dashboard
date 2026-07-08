@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08T07:23:37.464352Z",
+  "generated": "2026-07-08T10:04:27.773826Z",
   "rolling_7d_miles": 51.4,
   "prior_7d_miles": 50.6,
   "rolling_7d_elevation": 6404,
@@ -427,15 +427,6 @@
       "duration": 7422,
       "avg_hr": 145,
       "max_hr": 180
-    },
-    {
-      "name": "Lunch Hike",
-      "date": "2026-05-09",
-      "miles": 3.33,
-      "elevation_feet": 781,
-      "duration": 6699,
-      "avg_hr": 96,
-      "max_hr": 136
     }
   ]
 }

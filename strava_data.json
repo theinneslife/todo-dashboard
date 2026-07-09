@@ -1,10 +1,10 @@
 {
-  "generated": "2026-07-09T04:40:19.730808Z",
-  "rolling_7d_miles": 39.4,
-  "prior_7d_miles": 50.6,
-  "rolling_7d_elevation": 5020,
-  "prior_7d_elevation": 4091,
-  "rolling_7d_sessions": 3,
+  "generated": "2026-07-09T08:22:06.349823Z",
+  "rolling_7d_miles": 27.3,
+  "prior_7d_miles": 57.7,
+  "rolling_7d_elevation": 3507,
+  "prior_7d_elevation": 5515,
+  "rolling_7d_sessions": 2,
   "prior_7d_sessions": 6,
   "long_run_30d": 22.01,
   "prior_long_run_30d": 16.19,
@@ -418,15 +418,6 @@
       "duration": 5151,
       "avg_hr": 128,
       "max_hr": 172
-    },
-    {
-      "name": "Rainy Trail Work",
-      "date": "2026-05-10",
-      "miles": 10.62,
-      "elevation_feet": 1220,
-      "duration": 7422,
-      "avg_hr": 145,
-      "max_hr": 180
     }
   ]
 }

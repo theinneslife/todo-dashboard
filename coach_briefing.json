@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-09",
-  "generated_at": "2026-07-09T15:53:37.856769Z",
+  "generated": "2026-07-10",
+  "generated_at": "2026-07-10T10:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 HR 120–130 bpm, no vert work. Your resting HR jumped 9 bpm above 30-day average and recovery score is 54/100—both signals you're still in debt from last week's 57-mile load and the 20-miler at 136 bpm. Thursday is a structural recovery day; use it. Keep pace conversational, roll easy on flats, walk any climbs if it keeps you honest in Z2. This is taper discipline: sharpness comes from *consistency* over the next 9 weeks, not from cramming one more hard effort."
+      "title": "Easy Long Run — Hilly",
+      "message": "Peak Phase, Week 13: easy Zone 2 run on hilly terrain with ~2,000 ft of vert (calendar has it blocked 5:30–10:00). Keep HR under ~145 bpm and conversational — easy days easy, hard days hard. Power-hike the steepest pitches with hands on quads; that's exactly the Julian Alps movement pattern. Bogotá's 2,600 m altitude is doing extra aerobic work for you — let pace drift slower and hold effort, not splits."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 8.91 hours last night—excellent—but at 91.4% efficiency you lost ~45 minutes to micro-arousals or poor sleep architecture. Eat within 30 minutes post-run: 40g carb + 15g protein (rice cakes + almond butter, or oats + whey). Today is not a caloric deficit day despite being easy; fuel the recovery process. Across the day, aim for 5–6g carb per kg bodyweight since you're in taper phase and your next hard session won't land until at least Saturday. Hydration: 500 mL per hour of running, electrolytes included."
+      "message": "This is gut-training day: take 60–80g carbs/hr from the first hour, don't wait until you feel it. Pre-run: 80–100g easy carbs 90 min before the 5:30 start. Post-run: 80–100g carbs plus 25–30g protein within 45 minutes, then keep eating — peak-phase days like this need well above the 220g rest-day floor. Hydrate extra for altitude."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your elevated resting HR and moderate recovery score suggest incomplete parasympathetic reset from the last 72 hours. Tonight: aim for 8+ hours again, cool room (18–19°C), no screens after 21:30. Consider 8–10 minutes of gentle mobility or yoga—not stretching, which is inflammatory when you're already sympathetically aroused. If you're traveling today for work, prioritize sleep quality over any afternoon nap; sleep debt is real, and taper phase is when CNS recovery unlocks race-day resilience."
+      "message": "Big vert day means eccentric load on the quads — 10 minutes of legs-up-the-wall after your haircut errand, foam roll quads and calves tonight, and protect sleep despite the anniversary dinner: aim to be in bed within 9 hours of finishing. Tomorrow's legs are built tonight."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 71 days out and entering the precision phase: every week now compounds or subtracts from your fitness ceiling. The Julian Alps 50K will have 2,500m of vert, minimal aid, and exposure. Today's easy run is not a throwaway; it's a data point. Notice your HR response, your leg feel, your breathing—this is the taper's hidden work. Next Saturday's long run will start getting serious again. Stay patient with the process; the athletes who crumble in taper are the ones fighting it instead of trusting the plan."
+      "message": "Phase 4 is the hardest month of the block — 69 days to Kranjska Gora. Today isn't about proving fitness; it's about banking miles cheaply. Practice one race rehearsal cue on the climbs: settle, shorten stride, count 20 steps, repeat. Boring discipline now is what makes the Julian Alps feel familiar in September."
     }
   ]
 }

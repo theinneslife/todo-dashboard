@@ -1,19 +1,28 @@
 {
-  "generated": "2026-07-10T16:12:14.019467Z",
-  "rolling_7d_miles": 29.0,
+  "generated": "2026-07-10T18:15:26.297679Z",
+  "rolling_7d_miles": 39.2,
   "prior_7d_miles": 49.1,
-  "rolling_7d_elevation": 3553,
+  "rolling_7d_elevation": 4708,
   "prior_7d_elevation": 5299,
   "rolling_7d_sessions": 4,
   "prior_7d_sessions": 5,
   "long_run_30d": 22.01,
   "prior_long_run_30d": 16.19,
-  "weekly_miles": 9.0,
-  "total_elevation_feet": 564,
+  "weekly_miles": 19.2,
+  "total_elevation_feet": 1719,
   "last_week_miles": 57.1,
   "last_week_elevation_feet": 6191,
   "last_week_sessions": 5,
   "recent_runs": [
+    {
+      "name": "Morning Run",
+      "date": "2026-07-10",
+      "miles": 10.21,
+      "elevation_feet": 1155,
+      "duration": 6396,
+      "avg_hr": 140,
+      "max_hr": 161
+    },
     {
       "name": "Morning Hike",
       "date": "2026-07-10",

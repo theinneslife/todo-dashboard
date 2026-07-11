@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-10",
-  "generated_at": "2026-07-10T15:28:28.914589Z",
+  "generated": "2026-07-11",
+  "generated_at": "2026-07-11T14:19:42.153485Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy shakeout, 4–5 miles at Z2 (130–145 bpm). Your resting HR is 71—elevated 9 bpm above your 30-day average—and recovery score sits at 54/100 (moderate). This signals residual fatigue; you do not need a hard effort today. Friday in taper is a prep day for tomorrow's long run, not a stimulus day. Keep it conversational, relaxed, and use it to check your fueling and pacing feel for the Alps. You're 70 days out; sharpness comes from consistency and freshness, not Friday volume."
+      "message": "You're 9 weeks out and in taper—this is your Saturday long run, but volume is now the priority over intensity. Target 90–110 minutes at Z2 (130–145 bpm based on yesterday's 140 avg), focusing on the downhill and technical footwork you'll need in the Julian Alps. Yesterday's 10.21 mi @ 1,155 ft suggests you can handle the vert load; today, dial back to ~1,000–1,200 ft of climbing and nail the descents. Your recovery score is solid at 81/100 and sleep last night was exceptional (9.62h)—you're ready, but don't chase pace. Taper is about feeling fresh and confident on race day, not hitting PRs now."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat a normal breakfast 2–3 hours before the run (50g carbs, 15–20g protein, low fiber). During the 4–5 mile easy run, you don't need gels or calories—just water. Post-run within 30 minutes: 30–40g carbs + 15–20g protein (chocolate milk, banana + Greek yogurt, or rice cakes with almond butter). Tonight, prioritize carb-loading lightly: aim for 6–7g carbs per kg bodyweight tomorrow in prep for your long run. You're in taper; fuel to support recovery and glycogen, not restrict."
+      "message": "With a 90–110 min effort in Z2, you'll burn roughly 1,200–1,400 kcal; take 30–40g carbs per hour on the move (sports drink, gels, or real food if you're running locally). Post-run, eat within 30 minutes: 40g carb + 15–20g protein (rice + chicken, pasta + egg, or a recovery drink) to replenish glycogen before your next meal. You've logged solid long runs all cycle—don't experiment with nutrition today. Stick to what's worked. Hydration: 500–750 ml per hour depending on heat and terrain."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Last night's 8.91 hours at 91.4% efficiency is excellent and masks your elevated resting HR—travel and work stress are likely the culprits, not poor sleep. Protect tonight: aim for 8–9 hours again, dark room, no screens 30 minutes before bed. Your HRV data is absent; if you have a wearable, start logging it now to establish baseline variability before race week. The resting HR elevation tells you to dial back intensity today and tomorrow's pacing should reflect that. Ice bath or contrast shower post-run if you have travel fatigue—20 minutes total."
+      "message": "Last night's 9h 38m sleep at 91% efficiency is elite-level recovery; your 63 bpm resting HR (vs. 30-day avg of 61.6) is still low and healthy. Maintain that sleep standard through taper—aim for 8–9h nightly, in a cool dark room, with no screens after 10 PM. After today's run, foam roll your calves and quads for 8–10 minutes, then easy walking or swimming if you feel stiff. You're carrying low fatigue (19.2 mi this week vs. 57.1 last week), so active recovery beats complete rest. Sunday should be a shakeout run (20–30 min Z2) or rest day—no hard work."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in week 24 of a 22-week plan (2 weeks over), which means you've earned this taper. The Julian Alps 50K demands alpine legs, vert fitness, and mental toughness on sparse aid—all of which you've built. Friday doubt is normal in taper; resist the urge to \"test\" yourself with a hard effort. Your job now is trust the training, sleep hard, eat well, and keep the nervous system calm. 70 days is enough time to sharpen for a specific target. Stay disciplined."
+      "message": "You're 69 days from Slovenia. Taper can mess with your head—you'll feel rested and want to test yourself. Don't. Every run from now is about arrival, not arrival with a W. Use today's long run to visualize the race: the climb out of Kranjska Gora, the exposed ridge section, how you'll pace the final 10K when your quads are screaming. You've built the fitness; the next 9 weeks are about protecting it and showing up sharp. Trust the cycle—you've executed at a high level all season."
     }
   ]
 }

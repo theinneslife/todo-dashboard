@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-12T05:13:45.306524Z",
+  "generated": "2026-07-12T07:55:24.045220Z",
   "rolling_7d_miles": 39.2,
   "prior_7d_miles": 49.1,
   "rolling_7d_elevation": 4708,
@@ -418,15 +418,6 @@
       "duration": 5186,
       "avg_hr": 90,
       "max_hr": 150
-    },
-    {
-      "name": "Morning Trail Run",
-      "date": "2026-05-13",
-      "miles": 9.72,
-      "elevation_feet": 1388,
-      "duration": 7683,
-      "avg_hr": 137,
-      "max_hr": 180
     }
   ]
 }

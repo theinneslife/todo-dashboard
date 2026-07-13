@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-12T23:40:55.925142Z",
+  "generated": "2026-07-13T01:26:30.754175Z",
   "rolling_7d_miles": 30.2,
   "prior_7d_miles": 57.1,
   "rolling_7d_elevation": 1873,
@@ -8,11 +8,11 @@
   "prior_7d_sessions": 5,
   "long_run_30d": 22.01,
   "prior_long_run_30d": 16.19,
-  "weekly_miles": 30.2,
-  "total_elevation_feet": 1873,
-  "last_week_miles": 57.1,
-  "last_week_elevation_feet": 6191,
-  "last_week_sessions": 5,
+  "weekly_miles": 0.0,
+  "total_elevation_feet": 0,
+  "last_week_miles": 30.2,
+  "last_week_elevation_feet": 1873,
+  "last_week_sessions": 4,
   "recent_runs": [
     {
       "name": "Afternoon Run",

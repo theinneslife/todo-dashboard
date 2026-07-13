@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-13T13:58:31.266706Z",
+  "generated": "2026-07-13T16:30:40.751148Z",
   "rolling_7d_miles": 22.9,
   "prior_7d_miles": 59.4,
   "rolling_7d_elevation": 1355,
@@ -418,15 +418,6 @@
       "duration": 9760,
       "avg_hr": 134,
       "max_hr": 181
-    },
-    {
-      "name": "Evening Run",
-      "date": "2026-05-14",
-      "miles": 7.01,
-      "elevation_feet": 0,
-      "duration": 5186,
-      "avg_hr": 90,
-      "max_hr": 150
     }
   ]
 }

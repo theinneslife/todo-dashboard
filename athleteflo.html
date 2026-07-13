@@ -2258,10 +2258,10 @@ const strain7d = [14.2, 18.5, 8.1, 16.3, 10.4, 19.8, 11.2];
 
 // Pass 1: weight data
 const weightData = {
-  current:   190.0,
+  current:   180.0,
   goal:      178.0,
   start:     195.0,
-  history7d: [192.0, 191.5, 191.2, 191.0, 190.8, 190.4, 190.0]
+  history7d: [182.0, 181.5, 181.2, 181.0, 180.8, 180.4, 180.0]
 };
 
 // 6-week fitness curve (~42 days)
@@ -2634,23 +2634,27 @@ function refreshWeeklyCheckin() {
 /* ══════════════════════════════════════════════
    Weight: localStorage persistence + dynamic 7-day trend
    ══════════════════════════════════════════════ */
-// v2 key forces a clean re-seed on every device — eliminates stale 195 readings
-// from devices that had an old seed. Old 'af_weight_log' data is simply abandoned.
-const WEIGHT_LS_KEY = 'af_weight_log_v2';
+// v3 key forces a clean re-seed on every device — corrects stale 190 readings
+// from devices that had the v2 seed. Old 'af_weight_log_v2' data is abandoned.
+const WEIGHT_LS_KEY = 'af_weight_log_v3';
 
 function getWeightLog() {
+  // Never auto-seed: seeding injects hardcoded stale values (180 lbs) and is the
+  // root cause of weight resetting to wrong numbers on every new browser/device.
+  // Return an empty array when nothing is logged; the UI will prompt the user to
+  // enter their actual weight rather than displaying a fabricated value.
   try {
     const raw = localStorage.getItem(WEIGHT_LS_KEY);
-    if (!raw) return seedWeightLog();
+    if (!raw) return [];
     const log = JSON.parse(raw);
-    if (!Array.isArray(log) || log.length === 0) return seedWeightLog();
+    if (!Array.isArray(log)) return [];
     return log;
   } catch (e) {
-    return seedWeightLog();
+    return [];
   }
 }
 
-// Seed with realistic 7-day history ending today, anchored to Christopher's actual weight (190lb).
+// Seed with realistic 7-day history ending today, anchored to Christopher's actual weight (180lb).
 function seedWeightLog() {
   const seed = [];
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -2702,6 +2706,24 @@ function refreshWeightCard() {
   const goal  = weightData.goal;
   const start = weightData.start;
 
+  // If no weight has ever been logged on this device, show placeholder text
+  // rather than a hardcoded seed value that is almost certainly wrong.
+  if (log.length === 0) {
+    document.getElementById('weight-hero').innerHTML = '—<span class="body-hero-unit">lbs</span>';
+    document.getElementById('weight-togo').textContent = 'Log weight above to track progress';
+    document.getElementById('weight-bar').style.width = '0%';
+    document.getElementById('weight-stat-lost').textContent = '—';
+    document.getElementById('weight-stat-pct').textContent = '—';
+    document.getElementById('weight-stat-rate').textContent = '—';
+    const trendEl0 = document.getElementById('weight-trend-direction');
+    if (trendEl0) { trendEl0.style.color = 'var(--text-muted)'; trendEl0.textContent = '—'; }
+    const svg0 = document.getElementById('weight-sparkline');
+    if (svg0) svg0.innerHTML = '';
+    const daysEl0 = document.getElementById('weight-days');
+    if (daysEl0) daysEl0.innerHTML = '';
+    return;
+  }
+
   // Build last-7-days array (oldest → newest), filling gaps with last known on-or-before value
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const byDate = Object.fromEntries(log.map(e => [e.date, e.weight]));
@@ -2711,13 +2733,27 @@ function refreshWeightCard() {
     const d = new Date(today); d.setDate(today.getDate() - i);
     const key = isoDate(d);
     const onOrBefore = sortedDates.filter(s => s <= key);
+    // Use the most recent logged value on-or-before this day; null when no prior
+    // entry exists so the sparkline skips those points rather than showing a wrong value.
     const w = onOrBefore.length
       ? byDate[onOrBefore[onOrBefore.length - 1]]
-      : weightData.current;
+      : null;
     days7.push({ date: key, weight: w, weekday: d });
   }
 
-  const current = days7[days7.length - 1].weight;
+  // Use the most recent non-null entry as "current". If somehow all 7 days are
+  // null (log exists but all entries are in the far future), bail gracefully.
+  const nonNullDays = days7.filter(d => d.weight != null);
+  if (nonNullDays.length === 0) {
+    document.getElementById('weight-hero').innerHTML = '—<span class="body-hero-unit">lbs</span>';
+    document.getElementById('weight-togo').textContent = 'Log weight above to track progress';
+    document.getElementById('weight-bar').style.width = '0%';
+    document.getElementById('weight-stat-lost').textContent = '—';
+    document.getElementById('weight-stat-pct').textContent = '—';
+    document.getElementById('weight-stat-rate').textContent = '—';
+    return;
+  }
+  const current = nonNullDays[nonNullDays.length - 1].weight;
 
   // Hero
   document.getElementById('weight-hero').innerHTML =
@@ -2739,17 +2775,20 @@ function refreshWeightCard() {
     (lost >= 0 ? '−' : '+') + Math.abs(lost).toFixed(1);
   document.getElementById('weight-stat-pct').textContent = pct + '%';
 
-  // Rate over last 7 days
-  const span = days7[days7.length - 1].weight - days7[0].weight;
-  const ratePerDay = span / 6;
+  // Rate over the available logged window (oldest non-null to newest non-null)
+  const span = nonNullDays.length >= 2
+    ? nonNullDays[nonNullDays.length - 1].weight - nonNullDays[0].weight
+    : 0;
+  const ratePerDay = nonNullDays.length >= 2 ? span / Math.max(nonNullDays.length - 1, 1) : 0;
   document.getElementById('weight-stat-rate').textContent =
-    (ratePerDay > 0 ? '+' : ratePerDay < 0 ? '−' : '') + Math.abs(ratePerDay).toFixed(2);
+    nonNullDays.length < 2 ? '—'
+      : (ratePerDay > 0 ? '+' : ratePerDay < 0 ? '−' : '') + Math.abs(ratePerDay).toFixed(2);
 
   // Trend direction
   const trendEl = document.getElementById('weight-trend-direction');
-  if (Math.abs(span) < 0.1) {
+  if (nonNullDays.length < 2 || Math.abs(span) < 0.1) {
     trendEl.style.color = 'var(--text-muted)';
-    trendEl.textContent = '→ holding steady';
+    trendEl.textContent = nonNullDays.length < 2 ? '—' : '→ holding steady';
   } else if (span < 0) {
     trendEl.style.color = 'var(--accent-green)';
     trendEl.textContent = '↓ trending down';
@@ -2767,7 +2806,20 @@ function drawWeightSparkline(days7) {
   svg.innerHTML = '';
   daysEl.innerHTML = '';
 
-  const data = days7.map(d => d.weight);
+  // Filter to only days with a logged weight for the sparkline
+  const validDays = days7.filter(d => d.weight != null);
+  if (validDays.length < 2) {
+    // Not enough data points to draw a meaningful line
+    days7.forEach(d => {
+      const lbl = document.createElement('span');
+      lbl.className = 'sparkline-day-lbl';
+      lbl.textContent = d.weekday.toLocaleDateString('en-US', { weekday: 'short' }).charAt(0);
+      daysEl.appendChild(lbl);
+    });
+    return;
+  }
+
+  const data = validDays.map(d => d.weight);
   const W = 200, H = 34;
   const n = data.length;
   const minV = Math.min(...data) - 0.3;
@@ -2802,6 +2854,7 @@ function drawWeightSparkline(days7) {
   dot.setAttribute('fill', '#a78bfa');
   svg.appendChild(dot);
 
+  // Show day labels for all 7 days (including days with no data)
   days7.forEach(d => {
     const lbl = document.createElement('span');
     lbl.className = 'sparkline-day-lbl';
@@ -3223,11 +3276,149 @@ async function refreshCoachBriefing() {
       console.warn('AthleteFlo: coach date formatting failed', dateErr);
     }
   } catch (e) {
-    list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
-    badge.textContent = '—';
-    updatedEl.textContent = 'Last updated: unknown — fetch failed';
-    updatedEl.classList.add('stale');
+    // Null-guard every element — if one is missing, don't let the error handler
+    // itself throw and propagate up through syncNow's outer catch.
+    if (list)      list.innerHTML = '<p class="coach-note">Coach briefing unavailable. Check back soon.</p>';
+    if (badge)     badge.textContent = '—';
+    if (updatedEl) { updatedEl.textContent = 'Last updated: unknown — fetch failed'; updatedEl.classList.add('stale'); }
     console.warn('AthleteFlo: could not load coach_briefing.json', e);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Coach Notes — auto-generated from live Strava + nutrition data
+   Called after syncStravaData() and syncNutritionData() complete so it
+   always reflects the ACTUAL training state rather than a static JSON file.
+   Overwrites whatever refreshCoachBriefing() rendered.
+   ══════════════════════════════════════════════ */
+function refreshCoachNotesFromData() {
+  if (!stravaData) return; // Live data not loaded yet; keep static briefing
+
+  const list      = document.getElementById('coach-notes-list');
+  const badge     = document.getElementById('coach-badge-date');
+  const updatedEl = document.getElementById('coach-updated');
+  if (!list) return;
+
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const daysToRace = Math.max(0, Math.ceil((RACE_DATE - today) / 86400000));
+  const recent  = Array.isArray(stravaData.recent_runs) ? stravaData.recent_runs : [];
+  const lastRun = recent[0] || null;
+  const weeklyMi = typeof stravaData.rolling_7d_miles === 'number' ? stravaData.rolling_7d_miles : 0;
+  const prevMi   = typeof stravaData.prior_7d_miles   === 'number' ? stravaData.prior_7d_miles   : 0;
+  const loadRatio = prevMi > 0 ? weeklyMi / prevMi : 1;
+
+  const items = [];
+
+  // 1. Most recent activity — describes what Christopher actually did, not a planned scenario
+  if (lastRun) {
+    const runDate = new Date(String(lastRun.date) + 'T00:00:00');
+    const daysAgo = Math.round((today - runDate) / 86400000);
+    const whenStr = daysAgo === 0 ? 'today' : daysAgo === 1 ? 'yesterday' : daysAgo + ' days ago';
+    const vertStr = lastRun.elevation_feet > 0
+      ? ' with ' + Math.round(lastRun.elevation_feet).toLocaleString() + ' ft vert' : '';
+    const hrStr = lastRun.avg_hr > 0 ? ' (avg HR ' + Math.round(lastRun.avg_hr) + ' bpm)' : '';
+    const staleness = daysAgo > 5
+      ? ' It has been ' + daysAgo + ' days since your last recorded run. Check Strava sync or log a run soon.'
+      : daysAgo > 2 ? ' Body should be well recovered — ready for a quality session.' : ' Keep the consistency going.';
+    items.push({
+      icon: '🏃',
+      title: 'Last Run: ' + lastRun.name,
+      message: lastRun.miles.toFixed(1) + ' mi' + vertStr + hrStr + ' — ' + whenStr + '.' + staleness
+    });
+  } else {
+    items.push({
+      icon: '🏃',
+      title: 'No Recent Activity',
+      message: 'No Strava runs found in the sync window. Complete a run and sync to see activity-based coaching here.'
+    });
+  }
+
+  // 2. Weekly load analysis
+  let loadTitle, loadMsg;
+  if (weeklyMi > 0) {
+    if (loadRatio > 1.25) {
+      loadTitle = 'Load Spike — Watch Recovery';
+      loadMsg   = 'Rolling 7-day: ' + weeklyMi.toFixed(0) + ' mi vs ' + prevMi.toFixed(0) + ' mi prior week ('
+        + Math.round((loadRatio - 1) * 100) + '% jump). High spikes raise injury risk. Insert an easy or rest day before the next hard session.';
+    } else if (loadRatio < 0.75 && prevMi > 10) {
+      loadTitle = 'Volume Dip';
+      loadMsg   = 'Rolling 7-day: ' + weeklyMi.toFixed(0) + ' mi (was ' + prevMi.toFixed(0) + ' mi). If this is a planned recovery week, let the adaptation happen. Otherwise add easy aerobic miles to stay on track for Julian Alps.';
+    } else {
+      loadTitle = 'Weekly Load — On Track';
+      loadMsg   = 'Rolling 7-day: ' + weeklyMi.toFixed(0) + ' mi (' + prevMi.toFixed(0) + ' mi prior). Load is consistent. '
+        + (daysToRace > 42 ? 'Keep building volume with a vert focus. Long runs should continue climbing.'
+          : daysToRace > 21 ? 'Peak block — push long runs and vert, then begin your taper in the next few weeks.'
+          : 'Begin tapering now. Reduce volume 20–30% while keeping short quality efforts.');
+    }
+  } else {
+    loadTitle = 'Weekly Mileage';
+    loadMsg   = 'Sync Strava to see load analysis.';
+  }
+  items.push({ icon: '📊', title: loadTitle, message: loadMsg });
+
+  // 3. Recovery from nutritionData (Apple Health pipeline)
+  if (nutritionData && nutritionData.today) {
+    const t = nutritionData.today;
+    const rec   = t.recovery_score;
+    const sleep = t.sleep_hours;
+    let recTitle, recMsg;
+    if (rec != null && rec < 50) {
+      recTitle = 'Recovery — Low';
+      recMsg   = 'Recovery score ' + rec + '/100. Keep today easy or rest fully. Target 8+ hrs sleep tonight. If you run, Zone 1 only (under 130 bpm).';
+    } else if (rec != null && rec >= 70) {
+      recTitle = 'Recovery — Green';
+      recMsg   = 'Recovery score ' + rec + '/100. Body is ready. Green light for a quality session or a long vert run.';
+    } else if (rec != null) {
+      recTitle = 'Recovery — Moderate';
+      recMsg   = 'Recovery score ' + rec + '/100. Steady aerobic work is fine. Save hard sessions for when the score tops 70.';
+    } else if (sleep != null) {
+      recTitle = 'Sleep';
+      recMsg   = sleep.toFixed(1) + ' hrs last night. '
+        + (sleep < 6.5 ? 'Short night — keep intensity moderate today.' : sleep >= 8 ? 'Well rested. Ready for a strong effort.' : 'Decent sleep. Steady aerobic work is appropriate.');
+    } else {
+      recTitle = 'Recovery';
+      recMsg   = 'Connect Apple Health via the nutrition sync to see sleep and recovery data here.';
+    }
+    items.push({ icon: '💤', title: recTitle, message: recMsg });
+  }
+
+  // 4. Race-phase note based on actual days-to-race
+  {
+    const weekNum = Math.min(Math.max(Math.floor(((TOTAL_WEEKS * 7) - daysToRace) / 7) + 1, 1), TOTAL_WEEKS);
+    let phaseTitle, phaseMsg;
+    if (daysToRace > 56) {
+      phaseTitle = 'Build Phase — Week ' + weekNum + '/' + TOTAL_WEEKS;
+      phaseMsg   = daysToRace + ' days to Julian Alps 50K. Aerobic base and vert strength are the focus. Target long runs of 16–22 mi with 2,000+ ft elevation gain as weeks progress.';
+    } else if (daysToRace > 28) {
+      phaseTitle = 'Peak Phase — Week ' + weekNum + '/' + TOTAL_WEEKS;
+      phaseMsg   = daysToRace + ' days to race. Highest-volume block. Lock in back-to-back long runs, practice in-run fueling at 60–80g carbs/hr, and protect sleep above all else.';
+    } else if (daysToRace > 10) {
+      phaseTitle = 'Taper — Week ' + weekNum + '/' + TOTAL_WEEKS;
+      phaseMsg   = daysToRace + ' days out. Drop total volume 20–30% but keep short quality efforts to stay sharp. Finalize gear, dial race nutrition, get extra sleep.';
+    } else {
+      phaseTitle = 'Race Week — ' + daysToRace + ' days';
+      phaseMsg   = 'Volume is minimal now. Short easy shakeouts only. Trust your training, confirm gear, and run your race plan. You are ready.';
+    }
+    items.push({ icon: '🏔️', title: phaseTitle, message: phaseMsg });
+  }
+
+  list.innerHTML = items.map(function(item) {
+    return '<div class="coach-item"><div class="coach-item-header">'
+      + '<span class="coach-item-icon">' + esc(item.icon) + '</span>'
+      + '<span class="coach-item-title">' + esc(item.title) + '</span>'
+      + '</div><p class="coach-item-message">' + esc(item.message) + '</p></div>';
+  }).join('');
+
+  const todayStr = isoDate(today);
+  if (badge) badge.textContent = todayStr;
+  if (updatedEl) {
+    updatedEl.textContent = 'Auto-generated from Strava data · '
+      + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    updatedEl.classList.remove('stale');
   }
 }
 
@@ -4280,8 +4471,12 @@ async function syncNow() {
   try {
     try { await syncStravaData(); } catch (e) { console.warn('Strava sync failed:', e); }
     try { await syncNutritionData(); } catch (e) { console.warn('Nutrition sync failed:', e); }
-    await refreshCoachBriefing();
+    // Wrap like every other async call — a coach briefing failure must never abort
+    // the rest of syncNow (refreshWeightCard, refreshFitness, etc. would be skipped).
+    try { await refreshCoachBriefing(); } catch (e) { console.warn('Coach briefing sync failed:', e); }
     try { await fetchTodayTrainingPlan(); } catch (e) { console.warn('Training plan fetch failed:', e); }
+    // Override static coach briefing with auto-generated notes from real data
+    try { refreshCoachNotesFromData(); } catch (e) { console.warn('Coach notes from data failed:', e); }
     refreshCountdown();
     refreshPeriodization();
     refreshTrainingWeek();
@@ -4344,12 +4539,18 @@ async function syncNow() {
     }
   })();
 
-  await Promise.all([
+  // Use allSettled so a failure in one data source (coach briefing, training
+  // plan, strava, nutrition) never aborts the others or prevents updateLastSyncLabel.
+  await Promise.allSettled([
     refreshCoachBriefing(),
     fetchTodayTrainingPlan(),
     stravaReady,
     syncNutritionData(),
   ]);
+  // After all data sources have settled, replace the static coach_briefing.json
+  // content with notes auto-generated from the real Strava + nutrition data.
+  // This is the fix for coach notes showing wrong/stale scenario-based content.
+  try { refreshCoachNotesFromData(); } catch (e) { console.warn('Coach notes from data failed:', e); }
   updateLastSyncLabel();
 })();
 </script>

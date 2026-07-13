@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-12",
-  "generated_at": "2026-07-12T14:24:05.219817Z",
+  "generated": "2026-07-13",
+  "generated_at": "2026-07-13T15:39:15.522580Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 only (130–140 bpm), on rolling terrain without targeting vert. You're in week 24 of a 22-week plan—you're past peak and in taper. Your last three runs were all moderate-to-hard (138–140 bpm avg), which is correct for peak phase, but this Sunday you need a genuine recovery effort. Your 19.2 miles this week vs. 57.1 last week shows the taper is already in effect; don't fight it. Roll easy, let your legs spin, and keep HR disciplined. This is about clearing metabolic junk and maintaining aerobic tone, not building anything."
+      "message": "Easy 45–50 minutes in Z2 (140–150 bpm), flat or rolling terrain. You're 67 days out and in taper week 20—volume is cut, intensity stays sharp. Yesterday's 11 miles at 124 bpm was solid aerobic work; today is active recovery to consolidate that adaptation. Skip the vert work and tempo; your body needs to consolidate the peak block you just finished. Keep it conversational, sub-150 bpm, and under 50 minutes."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 9.62 hours with 91% efficiency—excellent recovery signal. Use that recovery window: eat a carb-forward breakfast (80–100g carbs) within 90 minutes of waking to replenish glycogen after a strong training week. During the run, carry 200–300 calories (sports drink or gels) if you'll be out longer than 90 minutes; at Z2 pace, you're oxidizing fat well, but don't under-fuel in taper—you need to arrive at the race week fully stocked. Post-run, eat carbs + protein within 30 minutes (4:1 ratio, ~50g carbs, 12g protein) to anchor recovery."
+      "message": "You logged 9.6 hours of sleep at 91% efficiency—excellent recovery signal. Eat 1.2–1.4g carbs per kg body weight today (spread across 4–5 meals) to replenish glycogen after last week's volume. Easy runs still require fuel: 200–250g carbs for the day, ~20g protein per meal, and salt to match your travel schedule. Alpine racing demands robust glycogen stores; don't skimp on carbs during taper just because volume is lower."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Recovery score is 81/100—you're genuinely recovered. Sleep last night was 9h 37m at elite efficiency; that's your biggest asset in the final 8 weeks. Maintain this: aim for 8–9 hours nightly, even when traveling this week for work. No HRV data is available, so monitor resting HR (currently 63 bpm, slightly elevated vs. your 30-day avg of 61.6) as your second indicator. If RHR climbs above 65 this week, dial back intensity and prioritize sleep. Ice bath or contrast shower today if you feel sore; otherwise, let passive recovery do the work."
+      "message": "Your recovery score is 81/100 and sleep quality is strong. Maintain 8+ hours nightly through the remaining 9 weeks; this is your competitive edge over altitude and 2,500m of vert. No HRV data available, but resting HR at 63 bpm (only 1.4 bpm above your 30-day average) shows good autonomic balance. Stick to stretching, foam roll calves and quads for 10 minutes post-run, and prioritize sleep over any extra mobility work."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 68 days out and in a taper that lasts through week 22. The hardest training block is behind you. This is the phase where doubt creeps in—you'll feel sluggish on easy runs and worry you've lost fitness. You haven't. Taper is a confidence test, not a fitness test. Use this week to visualize the Julian Alps course: 2,500m vert, sparse aid, alpine terrain. Picture one hard climb mid-race when you're tired. That clarity matters more than one extra long run. Trust the plan; trust the work you've already banked."
+      "message": "You're in taper; expect mental fog and a false sense of detachment from fitness—normal. Use these 67 days to review the Julian Alps course map, study aid station locations, and plan your pacing strategy for the first 20K (where foot care and steady breathing matter most). Short, easy runs like today's are your chance to drill confidence without fatigue. Don't second-guess your fitness. You've earned this."
     }
   ]
 }

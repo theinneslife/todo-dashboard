@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-13",
-  "generated_at": "2026-07-13T15:39:15.522580Z",
+  "generated": "2026-07-14",
+  "generated_at": "2026-07-14T13:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "run",
-      "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 45–50 minutes in Z2 (140–150 bpm), flat or rolling terrain. You're 67 days out and in taper week 20—volume is cut, intensity stays sharp. Yesterday's 11 miles at 124 bpm was solid aerobic work; today is active recovery to consolidate that adaptation. Skip the vert work and tempo; your body needs to consolidate the peak block you just finished. Keep it conversational, sub-150 bpm, and under 50 minutes."
+      "type": "rest",
+      "icon": "😴",
+      "title": "Rest Day",
+      "message": "Peak Phase, 66 days out — and today the work is rest. No run. The alpine fitness you're building gets locked in during recovery, not during the session. Your calendar has a gym slot and errands around Buenos Aires; keep any lifting light and non-taxing on the legs. Resist the urge to sneak in miles. A disciplined rest day inside a peak block is what lets next week's big vert sessions land."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 12.1 hours of sleep at 96% efficiency—outstanding recovery. Eat 1.2–1.4g carbs per kg body weight today (spread across 4–5 meals) to replenish glycogen after yesterday's 11-mile effort. Easy runs still require fuel: 200–250g carbs for the day, ~20g protein per meal, and salt to match your travel schedule. Alpine racing demands robust glycogen stores; don't skimp on carbs during taper just because volume is lower."
+      "message": "Rest-day target ~220g carbs — don't slash them just because you're not running; glycogen replenishment is the whole point. Prioritize protein at ~1.8–2g/kg spread across meals for tissue repair, and lean on anti-inflammatory foods (oily fish, berries, olive oil, leafy greens). Buenos Aires makes protein easy — quality beef, eggs, plus fruit and rice for the carbs. Hydrate well; travel and dry air quietly dehydrate you."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your recovery score is 100/100—fully recovered heading into this Monday effort. Resting HR at 57 bpm is 4.4 bpm below your 30-day average of 61.4 bpm, which is a strong autonomic signal. No HRV data in the pipeline yet; check that Health Auto Export is configured to include Heart Rate Variability in its export. Prioritize sleep again tonight to carry this recovery quality through the week's quality sessions."
+      "message": "Passive recovery only. A 20–30 min easy walk through Recoleta counts as active flush, not training. Add 10–15 min of mobility and foam rolling for hips, calves, and quads — the tissues that take a beating on alpine descents. Sleep is the headline: aim for 8+ hours tonight. If HRV is trending low from travel, that's your signal the rest day is landing exactly when needed."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in taper; expect mental fog and a false sense of detachment from fitness—normal. Use these 67 days to review the Julian Alps course map, study aid station locations, and plan your pacing strategy for the first 20K (where foot care and steady breathing matter most). Short, easy runs like today's are your chance to drill confidence without fatigue. Don't second-guess your fitness. You've earned this."
+      "message": "Rest is a choice you make, not a session you skip. Peak weeks tempt you to chase volume — the mature athlete banks recovery instead. Picture the Julian Alps ridgelines: 2,500m of vert rewards the runner who arrives fresh, not the one who arrived overtrained. Trust the plan. Tomorrow you build; today you absorb."
     }
   ]
 }

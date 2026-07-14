@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-14",
-  "generated_at": "2026-07-14T13:00:00Z",
+  "generated_at": "2026-07-14T17:57:38.257763Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "rest",
-      "icon": "😴",
-      "title": "Rest Day",
-      "message": "Peak Phase, 66 days out — and today the work is rest. No run. The alpine fitness you're building gets locked in during recovery, not during the session. Your calendar has a gym slot and errands around Buenos Aires; keep any lifting light and non-taxing on the legs. Resist the urge to sneak in miles. A disciplined rest day inside a peak block is what lets next week's big vert sessions land."
+      "type": "run",
+      "icon": "🏃",
+      "title": "Today's Run",
+      "message": "Easy 8–10 miles, Z2 (140–150 bpm), rolling terrain. You're in week 25 of a 22-week plan—you're *past* peak and tapering hard. Your last three runs average 12.8 miles at 129 bpm; yesterday's 17.16 was a confidence builder but you're done digging the hole. Tuesday is normally your quality day, but in taper it's a sharpness maintenance run: conversational pace, no intervals, no push. Your RHR is 57 (down from 61.4 avg), recovery score is 100, and you slept 12+ hours—you're fully recovered and your nervous system is primed. Keep it easy so you stay that way."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Rest-day target ~220g carbs — don't slash them just because you're not running; glycogen replenishment is the whole point. Prioritize protein at ~1.8–2g/kg spread across meals for tissue repair, and lean on anti-inflammatory foods (oily fish, berries, olive oil, leafy greens). Buenos Aires makes protein easy — quality beef, eggs, plus fruit and rice for the carbs. Hydrate well; travel and dry air quietly dehydrate you."
+      "message": "You're 66 days out and in taper: this is when gut training matters more than volume. On an easy 8–10 miler, run fasted or with just coffee if you habitually do; if you fuel, keep it to 30g carbs (one gel, light bar). Post-run, eat 40–50g carbs + 15–20g protein within 30 min—yogurt + granola, toast + eggs, chocolate milk. Your big travel schedule means consistency beats perfection; pick one portable refuel you can execute in hotel rooms or airports. Alpine 50K aid stations are sparse; practice your race nutrition once weekly on longer efforts so your gut doesn't surprise you Sept 18."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Passive recovery only. A 20–30 min easy walk through Recoleta counts as active flush, not training. Add 10–15 min of mobility and foam rolling for hips, calves, and quads — the tissues that take a beating on alpine descents. Sleep is the headline: aim for 8+ hours tonight. If HRV is trending low from travel, that's your signal the rest day is landing exactly when needed."
+      "message": "Sleep is your limiting resource right now, not training. You logged 12.12h last night at 96.2% efficiency—exceptional—but your 30-day average is 7.52h. That's taper-phase catch-up working, and it's critical: sleep drives VO₂ max consolidation, glycogen storage, and mental resilience in ultras. Protect 8+ hours nightly through race week. If travel is compressing sleep, use blackout curtains, white noise, and avoid screens 60 min before bed. HRV data is missing (no 30-day baseline), but your low RHR and 100/100 recovery score indicate good parasympathetic tone; keep supporting it with 20–30 min easy movement (walk, yoga) today and ice baths only if you're sore—you're not."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Rest is a choice you make, not a session you skip. Peak weeks tempt you to chase volume — the mature athlete banks recovery instead. Picture the Julian Alps ridgelines: 2,500m of vert rewards the runner who arrives fresh, not the one who arrived overtrained. Trust the plan. Tomorrow you build; today you absorb."
+      "message": "You're at the moment where doubt creeps in because volume is dropping and the race feels real. Ignore it. Your fitness is made; these 9 weeks are about arriving fresh and confident, not fit-er. Review your route profile (2,500m vert spread over 50K is ~500m per 10K—steep, sustained), dial in your pace discipline on tomorrow's hill work, and run one dress-rehearsal effort with your full race kit and nutrition plan in the next 14 days. The Julian Alps aren't forgiving, but a sharp, well-rested 40-something beats a tired 30-something. You're tracking perfectly."
     }
   ]
 }

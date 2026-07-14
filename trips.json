@@ -714,11 +714,14 @@
       "flights": [
         {
           "airline": "Avianca",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "Guatemala departure",
+          "departure": "Jun 27, 2026 9:30 AM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -779,11 +782,14 @@
       "flights": [
         {
           "airline": "Avianca",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "BOG > EZE",
+          "departure": "Jul 11, 2026",
+          "arrival": "",
+          "confirmation": "AJ2LFB",
+          "class": "Business Flex",
+          "cost": "$3,014.00 USD",
+          "notes": "",
+          "passengers": "Christopher Innes, Brooke Scimemi"
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -844,19 +850,25 @@
       "flights": [
         {
           "airline": "Avianca",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "LAX > SAL",
+          "departure": "Jul 30, 2026 2:40 PM",
+          "arrival": "",
+          "confirmation": "",
+          "class": "",
+          "cost": "",
+          "notes": "eticket for Christopher Innes and Brooke Scimemi",
+          "passengers": ""
         },
         {
           "airline": "Delta Air Lines DL110/DL996",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "EZE > ATL > LAX",
+          "departure": "Jul 26, 2026 8:10 PM",
+          "arrival": "Jul 27, 2026 8:33 AM",
+          "confirmation": "HLWTES",
+          "class": "Delta One / Delta First",
+          "cost": "",
+          "notes": "DL110 EZE-ATL 8:10PM-5:25AM+1 (Delta One), DL996 ATL-LAX 7:00AM-8:33AM",
+          "passengers": ""
         }
       ],
       "accommodation": "donQuijote Spanish School",
@@ -923,11 +935,14 @@
       "flights": [
         {
           "airline": "Delta Air Lines DL1978/DL825",
-          "number": "",
-          "depAirport": "",
-          "arrAirport": "",
-          "depTime": "",
-          "arrTime": ""
+          "route": "SAL > ATL > LAS",
+          "departure": "Aug 9, 2026 1:48 PM",
+          "arrival": "Aug 9, 2026 10:08 PM",
+          "confirmation": "HL94IF",
+          "class": "Delta First Classic",
+          "cost": "",
+          "notes": "DL1978 SAL-ATL 1:48PM-7:30PM, DL825 ATL-LAS 8:55PM-10:08PM",
+          "passengers": ""
         }
       ],
       "accommodation": "Il Vento Uno - Penthouse TERRA",

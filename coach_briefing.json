@@ -17,13 +17,13 @@
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 9.6 hours of sleep at 91% efficiency—excellent recovery signal. Eat 1.2–1.4g carbs per kg body weight today (spread across 4–5 meals) to replenish glycogen after last week's volume. Easy runs still require fuel: 200–250g carbs for the day, ~20g protein per meal, and salt to match your travel schedule. Alpine racing demands robust glycogen stores; don't skimp on carbs during taper just because volume is lower."
+      "message": "You logged 12.1 hours of sleep at 96% efficiency—outstanding recovery. Eat 1.2–1.4g carbs per kg body weight today (spread across 4–5 meals) to replenish glycogen after yesterday's 11-mile effort. Easy runs still require fuel: 200–250g carbs for the day, ~20g protein per meal, and salt to match your travel schedule. Alpine racing demands robust glycogen stores; don't skimp on carbs during taper just because volume is lower."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your recovery score is 81/100 and sleep quality is strong. Maintain 8+ hours nightly through the remaining 9 weeks; this is your competitive edge over altitude and 2,500m of vert. No HRV data available, but resting HR at 63 bpm (only 1.4 bpm above your 30-day average) shows good autonomic balance. Stick to stretching, foam roll calves and quads for 10 minutes post-run, and prioritize sleep over any extra mobility work."
+      "message": "Your recovery score is 100/100—fully recovered heading into this Monday effort. Resting HR at 57 bpm is 4.4 bpm below your 30-day average of 61.4 bpm, which is a strong autonomic signal. No HRV data in the pipeline yet; check that Health Auto Export is configured to include Heart Rate Variability in its export. Prioritize sleep again tonight to carry this recovery quality through the week's quality sessions."
     },
     {
       "type": "mental",

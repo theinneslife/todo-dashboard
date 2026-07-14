@@ -2,7 +2,7 @@ name: Coach Briefing
 
 on:
   schedule:
-    - cron: '0 13 * * *'   # 1 PM UTC = 6 AM PT
+    - cron: '0 17 * * *'   # 5 PM UTC = 10 AM PT (after HAE 7 AM sync + nutrition-sync run)
   workflow_dispatch:        # allow manual trigger
 
 # Requires repo secret: ANTHROPIC_API_KEY
@@ -43,12 +43,30 @@ jobs:
           nutrition = load_json('nutrition_data.json')
           strava    = load_json('strava_data.json')
 
-          # Pull today's vitals from nutrition_data (or most recent if today is empty)
+          # Pull today's vitals from nutrition_data (or most recent if today is empty).
+          # Sort candidates by date descending so the freshest entry always wins,
+          # regardless of whether nutrition_data.today is current. This prevents a
+          # stale 'today' field (from before the morning HAE push) from causing the
+          # briefing to use yesterday's or older vitals instead of today's.
           def best_entry(doc):
-              # Return the most recent history entry that has at least one vital
-              for h in [doc.get('today', {})] + doc.get('history', []):
-                  if isinstance(h, dict) and any(h.get(k) for k in
-                      ('hrv_ms', 'resting_hr', 'sleep_hours', 'recovery_score')):
+              candidates = []
+              t = doc.get('today')
+              if isinstance(t, dict) and t.get('date'):
+                  candidates.append(t)
+              for h in doc.get('history', []):
+                  if isinstance(h, dict) and h.get('date'):
+                      candidates.append(h)
+              # dedupe by date, keeping first occurrence (today takes priority over
+              # history if same date), then sort newest-first
+              seen = set()
+              unique = []
+              for c in candidates:
+                  if c['date'] not in seen:
+                      seen.add(c['date'])
+                      unique.append(c)
+              unique.sort(key=lambda h: h['date'], reverse=True)
+              for h in unique:
+                  if any(h.get(k) for k in ('hrv_ms', 'resting_hr', 'sleep_hours', 'recovery_score')):
                       return h
               return doc.get('today', {}) or {}
 

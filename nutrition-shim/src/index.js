@@ -142,11 +142,23 @@ export default {
       // record with qty == null or qty == "". Walk backwards to find the last
       // record that carries an actual numeric value so we never silently drop
       // a metric just because its final point has no qty.
+      //
+      // IMPORTANT — HAE "Daily Summary" mode exports rate-type metrics (HRV,
+      // heart rate, etc.) with Avg/Min/Max aggregate fields instead of a plain
+      // qty. RHR comes as a single daily computed value with qty, which is why
+      // it survives while HRV has been null across 30 days: every HRV point has
+      // Avg instead of qty, so the old code always found last==null and dropped
+      // the metric before GitHub Actions ever saw it. Fix: accept Avg (and its
+      // lowercase alias) as a fallback when qty is absent.
       let last = null;
+      let lastQty = null;
       for (let i = points.length - 1; i >= 0; i--) {
         const p = points[i];
-        if (p != null && p.qty != null && p.qty !== '') {
+        // qty is the normal field; Avg / avg is HAE Daily Summary for rate metrics.
+        const candidate = p?.qty ?? p?.Avg ?? p?.avg;
+        if (p != null && candidate != null && candidate !== '') {
           last = p;
+          lastQty = candidate;
           break;
         }
       }
@@ -154,7 +166,7 @@ export default {
       // Debug log for HRV so we can verify it's flowing through
       if (mName.includes('heartratevariability') || mName.includes('hrv')) {
         console.log(`HRV metric: name=${metric.name} norm=${mName} points=${points.length} `
-          + `lastFound=${last ? JSON.stringify(last) : 'null'} `
+          + `lastFound=${last ? JSON.stringify(last) : 'null'} lastQty=${lastQty} `
           + `rawLast=${JSON.stringify(points[points.length - 1])}`);
       }
 
@@ -162,7 +174,7 @@ export default {
 
       data.push({
         name: metric.name,
-        qty: last.qty,
+        qty: lastQty,
         unit: metric.units ?? null
       });
 

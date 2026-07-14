@@ -282,10 +282,38 @@ jobs:
           entry['sleep_hours'] = round(sleep_hours, 2) if sleep_hours is not None else None
           entry['time_in_bed_hours'] = round(time_in_bed_hours, 2) if time_in_bed_hours is not None else None
 
+          # ---- Calorie fallback: compute from macros if HAE didn't send a total --
+          # HAE typically sends "Dietary Energy" as a separate metric. When it's
+          # absent (payload gap, "Summarize Data" mode quirk, or Cronometer export
+          # only emitting macros), compute calories via the Atwater factors:
+          #   protein=4 kcal/g, carbs=4 kcal/g, fat=9 kcal/g
+          # This kicks in when the parsed calories field is still 0 and at least
+          # one macro is non-zero.
+          if entry.get('calories', 0) == 0:
+              macro_cal = round(
+                  (entry.get('protein_g', 0) or 0) * 4 +
+                  (entry.get('carbs_g', 0)   or 0) * 4 +
+                  (entry.get('fat_g', 0)     or 0) * 9
+              )
+              if macro_cal > 0:
+                  entry['calories'] = macro_cal
+                  print(f"  calories: computed {macro_cal} kcal from macros (Atwater fallback)")
+
           # ---- Recovery vitals: HRV + Resting HR (optional) --------------------
           # Apple Health "Heart Rate Variability" (ms) and "Resting Heart Rate"
           # (bpm). Averaged across samples, not summed.
-          HRV_NAMES = {'heartratevariability', 'heartratevariabilitysdnn', 'hrv'}
+          # NOTE: HRV is only present if Health Auto Export is configured to include
+          # "Heart Rate Variability" in its export AND Whoop (or another source)
+          # has written HRV to Apple Health for the day. Whoop syncs to Apple Health
+          # overnight; HAE should be scheduled AFTER that sync completes (e.g. 7 AM).
+          HRV_NAMES = {
+              'heartratevariability',       # "Heart Rate Variability"
+              'heartratevariabilitysdnn',   # "Heart Rate Variability (SDNN)"
+              'hrv',                        # abbreviated form
+              'hrvsdnn',                    # some HAE versions shorten it
+              'sdnn',                       # bare SDNN label
+              'heartratevariabilitymsdnn',  # "Heart Rate Variability (ms, SDNN)"
+          }
           RHR_NAMES = {'restingheartrate', 'restinghr'}
           hrv_ms = None
           resting_hr = None

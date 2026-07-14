@@ -77,6 +77,21 @@ jobs:
               st = a.get('sport_type', '')
               return t in RUN_TYPES or st in RUN_TYPES
 
+          # Heart-rate-based TSS (hrTSS). Christopher's lactate threshold HR = 165 bpm.
+          # Formula: hrTSS = (duration_sec × avgHr²) / (LTHR² × 3600) × 100
+          # = 100 for exactly one hour at threshold. Fallback when HR data is missing:
+          # ~10 TSS/mile endurance effort + 1 TSS/100 ft vert surcharge.
+          LTHR = 165  # lactate threshold heart rate, bpm
+
+          def estimate_tss(activity_dict):
+              avg_hr = activity_dict.get('avg_hr', 0) or 0
+              duration_sec = activity_dict.get('duration', 0) or 0
+              miles = activity_dict.get('miles', 0) or 0
+              elev_ft = activity_dict.get('elevation_feet', 0) or 0
+              if avg_hr > 0 and duration_sec > 0:
+                  return round((duration_sec * avg_hr ** 2) / (LTHR ** 2 * 3600) * 100, 1)
+              return round(miles * 10 + elev_ft * 0.01, 1)
+
           runs = [a for a in activities if is_running_activity(a)]
           this_week, last_week = [], []
           for a in runs:
@@ -119,6 +134,12 @@ jobs:
               'max_hr': round(max_hr) if max_hr else 0,
             })
 
+          # Processed activities for the current ISO week (for weekly_tss)
+          this_week_recent = [
+              a for a in recent
+              if datetime.date.fromisoformat(a['date']) >= this_monday
+          ]
+
           # Rolling-7d and 30d stats (last 7/14/30 calendar days, not ISO weeks)
           seven_days_ago    = now - datetime.timedelta(days=7)
           fourteen_days_ago = now - datetime.timedelta(days=14)
@@ -130,8 +151,45 @@ jobs:
           cur30    = [a for a in runs if parse_local(a) >= thirty_days_ago]
           prior_30 = [a for a in runs if sixty_days_ago <= parse_local(a) < thirty_days_ago]
 
+          # CTL / ATL / TSB fitness model (Performance Management Chart).
+          # Built over the full 60-day window so the curve is well-seeded by the time
+          # it reaches today. We convert the processed "recent" list back to daily
+          # buckets, then apply the standard EWA recurrences:
+          #   CTL(t) = CTL(t-1) + (TSS(t) − CTL(t-1)) / 42   (chronic, 42-day tau)
+          #   ATL(t) = ATL(t-1) + (TSS(t) − ATL(t-1)) / 7    (acute, 7-day tau)
+          #   TSB(t) = CTL(t-1) − ATL(t-1)                   (form = prior-day diff)
+          PMC_DAYS = 60
+          today_date = now.date()
+          daily_tss_arr = [0.0] * PMC_DAYS
+          for act in recent:
+              act_date = datetime.date.fromisoformat(act['date'])
+              offset = (today_date - act_date).days
+              if 0 <= offset < PMC_DAYS:
+                  daily_tss_arr[PMC_DAYS - 1 - offset] += estimate_tss(act)
+
+          seed_tss = sum(daily_tss_arr) / (PMC_DAYS or 1)
+          pmc_ctl, pmc_atl = seed_tss, seed_tss
+          pmc_ctl_arr, pmc_atl_arr, pmc_tsb_arr = [], [], []
+          for tss_val in daily_tss_arr:
+              pmc_tsb_arr.append(round(pmc_ctl - pmc_atl, 1))
+              pmc_ctl += (tss_val - pmc_ctl) / 42
+              pmc_atl += (tss_val - pmc_atl) / 7
+              pmc_ctl_arr.append(round(pmc_ctl, 1))
+              pmc_atl_arr.append(round(pmc_atl, 1))
+
+          current_ctl = pmc_ctl_arr[-1] if pmc_ctl_arr else 0.0
+          current_atl = pmc_atl_arr[-1] if pmc_atl_arr else 0.0
+          current_tsb = pmc_tsb_arr[-1] if pmc_tsb_arr else 0.0  # form before today's load
+
+          # Weekly TSS = sum of TSS for all activities in the current ISO week
+          weekly_tss_val = round(sum(estimate_tss(a) for a in this_week_recent), 1)
+
           output = {
             'generated': datetime.datetime.utcnow().isoformat() + 'Z',
+            'ctl': round(current_ctl, 1),
+            'atl': round(current_atl, 1),
+            'tsb': round(current_tsb, 1),
+            'weekly_tss': weekly_tss_val,
             'rolling_7d_miles': sum_miles(cur7),
             'prior_7d_miles': sum_miles(prev7),
             'rolling_7d_elevation': sum_elev_ft(cur7),

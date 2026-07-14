@@ -2150,7 +2150,7 @@
       <a class="footer-link" href="index.html">TaskFlo</a>
       <a class="footer-link" href="travelflo.html">TravelFlo</a>
     </div>
-    <span class="footer-note">Placeholder data · Strava + Whoop integration coming soon</span>
+    <span class="footer-note">Live data · Strava + Apple Health connected</span>
   </footer>
 
 </div>
@@ -3058,10 +3058,10 @@ function refreshVertGain() {
     }
   });
 
-  // Prefer the authoritative current-week elevation from strava_data.json;
+  // Prefer the authoritative rolling 7-day elevation from strava_data.json;
   // the placeholder activity feed lags and would otherwise read 0.
-  if (stravaData && typeof stravaData.total_elevation_feet === 'number') {
-    weekVert = stravaData.total_elevation_feet;
+  if (stravaData && typeof stravaData.rolling_7d_elevation === 'number') {
+    weekVert = stravaData.rolling_7d_elevation;
   }
 
   const pct = Math.min((weekVert / WEEKLY_VERT_TARGET) * 100, 100);
@@ -3118,7 +3118,7 @@ function refreshLongRunChart() {
   const weekMap = {};
   stravaActivities.forEach(a => {
     if (a.type !== 'Run') return;
-    const d = new Date(a.date);
+    const d = new Date(a.date + 'T00:00:00');
     d.setHours(0, 0, 0, 0);
     const dayOfWeek = (d.getDay() + 6) % 7;
     const mon = new Date(d);
@@ -3129,7 +3129,7 @@ function refreshLongRunChart() {
 
   const keys   = Object.keys(weekMap).sort();
   const labels = keys.map(k => {
-    const d = new Date(k);
+    const d = new Date(k + 'T00:00:00');
     return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   });
   const values = keys.map(k => weekMap[k]);
@@ -4076,7 +4076,9 @@ function renderNutriSummaries(series) {
 
   // Weekly grade from this week's hit-rate across cal/protein/carb targets
   const monday = getMondayOfWeek(today);
-  const weekDays = days.filter(r => new Date(r.date + 'T00:00:00') >= monday);
+  let weekDays = days.filter(r => new Date(r.date + 'T00:00:00') >= monday);
+  // Fall back to rolling 7 days when no data has synced for the current calendar week yet
+  if (!weekDays.length) weekDays = days.slice(-7);
   let grade = '—', gradeCls = '';
   if (weekDays.length) {
     const hitRate = weekDays.reduce((s, r) => {
@@ -4120,7 +4122,16 @@ function renderNutrition() {
   // Badge + last-updated line
   const t = (nutritionData && nutritionData.today) || {};
   const badge = document.getElementById('nutrition-badge');
-  if (badge) badge.textContent = t.date ? String(t.date) : 'Today';
+  if (badge) {
+    const todayStr = isoDate(new Date());
+    if (!t.date || t.date === todayStr) {
+      badge.textContent = 'Today';
+    } else {
+      // Show formatted date (e.g. "Jul 12") so it's clear data is from a prior day
+      const bd = new Date(t.date + 'T00:00:00');
+      badge.textContent = fmtMonthDay(bd);
+    }
+  }
   const updated = document.getElementById('nutrition-updated');
   if (updated) {
     let txt = '';

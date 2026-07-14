@@ -1,5 +1,9 @@
 {
-  "generated": "2026-07-14T11:15:37.930985Z",
+  "generated": "2026-07-13T21:42:21.926983Z",
+  "ctl": 83.0,
+  "atl": 83.5,
+  "tsb": 11.1,
+  "weekly_tss": 164.9,
   "rolling_7d_miles": 40.0,
   "prior_7d_miles": 59.4,
   "rolling_7d_elevation": 1729,
@@ -400,15 +404,6 @@
       "duration": 6837,
       "avg_hr": 140,
       "max_hr": 170
-    },
-    {
-      "name": "Missed miles",
-      "date": "2026-05-24",
-      "miles": 10.0,
-      "elevation_feet": 0,
-      "duration": 600,
-      "avg_hr": 0,
-      "max_hr": 0
     },
     {
       "name": "Morning Run",

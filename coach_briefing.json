@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-15",
-  "generated_at": "2026-07-15T14:00:00Z",
+  "generated_at": "2026-07-15T18:01:29.458318Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hill Repeats — 12 mi",
-      "message": "Peak Phase, Week 13 of 22. Today is the big vert stimulus: 2 mi easy warm-up, then 14x 90-sec hard uphills with a walk-down recovery, then 2 mi cool-down. Alternate reps — run some all-out (drive Zone 4, near 165+ bpm LTHR on the hard efforts), power-hike others at max effort with hands on quads and short punchy strides. This is exactly the Julian Alps demand: ~2500m of alpine climbing where power hiking is a weapon, not a fallback. Buenos Aires is flat, so find the steepest sustained ramp, parking garage, or stadium steps you can and repeat it. Full walk-down recovery every rep — quality of the climb matters more than rushing the reset."
+      "title": "Today's Run",
+      "message": "You're 65 days out and in taper—this is not the day to prove fitness. Do 8–10 miles of rolling terrain at Z2 (140–150 bpm based on your recent work), with 4–6 short (90–120 sec) hill repeats at race-pace effort embedded mid-run. Your last three runs averaged 125–140 bpm; today you need to feel sharp without accumulating fatigue. Recovery score is 84, so you can handle the stimulus, but keep the total volume tight and the easy miles genuinely easy. This is maintenance work—you've already built the engine."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "This is a quality session — arrive fueled. Take 40-60g carbs 60-90 min pre-run (toast + banana + honey, or a rice-based meal). It's under 90 min of work so a single gel or ~30g carbs mid-session is plenty, but keep sipping to stay ahead of the Buenos Aires effort. Within 30 min of finishing, hit the recovery window hard: ~30g protein plus 60-80g carbs to refill glycogen after all those hard climbs. Keep training the gut on race-day products now while stakes are low."
+      "message": "You slept nearly 9 hours last night with excellent efficiency; that's a sign your body is well-fueled and recovering well. Eat normal breakfast pre-run (carbs + protein, 60–90 min before), and on an 8–10 mile run you don't need to carry fuel unless you're working above Z3—you're not. Post-run, get 30–40g protein and 80–100g carbs within 90 minutes to lock in the training stimulus. With 65 days to race and your corporate travel schedule, consistency matters more than perfection here."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Hill repeats hammer the calves, glutes, and Achilles eccentrically on every walk-down. Tonight: 10 min easy spin or walk to flush, then foam roll calves and quads and gently mobilize ankles. Elevate the legs for a bit and prioritize 8+ hours of sleep — the adaptation from today's vert stimulus is locked in overnight. If anything in the Achilles or calf feels sharp tomorrow, keep the next session easy and flat."
+      "message": "Your sleep numbers are excellent—8.98h at 95% efficiency is elite for a 40-something executive. Resting HR at 62 bpm is stable and expected. Keep the overnight routine locked: same bedtime, no screens 30 min before sleep, cool room (65–68°F if possible). During taper, sleep becomes a performance tool; you're in the right place. Monitor for any spike in RHR above 64–65 bpm; if you see it, that signals underrecovery and you cut tomorrow's run."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Peak Phase is where the race gets won on the climbs. Every one of those 14 reps is a rehearsal for a Julian Alps switchback at hour four when your legs are already deep. Pick a cue — 'strong and patient' — and run it on each hard interval. You're 64 days out and building the exact engine this course rewards. Embrace the grind on the flats of Buenos Aires; the mountains will feel like coming home."
+      "message": "You're in week 25 of a 22-week plan—you're past the peak and now managing fatigue and confidence in parallel. The Julian Alps 50K will demand alpine hiking, sparse aid, and 2,500m of vert over 6–7+ hours. Today's hill repeats are small doses of that demand; use them to rehearse your pace, breathing, and self-talk on steep ground. Don't race these repeats; execute them clean. In 65 days, your fitness is set—taper is about arriving fresh and sharp, not desperate."
     }
   ]
 }

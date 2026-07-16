@@ -3360,5 +3360,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "fb5c48af-89ab-47be-ad97-c07c1def7809",
+    "title": "evaluate SDR leaders",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-07-16T17:27:13.163Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-07-16T17:27:13.163Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-15",
-  "generated_at": "2026-07-15T18:01:29.458318Z",
+  "generated": "2026-07-16",
+  "generated_at": "2026-07-16T17:59:38.049657Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 65 days out and in taper—this is not the day to prove fitness. Do 8–10 miles of rolling terrain at Z2 (140–150 bpm based on your recent work), with 4–6 short (90–120 sec) hill repeats at race-pace effort embedded mid-run. Your last three runs averaged 125–140 bpm; today you need to feel sharp without accumulating fatigue. Recovery score is 84, so you can handle the stimulus, but keep the total volume tight and the easy miles genuinely easy. This is maintenance work—you've already built the engine."
+      "message": "Easy 8–10 miles, Z2 only (140 bpm ceiling). You're 64 days out and in taper week 21—volume is down 43% from last week (17.2 vs 30.2), which is correct. Your last three runs averaged 124–140 bpm; today stays sub-140. The Julian Alps demands your legs fresh and your aerobic base intact, not depleted. Keep it conversational; if you're at the airport or between meetings, 8 miles is enough. Skip any tempo or vert work this week."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept nearly 9 hours last night with excellent efficiency; that's a sign your body is well-fueled and recovering well. Eat normal breakfast pre-run (carbs + protein, 60–90 min before), and on an 8–10 mile run you don't need to carry fuel unless you're working above Z3—you're not. Post-run, get 30–40g protein and 80–100g carbs within 90 minutes to lock in the training stimulus. With 65 days to race and your corporate travel schedule, consistency matters more than perfection here."
+      "message": "You logged 8h 58m sleep last night at 95% efficiency—excellent. That fuels a light recovery day. Eat to performance: aim for 1.5–2g carbs per kg bodyweight today spread across three meals, with protein at each (25–35g). Post-run, take in 30–40g carbs + 15–20g protein within 30 minutes. Given constant travel for work, prioritize whole foods (rice, pasta, lean meat) over gels and bars; your gut needs to trust what's on race day in Slovenia."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep numbers are excellent—8.98h at 95% efficiency is elite for a 40-something executive. Resting HR at 62 bpm is stable and expected. Keep the overnight routine locked: same bedtime, no screens 30 min before sleep, cool room (65–68°F if possible). During taper, sleep becomes a performance tool; you're in the right place. Monitor for any spike in RHR above 64–65 bpm; if you see it, that signals underrecovery and you cut tomorrow's run."
+      "message": "Recovery score is 84/100—you're recovered. Sleep efficiency at 95% is elite. Resting HR stable at 62 bpm (30-day avg 61.5) shows no fatigue accumulation. Hold this: 8+ hours nightly through the taper (only 9 weeks left), hydrate aggressively between flights, and use compression or easy walking on travel days. No HRV data is fine for the phase; focus on the sleep and RHR trend, both green."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in week 25 of a 22-week plan—you're past the peak and now managing fatigue and confidence in parallel. The Julian Alps 50K will demand alpine hiking, sparse aid, and 2,500m of vert over 6–7+ hours. Today's hill repeats are small doses of that demand; use them to rehearse your pace, breathing, and self-talk on steep ground. Don't race these repeats; execute them clean. In 65 days, your fitness is set—taper is about arriving fresh and sharp, not desperate."
+      "message": "You're in the mental home stretch. Taper anxiety is normal—the temptation to 'make up' for reduced volume is real and wrong. Trust the block: you've logged the vert, the mileage, the aerobic work in weeks 16–20. The next nine weeks are about arrival, not panic. Review your race strategy (aid station nutrition, pacing in the first 15K, descent technique on the rocky sections), visualize one section per day, and keep runs easy. Your fitness is locked in."
     }
   ]
 }

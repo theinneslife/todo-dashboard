@@ -3220,7 +3220,7 @@
     "title": "plan gravel trip",
     "description": "--move spain back one week (cut madrid short)\n--Plan a trip in bend oregon or somewhere to ride from. Needs to be warm, little rain. Good food\n--plan a trip to california (marks wedding, board meeting)\n--",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -3233,10 +3233,16 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-07-16T17:26:57.926Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-07-07T19:52:47.419Z",
-    "completed_at": null,
+    "completed_at": "2026-07-16T17:26:57.926Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
@@ -3244,7 +3250,7 @@
     "effort": null,
     "depends_on": [],
     "collaborators": [],
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "7def415c-0cd8-4174-89c9-925da58cb9f1",

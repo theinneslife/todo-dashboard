@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-17",
-  "generated_at": "2026-07-17T13:15:00Z",
+  "generated_at": "2026-07-17T13:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy Hilly Run — Peak Week",
-      "message": "9 miles easy on hilly terrain, strict Zone 2 (~124-138 bpm). This is the hardest week of the plan, so 'easy' is the assignment — keep effort conversational even on the climbs and power-hike anything that spikes your HR. In Buenos Aires, the Bosques de Palermo loops and the Reserva Ecológica give you rolling ground; if it's flat, add relaxed surges on any overpass or bridge to nod at the Julian Alps' 2,500m of vert. Nose-breathing pace all the way."
+      "title": "Easy 9 Hilly — Peak Week",
+      "message": "Today is the flagship easy run inside your hardest week of the block: ~9 miles on hilly terrain, ~2,000 ft of vert, strictly Zone 2 (target 130-148 bpm, well under your 165 LTHR). 'Easy' is the assignment, not the exception — power-hike anything that pushes your HR toward Zone 3 and keep every climb conversational. This mimics the relentless rolling grind of the Julian Alps, where controlling effort on runnable climbs is what preserves your legs for the back half. If you're running in Buenos Aires, seek out the Costanera or park loops with repeatable rises to stack vert without a single hard surge."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Under ~75 min you can run this fasted or on a light 30-40g carb pre-run (banana, medialuna in a pinch). If you extend past 75 min, take 60g carbs/hr and treat it as gut training for race day. Rehydrate with electrolytes afterward — Buenos Aires winter is dry — and hit 25-30g protein plus real carbs within 45 min to bank recovery for the heavy week."
+      "message": "This is a peak-load week, so fuel it like one. Pre-run: 40-60g carbs 60-90 min out (toast + banana + honey, or oats). On a 90+ min hilly session, practice race fueling now — 60-80g carbs/hr via gels or chews, sipping every 20 min so your gut is trained, not just your legs. Post-run: hit the 30-min window with ~30g protein plus 60-80g carbs to refill glycogen. Across the day aim high on total carbs to support the week's volume, and front-load hydration with electrolytes given Buenos Aires' dry winter air."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Peak week is won by what you do between runs. Keep this run genuinely easy so it's recovery, not another stressor — 10 min of legs-up-the-wall and calf/quad mobility tonight, and protect 8+ hours of sleep. Extra sleep, extra food, extra focus: that's the week's motto."
+      "message": "The hardest week only works if recovery keeps pace with load. Non-negotiable tonight: 8+ hours of sleep — you flagged extra sleep for this week and this is where adaptation actually happens. After the run, 10 min of easy walking to flush the legs, then foam-roll calves, quads, and glutes for the climbing load. Legs up the wall for 5 min before bed. If anything feels sharp rather than tired, back off tomorrow rather than digging the hole deeper."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "This is the biggest week of a 22-week build and you're 62 days out — the fitness is being forged right now. Holding back on an easy day when your legs feel good is a discipline that pays off at kilometer 40 in Kranjska Gora. Trust the plan, run the effort you're told, and let the adaptation do its quiet work."
+      "message": "63 days out, deep in Peak, the hardest week of 22 — this is the fitness that shows up on the start line in Kranjska Gora. The discipline today isn't going hard; it's the harder skill of holding back on the hills when your body wants to push. Every controlled climb is a rep at the exact patience the Julian Alps will demand. Train the restraint now and race day feels rehearsed, not improvised."
     }
   ]
 }

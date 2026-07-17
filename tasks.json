@@ -1476,7 +1476,7 @@
     "title": "Start the process for a new passport",
     "description": "Begin the passport application or renewal process as mentioned in the recording.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1490,10 +1490,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Plan weekend and Wednesday"
+      },
+      {
+        "timestamp": "2026-07-17T15:52:28.444Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-08T20:47:28.947Z",
-    "completed_at": null,
+    "completed_at": "2026-07-17T15:52:28.444Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

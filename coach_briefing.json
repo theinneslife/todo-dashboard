@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-16",
-  "generated_at": "2026-07-16T17:59:38.049657Z",
+  "generated": "2026-07-17",
+  "generated_at": "2026-07-17T13:15:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 only (140 bpm ceiling). You're 64 days out and in taper week 21—volume is down 43% from last week (17.2 vs 30.2), which is correct. Your last three runs averaged 124–140 bpm; today stays sub-140. The Julian Alps demands your legs fresh and your aerobic base intact, not depleted. Keep it conversational; if you're at the airport or between meetings, 8 miles is enough. Skip any tempo or vert work this week."
+      "title": "Easy Hilly Run — Peak Week",
+      "message": "9 miles easy on hilly terrain, strict Zone 2 (~124-138 bpm). This is the hardest week of the plan, so 'easy' is the assignment — keep effort conversational even on the climbs and power-hike anything that spikes your HR. In Buenos Aires, the Bosques de Palermo loops and the Reserva Ecológica give you rolling ground; if it's flat, add relaxed surges on any overpass or bridge to nod at the Julian Alps' 2,500m of vert. Nose-breathing pace all the way."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 8h 58m sleep last night at 95% efficiency—excellent. That fuels a light recovery day. Eat to performance: aim for 1.5–2g carbs per kg bodyweight today spread across three meals, with protein at each (25–35g). Post-run, take in 30–40g carbs + 15–20g protein within 30 minutes. Given constant travel for work, prioritize whole foods (rice, pasta, lean meat) over gels and bars; your gut needs to trust what's on race day in Slovenia."
+      "message": "Under ~75 min you can run this fasted or on a light 30-40g carb pre-run (banana, medialuna in a pinch). If you extend past 75 min, take 60g carbs/hr and treat it as gut training for race day. Rehydrate with electrolytes afterward — Buenos Aires winter is dry — and hit 25-30g protein plus real carbs within 45 min to bank recovery for the heavy week."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Recovery score is 84/100—you're recovered. Sleep efficiency at 95% is elite. Resting HR stable at 62 bpm (30-day avg 61.5) shows no fatigue accumulation. Hold this: 8+ hours nightly through the taper (only 9 weeks left), hydrate aggressively between flights, and use compression or easy walking on travel days. No HRV data is fine for the phase; focus on the sleep and RHR trend, both green."
+      "message": "Peak week is won by what you do between runs. Keep this run genuinely easy so it's recovery, not another stressor — 10 min of legs-up-the-wall and calf/quad mobility tonight, and protect 8+ hours of sleep. Extra sleep, extra food, extra focus: that's the week's motto."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the mental home stretch. Taper anxiety is normal—the temptation to 'make up' for reduced volume is real and wrong. Trust the block: you've logged the vert, the mileage, the aerobic work in weeks 16–20. The next nine weeks are about arrival, not panic. Review your race strategy (aid station nutrition, pacing in the first 15K, descent technique on the rocky sections), visualize one section per day, and keep runs easy. Your fitness is locked in."
+      "message": "This is the biggest week of a 22-week build and you're 62 days out — the fitness is being forged right now. Holding back on an easy day when your legs feel good is a discipline that pays off at kilometer 40 in Kranjska Gora. Trust the plan, run the effort you're told, and let the adaptation do its quiet work."
     }
   ]
 }

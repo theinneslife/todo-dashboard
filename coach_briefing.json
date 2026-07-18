@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-17",
-  "generated_at": "2026-07-17T17:58:36.649953Z",
+  "generated": "2026-07-18",
+  "generated_at": "2026-07-18T17:50:40.852403Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (140–150 bpm), rolling terrain, no hard efforts. You're in taper week 3 of 3 with 63 days to the Julian Alps 50K—volume is down 43% this week (17.2 vs 30.2 last week), which is correct. Your last three runs averaged 124–140 bpm; today you dial back to conversational pace. This is a shakeout before tomorrow's long run, not a workout. Treat it as a confidence builder on alpine-like undulation if you can find it locally."
+      "message": "Saturday long run, taper week 21: target 90–100 min at Z2 (140–150 bpm), rolling terrain with 800–1200 ft vert. You're 62 days out and volume is correctly suppressed (17.2 mi YTD vs. 30.2 last week), but your resting HR is elevated 3.2 bpm above 30-day average—likely travel fatigue or a deeper training effect. Keep this aerobic-only; no tempo pushes. The Julian Alps demand vert durability over speed right now, and a clean, easy long run sharpens your aerobic system without blunting recovery. Your 10.66h sleep last night is a strong foundation—use it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 8.98 hours with 95% efficiency—exceptional. Front-load carbs today (aim 6–8g/kg bodyweight) to top off glycogen before the weekend's hard running. On today's easy 8–10 miler, drink 500–750ml of sports drink if it's >90 min, but this is not a fueling workout. Tomorrow's long run in taper is where you practice race nutrition: practice your 50K aid-station strategy (gels, real food, electrolyte drink) on a 2–2.5 hour segment at race-intensity effort."
+      "message": "Front-load 90–120g carbs 2 hours pre-run; carry 40–50g during (sports drink or gels at 45-min mark). Post-run, aim for 40–50g carbs + 20–25g protein within 30 min—you're in taper, not peak build, so recovery nutrition matters more than volume. Sparse aid stations in Slovenia mean you'll rely on self-supported fueling for long efforts; use today's 90-min run to dial in your bottle/gel strategy in the terrain you'll face. Hydration: 16–20 oz per hour in cool conditions."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Recovery score 84/100 and resting HR 62 bpm (30-day avg 61.5) show you're solid. No HRV data available, so trust the HR and subjective feel—you're recovered. Tonight: aim for 8–9 hours again (you've nailed 7.58h avg; this week's 8.98h is your highest and right for taper). Legs may feel heavy after last Sunday's 17.16-mi run; 10 min easy mobility (hip flexors, calves, quads) and 15 min ice bath if sore, but aggressive massage is off the table in taper."
+      "message": "Recovery score is solid at 74/100, but resting HR elevation and absence of HRV data suggest your nervous system is still processing travel load. Prioritize 8+ hours sleep tonight (you're averaging 7.7h); one night of 10.66h doesn't offset a chronic shortfall. Ice bath or 12-min cold plunge post-run if you have access—this is peak taper week for parasympathetic reset. Avoid any hard intensity tomorrow; active recovery or full rest day is non-negotiable."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper anxiety is normal at week 3. You've logged 22 weeks of structured build—your aerobic base, vert tolerance, and mental toughness are locked in. This weekend (easy today, long run tomorrow) is about confirming readiness, not building fitness. The Julian Alps 50K's 2,500m vert and sparse aid stations demand confidence in your legs and fueling plan. Use today's easy run to mentally rehearse the race terrain: technical descent management and steady climbing rhythm will win it more than raw speed."
+      "message": "You're in week 21 of a 22-week cycle with 62 days to the Alps. The taper can feel anticlimactic—your brain is still hungry for intensity after months of Build and Peak. Resist it. This run is a nervous-system rehearsal, not a fitness opportunity. Use it to visualize: technical alpine descents, pacing discipline on 2500m vert, managing effort at sparse aid stations. The race is won in the taper; trust the work you've banked and let your body absorb it."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-19",
-  "generated_at": "2026-07-19T17:52:08.017240Z",
+  "generated": "2026-07-20",
+  "generated_at": "2026-07-20T18:49:15.111936Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (140–150 bpm), rolling terrain if available. You're in week 25 of a 22-week plan—you've already peaked, and taper is live. Your last hard effort was six days ago; Sunday's role is active recovery and maintaining aerobic feel without stimulus. Your 30-day avg resting HR is 61.8 bpm and recovery score is solid at 86/100, so you have no fatigue debt. Keep it conversational, dial HR back 15–20 beats from your recent runs (which sat at 124–140), and use this run to shake out legs before the final 6 weeks push toward Kranjska Gora."
+      "message": "Easy 45–50 min Z2, no vert work. Your resting HR is 8 bpm above your 30-day average (70 vs 62.2) and recovery score sits at 57/100—you're not fully settled. You logged 17.2 miles this week already and you're in taper; the job now is to flush metabolic waste and maintain aerobic feel, not accumulate stress. Keep HR between 120–130 bpm and run a route without hills. This is a maintenance day, not a training day."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 12.74 hours of sleep with 103% efficiency last night—exceptional recovery night. Fuel accordingly: eat a carb-forward breakfast (oats, fruit, honey, 60–80g CHO) 2–3 hours pre-run, then 30–40g CHO + electrolytes during the run if it stretches past 90 minutes. Post-run, prioritize protein + carbs within 30 minutes (4:1 or 3:1 ratio, ~20g protein, ~60–80g CHO) to anchor glycogen replenishment. Given your travel schedule and exec workload, prep one recovery meal the night before to remove friction."
+      "message": "You slept 9.9 hours last night—excellent—but your resting HR suggests you may still be metabolically fatigued from the load you've carried into taper. Prioritize 1.2–1.5g carbs per kg bodyweight today spread across 4–5 meals, with focus on simple carbs post-run (40–50g within 30 min). If you're traveling for work today, pack rice cakes, dates, or a recovery drink; don't rely on airline/hotel food to hit targets. Sodium intake should be normal—no aggressive loading yet; that comes in the final two weeks."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep quality is your secret weapon right now—last night's 12h74m at 103% efficiency is the exception, not the rule. Target 8–9 hours tonight to support continued adaptation during taper. No HRV data in your system; if you have wearable HRV metrics, 40+ ms is green for taper phase, <35 ms signals sympathetic dominance and warrants an extra easy day. Prioritize sleep consistency over total hours—same bedtime nightly beats chasing 10+ hours occasionally. Your resting HR stability (62 bpm today vs. 61.8 avg) shows you're tracking clean."
+      "message": "Last night's 9.9 hours is a positive signal, but elevated resting HR + moderate recovery score suggest your nervous system is still clearing load. Aim for 8–9 hours tonight as well. During the day: 10–15 min of easy mobility work (hips, calves, T-spine), no foam rolling aggression. If you're in-office at MNTN, take two 5-min walking breaks to keep movement gentle. Cold baths or ice are not necessary today; focus on sleep quality and consistency instead."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper anxiety is real at 61 days out. You've built the engine; now the work is patience and trust. This easy Sunday is not a wasted day—it's when adaptations consolidate and CNS recovers from 4 weeks of peak training. Your volume has already dropped from 30.2 miles last week to 17.2 this week (43% cut), which is textbook taper pacing. Use this run to visualize the alpine terrain at Kranjska Gora—2,500m vert demands respect, and your 374-ft climb six days ago on a 17-miler shows your vert capacity. Stay disciplined: no unplanned hard efforts, no fomo-driven pushups with corporate training buddies."
+      "message": "You're 60 days out with 4+ weeks of taper ahead—this is where doubt creeps in because volume drops and race pace feels foreign. Recognize that: your aerobic base is solid (consistent 120–140 bpm efforts logged), the Alps' 2,500m vert is manageable in your fitness window, and the next 4 weeks are about sharpness and specificity, not panic. Stay disciplined with the plan. Trust the numbers, not the nervous system."
     }
   ]
 }

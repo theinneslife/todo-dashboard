@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-20",
-  "generated_at": "2026-07-20T18:49:15.111936Z",
+  "generated": "2026-07-21",
+  "generated_at": "2026-07-21T18:11:49.610034Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 45–50 min Z2, no vert work. Your resting HR is 8 bpm above your 30-day average (70 vs 62.2) and recovery score sits at 57/100—you're not fully settled. You logged 17.2 miles this week already and you're in taper; the job now is to flush metabolic waste and maintain aerobic feel, not accumulate stress. Keep HR between 120–130 bpm and run a route without hills. This is a maintenance day, not a training day."
+      "message": "You're 59 days out and in taper; volume is already down 43% week-over-week (17.2 vs 30.2), which is correct. Tuesday is normally quality day, but in taper you're sharpening, not breaking. Run 8–10 miles easy to mod (Z2, 140–150 bpm max) with 4–6 × 90-second pickups at 10K pace embedded in the second half. This maintains leg turnover and top-end feel without the metabolic debt of a full interval session. Given your resting HR is 57 (5 bpm below 30-day avg) and recovery score is 100, you're primed—but don't confuse excellent recovery with license to push hard. Taper sharpness is about *frequency* of stim, not *volume*."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 9.9 hours last night—excellent—but your resting HR suggests you may still be metabolically fatigued from the load you've carried into taper. Prioritize 1.2–1.5g carbs per kg bodyweight today spread across 4–5 meals, with focus on simple carbs post-run (40–50g within 30 min). If you're traveling for work today, pack rice cakes, dates, or a recovery drink; don't rely on airline/hotel food to hit targets. Sodium intake should be normal—no aggressive loading yet; that comes in the final two weeks."
+      "message": "You logged 10.6 hours of sleep at 92% efficiency last night—exceptional. That recovery floor lets you run well today, but don't coast on it. Eat 90–120g carbs + 25–30g protein in the 2–3 hours before the run; aim for familiar, low-fiber (bagel + peanut butter, rice + eggs, oats + banana). Post-run within 30 min: 40–50g carbs + 20g protein to start glycogen repletion. You're traveling constantly for work—this is where discipline separates pros from tourists. Alpine 50K demands fully stocked glycogen; you can't make up fuel debt in the final weeks."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Last night's 9.9 hours is a positive signal, but elevated resting HR + moderate recovery score suggest your nervous system is still clearing load. Aim for 8–9 hours tonight as well. During the day: 10–15 min of easy mobility work (hips, calves, T-spine), no foam rolling aggression. If you're in-office at MNTN, take two 5-min walking breaks to keep movement gentle. Cold baths or ice are not necessary today; focus on sleep quality and consistency instead."
+      "message": "Your sleep metric is elite (10.6h, 92% efficiency) and resting HR is at a 30-day low. That's the payoff of taper done right. Maintain this: 10 hours target tonight, dark/cool room, no screens 30 min before bed. HRV data is missing, so you're flying partially blind on nervous system load, but the sleep and RHR tell you you're recovered. Don't sabotage it with unnecessary stress or late work calls. You have 59 days left—sleep is free performance."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 60 days out with 4+ weeks of taper ahead—this is where doubt creeps in because volume drops and race pace feels foreign. Recognize that: your aerobic base is solid (consistent 120–140 bpm efforts logged), the Alps' 2,500m vert is manageable in your fitness window, and the next 4 weeks are about sharpness and specificity, not panic. Stay disciplined with the plan. Trust the numbers, not the nervous system."
+      "message": "You're 4 weeks out from race and in the grind phase where doubt creeps in. Last week you hit 30 miles with vert; this week you'll land ~22 miles. That drop *feels* like backing off, and your brain will interpret it as weakness. It isn't. Taper is about arriving fresh and confident, not arriving tired and proving something. Julian Alps will demand discipline on steep descents, fuel discipline at sparse aid, and mental toughness at km 35 when the alpine gets real. Use these next 4 weeks to visualize specific sections (the traverse, the final climb) and rehearse your race nutrition plan twice more on long efforts. Confidence comes from preparation, not from one more big week."
     }
   ]
 }

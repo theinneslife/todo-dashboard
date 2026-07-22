@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-21",
-  "generated_at": "2026-07-21T18:11:49.610034Z",
+  "generated": "2026-07-22",
+  "generated_at": "2026-07-22T18:04:20.779511Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 59 days out and in taper; volume is already down 43% week-over-week (17.2 vs 30.2), which is correct. Tuesday is normally quality day, but in taper you're sharpening, not breaking. Run 8–10 miles easy to mod (Z2, 140–150 bpm max) with 4–6 × 90-second pickups at 10K pace embedded in the second half. This maintains leg turnover and top-end feel without the metabolic debt of a full interval session. Given your resting HR is 57 (5 bpm below 30-day avg) and recovery score is 100, you're primed—but don't confuse excellent recovery with license to push hard. Taper sharpness is about *frequency* of stim, not *volume*."
+      "message": "You're 58 days out and in taper week 3—volume is right (17.2 mi through Wednesday), but you need vert work today to maintain alpine fitness. Run 8–10 miles with 800–1,000 ft of sustained climbing over rolling or steep terrain, keeping effort Z2–Z3 (your last run hit 125 bpm avg; aim 120–135 bpm). This isn't a threshold session; it's a reminder to your legs that mountains exist. You've recovered hard (RHR 57, 10.6h sleep, 100/100 score)—your system is primed. Don't waste this window sitting easy when you have 58 days left to sharpen."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 10.6 hours of sleep at 92% efficiency last night—exceptional. That recovery floor lets you run well today, but don't coast on it. Eat 90–120g carbs + 25–30g protein in the 2–3 hours before the run; aim for familiar, low-fiber (bagel + peanut butter, rice + eggs, oats + banana). Post-run within 30 min: 40–50g carbs + 20g protein to start glycogen repletion. You're traveling constantly for work—this is where discipline separates pros from tourists. Alpine 50K demands fully stocked glycogen; you can't make up fuel debt in the final weeks."
+      "message": "Taper is a fueling test phase for the Julian Alps. Eat 60–80g carbs in the 2 hours before this run (oats, banana, rice cakes—nothing new), and plan 30–40g carbs + electrolytes during if you're over 90 min (you will be with the vert). Post-run, nail protein + carbs within 30 min: aim 20–30g protein and 1–1.2g carbs per kg bodyweight over the next 4 hours. Your 92% sleep efficiency tells me digestion and recovery are dialed—don't break that by skipping post-run fuel."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep metric is elite (10.6h, 92% efficiency) and resting HR is at a 30-day low. That's the payoff of taper done right. Maintain this: 10 hours target tonight, dark/cool room, no screens 30 min before bed. HRV data is missing, so you're flying partially blind on nervous system load, but the sleep and RHR tell you you're recovered. Don't sabotage it with unnecessary stress or late work calls. You have 59 days left—sleep is free performance."
+      "message": "Your sleep volume (10.6h) is elite; 30-day average of 8.06h is solid for an ultrarunner in taper. RHR at 57 is 5 bpm below your 30-day norm—you're genuinely recovered. Use today to consolidate: no additional stressors, walk easy this evening if work permits, and aim for another 8–9 hour night. With 58 days left, sleep is non-negotiable; it's when VO2max adaptations lock in and legs rebuild. Protect 8h minimum every night through race day."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 4 weeks out from race and in the grind phase where doubt creeps in. Last week you hit 30 miles with vert; this week you'll land ~22 miles. That drop *feels* like backing off, and your brain will interpret it as weakness. It isn't. Taper is about arriving fresh and confident, not arriving tired and proving something. Julian Alps will demand discipline on steep descents, fuel discipline at sparse aid, and mental toughness at km 35 when the alpine gets real. Use these next 4 weeks to visualize specific sections (the traverse, the final climb) and rehearse your race nutrition plan twice more on long efforts. Confidence comes from preparation, not from one more big week."
+      "message": "You've built 26 weeks of fitness on a demanding travel schedule—respect that. Today's vert session is a confidence builder, not a fitness test. In the Julian Alps, you'll see 2,500m vert over open, exposed ridges and sparse aid; the mental game is readiness, not speed. Use this run to dial in how you climb at Z3 on tired legs (which is what race day becomes after hour 6). Notice your breathing, your cadence, your fuel triggers. You're 8 weeks from the start line; every session is reconnaissance now."
     }
   ]
 }

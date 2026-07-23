@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-23",
-  "generated_at": "2026-07-23T14:01:45Z",
+  "generated_at": "2026-07-23T18:08:28.157467Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy Run — Close Out Peak Week",
-      "message": "Easy aerobic run, ~9–12 miles, strictly Zone 2 (roughly 133–149 bpm, well under your 165 LTHR). This is the last session of the hardest week of the block — the job is to flush the legs, not add stress. If it feels hard, slow down or walk the hills. Keep it conversational start to finish. Peak fitness is banked; from here you only get fresher."
+      "title": "Today's Run",
+      "message": "Easy Z2 only—8–10 miles at conversational pace (140–150 bpm max), rolling terrain if available. Your resting HR is 79 (up from your 30-day average of 62.4) and recovery score sits at 53/100, which tells me you're still in a residual fatigue state from the peak block. You have 57 days to race and are in taper; this is a shakeout day, not a stimulus day. Keep it relaxed, stay in the zone, and let your CNS settle. No tempo, no vert work today."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Top off with ~40g carbs before you head out. It's an easy effort so you won't need much on the move, but on anything over 75 min sip 30–40g carbs/hr to keep training your gut for the Alps. Hit the post-run window within 30 min: ~25–30g protein plus carbs to lock in the week's adaptations. Buenos Aires winter is dry — stay ahead on fluids and electrolytes."
+      "message": "Ingest 30–40g carbs + electrolytes during the run if it exceeds 75 minutes; keep it simple (sports drink or gels). Post-run, prioritize a meal with 20–30g protein and 80–100g carbs within 90 minutes to shift gears toward recovery and glycogen repletion. Your sleep efficiency last night was solid at 80.2%, but your resting HR elevation suggests glycogen debt or insufficient carb intake over the last 48–72 hours. Bump carbs deliberately today—you're not calorie-restricted in taper."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You just finished a heavy peak week, so treat today's easy run as recovery in motion. Legs up after: 10 min of light mobility, calves and hip flexors foam rolled, and prioritize sleep tonight — aim for 8+ hours. Adaptation from the whole week cashes in during the next 48 hours of rest."
+      "message": "Target 9+ hours sleep tonight; you got 9.34h two nights ago, which is exactly the threshold you need in taper. The elevated resting HR is a red flag that sleep or fueling has slipped—nail both tonight. Consider a 10–15 minute easy walk or mobility session this evening (not a hard stretch), and keep caffeine intake cut off by 2 PM. If you travel for work today, prioritize sleep hygiene over schedule flexibility."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've cleared the toughest week of the plan — sit with that. Julian Alps rewards patience: the discipline to run easy on easy days is the same discipline that keeps you steady when the climbs bite at 2,500m in September. Trust the taper ahead. The hay is in the barn."
+      "message": "You're 8 weeks out from a 2,500m vert alpine 50K on terrain you likely haven't raced before. Taper anxiety is real, but it's also a feature: your body is supercompensating. Trust the 22-week block you've completed. Use this week and next to visualize specific sections of the Julian Alps course—aid station placement, descent strategy, early-race pacing anchors. The real work is done. Your job now is to arrive rested, fueled, and sharp."
     }
   ]
 }

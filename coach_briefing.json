@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-23",
-  "generated_at": "2026-07-23T18:08:28.157467Z",
+  "generated": "2026-07-24",
+  "generated_at": "2026-07-24T18:13:02.037552Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy Z2 only—8–10 miles at conversational pace (140–150 bpm max), rolling terrain if available. Your resting HR is 79 (up from your 30-day average of 62.4) and recovery score sits at 53/100, which tells me you're still in a residual fatigue state from the peak block. You have 57 days to race and are in taper; this is a shakeout day, not a stimulus day. Keep it relaxed, stay in the zone, and let your CNS settle. No tempo, no vert work today."
+      "message": "Easy 8–10 miles, Z2 (140–150 bpm max), sub-7:30/mi pace. You're in taper week 20 with 56 days to Slovenia, and your resting HR jumped to 79 bpm (vs. 30-day avg of 62.4)—that's a red flag for incomplete recovery. Your recovery score is 53/100 (moderate), not optimal. Skip any tempo or vert work today; this is a shakeout run only. Treat it as a confidence builder and active recovery before Saturday's long run. Given your travel schedule, run early before work if possible to lock it in."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Ingest 30–40g carbs + electrolytes during the run if it exceeds 75 minutes; keep it simple (sports drink or gels). Post-run, prioritize a meal with 20–30g protein and 80–100g carbs within 90 minutes to shift gears toward recovery and glycogen repletion. Your sleep efficiency last night was solid at 80.2%, but your resting HR elevation suggests glycogen debt or insufficient carb intake over the last 48–72 hours. Bump carbs deliberately today—you're not calorie-restricted in taper."
+      "message": "Eat a full breakfast (carbs + protein: oats + eggs, or toast + Greek yogurt) 90 minutes before the run. During the easy 8–10 miler, no fuel needed. Post-run, hit a 3:1 carb-to-protein window within 30 minutes (banana + protein shake, or rice cakes + chicken). For the rest of the day, prioritize carb-loading lightly—aim for 5–6g carbs per kg bodyweight daily. You're in taper, not calorie-cutting; fuel supports recovery and glycogen supercompensation into race week."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Target 9+ hours sleep tonight; you got 9.34h two nights ago, which is exactly the threshold you need in taper. The elevated resting HR is a red flag that sleep or fueling has slipped—nail both tonight. Consider a 10–15 minute easy walk or mobility session this evening (not a hard stretch), and keep caffeine intake cut off by 2 PM. If you travel for work today, prioritize sleep hygiene over schedule flexibility."
+      "message": "Sleep quality was solid last night (9.34h, 80.2% efficiency), but your elevated resting HR suggests systemic fatigue. Prioritize 9+ hours again tonight. Hydrate aggressively today—aim for 3.5–4L of fluids with electrolytes, especially given your corporate travel pattern. Consider 10 minutes of foam rolling on quads and calves post-run, then a 15-minute walk or gentle mobility work. Skip ice baths; passive recovery and sleep are your tools in taper."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 8 weeks out from a 2,500m vert alpine 50K on terrain you likely haven't raced before. Taper anxiety is real, but it's also a feature: your body is supercompensating. Trust the 22-week block you've completed. Use this week and next to visualize specific sections of the Julian Alps course—aid station placement, descent strategy, early-race pacing anchors. The real work is done. Your job now is to arrive rested, fueled, and sharp."
+      "message": "You've logged 47.4 miles in two weeks (taper is working—down from peak phases), and your recent long runs (17+ miles with 374 ft vert at Z3) prove you can handle Julian Alps' demands. The slight fatigue you're showing is normal mid-taper; it will clear by race day. Use today's easy run to remind yourself of your fitness—don't second-guess the training done. Focus on execution and logistics: map aid stations, test your race-day pack, confirm drop bags with the race org. Mental sharpness beats panic now."
     }
   ]
 }

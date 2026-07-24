@@ -2949,7 +2949,7 @@
     "title": "openai FU",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -2962,17 +2962,24 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-07-24T14:54:25.845Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-06-30T21:16:42.695Z",
-    "completed_at": null,
+    "completed_at": "2026-07-24T14:54:25.845Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "796d6e99-fc35-4365-88b5-21132798047f",

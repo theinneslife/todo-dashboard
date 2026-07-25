@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-24",
-  "generated_at": "2026-07-24T18:13:02.037552Z",
+  "generated": "2026-07-25",
+  "generated_at": "2026-07-25T17:52:41.638485Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (140–150 bpm max), sub-7:30/mi pace. You're in taper week 20 with 56 days to Slovenia, and your resting HR jumped to 79 bpm (vs. 30-day avg of 62.4)—that's a red flag for incomplete recovery. Your recovery score is 53/100 (moderate), not optimal. Skip any tempo or vert work today; this is a shakeout run only. Treat it as a confidence builder and active recovery before Saturday's long run. Given your travel schedule, run early before work if possible to lock it in."
+      "message": "You're 55 days out and in taper—this is your Saturday long run, but scaled. Target 90–100 minutes at Z2 (130–145 bpm based on your recent 125 bpm baseline), with 800–1200m of vert incorporated naturally via rolling terrain or a single sustained climb. Skip the ego; the fitness is there. Your last long effort was 17.16 miles on 2026-07-13 (12 days ago), so you're due for a moderate-length alpine-specific stimulus—not a peak day, but not a jog either. Recovery score of 83 means you're ready to run, but not to exceed."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat a full breakfast (carbs + protein: oats + eggs, or toast + Greek yogurt) 90 minutes before the run. During the easy 8–10 miler, no fuel needed. Post-run, hit a 3:1 carb-to-protein window within 30 minutes (banana + protein shake, or rice cakes + chicken). For the rest of the day, prioritize carb-loading lightly—aim for 5–6g carbs per kg bodyweight daily. You're in taper, not calorie-cutting; fuel supports recovery and glycogen supercompensation into race week."
+      "message": "Eat a real breakfast 2–3 hours pre-run (oats, fruit, protein). For a 90–100 minute Z2 run with climbing, carry 30–45g of simple carbs (gels, chews, or sports drink) and drink to thirst—you're in alpine terrain where aid is sparse, so this is a dress rehearsal for race pacing and stomach tolerance. Post-run, get carbs + protein (3:1 ratio) within 60 minutes; your sleep efficiency is already at 95.3%, so nutrient timing matters more than volume right now."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep quality was solid last night (9.34h, 80.2% efficiency), but your elevated resting HR suggests systemic fatigue. Prioritize 9+ hours again tonight. Hydrate aggressively today—aim for 3.5–4L of fluids with electrolytes, especially given your corporate travel pattern. Consider 10 minutes of foam rolling on quads and calves post-run, then a 15-minute walk or gentle mobility work. Skip ice baths; passive recovery and sleep are your tools in taper."
+      "message": "Sleep is solid at 7.88h and resting HR is 60 bpm (down from your 30-day avg of 62.2)—you're adapting well. Tonight, prioritize 8+ hours and skip late caffeine. Ice bath optional; at this point in taper, sleep and glycogen repletion outweigh cold water immersion. Sunday should be fully easy (45–60 min Z1–Z2) or rest entirely—taper means you're protecting the nervous system now, not pushing it."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've logged 47.4 miles in two weeks (taper is working—down from peak phases), and your recent long runs (17+ miles with 374 ft vert at Z3) prove you can handle Julian Alps' demands. The slight fatigue you're showing is normal mid-taper; it will clear by race day. Use today's easy run to remind yourself of your fitness—don't second-guess the training done. Focus on execution and logistics: map aid stations, test your race-day pack, confirm drop bags with the race org. Mental sharpness beats panic now."
+      "message": "You're 8 weeks from Slovenia and entering the sprint phase where execution matters more than volume. Use today's run to practice your race-day fueling strategy and test your mental pacing—the Julian Alps 50K will demand sustained effort on thin air and sparse aid, so every practice run is a simulation. Stay composed; you've built the base, and taper is when doubt creeps in. Trust the training and focus on sharp, intentional efforts over the next 7 weeks."
     }
   ]
 }

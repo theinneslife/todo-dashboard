@@ -6,7 +6,7 @@
 <meta charset="utf-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Cpath d='M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='16' cy='17' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelFlo v3.12.0 - Travel Command Center</title>
+    <title>TravelFlo v3.14.0 - Travel Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1801,6 +1801,13 @@
 .guide-badge-soon { background: rgba(148,163,184,0.12); border: 1px solid rgba(148,163,184,0.25); color: #94a3b8; }
 .guide-open-btn { display: block; width: 100%; padding: 7px; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.18); border-radius: 9px; color: #fff; font-size: 11px; font-weight: 600; text-align: center; text-decoration: none; margin-top: 8px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 0.2s; }
 .guide-open-btn:hover { background: rgba(255,255,255,0.22); }
+/* City Guide entry point on trip cards */
+.trip-guide-btn { position: relative; z-index: 2; display: inline-flex; align-items: center; justify-content: center; gap: 6px; align-self: flex-start; margin-top: 10px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.28); color: #ffffff; font-size: 12px; font-weight: 600; letter-spacing: 0.2px; text-decoration: none; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 10px rgba(0,0,0,0.18); transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
+.trip-guide-btn:hover { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.45); transform: translateY(-1px); }
+.trip-guide-btn:active { transform: translateY(0); }
+.trip-guide-btn:focus-visible { outline: 2px solid var(--accent-blue, #3b82f6); outline-offset: 2px; }
+.all-trip-guide-btn { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.32); }
+.all-trip-guide-btn:hover { background: rgba(139,92,246,0.25); }
 .guide-card-skip { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 8px; padding: 14px; text-align: center; }
 .guide-card-skip-icon { font-size: 28px; opacity: 0.5; }
 .guide-card-skip-text { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
@@ -2734,7 +2741,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo"><svg viewBox="0 0 156 40" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tf-g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="0" y="4" width="32" height="32" rx="7" fill="url(#tf-g)"/><path d="M16 10a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="#fff" opacity=".9"/><circle cx="16" cy="17" r="3" fill="url(#tf-g)"/><text x="38" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#e2e8f0">Travel</text><text x="97" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#tf-g)">Flo</text><path d="M97 33Q109 28 121 33" stroke="url(#tf-g)" stroke-width="2" fill="none" opacity=".8"/></svg></div>
-                    <div class="version-badge">v3.12.0</div>
+                    <div class="version-badge">v3.14.0</div>
                 <a href="index.html" class="taskflo-link">→ TaskFlo</a>
                 <a href="athleteflo.html" class="taskflo-link">→ AthleteFlo</a>
             </div>
@@ -3545,15 +3552,16 @@
             this.renderEnhancedDiscover(); }
         }
 
-        // ===== City Guides =====
-        renderGuidesTab() {
-            const grid = document.getElementById('guidesGrid');
-            if (!grid) return;
+        // ===== City Guide lookup (shared by the Guides tab and every trip card) =====
+        // Single source of truth. Add a new guide here and it appears in the Guides
+        // tab AND as a City Guide button on that city's trip cards automatically.
+        guideBaseUrl() {
+            return 'https://theinneslife.github.io/todo-dashboard/';
+        }
 
-            const BASE = 'https://theinneslife.github.io/todo-dashboard/';
-
-            // Map city name → guide filename. Add new entries here as guides are generated.
-            const GUIDE_MAP = {
+        // Map city name → guide filename. Add new entries here as guides are generated.
+        guideMap() {
+            return {
                 'Bogota':               'bogota-guide.html',
                 'Bogotá':               'bogota-guide.html',
                 'Buenos Aires':         'buenos-aires-guide.html',
@@ -3569,13 +3577,57 @@
                 'El Salvador':          'san-salvador-guide.html',
                 'Las Vegas':            'las-vegas-guide.html',
             };
+        }
+
+        // Cities that are known to be deployed (guide file is live on GitHub Pages).
+        // Add a city here once its guide HTML has been pushed.
+        liveGuideCities() {
+            return new Set(['Bogota', 'Bogotá', 'Buenos Aires', 'Antigua Guatemala', 'Dubrovnik', 'Los Cabos', 'Johannesburg', 'Cape Town', 'Los Angeles', 'San Salvador', 'El Salvador', 'Playa del Carmen', 'New York City', 'New York', 'Las Vegas']);
+        }
+
+        // Resolve a trip (or raw city string) to its display city name.
+        tripCityName(trip) {
+            if (typeof trip === 'string') return trip.split(',')[0].trim();
+            if (!trip) return '';
+            const dest = trip.destination;
+            const raw = (dest && typeof dest === 'object')
+                ? (dest.city || '')
+                : (dest || trip.city || trip.title || '');
+            return String(raw).split(',')[0].trim();
+        }
+
+        // Returns the live guide URL for a trip/city, or null when no guide is available.
+        cityGuideUrl(trip) {
+            const city = this.tripCityName(trip);
+            if (!city) return null;
+            const file = this.guideMap()[city];
+            if (!file) return null;
+            if (!this.liveGuideCities().has(city)) return null;
+            return this.guideBaseUrl() + file;
+        }
+
+        // Renders the City Guide button for a trip card, or an empty string when none exists.
+        tripGuideButtonHTML(trip) {
+            const url = this.cityGuideUrl(trip);
+            if (!url) return '';
+            const city = this.tripCityName(trip);
+            return `<a class="trip-guide-btn" href="${url}" target="_blank" rel="noopener"`
+                + ` title="Open the ${city} city guide"`
+                + ` onclick="if(typeof event !== 'undefined') event.stopPropagation();">`
+                + `<i data-lucide="book-open" style="width:14px;height:14px"></i> City Guide</a>`;
+        }
+
+        // ===== City Guides =====
+        renderGuidesTab() {
+            const grid = document.getElementById('guidesGrid');
+            if (!grid) return;
+
+            const BASE = this.guideBaseUrl();
+            const GUIDE_MAP = this.guideMap();
+            const LIVE = this.liveGuideCities();
 
             // Cities where a city-guide doesn't apply (safari reserves, etc.)
             const SKIP_GUIDE = new Set(['Singita Safari (Sabi Sand)', 'Singita Safari']);
-
-            // Cities that are known to be deployed (guide file is live on GitHub Pages).
-            // Add a city here once its guide HTML has been pushed.
-            const LIVE = new Set(['Bogota', 'Bogotá', 'Buenos Aires', 'Antigua Guatemala', 'Dubrovnik', 'Los Cabos', 'Johannesburg', 'Cape Town', 'Los Angeles', 'San Salvador', 'Playa del Carmen', 'New York City', 'New York', 'Las Vegas']);
 
             const cityPhotos = {"New York City":"photo-1534430480872-3498386e7856","Los Angeles":"photo-1534190760961-74e8c1c5c3da","London":"photo-1513635269975-59663e0ac1ad","Paris":"photo-1502602898657-3e91760cbb34","Tokyo":"photo-1540959733332-eab4deabeeaf","Miami":"photo-1533106497176-45ae19e68ba2","Barcelona":"photo-1583422409516-2895a77efded","Rome":"photo-1552832230-c0197dd311b5","Amsterdam":"photo-1534351590666-13e3e96b5017","Cape Town":"photo-1580060839134-75a5edca2e99","Dubrovnik":"photo-1596422846543-75c6fc197f07","Buenos Aires":"photo-1589909202802-8f4aadce1849","Johannesburg":"photo-1577948000111-9c970dfe3743","Los Cabos":"photo-1510097467424-192d713fd8b2","Playa del Carmen":"photo-1552074284-5e88ef1aef18","Antigua Guatemala":"photo-1526392060635-9d6019884377","Bogota":"photo-1568632234157-ce7aecd03d0d","El Salvador":"photo-1517411032315-54ef2cb783bb","Las Vegas":"photo-1605833556294-ea5c7a74f57d","Singita Safari (Sabi Sand)":"photo-1516426122078-c23e76319801"};
 
@@ -4666,6 +4718,7 @@ if(window.lucide) setTimeout(() => lucide.createIcons(), 50);
                         </div>
                         <div class="trip-dates">${(function(e){return this.formatDate(e.startStr)+' to '+this.formatDate(e.endStr);}).call(this, this.effectiveTripDates(trip))}</div>
                         <div class="trip-countdown">${this.getCountdown(this.effectiveTripDates(trip).startStr || trip.startDate)}</div>
+                        ${this.tripGuideButtonHTML(trip)}
                     </div>
                 `;
             }
@@ -5188,7 +5241,9 @@ var destCity=(t.destination||t.title||"").split(",")[0].trim();
 var photoId=cityPhotos[destCity]||"photo-1488646953014-85cb44e25828";
 var photoStyle=photoId?"background-image:url(https://images.unsplash.com/"+photoId+"?w=120&h=120&fit=crop);background-size:cover;background-position:center;border-radius:12px;":"";
 var verifiedClass = t.verified ? ' verified' : '';
-return '<div class="all-trip-card'+verifiedClass+'" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(t.verified?'<span class="trip-badge" style="background:rgba(16,185,129,0.15);color:#10b981;">✓ Verified</span>':'')+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions"><button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share trip" style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);"><i data-lucide="share-2" style="width:12px;height:12px;vertical-align:-1px;"></i> Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
+var guideUrl = self.cityGuideUrl(t);
+var guideBtn = guideUrl ? '<a class="trip-action-btn all-trip-guide-btn" href="'+guideUrl+'" target="_blank" rel="noopener" title="Open the '+self.tripCityName(t)+' city guide" onclick="if(typeof event !== \'undefined\') event.stopPropagation();"><i data-lucide="book-open" style="width:12px;height:12px;vertical-align:-1px;"></i> Guide</a>' : '';
+return '<div class="all-trip-card'+verifiedClass+'" onclick="app.showTripDetail(\x27'+t.id+'\x27)"><div class="all-trip-icon" style="'+photoStyle+'">'+(!photoId?flag:"")+'</div><div class="all-trip-info"><div class="all-trip-dest">'+(t.title||t.destination)+'</div><div class="all-trip-dates"><i data-lucide="calendar" style="width:18px;height:18px;"></i> '+dateStr+'</div><div class="all-trip-meta"><span class="trip-badge '+t._status+'">'+t._status+'</span>'+(t.verified?'<span class="trip-badge" style="background:rgba(16,185,129,0.15);color:#10b981;">✓ Verified</span>':'')+(bk>0?'<span class="trip-badge upcoming">'+bk+' booking'+(bk>1?'s':'')+'</span>':'')+'</div></div><div class="all-trip-actions">'+guideBtn+'<button class="trip-action-btn share-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.shareTrip(\x27'+t.id+'\x27); return false;" title="Share trip" style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);"><i data-lucide="share-2" style="width:12px;height:12px;vertical-align:-1px;"></i> Share</button><button class="trip-action-btn edit-btn" onclick="if(typeof event !== \'undefined\') event.stopPropagation(); app.openTripModal(\x27'+t.id+'\x27); return false;">✎ Edit</button></div></div>';
             }).join("");
             document.querySelectorAll(".filter-btn").forEach(function(btn) {
                 btn.classList.toggle("active", btn.dataset.filter === filter);
@@ -8553,16 +8608,18 @@ this.updateDashboardStats();
 
     // Every country that counts toward the Schengen 90/180-day limit.
     // Croatia joined the Schengen Area on January 1, 2023.
-    // UK, Ireland, Romania, Bulgaria, Cyprus do NOT count.
+    // Bulgaria and Romania became full Schengen members on January 1, 2025
+    // (land borders opened; they had been air/sea only since March 2024).
+    // UK, Ireland and Cyprus do NOT count.
     const SCHENGEN_SET = new Set([
-        'at','austria','be','belgium','hr','croatia',
+        'at','austria','be','belgium','bg','bulgaria','hr','croatia',
         'cz','czech republic','czechia','dk','denmark',
         'ee','estonia','fi','finland','fr','france',
         'de','germany','gr','greece','hu','hungary',
         'is','iceland','it','italy','lv','latvia',
         'li','liechtenstein','lt','lithuania','lu','luxembourg',
         'mt','malta','nl','netherlands','no','norway',
-        'pl','poland','pt','portugal','sk','slovakia',
+        'pl','poland','pt','portugal','ro','romania','sk','slovakia',
         'si','slovenia','es','spain','se','sweden','ch','switzerland',
     ]);
 
@@ -8623,7 +8680,9 @@ this.updateDashboardStats();
         const we = new Date(windowEndStr + 'T00:00:00');
         const ws = new Date(we);
         ws.setDate(ws.getDate() - 179); // 180 days inclusive
-        const wsStr = ws.toISOString().split('T')[0];
+        // Format in LOCAL time. toISOString() converts to UTC, which rolls the date
+        // back a day at positive UTC offsets and silently shortens the window to 181 days.
+        const wsStr = ws.getFullYear() + '-' + String(ws.getMonth()+1).padStart(2,'0') + '-' + String(ws.getDate()).padStart(2,'0');
         let total = 0;
         getSchengenPeriods(extra, excludeId).forEach(p => { total += daysOverlap(p.start, p.end, wsStr, windowEndStr); });
         return total;

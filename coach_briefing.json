@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-25",
-  "generated_at": "2026-07-25T17:52:41.638485Z",
+  "generated": "2026-07-26",
+  "generated_at": "2026-07-26T17:56:25.063466Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 55 days out and in taper—this is your Saturday long run, but scaled. Target 90–100 minutes at Z2 (130–145 bpm based on your recent 125 bpm baseline), with 800–1200m of vert incorporated naturally via rolling terrain or a single sustained climb. Skip the ego; the fitness is there. Your last long effort was 17.16 miles on 2026-07-13 (12 days ago), so you're due for a moderate-length alpine-specific stimulus—not a peak day, but not a jog either. Recovery score of 83 means you're ready to run, but not to exceed."
+      "message": "Easy 8–10 miles, Z2 (140–150 bpm), no vert work. You're in taper week 3 with a recovery score of 42/100 and last night's sleep was 5.55h—both red flags. Your resting HR is 2 bpm elevated (64 vs. 62.2 baseline), signaling incomplete recovery. This is a hold-the-fitness day, not a stimulus day. Keep it conversational, stay below 150 bpm, and treat this as a shakeout to move the legs and accumulate time on feet without demanding glycogen or neuromuscular recovery. You have 54 days to race; burnout now costs you the Alps."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat a real breakfast 2–3 hours pre-run (oats, fruit, protein). For a 90–100 minute Z2 run with climbing, carry 30–45g of simple carbs (gels, chews, or sports drink) and drink to thirst—you're in alpine terrain where aid is sparse, so this is a dress rehearsal for race pacing and stomach tolerance. Post-run, get carbs + protein (3:1 ratio) within 60 minutes; your sleep efficiency is already at 95.3%, so nutrient timing matters more than volume right now."
+      "message": "Prioritize carbohydrate intake over the next 48 hours—aim for 7–8g/kg bodyweight daily to top off liver and muscle glycogen before your next hard block. During today's easy run, consume 30–40g simple carbs (sports drink, gels) per hour if the run exceeds 90 min. Post-run, eat 1.2g carbs + 0.3g protein per kg bodyweight within 30 min. Your sleep debt is real; don't compound it with caloric deficit. Eat slightly above maintenance today and tomorrow."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is solid at 7.88h and resting HR is 60 bpm (down from your 30-day avg of 62.2)—you're adapting well. Tonight, prioritize 8+ hours and skip late caffeine. Ice bath optional; at this point in taper, sleep and glycogen repletion outweigh cold water immersion. Sunday should be fully easy (45–60 min Z1–Z2) or rest entirely—taper means you're protecting the nervous system now, not pushing it."
+      "message": "Last night's 5.55h is unacceptable for taper phase. Alpine 50Ks demand full CNS readiness at kilometer 35 when your quads are screaming on 30° climbs—sleep deprivation will wreck pacing judgment and muscular resilience. Tonight, target 8–9 hours in a cool (16–18°C), dark room. If travel or work is fragmenting your sleep, prioritize a 90-min nap this afternoon. Your recovery score of 42 and elevated RHR suggest accumulated fatigue; sleep is the only tool that fixes this. Non-negotiable."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 8 weeks from Slovenia and entering the sprint phase where execution matters more than volume. Use today's run to practice your race-day fueling strategy and test your mental pacing—the Julian Alps 50K will demand sustained effort on thin air and sparse aid, so every practice run is a simulation. Stay composed; you've built the base, and taper is when doubt creeps in. Trust the training and focus on sharp, intentional efforts over the next 7 weeks."
+      "message": "You're 8 weeks out and in taper—expect the mind to play tricks (\"I'm losing fitness,\" \"I should do more\"). You're not. Your last three runs (17.16, 11.02, 10.21 miles) show strong aerobic fitness and the vertical work is locked in. The taper's job is to let your body absorb the training stimulus and repair. Treat this week as a confidence builder, not a fitness probe. Trust the training, sleep hard, and show up to Kranjska Gora fresh."
     }
   ]
 }

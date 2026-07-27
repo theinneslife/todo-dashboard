@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-26",
-  "generated_at": "2026-07-26T17:56:25.063466Z",
+  "generated": "2026-07-27",
+  "generated_at": "2026-07-27T06:20:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (140–150 bpm), no vert work. You're in taper week 3 with a recovery score of 42/100 and last night's sleep was 5.55h—both red flags. Your resting HR is 2 bpm elevated (64 vs. 62.2 baseline), signaling incomplete recovery. This is a hold-the-fitness day, not a stimulus day. Keep it conversational, stay below 150 bpm, and treat this as a shakeout to move the legs and accumulate time on feet without demanding glycogen or neuromuscular recovery. You have 54 days to race; burnout now costs you the Alps."
+      "title": "Easy Travel Shakeout",
+      "message": "No session on your calendar today and you're landing off a red-eye through Atlanta into LA — so keep it a recovery Monday. Peak Phase means the hard vert lives on your weekends; Mondays exist to flush them. Once you're on the ground, get 30-40 min fully in Zone 1 (under ~135 bpm, nose-breathing easy) or skip the run entirely and just walk 40 min. Legs first, ego never. 52 days to Kranjska Gora."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Prioritize carbohydrate intake over the next 48 hours—aim for 7–8g/kg bodyweight daily to top off liver and muscle glycogen before your next hard block. During today's easy run, consume 30–40g simple carbs (sports drink, gels) per hour if the run exceeds 90 min. Post-run, eat 1.2g carbs + 0.3g protein per kg bodyweight within 30 min. Your sleep debt is real; don't compound it with caloric deficit. Eat slightly above maintenance today and tomorrow."
+      "message": "Travel day = hydration and repair, not carb-loading. Cabin air is dehydrating, so front-load water plus electrolytes on landing. Aim near your ~220g rest-day carb target spread across real meals, prioritize 100-130g protein for tissue repair after the weekend load, and lean on anti-inflammatory foods (berries, leafy greens, salmon, olive oil) to counter travel inflammation. Go easy on alcohol at the board dinner tonight."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Last night's 5.55h is unacceptable for taper phase. Alpine 50Ks demand full CNS readiness at kilometer 35 when your quads are screaming on 30° climbs—sleep deprivation will wreck pacing judgment and muscular resilience. Tonight, target 8–9 hours in a cool (16–18°C), dark room. If travel or work is fragmenting your sleep, prioritize a 90-min nap this afternoon. Your recovery score of 42 and elevated RHR suggest accumulated fatigue; sleep is the only tool that fixes this. Non-negotiable."
+      "message": "You've crossed time zones on no real sleep — recovery IS today's workout. Get 10-15 min of gentle mobility to un-stiffen from the flight (hips, ankles, T-spine), elevate the legs for 10 min, and protect tonight's sleep window hard: dim screens after the dinner, cool room, target 8+ hours to reset your clock toward Pacific time."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 8 weeks out and in taper—expect the mind to play tricks (\"I'm losing fitness,\" \"I should do more\"). You're not. Your last three runs (17.16, 11.02, 10.21 miles) show strong aerobic fitness and the vertical work is locked in. The taper's job is to let your body absorb the training stimulus and repair. Treat this week as a confidence builder, not a fitness probe. Trust the training, sleep hard, and show up to Kranjska Gora fresh."
+      "message": "The Julian Alps won't care how busy your July was — they'll reward the athlete who trained the boring days well. A red-eye plus a board dinner is exactly the kind of week that derails amateurs and builds pros. You're not skipping training today; you're choosing the recovery that lets Saturday's vert session actually land. Respect the small choices and the peak block takes care of itself."
     }
   ]
 }

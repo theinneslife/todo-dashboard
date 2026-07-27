@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-27",
-  "generated_at": "2026-07-27T06:20:00Z",
+  "generated_at": "2026-07-27T18:19:28.804169Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy Travel Shakeout",
-      "message": "No session on your calendar today and you're landing off a red-eye through Atlanta into LA — so keep it a recovery Monday. Peak Phase means the hard vert lives on your weekends; Mondays exist to flush them. Once you're on the ground, get 30-40 min fully in Zone 1 (under ~135 bpm, nose-breathing easy) or skip the run entirely and just walk 40 min. Legs first, ego never. 52 days to Kranjska Gora."
+      "title": "Today's Run",
+      "message": "Easy Z2 only—8–10 miles at 140–150 bpm, no faster. Your recovery score is 38/100 and resting HR is 6.5 bpm above your 30-day average; your body is still paying down a debt. You've dropped from 30.2 miles last week to 17.2 so far this week, which is correct for taper, but the quality of that recovery matters more than volume right now. Keep it conversational, focus on leg turnover and smooth breathing. You're 53 days out—sharpness will return once you sleep and stabilize."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Travel day = hydration and repair, not carb-loading. Cabin air is dehydrating, so front-load water plus electrolytes on landing. Aim near your ~220g rest-day carb target spread across real meals, prioritize 100-130g protein for tissue repair after the weekend load, and lean on anti-inflammatory foods (berries, leafy greens, salmon, olive oil) to counter travel inflammation. Go easy on alcohol at the board dinner tonight."
+      "message": "You logged 6.89 hours of sleep at 87.4% efficiency last night—that's a deficit. Prioritize carbs today (aim for 6–7g per kg of body weight across the day) to replenish glycogen and support nervous system recovery. In an easy run like today's, you won't need gels, but post-run, get 30–40g protein + 80–100g carbs within 30 minutes. Your elevated resting HR suggests glycogen depletion or sleep debt; carbohydrate is the fastest lever to pull before Tuesday's potential quality session."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You've crossed time zones on no real sleep — recovery IS today's workout. Get 10-15 min of gentle mobility to un-stiffen from the flight (hips, ankles, T-spine), elevate the legs for 10 min, and protect tonight's sleep window hard: dim screens after the dinner, cool room, target 8+ hours to reset your clock toward Pacific time."
+      "message": "Sleep is your bottleneck right now—you're at 6.89h vs. your 30-day average of 8.24h, a 1.35-hour shortfall. Tonight, aim for 9 hours in a cool, dark room; skip the work email after 8 PM. If travel is causing the sleep loss, that's a conversation we need—you cannot taper effectively on six-hour nights. Active recovery (easy run today) is fine, but passive recovery (sleep, zero work stress) is what unlocks the adaptation you've built over 26 weeks."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "The Julian Alps won't care how busy your July was — they'll reward the athlete who trained the boring days well. A red-eye plus a board dinner is exactly the kind of week that derails amateurs and builds pros. You're not skipping training today; you're choosing the recovery that lets Saturday's vert session actually land. Respect the small choices and the peak block takes care of itself."
+      "message": "You're in the mental hardest part of taper—reduced volume can feel like detraining, especially for a high-output executive. It isn't. The Julian Alps 50K is an 8–10 hour alpine grind with sparse aid; that demands a fresh nervous system and full glycogen stores, both of which need 7 weeks of genuine recovery layered into your taper. Trust the phase. Easy runs, sleep, and fuel are not soft—they're the final loadbearing walls before race day."
     }
   ]
 }

@@ -137,7 +137,7 @@ jobs:
           # Processed activities for the current ISO week (for weekly_tss)
           this_week_recent = [
               a for a in recent
-              if datetime.date.fromisoformat(a['date']) >= this_monday
+              if datetime.date.fromisoformat(a['date']) >= this_monday.date()
           ]
 
           # Rolling-7d and 30d stats (last 7/14/30 calendar days, not ISO weeks)

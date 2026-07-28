@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-27",
-  "generated_at": "2026-07-27T18:19:28.804169Z",
+  "generated": "2026-07-28",
+  "generated_at": "2026-07-28T12:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy Z2 only—8–10 miles at 140–150 bpm, no faster. Your recovery score is 38/100 and resting HR is 6.5 bpm above your 30-day average; your body is still paying down a debt. You've dropped from 30.2 miles last week to 17.2 so far this week, which is correct for taper, but the quality of that recovery matters more than volume right now. Keep it conversational, focus on leg turnover and smooth breathing. You're 53 days out—sharpness will return once you sleep and stabilize."
+      "title": "Hill Repeats — 12 mi",
+      "message": "Peak phase, 52 days out. Today's the specific session: 2 mi easy warm-up, then 12x 90-sec hard uphills, 2 mi cool-down. Drive the climbs into Zone 3-4 (155-175 bpm), power-hike the steepest pitches with hands on quads and let HR settle back toward 140 on each recovery down. This is exactly the alpine load Julian Alps' ~2500m of vert will demand — practice a strong, quiet upper body and short quick steps on the climbs. Note: your calendar had a stale 'Rest Day' entry for today, but the more recently updated session is these hill repeats, so we're running."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 6.89 hours of sleep at 87.4% efficiency last night—that's a deficit. Prioritize carbs today (aim for 6–7g per kg of body weight across the day) to replenish glycogen and support nervous system recovery. In an easy run like today's, you won't need gels, but post-run, get 30–40g protein + 80–100g carbs within 30 minutes. Your elevated resting HR suggests glycogen depletion or sleep debt; carbohydrate is the fastest lever to pull before Tuesday's potential quality session."
+      "message": "Top off with 30-40g carbs 30-60 min pre-run (banana + toast or a gel). It's under 2 hrs so you don't strictly need mid-session fuel, but take one gel (~25g carbs) around rep 6 to keep training the gut at the 60-80g/hr race target. Within 30 min of finishing: 25-30g protein plus carbs (chocolate milk or a shake + rice) to refill the glycogen you burned on the climbs."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your bottleneck right now—you're at 6.89h vs. your 30-day average of 8.24h, a 1.35-hour shortfall. Tonight, aim for 9 hours in a cool, dark room; skip the work email after 8 PM. If travel is causing the sleep loss, that's a conversation we need—you cannot taper effectively on six-hour nights. Active recovery (easy run today) is fine, but passive recovery (sleep, zero work stress) is what unlocks the adaptation you've built over 26 weeks."
+      "message": "Hard uphills tax the calves, quads and Achilles hardest. Post-run, 5-10 min easy walk to flush, then 10 min targeted mobility: calf raises to eccentric lowers, hip flexor and quad stretch, and foam roll quads and glutes. Elevate legs tonight and aim for 8+ hrs sleep — the adaptation from today's climbs happens overnight."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the mental hardest part of taper—reduced volume can feel like detraining, especially for a high-output executive. It isn't. The Julian Alps 50K is an 8–10 hour alpine grind with sparse aid; that demands a fresh nervous system and full glycogen stores, both of which need 7 weeks of genuine recovery layered into your taper. Trust the phase. Easy runs, sleep, and fuel are not soft—they're the final loadbearing walls before race day."
+      "message": "Every one of these 12 reps is a rehearsal for the long grinding climbs in the Julian Alps, where the race is won on the ascents. When the burn hits mid-rep, that's the exact feeling you'll meet at 30K in Slovenia — practice staying calm, holding form, and counting to the top. Peak phase is where the fitness gets built. Trust the work."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-28",
-  "generated_at": "2026-07-28T12:00:00Z",
+  "generated_at": "2026-07-28T18:07:35.426930Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hill Repeats — 12 mi",
-      "message": "Peak phase, 52 days out. Today's the specific session: 2 mi easy warm-up, then 12x 90-sec hard uphills, 2 mi cool-down. Drive the climbs into Zone 3-4 (155-175 bpm), power-hike the steepest pitches with hands on quads and let HR settle back toward 140 on each recovery down. This is exactly the alpine load Julian Alps' ~2500m of vert will demand — practice a strong, quiet upper body and short quick steps on the climbs. Note: your calendar had a stale 'Rest Day' entry for today, but the more recently updated session is these hill repeats, so we're running."
+      "title": "Today's Run",
+      "message": "You're 52 days out and in taper—but your recovery score of 7/100 and resting HR of 86 (vs. your 30-day avg of 63.4) tells me you're still heavily fatigued. This is a Tuesday, which would normally be quality work, but your body is screaming no. Run 6–8 easy miles at Z2 (roughly 135–145 bpm based on your recent data) with no intensity. The Julian Alps 50K demands mountain-specific durability, not more glycogen depletion right now. Taper works only if you actually recover into it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Top off with 30-40g carbs 30-60 min pre-run (banana + toast or a gel). It's under 2 hrs so you don't strictly need mid-session fuel, but take one gel (~25g carbs) around rep 6 to keep training the gut at the 60-80g/hr race target. Within 30 min of finishing: 25-30g protein plus carbs (chocolate milk or a shake + rice) to refill the glycogen you burned on the climbs."
+      "message": "Your 5.53h sleep at 48% efficiency means you're running a metabolic deficit and parasympathetic debt. Eat 1.2g carbs per kg bodyweight today—prioritize it around your run and in the 90 minutes after. Aim for 25–30g protein at each meal to stabilize cortisol. Given the sparse aid at Julian Alps, your gut needs to be bulletproof on real food, not gels. Use today's easy run as a dress rehearsal: test whatever you'll race with (solid carbs, electrolytes, hydration volume)."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Hard uphills tax the calves, quads and Achilles hardest. Post-run, 5-10 min easy walk to flush, then 10 min targeted mobility: calf raises to eccentric lowers, hip flexor and quad stretch, and foam roll quads and glutes. Elevate legs tonight and aim for 8+ hrs sleep — the adaptation from today's climbs happens overnight."
+      "message": "Sleep is your limiting factor—48% efficiency on 5.53 hours is the red flag here. Tonight: no screens after 21:00, cool room (65–68°F), consider 200mg magnesium glycinate 90 minutes before bed. You're likely traveling for work; prioritize a familiar pillow and blackout curtains over anything else. By race week, you need 8+ hours. Use this taper window to front-load sleep debt now, not sprint into Kranjska Gora depleted."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Every one of these 12 reps is a rehearsal for the long grinding climbs in the Julian Alps, where the race is won on the ascents. When the burn hits mid-rep, that's the exact feeling you'll meet at 30K in Slovenia — practice staying calm, holding form, and counting to the top. Peak phase is where the fitness gets built. Trust the work."
+      "message": "You're deep in taper and the niggle of restlessness is real—but easy runs and early sleep aren't retreat, they're precision. Julian Alps demands tactical pacing through sparse aid and steep vert; that's won on legs that recovered, not on volume squeezed in now. Trust the plan. In 52 days you'll need every percent of autonomic nervous system balance you can muster. Patience is the weapon."
     }
   ]
 }

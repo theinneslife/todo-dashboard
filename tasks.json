@@ -3533,5 +3533,35 @@
     "depends_on": [],
     "collaborators": [],
     "pinned": false
+  },
+  {
+    "id": "27e6d4c0-71c7-4ab6-a492-62b23f979eca",
+    "title": "Follow-up with relationship list",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-07-28T18:28:23.378Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-07-28T18:28:23.378Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

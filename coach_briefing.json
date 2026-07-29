@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-29",
-  "generated_at": "2026-07-29T13:00:00Z",
+  "generated_at": "2026-07-29T18:02:20.458471Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 4mi Z2 + Strength",
-      "message": "Week 1 re-entry off illness — this is a rebuild day, not a fitness day. 4 flat miles fully conversational, HR pinned 138-150. If it drifts high, walk it down; effort governs, not pace. Then Strength Session 1: single-leg work, hip stability, core, 2-3 sets. That hip and single-leg strength is exactly what holds your form together on Julian Alps' long alpine descents. Skip it if the body still feels flat from being sick."
+      "title": "Today's Run",
+      "message": "You're 51 days out and your recovery score is 7/100—that's a red flag. Your resting HR spiked to 86 bpm (vs. your 30-day baseline of 63.4), and you've slept 5h 32m at 48% efficiency. This is not the time for vert work. Skip the Wednesday hill session entirely. Instead, run 6–7 miles easy, Z2 only (around 130–138 bpm based on recent data), on flat or rolling terrain. Your last run averaged 154 bpm—that's the problem. Your nervous system is fried and needs a reset day, not stimulus. You'll get more race fitness from recovering properly now than from grinding another hard session."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy session, so no mid-run fueling needed — just run topped-up, not stuffed. Coming off illness, prioritize hydration with electrolytes before and after. The real fueling window is post-strength: 25-30g protein plus carbs within 45 minutes to rebuild. Keep total intake solid today (aim near your ~220g carb baseline) — under-fueling a recovery week just stretches out getting your immune system fully back."
+      "message": "Your sleep efficiency is abysmal, which often signals poor evening nutrition timing and blood sugar crashes. Eat a substantial dinner tonight with 80–100g carbs, 25–30g protein, and healthy fat—aim for 7–8 PM to allow 2+ hours of digestion before bed. During today's easy run, you won't need fuel (under 90 min), but when you do eat post-run, prioritize 40–50g carbs and 15g protein within 30 minutes to start glycogen repletion. Your travel schedule likely disrupts meal consistency—use hotel room staples (oats, nut butter, dried fruit, Greek yogurt) to anchor calories when restaurant options are uncertain."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You're an easy run and a light lift on a travel day (heading to San Salvador tomorrow) — the load is low, so make sleep the headline. Target 8+ hours tonight; immune recovery still trumps training this week. Ten minutes of hip and calf mobility after the strength work, hydrate on the move, and don't chase intensity to 'make up' for the down week."
+      "message": "Sleep quality is your bottleneck right now—5h 32m at 48% efficiency means you're waking frequently and not consolidating deep sleep. Tonight, enforce darkness (blackout curtains or eye mask), keep the room cool (16–18°C / 60–64°F), and avoid screens after 9 PM. If you're traveling, use white noise or earplugs to buffer hotel noise. Consider a 20–30 min nap this afternoon if feasible—you're in taper, not peak, so a strategic nap can offset accumulated sleep debt without interfering with tonight's sleep if timed before 3 PM. Your elevated resting HR won't drop until sleep improves; prioritize this over any workout intensity."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "51 days to Kranjska Gora. It's tempting in Peak Phase to slam back to volume, but a patient re-entry week off illness is what protects the peak block ahead — you can't peak from a hole. Trust the easy. Consistency across time zones is your edge; every controlled aerobic mile now is deposited against 2,500m of Julian Alps vert in September."
+      "message": "You're in taper with compromised recovery data, which triggers the psychological urge to prove fitness with a hard session—resist it. The Julian Alps 50K will demand tactical pacing and mental resilience over 8+ hours of alpine terrain; going easy today is the high-IQ move, not weakness. Use today's Z2 run as meditation: focus on breathing rhythm, foot strike, and how your body feels recovered versus crushed. You'll know you're back in form when your resting HR drops below 68 and sleep efficiency climbs back to 70%+. That's your signal to reintroduce sharper work in the final 5 weeks."
     }
   ]
 }

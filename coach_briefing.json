@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-30",
-  "generated_at": "2026-07-30T18:10:26.356581Z",
+  "generated": "2026-07-31",
+  "generated_at": "2026-07-31T18:15:40.226410Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 only (130–140 bpm), no vert work. Your resting HR is 19 bpm above your 30-day average at 83 bpm, and recovery score is 55/100—both signals of incomplete parasympathetic recovery. You're 50 days from the Alps and in taper; this is the phase where you *preserve* fitness, not chase it. The long run Saturday will carry the stimulus; today is about clearing fatigue and letting your nervous system settle. Keep it flat, conversational, sub-150 bpm average."
+      "message": "Easy 8–10 miles, Z2 only (130–140 bpm), no vert work. Your resting HR is 71—elevated 6.5 bpm above your 30-day average—and your recovery score sits at 53/100 (moderate), which signals incomplete parasympathetic rebound. With 49 days to Kranjska Gora, you're in taper now; this is a shakeout day ahead of tomorrow's long run, not a workout day. Keep it conversational, stay below 10 min/mile, and treat this as a neuromuscular activation pass. You've run hard the last three days (21.21 mi at 145 bpm mid-week); today's job is to flush and prepare."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat to your elevated resting HR and sleep debt. You logged 9.34 hours of sleep last night, which is good volume, but elevated RHR suggests systemic stress—likely travel, travel meals, or accumulated glycogen deficit. Consume 60–80g carbs with breakfast and lunch today (oats, rice, pasta), and hit 25–30g protein at each meal to support recovery. Hydrate aggressively: your body needs it to drop that RHR. Skip any calorie restriction or 'fasted runs' this week."
+      "message": "You're in taper with reduced daily volume; don't cut calories aggressively or you'll compromise tomorrow's long run and weekend recovery. Aim for 55–60g carbs during the run (6–8 oz sports drink or 1–2 gels depending on duration), then within 30 minutes post-run consume 25–30g protein + 60–80g carbs to arrest the cortisol spike from your elevated resting HR. Your sleep efficiency was solid at 92.4% last night—protect that tonight with a 7:00 pm dinner cutoff and 500 ml electrolyte fluid across the evening to combat travel dehydration."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your primary tool right now, not ice baths or massages. Aim for 9 hours again tonight—your system is signaling it needs it. The elevated resting HR and moderate recovery score suggest sympathetic dominance; sleep is the only reliable reset. If you're traveling today for work, prioritize a dark, cool hotel room and skip the late client dinner if possible. A 20-minute nap (1400–1420) can help bridge the gap if night sleep is compromised."
+      "message": "Your sleep volume (8.21h) is good, but the +6.5 bpm resting HR rise is a red flag for incomplete ANS recovery. Prioritize sleep *timing*—aim for 10:00 pm bedtime tonight to secure 8+ hours before Saturday's long run. No ice baths today; stick to easy mobility (10 min hip/glute work) and consider a 6–8 minute sauna if accessible post-run to shift parasympathetic tone. Hydration is likely your limiting factor given work travel; shoot for 3+ liters of water today beyond your run fluids."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Resist the taper demons. You're 50 days out with 48.2 miles last week—solid volume—and now you're cutting. It feels slow and weak. It's not. The Julian Alps 50K demands peak glycogen stores, recovered legs, and a sharp nervous system on race day. Every easy day now directly feeds race performance. Trust the plan: easy Thursday → modest long run Saturday → build confidence through consistency, not heroics."
+      "message": "Taper is a mental game. You have 49 days and a clean taper ahead—resist the urge to 'squeeze in' extra volume or intensity. The Julian Alps 50K will demand 6–7 hours of sustained climbing on technical terrain with sparse aid; Saturday's long run is your last major stimulus, so stay disciplined with today's easy effort and use it to build confidence in your aerobic base. Your last three weeks have shown solid fitness (21-miler at race-relevant HR). Trust the plan."
     }
   ]
 }

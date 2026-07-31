@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-31",
-  "generated_at": "2026-07-31T18:15:40.226410Z",
+  "generated_at": "2026-07-31T15:25:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 only (130–140 bpm), no vert work. Your resting HR is 71—elevated 6.5 bpm above your 30-day average—and your recovery score sits at 53/100 (moderate), which signals incomplete parasympathetic rebound. With 49 days to Kranjska Gora, you're in taper now; this is a shakeout day ahead of tomorrow's long run, not a workout day. Keep it conversational, stay below 10 min/mile, and treat this as a neuromuscular activation pass. You've run hard the last three days (21.21 mi at 145 bpm mid-week); today's job is to flush and prepare."
+      "title": "Easy 3 mi Z2 + Strength",
+      "message": "Travel day (JFK to San Salvador), so keep this honest and easy: 3 flat miles in Zone 2, HR 138-150, fully conversational. If you land before running, do it after you settle to shake out the flight. Pair it with today's strength block: eccentric/plyometric durability — slow-tempo split squats, controlled step-downs, calf eccentrics, low box hops, plus core. That descending-load work is exactly what saves your quads on the Julian Alps 2500m of vert. 48 days out, we're in peak build — the calendar is easing you in, so don't add mileage."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're in taper with reduced daily volume; don't cut calories aggressively or you'll compromise tomorrow's long run and weekend recovery. Aim for 55–60g carbs during the run (6–8 oz sports drink or 1–2 gels depending on duration), then within 30 minutes post-run consume 25–30g protein + 60–80g carbs to arrest the cortisol spike from your elevated resting HR. Your sleep efficiency was solid at 92.4% last night—protect that tonight with a 7:00 pm dinner cutoff and 500 ml electrolyte fluid across the evening to combat travel dehydration."
+      "message": "Short easy session needs no special fueling, but a travel day does. Airport and airline food will spike sodium and stall hydration — bring water, aim for 500ml/hr in transit, and pack a real carb+protein option (rice bowl, jerky, fruit) so you're not landing depleted. Post-run, hit your ~30g protein recovery window to support the eccentric strength work. Keep total carbs solid today (~220g) since tomorrow's training builds on this."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep volume (8.21h) is good, but the +6.5 bpm resting HR rise is a red flag for incomplete ANS recovery. Prioritize sleep *timing*—aim for 10:00 pm bedtime tonight to secure 8+ hours before Saturday's long run. No ice baths today; stick to easy mobility (10 min hip/glute work) and consider a 6–8 minute sauna if accessible post-run to shift parasympathetic tone. Hydration is likely your limiting factor given work travel; shoot for 3+ liters of water today beyond your run fluids."
+      "message": "Flying compresses recovery — cabin pressure and sitting reduce circulation right when your legs are absorbing plyometric load. Get up and walk the aisle every hour, do ankle pumps at your seat, and compression socks are worth it today. On arrival, 10 minutes of easy mobility and elevate the legs. Protect sleep hard tonight; adaptation from the strength session happens while you're down."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper is a mental game. You have 49 days and a clean taper ahead—resist the urge to 'squeeze in' extra volume or intensity. The Julian Alps 50K will demand 6–7 hours of sustained climbing on technical terrain with sparse aid; Saturday's long run is your last major stimulus, so stay disciplined with today's easy effort and use it to build confidence in your aerobic base. Your last three weeks have shown solid fitness (21-miler at race-relevant HR). Trust the plan."
+      "message": "Peak phase rewards the athlete who trains anywhere. You're moving countries and still stacking a run and a strength block — that's the exact consistency that shows up on a Slovenian ridge in September. The Julian Alps won't care that you were mid-travel; they'll reward the durability you're building right now. Nail the small day. Discipline on the easy ones is what earns the big ones."
     }
   ]
 }

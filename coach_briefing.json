@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-31",
-  "generated_at": "2026-07-31T15:25:00Z",
+  "generated": "2026-08-01",
+  "generated_at": "2026-08-01T17:55:07.999290Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 3 mi Z2 + Strength",
-      "message": "Travel day (JFK to San Salvador), so keep this honest and easy: 3 flat miles in Zone 2, HR 138-150, fully conversational. If you land before running, do it after you settle to shake out the flight. Pair it with today's strength block: eccentric/plyometric durability — slow-tempo split squats, controlled step-downs, calf eccentrics, low box hops, plus core. That descending-load work is exactly what saves your quads on the Julian Alps 2500m of vert. 48 days out, we're in peak build — the calendar is easing you in, so don't add mileage."
+      "title": "Today's Run",
+      "message": "Skip the long run. Your recovery score is 0/100 and resting HR jumped 9 bpm above your 30-day average—your system is compromised. With 3h45m of fragmented sleep last night, a 15–18 mile Saturday would be destructive, not adaptive. Instead: 6–8 easy miles at Z2 (130–140 bpm, well below your recent 142–154 avg), flat terrain, no vert work. This protects your 48-day window to race and keeps you from digging a deeper hole. You've logged 10 miles this week already; quality over volume in taper."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy session needs no special fueling, but a travel day does. Airport and airline food will spike sodium and stall hydration — bring water, aim for 500ml/hr in transit, and pack a real carb+protein option (rice bowl, jerky, fruit) so you're not landing depleted. Post-run, hit your ~30g protein recovery window to support the eccentric strength work. Keep total carbs solid today (~220g) since tomorrow's training builds on this."
+      "message": "Your body is running a sleep deficit and elevated baseline stress—treat today as a recovery fuel day, not a high-burn day. Prioritize: 1.2g carb per kg bodyweight spread across meals (aim for 90–120g today), adequate protein (25–30g per meal) to support HRV recovery, and sodium to restore plasma volume. Skip the temptation to load extra carbs because you're 'tapering'; instead, eat normally and trust your glycogen stores. Hydrate aggressively—your elevated resting HR suggests mild dehydration contributing to the red recovery score."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Flying compresses recovery — cabin pressure and sitting reduce circulation right when your legs are absorbing plyometric load. Get up and walk the aisle every hour, do ankle pumps at your seat, and compression socks are worth it today. On arrival, 10 minutes of easy mobility and elevate the legs. Protect sleep hard tonight; adaptation from the strength session happens while you're down."
+      "message": "Sleep is your immediate bottleneck. Last night's 3h45m at 28.6% efficiency is unacceptable this close to race day—you need 8+ hours to reverse the HRV suppression and lower that resting HR back to 65. Tonight: no screens after 21:00, cool room (≤65°F), consider a magnesium glycinate 300–400mg 90 min before bed. If travel or work stress is driving the insomnia, block it now—48 days out, one bad sleep night spirals into two, then three. This is non-negotiable."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Peak phase rewards the athlete who trains anywhere. You're moving countries and still stacking a run and a strength block — that's the exact consistency that shows up on a Slovenian ridge in September. The Julian Alps won't care that you were mid-travel; they'll reward the durability you're building right now. Nail the small day. Discipline on the easy ones is what earns the big ones."
+      "message": "You're in the hardest part of taper: feeling weak while the race looms. That easy 6–8 miles today will feel slow and boring—that's the point. Your nervous system is cooked; the Julian Alps demands a calm, recovered nervous system more than it demands one more hard session. Use this run to confirm your legs feel light and your HR doesn't spike unnaturally. If your resting HR hasn't dropped 3–4 bpm by Thursday, we discuss whether you need an extra recovery day. Trust the taper design."
     }
   ]
 }

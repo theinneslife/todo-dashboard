@@ -1,21 +1,36 @@
 {
-  "last_updated": "2026-07-30T23:23:53.931409Z",
+  "last_updated": "2026-08-01T12:06:50.961517Z",
   "today": {
-    "date": "2026-07-29",
+    "date": "2026-07-31",
     "calories": 0,
     "protein_g": 0,
     "carbs_g": 0,
     "fat_g": 0,
     "fiber_g": 0,
     "water_ml": 0,
-    "sleep_hours": 8.21,
-    "time_in_bed_hours": 8.88,
-    "sleep_efficiency_pct": 92.4,
+    "sleep_hours": 3.45,
+    "time_in_bed_hours": 12.09,
+    "sleep_efficiency_pct": 28.6,
     "hrv_ms": null,
-    "resting_hr": 71,
-    "recovery_score": 53
+    "resting_hr": 74,
+    "recovery_score": 0
   },
   "history": [
+    {
+      "date": "2026-07-31",
+      "calories": 0,
+      "protein_g": 0,
+      "carbs_g": 0,
+      "fat_g": 0,
+      "fiber_g": 0,
+      "water_ml": 0,
+      "sleep_hours": 3.45,
+      "time_in_bed_hours": 12.09,
+      "sleep_efficiency_pct": 28.6,
+      "hrv_ms": null,
+      "resting_hr": 74,
+      "recovery_score": 0
+    },
     {
       "date": "2026-07-29",
       "calories": 0,
@@ -450,21 +465,6 @@
       "hrv_ms": null,
       "resting_hr": 64,
       "recovery_score": 76
-    },
-    {
-      "date": "2026-06-20",
-      "calories": 124,
-      "protein_g": 14.5,
-      "carbs_g": 15.7,
-      "fat_g": 0.3,
-      "fiber_g": 0,
-      "water_ml": 0,
-      "sleep_hours": 7.16,
-      "time_in_bed_hours": 7.91,
-      "sleep_efficiency_pct": 90.5,
-      "hrv_ms": null,
-      "resting_hr": 56,
-      "recovery_score": 80
     }
   ]
 }

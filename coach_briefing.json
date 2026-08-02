@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-01",
-  "generated_at": "2026-08-01T17:55:07.999290Z",
+  "generated": "2026-08-02",
+  "generated_at": "2026-08-02T17:55:31.236950Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Skip the long run. Your recovery score is 0/100 and resting HR jumped 9 bpm above your 30-day average—your system is compromised. With 3h45m of fragmented sleep last night, a 15–18 mile Saturday would be destructive, not adaptive. Instead: 6–8 easy miles at Z2 (130–140 bpm, well below your recent 142–154 avg), flat terrain, no vert work. This protects your 48-day window to race and keeps you from digging a deeper hole. You've logged 10 miles this week already; quality over volume in taper."
+      "message": "Easy 8–10 miles, Z2 (130–140 bpm), rolling terrain if available but nothing steep. You ran 11.52 mi yesterday at 135 bpm—that's your second consecutive aerobic effort over 10 miles. In taper week 27, you're cutting volume but staying sharp; today is a flush run to promote blood flow and keep the aerobic base active without adding fatigue. Keep it conversational and sub-threshold. No intervals, no hill repeats."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your body is running a sleep deficit and elevated baseline stress—treat today as a recovery fuel day, not a high-burn day. Prioritize: 1.2g carb per kg bodyweight spread across meals (aim for 90–120g today), adequate protein (25–30g per meal) to support HRV recovery, and sodium to restore plasma volume. Skip the temptation to load extra carbs because you're 'tapering'; instead, eat normally and trust your glycogen stores. Hydrate aggressively—your elevated resting HR suggests mild dehydration contributing to the red recovery score."
+      "message": "You logged 11.5 hours sleep last night—exceptional recovery. Use that to dial nutrition precisely: 100–120g carbs within 30 minutes of finishing today's run, paired with 20–25g protein (chocolate milk, rice + chicken, or a sports shake). You're in taper, so glycogen stores should be topped; don't under-fuel thinking you're resting. By race day (47 days out), your gut will need to handle 60–80g carbs/hour on the mountain. Train that now on longer efforts."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your immediate bottleneck. Last night's 3h45m at 28.6% efficiency is unacceptable this close to race day—you need 8+ hours to reverse the HRV suppression and lower that resting HR back to 65. Tonight: no screens after 21:00, cool room (≤65°F), consider a magnesium glycinate 300–400mg 90 min before bed. If travel or work stress is driving the insomnia, block it now—48 days out, one bad sleep night spirals into two, then three. This is non-negotiable."
+      "message": "Recovery score is 97/100 and resting HR is 62 bpm—your parasympathetic system is primed. Sleep quality was 96.4% efficiency; maintain that discipline: 10 p.m. bed, no screens after 9:30 p.m., cool dark room. In taper, sleep is a performance tool, not optional. You're 47 days from a 2,500m vert slog in thin air; compound sleep gains now into September. Aim for 8–9 hours every night through race week."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the hardest part of taper: feeling weak while the race looms. That easy 6–8 miles today will feel slow and boring—that's the point. Your nervous system is cooked; the Julian Alps demands a calm, recovered nervous system more than it demands one more hard session. Use this run to confirm your legs feel light and your HR doesn't spike unnaturally. If your resting HR hasn't dropped 3–4 bpm by Thursday, we discuss whether you need an extra recovery day. Trust the taper design."
+      "message": "You're exactly where you need to be: volume down, recovery metrics in the green, and specific work still in the bank. The Julian Alps 50K will test your ability to move smoothly on alpine singletrack when tired. Use these final 47 days to refine pacing discipline (not faster on easy days) and visualize the course—sparse aid stations mean self-sufficiency and rhythm matter more than pure fitness. Your aerobic base is built; execution is the variable now."
     }
   ]
 }

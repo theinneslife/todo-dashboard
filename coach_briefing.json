@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-03",
-  "generated_at": "2026-08-03T13:00:00Z",
+  "generated_at": "2026-08-03T18:44:16.343952Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills 6 mi + 1,200 ft — Descending Focus",
-      "message": "Peak phase, 45 days out. Today is your first dedicated vert session: 6 mi with ~1,200 ft on the San Salvador terrain. Climb easy to steady, letting HR touch Zone 3 (up toward 155-165 bpm) only on the steepest pitches — power hike anything that spikes you above that. The real work is the descents: relaxed upright posture, quick light feet, controlled eccentric braking. Julian Alps has ~2,500m of alpine vert and the downhills wreck quads that aren't trained, so treat every descent as a rep. Go at first light for the heat. If resting HR was above 65 or you feel flat, cut to 4 mi easy — no ego."
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 (130–140 bpm), rolling terrain if possible. You're 46 days out and in taper; the 5.2-miler yesterday was solid but light. Today is Monday—stay in recovery mode. Your RHR is 62 (solid) and recovery score is 97/100, so you have room to move, but don't chase intensity. This is about maintaining leg turnover and aerobic confidence without chewing into glycogen or CNS reserves. Keep it conversational and relaxed."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel the Vert",
-      "message": "Short session but heat-heavy in El Salvador. Pre-run: a small carb hit (banana or a gel, ~30g) plus 300-400ml with sodium. It's under an hour so you don't need mid-run fuel, but carry fluid with electrolytes and sip on the climbs. Post-run, hit your recovery window within 30 min: 25-30g protein plus carbs to reload. Descending is eccentric-heavy and tears muscle, so protein today matters as much as the run itself."
+      "title": "Fuel Right",
+      "message": "You slept 11.65 hours with 96.4% efficiency—exceptional. That's a recovery surplus, not a deficit sign. Eat normally but lean toward carbs (oats, rice, pasta, fruit) at breakfast and lunch to top off glycogen after yesterday's vert work. On the easy run today, carry 200–300 cal of carbs if it's over 90 minutes; otherwise, go fasted or minimal. Post-run, hit 30–40g protein + 60g carbs within 30 minutes to anchor recovery."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Protect the Quads",
-      "message": "Eccentric braking on descents = delayed soreness 24-48h out. Get ahead of it: 10 min of easy walking to flush the legs, then foam roll quads, calves, and IT band tonight. Elevate the legs for a bit and prioritize sleep — you're in peak volume now and adaptation is happening between sessions, not during them."
+      "title": "Recovery",
+      "message": "Your sleep is elite right now—11+ hours with near-perfect efficiency. Don't fight it; your body is priming for the final push. Aim for 8–9 hours tonight (you don't need 11 every night, but this pace is fine). Foam roll the quads, calves, and IT band for 8–10 minutes post-run. Skip the ice bath; taper weeks benefit from normal core temperature recovery. Elevate legs for 15 minutes if you're sitting at a desk during travel."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "Own the Downhills",
-      "message": "Most runners survive climbs and fear descents — flip that. Every controlled downhill today is free time you'll bank at the Julian Alps. Six weeks out, this is where races are won: not on the up, but on relaxed, confident, quick-footed descending. Practice it now so it's automatic on race day."
+      "title": "Mental Edge",
+      "message": "Taper is where doubt creeps in. You're running 5–11 miles when you should be ready for 31 miles of Alpine terrain with 2,500m vert. This is normal and correct. Week 20–22 kills intensity but preserves neuromuscular sharpness and lets your aerobic system consolidate. The long run comes Saturday; that's when you'll feel alive again. Trust the plan. Your data is clean—no HRV suppression, heart rate stable, sleep crushing it."
     }
   ]
 }

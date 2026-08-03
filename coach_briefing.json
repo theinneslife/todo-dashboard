@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-02",
-  "generated_at": "2026-08-02T17:55:31.236950Z",
+  "generated": "2026-08-03",
+  "generated_at": "2026-08-03T13:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (130–140 bpm), rolling terrain if available but nothing steep. You ran 11.52 mi yesterday at 135 bpm—that's your second consecutive aerobic effort over 10 miles. In taper week 27, you're cutting volume but staying sharp; today is a flush run to promote blood flow and keep the aerobic base active without adding fatigue. Keep it conversational and sub-threshold. No intervals, no hill repeats."
+      "title": "Hills 6 mi + 1,200 ft — Descending Focus",
+      "message": "Peak phase, 45 days out. Today is your first dedicated vert session: 6 mi with ~1,200 ft on the San Salvador terrain. Climb easy to steady, letting HR touch Zone 3 (up toward 155-165 bpm) only on the steepest pitches — power hike anything that spikes you above that. The real work is the descents: relaxed upright posture, quick light feet, controlled eccentric braking. Julian Alps has ~2,500m of alpine vert and the downhills wreck quads that aren't trained, so treat every descent as a rep. Go at first light for the heat. If resting HR was above 65 or you feel flat, cut to 4 mi easy — no ego."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Fuel Right",
-      "message": "You logged 11.5 hours sleep last night—exceptional recovery. Use that to dial nutrition precisely: 100–120g carbs within 30 minutes of finishing today's run, paired with 20–25g protein (chocolate milk, rice + chicken, or a sports shake). You're in taper, so glycogen stores should be topped; don't under-fuel thinking you're resting. By race day (47 days out), your gut will need to handle 60–80g carbs/hour on the mountain. Train that now on longer efforts."
+      "title": "Fuel the Vert",
+      "message": "Short session but heat-heavy in El Salvador. Pre-run: a small carb hit (banana or a gel, ~30g) plus 300-400ml with sodium. It's under an hour so you don't need mid-run fuel, but carry fluid with electrolytes and sip on the climbs. Post-run, hit your recovery window within 30 min: 25-30g protein plus carbs to reload. Descending is eccentric-heavy and tears muscle, so protein today matters as much as the run itself."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Recovery",
-      "message": "Recovery score is 97/100 and resting HR is 62 bpm—your parasympathetic system is primed. Sleep quality was 96.4% efficiency; maintain that discipline: 10 p.m. bed, no screens after 9:30 p.m., cool dark room. In taper, sleep is a performance tool, not optional. You're 47 days from a 2,500m vert slog in thin air; compound sleep gains now into September. Aim for 8–9 hours every night through race week."
+      "title": "Protect the Quads",
+      "message": "Eccentric braking on descents = delayed soreness 24-48h out. Get ahead of it: 10 min of easy walking to flush the legs, then foam roll quads, calves, and IT band tonight. Elevate the legs for a bit and prioritize sleep — you're in peak volume now and adaptation is happening between sessions, not during them."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "Mental Edge",
-      "message": "You're exactly where you need to be: volume down, recovery metrics in the green, and specific work still in the bank. The Julian Alps 50K will test your ability to move smoothly on alpine singletrack when tired. Use these final 47 days to refine pacing discipline (not faster on easy days) and visualize the course—sparse aid stations mean self-sufficiency and rhythm matter more than pure fitness. Your aerobic base is built; execution is the variable now."
+      "title": "Own the Downhills",
+      "message": "Most runners survive climbs and fear descents — flip that. Every controlled downhill today is free time you'll bank at the Julian Alps. Six weeks out, this is where races are won: not on the up, but on relaxed, confident, quick-footed descending. Practice it now so it's automatic on race day."
     }
   ]
 }

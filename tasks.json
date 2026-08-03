@@ -3629,7 +3629,7 @@
     "title": "Contact or follow up with Brooke Timo",
     "description": "Name mentioned in recording. May need to reach out to or follow up with Brooke Timo.",
     "priority": 2,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -3643,10 +3643,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-08-03T16:14:40.439Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-07-31T15:41:55.981Z",
-    "completed_at": null,
+    "completed_at": "2026-08-03T16:14:40.439Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

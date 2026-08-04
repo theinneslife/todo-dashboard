@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-04",
-  "generated_at": "2026-08-04T20:15:00Z",
+  "generated_at": "2026-08-04T18:23:36.280614Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery Day",
-      "message": "Week 2 of the vert block opens with recovery, not volume. Keep the 2-mile shakeout truly easy — Zone 1, ~120-135 bpm, fully conversational, feet quiet. Pair it with Strength Session 1: single-leg work, hips, core, and controlled step-downs to bank eccentric strength for the Julian Alps descents. No hard running today; if the legs feel heavy from yesterday's 1,200 ft hill session, cut the jog and just walk and mobilize. The adaptation from this week's climbing happens now."
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 (130–140 bpm), no vert work. You're 45 days out and in taper; Tuesday normally carries a quality workout, but your 30-day avg sleep is 8.28h and yesterday you logged only 6.58h—that's a red flag in a taper phase. Your resting HR dropped to 61 (vs. 65.1 avg), which signals good recovery, but short sleep blunts adaptation and increases injury risk on alpine terrain. Hold the intensity today. Get back to easy, rhythmic running to prime your nervous system without adding load. Save the speed work for Friday if sleep normalizes."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Recovery day, so anchor around ~220g carbs across the day to refill glycogen after yesterday's vert. Front-load protein — aim 30-40g per meal (~1.6-2 g/kg total) to drive repair from the step-down eccentric loading. Lean on anti-inflammatory foods (berries, leafy greens, olive oil, oily fish) and stay ahead on fluids and sodium in the San Salvador heat. No race-fueling needed today since there's no long session."
+      "message": "You're running 6–8 easy miles; fuel before (oats + banana, 200–250 kcal carbs) and eat a full meal within 90 min post-run. In taper, don't under-fuel thinking less volume = less need—your body is still adapting and glycogen stores matter for the final 45 days. Aim for 6–8g carbs per kg bodyweight daily, with emphasis on the 2–3 hours post-run. Alpine 50Ks demand rock-solid glycogen; a depleted runner dies on the climb to Triglav."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "This is the recovery cue for the whole week — treat it seriously. After strength, spend 8-10 min on hips, calves, and ankles plus light foam rolling on quads and glutes to prep the descending muscles. Legs up the wall for 5 minutes if you've been in transit. Protect sleep tonight — 7.5-9 hours is where the vert block actually pays off."
+      "message": "Last night was 6.58h at 94.1% efficiency—acceptable, but below your 30-day target of 8.28h. Tonight, treat sleep like a workout: dim screens by 9:30pm, target 8–8.5h, and keep the bedroom cool (65–67°F). Taper weeks are when the body consolidates fitness; chronic short sleep during this window erodes VO₂ max gains and immune resilience. You travel for work; I know sleep is hard. Prioritize it now more than the previous 20 weeks."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "45 days to Kranjska Gora and you're in the Peak Phase — the temptation is to add more. Resist it. Taking the easy day as prescribed is a decision a disciplined athlete makes, not a session you skipped. The Julian Alps 50K is won on well-executed recovery weeks that let the hard vert stick. Bank the discipline today; spend it on the climbs in September."
+      "message": "You've logged 5.2 mi yesterday and 5.2 mi so far this week after 32.3 mi last week—a sharp cut that will feel weird and possibly frustrating. That's correct taper math for 45 days out; trust it. The alpine course has 2,500m of vert and sparse aid; your body needs recovery cycles to absorb the peak training stress you absorbed in weeks 16–19. Restlessness is a sign taper is working. Run easy, stay patient, show up rested."
     }
   ]
 }

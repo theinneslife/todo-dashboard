@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-03",
-  "generated_at": "2026-08-03T18:44:16.343952Z",
+  "generated": "2026-08-04",
+  "generated_at": "2026-08-04T20:15:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 (130–140 bpm), rolling terrain if possible. You're 46 days out and in taper; the 5.2-miler yesterday was solid but light. Today is Monday—stay in recovery mode. Your RHR is 62 (solid) and recovery score is 97/100, so you have room to move, but don't chase intensity. This is about maintaining leg turnover and aerobic confidence without chewing into glycogen or CNS reserves. Keep it conversational and relaxed."
+      "title": "Active Recovery Day",
+      "message": "Week 2 of the vert block opens with recovery, not volume. Keep the 2-mile shakeout truly easy — Zone 1, ~120-135 bpm, fully conversational, feet quiet. Pair it with Strength Session 1: single-leg work, hips, core, and controlled step-downs to bank eccentric strength for the Julian Alps descents. No hard running today; if the legs feel heavy from yesterday's 1,200 ft hill session, cut the jog and just walk and mobilize. The adaptation from this week's climbing happens now."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 11.65 hours with 96.4% efficiency—exceptional. That's a recovery surplus, not a deficit sign. Eat normally but lean toward carbs (oats, rice, pasta, fruit) at breakfast and lunch to top off glycogen after yesterday's vert work. On the easy run today, carry 200–300 cal of carbs if it's over 90 minutes; otherwise, go fasted or minimal. Post-run, hit 30–40g protein + 60g carbs within 30 minutes to anchor recovery."
+      "message": "Recovery day, so anchor around ~220g carbs across the day to refill glycogen after yesterday's vert. Front-load protein — aim 30-40g per meal (~1.6-2 g/kg total) to drive repair from the step-down eccentric loading. Lean on anti-inflammatory foods (berries, leafy greens, olive oil, oily fish) and stay ahead on fluids and sodium in the San Salvador heat. No race-fueling needed today since there's no long session."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep is elite right now—11+ hours with near-perfect efficiency. Don't fight it; your body is priming for the final push. Aim for 8–9 hours tonight (you don't need 11 every night, but this pace is fine). Foam roll the quads, calves, and IT band for 8–10 minutes post-run. Skip the ice bath; taper weeks benefit from normal core temperature recovery. Elevate legs for 15 minutes if you're sitting at a desk during travel."
+      "message": "This is the recovery cue for the whole week — treat it seriously. After strength, spend 8-10 min on hips, calves, and ankles plus light foam rolling on quads and glutes to prep the descending muscles. Legs up the wall for 5 minutes if you've been in transit. Protect sleep tonight — 7.5-9 hours is where the vert block actually pays off."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper is where doubt creeps in. You're running 5–11 miles when you should be ready for 31 miles of Alpine terrain with 2,500m vert. This is normal and correct. Week 20–22 kills intensity but preserves neuromuscular sharpness and lets your aerobic system consolidate. The long run comes Saturday; that's when you'll feel alive again. Trust the plan. Your data is clean—no HRV suppression, heart rate stable, sleep crushing it."
+      "message": "45 days to Kranjska Gora and you're in the Peak Phase — the temptation is to add more. Resist it. Taking the easy day as prescribed is a decision a disciplined athlete makes, not a session you skipped. The Julian Alps 50K is won on well-executed recovery weeks that let the hard vert stick. Bank the discipline today; spend it on the climbs in September."
     }
   ]
 }

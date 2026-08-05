@@ -3801,5 +3801,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "7852b176-862d-4537-bfee-0fa664c57d80",
+    "title": "join manager calls in sales",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-05T17:18:09.052Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-08-05T17:18:09.052Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

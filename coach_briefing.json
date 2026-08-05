@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-05",
-  "generated_at": "2026-08-05T19:40:00Z",
+  "generated_at": "2026-08-05T18:15:44.875145Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills 6mi + 1,200ft — Descending Focus",
-      "message": "Peak phase, 43 days out. Today is your Week 2 vert build: 6 miles with ~1,200 ft of gain. Climb steady at Zone 2 to low Zone 3 (heart rate roughly 132–155 bpm) and power hike anything steep — hiking strong is a race skill, not a concession. The real work is the descent: run down with control, quick light feet, and a slight forward lean to load the quads eccentrically. That downhill durability is exactly what Julian Alps' ~2,500m of alpine descent will demand. Go at first light to beat the San Salvador heat and run effort, not pace."
+      "title": "Today's Run",
+      "message": "Easy 6–7 miles, Z2 (140–150 bpm ceiling), rolling terrain. You're 44 days out and in taper—volume is dropping but you need to hold neural sharpness and keep the engine primed. Your resting HR is 61 (down from 65 avg), which tells me you're recovering well. Wednesday's vert work in Build/Peak phases shifts to *easy* vert in Taper. Aim for 400–600 ft of gain, nothing steep or threshold. Keep it smooth; this is about maintaining aerobic efficiency and leg stiffness without the fatigue tax."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short and hilly, but train the gut anyway. Top off with 30–40g easy carbs 30–45 min pre-run (banana or toast + honey). In the heat, sodium is the priority: 600–800mg per hour via electrolyte drink. If you take the full hour, sip 40–60g carbs/hr. Then hit the recovery window within 30 min — 25–30g protein plus carbs (target the 3:1 carb-to-protein range) to rebuild after all that eccentric descending."
+      "message": "You're logging only 5.2 miles so far this week—your usual weekly volume is ~32 miles. Taper hunger is real and deceptive. Don't under-fuel because volume is lower; maintain your base caloric intake and prioritize carbs (aim for 6–8g/kg body weight daily if you're typical for your profile). Post-run today, hit 1.2g carb per kg within 30 min, paired with 20–30g protein. Your 6.58h sleep is 90 min short of your 30-day average—fuel strategically to support sleep depth tonight."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Descending trashes the quads with micro-damage, so get ahead of the DOMS. Do 10 min of easy spin or a walk to flush the legs, then foam roll quads, calves, and glutes tonight. Elevate the legs for a few minutes and prioritize protein at dinner. Expect some quad soreness tomorrow — that's the adaptation you want. Aim for 7.5–8+ hours of sleep."
+      "message": "Recovery score is 74/100 (green zone), but sleep last night was suboptimal at 6.58h. Taper paradoxically stresses nervous system because reduced training volume can trigger cortisol dysregulation if sleep suffers. Tonight: no screens after 21:30, dark room, cool (64–67°F if possible), and consider magnesium glycinate 2–3h pre-bed. The short sleep + travel schedule is your limiting factor, not training load. Prioritize 8+ hours the next two nights to consolidate adaptation."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "In the Alps, races are won and lost on the downhills — most runners brake, tense up, and shred their legs. Use every descent today as a rehearsal: relax the shoulders, trust your feet, let gravity work for you. You're building a superpower most of the field won't have. Six weeks out, every controlled descent is a deposit you'll cash on September 18."
+      "message": "You're in the hardest psychological phase: taper anxiety. Volume has dropped 84% week-over-week and you may feel undertrained—this is normal and false. At 44 days out, race-specific vert (2,500m across 50K) is now about movement quality and mountain-running neuromuscular patterns, not volume hammering. Use these easy runs to visualize the descent sections in Slovenia and ingrain efficient footwork on steeps. Trust the plan; you've logged the hard work. Today is about staying sharp and rested, not proving anything."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-04",
-  "generated_at": "2026-08-04T18:23:36.280614Z",
+  "generated": "2026-08-05",
+  "generated_at": "2026-08-05T19:40:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 (130–140 bpm), no vert work. You're 45 days out and in taper; Tuesday normally carries a quality workout, but your 30-day avg sleep is 8.28h and yesterday you logged only 6.58h—that's a red flag in a taper phase. Your resting HR dropped to 61 (vs. 65.1 avg), which signals good recovery, but short sleep blunts adaptation and increases injury risk on alpine terrain. Hold the intensity today. Get back to easy, rhythmic running to prime your nervous system without adding load. Save the speed work for Friday if sleep normalizes."
+      "title": "Hills 6mi + 1,200ft — Descending Focus",
+      "message": "Peak phase, 43 days out. Today is your Week 2 vert build: 6 miles with ~1,200 ft of gain. Climb steady at Zone 2 to low Zone 3 (heart rate roughly 132–155 bpm) and power hike anything steep — hiking strong is a race skill, not a concession. The real work is the descent: run down with control, quick light feet, and a slight forward lean to load the quads eccentrically. That downhill durability is exactly what Julian Alps' ~2,500m of alpine descent will demand. Go at first light to beat the San Salvador heat and run effort, not pace."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're running 6–8 easy miles; fuel before (oats + banana, 200–250 kcal carbs) and eat a full meal within 90 min post-run. In taper, don't under-fuel thinking less volume = less need—your body is still adapting and glycogen stores matter for the final 45 days. Aim for 6–8g carbs per kg bodyweight daily, with emphasis on the 2–3 hours post-run. Alpine 50Ks demand rock-solid glycogen; a depleted runner dies on the climb to Triglav."
+      "message": "Short and hilly, but train the gut anyway. Top off with 30–40g easy carbs 30–45 min pre-run (banana or toast + honey). In the heat, sodium is the priority: 600–800mg per hour via electrolyte drink. If you take the full hour, sip 40–60g carbs/hr. Then hit the recovery window within 30 min — 25–30g protein plus carbs (target the 3:1 carb-to-protein range) to rebuild after all that eccentric descending."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Last night was 6.58h at 94.1% efficiency—acceptable, but below your 30-day target of 8.28h. Tonight, treat sleep like a workout: dim screens by 9:30pm, target 8–8.5h, and keep the bedroom cool (65–67°F). Taper weeks are when the body consolidates fitness; chronic short sleep during this window erodes VO₂ max gains and immune resilience. You travel for work; I know sleep is hard. Prioritize it now more than the previous 20 weeks."
+      "message": "Descending trashes the quads with micro-damage, so get ahead of the DOMS. Do 10 min of easy spin or a walk to flush the legs, then foam roll quads, calves, and glutes tonight. Elevate the legs for a few minutes and prioritize protein at dinner. Expect some quad soreness tomorrow — that's the adaptation you want. Aim for 7.5–8+ hours of sleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've logged 5.2 mi yesterday and 5.2 mi so far this week after 32.3 mi last week—a sharp cut that will feel weird and possibly frustrating. That's correct taper math for 45 days out; trust it. The alpine course has 2,500m of vert and sparse aid; your body needs recovery cycles to absorb the peak training stress you absorbed in weeks 16–19. Restlessness is a sign taper is working. Run easy, stay patient, show up rested."
+      "message": "In the Alps, races are won and lost on the downhills — most runners brake, tense up, and shred their legs. Use every descent today as a rehearsal: relax the shoulders, trust your feet, let gravity work for you. You're building a superpower most of the field won't have. Six weeks out, every controlled descent is a deposit you'll cash on September 18."
     }
   ]
 }

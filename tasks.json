@@ -228,7 +228,7 @@
     "title": "AI targeting deal",
     "description": "OpenAI or perplexity\nBuy a medal trained on searched",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "Parking Lot"
@@ -273,10 +273,16 @@
         "action": "moved",
         "by": "User",
         "details": "Moved from christopher-todo to parking"
+      },
+      {
+        "timestamp": "2026-08-06T20:16:33.126Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-04-17T13:21:29.545Z",
-    "completed_at": null,
+    "completed_at": "2026-08-06T20:16:33.126Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,

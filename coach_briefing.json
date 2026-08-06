@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-05",
-  "generated_at": "2026-08-05T18:15:44.875145Z",
+  "generated": "2026-08-06",
+  "generated_at": "2026-08-06T13:45:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–7 miles, Z2 (140–150 bpm ceiling), rolling terrain. You're 44 days out and in taper—volume is dropping but you need to hold neural sharpness and keep the engine primed. Your resting HR is 61 (down from 65 avg), which tells me you're recovering well. Wednesday's vert work in Build/Peak phases shifts to *easy* vert in Taper. Aim for 400–600 ft of gain, nothing steep or threshold. Keep it smooth; this is about maintaining aerobic efficiency and leg stiffness without the fatigue tax."
+      "title": "Easy 5 mi Z2 + Strength",
+      "message": "Peak phase, 6 weeks out. Today is a recovery-paced 5 miles, HR strictly 138-150 bpm — if you can't hold a full conversation, slow down. This run is the connective tissue between yesterday's hill descents and your next quality block, so keep it boringly aerobic. Pair it with Strength Session 2: eccentric work (slow tempo split squats, step-downs, Nordic curls) and plyos (pogos, box drops) to armor your quads and tendons for 2,500m of Julian Alps descending. Finish with 10 min of core. Run first light before the El Salvador heat builds."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're logging only 5.2 miles so far this week—your usual weekly volume is ~32 miles. Taper hunger is real and deceptive. Don't under-fuel because volume is lower; maintain your base caloric intake and prioritize carbs (aim for 6–8g/kg body weight daily if you're typical for your profile). Post-run today, hit 1.2g carb per kg within 30 min, paired with 20–30g protein. Your 6.58h sleep is 90 min short of your 30-day average—fuel strategically to support sleep depth tonight."
+      "message": "It's a short easy run, so no in-run fueling needed — a small carb top-up (banana or a few dates) beforehand is plenty. The real work is post-strength: hit 30-40g protein within the recovery window to drive the eccentric-damage repair you just stimulated, plus carbs to refill. Sit around 220-250g carbs for the day since load is light. In the heat, front-load 600-800mg sodium and stay ahead on fluids even on an easy morning."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Recovery score is 74/100 (green zone), but sleep last night was suboptimal at 6.58h. Taper paradoxically stresses nervous system because reduced training volume can trigger cortisol dysregulation if sleep suffers. Tonight: no screens after 21:30, dark room, cool (64–67°F if possible), and consider magnesium glycinate 2–3h pre-bed. The short sleep + travel schedule is your limiting factor, not training load. Prioritize 8+ hours the next two nights to consolidate adaptation."
+      "message": "Eccentric and plyo work leaves micro-damage that peaks 24-48h later, so today's job is to blunt it: 10 min easy spin or walk to flush the legs, foam-roll quads and calves tonight, and get elastic compression or legs-up-the-wall if the travel day allows. Prioritize sleep — aim 8+ hours. Tomorrow's quality session depends on how well you absorb this one."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the hardest psychological phase: taper anxiety. Volume has dropped 84% week-over-week and you may feel undertrained—this is normal and false. At 44 days out, race-specific vert (2,500m across 50K) is now about movement quality and mountain-running neuromuscular patterns, not volume hammering. Use these easy runs to visualize the descent sections in Slovenia and ingrain efficient footwork on steeps. Trust the plan; you've logged the hard work. Today is about staying sharp and rested, not proving anything."
+      "message": "Peak phase rewards patience, not heroics. The temptation this close to the Julian Alps is to turn every run into a test — resist it. Discipline on an easy day is what lets you unleash on the hard days. Every controlled descent and clean strength rep now is a deposit against the quad-trashing downhills of Kranjska Gora. Train the humility to go slow; the mountain will ask for everything else."
     }
   ]
 }

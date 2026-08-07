@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-07",
-  "generated_at": "2026-08-07T13:05:00Z",
+  "generated_at": "2026-08-07T17:41:47.707927Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 4mi Z2 Rolling",
-      "message": "Easy 4 miles on rolling terrain, ~600 ft of climb. Keep HR strictly 138-150 bpm — conversational, controlled, no ego. You're 6 weeks out, so today is deliberate aerobic maintenance around a heavy travel day. Get out at first light before the El Salvador heat builds. Power-hike the steeper pitches and stay smooth on the descents to rehearse the up-down rhythm the Julian Alps will demand."
+      "title": "Today's Run",
+      "message": "Easy 5–6 miles, Z2 (130–140 bpm), rolling terrain but nothing steep. You're 42 days out in hard taper; volume is down 21% this week and that's correct. Your last three runs average 141 bpm, which means you're either running hard on 'easy' days or your aerobic baseline has drifted up—either way, dial it back today. This is a shakeout before tomorrow's long run; treat it as a prime mover for blood flow and CNS activation, not a fitness stimulus. Keep it under 60 minutes total."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "It's a short easy run, so no in-run fueling needed — just top off with a few sips of water and a banana or a date beforehand if you feel empty. Because you're running in heat, add electrolytes (500-700mg sodium) to your bottle. After: rehydrate well and get 25-30g protein plus carbs within the hour, then keep eating normally through a travel-heavy day so you don't under-fuel while packing and driving."
+      "message": "You're carrying a sleep debt: 6.31 hours last night vs. your 30-day average of 8.33 hours. That 2-hour shortfall is real, and it taxes glycogen and cortisol recovery. Eat 1.2–1.5g carbs per kg body weight today (roughly 90–120g if you're ~75kg), distributed across breakfast, lunch, snack, and dinner—no skipping. Prioritize simple carbs at breakfast and post-run (banana + rice cakes or pasta) to replenish what sleep didn't protect. Hydrate to urine color: pale yellow is your target."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "This session is easy by design, so recovery is mostly about the travel load, not the run. After you drive and land, get your legs elevated for 10-15 minutes, do light ankle and hip mobility to counter the sitting, and hydrate steadily. Protect sleep tonight despite the logistics — aerobic adaptations from an easy week are banked during rest, not the run itself."
+      "message": "Your resting HR dropped 8 bpm below your 30-day average (57 vs. 65), which is a good sign of readiness—but sleep was short and that blunts adaptation. Tonight: aim for 8–9 hours. No screens after 21:30, room temp 65–68°F, blackout curtains. If you're traveling for work, prioritize sleep over evening meetings; the 50K doesn't care about a call. Your 71/100 recovery score is solid, but cumulative sleep debt in taper kills race-day power."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Six weeks out, discipline looks like restraint. On a packed travel day it's tempting to skip or hammer — do neither. Nailing an easy run exactly as prescribed, in the heat, around chaos, is the reps that build an athlete who executes on race day in Kranjska Gora. Consistency under messy conditions is the real superpower. Trust the plan."
+      "message": "You're in the hardest phase mentally—taper anxiety hits endurance athletes hard, and the temptation to squeeze in 'one more hard workout' is real. Resist it. Your fitness is locked in; the next 42 days are about managing fatigue, staying sharp, and arriving at the start line fresh. Tomorrow's long run will feel easy and that's the point. Trust the plan. The Julian Alps will have enough vert and altitude to humble you; your job now is to show up recovered, not broken."
     }
   ]
 }

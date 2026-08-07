@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-06",
-  "generated_at": "2026-08-06T13:45:00Z",
+  "generated": "2026-08-07",
+  "generated_at": "2026-08-07T13:05:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5 mi Z2 + Strength",
-      "message": "Peak phase, 6 weeks out. Today is a recovery-paced 5 miles, HR strictly 138-150 bpm — if you can't hold a full conversation, slow down. This run is the connective tissue between yesterday's hill descents and your next quality block, so keep it boringly aerobic. Pair it with Strength Session 2: eccentric work (slow tempo split squats, step-downs, Nordic curls) and plyos (pogos, box drops) to armor your quads and tendons for 2,500m of Julian Alps descending. Finish with 10 min of core. Run first light before the El Salvador heat builds."
+      "title": "Easy 4mi Z2 Rolling",
+      "message": "Easy 4 miles on rolling terrain, ~600 ft of climb. Keep HR strictly 138-150 bpm — conversational, controlled, no ego. You're 6 weeks out, so today is deliberate aerobic maintenance around a heavy travel day. Get out at first light before the El Salvador heat builds. Power-hike the steeper pitches and stay smooth on the descents to rehearse the up-down rhythm the Julian Alps will demand."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "It's a short easy run, so no in-run fueling needed — a small carb top-up (banana or a few dates) beforehand is plenty. The real work is post-strength: hit 30-40g protein within the recovery window to drive the eccentric-damage repair you just stimulated, plus carbs to refill. Sit around 220-250g carbs for the day since load is light. In the heat, front-load 600-800mg sodium and stay ahead on fluids even on an easy morning."
+      "message": "It's a short easy run, so no in-run fueling needed — just top off with a few sips of water and a banana or a date beforehand if you feel empty. Because you're running in heat, add electrolytes (500-700mg sodium) to your bottle. After: rehydrate well and get 25-30g protein plus carbs within the hour, then keep eating normally through a travel-heavy day so you don't under-fuel while packing and driving."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Eccentric and plyo work leaves micro-damage that peaks 24-48h later, so today's job is to blunt it: 10 min easy spin or walk to flush the legs, foam-roll quads and calves tonight, and get elastic compression or legs-up-the-wall if the travel day allows. Prioritize sleep — aim 8+ hours. Tomorrow's quality session depends on how well you absorb this one."
+      "message": "This session is easy by design, so recovery is mostly about the travel load, not the run. After you drive and land, get your legs elevated for 10-15 minutes, do light ankle and hip mobility to counter the sitting, and hydrate steadily. Protect sleep tonight despite the logistics — aerobic adaptations from an easy week are banked during rest, not the run itself."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Peak phase rewards patience, not heroics. The temptation this close to the Julian Alps is to turn every run into a test — resist it. Discipline on an easy day is what lets you unleash on the hard days. Every controlled descent and clean strength rep now is a deposit against the quad-trashing downhills of Kranjska Gora. Train the humility to go slow; the mountain will ask for everything else."
+      "message": "Six weeks out, discipline looks like restraint. On a packed travel day it's tempting to skip or hammer — do neither. Nailing an easy run exactly as prescribed, in the heat, around chaos, is the reps that build an athlete who executes on race day in Kranjska Gora. Consistency under messy conditions is the real superpower. Trust the plan."
     }
   ]
 }

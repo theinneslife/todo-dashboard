@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-07",
-  "generated_at": "2026-08-07T17:41:47.707927Z",
+  "generated": "2026-08-08",
+  "generated_at": "2026-08-08T17:22:10.545175Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 5–6 miles, Z2 (130–140 bpm), rolling terrain but nothing steep. You're 42 days out in hard taper; volume is down 21% this week and that's correct. Your last three runs average 141 bpm, which means you're either running hard on 'easy' days or your aerobic baseline has drifted up—either way, dial it back today. This is a shakeout before tomorrow's long run; treat it as a prime mover for blood flow and CNS activation, not a fitness stimulus. Keep it under 60 minutes total."
+      "message": "You're 41 days out, in taper, and your recovery score is 81/100 with RHR down to 60—you're fresh. Saturday is your long run anchor, but in taper you dial it back: aim for 90–100 minutes of Z2 (140–150 bpm, conversational pace) on rolling terrain, targeting 1,200–1,400 vert. Skip the hard efforts. This isn't about proving fitness; it's about movement quality, mental confidence on altitude, and keeping your aerobic engine primed without accumulated fatigue heading into race week."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're carrying a sleep debt: 6.31 hours last night vs. your 30-day average of 8.33 hours. That 2-hour shortfall is real, and it taxes glycogen and cortisol recovery. Eat 1.2–1.5g carbs per kg body weight today (roughly 90–120g if you're ~75kg), distributed across breakfast, lunch, snack, and dinner—no skipping. Prioritize simple carbs at breakfast and post-run (banana + rice cakes or pasta) to replenish what sleep didn't protect. Hydrate to urine color: pale yellow is your target."
+      "message": "Your sleep dipped to 7.22h this week—below your 30-day avg of 8.29h—which signals either travel stress or inadequate evening fueling. On a 90–100 minute run, you don't need to carry gels, but eat 30–40g carbs + 10–15g protein within 30 minutes post-run. Tonight: prioritize a carb-forward dinner (rice, pasta, potatoes) with 25–30g protein and salt; hydrate aggressively. Recovery nutrition is your sleep catalyst right now."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your resting HR dropped 8 bpm below your 30-day average (57 vs. 65), which is a good sign of readiness—but sleep was short and that blunts adaptation. Tonight: aim for 8–9 hours. No screens after 21:30, room temp 65–68°F, blackout curtains. If you're traveling for work, prioritize sleep over evening meetings; the 50K doesn't care about a call. Your 71/100 recovery score is solid, but cumulative sleep debt in taper kills race-day power."
+      "message": "Sleep efficiency is solid at 88.6%, but total hours are down. The Julian Alps 50K demands 3+ hours of hard concentration and effort in thin air; sleep deprivation amplifies perceived exertion and kills decision-making. Aim for 8–8.5 hours tonight and Sunday night. No caffeine after 2 PM. If you're traveling for work next week, build your recovery protocol now: dark hotel room, white noise, same bedtime, zero screens 30 minutes before sleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the hardest phase mentally—taper anxiety hits endurance athletes hard, and the temptation to squeeze in 'one more hard workout' is real. Resist it. Your fitness is locked in; the next 42 days are about managing fatigue, staying sharp, and arriving at the start line fresh. Tomorrow's long run will feel easy and that's the point. Trust the plan. The Julian Alps will have enough vert and altitude to humble you; your job now is to show up recovered, not broken."
+      "message": "In taper, your brain will hunt for reassurance—it always does. You're fit. Your recent vert work (1,568 ft yesterday, 140+ bpm sustained efforts midweek) proves your engine can sustain alpine demands. The next 41 days are about patience, not panic. Use today's long run to visualize the descent into Kranjska Gora and lock in your fueling protocol for hours 3–5, when mental fog hits and nutrition discipline cracks."
     }
   ]
 }

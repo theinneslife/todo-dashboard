@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-09T20:17:31.143638Z",
+  "generated": "2026-08-09T21:19:39.982422Z",
   "ctl": 75.2,
   "atl": 92.0,
   "tsb": -5.6,
@@ -377,15 +377,6 @@
       "duration": 3116,
       "avg_hr": 132,
       "max_hr": 154
-    },
-    {
-      "name": "Afternoon Run",
-      "date": "2026-06-10",
-      "miles": 3.01,
-      "elevation_feet": 0,
-      "duration": 2079,
-      "avg_hr": 118,
-      "max_hr": 130
     }
   ]
 }

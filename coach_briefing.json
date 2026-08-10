@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-09",
-  "generated_at": "2026-08-09T17:23:14.199246Z",
+  "generated": "2026-08-10",
+  "generated_at": "2026-08-10T14:30:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "You're 40 days out and in taper—this is the wrong week to be doing 14 miles at 122 bpm avg. Yesterday's long run was solid for peak phase, but you're still carrying volume when you should be cutting 30–40% and prioritizing recovery. Today (Sunday) do 6–8 miles easy, Z2 only (140 bpm ceiling), with 800–1200 ft vert over rolling terrain—enough to keep your legs sharp and test your fueling without compounding fatigue. Your resting HR dropped to 59 (vs. 30-day avg 65.2), which is excellent and signals adaptation, but don't squander it by repeating Peak-phase volume in Taper."
+      "title": "Medium 6 mi + 800 ft — B2B Day 2",
+      "message": "Day 2 of the back-to-back. 6 miles, ~800 ft, first light at Red Rock. Your legs will feel heavy after yesterday's 18 — that heaviness IS the workout. Walk the first 3-5 minutes to loosen up, then settle into easy Zone 2 (HR 138-150, cap at 150 no matter what). Power-hike anything steep; there's zero benefit to forcing pace today. Learning to move well on pre-fatigued legs is exactly what the Julian Alps 50K back-half will demand."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your sleep efficiency is high (92.2%) but duration is down slightly (7.6h vs. 8.36h avg). Taper weeks demand aggressive fueling to support glycogen supercompensation and nervous-system recovery. Eat 5–7g carbs per kg bodyweight today (assume ~70kg, so 350–490g carbs split across 4–5 meals); prioritize rice, oats, and fruit. During the 6–8 mile run, take 150–180 kcal (30–40g carbs) at mile 3 to practice your race-day aid-station routine on the easier terrain Julian Alps will demand."
+      "message": "You depleted glycogen yesterday, so top off before you go: 40-60g easy carbs (banana, toast + honey) 30-45 min pre-run. It's short, but Red Rock heat is brutal — carry fluids and hit 700-900mg sodium/hr with salt pills (they're in your pack). Post-run within 30 min: 60-80g carbs + 25-30g protein to close out the back-to-back and rebuild for the week. Rehydrate aggressively in the desert heat."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You have no HRV data on file, so focus on sleep volume and quality instead. Aim for 8.5–9 hours tonight—taper weeks are when sleep becomes performance. Legs will feel heavy and flat; that's normal and desirable. Ice-bath or contrast shower (10 min) if travel logistics allow, otherwise 15 min of easy static stretching (hamstrings, hip flexors, calves) and foam roll for 2 min per leg. No strength work today. Sunday evening: elevate legs for 20 min while digesting dinner."
+      "message": "The B2B block is done after this — protect the adaptation. Get your legs elevated and 10-15 min of easy mobility/foam roll on quads and calves (they took the eccentric load from yesterday's descents). You've got the couples massage at Wynn this afternoon — perfect timing, let them work the legs. Prioritize sleep tonight; the heat + travel from Atlanta adds hidden fatigue."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper paranoia hits hard at 40 days out. You're slower, tired, and second-guessing your fitness—all signs the plan is working. The dropped resting HR and 85/100 recovery score confirm your aerobic engine is primed. Respect the taper. No long efforts, no tempo, no proving anything to yourself. Your job now is to arrive in Kranjska Gora hungry and rested, not beaten down. Save the intensity for the ridgeline."
+      "message": "Five and a half weeks out — you're in the sharpest part of the build, and running strong on tired legs today is a confidence deposit you'll cash in Slovenia. When the Julian Alps course throws climbs at you in the final third, your body will remember mornings like this. Train the mind to stay calm and controlled when the legs complain. Steady effort, not heroics — that's the taper-ready athlete."
     }
   ]
 }

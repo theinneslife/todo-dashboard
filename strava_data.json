@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-10T11:39:56.884825Z",
+  "generated": "2026-08-10T12:39:45.187574Z",
   "ctl": 73.3,
   "atl": 78.9,
   "tsb": -16.9,
@@ -368,15 +368,6 @@
       "duration": 3877,
       "avg_hr": 130,
       "max_hr": 146
-    },
-    {
-      "name": "Morning Run",
-      "date": "2026-06-11",
-      "miles": 5.01,
-      "elevation_feet": 118,
-      "duration": 3116,
-      "avg_hr": 132,
-      "max_hr": 154
     }
   ]
 }

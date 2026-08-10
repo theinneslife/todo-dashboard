@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-10",
-  "generated_at": "2026-08-10T14:30:00Z",
+  "generated_at": "2026-08-10T17:44:29.229554Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Medium 6 mi + 800 ft — B2B Day 2",
-      "message": "Day 2 of the back-to-back. 6 miles, ~800 ft, first light at Red Rock. Your legs will feel heavy after yesterday's 18 — that heaviness IS the workout. Walk the first 3-5 minutes to loosen up, then settle into easy Zone 2 (HR 138-150, cap at 150 no matter what). Power-hike anything steep; there's zero benefit to forcing pace today. Learning to move well on pre-fatigued legs is exactly what the Julian Alps 50K back-half will demand."
+      "title": "Today's Run",
+      "message": "Easy 8–10 miles, Z2 only (140 bpm ceiling), on flat or rolling terrain. You ran 14 mi with 2,388 ft vert yesterday at 122 avg HR—solid work—but your recovery score is 65/100 and sleep was only 6h. Monday in taper is your reset; no intensity, no vert. This is a shakeout to flush legs and keep the aerobic engine ticking. Aim for conversational effort; if your watch shows a spike above 145 bpm, dial it back immediately."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You depleted glycogen yesterday, so top off before you go: 40-60g easy carbs (banana, toast + honey) 30-45 min pre-run. It's short, but Red Rock heat is brutal — carry fluids and hit 700-900mg sodium/hr with salt pills (they're in your pack). Post-run within 30 min: 60-80g carbs + 25-30g protein to close out the back-to-back and rebuild for the week. Rehydrate aggressively in the desert heat."
+      "message": "Prioritize carbs today: 6–7 g/kg of body weight (assume ~75 kg, so 450–525g total). Your short sleep signals elevated cortisol and glycogen depletion risk. Front-load breakfast with oats, fruit, and eggs; add a rice or pasta-based lunch and dinner. During the easy run, sip 200–300 cal/hr (sports drink or gel + water) to top off tanks without stressing digestion. This isn't race fuel practice; it's recovery fuel."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "The B2B block is done after this — protect the adaptation. Get your legs elevated and 10-15 min of easy mobility/foam roll on quads and calves (they took the eccentric load from yesterday's descents). You've got the couples massage at Wynn this afternoon — perfect timing, let them work the legs. Prioritize sleep tonight; the heat + travel from Atlanta adds hidden fatigue."
+      "message": "Sleep is the bottleneck right now. You averaged 8.27h over 30 days but hit only 6h last night—that's a 2+ hour deficit. Tonight, non-negotiable: 10-hour window in bed (no compromise on travel schedule), blackout blinds, phone off by 21:30. Cold shower post-run to lower core temp. Resting HR is already solid at 62 bpm, but poor sleep will spike it back toward 70+. The Julian Alps requires full nervous system recovery; you can't afford sleep debt in taper."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Five and a half weeks out — you're in the sharpest part of the build, and running strong on tired legs today is a confidence deposit you'll cash in Slovenia. When the Julian Alps course throws climbs at you in the final third, your body will remember mornings like this. Train the mind to stay calm and controlled when the legs complain. Steady effort, not heroics — that's the taper-ready athlete."
+      "message": "You're 39 days out and in taper—the mind games start here. Resist the urge to compensate for lower volume with intensity. Watch yesterday's 14-miler and moderate pace; that's your fitness snapshot. The next 5 weeks are about polishing sharpness and arriving fresh, not proving you can still go hard. Use today's easy run to visualize the descent sections in Kranjska Gora (where most 50K time is lost); mental rehearsal counts as training."
     }
   ]
 }

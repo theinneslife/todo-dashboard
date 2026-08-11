@@ -4057,5 +4057,75 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "a5e6ac62-189c-46c4-b9ac-86f6c5069d5a",
+    "title": "Complete Frazier action items",
+    "description": "Follow up on action items related to Frazier. Review and complete all outstanding tasks.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-08-12",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-11T23:03:23.182Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-08-11T23:03:23.182Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "6820c91e-60c0-4ca5-a801-49e4ac15a442",
+    "title": "Sales Hive demo",
+    "description": "Prepare for and/or attend the Sales Hive demo. Ensure all necessary materials are ready.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": "2026-08-12",
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-11T23:03:23.182Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-08-11T23:03:23.182Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

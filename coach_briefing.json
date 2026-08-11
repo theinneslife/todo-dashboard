@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-11",
-  "generated_at": "2026-08-11T20:15:00Z",
+  "generated_at": "2026-08-11T17:51:42.879366Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "rest",
-      "icon": "😴",
-      "title": "Active Recovery Day",
-      "message": "Calendar calls it: Week 3, peak-volume block, recovery day — a big week follows, so protect it. No hard efforts. If the legs want to move, keep it to an optional 20-30 min very easy jog or walk, fully conversational, and only if it leaves you fresher, not more tired. Then Strength Session 1: single-leg work, hips, core, and eccentric step-downs. Those eccentric step-downs are your down-payment on the 2,500m of quad-pounding Julian Alps descent — this is race-specific work disguised as a rest day."
+      "type": "run",
+      "icon": "🏃",
+      "title": "Today's Run",
+      "message": "Easy 6–7 miles, Z2 (140 bpm or lower), rolling terrain if possible. You're 38 days out and in taper week 20; the goal is to maintain aerobic tone without accumulating fatigue. Yesterday's 8-miler at 121 bpm was solid and within phase. Today dial it back—your resting HR is 62 (3.3 bpm below your 30-day average of 65.3), a strong sign of adaptation, so don't waste it by pushing. Skip hard intervals; save sharpness work for Friday if the week demands it."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Recovery day target is ~220g carbs — don't cut them just because you're not running long; carbs are what refill the tank for the big week ahead. Prioritize protein for repair: aim ~1.8-2g/kg spread across the day, 30-40g per meal, with some within an hour of the strength session. Lean into anti-inflammatory foods (berries, leafy greens, fatty fish, olive oil, turmeric). Vegas heat plus travel dehydrates you fast — front-load fluids and add sodium so tomorrow starts topped up."
+      "message": "You're running on travel schedule and your sleep efficiency dipped to 62.4% (vs. 8.21h average). Prioritize carb-forward meals today: 5–7g carbs per kg bodyweight, spread across four meals. On an easy 6-miler, consume 30–45g carbs during the run (one gel or sports drink) if you're fueling for adaptation. Post-run: protein + carbs within 60 minutes. If you're eating in airports or hotels this week, pre-plan: rice bowls, pasta, fruit, and electrolyte drink mix. Sleep debt = elevated glycogen turnover."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "This is where the adaptation from the B2B block actually banks. Ten minutes of mobility on hips, ankles, and t-spine, plus foam roll quads, calves, and glutes — the same descent muscles the strength session hit. Legs up the wall for 5-10 min to flush the travel swelling. Sleep is the real session today: aim 8+ hours, and with the time-zone churn, guard a consistent wind-down."
+      "message": "Your 7h52m sleep with 62.4% efficiency is below your baseline; you're likely spending 2–3 hours in light or fragmented sleep. With work travel, enforce a hard bedtime 30 minutes earlier than yesterday and kill screen time 45 minutes before sleep. Hydration status affects sleep quality—drink 500mL water 2 hours before bed, not 30 minutes. The Julian Alps will demand sharp decision-making on rough terrain at altitude; sleep is non-negotiable in taper. This week's volume (11.1 miles so far) is intentionally light; use the deficit to recover sleep debt, not to add extra runs."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 37 days out from Kranjska Gora. Taking the easy day when your training is going well is a discipline, not a concession — the athletes who blow up in the Alps are usually the ones who couldn't sit still five weeks out. Choosing recovery is choosing to arrive at the start line loaded, not cooked. Trust the plan, do the strength work, and let the big week land on fresh legs."
+      "message": "You've built serious durability: 47 miles last week, consistent Z2 work, and your RHR drop shows adaptation is real. In taper, resist the urge to 'make up' for lighter volume—that's where athletes implode. Your recovery score is 75/100 (solid green), and that's the result of respecting the plan. Spend mental energy this week on pre-race logistics: visa confirmation, race kit shakedown, altitude arrival timeline for Slovenia (you'll want 3–5 days to acclimatize at Kranjska Gora before Sept 18). The 50K's sparse aid and 2,500m vert will punish under-prepared runners; your training is done."
     }
   ]
 }

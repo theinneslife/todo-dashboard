@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-10",
-  "generated_at": "2026-08-10T17:44:29.229554Z",
+  "generated": "2026-08-11",
+  "generated_at": "2026-08-11T20:15:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "run",
-      "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 only (140 bpm ceiling), on flat or rolling terrain. You ran 14 mi with 2,388 ft vert yesterday at 122 avg HR—solid work—but your recovery score is 65/100 and sleep was only 6h. Monday in taper is your reset; no intensity, no vert. This is a shakeout to flush legs and keep the aerobic engine ticking. Aim for conversational effort; if your watch shows a spike above 145 bpm, dial it back immediately."
+      "type": "rest",
+      "icon": "😴",
+      "title": "Active Recovery Day",
+      "message": "Calendar calls it: Week 3, peak-volume block, recovery day — a big week follows, so protect it. No hard efforts. If the legs want to move, keep it to an optional 20-30 min very easy jog or walk, fully conversational, and only if it leaves you fresher, not more tired. Then Strength Session 1: single-leg work, hips, core, and eccentric step-downs. Those eccentric step-downs are your down-payment on the 2,500m of quad-pounding Julian Alps descent — this is race-specific work disguised as a rest day."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Prioritize carbs today: 6–7 g/kg of body weight (assume ~75 kg, so 450–525g total). Your short sleep signals elevated cortisol and glycogen depletion risk. Front-load breakfast with oats, fruit, and eggs; add a rice or pasta-based lunch and dinner. During the easy run, sip 200–300 cal/hr (sports drink or gel + water) to top off tanks without stressing digestion. This isn't race fuel practice; it's recovery fuel."
+      "message": "Recovery day target is ~220g carbs — don't cut them just because you're not running long; carbs are what refill the tank for the big week ahead. Prioritize protein for repair: aim ~1.8-2g/kg spread across the day, 30-40g per meal, with some within an hour of the strength session. Lean into anti-inflammatory foods (berries, leafy greens, fatty fish, olive oil, turmeric). Vegas heat plus travel dehydrates you fast — front-load fluids and add sodium so tomorrow starts topped up."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is the bottleneck right now. You averaged 8.27h over 30 days but hit only 6h last night—that's a 2+ hour deficit. Tonight, non-negotiable: 10-hour window in bed (no compromise on travel schedule), blackout blinds, phone off by 21:30. Cold shower post-run to lower core temp. Resting HR is already solid at 62 bpm, but poor sleep will spike it back toward 70+. The Julian Alps requires full nervous system recovery; you can't afford sleep debt in taper."
+      "message": "This is where the adaptation from the B2B block actually banks. Ten minutes of mobility on hips, ankles, and t-spine, plus foam roll quads, calves, and glutes — the same descent muscles the strength session hit. Legs up the wall for 5-10 min to flush the travel swelling. Sleep is the real session today: aim 8+ hours, and with the time-zone churn, guard a consistent wind-down."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 39 days out and in taper—the mind games start here. Resist the urge to compensate for lower volume with intensity. Watch yesterday's 14-miler and moderate pace; that's your fitness snapshot. The next 5 weeks are about polishing sharpness and arriving fresh, not proving you can still go hard. Use today's easy run to visualize the descent sections in Kranjska Gora (where most 50K time is lost); mental rehearsal counts as training."
+      "message": "You're 37 days out from Kranjska Gora. Taking the easy day when your training is going well is a discipline, not a concession — the athletes who blow up in the Alps are usually the ones who couldn't sit still five weeks out. Choosing recovery is choosing to arrive at the start line loaded, not cooked. Trust the plan, do the strength work, and let the big week land on fresh legs."
     }
   ]
 }

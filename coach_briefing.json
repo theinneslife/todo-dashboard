@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-12",
-  "generated_at": "2026-08-12T14:15:00Z",
+  "generated_at": "2026-08-12T17:53:00.744387Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills: 7 mi + 1,500 ft (descending focus)",
-      "message": "Peak volume week, vert day. 7 miles with ~1,500 ft of climbing at Zone 2 to low Zone 3 (roughly 130-160 bpm). Power hike the steep pitches — that's smart racing, not weakness. The real work today is the DOWNHILLS: run them controlled, quick cadence, quiet feet, letting the quads absorb load. Julian Alps demands 8,850 ft of descent, and eccentric strength is what saves your legs at km 40. Effort over pace. Get out at first light before the desert heat builds."
+      "title": "Today's Run",
+      "message": "You're 37 days out and in taper—this is not a day to prove fitness. Easy 6–7 miles on rolling terrain at Z2 (130–140 bpm, conversational effort). Your last three runs average 138–140 bpm; today should feel noticeably slower and shorter. Wednesday's traditional hill slot is scaled back in taper; use gentle rollers to maintain neuromuscular sharpness without accumulated fatigue. Keep it under 60 min total. You've got 19.1 miles in the bank already this week; a modest Wednesday run sets you up for a proper long effort this weekend."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Pre-run: 40-60g carbs 60-90 min out (banana + toast or a gel with coffee). During: this is a shorter session, but treat it as gut training — take 60g carbs in the second half and hit 600-800 mg sodium per hour, since Slovenia's variable weather means you must rehearse your race electrolyte plan. Post-run within 30 min: 25-30g protein + carbs (2:1 carb:protein) to kick-start the eccentric-damage repair the downhills just created."
+      "message": "Your recovery score is solid (76/100) and your RHR is down to 62 bpm—clean signs your body is adapting well. Fuel conservatively today: 200–250g carbs spread across meals, emphasis on post-run glycogen (40–50g carbs + 20g protein within 30 min of finishing). Your sleep efficiency dropped to 62.4% last night despite 7.5 hours; likely stress or travel. Dial sodium intake up slightly to aid sleep osmolality—aim for 2,000–2,500 mg today—and front-load carbs at breakfast and lunch to stabilize afternoon energy for evening calls."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Downhill running leaves micro-tears in the quads — expect DOME (delayed soreness) tomorrow, and that's the adaptation you want. Elevate the legs for 10 min post-run, foam roll quads and calves gently (don't grind), and prioritize protein across the day. You have a travel day Friday (4:20am Uber), so bank sleep tonight — aim 8+ hours to consolidate today's strength gains before the big week ahead."
+      "message": "Sleep quality matters more than duration right now. You averaged 8.2 hours over 30 days but hit only 62% efficiency last night—that's fragmentation, not restorative sleep. Tonight: no screens after 9 p.m., room temp 65–67°F, blackout. You're in taper; your body wants recovery more than volume. Your HRV has no recent data, so we can't read nervous-system strain directly, but your RHR trend (62 vs. 65-day avg) suggests parasympathetic tone is building. Protect that with 8+ hours of quality sleep and zero sleep debt heading into race week."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Five weeks out and deep in peak volume — this is where the race is won, in the unglamorous vert reps nobody sees. Every controlled descent today is a deposit in the bank you'll withdraw from on the Julian Alps' 8,850 ft of downhill. Rehearse the feeling: relaxed shoulders, light feet, trusting the legs you're building. You're not just training the descent, you're training the confidence to attack it."
+      "message": "Taper anxiety is real for driven athletes. You're dropping volume hard (19 miles in 5 days vs. 47 last week), and your executive brain will scream that you're losing fitness. You're not. The Julian Alps 50K demands 2,500m of vert on technical terrain—that's endurance-dependent, not speed-dependent. Your aerobic base is locked in. Use these next 37 days to finalize alpine-specific nutrition (How many gels between aid stations? What's your calorie rate on steep climbs?), confirm your gear in actual vertical (test your quads, feet, pack), and sleep. Trust the plan, not the taper voice."
     }
   ]
 }

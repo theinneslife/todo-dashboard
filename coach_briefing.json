@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-12",
-  "generated_at": "2026-08-12T13:45:00Z",
+  "generated_at": "2026-08-12T14:15:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills: 7 mi + 1,500 ft — Descending Focus",
-      "message": "Calendar says vert day, so we run — this is Week 3 peak, not taper yet. First-light start: 7 miles with ~1,500 ft climbing. Climb steady at Zone 2 to low Zone 3 (~135-155 bpm), power hike anything steep — walking uphill fast is a skill, not a failure. The real work today is the descents: run them controlled and relaxed, quick light feet, let quads absorb the load. Julian Alps demands 8,850 ft of descent, so every downhill now is race-specific eccentric strength banking. Effort over pace on the Vegas terrain and heat."
+      "title": "Hills: 7 mi + 1,500 ft (descending focus)",
+      "message": "Peak volume week, vert day. 7 miles with ~1,500 ft of climbing at Zone 2 to low Zone 3 (roughly 130-160 bpm). Power hike the steep pitches — that's smart racing, not weakness. The real work today is the DOWNHILLS: run them controlled, quick cadence, quiet feet, letting the quads absorb load. Julian Alps demands 8,850 ft of descent, and eccentric strength is what saves your legs at km 40. Effort over pace. Get out at first light before the desert heat builds."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short-but-vertful session. 30-60 min out, take ~30-40g easy carbs (banana, toast + honey, or a gel) so you climb fueled. On a 7-miler you may not need much mid-run, but rehearse race habits: sip 40-60g carbs/hr if you're out over an hour. Sodium is the headline today — 600-800 mg/hr in Vegas heat to hold hydration. Refuel within 30 min of finishing: 20-30g protein + carbs to jump-start quad repair from the descending load."
+      "message": "Pre-run: 40-60g carbs 60-90 min out (banana + toast or a gel with coffee). During: this is a shorter session, but treat it as gut training — take 60g carbs in the second half and hit 600-800 mg sodium per hour, since Slovenia's variable weather means you must rehearse your race electrolyte plan. Post-run within 30 min: 25-30g protein + carbs (2:1 carb:protein) to kick-start the eccentric-damage repair the downhills just created."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Downhill running trashes quads with micro-damage — respect it. Post-run: 5-10 min easy walk to flush, then foam roll quads, calves and glutes. Legs up the wall for 10 min. You have a gym block this evening (knee work) — keep it light and rehab-focused, no heavy loading on already-fatigued quads. Prioritize protein at dinner and aim for 8 hours of sleep; adaptation from the climb happens tonight, not on the trail."
+      "message": "Downhill running leaves micro-tears in the quads — expect DOME (delayed soreness) tomorrow, and that's the adaptation you want. Elevate the legs for 10 min post-run, foam roll quads and calves gently (don't grind), and prioritize protein across the day. You have a travel day Friday (4:20am Uber), so bank sleep tonight — aim 8+ hours to consolidate today's strength gains before the big week ahead."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Five weeks out and you're threading real vert around travel, a show week, and a demanding schedule — that consistency is exactly what shows up on race day. Use today's descents as rehearsal: practice the calm, quiet-footed downhill mindset you'll want when you're 8,000 ft into the Julian Alps with tired legs. Control the descent, control the race. Bank the discipline now."
+      "message": "Five weeks out and deep in peak volume — this is where the race is won, in the unglamorous vert reps nobody sees. Every controlled descent today is a deposit in the bank you'll withdraw from on the Julian Alps' 8,850 ft of downhill. Rehearse the feeling: relaxed shoulders, light feet, trusting the legs you're building. You're not just training the descent, you're training the confidence to attack it."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-11",
-  "generated_at": "2026-08-11T17:51:42.879366Z",
+  "generated": "2026-08-12",
+  "generated_at": "2026-08-12T13:45:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–7 miles, Z2 (140 bpm or lower), rolling terrain if possible. You're 38 days out and in taper week 20; the goal is to maintain aerobic tone without accumulating fatigue. Yesterday's 8-miler at 121 bpm was solid and within phase. Today dial it back—your resting HR is 62 (3.3 bpm below your 30-day average of 65.3), a strong sign of adaptation, so don't waste it by pushing. Skip hard intervals; save sharpness work for Friday if the week demands it."
+      "title": "Hills: 7 mi + 1,500 ft — Descending Focus",
+      "message": "Calendar says vert day, so we run — this is Week 3 peak, not taper yet. First-light start: 7 miles with ~1,500 ft climbing. Climb steady at Zone 2 to low Zone 3 (~135-155 bpm), power hike anything steep — walking uphill fast is a skill, not a failure. The real work today is the descents: run them controlled and relaxed, quick light feet, let quads absorb the load. Julian Alps demands 8,850 ft of descent, so every downhill now is race-specific eccentric strength banking. Effort over pace on the Vegas terrain and heat."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're running on travel schedule and your sleep efficiency dipped to 62.4% (vs. 8.21h average). Prioritize carb-forward meals today: 5–7g carbs per kg bodyweight, spread across four meals. On an easy 6-miler, consume 30–45g carbs during the run (one gel or sports drink) if you're fueling for adaptation. Post-run: protein + carbs within 60 minutes. If you're eating in airports or hotels this week, pre-plan: rice bowls, pasta, fruit, and electrolyte drink mix. Sleep debt = elevated glycogen turnover."
+      "message": "Short-but-vertful session. 30-60 min out, take ~30-40g easy carbs (banana, toast + honey, or a gel) so you climb fueled. On a 7-miler you may not need much mid-run, but rehearse race habits: sip 40-60g carbs/hr if you're out over an hour. Sodium is the headline today — 600-800 mg/hr in Vegas heat to hold hydration. Refuel within 30 min of finishing: 20-30g protein + carbs to jump-start quad repair from the descending load."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your 7h52m sleep with 62.4% efficiency is below your baseline; you're likely spending 2–3 hours in light or fragmented sleep. With work travel, enforce a hard bedtime 30 minutes earlier than yesterday and kill screen time 45 minutes before sleep. Hydration status affects sleep quality—drink 500mL water 2 hours before bed, not 30 minutes. The Julian Alps will demand sharp decision-making on rough terrain at altitude; sleep is non-negotiable in taper. This week's volume (11.1 miles so far) is intentionally light; use the deficit to recover sleep debt, not to add extra runs."
+      "message": "Downhill running trashes quads with micro-damage — respect it. Post-run: 5-10 min easy walk to flush, then foam roll quads, calves and glutes. Legs up the wall for 10 min. You have a gym block this evening (knee work) — keep it light and rehab-focused, no heavy loading on already-fatigued quads. Prioritize protein at dinner and aim for 8 hours of sleep; adaptation from the climb happens tonight, not on the trail."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've built serious durability: 47 miles last week, consistent Z2 work, and your RHR drop shows adaptation is real. In taper, resist the urge to 'make up' for lighter volume—that's where athletes implode. Your recovery score is 75/100 (solid green), and that's the result of respecting the plan. Spend mental energy this week on pre-race logistics: visa confirmation, race kit shakedown, altitude arrival timeline for Slovenia (you'll want 3–5 days to acclimatize at Kranjska Gora before Sept 18). The 50K's sparse aid and 2,500m vert will punish under-prepared runners; your training is done."
+      "message": "Five weeks out and you're threading real vert around travel, a show week, and a demanding schedule — that consistency is exactly what shows up on race day. Use today's descents as rehearsal: practice the calm, quiet-footed downhill mindset you'll want when you're 8,000 ft into the Julian Alps with tired legs. Control the descent, control the race. Bank the discipline now."
     }
   ]
 }

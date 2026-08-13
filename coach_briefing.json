@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-13",
-  "generated_at": "2026-08-13T00:55:00Z",
+  "generated_at": "2026-08-13T17:51:40.400460Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 6mi Z2 + Strength",
-      "message": "Today is a relaxed aerobic 6 miles in Zone 2, HR 138–150 bpm — if you can't hold a conversation, back off. Pair it with strength session 2 (eccentric + plyometric durability and core); those downhill-ready legs are exactly what the Julian Alps' 2500m of descending will demand. We're 36 days out, sliding into the taper, so resist the urge to push. Easy today keeps you fresh for the sharpening ahead."
+      "title": "Today's Run",
+      "message": "Easy 8–10 miles, Z2 only (135–145 bpm ceiling). You ran hard yesterday (12 miles at 132 avg), and you're 36 days out—this is taper discipline, not fitness building. Your recovery score is 57/100 and sleep was gutted at 5.19h last night; a submax day protects your central nervous system and allows adaptation from the work you've already done. Keep it flat or rolling, focus on form and breathing, and call it done by mid-morning so you're not adding cortisol stress before Friday's shakeout."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "It's short, so no heavy pre-load needed — a light carb snack 60–90 min out is plenty. Given the strength work, prioritize the post-session window: 25–35g protein plus carbs within 45 min to drive repair and adaptation. Keep total carbs around your rest-day-plus range (~250g) since load is light, and hydrate well — Vegas heat compounds fluid loss even on an easy effort."
+      "message": "Prioritize carbs and protein at every meal today—you're in taper and need glycogen for Saturday's long run, plus your short sleep means elevated recovery demand. Aim for 1.2–1.6g carb per kg bodyweight across the day, split evenly; post-run (within 30 min), take 30–40g carbs + 15–20g protein. Because you travel constantly, rely on packable carbs (oats, rice cakes, dates, energy bars) and a protein source you control (powder, jerky, canned fish). Hydration: at least 3L water today, more if you're in a dry climate."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "The strength session is the real stimulus today, so protect it: 10 min of mobility on hips, ankles and thoracic spine post-lift, and foam roll quads and calves tonight. Aim for 8+ hours of sleep — as we enter taper, recovery quality is what converts months of training into race fitness. No junk miles, no ego reps."
+      "message": "Your sleep debt is real—5.19h is not a blip, it's a hole. Tonight, non-negotiable: no screens after 21:00, dark room (blackout curtains), aim for 8+ hours. Your resting HR is trending down (62 vs 65.2 avg), which is good, but short sleep will undo that. Consider a 20–minute nap if your schedule allows post-run. Foam roll lower legs and hips for 10 minutes; you've got vert-heavy terrain coming and dense tissue work pays dividends in taper."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper brain is coming — that itch to prove fitness with one more hard session. Reframe it: the work is banked. The next five weeks are about arriving at Kranjska Gora sharp, not tired. Every easy run and every honest strength rep is a deposit toward the summit of that first big Julian Alps climb. Trust the plan."
+      "message": "You're in the psychological grind of taper—your body is fresh but your mind feels like you're doing nothing. That feeling is the point. Trust the process: you ran 47 miles last week and built the engine; this week is about showing up rested and sharp for race week. Use today's easy run to visualize Kranjska Gora's alpine sections—technical descents, exposed ridge running, sparse aid. Mental rehearsal counts as training. Stay present; don't let work stress bleed into your taper."
     }
   ]
 }

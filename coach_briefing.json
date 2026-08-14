@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-13",
-  "generated_at": "2026-08-13T17:51:40.400460Z",
+  "generated": "2026-08-14",
+  "generated_at": "2026-08-14T17:45:20.970349Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 only (135–145 bpm ceiling). You ran hard yesterday (12 miles at 132 avg), and you're 36 days out—this is taper discipline, not fitness building. Your recovery score is 57/100 and sleep was gutted at 5.19h last night; a submax day protects your central nervous system and allows adaptation from the work you've already done. Keep it flat or rolling, focus on form and breathing, and call it done by mid-morning so you're not adding cortisol stress before Friday's shakeout."
+      "message": "40–50 min Z2 easy, no vert work. You're 35 days out in taper and your resting HR is 56—excellent. Yesterday's 12-miler at 132 bpm was solid, but you've only logged 31 miles this week against 47 last week; the volume drop is correct for taper. Today is a shakeout day before your Saturday long run. Keep it conversational, sub-130 bpm, mostly flat or rolling. This primes your system without accumulating fatigue. Skip any tempo or hill repeats; taper isn't the time to prove fitness."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Prioritize carbs and protein at every meal today—you're in taper and need glycogen for Saturday's long run, plus your short sleep means elevated recovery demand. Aim for 1.2–1.6g carb per kg bodyweight across the day, split evenly; post-run (within 30 min), take 30–40g carbs + 15–20g protein. Because you travel constantly, rely on packable carbs (oats, rice cakes, dates, energy bars) and a protein source you control (powder, jerky, canned fish). Hydration: at least 3L water today, more if you're in a dry climate."
+      "message": "You slept 6.48 hours—below your 30-day average of 8.03h. Prioritize carbs today: aim for 2–2.5 g/kg body weight, spread across meals and snacks. With travel and a busy exec schedule, don't rely on willpower; pack rice cakes, dates, or energy bars. During today's easy run (40–50 min), you don't need gels, but drink fluid if it's warm. Post-run, hit 20–30g protein + 60–80g carbs within 60 minutes to start glycogen repletion for Saturday's long effort."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep debt is real—5.19h is not a blip, it's a hole. Tonight, non-negotiable: no screens after 21:00, dark room (blackout curtains), aim for 8+ hours. Your resting HR is trending down (62 vs 65.2 avg), which is good, but short sleep will undo that. Consider a 20–minute nap if your schedule allows post-run. Foam roll lower legs and hips for 10 minutes; you've got vert-heavy terrain coming and dense tissue work pays dividends in taper."
+      "message": "Sleep is the chink in your armor right now. Your recovery score is solid (73/100), but 6.48 hours is not sustainable in taper—you need 8–9 hours before a 50K. Tonight, aim for 8.5+ hours: cut screens by 21:30, keep your room cool (65–68°F), and skip alcohol. No massage or ice bath today; just easy movement. Your resting HR trend (56 bpm) shows you're recovering well, so rest isn't the issue—it's duration. Make sleep non-negotiable for the next 35 days."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the psychological grind of taper—your body is fresh but your mind feels like you're doing nothing. That feeling is the point. Trust the process: you ran 47 miles last week and built the engine; this week is about showing up rested and sharp for race week. Use today's easy run to visualize Kranjska Gora's alpine sections—technical descents, exposed ridge running, sparse aid. Mental rehearsal counts as training. Stay present; don't let work stress bleed into your taper."
+      "message": "You're in taper, and the mental game shifts: doubt creeps in because the volume drop feels like detraining. It isn't. Your body is consolidating 29 weeks of work. Saturday will be a 90–120 min moderate run with alpine vert; treat it as a confidence builder, not a peak effort. Use today's easy shakeout to run some race-pace surges on hills (2–3 min at 50K pace, 2–3 min recovery) to remind yourself you're sharp. Trust the plan: taper works."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-14",
-  "generated_at": "2026-08-14T17:45:20.970349Z",
+  "generated": "2026-08-15",
+  "generated_at": "2026-08-15T17:13:19.166957Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "40–50 min Z2 easy, no vert work. You're 35 days out in taper and your resting HR is 56—excellent. Yesterday's 12-miler at 132 bpm was solid, but you've only logged 31 miles this week against 47 last week; the volume drop is correct for taper. Today is a shakeout day before your Saturday long run. Keep it conversational, sub-130 bpm, mostly flat or rolling. This primes your system without accumulating fatigue. Skip any tempo or hill repeats; taper isn't the time to prove fitness."
+      "message": "12–14 miles, Z2 only, rolling terrain with 800–1000 ft vert. Your recovery score is 52/100 and your resting HR is 4 bpm above your 30-day average—that's a signal to dial it back. You're 34 days out; this is taper phase and your long run volume is already trending down (31.1 mi this week vs 47.0 last week). Keep this easy, stay aerobic, and use the run to build familiarity with sustained uphill hiking pace without adding fatigue. No tempo, no intervals."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You slept 6.48 hours—below your 30-day average of 8.03h. Prioritize carbs today: aim for 2–2.5 g/kg body weight, spread across meals and snacks. With travel and a busy exec schedule, don't rely on willpower; pack rice cakes, dates, or energy bars. During today's easy run (40–50 min), you don't need gels, but drink fluid if it's warm. Post-run, hit 20–30g protein + 60–80g carbs within 60 minutes to start glycogen repletion for Saturday's long effort."
+      "message": "You slept 6.9 hours on a travel schedule—that's below your 30-day average of 8.05h and it matters in taper. Eat a full breakfast before the run (40–50g carbs, protein), and plan to ingest 30–40g carbs/hour during the run if it goes beyond 2.5 hours. Post-run, prioritize protein (25–30g) and carbs within 30 minutes to support recovery. Your body is in a precarious place: moderately fatigued and under-slept. Nutrient timing is non-negotiable this week."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is the chink in your armor right now. Your recovery score is solid (73/100), but 6.48 hours is not sustainable in taper—you need 8–9 hours before a 50K. Tonight, aim for 8.5+ hours: cut screens by 21:30, keep your room cool (65–68°F), and skip alcohol. No massage or ice bath today; just easy movement. Your resting HR trend (56 bpm) shows you're recovering well, so rest isn't the issue—it's duration. Make sleep non-negotiable for the next 35 days."
+      "message": "Tonight, target 8+ hours of sleep. You're currently 1.1 hours behind your 30-day average and running a taper—sleep is when adaptation happens. Keep the run easy so you don't add systemic stress. If you're traveling for work today or tomorrow, prioritize a dark hotel room, earplugs, and no alcohol. Cold water immersion or ice baths are off the table during taper; let passive recovery do the work. Your resting HR trending up is a caution flag; sleep will address it faster than any workout."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in taper, and the mental game shifts: doubt creeps in because the volume drop feels like detraining. It isn't. Your body is consolidating 29 weeks of work. Saturday will be a 90–120 min moderate run with alpine vert; treat it as a confidence builder, not a peak effort. Use today's easy shakeout to run some race-pace surges on hills (2–3 min at 50K pace, 2–3 min recovery) to remind yourself you're sharp. Trust the plan: taper works."
+      "message": "You're in the hardest phase psychologically—the work is done, and doubt creeps in. Today's run is a confidence builder, not a test. The Julian Alps will demand pacing discipline and mental toughness on unforgiving terrain; use these final 34 days to sharpen your hill strategy and practice controlled effort. Your last hard run (12.04 mi @ 132 bpm) was solid. Now prove you can dial it back and still own the uphill. Taper isn't weakness; it's sharpening the knife."
     }
   ]
 }

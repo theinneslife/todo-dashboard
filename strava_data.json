@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16T19:11:55.675078Z",
+  "generated": "2026-08-16T20:08:24.190881Z",
   "ctl": 72.3,
   "atl": 62.7,
   "tsb": 0.8,
@@ -368,15 +368,6 @@
       "duration": 3017,
       "avg_hr": 133,
       "max_hr": 149
-    },
-    {
-      "name": "Hill Repeats",
-      "date": "2026-06-17",
-      "miles": 8.01,
-      "elevation_feet": 833,
-      "duration": 5523,
-      "avg_hr": 142,
-      "max_hr": 169
     }
   ]
 }

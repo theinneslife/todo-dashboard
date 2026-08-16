@@ -1048,6 +1048,32 @@
       "packingList": {},
       "colorIndex": 4,
       "legs": []
+    },
+    {
+      "id": "1786913829174",
+      "title": "cusco, peru",
+      "destination": {
+        "city": "cusco",
+        "country": "peru",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-08-16",
+        "end": "2026-08-28"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
     }
   ],
   "templates": [],

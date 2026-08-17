@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-16",
-  "generated_at": "2026-08-16T17:12:52.425766Z",
+  "generated": "2026-08-17",
+  "generated_at": "2026-08-17T14:01:18Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 8–10 miles, Z2 (roughly 130–135 bpm based on your recent baseline), no vert work. You're 33 days out and in taper week 20—volume is down 34% from last week (31.1 vs 47.0), which is correct. Your resting HR is 4 bpm above your 30-day average and recovery score sits at 52/100 (moderate), signaling incomplete adaptation; a soft run preserves fitness without adding fatigue. Sunday in taper is a second easy effort, not a second hard day. Keep it conversational, roll with terrain naturally, and dial back intensity even if your legs feel sharp—that's taper lying to you."
+      "title": "Recovery 5 mi + 600 ft (B2B Day 2)",
+      "message": "Day two of the back-to-back — 5 miles, ~600 ft, and the only goal is to flush yesterday's 22/3,200. Zone 1 to low Zone 2, HR 120-138, nose-breathing easy. You're at 3,400m in Cusco, so your HR will read 10-15 bpm high for the effort — trust the breath, not the watch, and let the pace be embarrassingly slow. Walk the first 5 minutes if the legs are stiff. Power hike anything that spikes your breathing. This altitude block is free Julian Alps currency: 32 days out, running tired legs in thin air is exactly the adaptation that makes 2,500m of alpine vert feel manageable. Do not race this run."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your 6.9-hour sleep night on top of moderate recovery suggests glycogen stores are not fully topped. Eat a substantial breakfast (80–100g carbs: oats, fruit, toast) 90 minutes before the run, and carry 30–40g fast carbs on the trail if you're hitting the full 10 miles—gels or sports drink. Post-run, eat within 30 minutes: 40–50g carbs + 15–20g protein. With travel and exec schedule, I know consistency is hard, but these 33 days are non-negotiable. Alpine 50K at elevation will expose any shortfall in fueling discipline."
+      "message": "You're still refilling from a 22-miler, so today is about replacement, not restriction. Target 400-500g carbs across the day — glycogen after a long alpine effort takes a full 48 hours to restore. Pre-run: 30-40g easy carbs (banana, white toast, or a gel) even though it's short; running fasted on depleted legs at altitude is a bad trade. Skip in-run fuel unless you go past 45 minutes. Post-run within 45 minutes: 30-40g protein plus 60-80g carbs. Altitude increases fluid loss and iron demand — push 3.5-4L water with electrolytes today, and get iron-rich food in (Cusco makes this easy: lomo, quinoa, lentils, eggs). Anti-inflammatory add-ons: tart cherry, berries, ginger."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep debt is real: your 30-day average is 8.05 hours, but last night was 6.9h at 93% efficiency—you're leaving 1+ hour on the table. In taper, sleep is a primary training tool, not a side effect. Tonight, target 8+ hours: no screens after 9 pm, keep the room cool (18°C), and hydrate steadily through the day (not a gallon at dinner). If work travel is forcing early wake-ups, prioritize a 20-minute afternoon nap this week. Elevated resting HR + moderate recovery score both point to cumulative fatigue—sleep fixes this faster than any other lever."
+      "message": "Legs are in eccentric-damage repair from 3,200 ft of descending, so protect the downhill muscles. Ten minutes of calf, quad, and glute foam rolling tonight — slow, no aggression on sore quads. Legs up the wall for 10 minutes before bed. Sleep target 8-9 hours; at 3,400m your sleep architecture takes a hit, so give yourself the extra hour of runway rather than fighting for it. No hard lifting, no pole, no tempo pilates today. If soreness is still above 4/10 tomorrow morning, that's real data — take the recovery, don't push the next quality session."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper brain is setting in: you're probably antsy, second-guessing the plan, or tempted to squeeze in a hard session to 'stay sharp.' Resist. You've logged 29 weeks of work; the fitness is in the bank. Your job now is to arrive at Kranjska Gora calm, rested, and hungry—not exhausted and paranoid you've lost edge. Use these 33 days to visualize the Alps, dial in your pacing strategy (go conservative on the first climb), and mentally rehearse aid-station fueling. Sharpness comes from recovery and confidence, not from one more hard run."
+      "message": "32 days to Kranjska Gora. You're at the top of the mountain of work — this is the last heavy block before the taper, and the back-to-back you just closed is the single best predictor of how mile 26 feels in the Alps. The value today isn't the 5 miles; it's proving to yourself you can start a run on wrecked legs and finish it composed. That's the exact skill the Julian Alps will ask for. And you've got the SalesHive playbook review at 9:30 — get the run done first light so the day doesn't eat it. Discipline in the easy sessions is what earns you the right to be aggressive on race day."
     }
   ]
 }

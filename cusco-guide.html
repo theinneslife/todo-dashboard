@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cusco, Peru · Christopher &amp; Brooke's Field Guide</title>
+<meta name="description" content="Twelve days in Cusco at 3,399 m. Altitude protocol for a 1 AM arrival, the food and coffee list, and a Sacred Valley long run weekend built for the Julian Alps 50K. August 2026.">
+<meta property="og:title" content="Cusco, Peru · Christopher &amp; Brooke's Field Guide · August 2026">
+<meta property="og:description" content="The Inca capital at 11,150 feet. Land at 1 AM, acclimatize properly, then turn the Sacred Valley into an altitude block for the Julian Alps 50K.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --ink: #1a1410;
+  --ink-mid: #3a3228;
+  --ink-soft: #6b5e52;
+  --ink-faint: #9e9089;
+  --paper: #f9f5ef;
+  --paper-warm: #f4ede3;
+  --card: #fffdf9;
+  --card-hover: #fffefb;
+  --gold: #c49a3a;
+  --gold-light: #d4b050;
+  --gold-deep: #7a6022;
+  --gold-bg: #fdf3e0;
+  --emerald: #1a7a3a;
+  --emerald-light: #228a44;
+  --emerald-deep: #0f4a24;
+  --emerald-bg: #e8f5ed;
+  --rust: #8b2a1a;
+  --rust-bg: #fdf0ec;
+  --slate: #1d3a6b;
+  --slate-bg: #e6ecf7;
+  --line: #e6ddd2;
+  --line-soft: #ede7df;
+  --shadow-sm: 0 2px 8px rgba(40,28,12,0.07);
+  --shadow-md: 0 6px 24px rgba(40,28,12,0.10);
+  --shadow-lg: 0 16px 48px rgba(40,28,12,0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease-out);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?q=90&w=2400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.04);
+  transition: transform 12s var(--ease-out);
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8,18,40,0.08) 0%,
+    rgba(8,18,40,0.18) 40%,
+    rgba(8,18,40,0.75) 80%,
+    rgba(8,18,40,0.90) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem,7vw,5rem) clamp(3rem,7vh,5rem);
+  max-width: 1200px;
+}
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(240,217,168,0.6);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.91;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.3rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(240,217,168,0.95);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  max-width: 600px;
+  color: rgba(245,237,224,0.92);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(232,212,176,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+}
+.hero-meta::before { content: "📍"; font-size: 0.75rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: clamp(1.5rem,5vw,4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: fadeInUp 1.5s 1s both;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* =====================================================================
+   STICKY NAV
+   ===================================================================== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(249,245,239,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.6rem clamp(1rem,4vw,2.5rem);
+  max-width: 1300px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0.38rem 0.8rem;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.nav-inner a:hover { background: var(--gold); color: #fff; }
+.nav-city {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  margin-right: 0.6rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 0.8rem;
+  border-right: 1px solid var(--line);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+section {
+  padding: clamp(4rem,8vh,6rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sec-head {
+  margin-bottom: clamp(2rem,4vh,3rem);
+  max-width: 760px;
+}
+.sec-num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-num::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold-deep);
+  opacity: 0.4;
+}
+.sec-head h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+.sec-head p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TRAVEL BASICS GRID
+   ===================================================================== */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+.fact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.fact-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.55rem;
+}
+.fact-card .big {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--emerald-deep);
+}
+.fact-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.slang-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff9ee, #fef2e3);
+  border: 1px solid #ecdbb8;
+}
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
+  gap: 0.75rem 1.8rem;
+  margin-top: 0.9rem;
+}
+.slang-item {
+  font-size: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #dcc89c;
+  line-height: 1.4;
+}
+.slang-item b {
+  font-style: italic;
+  color: var(--rust);
+  font-family: var(--font-serif);
+}
+.safety-card {
+  grid-column: 1 / -1;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+}
+.safety-card h4 { color: var(--rust); }
+.safety-list {
+  list-style: none;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 0.45rem 2rem;
+}
+.safety-list li {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+.safety-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.75rem;
+  top: 0.12rem;
+}
+
+/* =====================================================================
+   RANKED LIST (restaurants, coffee)
+   ===================================================================== */
+.list-group-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1.8rem 0 0.4rem;
+}
+.list-group-label:first-of-type { margin-top: 0; }
+.ranked-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.ranked-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background var(--transition);
+}
+.ranked-row:last-child { border-bottom: none; }
+.ranked-row:hover { background: var(--paper-warm); }
+.rank-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.row-main {}
+.row-name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.row-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+.pill-emerald { color: var(--emerald-deep); background: var(--emerald-bg); }
+.pill-gold { color: var(--gold-deep); background: var(--gold-bg); }
+.pill-rust { color: var(--rust); background: var(--rust-bg); }
+.pill-slate { color: var(--slate); background: var(--slate-bg); }
+
+/* =====================================================================
+   CARD GRID
+   ===================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1.1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.card-body {
+  padding: 1.3rem 1.4rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.58rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+.tag-emerald { background: var(--emerald); }
+.tag-gold { background: var(--gold); }
+.tag-rust { background: var(--rust); }
+.tag-slate { background: var(--slate); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card-loc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
+.card-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--emerald-deep);
+  font-style: italic;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+.card-warning {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--rust);
+  background: var(--rust-bg);
+  border-top: 1px solid #e8c5bb;
+  padding: 0.6rem 1.4rem;
+  margin-left: -1.4rem;
+  margin-right: -1.4rem;
+  margin-bottom: -1.4rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* =====================================================================
+   PHOTO BAND
+   ===================================================================== */
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: clamp(3rem,6vh,5rem) clamp(1.2rem,5vw,3.5rem) 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-img {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.band-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+}
+.band-txt {
+  background: var(--card);
+  padding: clamp(2rem,4vw,3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.band-txt h3 {
+  font-size: clamp(1.5rem,3vw,2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.band-txt p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 680px) {
+  .band { grid-template-columns: 1fr; }
+  .band-img { min-height: 220px; }
+}
+
+/* =====================================================================
+   TIMELINE (weekend)
+   ===================================================================== */
+.timeline {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.2rem;
+  box-shadow: var(--shadow-md);
+}
+.timeline-header {
+  padding: 1.6rem 2rem;
+  color: #fff;
+}
+.timeline-header h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(234,246,239,0.95);
+}
+.timeline-body {
+  padding: 0 2rem 1.8rem;
+}
+.timeline-item {
+  border-left: 2px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0 1.2rem 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(240,217,168,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+.timeline-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,217,168,0.9);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-text {
+  font-size: 0.93rem;
+  color: rgba(223,240,231,0.9);
+  line-height: 1.6;
+}
+.tl-emerald { background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%); }
+.tl-gold { background: linear-gradient(160deg, var(--gold-deep) 0%, var(--gold-light) 100%); }
+
+/* =====================================================================
+   VALIDATED BANNER
+   ===================================================================== */
+.validated-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--emerald-deep);
+  line-height: 1.45;
+}
+.validated-banner::before {
+  content: "✓";
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* =====================================================================
+   GRID SUBHEAD
+   ===================================================================== */
+.grid-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.grid-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.grid-subhead:first-of-type { margin-top: 0; }
+
+/* =====================================================================
+   PULLQUOTE BAND
+   ===================================================================== */
+.pullquote {
+  margin: clamp(3rem,6vh,5rem) 0;
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 0 1.2rem 2rem;
+  max-width: 680px;
+}
+.pullquote p {
+  font-size: clamp(1.2rem,2.5vw,1.55rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   SECTION DIVIDER
+   ===================================================================== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem,5vw,3.5rem);
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: clamp(2rem,4vh,3rem) 0 0;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  margin-top: clamp(4rem,8vh,6rem);
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.2rem,5vw,3.5rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+.footer-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.footer-sub {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.footer-verified {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--emerald-deep);
+  background: var(--emerald-bg);
+  border: 1px solid #b8dbc9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  .ranked-row { grid-template-columns: 1.6rem 1fr; }
+  .ranked-row .pill { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .basics-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .basics-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================================
+   ALTITUDE ALERT
+   ===================================================================== */
+.altitude-alert {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto 2.2rem;
+  padding: 1.5rem 1.7rem;
+  background: var(--rust-bg);
+  border: 1px solid #e5c8be;
+  border-left: 5px solid var(--rust);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.altitude-alert .alert-mark {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.altitude-alert h3 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--rust);
+  margin-bottom: 0.5rem;
+}
+.altitude-alert p {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+@media (max-width: 640px) {
+  .altitude-alert { padding: 1.2rem 1.1rem; gap: 0.85rem; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Christopher &amp; Brooke · August 2026 · Twelve days</div>
+    <h1>Cusco,<br><em>at eleven thousand feet</em></h1>
+    <p class="hero-sub">The oldest continuously inhabited city in the Americas, the Inca capital, and the highest place you have ever tried to train. You land at 1 AM. The first 48 hours decide how the other ten days go.</p>
+    <div class="hero-meta">Cusco, Peru · 3,399 m · 11,150 ft</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <span class="nav-city">Cusco</span>
+    <a href="#altitude">Altitude</a>
+    <a href="#basics">Basics</a>
+    <a href="#eat">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#move">Fitness</a>
+    <a href="#shop">Shopping</a>
+    <a href="#grocery">Groceries</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     00 · ALTITUDE
+     ═══════════════════════════════════════ -->
+<section id="altitude">
+  <div class="sec-head fade-in">
+    <div class="sec-num">Read this first</div>
+    <h2>You land at 1 AM at 11,150 feet</h2>
+    <p>Cusco sits at 3,399 m. That is higher than any resort town in Colorado and roughly 760 m above Bogotá, where you last acclimatized. A 1 AM arrival is the hardest possible version of this because you go from a pressurized cabin to sleeping altitude with no daylight, no food, and no time to adjust. Here is the protocol.</p>
+  </div>
+
+  <div class="altitude-alert fade-in">
+    <div class="alert-mark">!</div>
+    <div class="alert-body">
+      <h3>The single rule for the first 48 hours</h3>
+      <p>Do not run, do not hike, do not drink alcohol, and do not carry your own bags up a flight of stairs. Altitude sickness in Cusco is not a rumour. It sends people to a clinic every single day, and the ones it hits hardest are fit endurance athletes who feel fine on arrival and decide to test it. Your fitness is the risk factor here, not the protection.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-gold fade-in">
+    <div class="timeline-header">
+      <h3>Landing night and the three days after</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">1 AM · touchdown</span>
+        <span class="timeline-text">Move slowly through the terminal. Prearrange the hotel transfer so you are not negotiating a taxi at 1 AM. Drink 500 ml of water in the car. Do not eat a heavy meal. At the hotel ask for coca tea (mate de coca) and for the oxygen concentrator location. Almost every decent Cusco hotel keeps one at reception.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Night one · sleep</span>
+        <span class="timeline-text">Sleep propped on two pillows rather than flat. Breathing gets shallow at altitude during sleep and the first night is usually broken. That is normal. Waking at 4 AM with a dry mouth and a light headache is normal. Waking unable to catch your breath, or with a headache that ibuprofen will not touch, is not. Keep water on the nightstand and finish it.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Day one · flat only</span>
+        <span class="timeline-text">Zero training. Walk the Plaza de Armas slowly, sit in the sun, eat light and often. Target 3 to 4 litres of water. Soup, quinoa, potatoes, and simple carbohydrate absorb well. Fat and red meat do not. Skip the pisco sour on night one no matter how good it looks. Altitude roughly doubles the effect of alcohol.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Day two · still nothing</span>
+        <span class="timeline-text">Still no running. A long gentle walk through San Blas is the correct dose. The uphill cobbles will make you stop and breathe, and that is exactly the information you want before you try any real effort. If you feel completely clean by evening, you are on schedule.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Day three · first run</span>
+        <span class="timeline-text">Twenty to thirty minutes, flat, conversational, heart rate capped well below your easy ceiling. Expect your heart rate to sit 10 to 20 beats higher than normal for the same effort and your pace to be 45 to 90 seconds per mile slower. That gap is the altitude, not lost fitness, and it narrows over the following week.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Day five onward</span>
+        <span class="timeline-text">Now you can train properly. This is where Cusco starts paying you back for the miserable first two days. See the Sacred Valley weekend below for how to turn the rest of the stay into a genuine altitude block for the Julian Alps 50K.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="basics-grid fade-in">
+    <div class="fact-card">
+      <h4>Sleeping altitude</h4>
+      <div class="big">3,399 m</div>
+      <p>11,150 ft. High enough that the acclimatization response is real and useful, and high enough that the first two days genuinely hurt. Oxygen availability is roughly 66 percent of sea level.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Coca leaf</h4>
+      <div class="big">Mate</div>
+      <p>Coca tea and coca leaf chewing are legal, everywhere, and free in most hotel lobbies. It helps with the headache and the lethargy. It will not prevent altitude sickness, and it can show on a drug test for weeks. Worth knowing if you get tested for anything.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Sorojchi pills</h4>
+      <div class="big">S/ 25</div>
+      <p>Sold over the counter at any InkaFarma or MiFarma. Mostly aspirin, salicylamide, and caffeine. They dull the symptoms rather than treat the cause. Acetazolamide (Diamox) is the real preventive and is also available over the counter here, but that is a conversation for your doctor before you fly.</p>
+    </div>
+    <div class="fact-card">
+      <h4>If it gets bad</h4>
+      <div class="big">Descend</div>
+      <p>Clínica Pardo and Clínica San Juan de Dios both handle altitude cases around the clock and both have oxygen. The definitive treatment is always altitude loss. The Sacred Valley at 2,800 m is a 60 minute drive and that 600 m drop is usually enough to reset you completely.</p>
+    </div>
+    <div class="fact-card safety-card">
+      <h4>Red flags that mean go to a clinic now, not in the morning</h4>
+      <ul class="safety-list">
+        <li>A headache that does not respond to ibuprofen after two doses.</li>
+        <li>Vomiting, or being unable to keep water down.</li>
+        <li>Breathlessness at rest, sitting still, not exerting.</li>
+        <li>A wet or crackling cough, or pink froth. This is fluid in the lungs and it is an emergency.</li>
+        <li>Confusion, slurred speech, or an inability to walk a straight line. This is fluid on the brain and it is a bigger emergency.</li>
+        <li>Any of the above means oxygen and descent immediately. Do not sleep on it and see how you feel.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     01 · BASICS
+     ═══════════════════════════════════════ -->
+<section id="basics">
+  <div class="sec-head fade-in">
+    <div class="sec-num">01 · Orientation</div>
+    <h2>Currency, safety, and getting around</h2>
+    <p>Cusco runs on soles, on cash more than you expect, and on a tourist economy that has been doing this for fifty years. It is a safe city with a specific and predictable petty theft problem. Handle that one thing well and the rest is easy.</p>
+  </div>
+
+  <div class="basics-grid fade-in">
+
+    <div class="fact-card">
+      <h4>Currency</h4>
+      <div class="big">PEN</div>
+      <p>The Peruvian sol, written S/. Roughly 3.7 to the US dollar, so a quick mental shortcut is to divide by four and know you are being slightly conservative. Dollars are accepted at hotels and tour agencies at a poor rate. Pay in soles everywhere else.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Cash and cards</h4>
+      <div class="big">Both</div>
+      <p>Restaurants, hotels, and shops in the centre take cards. Markets, taxis, small cafés, and the artisan stalls do not. Keep S/ 200 to 300 in small notes. Nobody in a market can break a S/ 100 note and they will send you away rather than try.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>ATMs</h4>
+      <div class="big">BCP</div>
+      <p>Use BCP, Interbank, BBVA, or Scotiabank, and use machines inside a bank branch or inside Real Plaza rather than a street kiosk. Decline the machine's own currency conversion every time. The casas de cambio along Avenida El Sol give better rates than any bank for dollars.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>August weather</h4>
+      <div class="big">2 to 20 °C</div>
+      <p>Peak dry season, which is the best weather Cusco gets. Brilliant sun, deep blue sky, almost no rain. The swing is the story: near freezing at dawn, twenty degrees by early afternoon, cold again the moment the sun drops. Layers, always.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>UV</h4>
+      <div class="big">Extreme</div>
+      <p>At 3,400 m in the tropics the UV index regularly hits 14 and above. This is genuinely the highest UV exposure you will encounter anywhere. Sunscreen every morning, a hat on every run, and lip balm with SPF. People burn badly here on cold days because it never feels hot.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Getting around</h4>
+      <div class="big">InDriver</div>
+      <p>InDriver is the dominant app in Cusco and Cabify also works. Uber coverage is thinner here than in Lima. The historic centre is walkable end to end in twenty minutes, though the cobbles and the gradient make that twenty minutes feel longer than it should. Never take an unmarked street taxi at night.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Water</h4>
+      <div class="big">Bottled</div>
+      <p>Do not drink the tap water. Given you need 3 to 4 litres a day at this altitude, buy the large bottles from a supermarket rather than small ones from a shop. Orion and Plaza Vea both sell 7 litre jugs cheaply.</p>
+    </div>
+
+    <div class="fact-card">
+      <h4>Peruvian coffee</h4>
+      <div class="big">Origin</div>
+      <p>Peru is a serious producing country and the Cusco region grows its own in the Quillabamba and La Convención valleys, a few hours north and considerably lower. Ask for Peruvian single origin and you will drink very well for very little.</p>
+    </div>
+
+    <div class="fact-card slang-card">
+      <h4>Peruvian Spanish and a little Quechua</h4>
+      <div class="slang-grid">
+        <div class="slang-item"><b>Bacán</b> · Cool, great. Very Peruvian.</div>
+        <div class="slang-item"><b>Chévere</b> · Also cool. Used constantly.</div>
+        <div class="slang-item"><b>Pata</b> · Mate, buddy.</div>
+        <div class="slang-item"><b>Causa</b> · Close friend. Also a potato dish.</div>
+        <div class="slang-item"><b>Al toque</b> · Right away, immediately.</div>
+        <div class="slang-item"><b>Chamba</b> · Work, the job.</div>
+        <div class="slang-item"><b>Jato</b> · House, home.</div>
+        <div class="slang-item"><b>Yapa</b> · A little extra thrown in. From Quechua. Ask for it in markets.</div>
+        <div class="slang-item"><b>Soroche</b> · Altitude sickness. You will hear this word a lot.</div>
+        <div class="slang-item"><b>Pucha</b> · Damn, ugh. Mild and universal.</div>
+        <div class="slang-item"><b>Luca</b> · One sol. <b>China</b> · Fifty céntimos.</div>
+        <div class="slang-item"><b>Allillanchu</b> · Quechua for hello, how are you.</div>
+        <div class="slang-item"><b>Sulpayki</b> · Quechua for thank you. Locals light up when you use it.</div>
+        <div class="slang-item"><b>Apu</b> · Mountain spirit. The peaks around you are not scenery to people here.</div>
+      </div>
+    </div>
+
+    <div class="fact-card safety-card">
+      <h4>Safety, honestly</h4>
+      <ul class="safety-list">
+        <li>Violent crime against tourists is rare. Cusco is safer than most large Latin American cities and far safer than Lima.</li>
+        <li>Pickpocketing is the actual risk and it is concentrated in three places: the Plaza de Armas at night, the San Pedro market, and any crowded bus or festival.</li>
+        <li>Phone snatching is common. Do not walk down a busy street holding your phone out in front of you, and do not leave it on a restaurant table.</li>
+        <li>The scam pattern is distraction. Someone spills something on you, someone drops something in front of you, someone in a fake uniform asks for your documents. Keep walking.</li>
+        <li>Only take taxis you booked through InDriver or Cabify, or that your hotel called. Express kidnapping in unmarked taxis is a real Peru problem, though far more of a Lima one.</li>
+        <li>San Blas and the centre are fine to walk in the evening. The area around the Wanchaq bus terminal and the outer edges of San Pedro are not, after dark.</li>
+        <li>Emergency numbers: <b>105</b> for police, <b>116</b> for fire and ambulance. Tourist police (POLTUR) have an office on Avenida El Sol.</li>
+        <li>Photograph your passport and keep a copy in your email. Carry the copy, leave the original in the hotel safe.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02 · RESTAURANTS
+     ═══════════════════════════════════════ -->
+<section id="eat">
+  <div class="sec-head fade-in">
+    <div class="sec-num">02 · The Table</div>
+    <h2>Where to eat across twelve days</h2>
+    <p>Peru is the best eating country in South America and Cusco punches well above a city of half a million because the tourism economy funded a real restaurant scene. Book the top tier a few days ahead. Everything below is walkable from the centre or a S/ 10 ride.</p>
+  </div>
+
+  <div class="fade-in">
+    <div class="list-group-label">Book these before you arrive</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">01</span>
+        <div class="row-main"><div class="row-name">MAP Café</div><div class="row-desc">A glass and steel cube dropped into the courtyard of the Museo de Arte Precolombino, a colonial mansion off Plaza Nazarenas. Contemporary Andean tasting menus, immaculate service, and the most beautiful dining room in the city by a wide margin. The obvious choice for one special night.</div></div>
+        <span class="pill pill-gold">Plaza Nazarenas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">02</span>
+        <div class="row-main"><div class="row-name">Chicha por Gastón Acurio</div><div class="row-desc">Gastón Acurio is the chef who made Peruvian food a global category, and Chicha is his Cusco room. Regional Andean cooking done with Lima technique. A second floor balcony over Plaza Regocijo. Consistently excellent and easier to book than MAP.</div></div>
+        <span class="pill pill-gold">Plaza Regocijo</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">03</span>
+        <div class="row-main"><div class="row-name">Cicciolina</div><div class="row-desc">The institution. Upstairs on Calle Triunfo, a warm chaotic room with a long tapas bar and Mediterranean cooking that has been the local benchmark for two decades. Sit at the bar without a reservation and order across the small plates. The one place everyone in Cusco agrees on.</div></div>
+        <span class="pill pill-gold">Triunfo 393</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">04</span>
+        <div class="row-main"><div class="row-name">Senzo at Palacio Nazarenas</div><div class="row-desc">The Belmond property's restaurant and the most polished fine dining in Cusco. Andean ingredients through a refined lens, a proper wine list, and a courtyard that used to be a convent. Expensive by Peru standards and still a fraction of the equivalent anywhere else.</div></div>
+        <span class="pill pill-gold">Plaza Nazarenas</span>
+      </div>
+    </div>
+
+    <div class="list-group-label">The strong everyday list</div>
+    <div class="ranked-list">
+      <div class="ranked-row">
+        <span class="rank-num">05</span>
+        <div class="row-main"><div class="row-name">Limo</div><div class="row-desc">Nikkei cooking, the Peruvian Japanese hybrid, on a balcony over the Plaza de Armas. The ceviche and tiradito are the reason to come and the pisco list is long. Ask for a window table when you book.</div></div>
+        <span class="pill pill-emerald">Plaza de Armas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">06</span>
+        <div class="row-main"><div class="row-name">Uchu Peruvian Steakhouse</div><div class="row-desc">Alpaca, beef, and fish brought to the table raw on a volcanic stone heated to 400 degrees so you cook it yourself. Gimmicky in description, genuinely excellent in practice. Alpaca is lean, iron rich, and the best red meat choice at altitude.</div></div>
+        <span class="pill pill-emerald">Palacio 135</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">07</span>
+        <div class="row-main"><div class="row-name">Marcelo Batata</div><div class="row-desc">A rooftop terrace with a view over the tiled roofs, modern Andean cooking, and the best chicha morada in town. They also run a well regarded cooking class if you want an afternoon of it. Reliable, warm, and good for a long lunch.</div></div>
+        <span class="pill pill-emerald">Palacio 121</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">08</span>
+        <div class="row-main"><div class="row-name">Pachapapa</div><div class="row-desc">A big open courtyard in San Blas with a wood fired oven and blankets on the chairs for when the sun goes. This is where you eat cuy if you are going to eat cuy, and the oven roasted lamb and stuffed rocoto are outstanding regardless. Order the anticuchos.</div></div>
+        <span class="pill pill-emerald">San Blas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">09</span>
+        <div class="row-main"><div class="row-name">Kion</div><div class="row-desc">Chifa, the Peruvian Chinese tradition, from the Cicciolina group. Comfort food executed at a level chifa usually is not. The perfect answer to a cold evening when nobody wants to think hard about dinner.</div></div>
+        <span class="pill pill-emerald">Triunfo 370</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">10</span>
+        <div class="row-main"><div class="row-name">Organika</div><div class="row-desc">Farm to table in the literal sense. They grow it on their own plot in the Sacred Valley and drive it up. The cleanest eating in Cusco and the best option on a day when you have trained and want vegetables that taste like something.</div></div>
+        <span class="pill pill-emerald">San Blas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">11</span>
+        <div class="row-main"><div class="row-name">Morena Peruvian Kitchen</div><div class="row-desc">Modern Peruvian in a bright informal room a block off the plaza. Good ceviche, good causa, good quinoa dishes, fast service. The dependable weekday lunch.</div></div>
+        <span class="pill pill-emerald">Plateros 348</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">12</span>
+        <div class="row-main"><div class="row-name">Green Point</div><div class="row-desc">Fully vegan and genuinely good rather than worthy. A leafy courtyard in San Blas, a set lunch menu for around S/ 25, and a bakery attached. Brooke will want to come back twice.</div></div>
+        <span class="pill pill-emerald">San Blas</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">13</span>
+        <div class="row-main"><div class="row-name">La Bodega 138</div><div class="row-desc">Wood fired pizza, craft beer, homemade pasta, in a small family run room. No pretension at all. The correct dinner after a long run day when you want carbohydrate and a beer and nothing complicated.</div></div>
+        <span class="pill pill-slate">Herrajes 138</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">14</span>
+        <div class="row-main"><div class="row-name">Baco</div><div class="row-desc">Cicciolina's wine bar sibling. Grilled meats, a serious by the glass list, and a quieter room than the mothership. Good for a two person dinner where you actually want to talk.</div></div>
+        <span class="pill pill-slate">Ruinas 465</span>
+      </div>
+      <div class="ranked-row">
+        <span class="rank-num">15</span>
+        <div class="row-main"><div class="row-name">Mercado San Pedro</div><div class="row-desc">Not a restaurant, and the most important eating you will do. The juice stalls at the front will blend anything you point at for S/ 6. The caldo de gallina counters at the back serve the broth that every Cusqueño eats for breakfast. Go at 8 AM, go with small notes, watch your pockets, and take nothing valuable.</div></div>
+        <span class="pill pill-rust">Market · cash</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     03 · COFFEE
+     ═══════════════════════════════════════ -->
+<section id="coffee">
+  <div class="sec-head fade-in">
+    <div class="sec-num">03 · The Cup</div>
+    <h2>Coffee in a producing country</h2>
+    <p>Peru is a top ten global coffee exporter and most of what leaves the country goes out as anonymous commodity beans. The specialty scene in Cusco exists to reverse that. Ask for Peruvian single origin, ask where it came from, and expect a real answer.</p>
+  </div>
+
+  <div class="validated-banner fade-in">A flat white in Cusco costs about S/ 12, roughly three dollars, and the quality is comparable to anything in Melbourne or Portland. Most of these open at 7 AM or earlier, which suits a runner's schedule.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Best in city</span>
+        <h3>Three Monkeys Coffee</h3>
+        <p class="card-loc">Choquechaca 366, San Blas</p>
+        <p>The reference point for specialty coffee in Cusco. Direct relationships with Peruvian producers, careful roasting, baristas who can actually talk you through what you are drinking. A sunny courtyard, good breakfast, strong wifi. This is your default morning.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Origin story</span>
+        <h3>Museo del Café</h3>
+        <p class="card-loc">Espaderos 136</p>
+        <p>Part café, part working education on Peruvian coffee, in a colonial courtyard a block from the plaza. Tastings across regions, a proper roastery presence, and beans to take home. The place to go if you want to understand what Quillabamba coffee actually is.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Design</span>
+        <h3>L'Atelier Café Concept</h3>
+        <p class="card-loc">Cuesta San Blas</p>
+        <p>A café and antique shop in the same space, halfway up the San Blas hill. Everything you sit on is for sale. Excellent espresso, French leaning pastries, and a terrace with one of the better rooftop views in the barrio. Worth the climb, once you are acclimatized.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Roaster</span>
+        <h3>Qura Café</h3>
+        <p class="card-loc">San Blas</p>
+        <p>Small, serious, and roasting on site. Pour over focused, rotating single origins from Cusco region farms, and a barista who will happily spend ten minutes on the subject. Fewer seats than Three Monkeys and a quieter room.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Institution</span>
+        <h3>Café Ayllu</h3>
+        <p class="card-loc">Portal de Carnes 208, Plaza de Armas</p>
+        <p>Open since 1959 and still full of Cusqueños rather than tourists, which in a plaza location is an achievement. Classic espresso, hot chocolate, and a leche asada that people come specifically for. Not specialty coffee. Very much worth going.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Bakery</span>
+        <h3>La Valeriana</h3>
+        <p class="card-loc">Multiple locations, centre</p>
+        <p>The pastry answer rather than the coffee answer. Cusco's best bakery chain, reliably good empanadas and cakes, and open early. The one you stop at on the way somewhere else.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Social enterprise</span>
+        <h3>The Meeting Place</h3>
+        <p class="card-loc">Plazoleta San Blas</p>
+        <p>A café on the San Blas square that puts its profits into local community projects. Big breakfasts, bottomless filter coffee, and a noticeboard that is the best place in the city to find out what is actually happening this week.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Work session</span>
+        <h3>Yaku Coffee</h3>
+        <p class="card-loc">Centre</p>
+        <p>Calm, well lit, good wifi, and tolerant of a long sit. When you need two hours on a laptop and a flat white that will not disappoint you, this is the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04 · WEEKEND
+     ═══════════════════════════════════════ -->
+<section id="weekend">
+  <div class="sec-head fade-in">
+    <div class="sec-num">04 · The Weekend</div>
+    <h2>Sacred Valley: your Julian Alps 50K altitude block</h2>
+    <p>This is the reason to be here. You are living at 3,399 m and the Sacred Valley floor sits around 2,800 m, an hour away. Sleep high, train slightly lower, and you have the classic altitude camp structure without engineering anything. Go on the second weekend, once you have five or six days of acclimatization behind you.</p>
+  </div>
+
+  <div class="band fade-in" style="margin-top:0">
+    <div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=1400&auto=format&fit=crop')"></div>
+    <div class="band-txt">
+      <h3>Why this works for a 50K in Slovenia</h3>
+      <p>The Julian Alps 50K is a long day with sustained climbing at moderate altitude, and the limiting factor is aerobic ceiling under fatigue rather than raw speed. Two weeks living above 3,300 m drives the adaptation you want. The Sacred Valley then gives you what Cusco cannot: a valley floor flat enough for a genuine long run, plus climbs at Moray and Chinchero that replicate Alpine gradient at an altitude that makes them harder than the race will be. Train at 2,800 to 3,700 m in August, race at 1,500 to 2,300 m in the autumn, and the race feels like breathing at sea level.</p>
+    </div>
+  </div>
+
+  <div class="timeline tl-emerald fade-in">
+    <div class="timeline-header">
+      <h3>The shape of the weekend</h3>
+    </div>
+    <div class="timeline-body">
+      <div class="timeline-item">
+        <span class="timeline-label">Friday afternoon</span>
+        <span class="timeline-text">Drive down to Urubamba, about 75 minutes. The road climbs to 3,700 m over the pass at Chinchero and then drops the whole way into the valley. Check in and notice how much easier breathing gets at 2,871 m. Eat early at the hotel. Sleep is markedly better down here and that alone is worth the trip.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday · the long run</span>
+        <span class="timeline-text">Urubamba to Ollantaytambo along the valley floor, following the Río Urubamba. About 20 km one way at a near constant 2,800 m, on a mix of quiet road and dirt track, with the Andes on both sides the entire way. Start at 6:30 AM when the valley is still and cold. Have the driver meet you in Ollantaytambo with fluids, or turn at 10 km for an out and back. This is one of the great long run settings anywhere in the world and it will not feel like work.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Saturday afternoon</span>
+        <span class="timeline-text">Recover properly. Ollantaytambo is the best preserved Inca town in Peru and the terraces above it are worth an hour of slow walking, not more. Lunch in the square. Back to Urubamba, legs up, big carbohydrate dinner. Tambo del Inka and Sol y Luna both have proper pools if you want to float.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday · the vertical day</span>
+        <span class="timeline-text">Drive up to Moray at 3,500 m and run the dirt roads through the concentric Inca agricultural terraces, then push on toward the Maras salt pans. Rolling to steep, high, exposed, and almost empty at that hour. Ninety minutes with real climbing in it is the correct dose. This is your Julian Alps simulation: gradient plus altitude plus dry air.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-label">Sunday afternoon</span>
+        <span class="timeline-text">Stop at Maras salt pans on the way out, thousands of white terraced pools on a hillside that have been worked since before the Inca. Then Chinchero for the weaving cooperatives, at 3,762 m and higher than Cusco, so keep it to a walk. Back in Cusco by evening.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Best base</span>
+        <h3>Tambo del Inka, Urubamba</h3>
+        <p class="card-loc">Luxury Collection · 2,871 m</p>
+        <p>A Marriott Luxury Collection property on the river with the best pool in the valley and its own private rail platform for the Machu Picchu train. The most comfortable recovery base and the easiest logistics if you add Machu Picchu on.</p>
+        <p class="card-note">The heated indoor and outdoor pool is genuinely useful after a 20 km valley run.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Most beautiful</span>
+        <h3>Sol y Luna</h3>
+        <p class="card-loc">Relais &amp; Châteaux · Urubamba</p>
+        <p>Individual casitas in gardens under the mountains, a working equestrian centre, and a foundation school it funds. The most charming place to stay in the valley and the food is excellent. Book well ahead in August.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Design led</span>
+        <h3>Explora Valle Sagrado</h3>
+        <p class="card-loc">Urubamba · former hacienda</p>
+        <p>Built around daily guided exploration, with a large stable of hiking and biking routes leaving from the property. If you would rather have someone else design the vertical day, this is the one. All inclusive structure.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Logistics</span>
+        <h3>Getting there and back</h3>
+        <p class="card-loc">Cusco to Urubamba · 75 min</p>
+        <p>Hire a private driver for the whole weekend, roughly S/ 400 to 600, and you get support on the long run as part of the deal. Far better value than three separate transfers and it means someone is carrying your fluids on Saturday.</p>
+        <p class="card-note">Agree the Saturday meeting point in Ollantaytambo before you start running. Mobile signal is patchy along the valley floor.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">If you add it</span>
+        <h3>Machu Picchu</h3>
+        <p class="card-loc">Train from Ollantaytambo</p>
+        <p>Tickets are timed, capped, and sell out weeks ahead in August. Buy before you fly. The train leaves from Ollantaytambo, which is exactly where Saturday's long run finishes, so the sequencing is natural. Machu Picchu sits at 2,430 m, lower than Cusco, so it is an easy day physically.</p>
+        <p class="card-note">Huayna Picchu and Huchuy Picchu are separate ticketed add ons with their own quotas. Decide when you book.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">In city training</span>
+        <h3>Sacsayhuamán loop, Cusco</h3>
+        <p class="card-loc">Above San Blas · 3,600 to 3,800 m</p>
+        <p>Your midweek run. Climb out of San Blas to the Sacsayhuamán ruins, then follow the rolling dirt out past Q'enqo, Puka Pukara, and Tambomachay. Grass, dirt, and eucalyptus at 3,700 m with the city below you. Fifteen to twenty km out and back is available. Go at first light and take the site entry ticket if you plan to run through the ruins themselves.</p>
+        <p class="card-note">This is the hardest running you will do all trip. Save it for day seven or later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05 · FITNESS
+     ═══════════════════════════════════════ -->
+<section id="move">
+  <div class="sec-head fade-in">
+    <div class="sec-num">05 · The Work</div>
+    <h2>Gyms, pilates, and studios</h2>
+    <p>Cusco is a small city and the boutique fitness scene reflects that. There is one proper full service gym, a handful of good yoga studios, and a pilates and pole scene that runs largely through Instagram rather than websites. Here is the honest picture.</p>
+  </div>
+
+  <div class="grid-subhead">Gyms</div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Best equipped</span>
+        <h3>Bodytech Cusco</h3>
+        <p class="card-loc">Real Plaza, Av. Collasuyo</p>
+        <p>Peru's serious gym chain, inside the Real Plaza mall. Full free weight floor, machines, cardio, and group classes. Day passes and weekly passes are both available at the desk. Ask for a <em>pase diario</em>. The only place in Cusco with a genuinely complete strength setup.</p>
+        <p class="card-note">Bring your passport. They usually want ID to issue a visitor pass.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Convenient</span>
+        <h3>Hotel gyms in the centre</h3>
+        <p class="card-loc">Various · centre</p>
+        <p>Several centre hotels sell gym access to non guests, and the JW Marriott and Palacio del Inka both have decent small gyms. Worth asking if you want ten minutes of walking rather than a ride out to Collasuyo on a recovery day.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Track</span>
+        <h3>Estadio Garcilaso</h3>
+        <p class="card-loc">Wanchaq · 3,350 m</p>
+        <p>The city stadium has a track that is sometimes open to the public in the mornings. If you want a controlled surface for strides or a tempo effort without cobbles or traffic, ask at the gate. Access is inconsistent, so treat it as a bonus rather than a plan.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Flat running</span>
+        <h3>Avenida de la Cultura corridor</h3>
+        <p class="card-loc">Wanchaq · flattest ground in Cusco</p>
+        <p>The historic centre is all gradient and cobbles, which is fine for hiking and hostile for easy running. The Wanchaq side of the city along Avenida de la Cultura is the flattest continuous ground you will find. Use it for the day three shakeout and every recovery run after.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-subhead">Pilates and reformer</div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">How to find it</span>
+        <h3>Reformer studios, Cusco</h3>
+        <p class="card-loc">Small scene · Instagram led</p>
+        <p>Reformer pilates exists in Cusco but the studios are small, they open and close, and most have no website. Search Instagram for #pilatescusco and #reformercusco and message the active accounts directly. Ask <em>¿Tienen clases sueltas para visitantes?</em> and expect a reply within a few hours. Drop in rates run around S/ 50 to 70.</p>
+        <p class="card-note">Do this in your first two days while you are not training anyway. It takes a day to sort out.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Reliable alternative</span>
+        <h3>Yoga studios in San Blas</h3>
+        <p class="card-loc">San Blas and centre</p>
+        <p>The yoga scene is much more established than pilates here. Healing House and Yoga Sanasana both run regular drop in classes in English and Spanish, and several San Blas studios do the same. Restorative and yin classes are the right choice in the acclimatization window when nothing strenuous is allowed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-subhead">Pole</div>
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Realistic view</span>
+        <h3>Pole in Cusco</h3>
+        <p class="card-loc">Very small scene</p>
+        <p>Be prepared for this one to come up empty. Cusco is small and pole here is a handful of instructors rather than studios. Search Instagram for #polecusco and #poledanceperu, and note that the Peruvian pole community is centred on Lima and Arequipa. If nothing surfaces in the first few days, the aerial and silks classes attached to the San Blas yoga studios are the closest substitute for the same overhead strength work.</p>
+        <p class="card-note">Worth asking directly at Healing House. The movement community here is small and everyone knows everyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06 · SHOPPING
+     ═══════════════════════════════════════ -->
+<section id="shop">
+  <div class="sec-head fade-in">
+    <div class="sec-num">06 · The Haul</div>
+    <h2>Alpaca, vicuña, and San Blas workshops</h2>
+    <p>Cusco is one of the best shopping cities in South America for one specific reason: this is where the world's finest animal fibre comes from. Understanding the difference between what is sold to tourists and what is actually good is the whole game.</p>
+  </div>
+
+  <div class="validated-banner fade-in">The fibre ladder, cheapest to finest: acrylic blend, alpaca, baby alpaca, royal alpaca, vicuña. If a "baby alpaca" scarf costs S/ 30 in a market it is acrylic. Real baby alpaca starts around S/ 250. Vicuña is the finest natural fibre in the world and a scarf runs into four figures in dollars.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">The best</span>
+        <h3>Kuna by Alpaca 111</h3>
+        <p class="card-loc">Plaza Regocijo and Plaza de Armas</p>
+        <p>The premium end of Peruvian fibre, properly graded and honestly labelled. Baby alpaca, royal alpaca, and a vicuña range. Modern cuts rather than tourist knitwear. Prices are fixed and fair and the quality genuinely justifies them. Start here to calibrate your eye before you look anywhere else.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Premium</span>
+        <h3>Sol Alpaca</h3>
+        <p class="card-loc">Plaza Nazarenas and Santa Teresa</p>
+        <p>The Michell group's retail arm, and the main competitor to Kuna at the top end. Excellent coats and throws, a strong vicuña selection, and a beautiful shop at Plaza Nazarenas. Slightly more classic styling than Kuna.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Design</span>
+        <h3>Hilo</h3>
+        <p class="card-loc">Carmen Alto 260, San Blas</p>
+        <p>A small designer studio making limited run and bespoke pieces from Peruvian fibre. Contemporary, sculptural, and nothing like anything else in the city. If you want one piece that nobody else will have, this is where it comes from.</p>
+        <p class="card-note">They will make to measure if you commission early in the stay.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Silver</span>
+        <h3>Ilaria</h3>
+        <p class="card-loc">Centre and hotel boutiques</p>
+        <p>Peru's high end silver house. Serious jewellery and objects, properly made, with the pricing that implies. The reliable answer for a gift that needs to look like one.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Workshops</span>
+        <h3>San Blas artisan quarter</h3>
+        <p class="card-loc">Cuesta San Blas and Hatunrumiyoc</p>
+        <p>The historic craft barrio, and the workshops here are the real thing rather than resellers. The Mendívil workshop is known worldwide for its elongated neck saints, and the Mérida family have been making expressive ceramic figures for generations. Both sell from the studios where the work is made. Walk the hill slowly and go into everything.</p>
+        <p class="card-note">Steep cobbled climb. Save it until you are acclimatized.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Textiles</span>
+        <h3>Centro de Textiles Tradicionales del Cusco</h3>
+        <p class="card-loc">Av. El Sol 603</p>
+        <p>A nonprofit that works with weaving communities across the region to keep traditional techniques alive. Weavers demonstrate on site, every piece is documented with the community and the weaver who made it, and the money goes back. The most meaningful textile purchase available in Cusco and the quality is exceptional.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Volume</span>
+        <h3>Centro Artesanal Cusco</h3>
+        <p class="card-loc">Av. El Sol, south end</p>
+        <p>Hundreds of stalls under one roof at the bottom of El Sol. This is where you buy the gifts, the blankets, the hats, and the things you are happy to haggle over. Mostly blends rather than pure fibre, and priced accordingly. Bargaining is expected and should be friendly. Start at about sixty percent.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-slate">Mall</span>
+        <h3>Real Plaza Cusco</h3>
+        <p class="card-loc">Av. Collasuyo</p>
+        <p>The modern mall. International chains, a cinema, a food court, Plaza Vea supermarket, and Bodytech. Not why you came, but the practical answer for anything you forgot to pack, including cold weather layers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07 · GROCERIES
+     ═══════════════════════════════════════ -->
+<section id="grocery">
+  <div class="sec-head fade-in">
+    <div class="sec-num">07 · The Pantry</div>
+    <h2>Groceries and stocking the kitchen</h2>
+    <p>Cusco has no Whole Foods equivalent, but it has something arguably better: a supermarket that carries the imported and premium range, and a produce market economy that is cheaper and fresher than anything at home. Use both.</p>
+  </div>
+
+  <div class="validated-banner fade-in">Superfoods are local staples here, not health shop items. Quinoa, maca, chia, lucuma, cacao, and purple corn are all sold by weight in the markets for a fraction of the price you have ever paid. Buy them here.</div>
+
+  <div class="card-grid fade-in">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">High end pick</span>
+        <h3>Orion Supermarket</h3>
+        <p class="card-loc">Av. El Sol, central</p>
+        <p>The premium supermarket in Cusco and the one to make your default. Orion carries the imported goods, the better wine and spirits, decent cheese and deli, quality produce, and the international brands the other chains do not stock. Central, walkable from most of the historic centre, and open late. If you only use one supermarket for the twelve days, use this one.</p>
+        <p class="card-note">Best stocked for imported breakfast items, nut butters, and anything you would miss from home.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Largest</span>
+        <h3>Plaza Vea</h3>
+        <p class="card-loc">Real Plaza, Av. Collasuyo</p>
+        <p>The big national chain, inside the mall. Widest overall range and the best prices on bulk items like the large water jugs you will get through at this altitude. Less refined than Orion but it has everything. Pair it with a Bodytech session so you only make the trip once.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Convenience</span>
+        <h3>Mega and La Canasta</h3>
+        <p class="card-loc">Scattered through the centre</p>
+        <p>Smaller neighbourhood supermarkets dotted around the historic centre. Good for the 8 PM top up on water, fruit, and breakfast things without a ride. Limited range, entirely adequate for the daily gaps.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-gold">Produce</span>
+        <h3>Mercado San Pedro</h3>
+        <p class="card-loc">Thupac Amaru · 15 min walk</p>
+        <p>The main market and the best value in the city by an enormous margin. Fruit, vegetables, cheese, bread, grains by weight, and the juice stalls. Go before 9 AM for the best of it. Bring small notes, bring a bag, and keep your phone in a zipped pocket. Ask for <em>yapa</em> and they will throw in a little extra.</p>
+        <p class="card-note">Buy your quinoa, maca, and cacao here by weight rather than packaged in a supermarket. It is a tenth of the price.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-emerald">Local market</span>
+        <h3>Mercado de Wanchaq</h3>
+        <p class="card-loc">Wanchaq district</p>
+        <p>Where Cusqueños actually shop, with far fewer tourists than San Pedro and slightly better prices. Same produce, calmer experience, and a good cooked food section upstairs. Worth the extra ten minutes if San Pedro feels like too much.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-rust">Run nutrition</span>
+        <h3>Fuelling at altitude</h3>
+        <p class="card-loc">What to pack, what to buy</p>
+        <p>Bring your own gels and electrolyte tabs. Specialty sports nutrition barely exists in Cusco and what does exist is expensive and limited. Locally, buy bananas, dates, and coca tea from any market, and Gatorade from any supermarket. You need noticeably more electrolyte here than at sea level because the air is bone dry and you lose fluid through breathing without noticing it.</p>
+        <p class="card-note">InkaFarma and MiFarma stock rehydration salts (<em>sales de rehidratación</em>) cheaply. Useful after every long effort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<footer>
+  <div class="footer-sig">Sleep high. Run the valley. Race Slovenia in the autumn.</div>
+  <div class="footer-sub">
+    Built for Christopher &amp; Brooke · Cusco field guide · August 16 to August 28, 2026<br>
+    Peruvian sol (S/), roughly 3.7 to the dollar. Confirm reservations, drop in passes, and Machu Picchu tickets before you fly.
+  </div>
+  <span class="footer-verified">✓ Altitude protocol for a 1 AM arrival at 3,399 m · Sacred Valley block built for the Julian Alps 50K</span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero background subtle zoom
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  requestAnimationFrame(() => heroBg.classList.add('loaded'));
+}
+</script>
+</body>
+</html>

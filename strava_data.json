@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T15:18:59.253198Z",
+  "generated": "2026-08-18T16:17:15.043855Z",
   "ctl": 68.1,
   "atl": 46.1,
   "tsb": 16.0,
@@ -350,15 +350,6 @@
       "duration": 6440,
       "avg_hr": 96,
       "max_hr": 118
-    },
-    {
-      "name": "Recovery: Elevation Day",
-      "date": "2026-06-19",
-      "miles": 8.02,
-      "elevation_feet": 1316,
-      "duration": 5977,
-      "avg_hr": 133,
-      "max_hr": 153
     }
   ]
 }

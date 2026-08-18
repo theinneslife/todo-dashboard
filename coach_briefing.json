@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-17",
-  "generated_at": "2026-08-17T17:19:39.552557Z",
+  "generated": "2026-08-18",
+  "generated_at": "2026-08-18T17:19:41.564132Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 only (130–140 bpm based on your recent avg HR). You're 32 days out, in taper, and your resting HR is 4 bpm above your 30-day average—a signal you're still carrying fatigue from the peak block. Monday is a recovery day anyway; use it to flush legs and keep the aerobic engine ticking without adding stress. If you feel flat, dial it back to 5 miles or skip the run entirely. You don't lose fitness in taper; you lose it by not respecting what your body is telling you."
+      "message": "You're 31 days out and sitting at 55/100 recovery—moderate, not ideal. Your resting HR is 11 bpm above your 30-day average (76 vs 65.3), which signals incomplete recovery from last week's 31.1 miles. Today is a Tuesday quality slot, but the data doesn't support a hard interval session. Run 45–50 min easy in Z2 (roughly 140–150 bpm based on your recent efforts), focusing on smooth movement and terrain familiarity—think rolling alpine-grade gravel or trail. This keeps the taper momentum without digging deeper into your deficit."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're sleeping 90 minutes less than your monthly average (6.9h vs. 8.05h), which means your glycogen stores and nervous system recovery are already compromised. Prioritize carbs today: aim for 6–8 grams per kilogram of body weight spread across meals and snacks. Post-run, hit 30–40g carbs + 15–20g protein within 30 minutes to cap glycogen depletion. With travel and a packed schedule, this is non-negotiable in taper—you can't manufacture sleep overnight, but you can feed recovery aggressively."
+      "message": "Last night you slept 10.4 hours at 90.8% efficiency—excellent—but that sleep depth suggests your body was playing catch-up. Prioritize carbs heavily today: aim for 6–8g per kg bodyweight, distributed across 4–5 meals. With elevated resting HR and moderate recovery, glycogen replenishment is your front-line recovery tool. Breakfast should include oats, toast, or rice; post-run, hit 40–60g fast carbs + 15–20g protein within 30 minutes. Skip fasted running in taper; you need calories to stabilize HR and adaptation."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your recovery score is 52/100 (moderate) and sleep efficiency is solid at 93.3%, but absolute volume is the problem—you need 8+ hours tonight, not 6.9. This is your #1 lever right now. No screens after 21:00, cool room (≤65°F if possible), black-out shades. You've got 32 days to race; four weeks of genuine sleep debt will cost you more than any missed interval session. Treat sleep like a workout you can't skip."
+      "message": "Your 10.4-hour sleep night was a response to accumulated fatigue—trust it, but don't expect it every night. Tonight, aim for 8.5–9 hours with consistency. Your 30-day sleep average of 8.11 hours is solid for an ultra runner, but the spike tells me you've been underdoing recovery sleep during build. No HRV data available, so use resting HR as your check: if it stays above 72 bpm tomorrow morning, extend the easy day further. Add 10 min of mobility (hip flexors, calves, TFL) before bed—alpine 50K terrain demands ankle stability under fatigue."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper paranoia is real, and it hits executives hard because you're used to controlling outcomes through work. You've already earned your fitness—31 miles last week in a build/peak block proves that. The next 32 days are about arriving at Kranjska Gora fresh, not fit. Your job is to execute the taper structure (easy volume, no hard intensity), sleep, fuel, and trust the work. The Alps demand mental clarity on vert; you'll get that by resting now, not by squeezing in extra miles."
+      "message": "You're in the taper sweet spot: enough time to sharpen, not enough to spiral into doubt. Your last hard effort (12.04 mi / 1457 ft vert at 132 bpm) was solid, and it proves you're fit. The next 31 days are about protecting that fitness and arriving at Kranjska Gora eager, not exhausted. Today's easy run is non-negotiable—the race will demand every ounce of specificity and durability you've built. Lean into the taper's quiet rhythm. Your day job travels will disrupt sleep and stress; use that as fuel for discipline, not an excuse to overtrain."
     }
   ]
 }

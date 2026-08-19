@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crested Butte Arrival Guide · Oct 9 to 17, 2026</title>
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --ink:#23201a;
+    --muted:#6f685b;
+    --gold:#c08a2d;
+    --gold-soft:#e7cf9a;
+    --pine:#2f4a3a;
+    --pine-soft:#5c7a63;
+    --aspen:#d9a521;
+    --card:#fffdf8;
+    --line:#e4dccb;
+    --shadow:0 10px 30px rgba(40,34,22,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif}
+  a{color:var(--pine);text-decoration:none}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:78vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(20,28,22,.15) 0%,rgba(20,28,22,.55) 60%,rgba(20,28,22,.85) 100%),
+      radial-gradient(120% 90% at 70% 15%,#6d8a63 0%,#3c5240 45%,#243528 100%);
+    color:#fff;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 40% at 20% 80%,rgba(217,165,33,.35),transparent 60%),
+      radial-gradient(50% 40% at 85% 70%,rgba(192,138,45,.30),transparent 60%);
+    mix-blend-mode:screen;
+  }
+  .hero-inner{position:relative;z-index:2;padding:48px 7vw 56px;max-width:1100px}
+  .kicker{
+    text-transform:uppercase;letter-spacing:.32em;font-size:12px;
+    color:var(--gold-soft);font-weight:700;margin-bottom:18px
+  }
+  .hero h1{font-size:clamp(44px,8vw,88px);line-height:.98;margin:0 0 14px;font-weight:400;letter-spacing:-1px}
+  .hero .sub{font-size:clamp(17px,2.4vw,22px);max-width:640px;color:#f3ead6;font-family:Georgia,serif;font-style:italic}
+  .hero .stay{margin-top:22px;font-size:15px;letter-spacing:.02em;color:#e9e2d2}
+  .hero .stay b{color:#fff}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(246,241,231,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;gap:6px;overflow-x:auto;padding:12px 5vw;max-width:1200px;margin:0 auto}
+  nav a{
+    white-space:nowrap;font-size:13px;letter-spacing:.04em;color:var(--muted);
+    padding:7px 12px;border-radius:999px;font-weight:600;text-transform:uppercase
+  }
+  nav a:hover{background:var(--gold-soft);color:var(--ink)}
+
+  /* LAYOUT */
+  main{max-width:1120px;margin:0 auto;padding:0 5vw}
+  section{padding:64px 0 28px;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .sec-num{color:var(--gold);font-weight:700;letter-spacing:.28em;font-size:12px;text-transform:uppercase}
+  h2{font-size:clamp(28px,4.4vw,42px);margin:8px 0 6px;font-weight:400;letter-spacing:-.5px}
+  .lead{color:var(--muted);max-width:680px;font-size:16.5px;margin:0 0 28px}
+
+  /* LIST rows (restaurants, coffee) */
+  .rows{display:flex;flex-direction:column;gap:2px}
+  .row{
+    display:grid;grid-template-columns:30px 1fr auto;gap:16px;align-items:baseline;
+    padding:14px 16px;border-radius:12px;transition:background .15s
+  }
+  .row:hover{background:var(--card);box-shadow:var(--shadow)}
+  .row .rk{color:var(--gold);font-weight:700;font-family:Georgia,serif}
+  .row .name{font-weight:700;font-size:16px}
+  .row .desc{color:var(--muted);font-weight:400;font-size:14.5px}
+  .pill{
+    justify-self:end;font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+    background:var(--pine);color:#fff;padding:4px 10px;border-radius:999px;font-weight:600;white-space:nowrap
+  }
+  .pill.alt{background:var(--gold)}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--pine-soft);margin:26px 0 8px;font-size:18px}
+
+  /* CARDS */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px;
+    box-shadow:var(--shadow);transition:transform .16s,box-shadow .16s
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(40,34,22,.16)}
+  .tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700}
+  .card h3{margin:8px 0 4px;font-size:19px;font-weight:400}
+  .card .loc{font-size:13px;color:var(--pine-soft);font-weight:600;margin-bottom:8px}
+  .card p{margin:0;font-size:14.5px;color:var(--muted)}
+
+  /* FACT GRID */
+  .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-bottom:26px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px}
+  .fact .t{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:700}
+  .fact .v{font-size:22px;font-family:Georgia,serif;margin-top:6px}
+  .fact .n{font-size:13px;color:var(--muted);margin-top:4px}
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+  .panel h3{margin:0 0 10px;font-size:20px;font-weight:400}
+  .panel p{margin:0 0 10px;font-size:14.5px;color:var(--muted)}
+  .panel p:last-child{margin-bottom:0}
+  .panel b{color:var(--ink)}
+
+  /* TIMELINE / highlight */
+  .highlight{
+    background:linear-gradient(160deg,#2f4a3a 0%,#22362a 100%);color:#f2ecdd;
+    border-radius:22px;padding:34px 34px 30px;box-shadow:var(--shadow);margin-bottom:8px
+  }
+  .highlight h3{color:#fff;font-size:24px;font-weight:400;margin:0 0 4px}
+  .highlight .sm{color:var(--gold-soft);text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:700}
+  .tl{display:flex;flex-direction:column;gap:0;margin-top:18px}
+  .tl .item{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+  .tl .item:first-child{border-top:none}
+  .tl .when{color:var(--gold-soft);font-weight:700;font-size:14px}
+  .tl .what b{color:#fff}
+  .tl .what{font-size:14.5px;color:#e4dcc9}
+
+  .note{background:#fbf4e2;border:1px solid var(--gold-soft);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#5b4a25;margin:20px 0}
+  .note b{color:#6b4e16}
+
+  footer{background:#22362a;color:#e8e0cf;text-align:center;padding:54px 6vw 46px;margin-top:10px}
+  footer .sign{font-family:Georgia,serif;font-style:italic;font-size:26px;color:#fff;margin-bottom:10px}
+  footer p{max-width:620px;margin:0 auto 8px;font-size:13.5px;color:#c8c0ad}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr}
+    .row{grid-template-columns:24px 1fr;gap:10px}
+    .pill{grid-column:2;justify-self:start;margin-top:2px}
+    .tl .item{grid-template-columns:1fr}
+    .tl .when{margin-bottom:2px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Guide · October 9 to 17, 2026</div>
+    <h1>Crested Butte</h1>
+    <p class="sub">The last great Colorado ski town. Golden aspens, one perfect main street, and thin mountain air at 8,900 feet.</p>
+    <p class="stay"><b>Base:</b> Crested Butte &amp; the Gunnison Valley &nbsp;·&nbsp; <b>Fly:</b> Gunnison (GUC), landing 8:35pm &nbsp;·&nbsp; <b>Wheels:</b> rental car &nbsp;·&nbsp; <b>Mode:</b> off the clock</p>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#arrival">Arrival</a>
+    <a href="#basics">Basics</a>
+    <a href="#food">Food</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#weekend">Kebler Pass</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ARRIVAL -->
+  <section id="arrival">
+    <div class="sec-num">Tonight &amp; tomorrow</div>
+    <h2>Landing at 8:35pm</h2>
+    <p class="lead">You land in Gunnison after dark. The drive north to Crested Butte is about 30 miles up Highway 135, roughly 35 to 40 minutes. It is the only paved road in, well graded and easy, but it is high country at night. Watch for deer and elk on the road, keep your speed sensible, and do not count on gas or food past Gunnison once you are rolling.</p>
+    <div class="highlight">
+      <div class="sm">The plan</div>
+      <h3>Ease in, hydrate, sleep high</h3>
+      <div class="tl">
+        <div class="item">
+          <div class="when">Tonight</div>
+          <div class="what"><b>Grab food in Gunnison before the drive</b> if the flight ran long, or push straight through and land something simple in town. <b>The Eldo</b> on Elk Avenue keeps a late kitchen and pours the local Irwin beer. If you would rather stay in, <b>Secret Stash</b> pizza travels well back to the room.</div>
+        </div>
+        <div class="item">
+          <div class="when">Before bed</div>
+          <div class="what"><b>Water, not altitude heroics.</b> You just climbed to nearly 9,000 feet. Drink more than feels necessary, go easy on the wine tonight, and expect the first night of sleep to be light. That is normal at elevation.</div>
+        </div>
+        <div class="item">
+          <div class="when">Tomorrow (Sat, Oct 10)</div>
+          <div class="what"><b>Slow morning, big coffee, short shakeout.</b> Coffee at <b>Camp 4</b> or <b>Rumors</b>, breakfast at <b>McGill's</b>, then an easy walk or gentle jog on the <b>Woods Walk</b> to open the legs and see the aspens. Save any real effort for day three.</div>
+        </div>
+        <div class="item">
+          <div class="when">First big dinner</div>
+          <div class="what"><b>Soupçon.</b> Book it now. It is the town's fine dining anchor, tiny, and fills fast in fall. Aim for a night early enough in the trip to lock the reservation.</div>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>Season check:</b> Mid October is the quiet shoulder. Peak aspen color usually runs late September into early October, so you may catch the tail of it rather than the peak, and some summer operations start winding down. The town stays open and easy, just calmer. Kebler Pass road typically closes to through traffic around mid October, so drive it early in your stay.</div>
+  </section>
+
+  <!-- BASICS -->
+  <section id="basics">
+    <div class="sec-num">Section 01</div>
+    <h2>Travel basics</h2>
+    <p class="lead">A US mountain town, so no currency math. The real variables here are altitude, weather, and driving. Plan around those three and everything else is easy.</p>
+    <div class="facts">
+      <div class="fact"><div class="t">Crested Butte</div><div class="v">8,909 ft</div><div class="n">2,715 m. Real altitude. Ease in.</div></div>
+      <div class="fact"><div class="t">Gunnison / GUC</div><div class="v">7,680 ft</div><div class="n">Airport and valley floor</div></div>
+      <div class="fact"><div class="t">GUC to town</div><div class="v">~30 mi</div><div class="n">35 to 40 min on Hwy 135</div></div>
+      <div class="fact"><div class="t">October highs</div><div class="v">50s to 60s</div><div class="n">Lows below freezing at night</div></div>
+      <div class="fact"><div class="t">Precip</div><div class="v">Dry</div><div class="n">Rare rain, first snow possible</div></div>
+      <div class="fact"><div class="t">Getting around</div><div class="v">Your car</div><div class="n">Free Mountain Express shuttle in town</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel">
+        <h3>Altitude, honestly</h3>
+        <p>Crested Butte sits near 8,900 feet and the trails climb from there. Coming from sea level, expect a lighter first sleep, a faster heart rate, and quicker dehydration. <b>Hydrate hard, hold back on alcohol the first night or two, and do not chase efforts early.</b> Most people feel normal by day three.</p>
+        <p>For you specifically, this is a recovery window, not a training block. Three weeks out from the Julian Alps 50K, the smart play is easy miles and letting the altitude do the intensity for you.</p>
+      </div>
+      <div class="panel">
+        <h3>Driving &amp; weather</h3>
+        <p>Highway 135 is the only paved route in and it is well maintained. October can deliver the first snow of the season, so <b>keep an eye on the forecast and check cotrip.org before mountain drives.</b> Kebler Pass and other dirt roads can close on short notice once weather turns.</p>
+        <p>Layer for a 30 to 40 degree swing between a frosty dawn and a bluebird afternoon. Sun is intense at this elevation even when it is cold.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD -->
+  <section id="food">
+    <div class="sec-num">Section 02</div>
+    <h2>Where to eat</h2>
+    <p class="lead">Crested Butte punches well above its size on food. It is a small town, so this is the real working list rather than a padded twenty. Booking is easy in the shoulder season, but Soupçon still sells out, so lock the fine dining nights first.</p>
+
+    <div class="tier">World-class</div>
+    <div class="rows">
+      <div class="row"><span class="rk">1</span><span><span class="name">Soupçon</span> · <span class="desc">The town's fine dining icon. French-rooted tasting in a tiny converted cabin. Elk, lamb, seasonal fish. Reserve well ahead.</span></span><span class="pill">Elk Ave alley</span></div>
+      <div class="row"><span class="rk">2</span><span><span class="name">Elk Ave Prime</span> · <span class="desc">Polished steakhouse. Prime cuts, deep wine list, the go-to for a proper night out on the main street.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">3</span><span><span class="name">The Slogar</span> · <span class="desc">Institution. Family-style skillet-fried chicken with all the fixings in a restored Victorian. Order it and don't overthink.</span></span><span class="pill">2nd &amp; Whiterock</span></div>
+    </div>
+
+    <div class="tier">Standout</div>
+    <div class="rows">
+      <div class="row"><span class="rk">4</span><span><span class="name">The Wooden Nickel</span> · <span class="desc">The town's longtime steakhouse and saloon. Reliable, warm, great bar. A CB classic since 1972.</span></span><span class="pill alt">Elk Ave</span></div>
+      <div class="row"><span class="rk">5</span><span><span class="name">The Breadery</span> · <span class="desc">Scratch sourdough, wood-fired pizza and vegetable-forward plates. Best bread in the valley.</span></span><span class="pill alt">Downtown</span></div>
+      <div class="row"><span class="rk">6</span><span><span class="name">Sunflower</span> · <span class="desc">Local, seasonal, ingredient-driven. The quiet gem for a relaxed, thoughtful dinner.</span></span><span class="pill alt">Downtown</span></div>
+      <div class="row"><span class="rk">7</span><span><span class="name">Ryce</span> · <span class="desc">Vietnamese noodle bowls, Thai curry, fried rice. The change of pace after a run of red meat.</span></span><span class="pill alt">Elk Ave</span></div>
+    </div>
+
+    <div class="tier">Casual &amp; local</div>
+    <div class="rows">
+      <div class="row"><span class="rk">8</span><span><span class="name">Secret Stash</span> · <span class="desc">Legendary gourmet pizza. Truffle oil, curry, pickled onions, oddball genius. Great takeout for a night in with Brooke.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">9</span><span><span class="name">Teocalli Tamale</span> · <span class="desc">Fast, honest burritos, tacos and tamales. Perfect post-run refuel.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">10</span><span><span class="name">McGill's</span> · <span class="desc">The breakfast standard. Creative twists, open early, breakfast served all day.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">11</span><span><span class="name">Butte Bagels</span> · <span class="desc">Fresh daily bagels with inventive builds. Grab-and-go before a trail morning.</span></span><span class="pill">Downtown</span></div>
+      <div class="row"><span class="rk">12</span><span><span class="name">The Eldo</span> · <span class="desc">Craft brewery, taproom and pub since 1996. Late kitchen, live music, good landing spot tonight.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">13</span><span><span class="name">Public House</span> · <span class="desc">Where to drink the locally brewed Irwin beer on tap. Solid pub food, easy vibe.</span></span><span class="pill">Elk Ave</span></div>
+    </div>
+  </section>
+
+  <!-- COFFEE -->
+  <section id="coffee">
+    <div class="sec-num">Section 03</div>
+    <h2>Coffee</h2>
+    <p class="lead">Small town, genuinely good coffee. Camp 4 is the local institution, roasted by hand right here. Between these five you are covered for every morning of the trip.</p>
+    <div class="rows">
+      <div class="row"><span class="rk">1</span><span><span class="name">Camp 4 Coffee</span> · <span class="desc">The CB original. Hand-roasted small batches, the Sledgehammer house blend, iconic bottlecap-covered shack.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">2</span><span><span class="name">Rumors Coffee &amp; Tea House</span> · <span class="desc">Cozy downtown espresso bar next to Townie Books. The one to linger in on a slow morning.</span></span><span class="pill">Elk Ave</span></div>
+      <div class="row"><span class="rk">3</span><span><span class="name">A Daily Dose</span> · <span class="desc">All-organic, air-roasted coffee plus a real breakfast menu. Clean and dialed.</span></span><span class="pill">Downtown</span></div>
+      <div class="row"><span class="rk">4</span><span><span class="name">First Ascent Coffee</span> · <span class="desc">Local specialty roaster. Excellent whole bean to take home, plus their clever instant for trail mornings.</span></span><span class="pill">Roaster</span></div>
+      <div class="row"><span class="rk">5</span><span><span class="name">Coffee Lab</span> · <span class="desc">Quality locally roasted coffee up at Mt. Crested Butte. Handy on a mountain-side day.</span></span><span class="pill">Mountain</span></div>
+    </div>
+  </section>
+
+  <!-- RUNNING -->
+  <section id="running">
+    <div class="sec-num">Section 04</div>
+    <h2>Running the valley</h2>
+    <p class="lead">This is a recovery-and-easy-miles trip, not a training block. You will be about three weeks past the Julian Alps 50K, and you are starting from near 9,000 feet. Let the altitude supply the stimulus and keep the effort conversational. Scenic over hard, every single day.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Signature easy</span>
+        <h3>Woods Walk</h3>
+        <p class="loc">Trailhead 0.2 mi up Kebler Pass Rd</p>
+        <p>The prettiest, gentlest run in town. Opens through an aspen grove to a grand vista of Peanut Lake, Gothic Mountain and the Butte. Golden in October. Perfect shakeout the morning after you land.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Easy to moderate</span>
+        <h3>Lower Loop</h3>
+        <p class="loc">Starts at west end of Teocalli Ave</p>
+        <p>Five miles of wide, forgiving trail that drops into public land fast and runs out toward Oh-Be-Joyful Creek. Connects to the Woods Walk if you want to link them. Aspen tunnels the whole way.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Rest-day flat</span>
+        <h3>Peanut Lake Road</h3>
+        <p class="loc">Northwest edge of town</p>
+        <p>Dirt road with barely any grade and huge mountain views. The one to run when you want to move without asking anything of the legs. Great with Brooke on foot too.</p>
+      </div>
+    </div>
+    <div class="note"><b>Altitude rules for the week:</b> Keep the first two runs short and truly easy. Hydrate before and after every effort, add electrolytes, and expect paces to feel slower at this elevation, which is exactly right. If you feel a headache or poor sleep the first nights, that is the altitude, so hold the intensity down until it clears.</div>
+  </section>
+
+  <!-- AFTERNOONS -->
+  <section id="afternoons">
+    <div class="sec-num">Section 05</div>
+    <h2>Afternoons</h2>
+    <p class="lead">One good thing per afternoon, building from easy to memorable. October is quiet and cozy, so lean into slow, scenic and local rather than crowded and scheduled.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Golden hour</span>
+        <h3>Aspen leaf-peeping walk</h3>
+        <p class="loc">Woods Walk &amp; Lower Loop</p>
+        <p>Time a late-afternoon amble for when the light goes warm on the aspens. If you catch the tail of peak color, this is the postcard.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Stroll &amp; browse</span>
+        <h3>Elk Avenue &amp; the galleries</h3>
+        <p class="loc">Historic downtown</p>
+        <p>No chains allowed on the main street. Wander the boutiques, galleries and the Paragon artist cooperative, then land somewhere for a drink.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Music</span>
+        <h3>Fall Folk series</h3>
+        <p class="loc">In town · Oct 21</p>
+        <p>Free, intimate folk performances running through the month. A warm, low-key way to spend an evening if the dates line up with your stay.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Signature local</span>
+        <h3>Three Lakes Trail hike</h3>
+        <p class="loc">Near Kebler Pass</p>
+        <p>A 4.5-mile loop to three alpine lakes wrapped in tall orange aspens in October. The one non-obvious outing that rewards the drive.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Soak</span>
+        <h3>Hot springs day</h3>
+        <p class="loc">Gunnison valley area</p>
+        <p>Cap a cold-morning run with a soak. Ask locally for current open springs and pools in the valley, since hours shift in shoulder season.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Small history</span>
+        <h3>Crested Butte Museum</h3>
+        <p class="loc">Elk Ave</p>
+        <p>A quick, characterful stop on the town's mining and wildflower past. Good rainy or first-snow afternoon backup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKEND -->
+  <section id="weekend">
+    <div class="sec-num">Section 06</div>
+    <h2>The drive: Kebler Pass</h2>
+    <p class="lead">Your one essential outing. Kebler Pass runs 30 miles of dirt west from Crested Butte through the Gunnison National Forest, home to one of the largest aspen groves on earth, over 45,000 trees on a single root system. In October it turns solid gold.</p>
+    <div class="highlight">
+      <div class="sm">Do it early in the trip</div>
+      <h3>A golden half-day loop</h3>
+      <div class="tl">
+        <div class="item">
+          <div class="when">Timing</div>
+          <div class="what"><b>Go in the first days of your stay.</b> The gravel road typically closes to through traffic around mid October once weather turns, and you land Oct 9. Aim for a clear, dry morning.</div>
+        </div>
+        <div class="item">
+          <div class="when">The drive</div>
+          <div class="what"><b>Roughly 2 hours one way at 30 mph on gravel.</b> Grades are gentle, but it is a dirt mountain road. Any rental handles it in dry conditions. Turn back if it is snowing or muddy.</div>
+        </div>
+        <div class="item">
+          <div class="when">Run it</div>
+          <div class="what"><b>Park at a pullout near Lost Lake or Horse Ranch Park and run an easy out-and-back through the aspens.</b> Keep it short and conversational given the elevation. This is the scenic long-run substitute: golden tunnels, no traffic, all effort optional.</div>
+        </div>
+        <div class="item">
+          <div class="when">Back in town</div>
+          <div class="what"><b>Reward with lunch on Elk Avenue.</b> Teocalli Tamale or a Secret Stash slice, then coffee at Camp 4.</div>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>Luxe side option:</b> Brooke's Four Seasons booking (Oct 13 to 17) is not in Crested Butte, there is no Four Seasons here. The nearest is <b>Four Seasons Vail</b>, about a 3.5 to 4 hour drive north and east. If the plan is a couple of nights of full luxury there, treat Vail as a separate luxe leg rather than a day trip, and keep Crested Butte the mountain-town base.</div>
+  </section>
+
+  <!-- SHOPPING -->
+  <section id="shopping">
+    <div class="sec-num">Section 07</div>
+    <h2>Shopping</h2>
+    <p class="lead">No luxury golden mile here, and that is the charm. Chains are banned on Elk Avenue, so shopping means independent boutiques, galleries and genuinely good outdoor gear. This is where CB beats the resort towns.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Art</span>
+        <h3>Paragon Gallery</h3>
+        <p class="loc">Elk Ave · est. 1971</p>
+        <p>Artist-run cooperative of local makers in a historic converted town hall. The place for an original piece to take home.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Home &amp; gifts</span>
+        <h3>Casa Bella</h3>
+        <p class="loc">Elk Ave</p>
+        <p>Home, kitchen and bath with a strong Colorado-made selection: candles, soaps, ceramics. Good for a considered gift.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Outdoor</span>
+        <h3>CB Mountain Outfitters</h3>
+        <p class="loc">Elk Ave</p>
+        <p>The one-stop for quality outdoor gear and layers. Handy if October throws colder weather than you packed for.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Books</span>
+        <h3>Townie Books</h3>
+        <p class="loc">Elk Ave, beside Rumors</p>
+        <p>Excellent independent bookstore paired with the coffee house next door. Easy hour on a cold afternoon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FITNESS -->
+  <section id="fitness">
+    <div class="sec-num">Section 08</div>
+    <h2>Fitness &amp; recovery</h2>
+    <p class="lead">Better options than a town this size has any right to, and the good news is nearly every studio and gym in the valley takes drop-ins. Call or message ahead to confirm shoulder-season class times.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Reformer &amp; hot yoga</span>
+        <h3>EPIC Fitness</h3>
+        <p class="loc">Crested Butte</p>
+        <p>Reformer pilates and hot yoga with classes through the week. The closest thing to a full boutique studio experience in town.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Pilates &amp; yoga</span>
+        <h3>CB Power Yoga</h3>
+        <p class="loc">Crested Butte</p>
+        <p>Yoga, sculpt, pilates, barre and breathwork. Great for active recovery and mobility between easy runs.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Classical pilates</span>
+        <h3>CB Movement Center</h3>
+        <p class="loc">Crested Butte</p>
+        <p>Private and group instruction in classical and contemporary pilates plus restorative and Iyengar yoga. Best for focused one-on-one work.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Full gym · day pass</span>
+        <h3>The Gym at Riverland</h3>
+        <p class="loc">Riverland, south of town</p>
+        <p>The valley's proper fitness center with drop-in daily rates. Weights, cardio, space to move. Your default for a lifting day.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Strength</span>
+        <h3>Crested Butte CrossFit</h3>
+        <p class="loc">Crested Butte</p>
+        <p>Drop-ins welcome for classes. Good option if you want a structured session with coaching.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Infrared · 24/7</span>
+        <h3>HOTWORX</h3>
+        <p class="loc">Crested Butte</p>
+        <p>Infrared sauna workouts with round-the-clock access. Useful for a quiet, low-impact sweat on a rest day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROCERIES -->
+  <section id="groceries">
+    <div class="sec-num">Section 09</div>
+    <h2>Groceries &amp; cooking in</h2>
+    <p class="lead">For the cook-for-two nights with Brooke. Clark's is the quality anchor in town, with a real butcher and organic selection. Stock up early in the trip so you are not making the Gunnison run more than once.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Premium grocer</span>
+        <h3>Clark's Market</h3>
+        <p class="loc">500 Belleview Ave, Crested Butte</p>
+        <p>The curated, Whole-Foods-style option in town: organic and local foods, a strong butcher shop, house-made items. Your main stop for cooking-in nights.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Bread &amp; provisions</span>
+        <h3>The Breadery</h3>
+        <p class="loc">Downtown</p>
+        <p>Scratch sourdough and baked goods to round out a home dinner. Grab a loaf when you are already downtown for coffee.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Big shop</span>
+        <h3>City Market · Gunnison</h3>
+        <p class="loc">Gunnison, ~30 mi south</p>
+        <p>The full-size supermarket for a large or budget stock-up. Combine it with your airport arrival or a Gunnison day so you drive it once.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sign">In constant motion.</div>
+  <p>Built for Christopher · Crested Butte, October 9 to 17, 2026. Off the clock, easy miles, golden aspens.</p>
+  <p>Shoulder-season hours, road openings and reservations shift fast in the mountains. Confirm on arrival, and drive Kebler Pass early before it closes for the season.</p>
+</footer>
+
+</body>
+</html>

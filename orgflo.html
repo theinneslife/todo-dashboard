@@ -984,7 +984,7 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v1.3.1</span>
+      <span class="version-badge">v1.4</span>
     </div>
 
 
@@ -1022,7 +1022,7 @@
     <section class="section">
       <div class="section-label">
         Org chart
-        <span class="hint">Sized for 234 SDRs at 10 completed demos per SDR per month. One manager per 8 SDRs, one director per roughly 50 SDRs</span>
+        <span class="hint">240 SDR seats covering the 234 requirement at 10 completed demos per SDR per month, with every team full at 8. One director per roughly 50 SDRs</span>
       </div>
 
       <div class="card">
@@ -1176,7 +1176,7 @@
 <script>
 /* ============================================================
    OrgFlo — SDR organization designer
-   v1.3.1
+   v1.4
 
    Persistence pattern:
    the plan lives in orgflo_data.json in the repo, and edits are
@@ -2080,7 +2080,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v1.3.1';
+      data.appVersion = 'v1.4';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.

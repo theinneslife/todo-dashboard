@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "appVersion": "v1.3.1",
+  "appVersion": "v1.4",
   "updatedAt": "2026-08-19T00:00:00Z",
   "calculator": {
     "scheduledPerSDR": 13,
@@ -17,7 +17,7 @@
     {
       "id": "note2",
       "title": "Span of control",
-      "body": "One manager per 8 SDRs, not 10, to leave real room for coaching. One director per roughly 50 SDRs. At 234 SDRs that lands at 30 managers and 5 directors."
+      "body": "One manager per 8 SDRs, not 10, to leave real room for coaching. One director per roughly 50 SDRs. That lands at 30 managers and 5 directors. The org is seeded at 240 seats rather than 234 so every team is full at 8, which covers the 234 requirement with 6 seats of headroom."
     },
     {
       "id": "note3",
@@ -173,23 +173,23 @@
         "id": "n18",
         "role": "Director of SDR #1",
         "person": "",
-        "notes": "Spans 46 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "notes": "Spans 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n7",
             "role": "SDR Manager 1.1",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n6",
                 "role": "SDR Team 1.1",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -198,16 +198,16 @@
             "id": "n9",
             "role": "SDR Manager 1.2",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n8",
                 "role": "SDR Team 1.2",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -290,23 +290,23 @@
         "id": "n31",
         "role": "Director of SDR #2",
         "person": "",
-        "notes": "Spans 47 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "notes": "Spans 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n20",
             "role": "SDR Manager 2.1",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n19",
                 "role": "SDR Team 2.1",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -407,23 +407,23 @@
         "id": "n44",
         "role": "Director of SDR #3",
         "person": "",
-        "notes": "Spans 47 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "notes": "Spans 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n33",
             "role": "SDR Manager 3.1",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n32",
                 "role": "SDR Team 3.1",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -524,23 +524,23 @@
         "id": "n57",
         "role": "Director of SDR #4",
         "person": "",
-        "notes": "Spans 47 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "notes": "Spans 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n46",
             "role": "SDR Manager 4.1",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n45",
                 "role": "SDR Team 4.1",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -641,23 +641,23 @@
         "id": "n70",
         "role": "Director of SDR #5",
         "person": "",
-        "notes": "Spans 47 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "notes": "Spans 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n59",
             "role": "SDR Manager 5.1",
             "person": "",
-            "notes": "Manages a team of 7 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "notes": "Manages a team of 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n58",
                 "role": "SDR Team 5.1",
                 "person": "",
-                "notes": "Represents 7 SDRs. Expand into slots to name individuals.",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -794,7 +794,7 @@
       "priority": 5,
       "role": "SDR Wave 1, 35 SDRs, then plus 30 per week",
       "reportsTo": "SDR Managers",
-      "trigger": "Weekly until target headcount, 234 at full productivity",
+      "trigger": "Weekly until target headcount, 240 seats at full productivity, covering the 234 requirement",
       "status": "Open"
     },
     {

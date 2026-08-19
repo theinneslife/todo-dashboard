@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T15:19:17.141967Z",
+  "generated": "2026-08-19T16:17:04.753738Z",
   "ctl": 66.4,
   "atl": 39.5,
   "tsb": 21.9,
@@ -341,15 +341,6 @@
       "duration": 17148,
       "avg_hr": 133,
       "max_hr": 163
-    },
-    {
-      "name": "Morning Hike",
-      "date": "2026-06-20",
-      "miles": 3.45,
-      "elevation_feet": 1093,
-      "duration": 6440,
-      "avg_hr": 96,
-      "max_hr": 118
     }
   ]
 }

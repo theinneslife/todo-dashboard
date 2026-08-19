@@ -4153,5 +4153,35 @@
     },
     "delegation_notes": null,
     "pinned": false
+  },
+  {
+    "id": "0ffc21cb-7700-4896-b004-dae8ad7cbd8d",
+    "title": "Org chart for inside sales",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-19T16:00:17.780Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-08-19T16:00:17.780Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
   }
 ]

@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-19",
-  "generated_at": "2026-08-19T14:05:00Z",
+  "generated_at": "2026-08-19T17:19:46.873255Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills: 8 mi + 1,800 ft (Heavy Descending)",
-      "message": "Calendar has your biggest vert day of Week 4 — 8 miles, ~1,800 ft. But you're in Cusco at ~11,150 ft, so throw pace out and run to HR: climbs at Zone 2 to low Zone 3 (120-145 bpm), power hike anything above 15%. Altitude will pin your HR 8-12 bpm high for the same effort, so if you're drifting past 150 on a climb, you're working too hard — hike it. The real work today is the descending: relaxed shoulders, quick light feet, let gravity do it and brake with the whole leg, not the quads. Julian Alps has long sustained drops off the ridgelines and the athletes who blow up there did it on the way down, not up. Go at first light before the Andean ceremony at 11:30."
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 only (140 bpm ceiling). Your resting HR jumped 15 bpm and recovery score is 53/100—both flags that your nervous system hasn't fully settled from last week's 31.1-mile block. Wednesday normally calls for vert work, but not today. You're 30 days out; sharpness matters less than arrival fresh. Keep it flat, conversational, dial back the perceived effort. This run is about blood flow and clearing metabolic debt, not stimulus."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Pre-run: 40-50g easy carbs 45 min out — banana, white bread with honey, or a gel with water. During: 60-80g carbs/hr and push sodium to 700-900 mg/hr, which matters more than usual because Cusco's dry high-altitude air spikes respiratory water loss and you'll dehydrate without feeling it. Drink to a schedule, not to thirst. Post-run inside 45 min: 30-40g protein plus 80-100g carbs — this is a heavy eccentric session and the repair window is real. Keep total daily carbs well above your 220g rest-day floor today."
+      "message": "You logged 9 hours of sleep at 78% efficiency—decent volume but fragmented. Pair that elevated resting HR with a deliberate carb surplus today: 6–8g/kg of body weight (assume ~150–170g for you). Emphasis on easy-to-absorb carbs (rice, pasta, oats, fruit) at lunch and dinner. Your glycogen is likely still partially depleted from the 12-miler last week; replenish now while you're in taper, not on race eve."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Heavy descending means microtrauma in the quads that peaks 24-48 hrs out. Elevate the legs 10 min post-run, then 5 min of gentle eccentric loading — slow step-downs — to accelerate the repeated-bout effect rather than avoiding the soreness. Skip aggressive foam rolling on trashed quads today; light and slow only. Sleep is the lever at altitude: target 8+ hrs, and expect fragmented sleep in Cusco. Cicciolina at 5:45 pm is fine — just get the protein in first."
+      "message": "Sleep quality is the priority this week. That 78% efficiency suggests fragmentation—check your sleep environment (cool, dark, no blue light 1 hour before bed). Aim for 8.5–9.5 hours tonight with consistency. Your elevated resting HR (81 vs. 66-day avg) suggests incomplete parasympathetic recovery; prioritize 10–15 minutes of low-intensity breathing work or restorative stretching post-run. No sauna, no ice baths—just passive recovery and nutrition."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "30 days out. This is the last heavy block before the taper, and the training you're banking at 11,000 ft in Peru will feel like a gift when you drop into Kranjska Gora at 800m. Every hard climb here is oxygen in the bank there. Rehearse it on today's descent: pick a 3-minute stretch and run it exactly like mile 40 of the race — tired legs, controlled, no hero moves. Trust the block. Then respect the taper when it comes."
+      "message": "You're in the taper gauntlet—the point where fitness plateaus and doubt creeps in. You've built the engine over 29 weeks. Today's cutback isn't loss; it's preparation. The Julian Alps 50K demands mental toughness on altitude and sparse aid; that toughness comes from arriving rested, not from squeezing one more workout. Trust the plan. Your 12-miler at 132 bpm showed good aerobic efficiency—that work is banked."
     }
   ]
 }

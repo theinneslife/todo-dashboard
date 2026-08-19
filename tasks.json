@@ -4118,7 +4118,7 @@
     "title": "Sales Hive demo",
     "description": "Prepare for and/or attend the Sales Hive demo. Ensure all necessary materials are ready.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -4132,10 +4132,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-08-19T16:00:04.447Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-08-11T23:03:23.182Z",
-    "completed_at": null,
+    "completed_at": "2026-08-19T16:00:04.447Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

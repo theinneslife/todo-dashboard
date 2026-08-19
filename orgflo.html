@@ -86,24 +86,6 @@
       letter-spacing: 0.05em;
     }
 
-    .header-nav { display: flex; gap: 0.5rem; align-items: center; }
-
-    .nav-link {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 0.4rem 0.75rem;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      transition: all 0.2s ease;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .nav-link:hover {
-      background-color: var(--bg-tertiary);
-      border-color: var(--border-accent);
-      color: var(--text-primary);
-    }
 
     .header-right { display: flex; align-items: center; gap: 0.75rem; }
 
@@ -203,153 +185,231 @@
     .btn.tiny { font-size: 0.68rem; padding: 0.2rem 0.45rem; gap: 0.25rem; }
 
     /* ============================================
-       Capacity calculator
-       ============================================ */
-    .calc-grid {
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(340px, 1.35fr);
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .calc-inputs { display: flex; flex-direction: column; gap: 0.85rem; }
-
-    .field { display: flex; flex-direction: column; gap: 0.3rem; }
-    .field label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      letter-spacing: 0.01em;
-    }
-    .field .sub { font-size: 0.66rem; color: var(--text-muted); font-weight: 500; }
-
-    input[type="number"], input[type="text"], select, textarea {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 0.82rem;
-      padding: 0.45rem 0.6rem;
-      width: 100%;
-      transition: border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 0 3px rgba(167,139,250,0.15);
-    }
-    textarea { resize: vertical; min-height: 62px; line-height: 1.45; }
-
-    .toggle-row { display: flex; gap: 0.4rem; }
-    .toggle-btn {
-      flex: 1;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-family: inherit;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.45rem 0.5rem;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-    .toggle-btn:hover { color: var(--text-primary); border-color: var(--border-accent); }
-    .toggle-btn.active {
-      background: linear-gradient(135deg, rgba(167,139,250,0.24), rgba(96,165,250,0.24));
-      border-color: rgba(167,139,250,0.6);
-      color: #c4b5fd;
-    }
-
-    .calc-output { display: flex; flex-direction: column; gap: 0.85rem; }
-
-    .headline {
-      background: linear-gradient(135deg, rgba(167,139,250,0.14), rgba(52,211,153,0.10));
-      border: 1px solid rgba(167,139,250,0.32);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.1rem;
-    }
-    .headline .cap {
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--accent-purple);
-      margin-bottom: 0.35rem;
-    }
-    .headline .num {
-      font-size: 2.6rem;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-    }
-    .headline .num small {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-left: 0.4rem;
-      letter-spacing: 0;
-    }
-    .headline .explain {
-      font-size: 0.74rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-      line-height: 1.5;
-    }
-
-    .reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-
-    .reading {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0.75rem 0.85rem;
-      position: relative;
-    }
-    .reading.active { border-color: rgba(52,211,153,0.5); background: rgba(52,211,153,0.06); }
-    .reading .rlabel {
-      font-size: 0.64rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: flex; align-items: center; gap: 0.35rem;
-      margin-bottom: 0.3rem;
-    }
-    .reading.active .rlabel { color: var(--accent-green); }
-    .reading .rnum { font-size: 1.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; }
-    .reading .rmeta { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
-    .in-use {
-      font-size: 0.56rem;
-      background: rgba(52,211,153,0.18);
-      border: 1px solid rgba(52,211,153,0.4);
-      color: var(--accent-green);
-      padding: 0.08rem 0.3rem;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
-    }
-
-    .gap-line {
-      font-size: 0.74rem;
-      color: var(--text-secondary);
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0.65rem 0.8rem;
-      line-height: 1.6;
-    }
-    .gap-line b { color: var(--text-primary); font-weight: 700; }
-    .gap-line .over  { color: var(--accent-green); font-weight: 700; }
-    .gap-line .under { color: var(--accent-orange); font-weight: 700; }
-
-    /* ============================================
        Org chart tree
        ============================================ */
     .tree-toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
 
     .tree-wrap { overflow-x: auto; padding-bottom: 0.5rem; }
+
+    /* ============================================
+       Toolbar extras
+       ============================================ */
+    .view-switch {
+      display: inline-flex;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 2px;
+      gap: 2px;
+    }
+    .switch-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .switch-btn:hover { color: var(--text-primary); }
+    .switch-btn.active {
+      background: linear-gradient(135deg, rgba(167,139,250,0.26), rgba(96,165,250,0.26));
+      color: #c4b5fd;
+    }
+
+    .toolbar-sep {
+      width: 1px;
+      align-self: stretch;
+      background: var(--border-color);
+      margin: 0 0.15rem;
+    }
+    .toolbar-label {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      align-self: center;
+    }
+    .zoom-controls { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .zoom-level {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      min-width: 3rem;
+      text-align: center;
+    }
+
+    /* ============================================
+       Traditional top down org chart
+
+       Classic centred tree: each level is a flex row, and the connector
+       lines are drawn with borders on ::before / ::after so no SVG or
+       layout measurement is needed.
+       ============================================ */
+    .otree-wrap {
+      overflow: auto;
+      padding: 1.25rem 0.5rem 0.75rem;
+      max-height: 78vh;
+    }
+    .otree-scale { display: inline-block; min-width: 100%; }
+
+    .otree ul {
+      position: relative;
+      padding-top: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      list-style: none;
+      margin: 0;
+    }
+    .otree > ul { padding-top: 0; }
+
+    .otree li {
+      position: relative;
+      padding: 22px 7px 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    /* the two halves of the horizontal connector above each node */
+    .otree li::before,
+    .otree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 1px solid var(--border-accent);
+      width: 50%;
+      height: 22px;
+    }
+    .otree li::after {
+      right: auto;
+      left: 50%;
+      border-left: 1px solid var(--border-accent);
+    }
+    /* an only child needs a straight drop, not a bracket */
+    .otree li:only-child::before,
+    .otree li:only-child::after { display: none; }
+    .otree li:only-child { padding-top: 0; }
+    /* trim the outer edges of the bracket */
+    .otree li:first-child::before,
+    .otree li:last-child::after { border: 0 none; }
+    .otree li:last-child::before {
+      border-right: 1px solid var(--border-accent);
+      border-radius: 0 6px 0 0;
+    }
+    .otree li:first-child::after { border-radius: 6px 0 0 0; }
+
+    /* the stub dropping from a parent box into its children row */
+    .otree ul ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 1px solid var(--border-accent);
+      width: 0;
+      height: 22px;
+    }
+
+    .obox-wrap { position: relative; display: inline-block; }
+
+    .obox {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 1px;
+      width: 152px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 0.5rem 0.55rem;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .obox:hover {
+      background: #1a2036;
+      border-color: var(--border-accent);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    }
+
+    .obox.k-exec     { border-top-color: var(--accent-purple); }
+    .obox.k-support  { border-top-color: var(--accent-blue); }
+    .obox.k-director { border-top-color: var(--accent-orange); }
+    .obox.k-manager  { border-top-color: var(--accent-yellow); }
+    .obox.k-team     { border-top-color: var(--accent-green); }
+    .obox.k-sdr      { border-top-color: var(--accent-pink); }
+    .obox.k-shared   { border-top-color: var(--accent-pink); }
+
+    .obox.existing {
+      border-style: dashed;
+      border-top-style: solid;
+      background: rgba(244,114,182,0.05);
+    }
+
+    .obox-role {
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+    .obox-person {
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      line-height: 1.35;
+    }
+    .obox-person.vacant { color: var(--text-muted); font-weight: 500; font-style: italic; }
+    .obox-meta {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      margin-top: 0.1rem;
+    }
+    .obox-hidden {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--accent-purple);
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+
+    /* collapse control sitting on the connector below each parent box */
+    .obox-toggle {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-accent);
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: all 0.16s ease;
+    }
+    .obox-toggle:hover {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #0a0e1a;
+    }
 
     ul.tree, ul.tree ul { list-style: none; margin: 0; padding: 0; }
 
@@ -859,14 +919,9 @@
     /* ============================================
        Responsive
        ============================================ */
-    @media (max-width: 900px) {
-      .calc-grid { grid-template-columns: 1fr; }
-    }
     @media (max-width: 640px) {
       .header { padding: 0.75rem 1rem; }
       .main { padding: 1rem; }
-      .reading-grid { grid-template-columns: 1fr; }
-      .headline .num { font-size: 2.1rem; }
       ul.tree ul { margin-left: 0.6rem; padding-left: 0.7rem; }
       li.tnode > .node-row::before { left: -0.7rem; width: 0.6rem; }
       .node-actions { opacity: 1; }
@@ -895,14 +950,9 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v1.2</span>
+      <span class="version-badge">v1.3</span>
     </div>
 
-    <nav class="header-nav">
-      <a class="nav-link" href="index.html">TaskFlo</a>
-      <a class="nav-link" href="travelflo.html">TravelFlo</a>
-      <a class="nav-link" href="athleteflo.html">AthleteFlo</a>
-    </nav>
 
     <div class="header-right">
       <button class="btn" onclick="OrgFlo.reload()" title="Reload the saved plan from the repo">Reload</button>
@@ -915,72 +965,9 @@
   <main class="main">
 
     <div class="banner" id="readOnlyBanner" style="display:none">
-      <b>Read only mode.</b> You can explore and change things on screen, but nothing will be written back to the repo.
-      Open this page with an edit token appended to the address (the same way TaskFlo and TravelFlo do it) to save your edits.
+      <b>Read only mode.</b> You can explore and change things on screen, but nothing will be written back.
+      Open this page with an edit token on the address to save your edits.
     </div>
-
-    <!-- ─── 1. CAPACITY CALCULATOR ─── -->
-    <section class="section">
-      <div class="section-label">
-        Capacity calculator
-        <span class="hint">How many SDRs the quarterly demo target implies</span>
-      </div>
-
-      <div class="card">
-        <div class="calc-grid">
-
-          <div class="calc-inputs">
-            <div class="field">
-              <label for="inpScheduled">Demos scheduled per SDR per month</label>
-              <input type="number" id="inpScheduled" min="0" step="0.5" inputmode="decimal">
-            </div>
-
-            <div class="field">
-              <label for="inpCompleted">Demos completed per SDR per month</label>
-              <input type="number" id="inpCompleted" min="0" step="0.5" inputmode="decimal">
-            </div>
-
-            <div class="field">
-              <label for="inpTarget">Quarterly demo target</label>
-              <input type="number" id="inpTarget" min="0" step="50" inputmode="numeric">
-            </div>
-
-            <div class="field">
-              <label>Target is measured on</label>
-              <div class="toggle-row">
-                <button type="button" class="toggle-btn" id="basisScheduled" onclick="OrgFlo.setBasis('scheduled')">Scheduled demos</button>
-                <button type="button" class="toggle-btn" id="basisCompleted" onclick="OrgFlo.setBasis('completed')">Completed demos</button>
-              </div>
-              <div class="sub">This picks which of the two readings drives the headline number.</div>
-            </div>
-          </div>
-
-          <div class="calc-output">
-            <div class="headline">
-              <div class="cap">SDRs required at full productivity</div>
-              <div class="num" id="outHeadline">0<small id="outHeadlineBasis"></small></div>
-              <div class="explain" id="outExplain"></div>
-            </div>
-
-            <div class="reading-grid">
-              <div class="reading" id="readScheduled">
-                <div class="rlabel">On scheduled demos <span class="in-use" style="display:none">In use</span></div>
-                <div class="rnum" id="numScheduled">0</div>
-                <div class="rmeta" id="metaScheduled"></div>
-              </div>
-              <div class="reading" id="readCompleted">
-                <div class="rlabel">On completed demos <span class="in-use" style="display:none">In use</span></div>
-                <div class="rnum" id="numCompleted">0</div>
-                <div class="rmeta" id="metaCompleted"></div>
-              </div>
-            </div>
-
-            <div class="gap-line" id="outGap"></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- ─── NOTES ─── -->
     <section class="section">
@@ -1001,17 +988,40 @@
     <section class="section">
       <div class="section-label">
         Org chart
-        <span class="hint">One manager per 8 SDRs and one director per roughly 50 SDRs</span>
+        <span class="hint">Sized for 234 SDRs at 10 completed demos per SDR per month. One manager per 8 SDRs, one director per roughly 50 SDRs</span>
       </div>
 
       <div class="card">
         <div class="tree-toolbar">
-          <button class="btn" onclick="OrgFlo.expandAll(true)">Expand all</button>
-          <button class="btn" onclick="OrgFlo.expandAll(false)">Collapse all</button>
+          <div class="view-switch">
+            <button class="switch-btn" id="viewChart" onclick="OrgFlo.setView('chart')">Org chart</button>
+            <button class="switch-btn" id="viewList" onclick="OrgFlo.setView('list')">Indented list</button>
+          </div>
+          <span class="toolbar-sep"></span>
+          <span class="toolbar-label">Show to</span>
+          <button class="btn" onclick="OrgFlo.expandToDepth(1)">Directors</button>
+          <button class="btn" onclick="OrgFlo.expandToDepth(2)">Managers</button>
+          <button class="btn" onclick="OrgFlo.expandToDepth(3)">Teams</button>
+          <span class="toolbar-sep"></span>
+          <span class="zoom-controls" id="zoomControls">
+            <span class="toolbar-label">Zoom</span>
+            <button class="btn" onclick="OrgFlo.zoom(-1)" title="Zoom out">&minus;</button>
+            <span class="zoom-level" id="zoomLevel">100%</span>
+            <button class="btn" onclick="OrgFlo.zoom(1)" title="Zoom in">+</button>
+          </span>
           <button class="btn" onclick="OrgFlo.resetChart()">Reset to seeded chart</button>
           <span class="save-status" style="border:none;padding:0.35rem 0"><span id="chartSummary"></span></span>
         </div>
-        <div class="tree-wrap">
+
+        <!-- Traditional top down org chart -->
+        <div class="otree-wrap" id="chartView">
+          <div class="otree-scale" id="otreeScale">
+            <div class="otree" id="orgTreeClassic"></div>
+          </div>
+        </div>
+
+        <!-- Indented list -->
+        <div class="tree-wrap" id="listView">
           <ul class="tree" id="orgTree"></ul>
         </div>
       </div>
@@ -1132,9 +1142,9 @@
 <script>
 /* ============================================================
    OrgFlo — SDR organization designer
-   v1.2
+   v1.3
 
-   Persistence follows the same pattern as TaskFlo and TravelFlo:
+   Persistence pattern:
    the plan lives in orgflo_data.json in the repo, and edits are
    written back through the GitHub contents API using the edit
    token supplied on the address. No browser storage is used as
@@ -1241,84 +1251,6 @@ var OrgFlo = (function () {
     var n = 0;
     walk(data.orgChart, function (node) { if (node.kind === kind) n += 1; });
     return n;
-  }
-
-  // ─── Capacity calculator ──────────────────────────────────
-  function computeCapacity() {
-    var c = data.calculator;
-    var target    = num(c.quarterlyTarget, 0);
-    var perSched  = num(c.scheduledPerSDR, 0);
-    var perComp   = num(c.completedPerSDR, 0);
-
-    function reading(perMonth) {
-      var perQuarter = perMonth * 3;
-      var required   = perQuarter > 0 ? target / perQuarter : 0;
-      return {
-        perMonth:   perMonth,
-        perQuarter: perQuarter,
-        exact:      required,
-        required:   perQuarter > 0 ? Math.ceil(required) : 0,
-        valid:      perQuarter > 0
-      };
-    }
-
-    return {
-      target:    target,
-      basis:     c.basis === 'completed' ? 'completed' : 'scheduled',
-      scheduled: reading(perSched),
-      completed: reading(perComp)
-    };
-  }
-
-  function renderCalculator() {
-    var r = computeCapacity();
-    var active = r.basis === 'completed' ? r.completed : r.scheduled;
-    var basisWord = r.basis === 'completed' ? 'completed' : 'scheduled';
-
-    $('basisScheduled').className = 'toggle-btn' + (r.basis === 'scheduled' ? ' active' : '');
-    $('basisCompleted').className = 'toggle-btn' + (r.basis === 'completed' ? ' active' : '');
-
-    $('outHeadline').innerHTML = (active.valid ? fmt(active.required) : 'n/a') +
-      '<small>SDRs</small>';
-
-    $('outExplain').innerHTML = active.valid
-      ? 'To land <b>' + fmt(r.target) + '</b> ' + basisWord + ' demos per quarter at <b>' +
-        active.perMonth + '</b> ' + basisWord + ' demos per SDR per month (<b>' + active.perQuarter +
-        '</b> per quarter), you need <b>' + fmt(active.required) + '</b> SDRs at full productivity.'
-      : 'Enter a demo rate above zero to compute the headcount.';
-
-    function paint(prefix, reading, isActive, word) {
-      $('num' + prefix).textContent = reading.valid ? fmt(reading.required) : 'n/a';
-      $('meta' + prefix).innerHTML = reading.valid
-        ? reading.perMonth + ' per month, ' + reading.perQuarter + ' per quarter. Exact: ' +
-          reading.exact.toFixed(1) + ' SDRs.'
-        : 'Set a ' + word + ' demo rate above zero.';
-      var box = $('read' + prefix);
-      box.className = 'reading' + (isActive ? ' active' : '');
-      box.querySelector('.in-use').style.display = isActive ? '' : 'none';
-    }
-
-    paint('Scheduled', r.scheduled, r.basis === 'scheduled', 'scheduled');
-    paint('Completed', r.completed, r.basis === 'completed', 'completed');
-
-    // Compare the requirement against what the chart below actually holds.
-    var seats = sdrSeats(data.orgChart);
-    var gapEl = $('outGap');
-    if (!active.valid) {
-      gapEl.innerHTML = 'The org chart below currently holds <b>' + fmt(seats) + '</b> SDR seats.';
-    } else {
-      var delta = seats - active.required;
-      var verdict;
-      if (delta === 0) {
-        verdict = 'That is <span class="over">exactly the requirement</span>.';
-      } else if (delta > 0) {
-        verdict = 'That is <span class="over">' + fmt(delta) + ' seats above</span> the requirement.';
-      } else {
-        verdict = 'That is <span class="under">' + fmt(Math.abs(delta)) + ' seats short</span> of the requirement.';
-      }
-      gapEl.innerHTML = 'The org chart below holds <b>' + fmt(seats) + '</b> SDR seats against a requirement of <b>' +
-        fmt(active.required) + '</b>. ' + verdict;
-    }
   }
 
   // ─── Org chart rendering ──────────────────────────────────
@@ -1539,9 +1471,126 @@ var OrgFlo = (function () {
     changed({ skipHiring: true, skipNotes: true });
   }
 
+  // ─── Traditional top down org chart ───────────────────────
+  // Same data and same collapse state as the indented list, drawn as a
+  // classic corporate chart: boxes on levels joined by connector lines.
+  function renderClassic() {
+    $('orgTreeClassic').innerHTML = '<ul>' + renderOBox(data.orgChart) + '</ul>';
+  }
+
+  function renderOBox(node) {
+    var kids = node.children || [];
+    var isClosed = !!collapsed[node.id];
+    var kind = node.kind || 'support';
+    var seats = sdrSeats(node);
+    var id = esc(node.id);
+
+    var meta = '';
+    if (kind === 'team' && node.headcount && !kids.length) {
+      meta = fmt(node.headcount) + ' SDRs';
+    } else if (kind === 'sdr') {
+      meta = '';
+    } else if (seats > 0) {
+      meta = fmt(seats) + ' SDRs';
+    }
+
+    var h = '';
+    h += '<li>';
+    h += '<div class="obox-wrap">';
+    h += '<div class="obox k-' + esc(kind) + (node.existing ? ' existing' : '') +
+         '" onclick="OrgFlo.openNodeModal(\'' + id + '\')" title="Click to edit this role">';
+    h += '<div class="obox-role">' + esc(node.role || 'Untitled role') + '</div>';
+    h += node.person
+      ? '<div class="obox-person">' + esc(node.person) + '</div>'
+      : '<div class="obox-person vacant">Open seat</div>';
+    if (meta) h += '<div class="obox-meta">' + meta + '</div>';
+    if (isClosed && kids.length) {
+      h += '<div class="obox-hidden">' + kids.length + ' below</div>';
+    }
+    h += '</div>';
+    if (kids.length) {
+      h += '<button class="obox-toggle" title="Fold or unfold this branch" ' +
+           'onclick="event.stopPropagation();OrgFlo.toggle(\'' + id + '\')">' +
+           (isClosed ? '+' : '&minus;') + '</button>';
+    }
+    h += '</div>';
+
+    if (kids.length && !isClosed) {
+      h += '<ul>' + kids.map(renderOBox).join('') + '</ul>';
+    }
+    h += '</li>';
+    return h;
+  }
+
+  // ─── View switching, depth and zoom ───────────────────────
+  var viewMode = 'chart';          // 'chart' = traditional, 'list' = indented
+  var zoomSteps = [50, 60, 70, 85, 100, 115, 130];
+  var zoomIdx = 4;
+
+  // The tree is centred, so once it is wider than the pane the top box sits
+  // off screen. Recentre the scroll after the layout settles.
+  function centerChart() {
+    if (viewMode !== 'chart') return;
+    var run = function () {
+      var pane = $('chartView');
+      if (!pane || !pane.clientWidth) return;
+      pane.scrollLeft = Math.max(0, (pane.scrollWidth - pane.clientWidth) / 2);
+    };
+    // Timers rather than animation frames: a page opened in a background tab
+    // never fires rAF, and the chart should already be centred when the user
+    // first looks at it. Run twice because a zoom change reflows in stages.
+    setTimeout(run, 0);
+    setTimeout(run, 140);
+  }
+
+  function setView(mode) {
+    viewMode = (mode === 'list') ? 'list' : 'chart';
+    applyView();
+    renderTree();
+    centerChart();
+  }
+
+  function applyView() {
+    var isChart = viewMode === 'chart';
+    $('chartView').style.display = isChart ? '' : 'none';
+    $('listView').style.display  = isChart ? 'none' : '';
+    $('zoomControls').style.display = isChart ? '' : 'none';
+    $('viewChart').className = 'switch-btn' + (isChart ? ' active' : '');
+    $('viewList').className  = 'switch-btn' + (isChart ? '' : ' active');
+  }
+
+  function zoom(dir) {
+    zoomIdx = Math.max(0, Math.min(zoomSteps.length - 1, zoomIdx + dir));
+    applyZoom();
+  }
+
+  function applyZoom(recenter) {
+    var pct = zoomSteps[zoomIdx];
+    // zoom reflows rather than just scaling pixels, so the scroll area
+    // stays correct at every level.
+    $('otreeScale').style.zoom = (pct / 100);
+    $('zoomLevel').textContent = pct + '%';
+    if (recenter !== false) centerChart();
+  }
+
+  // Collapse everything at or below the given depth. Depth 0 is the top role,
+  // so depth 1 shows its direct reports, depth 2 shows the managers, and so on.
+  function expandToDepth(depth) {
+    collapsed = {};
+    (function mark(node, d) {
+      var kids = node.children || [];
+      if (!kids.length) return;
+      if (d >= depth) collapsed[node.id] = true;
+      kids.forEach(function (c) { mark(c, d + 1); });
+    })(data.orgChart, 0);
+    renderTree();
+    centerChart();
+  }
+
   function renderTree() {
     var root = $('orgTree');
     root.innerHTML = renderNode(data.orgChart);
+    renderClassic();
 
     var seats = sdrSeats(data.orgChart);
     $('chartSummary').textContent =
@@ -1865,7 +1914,6 @@ var OrgFlo = (function () {
   // ─── Render everything + mark dirty ───────────────────────
   function renderAll(opts) {
     opts = opts || {};
-    renderCalculator();
     renderTree();
     if (!opts.skipNotes)  renderNotes();
     if (!opts.skipRoles)  renderRoles();
@@ -1998,7 +2046,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v1.2';
+      data.appVersion = 'v1.3';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.
@@ -2050,47 +2098,20 @@ var OrgFlo = (function () {
     }
   }
 
-  // ─── Calculator wiring ────────────────────────────────────
-  function setBasis(basis) {
-    data.calculator.basis = basis;
-    changed({ skipHiring: true });
-  }
-
-  function bindCalcInput(id, key, fallback) {
-    var el = $(id);
-    el.addEventListener('input', function () {
-      data.calculator[key] = num(el.value, fallback);
-      dirty = true;
-      renderCalculator();   // recompute live while typing
-      scheduleSave();
-    });
-  }
-
-  function fillCalcInputs() {
-    $('inpScheduled').value = data.calculator.scheduledPerSDR;
-    $('inpCompleted').value = data.calculator.completedPerSDR;
-    $('inpTarget').value    = data.calculator.quarterlyTarget;
-  }
-
   // ─── Boot ─────────────────────────────────────────────────
   async function init() {
     githubToken = getGithubToken();
     if (!githubToken) $('readOnlyBanner').style.display = '';
 
-    // Carry the edit token across the Flo family so navigation keeps edit rights.
-    if (githubToken) {
-      Array.prototype.forEach.call(document.querySelectorAll('.header-nav a.nav-link'), function (a) {
-        a.href = a.getAttribute('href') + '?token=' + encodeURIComponent(githubToken);
-      });
-    }
 
     await load(true);
     if (!data) return;
 
-    fillCalcInputs();
-    bindCalcInput('inpScheduled', 'scheduledPerSDR', 13);
-    bindCalcInput('inpCompleted', 'completedPerSDR', 10);
-    bindCalcInput('inpTarget',    'quarterlyTarget', 7000);
+    // Open on the traditional chart, folded to the leadership layer so it
+    // reads as a presentable one screen chart rather than 30 boxes wide.
+    applyView();
+    applyZoom(false);
+    expandToDepth(1);
 
     $('mKind').addEventListener('change', syncHeadcountField);
 
@@ -2120,8 +2141,10 @@ var OrgFlo = (function () {
 
   // ─── Public surface ───────────────────────────────────────
   return {
-    setBasis: setBasis,
     toggle: toggle,
+    setView: setView,
+    zoom: zoom,
+    expandToDepth: expandToDepth,
     expandAll: expandAll,
     addChild: addChild,
     removeNode: removeNode,

@@ -257,7 +257,7 @@
       {
         "id": "n38",
         "role": "Director of SDR #3",
-        "person": "Persistence Test",
+        "person": "",
         "notes": "Spans roughly 50 SDRs across 5 teams",
         "kind": "director",
         "children": [
@@ -461,7 +461,7 @@
       "role": "Head of Inside Sales",
       "reportsTo": "COO",
       "trigger": "Hire first. This person builds the org",
-      "status": "Hired"
+      "status": "Open"
     },
     {
       "id": "h2",

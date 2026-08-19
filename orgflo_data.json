@@ -1,82 +1,113 @@
 {
-  "schemaVersion": 1,
-  "appVersion": "v1.0",
+  "schemaVersion": 2,
+  "appVersion": "v1.1",
   "updatedAt": "2026-08-19T00:00:00Z",
   "calculator": {
     "scheduledPerSDR": 13,
     "completedPerSDR": 10,
     "quarterlyTarget": 7000,
-    "basis": "scheduled"
+    "basis": "completed"
   },
+  "notes": [
+    {
+      "id": "note1",
+      "title": "Operating philosophy",
+      "body": "This is a coaching first org. Leaders spend their time coaching: team meetings, 1:1s, reviewing calls and emails, and giving real time feedback. Managers and directors must have serious hands on SDR experience, know how to coach, and have been coached themselves. We deliberately avoid an org bogged down in tools training and low value meetings."
+    },
+    {
+      "id": "note2",
+      "title": "Span of control",
+      "body": "One manager per 8 SDRs, not 10, to leave real room for coaching. One director per roughly 50 SDRs. At roughly 233 SDRs that lands at about 29 managers and 5 directors."
+    },
+    {
+      "id": "note3",
+      "title": "Messaging is owned by Product Marketing",
+      "body": "Product Marketing already provides messaging and content, so messaging is owned by PMM and not by this org. Enablement operationalizes what PMM produces into rep ready sequences and talk tracks."
+    },
+    {
+      "id": "note4",
+      "title": "Enablement stays lean",
+      "body": "Enablement is deliberately a single role, scoped so it does not duplicate Product Marketing or the managers. It is measured on ramp to productivity, not on the number of training sessions run."
+    },
+    {
+      "id": "note5",
+      "title": "Existing shared functions",
+      "body": "Rev Ops, Sales Recruiter and Talent Partner, and Content and Messaging already exist on the current team. They support this org on a dotted line and are not net new hires here."
+    }
+  ],
   "orgChart": {
-    "id": "n50",
+    "id": "n69",
     "role": "Head of Inside Sales (VP)",
     "person": "",
-    "notes": "Builds the organization. Reports to the COO",
+    "notes": "Builds the organization. Reports to the COO. Sets a coaching first standard for every leader in the org.",
     "kind": "exec",
     "children": [
       {
-        "id": "n5",
-        "role": "Support and Infrastructure",
+        "id": "n4",
+        "role": "Existing shared functions",
         "person": "",
-        "notes": "Shared services that make the floor work",
-        "kind": "support",
+        "notes": "Dotted line partners that already exist on the current team. None of these are net new hires for this org.",
+        "kind": "shared",
+        "existing": true,
         "children": [
           {
             "id": "n1",
             "role": "Sales / Rev Ops Analyst",
             "person": "",
-            "notes": "Reporting, tooling, dialer and CRM backbone",
-            "kind": "support",
+            "notes": "Already exists. Reporting, tooling, dialer and CRM backbone. Supports this org on a dotted line.",
+            "kind": "shared",
+            "existing": true,
             "children": []
           },
           {
             "id": "n2",
-            "role": "SDR Enablement and Training Manager",
+            "role": "Sales Recruiter / Talent Partner",
             "person": "",
-            "notes": "Onboarding curriculum, certification, ramp tracking",
-            "kind": "support",
+            "notes": "Already exists. Runs the candidate pipeline that feeds each SDR wave.",
+            "kind": "shared",
+            "existing": true,
             "children": []
           },
           {
             "id": "n3",
-            "role": "Sales Recruiter / Talent Partner",
+            "role": "Product Marketing (messaging and content)",
             "person": "",
-            "notes": "Owns the candidate pipeline for every SDR wave",
-            "kind": "support",
-            "children": []
-          },
-          {
-            "id": "n4",
-            "role": "Content / Messaging Specialist",
-            "person": "",
-            "notes": "Placeholder. Added once the floor passes roughly 100 SDRs",
-            "kind": "support",
+            "notes": "Already exists. PMM owns messaging and content. This org does not build a content or messaging function. Enablement operationalizes what PMM produces.",
+            "kind": "shared",
+            "existing": true,
             "children": []
           }
         ]
       },
       {
-        "id": "n16",
+        "id": "n5",
+        "role": "SDR Enablement Lead",
+        "person": "",
+        "notes": "Net new hire, deliberately a single role. Remit: new hire onboarding and ramp certification, which is critical at wave hiring velocity. Building the coaching infrastructure, call scoring rubrics and playbooks, and training the managers to coach, the coach the coach work. Owning the SDR tool stack so reps and managers do not carry tool training. Operationalizing Product Marketing's messaging into rep ready sequences and talk tracks. Measured on ramp to productivity, not on the number of training sessions run.",
+        "kind": "support",
+        "children": []
+      },
+      {
+        "id": "n18",
         "role": "Director of SDR #1",
         "person": "",
-        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "notes": "Spans roughly 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
             "id": "n7",
             "role": "SDR Manager 1.1",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n6",
                 "role": "SDR Team 1.1",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -85,16 +116,16 @@
             "id": "n9",
             "role": "SDR Manager 1.2",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n8",
                 "role": "SDR Team 1.2",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -103,16 +134,16 @@
             "id": "n11",
             "role": "SDR Manager 1.3",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n10",
                 "role": "SDR Team 1.3",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -121,16 +152,16 @@
             "id": "n13",
             "role": "SDR Manager 1.4",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n12",
                 "role": "SDR Team 1.4",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -139,16 +170,34 @@
             "id": "n15",
             "role": "SDR Manager 1.5",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n14",
                 "role": "SDR Team 1.5",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n17",
+            "role": "SDR Manager 1.6",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n16",
+                "role": "SDR Team 1.6",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -156,98 +205,116 @@
         ]
       },
       {
-        "id": "n27",
+        "id": "n31",
         "role": "Director of SDR #2",
         "person": "",
-        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "notes": "Spans roughly 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
-            "id": "n18",
+            "id": "n20",
             "role": "SDR Manager 2.1",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n17",
-                "role": "SDR Team 2.1",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n20",
-            "role": "SDR Manager 2.2",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n19",
-                "role": "SDR Team 2.2",
+                "role": "SDR Team 2.1",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n22",
-            "role": "SDR Manager 2.3",
+            "role": "SDR Manager 2.2",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n21",
-                "role": "SDR Team 2.3",
+                "role": "SDR Team 2.2",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n24",
-            "role": "SDR Manager 2.4",
+            "role": "SDR Manager 2.3",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n23",
-                "role": "SDR Team 2.4",
+                "role": "SDR Team 2.3",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n26",
-            "role": "SDR Manager 2.5",
+            "role": "SDR Manager 2.4",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n25",
+                "role": "SDR Team 2.4",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n28",
+            "role": "SDR Manager 2.5",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n27",
                 "role": "SDR Team 2.5",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n30",
+            "role": "SDR Manager 2.6",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n29",
+                "role": "SDR Team 2.6",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -255,98 +322,116 @@
         ]
       },
       {
-        "id": "n38",
+        "id": "n44",
         "role": "Director of SDR #3",
         "person": "",
-        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "notes": "Spans roughly 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
-            "id": "n29",
+            "id": "n33",
             "role": "SDR Manager 3.1",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n28",
-                "role": "SDR Team 3.1",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n31",
-            "role": "SDR Manager 3.2",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n30",
-                "role": "SDR Team 3.2",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n33",
-            "role": "SDR Manager 3.3",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n32",
-                "role": "SDR Team 3.3",
+                "role": "SDR Team 3.1",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n35",
-            "role": "SDR Manager 3.4",
+            "role": "SDR Manager 3.2",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n34",
-                "role": "SDR Team 3.4",
+                "role": "SDR Team 3.2",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n37",
-            "role": "SDR Manager 3.5",
+            "role": "SDR Manager 3.3",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n36",
+                "role": "SDR Team 3.3",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n39",
+            "role": "SDR Manager 3.4",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n38",
+                "role": "SDR Team 3.4",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n41",
+            "role": "SDR Manager 3.5",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n40",
                 "role": "SDR Team 3.5",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n43",
+            "role": "SDR Manager 3.6",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n42",
+                "role": "SDR Team 3.6",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -354,98 +439,215 @@
         ]
       },
       {
-        "id": "n49",
+        "id": "n57",
         "role": "Director of SDR #4",
         "person": "",
-        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "notes": "Spans roughly 48 SDRs across 6 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
         "kind": "director",
         "children": [
           {
-            "id": "n40",
+            "id": "n46",
             "role": "SDR Manager 4.1",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n39",
-                "role": "SDR Team 4.1",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n42",
-            "role": "SDR Manager 4.2",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n41",
-                "role": "SDR Team 4.2",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n44",
-            "role": "SDR Manager 4.3",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
-            "kind": "manager",
-            "children": [
-              {
-                "id": "n43",
-                "role": "SDR Team 4.3",
-                "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
-                "kind": "team",
-                "headcount": 10,
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "n46",
-            "role": "SDR Manager 4.4",
-            "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n45",
-                "role": "SDR Team 4.4",
+                "role": "SDR Team 4.1",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
                 "children": []
               }
             ]
           },
           {
             "id": "n48",
-            "role": "SDR Manager 4.5",
+            "role": "SDR Manager 4.2",
             "person": "",
-            "notes": "Manages roughly 10 SDRs",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
             "kind": "manager",
             "children": [
               {
                 "id": "n47",
+                "role": "SDR Team 4.2",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n50",
+            "role": "SDR Manager 4.3",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n49",
+                "role": "SDR Team 4.3",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n52",
+            "role": "SDR Manager 4.4",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n51",
+                "role": "SDR Team 4.4",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n54",
+            "role": "SDR Manager 4.5",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n53",
                 "role": "SDR Team 4.5",
                 "person": "",
-                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
                 "kind": "team",
-                "headcount": 10,
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n56",
+            "role": "SDR Manager 4.6",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n55",
+                "role": "SDR Team 4.6",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "n68",
+        "role": "Director of SDR #5",
+        "person": "",
+        "notes": "Spans roughly 40 SDRs across 5 teams. Coaching first: team meetings, 1:1s, call and email reviews.",
+        "kind": "director",
+        "children": [
+          {
+            "id": "n59",
+            "role": "SDR Manager 5.1",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n58",
+                "role": "SDR Team 5.1",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n61",
+            "role": "SDR Manager 5.2",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n60",
+                "role": "SDR Team 5.2",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n63",
+            "role": "SDR Manager 5.3",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n62",
+                "role": "SDR Team 5.3",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n65",
+            "role": "SDR Manager 5.4",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n64",
+                "role": "SDR Team 5.4",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n67",
+            "role": "SDR Manager 5.5",
+            "person": "",
+            "notes": "Manages 8 SDRs. Must have real SDR experience, know how to coach, and have been coached.",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n66",
+                "role": "SDR Team 5.5",
+                "person": "",
+                "notes": "Represents 8 SDRs. Expand into slots to name individuals.",
+                "kind": "team",
+                "headcount": 8,
                 "children": []
               }
             ]
@@ -466,82 +668,51 @@
     {
       "id": "h2",
       "priority": 2,
-      "role": "Sales / Rev Ops Analyst",
+      "role": "SDR Enablement Lead",
       "reportsTo": "Head of Inside Sales",
-      "trigger": "Before mass SDR hiring. Reporting and tooling backbone",
+      "trigger": "Before the first wave. Owns onboarding, ramp, coach the coach, the tool stack, and operationalizing PMM content",
       "status": "Open"
     },
     {
       "id": "h3",
       "priority": 3,
-      "role": "SDR Enablement and Training Manager",
+      "role": "Director of SDR #1",
       "reportsTo": "Head of Inside Sales",
-      "trigger": "Before first SDR wave. Onboarding at scale",
+      "trigger": "With wave one",
       "status": "Open"
     },
     {
       "id": "h4",
       "priority": 4,
-      "role": "Sales Recruiter / Talent Partner",
-      "reportsTo": "Head of Inside Sales",
-      "trigger": "Before first SDR wave. Fills the pipeline",
+      "role": "First SDR Managers, one per 8 SDRs",
+      "reportsTo": "Director of SDR #1",
+      "trigger": "Ahead of each wave. Must have real SDR and coaching experience",
       "status": "Open"
     },
     {
       "id": "h5",
       "priority": 5,
-      "role": "Director of SDR #1",
-      "reportsTo": "Head of Inside Sales",
-      "trigger": "With the first SDR wave",
+      "role": "SDR Wave 1, 35 SDRs, then plus 30 per week",
+      "reportsTo": "SDR Managers",
+      "trigger": "Weekly until target headcount, roughly 233 at full productivity",
       "status": "Open"
     },
     {
       "id": "h6",
       "priority": 6,
-      "role": "SDR Managers, first 3 to 4",
-      "reportsTo": "Director of SDR #1",
-      "trigger": "One per roughly 10 SDRs, ahead of each wave",
+      "role": "Directors #2 to #5",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "Added as headcount passes roughly 50, 100, 150 and 200",
       "status": "Open"
     },
     {
       "id": "h7",
       "priority": 7,
-      "role": "SDR Wave 1, 35 SDRs",
-      "reportsTo": "SDR Managers",
-      "trigger": "Launch, the week of go live",
-      "status": "Open"
-    },
-    {
-      "id": "h8",
-      "priority": 8,
-      "role": "SDR Waves 2 and beyond, plus 30 per week",
-      "reportsTo": "SDR Managers",
-      "trigger": "Weekly until target headcount",
-      "status": "Open"
-    },
-    {
-      "id": "h9",
-      "priority": 9,
-      "role": "Directors #2 to #4",
-      "reportsTo": "Head of Inside Sales",
-      "trigger": "Added as SDR count passes roughly 50, 100 and 150",
-      "status": "Open"
-    },
-    {
-      "id": "h10",
-      "priority": 10,
       "role": "Additional Managers",
       "reportsTo": "Directors of SDR",
-      "trigger": "One added per roughly 10 new SDRs",
-      "status": "Open"
-    },
-    {
-      "id": "h11",
-      "priority": 11,
-      "role": "Content / Messaging Specialist and second Enablement hire",
-      "reportsTo": "Head of Inside Sales",
-      "trigger": "As the floor scales past roughly 100 SDRs",
+      "trigger": "One added per 8 new SDRs",
       "status": "Open"
     }
-  ]
+  ],
+  "hiringNote": "Rev Ops, Sales Recruiter, and Content / Messaging already exist on the current team and are not new hires here. Product Marketing owns messaging and content, so this org does not hire for it."
 }

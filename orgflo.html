@@ -480,6 +480,140 @@
     }
     @media (hover: none) { .note-actions { opacity: 1; } }
 
+    /* ============================================
+       Role definitions
+       ============================================ */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 0.85rem;
+      align-items: start;
+    }
+
+    .role-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--accent-purple);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.18s ease;
+    }
+    .role-card { position: relative; }
+    .role-card:hover { border-color: var(--border-accent); border-left-color: var(--accent-purple); }
+    .role-card:hover .role-actions { opacity: 1; pointer-events: auto; }
+
+    /* Roles that already exist elsewhere are context, not new hires. */
+    .role-card.context {
+      border-style: dashed;
+      border-left-color: var(--accent-pink);
+      background: rgba(244,114,182,0.045);
+    }
+
+    .role-head { display: flex; align-items: center; gap: 0.5rem; }
+
+    .role-title {
+      flex: 1;
+      background: none;
+      border: none;
+      border-bottom: 1px solid transparent;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      padding: 0.1rem 0;
+      border-radius: 0;
+    }
+    .role-title:focus { outline: none; border-bottom-color: var(--accent-purple); box-shadow: none; }
+
+    /* Float the actions over the top right so they never squeeze the title
+       input, which otherwise gets crushed to a few characters. */
+    .role-actions {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.55rem;
+      display: flex;
+      gap: 0.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.2rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+      z-index: 2;
+    }
+    /* Without hover there is nothing to reveal them, so keep them in flow
+       on their own line instead of covering the title. */
+    @media (hover: none) {
+      .role-head { flex-wrap: wrap; }
+      .role-actions {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    .resp-list { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    .resp-row { display: flex; align-items: flex-start; gap: 0.5rem; }
+    .resp-row:hover .resp-del { opacity: 1; }
+
+    .resp-dot {
+      color: var(--accent-purple);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .role-card.context .resp-dot { color: var(--accent-pink); }
+
+    .resp-text {
+      flex: 1;
+      background: none;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.76rem;
+      line-height: 1.55;
+      padding: 0.15rem 0.3rem;
+      resize: none;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .resp-text:focus {
+      background: var(--bg-card);
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px rgba(167,139,250,0.12);
+    }
+
+    .resp-del {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.72rem;
+      line-height: 1;
+      padding: 0.3rem 0.2rem;
+      opacity: 0;
+      transition: opacity 0.18s ease, color 0.15s ease;
+      flex-shrink: 0;
+    }
+    .resp-del:hover { color: var(--accent-red); }
+    @media (hover: none) { .resp-del { opacity: 1; } }
+
     .hiring-note {
       margin-top: 0.9rem;
       display: flex;
@@ -761,7 +895,7 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v1.1</span>
+      <span class="version-badge">v1.2</span>
     </div>
 
     <nav class="header-nav">
@@ -883,6 +1017,22 @@
       </div>
     </section>
 
+    <!-- ─── ROLE DEFINITIONS ─── -->
+    <section class="section">
+      <div class="section-label">
+        Role definitions
+        <span class="hint">What each role owns. Click any line to edit it</span>
+      </div>
+
+      <div class="card">
+        <div class="tree-toolbar">
+          <button class="btn primary" onclick="OrgFlo.addRole()">Add role</button>
+          <span class="save-status" style="border:none;padding:0.35rem 0"><span id="rolesSummary"></span></span>
+        </div>
+        <div class="roles-grid" id="rolesGrid"></div>
+      </div>
+    </section>
+
     <!-- ─── 3. HIRING LIST ─── -->
     <section class="section">
       <div class="section-label">
@@ -982,7 +1132,7 @@
 <script>
 /* ============================================================
    OrgFlo — SDR organization designer
-   v1.1
+   v1.2
 
    Persistence follows the same pattern as TaskFlo and TravelFlo:
    the plan lives in orgflo_data.json in the repo, and edits are
@@ -1243,6 +1393,145 @@ var OrgFlo = (function () {
     if (i < 0 || j < 0 || j >= list.length) return;
     var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
     changed({ skipHiring: true });
+  }
+
+  // ─── Role definitions ─────────────────────────────────────
+  // Each card is a role: an editable title plus a list of editable
+  // responsibility lines. Roles flagged as context already exist
+  // elsewhere in the business and are not hires for this org.
+  function autoGrow(el) {
+    el.style.height = 'auto';
+    // These textareas are border-box, so scrollHeight covers content plus
+    // padding but not the border. Add the border back or every line sits a
+    // couple of pixels short and clips its last row of text.
+    var border = el.offsetHeight - el.clientHeight;
+    el.style.height = (el.scrollHeight + border) + 'px';
+  }
+
+  function growAllResp() {
+    Array.prototype.forEach.call(document.querySelectorAll('.resp-text'), autoGrow);
+  }
+
+  function renderRoles() {
+    var grid = $('rolesGrid');
+    var roles = data.roleDefinitions || [];
+
+    grid.innerHTML = roles.map(function (r) {
+      var lines = (r.responsibilities || []).map(function (text, i) {
+        return '<div class="resp-row">' +
+          '<span class="resp-dot">•</span>' +
+          '<textarea class="resp-text" rows="1" placeholder="What this role owns" ' +
+            'oninput="OrgFlo.growResp(this)" ' +
+            'onchange="OrgFlo.editResp(\'' + esc(r.id) + '\',' + i + ',this.value)">' + esc(text) + '</textarea>' +
+          '<button class="resp-del" title="Remove this line" ' +
+            'onclick="OrgFlo.removeResp(\'' + esc(r.id) + '\',' + i + ')">✕</button>' +
+        '</div>';
+      }).join('');
+
+      var h = '';
+      h += '<div class="role-card' + (r.context ? ' context' : '') + '" data-id="' + esc(r.id) + '">';
+      h += '<div class="role-head">';
+      h += '<input class="role-title" type="text" value="' + esc(r.title) + '" placeholder="Role title" ' +
+           'onchange="OrgFlo.editRole(\'' + esc(r.id) + '\',\'title\',this.value)">';
+      if (r.context) h += '<span class="pill exists">Already exists</span>';
+      h += '<div class="role-actions">' +
+           '<button class="btn tiny" onclick="OrgFlo.addResp(\'' + esc(r.id) + '\')" title="Add a responsibility line">Add line</button>' +
+           '<button class="btn tiny" onclick="OrgFlo.toggleRoleContext(\'' + esc(r.id) + '\')" title="Mark whether this role already exists">' +
+             (r.context ? 'New hire' : 'Existing') + '</button>' +
+           '<button class="btn tiny" onclick="OrgFlo.moveRole(\'' + esc(r.id) + '\',-1)" title="Move up">↑</button>' +
+           '<button class="btn tiny" onclick="OrgFlo.moveRole(\'' + esc(r.id) + '\',1)" title="Move down">↓</button>' +
+           '<button class="btn tiny danger" onclick="OrgFlo.removeRole(\'' + esc(r.id) + '\')" title="Remove this role">✕</button>' +
+           '</div>';
+      h += '</div>';
+      h += '<div class="resp-list">' + lines + '</div>';
+      h += '</div>';
+      return h;
+    }).join('');
+
+    if (!roles.length) {
+      grid.innerHTML = '<div style="color:var(--text-muted);font-size:0.8rem;padding:0.5rem 0">' +
+        'No role definitions yet. Use Add role to start.</div>';
+    }
+
+    var newHires = roles.filter(function (r) { return !r.context; }).length;
+    var context  = roles.length - newHires;
+    $('rolesSummary').textContent =
+      roles.length + ' roles defined, ' + newHires + ' in this org and ' + context + ' already existing';
+
+    // Textareas start at one row, so size them to their content.
+    growAllResp();
+  }
+
+  function findRole(id) {
+    return (data.roleDefinitions || []).find(function (r) { return r.id === id; });
+  }
+
+  function editRole(id, field, value) {
+    var r = findRole(id);
+    if (!r) return;
+    r[field] = value;
+    changed({ skipHiring: true, skipNotes: true, skipRoles: true });
+  }
+
+  function editResp(id, index, value) {
+    var r = findRole(id);
+    if (!r || !Array.isArray(r.responsibilities) || index >= r.responsibilities.length) return;
+    r.responsibilities[index] = value;
+    // The textarea already holds the text, so leave the panel alone.
+    changed({ skipHiring: true, skipNotes: true, skipRoles: true });
+  }
+
+  function addResp(id) {
+    var r = findRole(id);
+    if (!r) return;
+    r.responsibilities = r.responsibilities || [];
+    r.responsibilities.push('');
+    changed({ skipHiring: true, skipNotes: true });
+    setTimeout(function () {
+      var last = $('rolesGrid').querySelector('.role-card[data-id="' + id + '"] .resp-row:last-child .resp-text');
+      if (last) last.focus();
+    }, 40);
+  }
+
+  function removeResp(id, index) {
+    var r = findRole(id);
+    if (!r) return;
+    r.responsibilities.splice(index, 1);
+    changed({ skipHiring: true, skipNotes: true });
+  }
+
+  function addRole() {
+    data.roleDefinitions = data.roleDefinitions || [];
+    data.roleDefinitions.push({ id: uid('r'), title: '', context: false, responsibilities: [''] });
+    changed({ skipHiring: true, skipNotes: true });
+    setTimeout(function () {
+      var last = $('rolesGrid').querySelector('.role-card:last-child .role-title');
+      if (last) last.focus();
+    }, 40);
+  }
+
+  function removeRole(id) {
+    var r = findRole(id);
+    if (!r) return;
+    if (r.title && !confirm('Remove the role definition for "' + r.title + '"?')) return;
+    data.roleDefinitions = data.roleDefinitions.filter(function (x) { return x.id !== id; });
+    changed({ skipHiring: true, skipNotes: true });
+  }
+
+  function moveRole(id, dir) {
+    var list = data.roleDefinitions || [];
+    var i = list.findIndex(function (x) { return x.id === id; });
+    var j = i + dir;
+    if (i < 0 || j < 0 || j >= list.length) return;
+    var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    changed({ skipHiring: true, skipNotes: true });
+  }
+
+  function toggleRoleContext(id) {
+    var r = findRole(id);
+    if (!r) return;
+    r.context = !r.context;
+    changed({ skipHiring: true, skipNotes: true });
   }
 
   function editHiringNote(value) {
@@ -1579,6 +1868,7 @@ var OrgFlo = (function () {
     renderCalculator();
     renderTree();
     if (!opts.skipNotes)  renderNotes();
+    if (!opts.skipRoles)  renderRoles();
     if (!opts.skipHiring) renderHiring();
   }
 
@@ -1617,6 +1907,16 @@ var OrgFlo = (function () {
       n.body  = n.body  || '';
     });
     d.hiringNote = typeof d.hiringNote === 'string' ? d.hiringNote : '';
+
+    d.roleDefinitions = Array.isArray(d.roleDefinitions) ? d.roleDefinitions : [];
+    d.roleDefinitions.forEach(function (r) {
+      if (!r.id) r.id = uid('r');
+      r.title   = r.title || '';
+      r.context = r.context === true;
+      r.responsibilities = Array.isArray(r.responsibilities)
+        ? r.responsibilities.map(function (x) { return typeof x === 'string' ? x : String(x || ''); })
+        : [];
+    });
 
     d.hiringList = Array.isArray(d.hiringList) ? d.hiringList : [];
     d.hiringList.forEach(function (r, i) {
@@ -1698,7 +1998,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v1.1';
+      data.appVersion = 'v1.2';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.
@@ -1794,6 +2094,14 @@ var OrgFlo = (function () {
 
     $('mKind').addEventListener('change', syncHeadcountField);
 
+    // Responsibility lines are auto sized, so re-measure them when the
+    // column width changes.
+    var growTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(growTimer);
+      growTimer = setTimeout(growAllResp, 120);
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && $('nodeModal').classList.contains('open')) closeNodeModal();
       if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); saveNow(); }
@@ -1823,6 +2131,15 @@ var OrgFlo = (function () {
     openNodeModal: openNodeModal,
     closeNodeModal: closeNodeModal,
     commitNodeModal: commitNodeModal,
+    addRole: addRole,
+    editRole: editRole,
+    moveRole: moveRole,
+    removeRole: removeRole,
+    toggleRoleContext: toggleRoleContext,
+    addResp: addResp,
+    editResp: editResp,
+    removeResp: removeResp,
+    growResp: autoGrow,
     addNote: addNote,
     editNote: editNote,
     moveNote: moveNote,

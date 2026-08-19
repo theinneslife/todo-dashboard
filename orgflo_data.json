@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "appVersion": "v1.1",
+  "schemaVersion": 3,
+  "appVersion": "v1.2",
   "updatedAt": "2026-08-19T00:00:00Z",
   "calculator": {
     "scheduledPerSDR": 13,
@@ -33,6 +33,88 @@
       "id": "note5",
       "title": "Existing shared functions",
       "body": "Rev Ops, Sales Recruiter and Talent Partner, and Content and Messaging already exist on the current team. They support this org on a dotted line and are not net new hires here."
+    }
+  ],
+  "roleDefinitions": [
+    {
+      "id": "r1",
+      "title": "Head of Inside Sales (VP)",
+      "context": false,
+      "responsibilities": [
+        "Owns the entire SDR org, its number of 7,000 completed demos per quarter, and the operating model.",
+        "Builds and leads the leadership layer, sets the coaching culture, and hires and develops the directors.",
+        "Owns capacity planning, headcount ramp, targets, comp, and reporting to the COO.",
+        "Stays close to the floor and protects the org from meeting and tool bloat."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "Director of SDR",
+      "context": false,
+      "responsibilities": [
+        "Owns a segment of about 50 SDRs across roughly 6 managers, and their share of the demo target.",
+        "Develops and coaches the managers, the coach the coach work, runs manager 1:1s, and holds the coaching standard.",
+        "Accountable for team demo output, ramp, and quality, and removes blockers.",
+        "Must have real SDR and people management experience."
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "SDR Manager / Team Lead",
+      "context": false,
+      "responsibilities": [
+        "Owns a team of 8 SDRs and their demo number.",
+        "Spends the majority of time coaching: team meetings, weekly 1:1s, reviewing calls and emails, and real time feedback.",
+        "Hires, ramps, develops, and manages the performance of the team, and runs the pod cadence.",
+        "Must have serious hands on SDR experience, know how to coach, and have been coached."
+      ]
+    },
+    {
+      "id": "r4",
+      "title": "SDR",
+      "context": false,
+      "responsibilities": [
+        "Owns 13 scheduled and 10 completed demos per month against target accounts.",
+        "Runs outbound across calls, email, and social, books and holds qualified demos, and hands off cleanly to AEs.",
+        "Executes the plays and messaging, which come from Product Marketing and are operationalized by Enablement, and acts on coaching.",
+        "Keeps CRM and activity data clean."
+      ]
+    },
+    {
+      "id": "r5",
+      "title": "SDR Enablement Lead",
+      "context": false,
+      "responsibilities": [
+        "Owns new hire onboarding and ramp certification across the first 30, 60 and 90 days, and is accountable for ramp to productivity time.",
+        "Builds the coaching infrastructure, call scoring rubrics, playbooks, and 1:1 and call review frameworks, and trains the managers to coach.",
+        "Owns the SDR tool stack, dialer, sequencer and conversation intelligence, and keeps training lightweight and just in time.",
+        "Operationalizes Product Marketing messaging into rep ready sequences, talk tracks, and objection handling.",
+        "Deliberately lean, measured on ramp rather than on session count."
+      ]
+    },
+    {
+      "id": "r6",
+      "title": "Rev / Sales Ops",
+      "context": true,
+      "responsibilities": [
+        "Reporting, tooling, data, and comp and quota mechanics."
+      ]
+    },
+    {
+      "id": "r7",
+      "title": "Sales Recruiter / Talent",
+      "context": true,
+      "responsibilities": [
+        "Fills the hiring pipeline at wave velocity."
+      ]
+    },
+    {
+      "id": "r8",
+      "title": "Product Marketing",
+      "context": true,
+      "responsibilities": [
+        "Owns messaging, positioning, and content."
+      ]
     }
   ],
   "orgChart": {

@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "v1.0",
+  "updatedAt": "2026-08-19T00:00:00Z",
+  "calculator": {
+    "scheduledPerSDR": 13,
+    "completedPerSDR": 10,
+    "quarterlyTarget": 7000,
+    "basis": "scheduled"
+  },
+  "orgChart": {
+    "id": "n50",
+    "role": "Head of Inside Sales (VP)",
+    "person": "",
+    "notes": "Builds the organization. Reports to the COO",
+    "kind": "exec",
+    "children": [
+      {
+        "id": "n5",
+        "role": "Support and Infrastructure",
+        "person": "",
+        "notes": "Shared services that make the floor work",
+        "kind": "support",
+        "children": [
+          {
+            "id": "n1",
+            "role": "Sales / Rev Ops Analyst",
+            "person": "",
+            "notes": "Reporting, tooling, dialer and CRM backbone",
+            "kind": "support",
+            "children": []
+          },
+          {
+            "id": "n2",
+            "role": "SDR Enablement and Training Manager",
+            "person": "",
+            "notes": "Onboarding curriculum, certification, ramp tracking",
+            "kind": "support",
+            "children": []
+          },
+          {
+            "id": "n3",
+            "role": "Sales Recruiter / Talent Partner",
+            "person": "",
+            "notes": "Owns the candidate pipeline for every SDR wave",
+            "kind": "support",
+            "children": []
+          },
+          {
+            "id": "n4",
+            "role": "Content / Messaging Specialist",
+            "person": "",
+            "notes": "Placeholder. Added once the floor passes roughly 100 SDRs",
+            "kind": "support",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "n16",
+        "role": "Director of SDR #1",
+        "person": "",
+        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "kind": "director",
+        "children": [
+          {
+            "id": "n7",
+            "role": "SDR Manager 1.1",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n6",
+                "role": "SDR Team 1.1",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n9",
+            "role": "SDR Manager 1.2",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n8",
+                "role": "SDR Team 1.2",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n11",
+            "role": "SDR Manager 1.3",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n10",
+                "role": "SDR Team 1.3",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n13",
+            "role": "SDR Manager 1.4",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n12",
+                "role": "SDR Team 1.4",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n15",
+            "role": "SDR Manager 1.5",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n14",
+                "role": "SDR Team 1.5",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "n27",
+        "role": "Director of SDR #2",
+        "person": "",
+        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "kind": "director",
+        "children": [
+          {
+            "id": "n18",
+            "role": "SDR Manager 2.1",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n17",
+                "role": "SDR Team 2.1",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n20",
+            "role": "SDR Manager 2.2",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n19",
+                "role": "SDR Team 2.2",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n22",
+            "role": "SDR Manager 2.3",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n21",
+                "role": "SDR Team 2.3",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n24",
+            "role": "SDR Manager 2.4",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n23",
+                "role": "SDR Team 2.4",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n26",
+            "role": "SDR Manager 2.5",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n25",
+                "role": "SDR Team 2.5",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "n38",
+        "role": "Director of SDR #3",
+        "person": "",
+        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "kind": "director",
+        "children": [
+          {
+            "id": "n29",
+            "role": "SDR Manager 3.1",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n28",
+                "role": "SDR Team 3.1",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n31",
+            "role": "SDR Manager 3.2",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n30",
+                "role": "SDR Team 3.2",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n33",
+            "role": "SDR Manager 3.3",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n32",
+                "role": "SDR Team 3.3",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n35",
+            "role": "SDR Manager 3.4",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n34",
+                "role": "SDR Team 3.4",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n37",
+            "role": "SDR Manager 3.5",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n36",
+                "role": "SDR Team 3.5",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "n49",
+        "role": "Director of SDR #4",
+        "person": "",
+        "notes": "Spans roughly 50 SDRs across 5 teams",
+        "kind": "director",
+        "children": [
+          {
+            "id": "n40",
+            "role": "SDR Manager 4.1",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n39",
+                "role": "SDR Team 4.1",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n42",
+            "role": "SDR Manager 4.2",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n41",
+                "role": "SDR Team 4.2",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n44",
+            "role": "SDR Manager 4.3",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n43",
+                "role": "SDR Team 4.3",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n46",
+            "role": "SDR Manager 4.4",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n45",
+                "role": "SDR Team 4.4",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "n48",
+            "role": "SDR Manager 4.5",
+            "person": "",
+            "notes": "Manages roughly 10 SDRs",
+            "kind": "manager",
+            "children": [
+              {
+                "id": "n47",
+                "role": "SDR Team 4.5",
+                "person": "",
+                "notes": "Represents roughly 10 SDRs. Expand into slots to name individuals",
+                "kind": "team",
+                "headcount": 10,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hiringList": [
+    {
+      "id": "h1",
+      "priority": 1,
+      "role": "Head of Inside Sales",
+      "reportsTo": "COO",
+      "trigger": "Hire first. This person builds the org",
+      "status": "Open"
+    },
+    {
+      "id": "h2",
+      "priority": 2,
+      "role": "Sales / Rev Ops Analyst",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "Before mass SDR hiring. Reporting and tooling backbone",
+      "status": "Open"
+    },
+    {
+      "id": "h3",
+      "priority": 3,
+      "role": "SDR Enablement and Training Manager",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "Before first SDR wave. Onboarding at scale",
+      "status": "Open"
+    },
+    {
+      "id": "h4",
+      "priority": 4,
+      "role": "Sales Recruiter / Talent Partner",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "Before first SDR wave. Fills the pipeline",
+      "status": "Open"
+    },
+    {
+      "id": "h5",
+      "priority": 5,
+      "role": "Director of SDR #1",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "With the first SDR wave",
+      "status": "Open"
+    },
+    {
+      "id": "h6",
+      "priority": 6,
+      "role": "SDR Managers, first 3 to 4",
+      "reportsTo": "Director of SDR #1",
+      "trigger": "One per roughly 10 SDRs, ahead of each wave",
+      "status": "Open"
+    },
+    {
+      "id": "h7",
+      "priority": 7,
+      "role": "SDR Wave 1, 35 SDRs",
+      "reportsTo": "SDR Managers",
+      "trigger": "Launch, the week of go live",
+      "status": "Open"
+    },
+    {
+      "id": "h8",
+      "priority": 8,
+      "role": "SDR Waves 2 and beyond, plus 30 per week",
+      "reportsTo": "SDR Managers",
+      "trigger": "Weekly until target headcount",
+      "status": "Open"
+    },
+    {
+      "id": "h9",
+      "priority": 9,
+      "role": "Directors #2 to #4",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "Added as SDR count passes roughly 50, 100 and 150",
+      "status": "Open"
+    },
+    {
+      "id": "h10",
+      "priority": 10,
+      "role": "Additional Managers",
+      "reportsTo": "Directors of SDR",
+      "trigger": "One added per roughly 10 new SDRs",
+      "status": "Open"
+    },
+    {
+      "id": "h11",
+      "priority": 11,
+      "role": "Content / Messaging Specialist and second Enablement hire",
+      "reportsTo": "Head of Inside Sales",
+      "trigger": "As the floor scales past roughly 100 SDRs",
+      "status": "Open"
+    }
+  ]
+}

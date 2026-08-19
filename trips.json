@@ -1074,6 +1074,240 @@
       "packingList": {},
       "colorIndex": 5,
       "legs": []
+    },
+    {
+      "id": "1787100000001",
+      "title": "Montevideo",
+      "destination": {
+        "city": "Montevideo",
+        "country": "Uruguay",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-08-28",
+        "end": "2026-09-11"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Registered for classes (see email). Flights done, booking.com via LATAM, 9:00am departure. Airbnb booked. Christopher working 1pm to 6pm.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 0,
+      "legs": []
+    },
+    {
+      "id": "1787100000002",
+      "title": "Slovenia",
+      "destination": {
+        "city": "Slovenia",
+        "country": "",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-09-12",
+        "end": "2026-09-21"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "UTMB Julian Alps 50K on Friday Sep 18 (julianalps.utmb.world/races/50K). Flights booked, Iberia h651e. Airbnb booked. Needs transportation to and from the race, might rent a car but has to keep it outside the city limits. Christopher working 6pm to midnight, not working Thursday and Friday of that week.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 1,
+      "legs": []
+    },
+    {
+      "id": "1787100000003",
+      "title": "Barcelona",
+      "destination": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-09-21",
+        "end": "2026-10-09"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Flights booked, Lufthansa 9RB9W2. Airbnb booked. Christopher working 6pm to midnight.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 2,
+      "legs": []
+    },
+    {
+      "id": "1787100000004",
+      "title": "Crested Butte",
+      "destination": {
+        "city": "Crested Butte",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-10-09",
+        "end": "2026-10-17"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Christopher arrives 8:35pm in Gunnison, Brooke arrives 1:35pm. Hotel booked by Christopher. Car for Gunnison booked by Christopher. Christopher not working. Brooke booked Four Seasons Oct 13 to 17. Brooke meets Christopher at the Denver airport for a 5:35pm United flight to SFO.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 3,
+      "legs": []
+    },
+    {
+      "id": "1787100000005",
+      "title": "St Helena Part 1",
+      "destination": {
+        "city": "St Helena",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-10-17",
+        "end": "2026-10-22"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Airbnb booked. Flight Denver to SFO booked, Delta GBHG37, departs 5:35pm. Christopher booked flight to Denver, 1:30pm United. Pick up bicycle at St Helena Cyclery, drop off Saturday afternoon before the wedding. Rent a car in SFO (Dollar) and return it to STS.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
+    },
+    {
+      "id": "1787100000006",
+      "title": "St Helena, The Wedding",
+      "destination": {
+        "city": "St Helena",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-10-22",
+        "end": "2026-10-25"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Hotel booked. Driving.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 5,
+      "legs": []
+    },
+    {
+      "id": "1787100000007",
+      "title": "Los Angeles",
+      "destination": {
+        "city": "Los Angeles",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-10-25",
+        "end": "2026-10-29"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Flight booked from Santa Rosa, 11:50am Alaska OZBVPX. MNTN board meeting. Airbnb booked. Booked 24th to 29th.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 6,
+      "legs": []
+    },
+    {
+      "id": "1787100000008",
+      "title": "Mexico City",
+      "destination": {
+        "city": "Mexico City",
+        "country": "Mexico",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-10-29",
+        "end": "2026-11-10"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Airbnb booked. Flights booked.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 7,
+      "legs": []
+    },
+    {
+      "id": "1787100000009",
+      "title": "Palm Springs",
+      "destination": {
+        "city": "Palm Springs",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-11-10",
+        "end": "2026-11-15"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "MNTN Meet. Airbnb booked. Flights booked.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 8,
+      "legs": []
     }
   ],
   "templates": [],

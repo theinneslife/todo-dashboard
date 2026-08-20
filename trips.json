@@ -1098,7 +1098,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 0,
+      "colorIndex": 6,
       "legs": []
     },
     {
@@ -1124,7 +1124,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 1,
+      "colorIndex": 7,
       "legs": []
     },
     {
@@ -1150,7 +1150,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 2,
+      "colorIndex": 8,
       "legs": []
     },
     {
@@ -1176,7 +1176,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 3,
+      "colorIndex": 9,
       "legs": []
     },
     {
@@ -1202,7 +1202,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 4,
+      "colorIndex": 0,
       "legs": []
     },
     {
@@ -1228,7 +1228,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 5,
+      "colorIndex": 1,
       "legs": []
     },
     {
@@ -1254,7 +1254,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 6,
+      "colorIndex": 2,
       "legs": []
     },
     {
@@ -1280,7 +1280,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 7,
+      "colorIndex": 3,
       "legs": []
     },
     {
@@ -1306,7 +1306,7 @@
       "budget": 0,
       "expenses": [],
       "packingList": {},
-      "colorIndex": 8,
+      "colorIndex": 4,
       "legs": []
     }
   ],

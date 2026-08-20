@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-20",
-  "generated_at": "2026-08-20T06:00:00Z",
+  "generated_at": "2026-08-20T17:21:14.545320Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5 mi Z2 + Strength",
-      "message": "Calendar says easy 5 miles, Zone 2, HR 138-150 — cap it there even if it feels absurdly slow. Yesterday's 8 mi with 1,800 ft of heavy descending left real eccentric damage in the quads, and today's job is circulation, not stimulus. You also drop from Cusco to Lima today, so sea-level air will make the same HR feel effortless: trust the number, not the sensation. Strength session 2 after the run — eccentric step-downs, low-amplitude plyos, core. Quality over load; 29 days out we are protecting the descent legs the Julian Alps will punish."
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 only (130–140 bpm), rolling terrain if possible. Your resting HR is 7.5 bpm above your 30-day average and recovery score sits at 46/100—both yellow flags that you're not fully bounced back from last week's 31.1-mile block. This is a taper Thursday; the goal is to keep your aerobic system engaged without adding load. Skip any tempo or hill repeats. If you feel flat during the run, dial it back to 5 miles and call it a win."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy run means no in-run fueling needed, but do not treat today as a low-carb day — you are 4 weeks out and glycogen is the taper's currency. Hold ~220g carbs, front-loaded around the run and lift. Post-strength: 30-40g protein plus carbs within the hour to service yesterday's descent damage. Travel day trap: airport food is salty but carb-thin. Pack real carbs, and drink deliberately — coming off Cusco altitude your plasma volume will re-expand and you will be thirstier than you expect."
+      "message": "You're 29 days out; fueling discipline matters now. Eat 1.2g carbs per kg bodyweight today (assume ~80kg, so ~96g minimum), split across 4–5 meals. Post-run, consume 40g carbs + 20g protein within 30 minutes to stabilize blood sugar and blunt cortisol after the taper stress. Your sleep efficiency (70%) is solid but not elite—consistent carb intake helps stabilize sleep quality. Avoid a large dinner; finish eating 2–3 hours before bed."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Quads are the target today. Ten minutes on the vastus lateralis and lateral quad with a roller after the strength session — slow passes, not aggressive. Then get the legs elevated for 15 minutes at the hotel; flights plus descent soreness is the worst pooling combination you own. Sleep target 8 hours tonight. Sea level actually improves sleep quality after a week at 3,400m — take advantage of it, this is the first genuinely restorative night you have had in a while."
+      "message": "Sleep was 8.3h last night—good volume, but 70% efficiency suggests fragmentation or light stages. Aim for 9 hours tonight and create hard conditions: dark room (0 lux), cool (18–19°C if possible), no screens after 21:00. Your elevated resting HR suggests residual sympathetic activation; prioritize sleep over anything else this week. Skip afternoon caffeine entirely. If you're traveling for work, a 20-minute nap (not longer) at 14:00–15:00 can help reset nervous system state without harming tonight's sleep."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Four weeks out, and the work is essentially banked. From here the training that matters is the training you do not do. Your instinct on an easy day at sea level will be to add a mile because it feels good — that instinct is exactly what costs people the race. Practice the discipline now so that during taper week it is a habit, not a fight. Kranjska Gora rewards the athlete who arrives fresh, not the one who arrived fittest three weeks early."
+      "message": "You're in the final 4 weeks; this is where doubt creeps in. Your last hard run (12.04mi @ 1457ft, Aug 13) was solid—hold that as your reference. The taper will feel sluggish for 7–10 days; that's neurological adaptation, not fitness loss. Use this Thursday to remind yourself that you've logged the vert, you've logged the miles, and now you're sharpening the tool. Visualize 2–3 specific sections of the course (the initial steep push, the ridge traverse, the final descent) for 5 minutes post-run. Trust the plan."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-19",
-  "generated_at": "2026-08-19T17:19:46.873255Z",
+  "generated": "2026-08-20",
+  "generated_at": "2026-08-20T06:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 only (140 bpm ceiling). Your resting HR jumped 15 bpm and recovery score is 53/100—both flags that your nervous system hasn't fully settled from last week's 31.1-mile block. Wednesday normally calls for vert work, but not today. You're 30 days out; sharpness matters less than arrival fresh. Keep it flat, conversational, dial back the perceived effort. This run is about blood flow and clearing metabolic debt, not stimulus."
+      "title": "Easy 5 mi Z2 + Strength",
+      "message": "Calendar says easy 5 miles, Zone 2, HR 138-150 — cap it there even if it feels absurdly slow. Yesterday's 8 mi with 1,800 ft of heavy descending left real eccentric damage in the quads, and today's job is circulation, not stimulus. You also drop from Cusco to Lima today, so sea-level air will make the same HR feel effortless: trust the number, not the sensation. Strength session 2 after the run — eccentric step-downs, low-amplitude plyos, core. Quality over load; 29 days out we are protecting the descent legs the Julian Alps will punish."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You logged 9 hours of sleep at 78% efficiency—decent volume but fragmented. Pair that elevated resting HR with a deliberate carb surplus today: 6–8g/kg of body weight (assume ~150–170g for you). Emphasis on easy-to-absorb carbs (rice, pasta, oats, fruit) at lunch and dinner. Your glycogen is likely still partially depleted from the 12-miler last week; replenish now while you're in taper, not on race eve."
+      "message": "Short easy run means no in-run fueling needed, but do not treat today as a low-carb day — you are 4 weeks out and glycogen is the taper's currency. Hold ~220g carbs, front-loaded around the run and lift. Post-strength: 30-40g protein plus carbs within the hour to service yesterday's descent damage. Travel day trap: airport food is salty but carb-thin. Pack real carbs, and drink deliberately — coming off Cusco altitude your plasma volume will re-expand and you will be thirstier than you expect."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep quality is the priority this week. That 78% efficiency suggests fragmentation—check your sleep environment (cool, dark, no blue light 1 hour before bed). Aim for 8.5–9.5 hours tonight with consistency. Your elevated resting HR (81 vs. 66-day avg) suggests incomplete parasympathetic recovery; prioritize 10–15 minutes of low-intensity breathing work or restorative stretching post-run. No sauna, no ice baths—just passive recovery and nutrition."
+      "message": "Quads are the target today. Ten minutes on the vastus lateralis and lateral quad with a roller after the strength session — slow passes, not aggressive. Then get the legs elevated for 15 minutes at the hotel; flights plus descent soreness is the worst pooling combination you own. Sleep target 8 hours tonight. Sea level actually improves sleep quality after a week at 3,400m — take advantage of it, this is the first genuinely restorative night you have had in a while."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the taper gauntlet—the point where fitness plateaus and doubt creeps in. You've built the engine over 29 weeks. Today's cutback isn't loss; it's preparation. The Julian Alps 50K demands mental toughness on altitude and sparse aid; that toughness comes from arriving rested, not from squeezing one more workout. Trust the plan. Your 12-miler at 132 bpm showed good aerobic efficiency—that work is banked."
+      "message": "Four weeks out, and the work is essentially banked. From here the training that matters is the training you do not do. Your instinct on an easy day at sea level will be to add a mile because it feels good — that instinct is exactly what costs people the race. Practice the discipline now so that during taper week it is a habit, not a fight. Kranjska Gora rewards the athlete who arrives fresh, not the one who arrived fittest three weeks early."
     }
   ]
 }

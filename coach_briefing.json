@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-21",
-  "generated_at": "2026-08-21T14:01:16Z",
+  "generated_at": "2026-08-21T17:20:58.467494Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 4mi Z2 Rolling",
-      "message": "Calendar has you down for 4 miles easy on rolling terrain, ~700 ft of gain, HR 138-150. You're 28 days out — taper territory — so this is a volume-light, quality-intact day. Aguas Calientes sits around 2,000m and you came down from Cusco, so your legs will feel better than they did at 3,400m but don't chase pace. Hike the steep pitches deliberately with hands on quads: that's the exact motor you'll need on the Julian Alps climbs. Second 'Run' block at 14:30 and gym at 18:00 — if you do all three, keep the afternoon run to shakeout only and make the gym session light and movement-focused, not heavy. Taper means the work is already in the bank."
+      "title": "Today's Run",
+      "message": "You're 28 days out and in taper — this is a shakeout day to keep the engine warm without adding fatigue. Hit 4–5 miles easy (Z2, sub-130 bpm based on your recent trend), then 3–4 × 90-second pickups at race-pace effort (threshold/tempo, ~138–142 bpm). Your resting HR is elevated 7.5 bpm above your 30-day average and your recovery score is 46/100 (moderate), which means your system is still clearing load — don't fight it with a hard session. This short, mixed-intensity work preserves neuromuscular sharpness without pushing glycogen depletion or parasympathetic debt into the weekend. Plan the long run for tomorrow when you've had another sleep cycle to recover."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short session, so no in-run fuel needed on the 4 miler — but this is a perfect low-stakes day to sip a 60g/hr carb mix anyway and keep the gut trained for race demands. Peru travel is dehydrating and altitude blunts thirst: front-load 500ml with electrolytes before first light. Post-run, 25-30g protein plus real carbs within the hour. Aim for roughly 220g carbs across the day given the light load, and lean on local staples — potatoes, rice, quinoa — which are everywhere and easy on the stomach."
+      "message": "With 4–5 miles of mostly Z2 work, you don't need intra-workout carbs, but fuel the pickups: aim for 30–40g of carbs (sports drink, gel, or chew) starting at minute 15 and repeat every 30 minutes through the session. Post-run, eat 40–50g carbs + 20–25g protein within 60 minutes to top glycogen and prime recovery ahead of tomorrow's long run. Your sleep efficiency last night was 70%, which is acceptable but not optimal — slightly elevated carb intake today (aim for 7–8g/kg across the day) will support both recovery from this week's volume and tomorrow's alpine vertical work."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You've got a flight, a hotel change, and three activity blocks stacked today — travel load is real training stress even when the mileage is small. Ten minutes of calf and hip flexor work after the descent portion of the run, then legs up the wall for five minutes before dinner. Protect the sleep: you're in taper, and sleep is where the fitness you've already built consolidates. Target 8 hours tonight, no exceptions."
+      "message": "Your resting HR spike and moderate recovery score indicate incomplete parasympathetic rebound from last week's 31.1 miles. Prioritize sleep tonight: aim for 8+ hours, cool room (< 65°F), and no screens 30 minutes before bed. Post-run, spend 10–15 minutes on lower-body mobility (hip flexors, quads, glutes) and consider a brief ice bath or 10 minutes in cold water if accessible — with 28 days to race and moderate fatigue accumulation, active cooling will accelerate HRV recovery. Tomorrow morning, check resting HR before you start the long run; if it's still above 72 bpm, dial the long run intensity down and focus on steady Z2 volume."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Four weeks out is where fit athletes get restless and start adding work they don't need. Resist it. The taper only fails when you fight it. Use today's rolling terrain as a rehearsal: pick a climb, settle your breathing, and practice the calm you want at kilometer 30 in the Julian Alps. Confidence at this stage comes from executing small sessions cleanly, not from proving anything."
+      "message": "You're in the phase where the work is done — from here, the taper is about trusting your fitness while proving to yourself that you can execute race strategy under fatigue. This shakeout with pickups serves double duty: it reminds your legs what race pace feels like on tired muscle, and it reinforces your confidence that you can still snap when it matters. Julian Alps demands alpine movement economy and grit on steep descents; these 90-second accelerations aren't about ego, they're about anchoring the neuromuscular pattern you'll need in week 4 when the vertical gets real. Stay process-focused, not result-focused, over the next four weeks."
     }
   ]
 }

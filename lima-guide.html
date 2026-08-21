@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lima Arrival Guide · The Anniversary Edition</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook · September 2026</div>
+    <h1>Lima</h1>
+    <p class="sub">One year with Brooke, celebrated on the edge of the Pacific in the food capital of South America.</p>
+    <div class="meta">
+      <span class="chip">Base: Miraflores &amp; Barranco</span>
+      <span class="chip">Arriving ~Sep 10</span>
+      <span class="chip">Anniversary: 9/10</span>
+      <span class="chip">Sea level · taper block</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#anniversary">The Anniversary</a>
+    <a href="#basics">Basics</a>
+    <a href="#tonight">Tonight &amp; Tomorrow</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ANNIVERSARY -->
+  <section id="anniversary">
+    <div class="anniv">
+      <div class="eyebrow">The Main Event · One Year</div>
+      <h2>The Anniversary</h2>
+      <p class="lead">This is the reason for the trip. Lima happens to be the best dining city on the continent, so the celebration writes itself. Book the marquee tables the day you lock flights, then build the rest of the day around one unforgettable dinner.</p>
+      <p style="color:#e4d7c3;font-size:14.5px;max-width:760px;">A note on timing: Lima is hosting The World's 50 Best Restaurants ceremony in November 2026, so the whole city is running at peak culinary energy this year. Tables at the top rooms are tighter than usual. Reserve early and mention the anniversary when you book. Most of these kitchens will do something special if they know.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">The Splurge Table</div>
+          <h3>Central</h3>
+          <p>Virgilio Martinez and Pia Leon's ecosystem tasting menu, plated by altitude from the Pacific floor to the high Andes. A former World's Best Restaurant and a genuine bucket list meal. Around 1,600 soles per person before pairings.</p>
+          <div class="note">Book via Resy weeks ahead. Ask for the chef's counter and flag the anniversary.</div>
+        </div>
+        <div class="card">
+          <div class="tag">World's Best 2025</div>
+          <h3>Maido</h3>
+          <p>Mitsuharu Tsumura's Nikkei temple, named the World's Best Restaurant in 2025. The 50 hour short rib and the tiraditos are the signatures. The Experience menu runs around 1,295 soles per person.</p>
+          <div class="note">Reserve at maido.pe. Bookings open 60 days out and vanish fast. Set a reminder for 30 days prior.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Quietly Spectacular</div>
+          <h3>Kjolle</h3>
+          <p>Pia Leon's own room inside the Central complex, ingredient led and seasonal, ranked among the very top restaurants worldwide. A softer, more intimate energy than the two giants and easier to land.</p>
+          <div class="note">A strong plan B for the big night, or a second marquee lunch.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Sunset &amp; Ocean</div>
+          <h3>Cliffside in Miraflores</h3>
+          <p>For a romantic view meal, aim for golden hour over the Pacific. Rosa Nautica sits on its own pier over the waves, and Larcomar's terraces put the ocean at your feet. Time the reservation to sunset and walk the Malecon after.</p>
+          <div class="note">Not the food peak of the city, but the view and the moment carry it.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Dinner Among Ruins</div>
+          <h3>Huaca Pucllana</h3>
+          <p>Contemporary Peruvian dining beside a floodlit pre Incan pyramid in the middle of Miraflores. Genuinely theatrical and one of the most memorable settings in the city for a milestone.</p>
+          <div class="note">Request a terrace table facing the huaca.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Private &amp; Hands On</div>
+          <h3>A Splurge Experience for Two</h3>
+          <p>Layer one signature experience into the trip: paragliding off the Miraflores cliffs at sunset, a private pisco and Nikkei tasting tour, a couples spa afternoon, or a private cooking class with a market run and pisco sour lesson.</p>
+          <div class="note">Paragliding launches right at Parque del Amor. Book the tandem sunset slot.</div>
+        </div>
+      </div>
+
+      <div class="stay">
+        <div class="h">
+          <div class="tag">Barranco · Relais &amp; Chateaux</div>
+          <h4>Hotel B</h4>
+          <p>A restored Belle Epoque mansion turned art hotel in bohemian Barranco. Intimate, characterful, and walkable to the district's galleries and bars. The most romantic small hotel in the city.</p>
+        </div>
+        <div class="h">
+          <div class="tag">Miraflores · Belmond</div>
+          <h4>Miraflores Park, A Belmond Hotel</h4>
+          <p>All suite, clifftop, rooftop pool over the Pacific. Play the Signature or Limena Suite for a private terrace, plunge pool, and ocean views. The Belo Bar pours one of the best pisco sours in Lima.</p>
+        </div>
+        <div class="h">
+          <div class="tag">San Isidro · Grande Dame</div>
+          <h4>Country Club Lima Hotel</h4>
+          <p>Old world glamour, colonial architecture, museum grade Peruvian art on the walls. Quieter and more classic. Book a Presidential Suite if you want the grand gesture.</p>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>The Perfect Anniversary Day · September 10</h3>
+        <div class="step"><div class="time">7:00 am</div><div class="what"><b>Easy shakeout run</b> along the Malecon as the fog lifts. Keep it short and social, this is a celebration day, not a training day.</div></div>
+        <div class="step"><div class="time">9:30 am</div><div class="what"><b>Coffee and breakfast</b> at Cate Tasting Room or Puku Puku with the ocean below. Bring the day's plan and no agenda.</div></div>
+        <div class="step"><div class="time">Noon</div><div class="what"><b>Couples spa afternoon</b> or a private pisco tasting. Slow the day down on purpose.</div></div>
+        <div class="step"><div class="time">4:30 pm</div><div class="what"><b>Sunset paragliding</b> off the Miraflores cliffs, tandem, launching from Parque del Amor. The single most memorable hour of the trip.</div></div>
+        <div class="step"><div class="time">6:30 pm</div><div class="what"><b>Champagne and the Kiss</b> at Parque del Amor as the light goes gold. A quiet, private toast before dinner.</div></div>
+        <div class="step"><div class="time">8:00 pm</div><div class="what"><b>The dinner.</b> Central or Maido, chef's counter, anniversary noted in advance. Let the kitchen carry the night.</div></div>
+        <div class="step"><div class="time">11:00 pm</div><div class="what"><b>Nightcap</b> at the Belo Bar or back in Barranco. End it walking the Malecon under the cliffs.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASICS -->
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 01</div>
+      <h2>Travel Basics</h2>
+      <p>Everything measured from Miraflores and Barranco, the two districts you will actually live in. Lima sits at sea level, so no altitude to manage, a nice contrast to Cusco.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">Sol · S/</div><div class="d">Peruvian sol (PEN). Cash still useful in markets and taxis.</div></div>
+      <div class="fact"><div class="k">Exchange Rate</div><div class="v">1 USD ≈ 3.35</div><div class="d">Soles per dollar, as of Aug 20, 2026. Confirm on arrival.</div></div>
+      <div class="fact"><div class="k">Altitude</div><div class="v">~500 ft</div><div class="d">Sea level and flat. Coastal humidity, gray winter skies through September.</div></div>
+      <div class="fact"><div class="k">Getting Around</div><div class="v">Uber</div><div class="d">Uber and Cabify both work well, including from the new Jorge Chavez terminal. Skip street taxis.</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel">
+        <h3>Peruvian Spanish, quick hits</h3>
+        <div class="slang">
+          <span class="term"><b>Bacan</b> · cool, great</span>
+          <span class="term"><b>Chevere</b> · awesome</span>
+          <span class="term"><b>Pata</b> · buddy, friend</span>
+          <span class="term"><b>Jato</b> · house, home</span>
+          <span class="term"><b>Chamba</b> · work, job</span>
+          <span class="term"><b>Luca</b> · one sol</span>
+          <span class="term"><b>China</b> · a 50 cent coin</span>
+          <span class="term"><b>Al toque</b> · right away</span>
+          <span class="term"><b>Causa</b> · dude (also a dish)</span>
+          <span class="term"><b>Choche</b> · close friend</span>
+          <span class="term"><b>Piña</b> · bad luck</span>
+          <span class="term"><b>Yapa</b> · a little extra, free</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Safety, tuned to your districts</h3>
+        <ul>
+          <li>Miraflores, Barranco and San Isidro are the safe, walkable bases. Treat it like any big city, aware but relaxed.</li>
+          <li>Move point to point by Uber or Cabify after dark rather than walking long stretches.</li>
+          <li>Keep your phone off the table at sidewalk cafes and out of sight near traffic. Snatch and grab is the main risk.</li>
+          <li>From the airport, book Uber from the marked pickup zone or an authorized counter. Budget 45 to 60 minutes to Miraflores.</li>
+          <li>Daytime walking in Miraflores and Barranco is genuinely pleasant. Nights in Barranco are lively and fine with normal habits.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TONIGHT -->
+  <section id="tonight">
+    <div class="sec-head">
+      <div class="eyebrow">Section 02</div>
+      <h2>Tonight &amp; Tomorrow</h2>
+    </div>
+    <div class="cards">
+      <div class="card2">
+        <div class="tag">Tonight · Easy</div>
+        <h3>Isolina</h3>
+        <div class="loc">Barranco</div>
+        <p>Hearty Limena taberna cooking, big shared plates, unpretentious and delicious. The perfect low key arrival dinner before the marquee nights.</p>
+      </div>
+      <div class="card2">
+        <div class="tag">Big Night · Fancy</div>
+        <h3>Mayta</h3>
+        <div class="loc">Miraflores</div>
+        <p>Jaime Pesaque's contemporary tasting menu spanning the Andes, Amazon and Pacific. Top ranked and easier to book than Central or Maido if you left it late.</p>
+      </div>
+      <div class="card2">
+        <div class="tag">Tomorrow</div>
+        <h3>Barranco on foot</h3>
+        <div class="loc">Barranco</div>
+        <p>Walk the Bridge of Sighs, the street art, and Dedalo concept store, then lunch ceviche at La Mar. If it is Saturday, hit the Bioferia organic market first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTS -->
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 03</div>
+      <h2>Restaurants</h2>
+      <p>The full table, beyond the anniversary picks. Grouped by tier, all within a short ride of Miraflores or Barranco. Book the world class rooms weeks ahead.</p>
+    </div>
+    <div class="list">
+      <div class="tier">World class, reserve well ahead</div>
+      <div class="row"><div class="rank">1</div><div class="name">Central <span>Martinez and Leon's altitude tasting menu, a former World's Best.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Maido <span>Tsumura's Nikkei, World's Best 2025. The short rib is legendary.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Kjolle <span>Pia Leon solo, ingredient led and seasonal, top ten worldwide.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Mayta <span>Jaime Pesaque, elegant contemporary Peru across three ecosystems.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Astrid y Gaston <span>Gaston Acurio's flagship, the institution that started modern Peruvian fine dining.</span></div><div class="pill">San Isidro</div></div>
+
+      <div class="tier">Standout, book a few days out</div>
+      <div class="row"><div class="rank">6</div><div class="name">Rafael <span>Rafael Osterling's Mediterranean meets Peru, intimate and polished.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Huaca Pucllana <span>Contemporary Peruvian beside a floodlit pre Incan pyramid.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">La Mar <span>Acurio's cevicheria, the best ceviche in the city. Lunch only, no reservations.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Isolina <span>Old school Barranco taberna, generous shared plates.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Osso <span>Renzo Garibaldi's butcher and grill, a carnivore's pilgrimage.</span></div><div class="pill">La Molina</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Rosa Nautica <span>Classic seafood on a pier over the Pacific. Go for sunset and the view.</span></div><div class="pill">Costa Verde</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Cosme <span>Modern bistro, sharp cocktails, reliable and lively.</span></div><div class="pill">San Isidro</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">Merito <span>Venezuelan Peruvian, buzzy Barranco tasting spot with a loyal following.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">Maras <span>Refined Peruvian inside the Westin, strong for a quieter fine dinner.</span></div><div class="pill">San Isidro</div></div>
+      <div class="row"><div class="rank">15</div><div class="name">Sibaris <span>Small plates, natural wine, one of the city's best value tasting rooms.</span></div><div class="pill">Barranco</div></div>
+
+      <div class="tier">Casual and memorable</div>
+      <div class="row"><div class="rank">16</div><div class="name">Canta Rana <span>No frills Barranco cevicheria beloved by locals for decades.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">17</div><div class="name">El Mercado <span>Rafael Osterling's daytime seafood market, breezy and excellent.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">18</div><div class="name">La Picanteria <span>Regional Peruvian, whole fish and big portions, order to share.</span></div><div class="pill">Surquillo</div></div>
+      <div class="row"><div class="rank">19</div><div class="name">Kjolle Bar / Mayta Bar <span>Craft pisco and cocktails when you want the food houses without the full menu.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">20</div><div class="name">Panchita <span>Acurio's anticuchos and criollo grill, festive and fun for a group night.</span></div><div class="pill">Miraflores</div></div>
+    </div>
+  </section>
+
+  <!-- COFFEE -->
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 04</div>
+      <h2>Coffee</h2>
+      <p>Peru grows world class beans, and the third wave scene in Miraflores and Barranco has finally caught up. All within a short walk or quick ride of your base.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Cate Tasting Room <span>Roasts its own Bitacora label from Cusco and Cajamarca. The serious pick.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">OK Cafe <span>Minimalist precision brewing on La Mar, high grade Peruvian single origins.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Puku Puku · Larcomar <span>Specialty pioneer with a clifftop location and Pacific views.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Tostaduria Bisetti <span>Barranco's landmark roaster on Pedro de Osma, beautiful space.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Arabica Espresso Bar <span>Leafy patio, dials in Bisetti beans, a Miraflores favorite.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Sofa Cafe <span>Inviting Barranco spot with strong specialty coffee and pastries.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">La Bodega Verde <span>Art filled garden cafe near Barranco square, all day breakfast.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Ciclos Cafe <span>Small, considered Barranco roaster and brew bar.</span></div><div class="pill">Barranco</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Neira Cafe Lab <span>Award winning baristas, experimental brews, the geek's choice.</span></div><div class="pill">Miraflores</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Origen Tostadores <span>Respected roaster with clean, ingredient forward cups.</span></div><div class="pill">Miraflores</div></div>
+    </div>
+  </section>
+
+  <!-- RUNNING -->
+  <section id="running">
+    <div class="sec-head">
+      <div class="eyebrow">Section 05</div>
+      <h2>Running</h2>
+      <p>You are at sea level and mid taper toward the Julian Alps 50K, so treat Lima as an easy, aerobic block. Keep the legs turning, bank the ocean air, and save the intensity for the Alps.</p>
+    </div>
+    <div class="run-routes">
+      <div class="card2">
+        <div class="tag">The Daily Go To</div>
+        <h3>Malecon, Miraflores</h3>
+        <div class="loc">Flat · clifftop · car free path</div>
+        <p>The Malecon runs the length of the Miraflores cliffs above the Costa Verde, roughly 10 km of continuous car free path out and back if you connect through to San Isidro. Manicured parks, ocean on your right, soft and safe. This is your bread and butter run.</p>
+      </div>
+      <div class="card2">
+        <div class="tag">Long &amp; Uninterrupted</div>
+        <h3>Costa Verde south to Chorrillos</h3>
+        <div class="loc">Flat · sea level · ~15 to 20 km</div>
+        <p>Drop to the Costa Verde bike path and run the coast south through Barranco toward Chorrillos and Herradura. Long, flat, and scenic, ideal for a taper long run. Go early before the beach traffic and haze build.</p>
+      </div>
+      <div class="card2">
+        <div class="tag">The Vert Option</div>
+        <h3>Morro Solar &amp; the bajadas</h3>
+        <div class="loc">Rolling climbs · Chorrillos</div>
+        <p>If you want to keep some hill feel for the Alps, the cliff bajadas that drop to the coast are short, punchy climbs, and Morro Solar in Chorrillos gives a proper sustained ascent with big views over the bay. Add a few reps rather than a hard effort.</p>
+      </div>
+    </div>
+    <div class="panels" style="margin-top:22px;">
+      <div class="panel">
+        <h3>Conditions to know</h3>
+        <ul>
+          <li>September is Lima's gray season. Expect cool, humid, overcast mornings, which is honestly ideal running weather.</li>
+          <li>Sea level means no acclimation needed. Enjoy the easy breathing before the Alps altitude.</li>
+          <li>The Malecon and Costa Verde paths are busy and safe at dawn. Stick to them rather than street routes.</li>
+          <li>Hydration is simple at this effort. Carry a flask for anything over 90 minutes and refill at Malecon fountains.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Taper logic</h3>
+        <ul>
+          <li>Volume down, frequency steady. Short easy runs most days, one moderate long run on the weekend.</li>
+          <li>One light set of strides or short hill reps mid week keeps the legs sharp without cost.</li>
+          <li>Anniversary day gets a short shakeout only. The celebration is the priority.</li>
+          <li>Prioritize sleep and food. Lima makes the food part very easy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTERNOONS -->
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 06</div>
+      <h2>Afternoon Experiences</h2>
+      <p>One neat thing per afternoon, building light to memorable. Varied from your recent chocolate and volcano days.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Light</div><h3>Barranco art walk</h3><div class="loc">Barranco</div><p>Street murals, the Bridge of Sighs, the Pedro de Osma museum, and Dedalo's colonial house of Peruvian design. A slow, beautiful wander.</p></div>
+      <div class="card2"><div class="tag">Hands On</div><h3>Pisco sour master class</h3><div class="loc">Miraflores</div><p>Learn the national cocktail from a bartender, then a passion fruit variation. Short, fun, and useful for the rest of the trip.</p></div>
+      <div class="card2"><div class="tag">Cultural</div><h3>Larco Museum</h3><div class="loc">Pueblo Libre</div><p>Pre Columbian gold and ceramics in a gorgeous garden mansion, with an excellent cafe on a bougainvillea terrace.</p></div>
+      <div class="card2"><div class="tag">Signature</div><h3>Sunset paragliding</h3><div class="loc">Miraflores cliffs</div><p>The non obvious Lima signature, tandem flights launching from Parque del Amor straight over the Pacific. Save this for the anniversary.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Surquillo market and cook</h3><div class="loc">Surquillo</div><p>Shop the city's best produce market with a chef, then cook ceviche and causa for two back in a private kitchen.</p></div>
+      <div class="card2"><div class="tag">Coastal</div><h3>Malecon and Parque del Amor at dusk</h3><div class="loc">Miraflores</div><p>The mosaic walls, the Kiss sculpture, and paragliders in the golden light. Bring a pisco to go and just sit.</p></div>
+    </div>
+  </section>
+
+  <!-- WEEKEND -->
+  <section id="weekend">
+    <div class="sec-head">
+      <div class="eyebrow">Section 07</div>
+      <h2>Weekend Side Trip</h2>
+    </div>
+    <div class="timeline">
+      <h2>Paracas &amp; the Ballestas</h2>
+      <p class="sub">Desert meets ocean, about three and a half hours south, built around a flat coastal long run.</p>
+      <div class="block">
+        <h3>Getting there</h3>
+        <p>Roughly 260 km down the Pan American Highway, three to three and a half hours by private driver. The road is good and fast. A driver beats a rental here, you want to sleep on the way back, not navigate. Leave Lima early Saturday to beat traffic and haze.</p>
+      </div>
+      <div class="block">
+        <h3>The weekend</h3>
+        <p>Saturday morning, boat out to the Islas Ballestas for sea lions, Humboldt penguins and clouds of seabirds. Afternoon in the Paracas National Reserve where red sand cliffs drop into turquoise water. Stay clifftop at a Paracas resort with a pool and a spa for the anniversary glow. Sunday, the long run, then a slow lunch of scallops before the drive home.</p>
+      </div>
+      <div class="block">
+        <h3>The long run · Sunday</h3>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">18 to 22 km easy</div></div>
+          <div><div class="k">Terrain</div><div class="val">Flat desert coast, hard packed</div></div>
+          <div><div class="k">Elevation</div><div class="val">Sea level, same as Lima</div></div>
+          <div><div class="k">Climate</div><div class="val">Warmer and sunnier than Lima, drier</div></div>
+          <div><div class="k">Hydration</div><div class="val">Carry all of it, no fountains</div></div>
+          <div><div class="k">Timing</div><div class="val">Dawn start, before the sun and wind</div></div>
+        </div>
+        <p style="margin-top:14px;">Run the malecon and reserve roads out and back along the bay. Empty, flat, and stunning at first light. Warmer and more exposed than Lima, so start early, carry every drop, and keep it fully aerobic. A clean taper long run with a view you will not forget.</p>
+      </div>
+    </div>
+    <p style="color:var(--ink-soft);font-size:14px;margin-top:16px;">Alternative if you want vines over ocean: Lunahuana, two to two and a half hours inland, for river rafting, pisco bodegas, and rolling valley roads to run.</p>
+  </section>
+
+  <!-- SHOPPING -->
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 08</div>
+      <h2>Luxury Shopping</h2>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Flagship Mall</div><h3>Larcomar</h3><div class="loc">Miraflores cliffs</div><p>Designer boutiques and jewelry built into the cliff face with Pacific views. The city's premier upscale retail, easy walk from Miraflores.</p></div>
+      <div class="card2"><div class="tag">Biggest Center</div><h3>Jockey Plaza</h3><div class="loc">Surco</div><p>One of South America's largest malls. International labels from Coach to Zara plus Peruvian design, if you want everything under one roof.</p></div>
+      <div class="card2"><div class="tag">Concept Store</div><h3>Dedalo Arte y Artesania</h3><div class="loc">Barranco</div><p>Part gallery, part shop inside a colonial home. Handmade jewelry, ceramics, textiles and decor from Peru's best artisans. The pieces you cannot get at home.</p></div>
+      <div class="card2"><div class="tag">Local Design</div><h3>Miraflores boutiques</h3><div class="loc">Miraflores</div><p>The quieter streets off the main avenues hide Peruvian designers, alpaca knitwear, and independent labels. Worth a slow afternoon.</p></div>
+      <div class="card2"><div class="tag">Alpaca</div><h3>Kuna &amp; Sol Alpaca</h3><div class="loc">Larcomar / Miraflores</div><p>Baby alpaca and vicuna knitwear at the top end. The one genuinely great thing to bring home from Peru.</p></div>
+      <div class="card2"><div class="tag">Jewelry</div><h3>Ilaria</h3><div class="loc">Multiple · Miraflores</div><p>Peru's leading silver house, contemporary designs rooted in Andean craft. A strong anniversary gift stop.</p></div>
+    </div>
+  </section>
+
+  <!-- FITNESS -->
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 09</div>
+      <h2>Fitness</h2>
+      <p>Reformer, pole and gyms with short passes, weighted toward Miraflores and Barranco. Boutique studios usually want a WhatsApp or Instagram reservation, so message ahead.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Studio44 Movement</h3><div class="loc">Barranco</div><p>Boutique reformer, capped at four people per class for a genuinely personalized session. The closest quality option to a Barranco base.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Funcional Studio</h3><div class="loc">Miraflores · Av. Pardo</div><p>Well run reformer studio, drop in packages from around 35 soles. Central Miraflores location, easy to fit around runs.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>FIT Studio Peru</h3><div class="loc">Miraflores &amp; Barranco</div><p>Reformer plus physio focused work across two locations. Good for a smart, controlled taper session.</p></div>
+      <div class="card2"><div class="tag">Barre &amp; Pilates</div><h3>Balance Studio</h3><div class="loc">Miraflores</div><p>Pilates, yoga and barre under one roof, polished and well reviewed. A solid catch all if you want variety.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Pole studios, Miraflores</h3><div class="loc">Miraflores</div><p>Lima's pole and aerial scene is small and runs on Instagram bookings. Search current studios on Mindbody and message directly for a drop in slot.</p></div>
+      <div class="card2"><div class="tag">Gym Day Pass</div><h3>KO Fitness</h3><div class="loc">La Mar &amp; Barranco</div><p>Boutique functional gym with branches in both districts and class based drop ins. The most convenient short term option near either base.</p></div>
+    </div>
+  </section>
+
+  <!-- GROCERIES -->
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 10</div>
+      <h2>Groceries</h2>
+      <p>For the cook at home nights with Brooke. Premium supermarkets plus the organic markets, clustered near Miraflores.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Premium Supermarket</div><h3>Vivanda</h3><div class="loc">Miraflores · Benavides &amp; Pardo</div><p>The closest thing to Whole Foods in Lima. Strong fresh sections, imported goods, open late, several Miraflores branches.</p></div>
+      <div class="card2"><div class="tag">Full Range</div><h3>Wong</h3><div class="loc">Multiple · Miraflores</div><p>The upmarket national chain, excellent seafood counter and produce. Reliable for a big shop.</p></div>
+      <div class="card2"><div class="tag">Organic Grocer</div><h3>La Calandria &amp; Flora y Fauna</h3><div class="loc">Miraflores / Barranco</div><p>Dedicated organic and natural grocers for produce, pantry staples and specialty items. The health focused pick.</p></div>
+      <div class="card2"><div class="tag">Saturday Market</div><h3>Bioferia Miraflores</h3><div class="loc">Parque Reducto · Sat 8:30 to 2</div><p>Lima's original organic farmers market. Fresh produce, breads, cheeses, eggs and Peruvian coffee direct from growers.</p></div>
+      <div class="card2"><div class="tag">Produce Market</div><h3>Mercado de Surquillo</h3><div class="loc">Surquillo</div><p>The chef's market, best fish, fruit and aji in the city. Organic stalls on Sundays. Go early with a bag.</p></div>
+      <div class="card2"><div class="tag">Specialty</div><h3>Flora y Fauna</h3><div class="loc">Lince / Barranco</div><p>Vegan and natural specialist for harder to find ingredients, plant milks and clean pantry goods.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for Lima, September 2026. Exchange rate, openings and rankings shift, so confirm reservations and hours on arrival. Book Central and Maido the day you lock flights. Happy one year, and enjoy every plate of it.</p>
+  </div>
+</footer>
+
+</body>
+</html>

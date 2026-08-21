@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21T13:36:16.784558Z",
+  "generated": "2026-08-21T14:22:26.255168Z",
   "ctl": 60.1,
   "atl": 29.0,
   "tsb": 27.7,
@@ -323,15 +323,6 @@
       "duration": 1293,
       "avg_hr": 134,
       "max_hr": 148
-    },
-    {
-      "name": "Back to back run",
-      "date": "2026-06-22",
-      "miles": 9.21,
-      "elevation_feet": 1542,
-      "duration": 7116,
-      "avg_hr": 121,
-      "max_hr": 154
     }
   ]
 }

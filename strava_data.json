@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22T14:09:55.739842Z",
+  "generated": "2026-08-22T15:08:56.909312Z",
   "ctl": 58.8,
   "atl": 24.9,
   "tsb": 31.2,
@@ -314,15 +314,6 @@
       "duration": 10940,
       "avg_hr": 141,
       "max_hr": 170
-    },
-    {
-      "name": "Easy day",
-      "date": "2026-06-23",
-      "miles": 2.01,
-      "elevation_feet": 66,
-      "duration": 1293,
-      "avg_hr": 134,
-      "max_hr": 148
     }
   ]
 }

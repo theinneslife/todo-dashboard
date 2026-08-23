@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23T18:12:26.271163Z",
+  "generated": "2026-08-23T19:13:17.675783Z",
   "ctl": 63.3,
   "atl": 57.4,
   "tsb": 9.1,
@@ -323,15 +323,6 @@
       "duration": 3274,
       "avg_hr": 122,
       "max_hr": 132
-    },
-    {
-      "name": "Lunch Run",
-      "date": "2026-06-24",
-      "miles": 12.02,
-      "elevation_feet": 3832,
-      "duration": 10940,
-      "avg_hr": 141,
-      "max_hr": 170
     }
   ]
 }

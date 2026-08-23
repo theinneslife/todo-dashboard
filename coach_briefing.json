@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-22",
-  "generated_at": "2026-08-22T17:13:22.536378Z",
+  "generated": "2026-08-23",
+  "generated_at": "2026-08-23T17:13:46.966845Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 27 days out and in taper—this is a long-run day, but keep it honest. Your recovery score is 46/100 (moderate) and your resting HR is elevated 7.5 bpm above your 30-day average at 74 bpm, which tells me you're still carrying fatigue from the peak block. Run 90–100 minutes at Z2 (130–140 bpm based on your recent work) with 600–800 ft of vert, focusing on smooth footfall and downhill control on technical terrain. This is sharpness maintenance, not a statement run. Skip the intensity."
+      "message": "Easy 45–55 min Z2 (140–150 bpm), rolling terrain, no hard efforts. Your resting HR is 7.5 bpm above your 30-day average and recovery score sits at 46/100—both signals of incomplete recovery. You've run 18.2 miles this week already (11.82 + 12.04 + 6.41), which is solid volume for taper, but your last three efforts averaged 128 bpm, indicating sustained aerobic work without easy days in between. Today is active recovery: keep it conversational, sub-threshold, and treat it as a mobility run. The Julian Alps terrain will punish accumulated fatigue far more than it will punish a slow Sunday."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You haven't run since August 13th—nine days ago—so your glycogen stores are replete but your GI system may be rusty. Pre-run: eat 30–40g carbs + 10–15g protein 90 minutes before. During the 90-minute run: carry 200–250 calories (sports drink, gels, or both) and 300–400mg sodium to rehearse your race fueling under real load. Post-run: 20g protein + 60g carbs within 30 minutes, then a full meal 2–3 hours later. The Julian Alps will demand precision nutrition at sparse aid stations—use every taper week run to dial this in."
+      "message": "Eat carbs + protein within 30 min of finishing: 40–50g carbs (rice, oats, fruit) + 15–20g protein (yogurt, eggs, chicken). Your sleep efficiency dipped to 70% last night despite 8.3 hours—possible sign of glycogen depletion or elevated cortisol. During taper, prioritize carb loading to top off stores (aim 6–8g/kg bodyweight daily). If you've been traveling for work, that's your culprit for the elevated RHR; front-load breakfast and lunch with dense carbs tomorrow through race week to offset travel stress and build glycogen resilience."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your sleep efficiency is solid at 70%, but at 8.3 hours, you're sleeping enough volume without the depth you need in taper. Tonight, aim for 9 hours in a cool, dark room (ideally 62–65°F). Your elevated resting HR suggests your nervous system is still in sympathetic dominance—prioritize sleep over any other recovery modality. No ice baths, no extra mobility work today. Sleep is the only taper tool that matters right now. Get to bed by 10 pm if you can."
+      "message": "Sleep 8–9 hours tonight, prioritize cool/dark conditions, and avoid screens 60 min before bed. Your 70% sleep efficiency is below your 30-day average (implied closer to 75–80%), which suggests sleep *quality* is eroding even if quantity looks okay—likely stress, jet lag, or insufficient pre-sleep wind-down. Hit 9 hours if possible; you're 26 days out and need RHR back below 66. Consider a 10–15 min easy walk or foam roll instead of stretching if you feel stiff; avoid any massage or aggressive trigger work that spikes inflammation."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the psychologically hardest phase: fit enough to hurt, but forced to hold back. This 90-minute run will feel easy—that's the point. Use it to rehearse the mental tactics you'll need at kilometer 35 when the altitude and vert hit hard: controlled breathing, positive self-talk, and the knowledge that you've already done the hard work. The race is won in the taper by staying patient. Trust the plan, not the nervousness."
+      "message": "You've logged solid volume through peak phase and are now in the critical taper window—trust the work, don't panic. Your last three runs (11.82, 12.04, 6.41 mi) show you're handling vert and aerobic load, which are exactly what a 2,500m alpine 50K demands. The elevated RHR and moderate recovery score are *normal* at this point; they'll drop as volume dwindles and sleep solidifies over the next 2–3 days. Kranjska Gora rewards patience and power on the descents—focus on sleep and easy efforts now, not on fitting in extra work."
     }
   ]
 }

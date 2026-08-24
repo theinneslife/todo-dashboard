@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-24T06:32:34.653130Z",
+  "generated": "2026-08-24T07:48:02.398559Z",
   "ctl": 61.7,
   "atl": 49.2,
   "tsb": 5.8,
@@ -10,8 +10,8 @@
   "prior_7d_elevation": 2992,
   "rolling_7d_sessions": 2,
   "prior_7d_sessions": 4,
-  "long_run_30d": 21.21,
-  "prior_long_run_30d": 20.01,
+  "long_run_30d": 14.0,
+  "prior_long_run_30d": 21.21,
   "weekly_miles": 0.0,
   "total_elevation_feet": 0,
   "last_week_miles": 18.2,

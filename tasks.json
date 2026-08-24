@@ -4213,5 +4213,75 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "9af1c006-6e40-41fe-b5bd-630b4ac48181",
+    "title": "Buy trekking poles",
+    "description": "Add trekking poles to the shopping list.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-24T13:17:27.838Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-08-24T13:17:27.838Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "ad5006e0-ac96-454b-8393-5f5f77d292a7",
+    "title": "Buy a light for night",
+    "description": "Add a light suitable for nighttime use to the shopping list.",
+    "priority": 2,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-08-24T13:17:27.838Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Recording"
+      }
+    ],
+    "created_at": "2026-08-24T13:17:27.838Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

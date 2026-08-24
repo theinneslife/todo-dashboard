@@ -4292,7 +4292,8 @@
     "status": "pending",
     "mode": "manual",
     "labels": [
-      "otter-ai"
+      "otter-ai",
+      "Shopping"
     ],
     "due_date": null,
     "recurrence": null,
@@ -4303,6 +4304,12 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Recording"
+      },
+      {
+        "timestamp": "2026-08-24T22:34:54.176Z",
+        "action": "moved",
+        "by": "User",
+        "details": "Moved from christopher-todo to shopping"
       }
     ],
     "created_at": "2026-08-24T13:19:16.347Z",

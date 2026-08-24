@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-24",
-  "generated_at": "2026-08-24T14:05:00Z",
+  "generated_at": "2026-08-24T17:23:52.477896Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "B2B Day 2 — 6 mi + 700 ft",
-      "message": "Calendar says back-to-back day 2 on legs that just absorbed 24 mi and 3,800 ft. Six miles, roughly 700 ft, strictly Zone 2 (138-150 bpm) — and if the first mile feels ugly, walk it. The point today is not fitness, it's durability: teaching your legs to move well when they are already emptied, which is exactly mile 38 of the Julian Alps. Run the descents relaxed and light-footed rather than braking; quads that stay quiet on tired downhills are what carry you off Vršič. Cap it at 6 miles even if you feel good — this was the last big block, 25 days out, and taper starts now."
+      "title": "Today's Run",
+      "message": "Easy Z2 only—45–55 minutes, sub-130 avg HR. Your resting HR is elevated 7.5 bpm above 30-day average and recovery score sits at 46/100 (moderate), which means your nervous system is still clearing load from peak phase. You ran hard yesterday (11.82 mi @ 130 bpm) and the day before (6.41 mi @ 123 bpm). Monday in taper is not a day to test fitness. Keep the effort conversational, focus on movement quality, and treat this as active recovery. Alpine terrain demands leg resilience, not accumulated fatigue."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Refill Before You Run",
-      "message": "You went out fully fueled yesterday, so glycogen is low this morning. Take 40-60g of fast carbs before you head out (toast + honey, banana, or a gel) rather than running this one fasted — the goal is quality movement, not more depletion. It's short enough to skip mid-run fuel, but carry 500ml with 500-700mg sodium; Cieneguilla is dry and warm. Then hit the 30-minute window hard: 30-40g protein plus 80-100g carbs. Total carb target today sits near the training number, not the 220g rest-day floor — you're still paying back two days of work."
+      "title": "Fuel Right",
+      "message": "You're 25 days out from race day and your sleep efficiency dropped to 70%—below your 30-day average of ~82%. This often signals poor glycogen repletion or inadequate post-run carbs. After today's easy run, consume 1.0–1.2g carbs per kg body weight within 90 minutes (e.g., rice + protein + fruit). At night, prioritize carbs and electrolytes 2–3 hours before bed; aim for 8+ hours sleep to drop that resting HR back toward 66. During taper, nutrition becomes your sharpening tool—don't under-fuel thinking you need to cut weight."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Close the Block Properly",
-      "message": "This closes your peak block, so treat this afternoon as recovery, not filler. Legs elevated for 15 minutes after the run, then easy quad, calf, and hip flexor mobility — no aggressive foam rolling on eccentrically trashed quads today, keep it light. You have the Steelman Clinic appointment at 2:15 and dinner at 5:30; walk between them rather than sitting the whole gap. Sleep target 8+ hours tonight. The 3,800 ft of descent from yesterday is still repairing, and that repair is the training adaptation."
+      "title": "Recovery",
+      "message": "Eight hours is sufficient volume, but 70% efficiency is a yellow flag. Elevated resting HR + moderate recovery score suggests incomplete parasympathetic reset. Tonight: no screens after 21:30, cool room (60–65°F ideally), and consider a 15-minute walk or 5-minute mobility flow to lower cortisol. You're traveling constantly for work—guard sleep as fiercely as you guard your long runs. The Julian Alps 50K will test mental resilience at altitude; that starts with deep, unbroken sleep now."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "The Work Is Banked",
-      "message": "Twenty-five days out — this morning's 6 miles is the last rep of the hardest block you'll do for this race. From here the job flips from building to protecting. Expect the taper itch: you'll feel undertrained, twitchy, convinced you should add one more long day. You shouldn't. Every mile from now is a deposit you don't spend until Kranjska Gora. Notice how you feel running on empty this morning — bookmark it. That exact sensation, handled calmly, is what race day asks of you."
+      "title": "Mental Edge",
+      "message": "Taper anxiety is real at week 4-out, especially when recovery metrics look soft. Resist the urge to prove fitness with a hard workout. Your recent runs show you're capable (130 bpm sustained over 11+ miles)—trust that. Use these next 25 days to *refine* pacing strategy on the actual Julian Alps terrain, manage work stress (your biggest variable), and arrive fresh. The race is won by athletes who taper smart and arrive confident, not by those who panic-train into overreach."
     }
   ]
 }

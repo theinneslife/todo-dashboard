@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-25T12:22:16.353482Z",
+  "generated": "2026-08-25T13:38:56.465862Z",
   "ctl": 61.8,
   "atl": 51.5,
   "tsb": 3.2,
@@ -314,15 +314,6 @@
       "duration": 9515,
       "avg_hr": 131,
       "max_hr": 161
-    },
-    {
-      "name": "Strides, 4x20 secs at mile 7",
-      "date": "2026-06-26",
-      "miles": 8.57,
-      "elevation_feet": 217,
-      "duration": 5222,
-      "avg_hr": 129,
-      "max_hr": 156
     }
   ]
 }

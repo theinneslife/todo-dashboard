@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-25",
-  "generated_at": "2026-08-25T14:05:00Z",
+  "generated_at": "2026-08-25T17:24:11.139493Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery + Strength",
-      "message": "Calendar says Week 5 recovery day off yesterday's B2B day 2 — 24 days to Julian Alps. Optional 20-30 min very easy jog or brisk walk, Zone 1 only (cap around 120 bpm, nose-breathing pace). If the legs feel flat from the back-to-back, walk it and lose nothing. Then Strength Session 1: single-leg work (split squats, step-downs), hip stability, core, and eccentric calf/quad loading — that eccentric work is exactly what buys you the 2500m of Julian Alps descent. Cieneguilla sits around 1000m, so the easy stuff will feel slightly harder than sea level; go by feel, not pace. Everything today is protection for the weekend race simulation."
+      "title": "Today's Run",
+      "message": "Easy 4–5 miles, sub-Z2 effort (140 bpm max), rolling terrain if available. Your resting HR is elevated at 74 bpm (vs. your 30-day avg of 66.5) and recovery score sits at 46/100—you're in moderate fatigue with 24 days to race. This is taper, not maintenance; cut the intensity entirely. The 6.18-mile run at 126 bpm last week did its job. Now we're pruning volume and letting your aerobic base stay sharp without burning matches. 45–50 min total, no watch anxiety."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Low-load day, but not a low-carb day — you're still refilling glycogen from the back-to-back block and loading for the weekend simulation. Target ~220g carbs and 1.6-2.0 g/kg protein spread across 4 feedings (30-40g per sitting) to drive repair. Front-load carbs earlier in the day, add anti-inflammatory foods — Peru makes this easy: quinoa, sweet potato/camote, avocado, fresh fish, papaya. Salt normally and drink to thirst plus a bit extra at altitude. No gels needed today; save the gut training for the weekend."
+      "message": "Get 1.5–2g carbs per kg body weight today (assume ~75–90g if you're 50–60kg; scale up if heavier). Your sleep efficiency is 70%—below ideal—which signals either light sleep or fragmentation; carbs at dinner and a small snack 2 hours before bed will stabilize blood sugar and improve sleep depth. On a taper, fuel is how you recover. Hit protein at each meal (25–30g), especially post-run, to support adaptation without adding volume."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "The descents yesterday left microtrauma in the quads — treat that as the priority. Ten minutes of easy foam rolling on quads, calves, and glutes (pressure, not pain), then legs up the wall for 8-10 minutes. Skip deep static stretching on freshly-loaded tissue. Sleep is the real session today: 8+ hours, room dark and cool, and no screens the last 30 minutes. If soreness is still above a 4/10 tomorrow morning, that's data for how you pace the weekend simulation."
+      "message": "Prioritize sleep *hard* for the next three weeks. You logged 8.3 hours last night but at 70% efficiency—likely due to travel, time zones, or stress from the constant exec grind. Aim for 9 hours tonight in a cool, dark room; blackout curtains and earplugs if you're in a hotel. Twenty-four days out, sleep is a performance drug. Skip the ice bath; focus on 10 min of easy mobility work (hips, calves, ankles) post-run and call it done."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 24 days out — the fitness is already banked. Nothing you do today makes you faster in Kranjska Gora; everything you do today makes you able to execute the weekend simulation, which does. That's the discipline that separates finishers from racers: taking the easy day genuinely easy. Use the quiet to rehearse the race — picture yourself 3 hours into the Julian Alps, power-hiking a steep pitch with a calm heart rate, knowing you practiced exactly this. Restraint today is aggression later."
+      "message": "You're coming into taper at the right place—fit, not fried. The 46/100 recovery score and elevated RHR aren't alarms; they're signals that hard work happened. Expect some pre-race anxiety over the next 3 weeks; it's normal. Use Tuesday and Wednesday workouts (light today, some tempo or hill work Wednesday if you feel it) to convince your legs they're ready. By week 34, you'll reduce further and lean into confidence, not doubt. The Julian Alps vert is real, but you've logged the work."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-24",
-  "generated_at": "2026-08-24T14:05:00Z",
+  "generated": "2026-08-25",
+  "generated_at": "2026-08-25T14:05:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "B2B Day 2 — 6 mi + 700 ft",
-      "message": "Calendar says back-to-back day 2 on legs that just absorbed 24 mi and 3,800 ft. Six miles, roughly 700 ft, strictly Zone 2 (138-150 bpm) — and if the first mile feels ugly, walk it. The point today is not fitness, it's durability: teaching your legs to move well when they are already emptied, which is exactly mile 38 of the Julian Alps. Run the descents relaxed and light-footed rather than braking; quads that stay quiet on tired downhills are what carry you off Vršič. Cap it at 6 miles even if you feel good — this was the last big block, 25 days out, and taper starts now."
+      "title": "Active Recovery + Strength",
+      "message": "Calendar says Week 5 recovery day off yesterday's B2B day 2 — 24 days to Julian Alps. Optional 20-30 min very easy jog or brisk walk, Zone 1 only (cap around 120 bpm, nose-breathing pace). If the legs feel flat from the back-to-back, walk it and lose nothing. Then Strength Session 1: single-leg work (split squats, step-downs), hip stability, core, and eccentric calf/quad loading — that eccentric work is exactly what buys you the 2500m of Julian Alps descent. Cieneguilla sits around 1000m, so the easy stuff will feel slightly harder than sea level; go by feel, not pace. Everything today is protection for the weekend race simulation."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
-      "title": "Refill Before You Run",
-      "message": "You went out fully fueled yesterday, so glycogen is low this morning. Take 40-60g of fast carbs before you head out (toast + honey, banana, or a gel) rather than running this one fasted — the goal is quality movement, not more depletion. It's short enough to skip mid-run fuel, but carry 500ml with 500-700mg sodium; Cieneguilla is dry and warm. Then hit the 30-minute window hard: 30-40g protein plus 80-100g carbs. Total carb target today sits near the training number, not the 220g rest-day floor — you're still paying back two days of work."
+      "title": "Fuel Right",
+      "message": "Low-load day, but not a low-carb day — you're still refilling glycogen from the back-to-back block and loading for the weekend simulation. Target ~220g carbs and 1.6-2.0 g/kg protein spread across 4 feedings (30-40g per sitting) to drive repair. Front-load carbs earlier in the day, add anti-inflammatory foods — Peru makes this easy: quinoa, sweet potato/camote, avocado, fresh fish, papaya. Salt normally and drink to thirst plus a bit extra at altitude. No gels needed today; save the gut training for the weekend."
     },
     {
       "type": "recovery",
       "icon": "💤",
-      "title": "Close the Block Properly",
-      "message": "This closes your peak block, so treat this afternoon as recovery, not filler. Legs elevated for 15 minutes after the run, then easy quad, calf, and hip flexor mobility — no aggressive foam rolling on eccentrically trashed quads today, keep it light. You have the Steelman Clinic appointment at 2:15 and dinner at 5:30; walk between them rather than sitting the whole gap. Sleep target 8+ hours tonight. The 3,800 ft of descent from yesterday is still repairing, and that repair is the training adaptation."
+      "title": "Recovery",
+      "message": "The descents yesterday left microtrauma in the quads — treat that as the priority. Ten minutes of easy foam rolling on quads, calves, and glutes (pressure, not pain), then legs up the wall for 8-10 minutes. Skip deep static stretching on freshly-loaded tissue. Sleep is the real session today: 8+ hours, room dark and cool, and no screens the last 30 minutes. If soreness is still above a 4/10 tomorrow morning, that's data for how you pace the weekend simulation."
     },
     {
       "type": "mental",
       "icon": "🧠",
-      "title": "The Work Is Banked",
-      "message": "Twenty-five days out — this morning's 6 miles is the last rep of the hardest block you'll do for this race. From here the job flips from building to protecting. Expect the taper itch: you'll feel undertrained, twitchy, convinced you should add one more long day. You shouldn't. Every mile from now is a deposit you don't spend until Kranjska Gora. Notice how you feel running on empty this morning — bookmark it. That exact sensation, handled calmly, is what race day asks of you."
+      "title": "Mental Edge",
+      "message": "You're 24 days out — the fitness is already banked. Nothing you do today makes you faster in Kranjska Gora; everything you do today makes you able to execute the weekend simulation, which does. That's the discipline that separates finishers from racers: taking the easy day genuinely easy. Use the quiet to rehearse the race — picture yourself 3 hours into the Julian Alps, power-hiking a steep pitch with a calm heart rate, knowing you practiced exactly this. Restraint today is aggression later."
     }
   ]
 }

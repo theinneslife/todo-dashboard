@@ -4431,7 +4431,7 @@
     "title": "move headcount to another MDR firm",
     "description": "",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -4444,17 +4444,24 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
+      },
+      {
+        "timestamp": "2026-08-26T18:34:13.142Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-08-26T18:34:07.574Z",
-    "completed_at": null,
+    "completed_at": "2026-08-26T18:34:13.142Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "8b02161c-744b-41c9-be39-26adb06beb4b",

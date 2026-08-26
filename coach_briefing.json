@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-25",
-  "generated_at": "2026-08-25T14:05:00Z",
+  "generated": "2026-08-26",
+  "generated_at": "2026-08-26T14:01:40Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery + Strength",
-      "message": "Calendar says Week 5 recovery day off yesterday's B2B day 2 — 24 days to Julian Alps. Optional 20-30 min very easy jog or brisk walk, Zone 1 only (cap around 120 bpm, nose-breathing pace). If the legs feel flat from the back-to-back, walk it and lose nothing. Then Strength Session 1: single-leg work (split squats, step-downs), hip stability, core, and eccentric calf/quad loading — that eccentric work is exactly what buys you the 2500m of Julian Alps descent. Cieneguilla sits around 1000m, so the easy stuff will feel slightly harder than sea level; go by feel, not pace. Everything today is protection for the weekend race simulation."
+      "title": "Hills: 6 mi + 1,300 ft, Descending Focus",
+      "message": "Calendar has you on the Week 5 vert session — 6 miles, ~1,300 ft, descent-focused. Climbs stay Zone 2 to low Zone 3 (roughly 140-160 bpm); the moment breathing turns ragged, power hike. Steep grades: hands on quads, short steps, tall chest. The real work today is the downhills — Julian Alps will hand you ~2,500m of vert and every meter of it comes back down. Practice quick cadence, light feet, and letting gravity do the work instead of braking. Quads that hold at km 40 are built on days like this. 23 days out, so quality over heroics — finish feeling like you could do it again tomorrow."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Low-load day, but not a low-carb day — you're still refilling glycogen from the back-to-back block and loading for the weekend simulation. Target ~220g carbs and 1.6-2.0 g/kg protein spread across 4 feedings (30-40g per sitting) to drive repair. Front-load carbs earlier in the day, add anti-inflammatory foods — Peru makes this easy: quinoa, sweet potato/camote, avocado, fresh fish, papaya. Salt normally and drink to thirst plus a bit extra at altitude. No gels needed today; save the gut training for the weekend."
+      "message": "Pre-run: 30-50g easy carbs 45-60 min out — banana, toast with honey, or a gel with water. Session is under 90 minutes, so one gel or ~30g carbs mid-run is enough, but use it as gut practice: same product, same timing you'll run in Slovenia. Sodium 700-900 mg/hr — Lima humidity steals more than you think. Post-run inside 45 minutes: 30-40g protein plus 60-80g carbs. Eccentric descending damages muscle fibers hard, so protein today is repair, not optional."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "The descents yesterday left microtrauma in the quads — treat that as the priority. Ten minutes of easy foam rolling on quads, calves, and glutes (pressure, not pain), then legs up the wall for 8-10 minutes. Skip deep static stretching on freshly-loaded tissue. Sleep is the real session today: 8+ hours, room dark and cool, and no screens the last 30 minutes. If soreness is still above a 4/10 tomorrow morning, that's data for how you pace the weekend simulation."
+      "message": "Descending leaves quads trashed even when the run felt easy — expect DOMS tomorrow and plan for it. Ten minutes of eccentric-focused work post-run: quad and hip flexor stretch, calf raises off a step lowering slow, glute bridges. Elevate the legs for 10 minutes tonight. Sleep target 7.5-8 hours. If quads are sharply sore rather than generally achy in 48 hours, back off the next hard session — you're three weeks from the start line and there is nothing left to gain from pushing through damage."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 24 days out — the fitness is already banked. Nothing you do today makes you faster in Kranjska Gora; everything you do today makes you able to execute the weekend simulation, which does. That's the discipline that separates finishers from racers: taking the easy day genuinely easy. Use the quiet to rehearse the race — picture yourself 3 hours into the Julian Alps, power-hiking a steep pitch with a calm heart rate, knowing you practiced exactly this. Restraint today is aggression later."
+      "message": "Twenty-three days. The fitness is built — everything from here is sharpening and protecting it. Today, on the descents, rehearse the exact feeling you want at Kranjska Gora: relaxed shoulders, quiet feet, eyes reading four steps ahead instead of at your toes. Most 50K runners lose their race on the downhills because they never practiced them tired. You're practicing them on purpose. Run it like the last 10K of the Alps, not the first."
     }
   ]
 }

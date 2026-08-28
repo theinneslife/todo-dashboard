@@ -1059,7 +1059,7 @@
       },
       "dates": {
         "start": "2026-08-16",
-        "end": "2026-08-28"
+        "end": "2026-09-08"
       },
       "status": "upcoming",
       "type": "personal",
@@ -1073,32 +1073,6 @@
       "expenses": [],
       "packingList": {},
       "colorIndex": 5,
-      "legs": []
-    },
-    {
-      "id": "1787100000001",
-      "title": "Montevideo",
-      "destination": {
-        "city": "Montevideo",
-        "country": "Uruguay",
-        "timezone": ""
-      },
-      "dates": {
-        "start": "2026-08-28",
-        "end": "2026-09-11"
-      },
-      "status": "upcoming",
-      "type": "personal",
-      "bookings": [],
-      "tasks": [],
-      "companions": [],
-      "notes": "Registered for classes (see email). Flights done, booking.com via LATAM, 9:00am departure. Airbnb booked. Christopher working 1pm to 6pm.",
-      "flights": [],
-      "accommodation": null,
-      "budget": 0,
-      "expenses": [],
-      "packingList": {},
-      "colorIndex": 6,
       "legs": []
     },
     {
@@ -1301,6 +1275,32 @@
       "tasks": [],
       "companions": [],
       "notes": "MNTN Meet. Airbnb booked. Flights booked.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 4,
+      "legs": []
+    },
+    {
+      "id": "1787690571404",
+      "title": "Lima, Peru",
+      "destination": {
+        "city": "Lima",
+        "country": "Peru",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-09-08",
+        "end": "2026-09-11"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "",
       "flights": [],
       "accommodation": null,
       "budget": 0,

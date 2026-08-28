@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-27",
-  "generated_at": "2026-08-27T14:01:09Z",
+  "generated": "2026-08-28",
+  "generated_at": "2026-08-28T12:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5 mi Z2 + Strength",
-      "message": "Calendar has Week 5, Day 2: easy 5 miles in Zone 2, HR 138-150, plus strength session 2 (eccentric and plyometric durability, core). 22 days to Julian Alps — taper starts now, so this is the last full strength load before volume comes down. Yesterday was 1,300 ft of descending focus, so legs carry some eccentric damage: keep the run genuinely conversational and do not let Cieneguilla's rolling terrain drag you into Zone 3. Run first, lift after, at least 4 hours apart if the day allows. On the strength side, prioritize quality over load — eccentric step-downs, split squats, calf raises — the Alps descents are won here, but nothing that leaves you sore into the weekend."
+      "title": "Easy 3 mi Z2 Rolling",
+      "message": "3 miles, ~500 ft of rolling vert, HR capped at 138-150 bpm (well under your 165 LTHR). This is Week 5 and the taper window opens in the next few days, so keep this one genuinely easy — no chasing pace on the climbs. Use the rollers to rehearse the short punchy grades you'll see in the Julian Alps rather than to build fatigue."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy session, so no need for big pre-run carbs — 30-40g (banana, toast, or a gel) is enough to protect the strength work later. Sip 500ml with 500-700mg sodium during the run given Lima-area heat and humidity. The real target today is protein: 30-40g within an hour of the strength session and again at dinner, ~1.8g/kg across the day to support the eccentric repair. Total carbs around 300-350g today — you are still building glycogen into taper, so do not start cutting carbs as volume drops. That is the classic taper mistake."
+      "message": "Short easy effort, so no on-course fueling needed — just a light pre-run snack (banana or toast) if it's been over 3 hours since eating. Hit your ~220g carb target through the day to keep glycogen topped off, and use the run to test whatever gut-training strategy you're carrying into the race sim coming up."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Back-to-back day after a vert session with descending focus — quads will be the limiter. Ten minutes of calf, quad, and glute mobility post-strength, then legs up the wall for five. Sleep is the highest-leverage lever in taper: aim 8 hours tonight. If quad soreness is above a 4 out of 10 tomorrow morning, downgrade the next session rather than pushing through. From here to September 18 you cannot gain fitness, you can only lose it to fatigue or injury."
+      "message": "Load is light today, but you're stacked on travel (Lima → packing → flight to Miami tonight). Prioritize hydration and a short mobility flow before you pack, and bank sleep where you can around the travel window — recovery from the accumulated Week 5 volume matters more than the run itself right now."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper officially begins. The work is banked — everything from here is about arriving in Kranjska Gora fresh, not fitter. You will feel twitchy and undertrained over the next three weeks; that feeling is the plan working, not a warning. Use today's easy miles to rehearse the mental script for the Julian Alps climbs: settle in, power hike the steep grades without ego, and remind yourself that patience on the first 2,500m of vert is what leaves something in the legs for the final descent."
+      "message": "This is the last easy shakeout before the taper phase begins and before your race simulation. Three weeks out from Kranjska Gora, the work is banked — today's job is just to move well and stay sharp through the travel chaos, not to prove anything."
     }
   ]
 }

@@ -3940,7 +3940,7 @@
     "title": "talk to garland about hans 2 points",
     "description": "",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -3953,24 +3953,17 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
-      },
-      {
-        "timestamp": "2026-08-24T22:37:04.652Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
       }
     ],
     "created_at": "2026-08-07T16:54:43.635Z",
-    "completed_at": "2026-08-24T22:37:04.652Z",
+    "completed_at": null,
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": [],
-    "pinned": false
+    "collaborators": []
   },
   {
     "id": "f70e9990-edf5-4c29-99d8-61bc29b5e92b",
@@ -4166,7 +4159,7 @@
     "title": "Org chart for inside sales",
     "description": "",
     "priority": 1,
-    "status": "completed",
+    "status": "pending",
     "mode": "manual",
     "labels": [],
     "due_date": null,
@@ -4179,24 +4172,17 @@
         "action": "created",
         "by": "System",
         "details": "Task created"
-      },
-      {
-        "timestamp": "2026-08-24T22:35:16.587Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
       }
     ],
     "created_at": "2026-08-19T16:00:17.780Z",
-    "completed_at": "2026-08-24T22:35:16.587Z",
+    "completed_at": null,
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": [],
-    "pinned": false
+    "collaborators": []
   },
   {
     "id": "7cd6f208-09aa-48a6-9798-dd37f615afa8",
@@ -4219,271 +4205,6 @@
       }
     ],
     "created_at": "2026-08-19T16:38:18.848Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "9af1c006-6e40-41fe-b5bd-630b4ac48181",
-    "title": "Buy trekking poles",
-    "description": "Add trekking poles to the shopping list.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-24T13:17:27.838Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-08-24T22:34:59.025Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      }
-    ],
-    "created_at": "2026-08-24T13:17:27.838Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "ad5006e0-ac96-454b-8393-5f5f77d292a7",
-    "title": "Buy a light for night",
-    "description": "Add a light suitable for nighttime use to the shopping list.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-24T13:17:27.838Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-08-24T22:35:11.373Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      }
-    ],
-    "created_at": "2026-08-24T13:17:27.838Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "2a594e86-bdeb-40bd-a66f-8bdfc142fc7c",
-    "title": "Buy survival blanket",
-    "description": "Add survival blanket to shopping list as mentioned in voice note.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-24T13:19:16.347Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-08-24T22:34:54.176Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      }
-    ],
-    "created_at": "2026-08-24T13:19:16.347Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "1df51514-e26a-4543-bac9-c154cea998ee",
-    "title": "Buy cup",
-    "description": "Add cup to shopping list as mentioned in voice note.",
-    "priority": 2,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [
-      "otter-ai",
-      "Shopping"
-    ],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-24T13:19:16.347Z",
-        "action": "created",
-        "by": "Otter Zap",
-        "details": "From: Recording"
-      },
-      {
-        "timestamp": "2026-08-24T22:35:04.258Z",
-        "action": "moved",
-        "by": "User",
-        "details": "Moved from christopher-todo to shopping"
-      }
-    ],
-    "created_at": "2026-08-24T13:19:16.347Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "depends_on": [],
-    "collaborators": [],
-    "custom_fields": {
-      "client": "",
-      "revenue_impact": "",
-      "sprint": ""
-    },
-    "delegation_notes": null,
-    "pinned": false
-  },
-  {
-    "id": "9dc00c9b-580a-4392-9c90-19e3874ba35c",
-    "title": "move headcount to another MDR firm",
-    "description": "",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-26T18:34:06.926Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-08-26T18:34:06.926Z",
-    "completed_at": null,
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": []
-  },
-  {
-    "id": "1fd66b90-148a-4988-9f55-7c6414922a49",
-    "title": "move headcount to another MDR firm",
-    "description": "",
-    "priority": 1,
-    "status": "completed",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-26T18:34:07.574Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      },
-      {
-        "timestamp": "2026-08-26T18:34:13.142Z",
-        "action": "completed",
-        "by": "Christopher",
-        "details": "Task completed"
-      }
-    ],
-    "created_at": "2026-08-26T18:34:07.574Z",
-    "completed_at": "2026-08-26T18:34:13.142Z",
-    "completion_notes": null,
-    "project": null,
-    "start_date": null,
-    "category": null,
-    "effort": null,
-    "depends_on": [],
-    "collaborators": [],
-    "pinned": false
-  },
-  {
-    "id": "8b02161c-744b-41c9-be39-26adb06beb4b",
-    "title": "move headcount to another MDR firm",
-    "description": "",
-    "priority": 1,
-    "status": "pending",
-    "mode": "manual",
-    "labels": [],
-    "due_date": null,
-    "recurrence": null,
-    "subtasks": [],
-    "comments": [],
-    "activity_log": [
-      {
-        "timestamp": "2026-08-26T18:34:08.690Z",
-        "action": "created",
-        "by": "System",
-        "details": "Task created"
-      }
-    ],
-    "created_at": "2026-08-26T18:34:08.690Z",
     "completed_at": null,
     "completion_notes": null,
     "project": null,

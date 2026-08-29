@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-29",
-  "generated_at": "2026-08-29T00:48:37.486093Z",
+  "generated_at": "2026-08-29T19:34:40.832022Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Saturday long run: 12–14 miles, rolling terrain, Z2 effort (130–145 bpm). You're 20 days out and in taper; this is your last meaningful volume injection before you strip back further next week. Your resting HR jumped to 74 (vs. 30-day avg of 66.5) and recovery score sits at 46/100—both yellow flags that you're still fatigued from the peak phase. Keep this run steady and controlled; do NOT chase pace or vert. The Julian Alps will demand sustained aerobic power on technical ground, not speed. Treat this as a dress rehearsal for race-day fueling and pacing discipline."
+      "message": "Saturday long run in taper: target 90–100 min at Z2 (140–150 bpm based on your recent easy runs at 129–130). You're 20 days out and your resting HR is elevated 7.5 bpm above your 30-day average—a sign CNS fatigue is still present despite stepping back. Skip any tempo or vert work today. Keep this effort conversational and deliberate; the goal is to maintain aerobic familiarity with sustained effort, not to stress the system further. Your recovery score sits at 46/100, so dial back any impulse to push hard on the back of a 29.6-mile week."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Consume 60–80g of carbs per hour during the run (sports drink, gels, or real food if your stomach tolerates it on longer efforts). Your 70% sleep efficiency suggests incomplete recovery; don't leave fuel on the table. Post-run, hit a 3:1 or 4:1 carb-to-protein ratio within 30 minutes—aim for 50g carbs + 15g protein (banana + Greek yogurt, or rice cakes + almond butter). You've logged 27.6 miles this week already; your glycogen stores are drawn down heading into the final push toward race day."
+      "message": "For a 90–100 min Z2 run, carry 30–40g of carbs (one gel + electrolyte drink, or two gels spaced 45 min apart). Post-run, consume 40–50g carbs + 20g protein within 30 minutes to arrest the catabolic state and support glycogen repletion—your training load this week was substantial relative to taper intent. Given sparse aid on the Julian Alps course, this is also a dress rehearsal: practice your actual race fueling strategy (gels, type, timing) on today's run so there are no surprises on race day."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your 8.3-hour night had only 70% efficiency—you're sleeping long but not sleeping well. Before bed tonight, skip caffeine after 2 PM, keep the room cool (65–68°F), and avoid screens 30 minutes before sleep. Elevated resting HR and moderate recovery score mean your sympathetic nervous system is still activated; prioritize parasympathetic reset. Consider 5–10 minutes of easy breathing work or yin yoga post-run. Aim for 8+ hours tonight with the goal of pushing that efficiency above 80%—you need genuine recovery, not just time in bed."
+      "message": "Sleep efficiency last measured at 70%—solid but not optimal. Aim for 8.5+ hours tonight; taper is the time to bank sleep aggressively, and your elevated resting HR suggests you're not fully recovered. No ice baths or aggressive mobility work today. Fifteen minutes of easy, static stretching (calves, hip flexors, quads) post-run is fine, but save deep soft-tissue work for Monday at the earliest. Hydrate heavily after the run and keep sodium intake above normal to support fluid retention—you'll need it for the alpine environment in 19 days."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the psychological sweet spot of taper—fit, sharp, but naturally restless. Today's long run is your final confidence builder; use it to refine your race nutrition strategy, test your gear setup, and mentally rehearse the high-altitude technical sections around Kranjska Gora. Trust the training: 20 days is enough time to arrive fresh if you execute next week's volume cuts without panic. The urge to squeeze in extra work is normal and wrong; your edge comes from showing up rested, not from one more hard session."
+      "message": "You're in the final three weeks: the work is done, and the taper can mess with your head if you let it. Today's run should feel *easy*—which will feel slow after weeks of threshold and vert work. That's correct. Your job now is to trust the training, stay calm, and resist the urge to prove fitness. Use this run to visualize sections of the Julian Alps course, practice your pacing discipline, and remind yourself that arriving fresh beats arriving tired-but-confident. Twenty days is enough time to peak; it's not enough time to gain fitness."
     }
   ]
 }

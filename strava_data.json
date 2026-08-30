@@ -1,23 +1,32 @@
 {
-  "generated": "2026-08-30T17:01:30.694623Z",
-  "ctl": 59.5,
-  "atl": 48.4,
-  "tsb": 4.5,
-  "weekly_tss": 366.1,
-  "rolling_7d_miles": 29.6,
+  "generated": "2026-08-30T20:11:05.097829Z",
+  "ctl": 66.4,
+  "atl": 83.7,
+  "tsb": 5.5,
+  "weekly_tss": 613.4,
+  "rolling_7d_miles": 48.8,
   "prior_7d_miles": 18.2,
-  "rolling_7d_elevation": 3287,
+  "rolling_7d_elevation": 5079,
   "prior_7d_elevation": 3084,
-  "rolling_7d_sessions": 6,
+  "rolling_7d_sessions": 7,
   "prior_7d_sessions": 2,
-  "long_run_30d": 14.0,
+  "long_run_30d": 19.23,
   "prior_long_run_30d": 21.21,
-  "weekly_miles": 29.6,
-  "total_elevation_feet": 3287,
+  "weekly_miles": 48.8,
+  "total_elevation_feet": 5079,
   "last_week_miles": 18.2,
   "last_week_elevation_feet": 3084,
   "last_week_sessions": 2,
   "recent_runs": [
+    {
+      "name": "Morning Run",
+      "date": "2026-08-30",
+      "miles": 19.23,
+      "elevation_feet": 1791,
+      "duration": 13500,
+      "avg_hr": 134,
+      "max_hr": 150
+    },
     {
       "name": "Morning Run",
       "date": "2026-08-29",
@@ -332,15 +341,6 @@
       "duration": 8284,
       "avg_hr": 139,
       "max_hr": 177
-    },
-    {
-      "name": "Afternoon Run",
-      "date": "2026-07-01",
-      "miles": 12.01,
-      "elevation_feet": 1385,
-      "duration": 8314,
-      "avg_hr": 144,
-      "max_hr": 173
     }
   ]
 }

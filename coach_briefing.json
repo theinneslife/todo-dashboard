@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-28",
-  "generated_at": "2026-08-28T12:00:00Z",
+  "generated": "2026-08-31",
+  "generated_at": "2026-08-31T13:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 3 mi Z2 Rolling",
-      "message": "3 miles, ~500 ft of rolling vert, HR capped at 138-150 bpm (well under your 165 LTHR). This is Week 5 and the taper window opens in the next few days, so keep this one genuinely easy — no chasing pace on the climbs. Use the rollers to rehearse the short punchy grades you'll see in the Julian Alps rather than to build fatigue."
+      "title": "Race Sim — Day 2 (Back-to-Back)",
+      "message": "14 mi with ~2,000 ft, mimicking the back half of the race, on legs already loaded from yesterday. Keep it Zone 2, patient — walk the first stretch to loosen up before settling into rhythm. This is peak-block work, so let the climbs feel like Julian Alps vert: steady power hiking on the ups, controlled and light on the downs. Combined with yesterday, that's 32 miles of race simulation across two days. First light start, full hydration from the gun."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy effort, so no on-course fueling needed — just a light pre-run snack (banana or toast) if it's been over 3 hours since eating. Hit your ~220g carb target through the day to keep glycogen topped off, and use the run to test whatever gut-training strategy you're carrying into the race sim coming up."
+      "message": "Same fueling and sodium plan as yesterday — consistency is the point of a B2B. Target 60-80g carbs/hr on course, sodium on schedule regardless of thirst. Pre-run: something easy and carb-forward you've used before, no experiments on tired legs. Post-run: hit protein + carbs within 30-60 minutes to kickstart repair before tomorrow's lighter day."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Load is light today, but you're stacked on travel (Lima → packing → flight to Miami tonight). Prioritize hydration and a short mobility flow before you pack, and bank sleep where you can around the travel window — recovery from the accumulated Week 5 volume matters more than the run itself right now."
+      "message": "This is the demanding half of a back-to-back — prioritize sodium and fluid replacement immediately, then legs up for 10-15 minutes this afternoon. Skip anything intense; save mobility work for tomorrow's active recovery day. Sleep is the biggest lever after a 32-mile two-day block, so protect it tonight."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "This is the last easy shakeout before the taper phase begins and before your race simulation. Three weeks out from Kranjska Gora, the work is banked — today's job is just to move well and stay sharp through the travel chaos, not to prove anything."
+      "message": "You're literally rehearsing the back half of Julian Alps right now, on pre-fatigued legs, at altitude-adjacent effort. When it gets heavy in the last few miles, that's the practice — stay patient, execute the plan you wrote, not the plan your legs want to write for you. This is exactly what race day will ask of you."
     }
   ]
 }

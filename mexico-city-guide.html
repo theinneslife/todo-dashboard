@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexico City Arrival Guide &middot; D&iacute;a de Muertos 2026</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+
+
+:root{
+  --paper:#f8f2e6; --paper-2:#fffbf1; --ink:#211a1d; --ink-soft:#5d5049;
+  --line:#e7d9c2; --ocean:#8a2846; --ocean-deep:#3a1226; --gold:#c9911f;
+  --gold-soft:#f0cf80; --terra:#c05a1e; --rose:#a02c50;
+}
+.hero{background:
+  linear-gradient(180deg,rgba(38,10,24,.15) 0%,rgba(38,10,24,.40) 45%,rgba(38,10,24,.90) 100%),
+  linear-gradient(120deg,#3a1226,#8a2846 42%,#c05a1e 100%,#f0cf80 145%);}
+.anniv{background:linear-gradient(160deg,#1a0d14,#3a1226 55%,#5e1f34);}
+.timeline{background:linear-gradient(160deg,#3a1226,#8a2846);}
+footer{background:#3a1226;}
+footer .fine{color:#d6adb9;}
+.pill{color:#7a2340;background:#f7e5ea;border-color:#eecfd8;}
+.note-strip{background:#fdf3df;border:1px solid #f0dfb2;border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0;font-size:14.5px;color:#5a4a24;}
+.note-strip b{color:#3d3113;}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook &middot; Autumn 2026</div>
+    <h1>Mexico City</h1>
+    <p class="sub">Twelve days at 2,240 metres, landing into the single most extraordinary weekend on the Mexican calendar.</p>
+    <div class="meta">
+      <span class="chip">Oct 29 to Nov 10, 2026</span>
+      <span class="chip">Base: Roma Norte and Condesa</span>
+      <span class="chip">D&iacute;a de Muertos</span>
+      <span class="chip">F1 Mexico GP &middot; Oct 30 to Nov 1</span>
+      <span class="chip">1 USD = 17.0 MXN</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#weekend1">The Weekend</a>
+    <a href="#basics">Basics</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#sidetrip">Side Trip</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="weekend1">
+    <div class="anniv">
+      <div class="eyebrow">Read This Before Anything Else</div>
+      <h2>The First Weekend</h2>
+      <p class="lead">You arrive Thursday October 29 into a city that is about to host a Formula 1 Grand Prix and Day of the Dead in the same 72 hours. This is either the best weekend of the whole year of travel or a logistical disaster, and the difference is entirely down to what you book in advance.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Motorsport</div>
+          <h3>F1 Mexico City Grand Prix &middot; Oct 30 to Nov 1</h3>
+          <p>Round 20 of the championship, at the Autodromo Hermanos Rodriguez in Iztacalco, with the race on Sunday November 1. The stadium section through the old baseball diamond is the loudest corner in Formula 1 and the atmosphere is regularly voted the best on the calendar. Grandstand tickets sell out months ahead but resale is reliable.</p>
+          <div class="note">Take the Metro to Ciudad Deportiva. Driving to that circuit on race day is a two hour mistake.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Reason People Come</div>
+          <h3>D&iacute;a de Muertos &middot; Oct 31 to Nov 2</h3>
+          <p>Three separate processions run in the week: the Alebrijes parade in mid October, the Mega Procesion de Catrinas in late October, and the grand Desfile de Dia de Muertos itself, which runs from the Puerta de los Leones in Chapultepec down Paseo de la Reforma to the Zocalo. Reported 2026 dates differ between November 1 and November 2, so confirm on the city government site once it publishes.</p>
+          <div class="note">The Zocalo ofrenda is enormous and free. Go at night.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Real One</div>
+          <h3>Mixquic, the night of November 1</h3>
+          <p>The parade is a modern invention created after a James Bond film. The genuine tradition is in San Andres Mixquic in the far southeast of the city, where the whole town spends the night of November 1 in the churchyard with candles, marigolds and their families. It is quiet, overwhelming and the most moving thing you will see in Mexico. Hire a driver, go late, stay late.</p>
+          <div class="note">Ninety minutes each way. Worth every minute.</div>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>How to sequence it</h3>
+        <div class="step"><div class="time">Thu 29</div><div class="what"><b>Land and do nothing.</b> You are at 2,240 metres. Eat lightly, drink water, walk Condesa, sleep early. Altitude arrives on day two, not day one.</div></div>
+        <div class="step"><div class="time">Fri 30</div><div class="what"><b>F1 practice</b> if you have tickets, otherwise the Anthropology Museum in the morning and Xochimilco altars in the afternoon.</div></div>
+        <div class="step"><div class="time">Sat 31</div><div class="what"><b>Qualifying,</b> then the Catrinas and street celebrations across Roma and Centro at night. The city dresses up and the streets fill.</div></div>
+        <div class="step"><div class="time">Sun 1</div><div class="what"><b>Race day,</b> then Mixquic overnight if you have the legs for both. If not, pick one and do it properly.</div></div>
+        <div class="step"><div class="time">Mon 2</div><div class="what"><b>Recover.</b> Coyoacan cemetery in the afternoon, an early dinner, nothing ambitious.</div></div>
+        <div class="step"><div class="time">Nov 3 to 10</div><div class="what"><b>The real stay.</b> The city empties out, restaurants become bookable, and this becomes one of the best cities in the world to just live in for a week.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 1</div>
+      <h2>Travel Basics</h2>
+      <p>The altitude is the thing nobody warns you about properly, and it will affect every run you do for the first week.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">Peso $</div><div class="d">1 USD buys about 17.0 MXN as of late August 2026. Written with a dollar sign, which catches everyone out. Cards widely accepted, cash for markets and taxis.</div></div>
+      <div class="fact"><div class="k">Elevation</div><div class="v">2,240 m</div><div class="d">7,350 feet. Expect around 12 percent off your threshold pace for the first ten days, and worse sleep for the first three nights.</div></div>
+      <div class="fact"><div class="k">Weather</div><div class="v">23 &deg;C day</div><div class="d">Dry season starts in November. Cool mornings near 10 &deg;C, warm dry afternoons, strong sun. Almost no rain after early November.</div></div>
+      <div class="fact"><div class="k">Getting around</div><div class="v">Uber and Didi</div><div class="d">Both excellent, cheap and safe. Uber is the default. Never hail a street taxi. Metro is fine in daylight but avoid it with luggage.</div></div>
+      <div class="fact"><div class="k">Air quality</div><div class="v">Check IMECA</div><div class="d">November is usually good but inversions happen. Check the index before a hard session and move it indoors on bad days.</div></div>
+      <div class="fact"><div class="k">Water</div><div class="v">Bottled only</div><div class="d">Do not drink the tap water and do not use it to brush teeth. Every apartment has a garrafon delivery.</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Chilango vocabulary</h3>
+        <div class="slang">
+          <span class="term"><b>Chilango</b> a Mexico City native</span>
+          <span class="term"><b>&iexcl;Qu&eacute; padre!</b> how cool</span>
+          <span class="term"><b>Ahorita</b> in a moment, meaning any time</span>
+          <span class="term"><b>&iquest;Mande?</b> sorry, what?</span>
+          <span class="term"><b>Chido</b> cool, good</span>
+          <span class="term"><b>Neta</b> really, truly</span>
+          <span class="term"><b>Provecho</b> said to anyone eating</span>
+          <span class="term"><b>Antojito</b> street snack</span>
+          <span class="term"><b>Garnacha</b> fried street food</span>
+          <span class="term"><b>La cuenta</b> the bill</span>
+          <span class="term"><b>Ofrenda</b> the Day of the Dead altar</span>
+          <span class="term"><b>Cempas&uacute;chil</b> the marigold</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Safety and practicalities</h3>
+        <ul>
+          <li>Roma Norte, Condesa, Polanco, Juarez and Coyoacan are safe and walkable day and night. Stay in that footprint and you will have no problems.</li>
+          <li>Use Uber rather than street taxis, always. This is the single biggest safety lever in the city.</li>
+          <li>Phone snatching happens on busy streets and on the Metro. Keep it away when walking.</li>
+          <li>Do not carry more cash than you need and use ATMs inside banks or malls.</li>
+          <li>Earthquake drills sound a citywide alarm and are common. Learn where the safe zone is in your building on day one.</li>
+          <li>Tipping is 10 to 15 percent in restaurants, and card machines will ask you at the table.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 2</div>
+      <h2>Restaurants</h2>
+      <p>Twenty tables. Mexico City is arguably the most exciting eating city in the Americas right now, and the range from a two dollar taco to a four hundred dollar tasting menu is the whole point.</p>
+    </div>
+
+    <div class="tier">The reservations to make now</div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Pujol<span>Enrique Olvera's flagship and the restaurant that changed how the world sees Mexican cooking. The mole madre has been aging continuously for years. Books on Tock, 28 days ahead at 10am local. The taco omakase bar is slightly easier to get.</span></div><div class="pill">Polanco</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Quintonil<span>Jorge Vallejo and Alejandra Flores, number seven in Latin America's 50 Best. More precise and more ingredient led than Pujol, and the better meal of the two for most people. Resy, 30 days out, try weekdays.</span></div><div class="pill">Polanco</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Rosetta<span>Elena Reygadas, number 48 in the world, cooking Mexican and Mediterranean in a crumbling Roma mansion. The most beautiful dining room in the city. Resy, two to three weeks usually available.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Sud 777<span>Edgar Nunez in the south of the city, with a garden supplying the kitchen and one of the best vegetable focused menus in Mexico.</span></div><div class="pill">Pedregal</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Em<span>Lucho Martinez cooking a long, personal, technically ferocious tasting menu in a tiny Roma space. The most interesting new fine dining in the city.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Contramar<span>The lunch. Tuna tostadas, pescado a la talla split red and green, and a room full of the entire creative class of Mexico City. Book two weeks out for a 3pm table.</span></div><div class="pill">Roma Norte</div></div>
+    </div>
+
+    <div class="tier">The ones you will go back to</div>
+    <div class="list">
+      <div class="row"><div class="rank">7</div><div class="name">Maximo Bistrot<span>Eduardo Garcia's Roma institution, French technique on Mexican produce, and the most reliable excellent dinner in the neighbourhood.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Lardo<span>The everyday version of Maximo. Wood oven, all day, walk in friendly, and one of the best breakfasts in the city.</span></div><div class="pill">Condesa</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Masala y Ma&iacute;z<span>Indian, East African and Mexican traditions in one kitchen, and far more coherent than that sounds. Genuinely original.</span></div><div class="pill">Ju&aacute;rez</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Meroma<span>Small Roma room, seasonal, unfussy, and where chefs eat on their night off.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Nicos<span>Old school Mexican in Clavería, family run since 1957, and the best sopa seca and traditional cooking in the city. Lunch only, worth the ride.</span></div><div class="pill">Azcapotzalco</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Fonda Margarita<span>Opens at 5:30am, closes when the pots are empty, and serves the best breakfast in Mexico out of clay cazuelas. Cash only. Go at 7am after a run.</span></div><div class="pill">Del Valle</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">El Cardenal<span>The classic Mexican breakfast institution. Hot chocolate whisked at the table, fresh conchas, and nata with bread. Go to the Centro location.</span></div><div class="pill">Centro</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">Expendio de Maiz<span>No menu. They bring you plates until you say stop, all built on heirloom corn. Around twenty dollars and one of the great meals in the city.</span></div><div class="pill">Roma Norte</div></div>
+    </div>
+
+    <div class="tier">Tacos and street, which is the actual point</div>
+    <div class="list">
+      <div class="row"><div class="rank">15</div><div class="name">El Vilsito<span>A mechanic's workshop by day, the best al pastor in the city by night. Open until 3am. Order five and then order five more.</span></div><div class="pill">Narvarte</div></div>
+      <div class="row"><div class="rank">16</div><div class="name">El Turix<span>A hole in the wall in Polanco serving one thing, cochinita pibil, better than anywhere else. Ten dollars fills two people.</span></div><div class="pill">Polanco</div></div>
+      <div class="row"><div class="rank">17</div><div class="name">Tacos Hola El G&uuml;ero<span>Guisado tacos in Condesa, lunchtime only, twelve stewed fillings on the counter. Point at three.</span></div><div class="pill">Condesa</div></div>
+      <div class="row"><div class="rank">18</div><div class="name">Taquer&iacute;a Orinoco<span>Norteno style, crispy chicharron and trompo, open very late, and the most consistent chain in the city.</span></div><div class="pill">Roma / Condesa</div></div>
+      <div class="row"><div class="rank">19</div><div class="name">Mercado de Medell&iacute;n<span>The Roma market. Colombian, Cuban and Venezuelan stalls alongside Mexican, plus the best fruit in the neighbourhood. Lunch here twice a week.</span></div><div class="pill">Roma Sur</div></div>
+      <div class="row"><div class="rank">20</div><div class="name">Pulquer&iacute;a Las Duelistas<span>Not food, but essential. Pulque, the pre Hispanic fermented agave drink, in a psychedelically painted bar downtown. Try the oat or guava curado.</span></div><div class="pill">Centro</div></div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 3</div>
+      <h2>Coffee</h2>
+      <p>Mexico grows superb coffee and Mexico City finally drinks it properly. Everything below is inside Roma, Condesa, Juarez or Polanco.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Buna<span>The most consistently excellent roaster in the city, sourcing directly from Mexican producers. The Orizaba corner in Roma is the one.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Quentin Caf&eacute;<span>Tiny Condesa counter, brilliant espresso, and a queue of locals from 8am. The neighbourhood's favourite.</span></div><div class="pill">Condesa</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Almanegra Caf&eacute;<span>Serious brew bar with rotating single origins and staff who will talk you through the whole menu. Multiple locations.</span></div><div class="pill">Roma / Condesa</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Cardinal Casa de Caf&eacute;<span>Beautiful space, excellent filter, and the best place in the city to spend two hours with a laptop.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Caf&eacute; Avellaneda<span>Coyoacan institution, tiny, and the best coffee in the south of the city. Pair with the Frida Kahlo house.</span></div><div class="pill">Coyoac&aacute;n</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Cucurucho<span>Multiple locations across Roma and Centro, reliably good, and open early enough for a pre run cortado.</span></div><div class="pill">Multiple</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Blend Station<span>Big Condesa space with real food, a garden, and strong coffee. The best group breakfast option.</span></div><div class="pill">Condesa</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Panader&iacute;a Rosetta<span>Elena Reygadas's bakery. The guava roll and the cardamom bun are among the best pastries in the Americas, and the coffee is good too.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Boicot Caf&eacute;<span>Solid all rounder in Condesa and Roma with good beans and long hours.</span></div><div class="pill">Condesa</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Camino a Comala<span>Roasting only Mexican coffee, with real depth on origin. The place to buy beans to take away.</span></div><div class="pill">Roma Norte</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Caf&eacute; Nin<span>Olvera's all day cafe and bakery in Juarez. Excellent breakfast, beautiful room, easy to sit in for hours.</span></div><div class="pill">Ju&aacute;rez</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Cafebrer&iacute;a El P&eacute;ndulo<span>Bookshop and cafe, several locations, plants everywhere. Not the best coffee but the nicest afternoon.</span></div><div class="pill">Roma / Condesa</div></div>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 4</div>
+      <h2>Running</h2>
+      <p class="sub">Twelve days at 7,350 feet is a genuine training stimulus if you handle it right, and a hole you fall into if you do not.</p>
+
+      <div class="block">
+        <h3>The altitude rules</h3>
+        <p>Days one to three, easy only, no exceptions, and expect the effort to feel wrong. Days four to seven, add strides and short hills. From day eight you can run a real session. Hydrate far beyond normal because the air is dry as well as thin, and add electrolytes to everything. If sleep is broken for the first three nights, that is the altitude and it passes.</p>
+        <div class="runbox">
+          <div><div class="k">Altitude</div><div class="val">2,240 m / 7,350 ft</div></div>
+          <div><div class="k">Pace cost</div><div class="val">Roughly 12 percent early</div></div>
+          <div><div class="k">Best window</div><div class="val">6:30 to 8:30am</div></div>
+          <div><div class="k">Air quality</div><div class="val">Check IMECA before hard days</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>The daily loops</h3>
+        <p>Parque Mexico and Parque Espana in Condesa give you a soft one and a half kilometre circuit with a running track surface, and it is where the whole neighbourhood runs at 7am. Bosque de Chapultepec is the big one, over 600 hectares with a dedicated running circuit around the first section, the lake and the Anthropology Museum. Twelve kilometres inside Chapultepec without repeating yourself is easy. On Sundays, Paseo de la Reforma closes to traffic for the Muevete en Bici ciclovia from 8am to 2pm, giving you kilometres of empty boulevard.</p>
+      </div>
+
+      <div class="block">
+        <h3>The long run: Desierto de los Leones</h3>
+        <p>A pine forest national park in the mountains southwest of the city, starting around 2,800 metres and climbing. Trails, cool air, and total silence forty minutes from Condesa by Uber. The loop from the old Carmelite monastery up towards Cruz Blanca and back gives you twenty to twenty five kilometres on soft forest singletrack with serious vertical. Go early, go with company, and take everything you need because there is nothing up there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 5</div>
+      <h2>Afternoons</h2>
+      <p>One good thing a day, building from light to memorable, and skewed towards what only exists here.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Light</div><h3>Museo Nacional de Antropolog&iacute;a</h3><div class="loc">Chapultepec</div><p>One of the greatest museums on earth and the single best three hours in Mexico City. The Aztec and Maya halls alone justify the trip. Go Tuesday morning.</p></div>
+      <div class="card2"><div class="tag">Light</div><h3>Casa Luis Barrag&aacute;n</h3><div class="loc">Tacubaya</div><p>The house of Mexico's greatest architect, a UNESCO site, and a lesson in colour and light. Tiny group tours, book weeks ahead online.</p></div>
+      <div class="card2"><div class="tag">Signature Local</div><h3>Lucha libre at Arena M&eacute;xico</h3><div class="loc">Doctores</div><p>Friday nights. Masks, beer, families, absolute chaos. Buy ringside, take nothing valuable, and stay for the main event. Nothing else in the world is like it.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Xochimilco trajinera at dawn</h3><div class="loc">Xochimilco</div><p>Everyone does the party boat at 2pm. Book the 6am birdwatching trip instead, through the chinampas in the mist with a biologist. Completely different experience and the best morning of the trip.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Teotihuac&aacute;n at opening</h3><div class="loc">50 km northeast</div><p>Be at the gate at 8am and have the Avenue of the Dead almost to yourself. Skip the balloon rides and hire a proper archaeological guide instead.</p></div>
+      <div class="card2"><div class="tag">Art</div><h3>Casa Azul and Museo Anahuacalli</h3><div class="loc">Coyoac&aacute;n</div><p>Frida Kahlo's house then Diego Rivera's volcanic stone pyramid museum. Buy the combined ticket, book online, and do Coyoacan market in between.</p></div>
+      <div class="card2"><div class="tag">Art</div><h3>Museo Jumex and Soumaya</h3><div class="loc">Polanco</div><p>The best contemporary art in Latin America, next door to Carlos Slim's silver clad Soumaya. Two hours, one block.</p></div>
+      <div class="card2"><div class="tag">Food</div><h3>Mezcal tasting in Roma</h3><div class="loc">Roma Norte</div><p>Bosforo downtown or Mezcaloteca style tastings in Roma. Learn the difference between espadin, tobala and tepeztate properly, guided, with no music and no shots.</p></div>
+      <div class="card2"><div class="tag">Design</div><h3>Centro Hist&oacute;rico walk</h3><div class="loc">Centro</div><p>Palacio de Bellas Artes, the Diego Rivera murals in the Palacio Nacional, the Templo Mayor excavation, and the Torre Latinoamericana observation deck at sunset.</p></div>
+      <div class="card2"><div class="tag">With Brooke</div><h3>Cooking class at a Roma market</h3><div class="loc">Roma Sur</div><p>Shop the Mercado de Medellin with a chef and then cook mole and tortillas from scratch. The one class worth doing here, and it changes how you shop for the rest of the stay.</p></div>
+    </div>
+  </section>
+
+  <section id="sidetrip">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 6</div>
+      <h2>Weekend Side Trip: Valle de Bravo</h2>
+      <p class="sub">Two and a half hours west, 1,800 metres, a lake ringed by pine forest, and the best long run terrain within reach of the capital.</p>
+      <div class="block">
+        <h3>Getting there</h3>
+        <p>Two and a half hours by car on the Toluca highway, and a hired driver for the weekend is straightforward and not expensive. Do not drive yourself back on a Sunday evening, the return traffic into the city is genuinely brutal. The alternative is Tepoztlan, ninety minutes south, smaller and with a much harder climb up the Tepozteco.</p>
+      </div>
+      <div class="block">
+        <h3>The long run: the Valle ridge trails</h3>
+        <p>Valle de Bravo sits at about 1,830 metres, four hundred metres lower than the city, which means you will feel fast. The trail network above the town towards La Peña and the monarch butterfly reserve country gives you long soft climbs on forest singletrack. A twenty five kilometre loop out along the lake road, up through the pines and back down into town is straightforward to build, with two thousand feet of climbing and pine needle underfoot the whole way.</p>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">25 to 30 km</div></div>
+          <div><div class="k">Elevation</div><div class="val">1,830 m base</div></div>
+          <div><div class="k">Vert</div><div class="val">600 to 800 m</div></div>
+          <div><div class="k">Surface</div><div class="val">Pine forest singletrack</div></div>
+          <div><div class="k">Temp at 7am</div><div class="val">Around 9 &deg;C</div></div>
+          <div><div class="k">Crew</div><div class="val">Driver meets you in town</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <h3>The rest of the weekend</h3>
+        <p>Stay at Rodavento or El Santuario on the lake, both with proper spas. Paraglide off Monte Alto, which is one of the best flying sites in the world and takes twenty minutes to arrange. Eat at Casa Rodavento or La Michoacana in town. And if the timing works in early November, the monarch butterfly reserves at El Rosario and Sierra Chincua begin opening for the season, an hour and a half further north.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 7</div>
+      <h2>Luxury Shopping</h2>
+      <p>Polanco is the luxury spine, and Roma is where you find things you genuinely cannot buy anywhere else.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Golden Mile</div><h3>Avenida Presidente Masaryk</h3><div class="loc">Polanco</div><p>Mexico's most expensive street. Herm&egrave;s, Louis Vuitton, Cartier, Tiffany, Gucci, Bulgari, all in three walkable blocks with good restaurants between them.</p></div>
+      <div class="card2"><div class="tag">Mall</div><h3>Antara and Palacio de Hierro Polanco</h3><div class="loc">Polanco</div><p>Antara is the open air luxury mall. Palacio de Hierro is the great Mexican department store and its Polanco flagship is the best single building for shopping in the country.</p></div>
+      <div class="card2"><div class="tag">Concept</div><h3>Common People</h3><div class="loc">Polanco</div><p>A concept store in an old mansion, with international designers, Mexican labels, books and a cafe. The best curated retail in the city.</p></div>
+      <div class="card2"><div class="tag">Mexican Design</div><h3>Carla Fernández and Lago</h3><div class="loc">Roma Norte</div><p>Carla Fernandez works directly with indigenous artisan communities and the results are extraordinary. Lago DF does modern Mexican womenswear. Both are pieces you cannot get at home.</p></div>
+      <div class="card2"><div class="tag">Mexican Design</div><h3>Onora and Casa Caballeria</h3><div class="loc">Polanco</div><p>Onora sells contemporary homeware made by Mexican craftspeople. Caballeria does leather and menswear with real quality.</p></div>
+      <div class="card2"><div class="tag">Craft</div><h3>Ciudadela Mercado de Artesan&iacute;as</h3><div class="loc">Centro</div><p>Every Mexican craft tradition under one roof. Oaxacan textiles, Talavera, alebrijes, silver from Taxco. Bargain politely and buy from the stalls that name their village.</p></div>
+      <div class="card2"><div class="tag">Vintage</div><h3>Bazar de Oro and Roma vintage</h3><div class="loc">Roma Norte</div><p>Colima and Cordoba streets have a dozen small vintage and design shops. Best hunting in the city for mid century Mexican furniture and objects.</p></div>
+      <div class="card2"><div class="tag">Sunday</div><h3>Bazar S&aacute;bado, San &Aacute;ngel</h3><div class="loc">San &Aacute;ngel</div><p>Saturdays only, in a colonial house in the prettiest neighbourhood in the city. The highest quality craft market in Mexico. Go early and stay for lunch.</p></div>
+    </div>
+  </section>
+
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 8</div>
+      <h2>Fitness</h2>
+      <p>Reformer, pole and gyms with short passes, clustered in Roma, Condesa and Polanco. WhatsApp is how everything gets booked here.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Vita Pilates</h3><div class="loc">Condesa and Polanco</div><p>The best regarded reformer studio in the city, small classes, strong instruction, and class packs that suit a two week stay.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Pilates Room</h3><div class="loc">Roma Norte</div><p>Boutique reformer with genuinely qualified instructors and a calm room. The closest good option to a Roma base.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Studio Reforma</h3><div class="loc">Polanco</div><p>Reformer plus barre and mat, polished, English friendly, and easy to drop into.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Pole Dance M&eacute;xico</h3><div class="loc">Roma / Condesa</div><p>The established studio in the city with a full class ladder and drop in slots. Book by WhatsApp or Instagram a day ahead.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Cielo Aerial Studio</h3><div class="loc">Condesa</div><p>Pole, hoop and silks in a good space. Small classes, so message before you turn up.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Sports World</h3><div class="loc">Multiple</div><p>The main full service chain with pools and classes. Day and weekly passes available to visitors at most locations.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Smart Fit</h3><div class="loc">Multiple</div><p>Everywhere, cheap, well equipped for lifting, and the simplest option for a quick session between other things.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Wellhub</h3><div class="loc">Citywide</div><p>Formerly Gympass, and it works extremely well in Mexico City. One subscription across hundreds of gyms and studios including most of the above.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Temazcal ceremony</h3><div class="loc">Outside the city</div><p>The pre Hispanic sweat lodge, run properly with a temazcalero rather than as a spa treatment. Intense, ceremonial, and the correct thing to do after the Desierto de los Leones long run.</p></div>
+    </div>
+  </section>
+
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 9</div>
+      <h2>Groceries</h2>
+      <p>For the cook at home nights with Brooke. The markets are extraordinary and the premium supermarkets cover everything else.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Whole Foods Equivalent</div><h3>City Market</h3><div class="loc">Roma / Polanco</div><p>The premium arm of La Comer and the closest thing to Whole Foods in Mexico. Excellent produce, imported goods, prepared food and a good wine section.</p></div>
+      <div class="card2"><div class="tag">Premium</div><h3>Superama and Fresko</h3><div class="loc">Multiple</div><p>Walmart's upmarket format and La Comer's Fresko. Both deliver, both stock the imported things you will miss.</p></div>
+      <div class="card2"><div class="tag">Market</div><h3>Mercado de Medell&iacute;n</h3><div class="loc">Roma Sur</div><p>The best neighbourhood market for a Roma base. Latin American specialities, superb fruit, fish and a dozen good lunch counters.</p></div>
+      <div class="card2"><div class="tag">Market</div><h3>Mercado de San Juan</h3><div class="loc">Centro</div><p>The chefs' market. Imported cheese, game, seafood and specialist produce you will not find elsewhere in the city.</p></div>
+      <div class="card2"><div class="tag">Organic</div><h3>Mercado El 100</h3><div class="loc">Roma &middot; Sundays</div><p>Certified organic and local producers only, Sunday mornings in Roma. The best eggs, vegetables and bread of the week.</p></div>
+      <div class="card2"><div class="tag">Delivery</div><h3>Rappi and Cornershop</h3><div class="loc">Citywide</div><p>Both are fast, cheap and cover every store above. The right answer on arrival day and for the heavy things.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for Mexico City, October 29 to November 10, 2026. F1 and Dia de Muertos dates come from current published listings and the parade date in particular has been reported as both November 1 and November 2, so confirm on the city government site once it publishes. Book Pujol, Quintonil and Casa Barragan the week you land. Respect the altitude for the first three days.</p>
+  </div>
+</footer>
+
+</body>
+</html>

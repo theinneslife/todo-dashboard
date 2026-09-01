@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St Helena Arrival Guide &middot; Napa Valley, October 2026</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+
+
+:root{
+  --paper:#f7f3e9; --paper-2:#fffcf4; --ink:#221c1a; --ink-soft:#5b5047;
+  --line:#e6dcc6; --ocean:#6b2d3c; --ocean-deep:#33161f; --gold:#b8912f;
+  --gold-soft:#e8cd8b; --terra:#a3612a; --rose:#8b3a46;
+}
+.hero{background:
+  linear-gradient(180deg,rgba(35,18,20,.14) 0%,rgba(35,18,20,.38) 45%,rgba(35,18,20,.88) 100%),
+  linear-gradient(120deg,#33161f,#6b2d3c 45%,#a3612a 100%,#e8cd8b 145%);}
+.anniv{background:linear-gradient(160deg,#1d1013,#33161f 55%,#4e2029);}
+.timeline{background:linear-gradient(160deg,#33161f,#6b2d3c);}
+footer{background:#33161f;}
+footer .fine{color:#cfb0b3;}
+.pill{color:#6b2d3c;background:#f5e7ea;border-color:#ecd4d8;}
+.note-strip{background:#fbf4e3;border:1px solid #eddfb8;border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0;font-size:14.5px;color:#584a28;}
+.note-strip b{color:#3c3216;}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook &middot; October 2026</div>
+    <h1>St Helena</h1>
+    <p class="sub">Nine days in upper Napa Valley across two chapters: a quiet cycling and running week, then a wedding.</p>
+    <div class="meta">
+      <span class="chip">Part 1 &middot; Oct 17 to 22</span>
+      <span class="chip">The Wedding &middot; Oct 22 to 25</span>
+      <span class="chip">Bike from St Helena Cyclery</span>
+      <span class="chip">End of harvest</span>
+      <span class="chip">Car needed &middot; SFO in, STS out</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#twotrips">Two Chapters</a>
+    <a href="#wedding">The Wedding</a>
+    <a href="#basics">Basics</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#wine">Wineries</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running &amp; Riding</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="twotrips">
+    <div class="anniv">
+      <div class="eyebrow">One Town, Two Very Different Weeks</div>
+      <h2>The Shape of Nine Days</h2>
+      <p class="lead">St Helena in the second half of October is the best week of the Napa year. Harvest is finishing, the vines turn gold and red, the crowds have gone home, and the valley smells like fermenting fruit from one end to the other. You get five quiet days of it and then three days of a wedding.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Part 1 &middot; Oct 17 to 22</div>
+          <h3>The training week</h3>
+          <p>Airbnb, a rental bike from St Helena Cyclery on Main Street, and the best cycling and running roads in California outside the Sierra. This is the block to get real volume in before three days of eating and toasting. Silverado Trail at 7am with the fog burning off the vines is worth the trip on its own.</p>
+          <div class="note">Bike drops back at the Cyclery Saturday afternoon before the wedding. Set a reminder.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Part 2 &middot; Oct 22 to 25</div>
+          <h3>The wedding</h3>
+          <p>Hotel booked, driving between the two, and a different set of rules. Group meals, a schedule you do not control, and a lot of very good wine. Plan one morning run and one recovery activity per day and let everything else be the wedding.</p>
+          <div class="note">Napa wedding weekends usually run Friday welcome, Saturday ceremony, Sunday brunch.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Logistics</div>
+          <h3>The car, and the two airports</h3>
+          <p>Rent in SFO on arrival, return it to Santa Rosa STS at the end. That is an unusual one way but it saves the drive back down to the peninsula, and STS is a twenty five minute drive from St Helena instead of ninety. Confirm the one way drop fee when you book.</p>
+          <div class="note">SFO to St Helena is about 90 minutes with no traffic and two hours with.</div>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>A clean nine days</h3>
+        <div class="step"><div class="time">Sat 17</div><div class="what"><b>Arrive.</b> Land SFO, drive up, collect the bike, groceries at Sunshine Foods, and an easy dinner at Cook St Helena.</div></div>
+        <div class="step"><div class="time">Sun 18</div><div class="what"><b>Long ride.</b> Silverado Trail north and the Oakville grade. Then a proper lunch and nothing else.</div></div>
+        <div class="step"><div class="time">Mon 19</div><div class="what"><b>Long run</b> on the Oat Hill Mine Trail out of Calistoga, then the Calistoga hot springs in the afternoon.</div></div>
+        <div class="step"><div class="time">Tue 20</div><div class="what"><b>Wine day.</b> Two appointments, not four. Lunch between them. Book both before you fly.</div></div>
+        <div class="step"><div class="time">Wed 21</div><div class="what"><b>Ride the Napa Valley Vine Trail</b> south, easy spin, then dinner at The Charter Oak.</div></div>
+        <div class="step"><div class="time">Thu 22</div><div class="what"><b>Switch chapters.</b> Check out, check into the hotel, drop the bike, and the wedding week begins.</div></div>
+        <div class="step"><div class="time">Fri 23</div><div class="what"><b>Welcome party.</b> Morning run first, always.</div></div>
+        <div class="step"><div class="time">Sat 24</div><div class="what"><b>The wedding.</b> Short easy shakeout at dawn, hydrate all day, and pace the toasts.</div></div>
+        <div class="step"><div class="time">Sun 25</div><div class="what"><b>Brunch and out.</b> Drive to STS, drop the car, fly to Los Angeles.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wedding">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 1</div>
+      <h2>The Wedding Weekend</h2>
+      <p class="sub">A Napa wedding has its own physics. Here is how to be the guest who enjoys all of it and still runs on Sunday.</p>
+
+      <div class="block">
+        <h3>Where the group stays</h3>
+        <p>If people are still booking, the useful map is this. Meadowood and Auberge du Soleil are the two grand resort options and both are walking distance from nothing, so they need drivers. Harvest Inn and Las Alcobas sit at the edge of St Helena and are the best compromise between comfort and being able to walk to Main Street. Calistoga is fifteen minutes north, noticeably cheaper, and has the hot springs. For a block of guests, the Francis House and Solage in Calistoga or a large rental in the hills above Angwin are the ones that keep everyone together.</p>
+      </div>
+
+      <div class="block">
+        <h3>Where a group eats</h3>
+        <p>Wedding weekends need places that take twelve without an argument. Farmstead at Long Meadow Ranch has the barn, the lawn and the capacity, and it is genuinely good. Goose and Gander has the basement bar and a patio that absorbs a crowd. Gott's Roadside is the correct lunch for a large group who have all been drinking. Brasswood and Charlie Palmer Steak in Napa both do private rooms. For a rehearsal dinner scale room, Tre Posti in St Helena is purpose built for exactly this.</p>
+      </div>
+
+      <div class="block">
+        <h3>The wedding day itself</h3>
+        <p>October ceremonies in Napa usually start between 4:30 and 5:30 to catch the light, which means a long open bar afternoon before anyone eats. Run at seven, eat a real breakfast, drink water on a schedule rather than by thirst, and eat something substantial at three even if it feels like it will spoil dinner. Nights in the valley drop to nine or ten degrees Celsius after dark, so anything outdoors will be genuinely cold by nine. Bring a layer and tell Brooke to as well.</p>
+        <div class="runbox">
+          <div><div class="k">Ceremony light</div><div class="val">Sunset around 6:15pm</div></div>
+          <div><div class="k">Night temp</div><div class="val">Around 9 &deg;C</div></div>
+          <div><div class="k">Rides</div><div class="val">Uber is thin, book a car</div></div>
+          <div><div class="k">Dress</div><div class="val">Layer for outdoors after dark</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Recovery runs across the wedding days</h3>
+        <p>Keep them short, flat and early. The Napa Valley Vine Trail from St Helena south is paved, flat and quiet at 7am. The loop around Lake Hennessey east of Rutherford is eight kilometres of rolling road with almost no traffic. Both let you be back before anybody else is awake, which is the whole trick to a wedding weekend.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 2</div>
+      <h2>Basics</h2>
+      <p>Small town, one main street, and a valley that runs thirty miles from Napa to Calistoga. Everything is on Highway 29 or Silverado Trail.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">US Dollar</div><div class="d">Tasting fees run 75 to 350 dollars a head and are often waived with a purchase. Tip tasting room staff 20 dollars a person.</div></div>
+      <div class="fact"><div class="k">Late Oct Weather</div><div class="v">24 &deg;C day</div><div class="d">Dropping to about 8 &deg;C at night. Morning fog until nine, brilliant afternoons. First rain of the season is possible.</div></div>
+      <div class="fact"><div class="k">Elevation</div><div class="v">70 m</div><div class="d">Valley floor. The mountain roads climb to 700 m on both sides, which is where the good riding is.</div></div>
+      <div class="fact"><div class="k">Getting around</div><div class="v">Car essential</div><div class="d">Uber and Lyft exist but are thin and slow, especially at night. For wine days book a driver, not a rideshare.</div></div>
+      <div class="fact"><div class="k">Harvest</div><div class="v">Crush, ending</div><div class="d">Late October is the tail of harvest. Cabernet is coming in, the wineries smell extraordinary, and everyone is exhausted and happy.</div></div>
+      <div class="fact"><div class="k">Airports</div><div class="v">SFO in, STS out</div><div class="d">SFO is 90 minutes. Santa Rosa STS is 25 minutes and flies Alaska. Oakland is a good third option.</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Valley vocabulary</h3>
+        <div class="slang">
+          <span class="term"><b>Crush</b> harvest and pressing season</span>
+          <span class="term"><b>Up valley</b> north, toward Calistoga</span>
+          <span class="term"><b>Down valley</b> south, toward Napa</span>
+          <span class="term"><b>The Trail</b> Silverado Trail</span>
+          <span class="term"><b>AVA</b> the appellation, e.g. Rutherford</span>
+          <span class="term"><b>Rutherford dust</b> the tannin signature of that AVA</span>
+          <span class="term"><b>Cult cab</b> allocation only Cabernet</span>
+          <span class="term"><b>Allocation</b> your annual right to buy</span>
+          <span class="term"><b>Library wine</b> older vintages held back</span>
+          <span class="term"><b>Estate</b> grown on the winery's own land</span>
+          <span class="term"><b>Punch down</b> the twice daily cap work</span>
+          <span class="term"><b>Sur lie</b> aged on the spent yeast</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Practicalities</h3>
+        <ul>
+          <li>Almost every winery in Napa is appointment only by law. Turning up unannounced does not work. Book two weeks ahead minimum.</li>
+          <li>Two tastings a day is the maximum if you want to remember either. Three is a mistake and four is a lost day.</li>
+          <li>October is fire season's tail. Check Cal Fire and air quality if there is any smoke, and have a flexible plan.</li>
+          <li>Highway 29 through St Helena backs up badly from 4pm. Use Silverado Trail instead, it is faster and prettier.</li>
+          <li>Ship wine home rather than carrying it. Every tasting room does it and it costs less than a checked bag.</li>
+          <li>Deer and cyclists on Silverado Trail at dawn. Drive slowly, and if you are riding, use lights.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 3</div>
+      <h2>Restaurants</h2>
+      <p>Napa Valley holds fourteen restaurants in the Michelin guide. Everything below is within twenty minutes of St Helena.</p>
+    </div>
+    <div class="tier">The big ones</div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">The French Laundry<span>Thomas Keller in Yountville, three Michelin stars, and still the most famous restaurant in America. Books sixty days out on Tock at 10am and sells out immediately. If you want it, set the alarm now.</span></div><div class="pill">Yountville</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">PRESS<span>One Michelin star, in St Helena, with the largest Napa Valley wine list in the world and some of the most creative cooking in the valley. Wood fired, cabernet friendly, and the best serious dinner in town.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">The Charter Oak<span>Christopher Kostow's St Helena restaurant, from the chef who earned three stars at Meadowood. Live fire, farm driven, and a courtyard that is the nicest room in the valley on a warm October evening.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">The Restaurant at Auberge du Soleil<span>Michelin recognised, on a terrace overlooking the whole valley from the Rutherford hillside. The best view of any table in Napa. Go for lunch.</span></div><div class="pill">Rutherford</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Bouchon<span>Keller's bistro in Yountville, and the most reliably wonderful meal in the valley that you can actually book. Roast chicken, steak frites, and the bakery next door.</span></div><div class="pill">Yountville</div></div>
+    </div>
+    <div class="tier">Where the valley actually eats</div>
+    <div class="list">
+      <div class="row"><div class="rank">6</div><div class="name">Farmstead at Long Meadow Ranch<span>Consistently one of the top restaurants in Napa, in a converted barn with a lawn, sourcing from their own farm and ranch. The best large group option in St Helena.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Goose &amp; Gander<span>Craftsman house with a basement bar that makes the best cocktails in the valley. Excellent burger, good patio, and where locals go on a Tuesday.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Cook St Helena<span>Twenty five seats on Main Street, northern Italian, family run, and the hardest small reservation in town. Book the week you land.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Gott's Roadside<span>The valley's roadside institution. Ahi burger, garlic fries, picnic tables under the trees. The correct lunch after a long ride.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Tra Vigne and Tre Posti<span>Tre Posti in the old Tra Vigne courtyard, with the stone building and the olive trees. Built for a group and lovely at dusk.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Brasswood Bar and Kitchen<span>North of town on Highway 29, with a bakery, a winery and a private room. Good, easy, and it absorbs a wedding party.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Sam's Social Club<span>Calistoga, in the Indian Springs resort, poolside, casual and genuinely good. The right lunch after the Oat Hill Mine run.</span></div><div class="pill">Calistoga</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">Lovina<span>Calistoga bungalow restaurant, small, seasonal and warm. The best dinner up valley and always easier to book than St Helena.</span></div><div class="pill">Calistoga</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">Ad Hoc<span>Keller again, Yountville, one family style menu a night, four courses, no choices. Fried chicken Mondays are legendary.</span></div><div class="pill">Yountville</div></div>
+      <div class="row"><div class="rank">15</div><div class="name">Model Bakery<span>The English muffin. That is the whole recommendation. Get there before ten or they are gone.</span></div><div class="pill">St Helena</div></div>
+    </div>
+  </section>
+
+  <section id="wine">
+    <div class="sec-head">
+      <div class="eyebrow">Section 4</div>
+      <h2>Wineries</h2>
+      <p>Appointment only, two a day maximum, and all of these are inside fifteen minutes of St Helena. Book before you fly.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Icon</div><h3>Schramsberg</h3><div class="loc">Calistoga</div><p>Sparkling wine aged in hand dug caves from the 1860s, the bottles stacked to the ceiling by candlelight. The best tour in Napa and the least like everything else.</p></div>
+      <div class="card2"><div class="tag">The Icon</div><h3>Inglenook</h3><div class="loc">Rutherford</div><p>Francis Ford Coppola's restored nineteenth century chateau, and one of the great historic estates of California. The Heritage tasting is worth the money.</p></div>
+      <div class="card2"><div class="tag">Cult Cabernet</div><h3>Corison</h3><div class="loc">St Helena</div><p>Cathy Corison has been making the most elegant, least overblown Cabernet in Napa for forty years, in a barn on Highway 29. The single best tasting in the valley.</p></div>
+      <div class="card2"><div class="tag">Cult Cabernet</div><h3>Spottswoode</h3><div class="loc">St Helena</div><p>Organic, biodynamic, walking distance from town, and one of the most respected estates in California. Small groups only, so book early.</p></div>
+      <div class="card2"><div class="tag">Mountain</div><h3>Cade or Ovid</h3><div class="loc">Howell Mountain / Pritchard Hill</div><p>Go up. The views from the eastern hills over the whole valley are the reason to leave the floor, and mountain fruit is a completely different wine.</p></div>
+      <div class="card2"><div class="tag">Architecture</div><h3>Hall St Helena and Quixote</h3><div class="loc">St Helena / Stags Leap</div><p>Hall for the Bunny Foo Foo sculpture and the modern estate. Quixote for the Hundertwasser building, which looks like a mushroom and has no straight lines.</p></div>
+      <div class="card2"><div class="tag">Group Friendly</div><h3>Charles Krug and Beringer</h3><div class="loc">St Helena</div><p>The two oldest wineries in Napa, both on the edge of St Helena, both able to take a wedding sized group with notice. Beringer's Rhine House is a National Historic Landmark.</p></div>
+      <div class="card2"><div class="tag">Something Different</div><h3>Round Pond olive mill</h3><div class="loc">Rutherford</div><p>Olive oil rather than wine, milled on site, with a tasting that is as serious as any wine flight and half the alcohol. The right thing to do on the morning of the wedding.</p></div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 5</div>
+      <h2>Coffee</h2>
+      <p>Small town, short list, and it is an honest list. There are five good options in the upper valley and that is genuinely all of them.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Napa Valley Coffee Roasting Company<span>On Main Street in St Helena, roasting since 1985, and the town's meeting point from 7am. Nothing fancy, consistently good.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Model Bakery<span>Coffee is fine, the English muffin is the reason. Open early, right on Main Street, and the correct post ride stop.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Yo el Rey Roasting<span>Calistoga, organic and direct trade, the most serious specialty coffee in the upper valley. Worth the fifteen minute drive.</span></div><div class="pill">Calistoga</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Sightglass at Meadowood<span>The San Francisco roaster's outpost, and the best espresso you will drink in the valley. Open to non guests.</span></div><div class="pill">St Helena</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Ritual Coffee Roasters, Napa<span>Twenty five minutes south in Napa's Oxbow Market. The best coffee in the county, if you are heading down valley anyway.</span></div><div class="pill">Napa</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Bouchon Bakery<span>Yountville, and the pastry is world class even if the coffee is only good. The kouign amann is the order.</span></div><div class="pill">Yountville</div></div>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 6</div>
+      <h2>Running and Riding</h2>
+      <p class="sub">This is one of the great endurance training valleys in America, which is why every pro cyclist in northern California trains here. Five days of it before the wedding is a gift.</p>
+
+      <div class="block">
+        <h3>The long run: Oat Hill Mine Trail, Calistoga</h3>
+        <p>The best trail run in Napa County. An old wagon road from 1893 climbing out of Calistoga up the side of the valley, with wheel ruts still cut into the rock. Roughly eight kilometres of sustained climbing to the Palisades junction and 750 metres of gain, then you can extend along the Palisades Trail towards Table Rock for a genuinely big day. Run it as an out and back for twenty to twenty six kilometres with two thousand feet of climbing, and finish in the hot springs at Indian Springs.</p>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">20 to 26 km out and back</div></div>
+          <div><div class="k">Vert</div><div class="val">750 to 1,000 m</div></div>
+          <div><div class="k">Surface</div><div class="val">Rocky wagon road, exposed</div></div>
+          <div><div class="k">Start temp</div><div class="val">Around 10 &deg;C at 7am</div></div>
+          <div><div class="k">Water</div><div class="val">None on the trail, carry it all</div></div>
+          <div><div class="k">Finish</div><div class="val">Indian Springs mud bath</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>The other trail options</h3>
+        <p>Bothe Napa Valley State Park is five minutes from St Helena with the Ritchey Canyon and Coyote Peak loop, about ten kilometres on shaded redwood and fir singletrack, and it is the best easy trail run in the valley. Skyline Wilderness Park in Napa has a bigger network if you want thirty kilometres. Moore Creek Park east of the valley is the quietest, hardest and least known.</p>
+      </div>
+
+      <div class="block">
+        <h3>The road: Silverado Trail and the mountain crossings</h3>
+        <p>With a bike from St Helena Cyclery, the classic ride is Silverado Trail north to Calistoga and back, about fifty kilometres of rolling two lane road with a shoulder and vineyards the whole way. For climbing, the Oakville Grade over to Sonoma is four kilometres at nine percent and one of the hardest short climbs in the region. Mount Veeder and Howell Mountain both give you serious sustained work. The Napa Valley Vine Trail is the paved, traffic free option for easy spinning and for riding with Brooke.</p>
+      </div>
+
+      <div class="block">
+        <h3>Bike logistics</h3>
+        <p>St Helena Cyclery is on Main Street, rents proper road bikes, and knows every route in the valley. Collect on arrival, and remember it goes back Saturday afternoon before the wedding, which means your last real ride is Friday morning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 7</div>
+      <h2>Afternoons</h2>
+      <p>Things to do in the valley that are not drinking, which matters over nine days.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Light</div><h3>Main Street, St Helena</h3><div class="loc">St Helena</div><p>Six blocks of nineteenth century stone buildings, good shops and the best small town main street in California. An hour, easily.</p></div>
+      <div class="card2"><div class="tag">Light</div><h3>Culinary Institute at Greystone</h3><div class="loc">St Helena</div><p>The CIA's west coast campus in an 1889 stone winery. Cooking demonstrations, a restaurant, and one of the great buildings in the valley.</p></div>
+      <div class="card2"><div class="tag">Signature Local</div><h3>Calistoga mud bath</h3><div class="loc">Calistoga</div><p>Volcanic ash, peat and naturally heated mineral water. Indian Springs has been doing it since 1862 and it is the correct thing to do the day after a big run.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Hot air balloon at dawn</h3><div class="loc">Yountville</div><p>Lifting off at sunrise over the vineyards in harvest colour. Expensive, over by nine, and the single best photograph of the trip.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Old Faithful of California and the Petrified Forest</h3><div class="loc">Calistoga</div><p>Two genuinely odd roadside attractions that are much better than they sound. A geyser that erupts every half hour and a redwood forest turned to stone by Mount St Helena.</p></div>
+      <div class="card2"><div class="tag">Culture</div><h3>Robert Louis Stevenson State Park</h3><div class="loc">Mount St Helena</div><p>Stevenson honeymooned here in 1880. The summit hike is sixteen kilometres return with six hundred metres of gain and views to the Pacific and the Sierra on a clear day.</p></div>
+      <div class="card2"><div class="tag">Day Out</div><h3>Healdsburg and the Russian River</h3><div class="loc">45 min west</div><p>Over the hill into Sonoma. Prettier town square, better Pinot Noir, less formality. Lunch at Valette or SingleThread if you plan far enough ahead.</p></div>
+      <div class="card2"><div class="tag">Day Out</div><h3>The Sonoma Coast</h3><div class="loc">90 min west</div><p>Bodega Bay and the Sonoma Coast State Park. Cold, wild, empty, and the perfect antidote to a week of vineyards. Oysters at The Marshall Store on the way.</p></div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 8</div>
+      <h2>Shopping</h2>
+      <p>There is no luxury mall here and pretending otherwise wastes a morning. What St Helena has is an unusually good main street and a few genuinely special shops.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Landmark</div><h3>Woodhouse Chocolate</h3><div class="loc">Main St, St Helena</div><p>In a former bank building fitted out like a Paris jewellery salon. Some of the best chocolate made in America and the most giftable thing in the valley.</p></div>
+      <div class="card2"><div class="tag">Home</div><h3>Erin Martin Design</h3><div class="loc">St Helena</div><p>Enormous, theatrical design store full of objects you will not see anywhere else. Worth walking through even if you buy nothing.</p></div>
+      <div class="card2"><div class="tag">Fashion</div><h3>Pearl Wonderful Clothing and Elyse Walker</h3><div class="loc">Napa / St Helena</div><p>The two best places in the county to buy actual clothes. Elyse Walker's Napa store carries the luxury edit you would find in Los Angeles.</p></div>
+      <div class="card2"><div class="tag">Kitchen</div><h3>Shackford's Kitchen Store</h3><div class="loc">Napa</div><p>An unglamorous, extraordinary cookware shop in downtown Napa. Chefs from across the valley shop here. Cash and check only, which tells you everything.</p></div>
+      <div class="card2"><div class="tag">Books</div><h3>Napa Bookmine and Main Street Books</h3><div class="loc">Napa / St Helena</div><p>Two good independent bookshops, and Main Street Books in St Helena is a tiny, perfectly curated used shop.</p></div>
+      <div class="card2"><div class="tag">Cycling</div><h3>St Helena Cyclery</h3><div class="loc">Main St, St Helena</div><p>Your bike source and the best local route intelligence in the valley. Ask them where to ride and then ride exactly that.</p></div>
+    </div>
+  </section>
+
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 9</div>
+      <h2>Fitness</h2>
+      <p>Small valley, limited options, and an honest assessment of them. Most of the real quality is attached to the resorts.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Napa Valley Pilates</h3><div class="loc">St Helena and Napa</div><p>The main reformer option in the upper valley, small classes, drop in friendly. Book by phone, they are not app driven.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Club Pilates Napa</h3><div class="loc">Napa</div><p>Twenty five minutes south, standard reformer format and easy visitor drop ins. The reliable option if the local studio is full.</p></div>
+      <div class="card2"><div class="tag">Pilates and Yoga</div><h3>Yoga Napa Valley and Flow St Helena</h3><div class="loc">St Helena</div><p>Mat based studios in town, walk in friendly, and the practical choice on a wedding morning.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Honest answer: not here</h3><div class="loc">San Francisco or Santa Rosa</div><p>There is no pole studio in the upper Napa Valley. The nearest real options are in Santa Rosa, about 40 minutes west, or San Francisco. Not worth the drive for a nine day stay.</p></div>
+      <div class="card2"><div class="tag">Gym Day Pass</div><h3>Napa Valley Athletic Club</h3><div class="loc">Napa</div><p>The full service club in the county, with pools, courts and a proper weight room. Day passes available to visitors.</p></div>
+      <div class="card2"><div class="tag">Gym Day Pass</div><h3>St Helena Fitness</h3><div class="loc">St Helena</div><p>Small local gym in town with day and week rates. Everything you need for a lift, nothing you do not.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Indian Springs, Calistoga</h3><div class="loc">Calistoga</div><p>Volcanic mud bath, mineral pool at 40 degrees, and the oldest continuously operating pool in California. The single best recovery in the valley.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Spa at Meadowood or Auberge</h3><div class="loc">St Helena / Rutherford</div><p>The two resort spas, both open to non guests for treatments. Book the day after the long run, or the morning after the wedding.</p></div>
+    </div>
+  </section>
+
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 10</div>
+      <h2>Groceries</h2>
+      <p>For the Airbnb week. St Helena punches far above its size here, because the whole valley cooks.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Local Whole Foods</div><h3>Sunshine Foods</h3><div class="loc">Main St, St Helena</div><p>The independent grocery that serves the entire upper valley, with a deli, a butcher and a wine section better than most specialist shops. This is your store.</p></div>
+      <div class="card2"><div class="tag">Gourmet</div><h3>Oakville Grocery</h3><div class="loc">Oakville</div><p>Open since 1881 and the original Napa gourmet store. Sandwiches, cheese and picnic supplies. The right stop before a vineyard picnic.</p></div>
+      <div class="card2"><div class="tag">Market Hall</div><h3>Oxbow Public Market</h3><div class="loc">Napa</div><p>Twenty five minutes south. Hog Island oysters, Ritual coffee, a butcher, a fishmonger and the Model Bakery. Worth a dedicated trip.</p></div>
+      <div class="card2"><div class="tag">Farmers Market</div><h3>St Helena Farmers Market</h3><div class="loc">Crane Park &middot; Friday mornings</div><p>May through October, so late October is the tail of the season. Go on the Friday of Part 1 for the last of the summer produce.</p></div>
+      <div class="card2"><div class="tag">Full Range</div><h3>Cal Mart, Calistoga</h3><div class="loc">Calistoga</div><p>The other good independent grocer in the upper valley, with a very good deli counter. Useful if you are staying up valley.</p></div>
+      <div class="card2"><div class="tag">Farm Stand</div><h3>Long Meadow Ranch and Napa Valley Olive Oil</h3><div class="loc">St Helena</div><p>Farm eggs, produce and estate olive oil. Napa Valley Olive Oil Manufacturing on Charter Oak Avenue has been running since 1931 and is a genuine institution.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for St Helena, October 17 to 25, 2026, covering both the Part 1 stay and the wedding weekend. Wineries in Napa are appointment only, restaurant and tasting bookings move fast in harvest season, and October is the tail of fire season, so confirm everything and keep an eye on air quality. Drop the bike back Saturday afternoon. Run early, hydrate, and enjoy the wedding.</p>
+  </div>
+</footer>
+
+</body>
+</html>

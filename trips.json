@@ -1059,7 +1059,7 @@
       },
       "dates": {
         "start": "2026-08-16",
-        "end": "2026-09-08"
+        "end": "2026-08-28"
       },
       "status": "upcoming",
       "type": "personal",
@@ -1307,6 +1307,58 @@
       "expenses": [],
       "packingList": {},
       "colorIndex": 4,
+      "legs": []
+    },
+    {
+      "id": "1787100000010",
+      "title": "Palm Springs Part II",
+      "destination": {
+        "city": "Palm Springs",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-11-14",
+        "end": "2026-11-22"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Second Palm Springs leg, overlaps Part 1 on Nov 14 and 15. Shares the Palm Springs city guide.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 5,
+      "legs": []
+    },
+    {
+      "id": "1787100000011",
+      "title": "Las Vegas",
+      "destination": {
+        "city": "Las Vegas",
+        "country": "USA",
+        "timezone": ""
+      },
+      "dates": {
+        "start": "2026-11-22",
+        "end": "2026-11-29"
+      },
+      "status": "upcoming",
+      "type": "personal",
+      "bookings": [],
+      "tasks": [],
+      "companions": [],
+      "notes": "Thanksgiving week, party of 6. Thanksgiving is Thu Nov 26. F1 Las Vegas Grand Prix ran Nov 19 to 21, just before arrival. See the Las Vegas city guide for the 30 event board, the race car day and Thanksgiving tables.",
+      "flights": [],
+      "accommodation": null,
+      "budget": 0,
+      "expenses": [],
+      "packingList": {},
+      "colorIndex": 6,
       "legs": []
     }
   ],

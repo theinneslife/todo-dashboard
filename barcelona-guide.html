@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barcelona Arrival Guide &middot; Autumn 2026</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+
+
+:root{
+  --paper:#f8f3e9; --paper-2:#fffbf3; --ink:#20191a; --ink-soft:#5d5049;
+  --line:#e8dcc8; --ocean:#9c2a2a; --ocean-deep:#3d1414; --gold:#c9911f;
+  --gold-soft:#efcd7d; --terra:#b1531f; --rose:#8c2f3f;
+}
+.hero{background:
+  linear-gradient(180deg,rgba(40,14,14,.15) 0%,rgba(40,14,14,.40) 45%,rgba(40,14,14,.90) 100%),
+  linear-gradient(120deg,#3d1414,#9c2a2a 42%,#c9911f 105%,#1c6b74 145%);}
+.anniv{background:linear-gradient(160deg,#1c1010,#3d1414 55%,#5c2419);}
+.timeline{background:linear-gradient(160deg,#3d1414,#8c2f2f);}
+footer{background:#3d1414;}
+footer .fine{color:#d8b6a6;}
+.pill{color:#7a2222;background:#f6e6e0;border-color:#ecd2c8;}
+.note-strip{background:#fdf3df;border:1px solid #f0dfb2;border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0;font-size:14.5px;color:#5a4a24;}
+.note-strip b{color:#3d3113;}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook &middot; September and October 2026</div>
+    <h1>Barcelona</h1>
+    <p class="sub">Eighteen days in the best all round city in Europe, landing right on top of the biggest party of its year.</p>
+    <div class="meta">
+      <span class="chip">Sep 21 to Oct 9, 2026</span>
+      <span class="chip">Base: Eixample</span>
+      <span class="chip">La Merc&egrave; &middot; late September</span>
+      <span class="chip">Working 6pm to midnight</span>
+      <span class="chip">Euro &middot; 1 USD = 0.86 EUR</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#week">The Stay</a>
+    <a href="#basics">Basics</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="week">
+    <div class="anniv">
+      <div class="eyebrow">Eighteen Days</div>
+      <h2>The Stay</h2>
+      <p class="lead">This is a long stay, not a trip, which changes what matters. You need a neighbourhood rather than a checklist, a daily rhythm that fits a 6pm to midnight work block, and a handful of genuinely great bookings made now rather than later.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Timing &middot; Book Now</div>
+          <h3>La Merc&egrave; lands in your first week</h3>
+          <p>Barcelona's city festival runs for four or five days around September 24, the feast of the Mare de Deu de la Merce. Free concerts across six or seven stages, the correfoc fire run down Via Laietana, castellers building human towers in Placa Sant Jaume, and a closing pyromusical at Montjuic. It is the single best thing that happens in this city and you arrive three days before it.</p>
+          <div class="note">Confirm exact 2026 dates on barcelona.cat in early September. Book nothing else that weekend.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Reservations</div>
+          <h3>Disfrutar opens months ahead</h3>
+          <p>Disfrutar holds three Michelin stars and was named the best restaurant in the world in 2024. Its booking window opens far in advance and closes in minutes. Enigma, with two stars and a 220 euro tasting menu, is nearly as hard. If you want either, set an alarm and book from the plane.</p>
+          <div class="note">Barcelona has 29 starred restaurants in the 2026 guide. Four hold three stars.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Work Block</div>
+          <h3>Evenings gone, and it barely matters</h3>
+          <p>Barcelona eats at 10pm. A 6pm to midnight block would kill you in most cities and here it costs you almost nothing, because the city has not started yet. Mornings are for running and the beach, afternoons for the actual sights, and dinner at midnight is completely normal.</p>
+          <div class="note">Book the big tables for 9pm on the days you are not working.</div>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>The daily shape</h3>
+        <div class="step"><div class="time">7:00am</div><div class="what"><b>Run.</b> The beach path or Collserola. Empty, cool, and the light on the Mediterranean at that hour is the reason to be here.</div></div>
+        <div class="step"><div class="time">9:30am</div><div class="what"><b>Coffee and breakfast.</b> Nomad, Satan's or Hidden. Then the market for the day's food.</div></div>
+        <div class="step"><div class="time">12:00pm</div><div class="what"><b>The afternoon thing.</b> One museum, one Gaudi building, one neighbourhood walk. Book timed entries the night before.</div></div>
+        <div class="step"><div class="time">3:00pm</div><div class="what"><b>Long lunch or siesta.</b> Menu del dia is the great value of Spanish life, three courses and wine for around 15 euros.</div></div>
+        <div class="step"><div class="time">6:00pm</div><div class="what"><b>Work block.</b> Through to midnight.</div></div>
+        <div class="step"><div class="time">12:15am</div><div class="what"><b>Late dinner or a vermut.</b> Completely normal here. Half the city is out.</div></div>
+      </div>
+
+      <div class="stay">
+        <div class="h"><div class="tag">Best base</div><h4>Dreta de l'Eixample</h4><p>Between Passeig de Gracia and Passeig de Sant Joan. Wide streets, the best food and coffee density, walkable to everything, and quiet at night.</p></div>
+        <div class="h"><div class="tag">If you want the sea</div><h4>Poblenou</h4><p>The old industrial quarter turned design district. Beach at the end of the street, best running access, and the least touristed good neighbourhood.</p></div>
+        <div class="h"><div class="tag">If you want charm</div><h4>Gr&agrave;cia</h4><p>Village squares, independent shops, no grid. Lovely to live in, further from the water, and steeply uphill from everything else.</p></div>
+        <div class="h"><div class="tag">Avoid</div><h4>La Rambla and Barceloneta</h4><p>Loud, packed and pickpocketed. Beautiful to walk through once. Not somewhere to base for eighteen days.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 1</div>
+      <h2>Travel Basics</h2>
+      <p>Two languages, one very good metro, and a pickpocket problem that is genuinely the worst in Europe. Everything else is easy.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">Euro &euro;</div><div class="d">1 USD buys about 0.86 EUR as of late August 2026, so 1 EUR is roughly 1.16 USD. Cards accepted everywhere, small cash for markets.</div></div>
+      <div class="fact"><div class="k">Late Sep Weather</div><div class="v">26 &deg;C</div><div class="d">Falling to about 22 &deg;C by mid October. Sea stays swimmable into October. Humid, so run early.</div></div>
+      <div class="fact"><div class="k">Elevation</div><div class="v">Sea level</div><div class="d">Collserola behind the city rises to 512 m at Tibidabo, which is where the hill work is.</div></div>
+      <div class="fact"><div class="k">Getting around</div><div class="v">Metro and walk</div><div class="d">The T casual ticket gives ten rides for around 12 euros. Uber exists but Free Now and taxis are better here.</div></div>
+      <div class="fact"><div class="k">Languages</div><div class="v">Catal&agrave; and Castellano</div><div class="d">Catalan is the first language of the city and the signage. Spanish is universally understood. English widely spoken.</div></div>
+      <div class="fact"><div class="k">Eating times</div><div class="v">14:00 and 21:30</div><div class="d">Lunch from 2pm, dinner from 9:30pm. Kitchens open at 8:30pm at the earliest and that is the tourist slot.</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Catalan and Spanish worth having</h3>
+        <div class="slang">
+          <span class="term"><b>Bon dia</b> good morning, Catalan</span>
+          <span class="term"><b>Si us plau</b> please, Catalan</span>
+          <span class="term"><b>Gr&agrave;cies</b> thank you, Catalan</span>
+          <span class="term"><b>Vermut</b> the noon aperitif ritual</span>
+          <span class="term"><b>Menu del dia</b> the weekday set lunch</span>
+          <span class="term"><b>Caf&egrave; amb llet</b> flat white equivalent</span>
+          <span class="term"><b>Cortado</b> espresso cut with milk</span>
+          <span class="term"><b>Pa amb tom&agrave;quet</b> bread rubbed with tomato</span>
+          <span class="term"><b>Xiringuito</b> beach bar</span>
+          <span class="term"><b>Guiri</b> foreigner, affectionate to rude</span>
+          <span class="term"><b>Quedem</b> let's meet up, Catalan</span>
+          <span class="term"><b>D&eacute;u n'hi do</b> wow, that's a lot</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Safety and practicalities</h3>
+        <ul>
+          <li>Violent crime is very low. Pickpocketing is extremely high and highly professional. Metro line 3, La Rambla and Barceloneta beach are the hot zones.</li>
+          <li>Never put a phone on a restaurant table on a terrace, and never leave a bag on the back of a chair. This is the single rule that matters.</li>
+          <li>Beach thefts happen while you swim. Take nothing to the sand you cannot lose.</li>
+          <li>Book Sagrada Familia, Park Guell and Casa Batllo timed entries online. Walk ups are a waste of a morning.</li>
+          <li>August closures are over by the time you arrive, but many restaurants still close Sunday night and Monday.</li>
+          <li>Tipping is not expected. Round up, or leave five percent for something excellent.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 2</div>
+      <h2>Restaurants</h2>
+      <p>Twenty tables. Barcelona holds 29 Michelin stars across the city in the 2026 guide, but the real strength here is the middle: the neighbourhood places doing one thing perfectly for twenty five euros.</p>
+    </div>
+
+    <div class="tier">The starred rooms</div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Disfrutar<span>Three stars, and named the best restaurant in the world in 2024. The alumni of elBulli doing the most joyful, technically absurd cooking on earth. Book the day the window opens.</span></div><div class="pill">Eixample</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Enigma<span>Two stars in the 2026 guide, Albert Adri&agrave;'s laboratory, around 220 euros for the tasting menu. Radical and genuinely emotional. The second hardest table in the city.</span></div><div class="pill">Sant Antoni</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Lasarte<span>Three stars. Martin Berasategui's Barcelona room and the most classically luxurious fine dining in the city. Easier to book than Disfrutar and just as good.</span></div><div class="pill">Eixample</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Cocina Hermanos Torres<span>Three stars, in a converted industrial space where the kitchen is the dining room. The most beautiful restaurant in Barcelona.</span></div><div class="pill">Les Corts</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">ABaC<span>Three stars, Jordi Cruz, up in Sant Gervasi. The most technically dazzling plate to plate progression of the four.</span></div><div class="pill">Sant Gervasi</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Cinc Sentits<span>Two stars, Catalan roots done with restraint, and the most approachable of the top tier. Excellent wine pairing.</span></div><div class="pill">Eixample</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Mont Bar<span>Two stars in a room the size of a bar, which is what it used to be. The best value starred meal in Barcelona.</span></div><div class="pill">Eixample</div></div>
+    </div>
+
+    <div class="tier">The ones you will go back to</div>
+    <div class="list">
+      <div class="row"><div class="rank">8</div><div class="name">Bar Cañete<span>Old school Catalan tapas at a long marble counter with white jacketed waiters. Sit at the bar, order the tortilla and whatever the anchovy is that day.</span></div><div class="pill">El Raval</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Quimet i Quimet<span>Standing room only, twenty square metres, montaditos built on the counter in front of you. Go at 12:30pm or you will not get in.</span></div><div class="pill">Poble Sec</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Bar Brutal<span>Natural wine bar with genuinely great food. The room that most feels like the current version of the city.</span></div><div class="pill">El Born</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Berbena<span>Tiny Gracia room, ten tables, chef Carles Perez de Rozas cooking with total confidence. The reservation locals fight over.</span></div><div class="pill">Gr&agrave;cia</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Bodega 1900<span>Albert Adri&agrave;'s vermuteria. A perfect version of the old Catalan bodega with the technique turned up. Order the mollete and the vermut.</span></div><div class="pill">Sant Antoni</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">Suculent<span>Modern Catalan on Rambla del Raval, chef driven, dark and confident. The best value serious dinner in the city.</span></div><div class="pill">El Raval</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">La Cova Fumada<span>No sign on the door, Barceloneta, and the birthplace of the bomba. Cash, lunch only, chaos, perfect.</span></div><div class="pill">Barceloneta</div></div>
+      <div class="row"><div class="rank">15</div><div class="name">Els Pescadors<span>The proper seafood restaurant, on a quiet Poblenou square under ombu trees. Whole fish, rice dishes, and a terrace worth the trip.</span></div><div class="pill">Poblenou</div></div>
+      <div class="row"><div class="rank">16</div><div class="name">Xiringuito Escrib&agrave;<span>Beach paella done properly, which is rarer here than you would think. Book a terrace table for 2pm.</span></div><div class="pill">Bogatell beach</div></div>
+      <div class="row"><div class="rank">17</div><div class="name">Can Cisa and Bar Brutal group<span>Natural wine, charcuterie and a room full of people who work in food. Late, loud, excellent.</span></div><div class="pill">El Born</div></div>
+      <div class="row"><div class="rank">18</div><div class="name">Direkte Boqueria<span>Eight seats inside the Boqueria market, Catalan technique with Asian influence, and one of the best value tasting menus in Europe.</span></div><div class="pill">La Boqueria</div></div>
+      <div class="row"><div class="rank">19</div><div class="name">La Mundana<span>Neighbourhood bistro in Sants doing the kind of cooking that makes you want to live in a city. Book a week out.</span></div><div class="pill">Sants</div></div>
+      <div class="row"><div class="rank">20</div><div class="name">Can Rom&agrave;<span>Old Gracia vermuteria and grill, family run, no concessions to anybody. Grilled prawns, a bottle of albarino, three hours gone.</span></div><div class="pill">Gr&agrave;cia</div></div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 3</div>
+      <h2>Coffee</h2>
+      <p>Barcelona has one of the strongest specialty scenes in southern Europe. All of these are inside fifteen minutes of an Eixample base.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Nomad Coffee Lab<span>The roaster that started the Barcelona specialty scene. The Lab in Gracia is where the good stuff is, the Passatge Sert bar is the original.</span></div><div class="pill">Gr&agrave;cia / El Born</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Satan's Coffee Corner<span>Best coffee and best breakfast in one place. The Gothic original and the Casa Bonay location. Order the eggs.</span></div><div class="pill">Gothic / Eixample</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Hidden Coffee<span>Small, precise, and the most consistent espresso in the Eixample. Tucked off Carrer de la Granada.</span></div><div class="pill">Eixample</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">SlowMov<span>Roastery and cafe in Gracia, beautiful room, exceptional filter, and bags worth taking home.</span></div><div class="pill">Gr&agrave;cia</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Skye Coffee Co<span>A converted Citroen van parked inside a design studio courtyard in Poblenou. The most Barcelona coffee experience there is.</span></div><div class="pill">Poblenou</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Three Marks Coffee<span>Serious, competition minded, in the upper Eixample. The place to drink something unusual.</span></div><div class="pill">Eixample</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Onna Coffee<span>Costa Rican farm to cup, two locations, and consistently among the best cups in the city.</span></div><div class="pill">Gr&agrave;cia</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Cafes El Magnifico<span>Roasting in El Born since 1919. The old guard, and still excellent. Buy beans here.</span></div><div class="pill">El Born</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Little Fern<span>New Zealand style cafe in Poblenou. Proper flat whites and the best brunch on that side of the city.</span></div><div class="pill">Poblenou</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Federal Cafe<span>Australian, two locations, big tables, good for a working morning before the block starts.</span></div><div class="pill">Sant Antoni / Gothic</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Syra Coffee<span>Take away windows all over the city, reliably good, and the fastest decent coffee when you are moving.</span></div><div class="pill">Multiple</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Espai Joliu<span>Plant shop and coffee bar in Poblenou. Beautiful, quiet, and the nicest place to read for an hour.</span></div><div class="pill">Poblenou</div></div>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 4</div>
+      <h2>Running</h2>
+      <p class="sub">Sea level, flat sea front, and a 8,000 hectare forest park on the hill behind the city. You can build any week you want here.</p>
+
+      <div class="block">
+        <h3>The daily: the Passeig Maritim</h3>
+        <p>From Barceloneta northeast past Bogatell, Mar Bella and Llevant to the Forum is about seven kilometres one way on flat paved promenade beside the sea, with drinking fountains and no traffic. Fourteen out and back, or twenty if you continue into Sant Adria. Go before 8am in September, it is humid and the path fills by nine.</p>
+        <div class="runbox">
+          <div><div class="k">Sea front</div><div class="val">7 km each way, flat</div></div>
+          <div><div class="k">Surface</div><div class="val">Paved promenade</div></div>
+          <div><div class="k">Water</div><div class="val">Fountains throughout</div></div>
+          <div><div class="k">Best time</div><div class="val">6:45 to 8:00am</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>The hills: Collserola</h3>
+        <p>The forest park behind the city gives you 200 kilometres of trail and a proper 500 metre climb. Take the FGC train to Baixador de Vallvidrera, twenty minutes from Placa Catalunya, and run from the station straight onto singletrack. Carretera de les Aigues is a flat dirt balcony road running the length of the ridge with the whole city below you, and it links to everything. This is where the long run goes.</p>
+      </div>
+
+      <div class="block">
+        <h3>Montju&iuml;c for hill repeats</h3>
+        <p>Closer than Collserola and steeper. The climb from Placa Espanya up past the Palau Nacional to the castle is about 180 metres of gain over two kilometres on road and stairs, with the Olympic ring at the top. Four repeats is a session.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 5</div>
+      <h2>Afternoons</h2>
+      <p>Eighteen days is enough to do this properly rather than sprinting the highlights. One thing a day, booked the night before.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Big One</div><h3>Sagrada Fam&iacute;lia</h3><div class="loc">Eixample</div><p>The central nave was topped out and the Tower of Jesus Christ completed, making it the tallest church in the world. Book a timed entry with tower access, go at opening or in the last slot for the light through the glass.</p></div>
+      <div class="card2"><div class="tag">Gaud&iacute;</div><h3>Casa Batll&oacute; and La Pedrera</h3><div class="loc">Passeig de Gr&agrave;cia</div><p>Two houses on the same boulevard, ten minutes apart. Casa Batllo for the immersive version, La Pedrera for the rooftop at sunset.</p></div>
+      <div class="card2"><div class="tag">Gaud&iacute;</div><h3>Park G&uuml;ell and Hospital Sant Pau</h3><div class="loc">Gr&agrave;cia / Eixample</div><p>Park Guell early morning, then Sant Pau, which is a modernist hospital campus and the most underrated building in the city.</p></div>
+      <div class="card2"><div class="tag">Signature Local</div><h3>Castellers practice night</h3><div class="loc">Gr&agrave;cia or Vila de Gr&agrave;cia</div><p>The human tower teams practise in public in their neighbourhood halls, usually two evenings a week, and welcome spectators. Far more moving than seeing it at a festival, and completely free.</p></div>
+      <div class="card2"><div class="tag">Art</div><h3>Fundaci&oacute; Joan Mir&oacute;</h3><div class="loc">Montju&iuml;c</div><p>The best museum in Barcelona, in a Josep Lluis Sert building on the hill. Go, then walk down through the gardens.</p></div>
+      <div class="card2"><div class="tag">Art</div><h3>MNAC and Picasso Museum</h3><div class="loc">Montju&iuml;c / El Born</div><p>MNAC holds the greatest collection of Romanesque frescoes in the world. The Picasso Museum covers his Barcelona years, which is the part nobody knows.</p></div>
+      <div class="card2"><div class="tag">Food</div><h3>Mercat de Sant Antoni and Santa Caterina</h3><div class="loc">Sant Antoni / El Born</div><p>Skip the Boqueria, which is now mostly for tourists. These two are where the city actually shops and they are architecturally better anyway.</p></div>
+      <div class="card2"><div class="tag">Day Out</div><h3>Montserrat</h3><div class="loc">One hour northwest</div><p>The serrated mountain monastery, reachable by train and cable car. Go for the boys choir at 1pm and the walking trails above the abbey.</p></div>
+      <div class="card2"><div class="tag">Wine</div><h3>Pened&egrave;s cava day</h3><div class="loc">45 min southwest</div><p>Recaredo and Gramona in Sant Sadurni make some of the best traditional method sparkling wine in the world. Hire a driver, book two visits, eat at Cal Blay.</p></div>
+      <div class="card2"><div class="tag">Water</div><h3>Sailing out of Port Vell</h3><div class="loc">Port Vell</div><p>September and early October sailing off Barcelona is beautiful, and a half day charter with a skipper is straightforward to book. Best way to see the city.</p></div>
+    </div>
+  </section>
+
+  <section id="weekend">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 6</div>
+      <h2>Weekend Side Trip: Girona and the Costa Brava</h2>
+      <p class="sub">Built around a long run. Girona is the cycling capital of Europe for a reason, and the trail network above the city is world class.</p>
+      <div class="block">
+        <h3>Getting there</h3>
+        <p>The AVE high speed train from Barcelona Sants to Girona takes 38 minutes and runs hourly. No car needed for the town itself. If you want the Costa Brava coves you will want a rental for the day, picked up in Girona, since the coast road is slow and the good beaches have no bus service.</p>
+      </div>
+      <div class="block">
+        <h3>The long run: Els Angels and the Vies Verdes</h3>
+        <p>From Girona old town the classic route climbs to the Santuari dels Angels, about 10 kilometres with 450 metres of gain on a quiet paved road that every professional cyclist in Europe rides in winter. Run up, come down on the trail through the Gavarres forest, then finish along the Ruta del Carrilet greenway beside the Ter river. That gives you a clean twenty two kilometres with real climbing and a flat finish. Warm and dry in late September, so carry water, there is a fountain at the sanctuary and almost nothing else.</p>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">22 to 26 km</div></div>
+          <div><div class="k">Climb</div><div class="val">450 m to Els &Agrave;ngels</div></div>
+          <div><div class="k">Surface</div><div class="val">Quiet road up, forest trail down</div></div>
+          <div><div class="k">Temp</div><div class="val">Around 15 &deg;C at 7am</div></div>
+          <div><div class="k">Water</div><div class="val">Fountain at the sanctuary only</div></div>
+          <div><div class="k">Base</div><div class="val">Girona old town</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <h3>The rest of the weekend</h3>
+        <p>Eat at Nu or Occi in Girona on the Friday night, and if you have booked far enough ahead, El Celler de Can Roca, three Michelin stars and twice the best restaurant in the world, is here. Saturday afternoon drive to Calella de Palafrugell and Cala Pedrosa, and walk a section of the Cami de Ronda coast path between the coves. Sunday, back on the train by noon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 7</div>
+      <h2>Luxury Shopping</h2>
+      <p>Passeig de Gracia is one of the great shopping streets in Europe, and it runs straight through your neighbourhood.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">The Golden Mile</div><h3>Passeig de Gr&agrave;cia</h3><div class="loc">Eixample</div><p>Chanel, Herm&egrave;s, Louis Vuitton, Prada, Gucci, Loewe, Cartier, all inside modernist buildings. Loewe's flagship sits in Casa Lleo Morera and is worth entering for the building alone.</p></div>
+      <div class="card2"><div class="tag">Spanish Luxury</div><h3>Loewe</h3><div class="loc">Passeig de Gr&agrave;cia</div><p>The most interesting luxury house in Spain right now under Jonathan Anderson's successor, and the leather goods are genuinely without equal.</p></div>
+      <div class="card2"><div class="tag">Department Store</div><h3>El Corte Ingl&eacute;s, Pla&ccedil;a Catalunya</h3><div class="loc">Pla&ccedil;a Catalunya</div><p>Nine floors, a good gourmet basement, and the top floor terrace has the best free view over the old city.</p></div>
+      <div class="card2"><div class="tag">Concept</div><h3>Santa Eulalia</h3><div class="loc">Passeig de Gr&agrave;cia</div><p>Barcelona's own luxury house since 1843. Multi brand edit, in house tailoring, and the best menswear buying in the city.</p></div>
+      <div class="card2"><div class="tag">Concept</div><h3>Coquette and Ivori</h3><div class="loc">El Born</div><p>The two best independent boutiques in El Born for Spanish and Scandinavian labels you will not find at home.</p></div>
+      <div class="card2"><div class="tag">Espadrilles</div><h3>La Manual Alpargatera</h3><div class="loc">Gothic Quarter</div><p>Making espadrilles by hand since 1940. Salvador Dali and Jack Nicholson bought here. Twenty minutes and a genuinely lovely pair of shoes.</p></div>
+      <div class="card2"><div class="tag">Perfume</div><h3>Regia and Santa Maria Novella</h3><div class="loc">Passeig de Gr&agrave;cia</div><p>Regia has a perfume museum in the back and one of the deepest niche fragrance selections in Europe.</p></div>
+      <div class="card2"><div class="tag">Vintage</div><h3>Carrer de la Riera Baixa</h3><div class="loc">El Raval</div><p>The vintage street. A dozen shops in two blocks, genuinely good stock, and the best hunting in the city.</p></div>
+    </div>
+  </section>
+
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 8</div>
+      <h2>Fitness</h2>
+      <p>Reformer, pole and gyms with short passes, weighted to the Eixample. Most boutique studios here sell class packs rather than memberships, which suits an eighteen day stay.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Nou Pilates</h3><div class="loc">Eixample and Gr&agrave;cia</div><p>The most established reformer studio in Barcelona, multiple locations, English speaking instructors and straightforward class packs.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Ohm Pilates</h3><div class="loc">Eixample</div><p>Boutique reformer with capped classes and excellent instruction. The nicest room of the group.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Body Concept</h3><div class="loc">Sant Gervasi</div><p>Reformer plus physio and postural work. The right choice for a serious session on tired legs.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Pole Dance Barcelona</h3><div class="loc">Eixample</div><p>The main pole studio in the city, full beginner to advanced ladder, drop ins available. Book through their site or Instagram.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Aerial Barcelona and Pole Fitness Studio</h3><div class="loc">Poblenou / Gr&agrave;cia</div><p>Two more options with aerial hoop and silks alongside pole. Message ahead, class sizes are small.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Cl&iacute;nica Metropolitan</h3><div class="loc">Multiple</div><p>The premium chain, full facilities with pools and classes, and they sell short term passes to visitors. Best equipped option.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>DiR</h3><div class="loc">Multiple</div><p>Barcelona's own chain with locations everywhere including Eixample and Diagonal. Day and ten visit passes available.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Wellhub and ClassPass</h3><div class="loc">Citywide</div><p>Both work well in Barcelona and give you access across dozens of studios on one subscription. The most efficient answer for eighteen days.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Aire Ancient Baths</h3><div class="loc">El Born</div><p>Thermal baths in a restored eighteenth century building, candlelit, with a salt flotation pool. Book the two hour circuit after your Girona long run.</p></div>
+    </div>
+  </section>
+
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 9</div>
+      <h2>Groceries</h2>
+      <p>For the cook at home nights. Barcelona's market system is the best in Europe and there is one in every neighbourhood.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Best Market</div><h3>Mercat de Sant Antoni</h3><div class="loc">Sant Antoni</div><p>Restored iron and glass hall, forty minutes of produce, fish, meat and cheese, and almost no tourists. The best food shopping in the city.</p></div>
+      <div class="card2"><div class="tag">Market</div><h3>Mercat de Santa Caterina</h3><div class="loc">El Born</div><p>Under the wave roof by Miralles. Smaller, beautiful, excellent fish counter, and a good bar inside for a mid shop vermut.</p></div>
+      <div class="card2"><div class="tag">Market</div><h3>Mercat de la Concepci&oacute;</h3><div class="loc">Dreta de l'Eixample</div><p>The closest proper market to an Eixample base, open long hours, with the city's best flower stalls out front.</p></div>
+      <div class="card2"><div class="tag">Premium Grocer</div><h3>Veritas</h3><div class="loc">Multiple</div><p>Spain's organic supermarket chain and the closest thing to Whole Foods here. Locations across the Eixample, good bulk and pantry ranges.</p></div>
+      <div class="card2"><div class="tag">Premium Grocer</div><h3>Woki Organic Market</h3><div class="loc">Gothic / Eixample</div><p>Organic grocery with a restaurant attached, zero waste bulk section and very good produce.</p></div>
+      <div class="card2"><div class="tag">Gourmet</div><h3>Colmado Quilez and Casa Gispert</h3><div class="loc">Eixample / El Born</div><p>Quilez is a hundred year old grocery for conservas, wine and vermouth. Gispert has been roasting nuts in a wood oven since 1851. Both are institutions.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for Barcelona, September 21 to October 9, 2026. Michelin listings are from the 2026 guide and reservations, openings and festival dates shift, so confirm before you go. Book Disfrutar and Lasarte the moment their windows open, check the exact La Merce dates on barcelona.cat, and keep your phone off the table.</p>
+  </div>
+</footer>
+
+</body>
+</html>

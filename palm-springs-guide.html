@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palm Springs Arrival Guide &middot; November 2026</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+
+
+:root{
+  --paper:#f7f2e7; --paper-2:#fffbf2; --ink:#1e2124; --ink-soft:#556069;
+  --line:#e3dcc9; --ocean:#1f7a8c; --ocean-deep:#0f4552; --gold:#d2952b;
+  --gold-soft:#f2ce85; --terra:#cc6b3a; --rose:#c0546b;
+}
+.hero{background:
+  linear-gradient(180deg,rgba(10,45,55,.12) 0%,rgba(10,45,55,.36) 45%,rgba(10,45,55,.88) 100%),
+  linear-gradient(120deg,#0f4552,#1f7a8c 40%,#cc6b3a 100%,#f2ce85 140%);}
+.anniv{background:linear-gradient(160deg,#0d2b33,#0f4552 55%,#1f5a63);}
+.timeline{background:linear-gradient(160deg,#0f4552,#1f7a8c);}
+footer{background:#0f4552;}
+footer .fine{color:#9fc6ce;}
+.pill{color:#12606f;background:#e2f0f2;border-color:#c9e2e6;}
+.note-strip{background:#fdf4e0;border:1px solid #f0dfb4;border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0;font-size:14.5px;color:#5a4a25;}
+.note-strip b{color:#3d3114;}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook &middot; November 2026</div>
+    <h1>Palm Springs</h1>
+    <p class="sub">Twelve days in the Coachella Valley across two legs, starting as a work trip and ending as the best desert weather of the year.</p>
+    <div class="meta">
+      <span class="chip">Part 1 &middot; Nov 10 to 15</span>
+      <span class="chip">Part 2 &middot; Nov 14 to 22</span>
+      <span class="chip">MNTN Meet in Part 1</span>
+      <span class="chip">Around 27 &deg;C and dry</span>
+      <span class="chip">Car essential</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#twolegs">Two Legs</a>
+    <a href="#basics">Basics</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#weekend">Weekend</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="twolegs">
+    <div class="anniv">
+      <div class="eyebrow">One Valley, Two Modes</div>
+      <h2>The Shape of Twelve Days</h2>
+      <p class="lead">November is the sweet spot in the desert. Highs in the mid twenties Celsius, pools still warm, nights cool enough to sleep with the doors open, and none of the January crowd. The two legs overlap on November 14 and 15, so treat this as one continuous stay with a change of gear in the middle.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Part 1 &middot; Nov 10 to 15</div>
+          <h3>The MNTN Meet</h3>
+          <p>Work first. Palm Springs is a good offsite town precisely because it is small and everything is walking distance in the downtown grid. Book group dinners early, because the good rooms here seat forty people total and November is high season. Keep mornings for yourself, the desert is best before nine anyway.</p>
+          <div class="note">Downtown Palm Springs is the walkable core. Everything else needs a car.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Part 2 &middot; Nov 14 to 22</div>
+          <h3>The actual holiday</h3>
+          <p>Once the meet ends, the valley opens up. This is the leg for the aerial tramway, Joshua Tree, the long run, the mid century architecture, and the pool afternoons that are the entire point of Palm Springs.</p>
+          <div class="note">Consider moving base for Part 2, from downtown to Old Las Palmas or La Quinta.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Overlap</div>
+          <h3>November 14 and 15</h3>
+          <p>The two bookings overlap by two days. If both are held, use it: check into the second place on the 14th and let the work accommodation cover the last night of the meet. If not, one continuous booking is simpler and cheaper.</p>
+          <div class="note">Worth confirming what is actually reserved for those two nights.</div>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>The daily rhythm in the desert</h3>
+        <div class="step"><div class="time">6:30am</div><div class="what"><b>Run.</b> Cool, still, and the light on the San Jacinto face at sunrise is the best thing about living here. By ten it is too warm to enjoy.</div></div>
+        <div class="step"><div class="time">8:30am</div><div class="what"><b>Coffee and breakfast.</b> Ernest Coffee or Koffi, then the day starts.</div></div>
+        <div class="step"><div class="time">12:00pm</div><div class="what"><b>Pool.</b> This is not laziness, it is the correct use of a Palm Springs afternoon. The heat peaks at three.</div></div>
+        <div class="step"><div class="time">4:30pm</div><div class="what"><b>Golden hour.</b> Drive somewhere. The tramway, the Indian Canyons, or just up into the Movie Colony to look at houses.</div></div>
+        <div class="step"><div class="time">7:30pm</div><div class="what"><b>Dinner.</b> Reservations essential in November. The valley eats early and closes early.</div></div>
+      </div>
+
+      <div class="stay">
+        <div class="h"><div class="tag">Design pick</div><h4>The Parker Palm Springs</h4><p>Jonathan Adler interiors, thirteen acres of hedge maze gardens, a full spa and Mister Parker's dining room. The most characterful full service resort in the city.</p></div>
+        <div class="h"><div class="tag">Downtown</div><h4>Kimpton Rowan</h4><p>The only high rise downtown, with a rooftop pool and bar, a rooftop restaurant and a daily wine hour. Best base for a work week because you can walk to everything.</p></div>
+        <div class="h"><div class="tag">Classic</div><h4>Korakia Pensione</h4><p>A 1924 Moroccan villa with no televisions, candlelit courtyards and Sunday night films projected on a wall. The most romantic place in the valley.</p></div>
+        <div class="h"><div class="tag">Down valley</div><h4>La Quinta Resort or Ritz Carlton Rancho Mirage</h4><p>Thirty minutes southeast, quieter, better golf, and up against the mountains. The right move for Part 2 if you want space.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 1</div>
+      <h2>Basics</h2>
+      <p>Nine cities strung along one valley floor, thirty miles end to end, with a ten thousand foot mountain wall on the west side. You will drive every day.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">US Dollar</div><div class="d">Resort fees of 30 to 50 dollars a night are standard at the bigger properties. Tip 20 percent.</div></div>
+      <div class="fact"><div class="k">Mid Nov Weather</div><div class="v">27 &deg;C day</div><div class="d">Dropping to about 12 &deg;C overnight. Humidity in single digits. Essentially zero chance of rain.</div></div>
+      <div class="fact"><div class="k">Elevation</div><div class="v">145 m</div><div class="d">Valley floor. San Jacinto behind you rises to 3,302 m, which the tramway takes you most of the way up in ten minutes.</div></div>
+      <div class="fact"><div class="k">Getting around</div><div class="v">Car, always</div><div class="d">Uber works downtown but is thin elsewhere and expensive across the valley. Rent, and rent something with air conditioning that works.</div></div>
+      <div class="fact"><div class="k">Airport</div><div class="v">PSP &middot; 10 min</div><div class="d">Palm Springs International is two miles from downtown and one of the most pleasant small airports in America. Outdoor gates.</div></div>
+      <div class="fact"><div class="k">The sun</div><div class="v">Relentless</div><div class="d">Even in November. Sunscreen, a hat and more water than feels necessary, especially on trails.</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Local vocabulary</h3>
+        <div class="slang">
+          <span class="term"><b>The valley</b> the whole Coachella Valley</span>
+          <span class="term"><b>Down valley</b> southeast, toward Indio</span>
+          <span class="term"><b>Snowbird</b> the winter resident</span>
+          <span class="term"><b>Desert modern</b> the local architecture style</span>
+          <span class="term"><b>Butterfly roof</b> the V shaped midcentury roofline</span>
+          <span class="term"><b>Breeze block</b> the perforated concrete screen</span>
+          <span class="term"><b>Modernism Week</b> the February design festival</span>
+          <span class="term"><b>The tram</b> the aerial tramway</span>
+          <span class="term"><b>The wash</b> the dry flood channel</span>
+          <span class="term"><b>Cove</b> the hillside neighbourhoods</span>
+          <span class="term"><b>Windmills</b> the San Gorgonio Pass wind farm</span>
+          <span class="term"><b>Date shake</b> the local milkshake, at Hadley's</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Practicalities</h3>
+        <ul>
+          <li>Very safe city. The main risks here are heat, dehydration and sunburn, in that order.</li>
+          <li>Trails close or become dangerous when hot. In November they are fine all day, but still start early.</li>
+          <li>Rattlesnakes are less active in November but not absent. Watch where you put your hands on rocky trails.</li>
+          <li>Restaurants close early by big city standards. Last seating is often 9pm and many kitchens shut Monday or Tuesday.</li>
+          <li>The Indian Canyons and Tahquitz Canyon are on Agua Caliente Band tribal land and charge an entrance fee. Cash or card at the gate.</li>
+          <li>Wind through the San Gorgonio Pass can be severe. If you are running near the windmills, check the forecast.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 2</div>
+      <h2>Restaurants</h2>
+      <p>Sixteen tables across the valley, weighted to Palm Springs itself. November is high season, so book everything.</p>
+    </div>
+    <div class="tier">The best in the valley</div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Rooster and the Pig<span>Named Restaurant of the Year by USA Today in 2026. Vietnamese influenced, small room, no reservations for a long time and now essential. The best cooking in Palm Springs.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Workshop Kitchen + Bar<span>James Beard award winning design, in a 1926 building with concrete communal booths. Serious cocktails and confident modern American food.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Mister Parker's<span>Inside the Parker, dark, red, theatrical, and the most special occasion room in the desert. Prix fixe, small, and worth planning around.</span></div><div class="pill">The Parker</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">EIGHT4NINE<span>All white modernist room with a sculpture garden patio. Reliable, elegant and the easiest good group booking in town.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Cheeky's<span>The breakfast institution. Bacon flight, seasonal menu that changes weekly, and a queue by 8:30am. No reservations, so go early or go hungry.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Farm<span>French country cooking in a hidden courtyard off La Plaza. Tiny, beautiful, and the best lunch in the city. Book well ahead.</span></div><div class="pill">Palm Springs</div></div>
+    </div>
+    <div class="tier">The rest of the rotation</div>
+    <div class="list">
+      <div class="row"><div class="rank">7</div><div class="name">Bill's Pizza<span>Genuinely excellent pizza in a strip mall. Nothing more to say and nothing more needed.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Trio<span>Modern American in a former furniture showroom, big windows, strong early dinner deal. The dependable weeknight option.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Melvyn's at the Ingleside Inn<span>Sinatra's old haunt, red leather, tableside preparation, and completely unchanged since 1975. Go once, in a jacket.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Sandfish Sushi &amp; Whiskey<span>Engin Onural's sushi room, the best raw fish in the valley by some distance, plus a serious whiskey list.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Tac/Quila<span>Modern Mexican on Palm Canyon with a good patio and better margaritas. Easy group dinner.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Wilma &amp; Frieda<span>The other breakfast option, in Palm Desert and Palm Springs. Shorter queue than Cheeky's and nearly as good.</span></div><div class="pill">Palm Desert</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">Vicky's of Santa Fe<span>Indian Wells, live piano, steak and seafood, and a room full of people who have been coming for thirty years. Charming.</span></div><div class="pill">Indian Wells</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">Le Vallauris<span>French, in a 1920s house with a patio under ficus trees. The old guard fine dining of the valley and still lovely.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">15</div><div class="name">Pappy and Harriet's<span>Pioneertown, an hour north, an old west movie set turned honky tonk with genuinely great live music and barbecue. Book, it sells out.</span></div><div class="pill">Pioneertown</div></div>
+      <div class="row"><div class="rank">16</div><div class="name">Kitchen in the Desert<span>Caribbean influenced, small, chef owned, and one of the most interesting newer rooms in Palm Springs.</span></div><div class="pill">Palm Springs</div></div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 3</div>
+      <h2>Coffee</h2>
+      <p>A short honest list. The valley has about eight genuinely good coffee shops and here they are.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Ernest Coffee<span>In the old Don the Beachcomber building on Palm Canyon, sharing a space with Bootlegger Tiki. Stumptown beans, best patio, and the social centre of the neighbourhood.</span></div><div class="pill">Uptown</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Koffi<span>Three valley locations, roasting their own, and the most consistent cup in the desert. The north Palm Springs location has the best patio.</span></div><div class="pill">Multiple</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Customs Coffee<span>Small, precise, single origin focused, and the most serious specialty operation in the city.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">Cartel Coffee Lab<span>Arizona roaster with an outpost here. Excellent espresso and a good working space.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Joshua Tree Coffee Company<span>Organic, roasted in Joshua Tree, and the right stop on the way to or from the park. Buy beans.</span></div><div class="pill">Joshua Tree</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Frankie's and Bonne Journee<span>Two smaller cafes doing good pastry alongside decent coffee. Bonne Journee's croissants are the best in the valley.</span></div><div class="pill">Palm Springs</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Hadley Fruit Orchards<span>Not coffee. The date shake, on the I10 at Cabazon, since 1931. Compulsory once per trip.</span></div><div class="pill">Cabazon</div></div>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 4</div>
+      <h2>Running</h2>
+      <p class="sub">Two completely different worlds twenty minutes apart. Desert canyon singletrack on the valley floor, and alpine forest at 2,600 metres via a cable car.</p>
+
+      <div class="block">
+        <h3>The long run: Indian Canyons</h3>
+        <p>The best trail running in the valley, on Agua Caliente tribal land at the south end of Palm Springs. Palm Canyon, Murray Canyon and Andreas Canyon connect into a network of real singletrack running through fan palm oases with actual water in them. The Palm Canyon Trail runs deep into the mountains and the Vandeventer and Fern Canyon loops let you build twenty five kilometres with fifteen hundred feet of climbing without repeating ground. Gate opens at 8am, entrance fee at the booth, and everything shuts at 5pm.</p>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">20 to 28 km possible</div></div>
+          <div><div class="k">Vert</div><div class="val">400 to 600 m</div></div>
+          <div><div class="k">Surface</div><div class="val">Sand, rock, singletrack</div></div>
+          <div><div class="k">Temp at 8am</div><div class="val">Around 15 &deg;C</div></div>
+          <div><div class="k">Water</div><div class="val">Carry it all</div></div>
+          <div><div class="k">Gate</div><div class="val">8am to 5pm, fee at entry</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>The special one: San Jacinto by tramway</h3>
+        <p>The Palm Springs Aerial Tramway is the largest rotating aerial tramway in the world and lifts you from 2,643 feet to 8,516 feet in ten minutes, for around thirty dollars. At the top you step out into pine forest in Mount San Jacinto State Park at about 2,600 metres. Take the Round Valley and Wellman Divide trails, or push to San Jacinto Peak at 3,302 metres, a sixteen kilometre round trip with nine hundred metres of gain from the tram station. It is a genuine altitude session with a cable car for the descent, which is close to cheating and completely worth it.</p>
+      </div>
+
+      <div class="block">
+        <h3>Daily easy miles</h3>
+        <p>The Tahquitz Creek and Whitewater channel paths give you flat, quiet, traffic free miles right out of downtown. For a scenic easy hour, run the streets of the Movie Colony and Old Las Palmas and look at the houses, which is the most Palm Springs thing possible. The Bump and Grind trail in Palm Desert is the local hill session, three hundred metres of climbing in three kilometres, busy but excellent.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 5</div>
+      <h2>Afternoons</h2>
+      <p>One good thing a day across twelve days, including the ones that only work once the work leg is over.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Essential</div><h3>Palm Springs Aerial Tramway</h3><div class="loc">Chino Canyon</div><p>Around thirty dollars, ten minutes, and a five thousand foot climb into a different climate. Go late afternoon, walk the loop at the top, and come down after sunset.</p></div>
+      <div class="card2"><div class="tag">Signature Local</div><h3>Mid century architecture tour</h3><div class="loc">Citywide</div><p>Palm Springs has the densest collection of desert modernism anywhere. The Kaufmann House, Frey House II, the Tramway Gas Station. Do a guided tour with the Palm Springs Modernism organisation, or drive the self guided map through Twin Palms and Vista Las Palmas.</p></div>
+      <div class="card2"><div class="tag">Essential</div><h3>Joshua Tree National Park</h3><div class="loc">45 min north</div><p>Enter at the west entrance, drive to Keys View for the whole Coachella Valley below you, and walk the Hidden Valley loop. Stay for sunset and then the stars, which are extraordinary.</p></div>
+      <div class="card2"><div class="tag">Canyon</div><h3>Tahquitz Canyon</h3><div class="loc">Palm Springs</div><p>A three kilometre loop to a sixty foot waterfall inside the city limits, on tribal land, with a visitor centre and a ranger led option. The easiest genuinely beautiful hike here.</p></div>
+      <div class="card2"><div class="tag">Design</div><h3>Palm Springs Art Museum and the Architecture Center</h3><div class="loc">Downtown</div><p>Good collection, wonderful building, and the Architecture and Design Center is in a restored Santa Fe Federal Savings bank by E Stewart Williams.</p></div>
+      <div class="card2"><div class="tag">Only Here</div><h3>Salvation Mountain and Salton Sea</h3><div class="loc">1 hour southeast</div><p>A hand built painted mountain of adobe and a dying inland sea below sea level. Strange, sad, unforgettable, and unlike anywhere else in America.</p></div>
+      <div class="card2"><div class="tag">Music</div><h3>Pioneertown and Pappy and Harriet's</h3><div class="loc">1 hour north</div><p>A 1946 western film set that became a real town. Check the gig calendar before you go, the bookings are far better than a town of four hundred people deserves.</p></div>
+      <div class="card2"><div class="tag">With Brooke</div><h3>Sunrise hot air balloon</h3><div class="loc">Coachella Valley</div><p>Lifting off over the date palms and the mountains at dawn. November is the start of the season and the conditions are perfect.</p></div>
+      <div class="card2"><div class="tag">Golf</div><h3>PGA West and the Stadium Course</h3><div class="loc">La Quinta</div><p>Pete Dye's Stadium Course is one of the hardest and most photographed courses in America. Thirty minutes down valley and worth the drive.</p></div>
+      <div class="card2"><div class="tag">Wellness</div><h3>Two Bunch Palms</h3><div class="loc">Desert Hot Springs</div><p>Natural hot mineral springs at a historic property twenty minutes north. Adults only, phone free zones, and the best soak in the region.</p></div>
+    </div>
+  </section>
+
+  <section id="weekend">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 6</div>
+      <h2>Weekend Side Trip: Idyllwild</h2>
+      <p class="sub">Built around the long run. An alpine village at 1,650 metres in the San Jacinto mountains, an hour from the desert floor and thirty degrees cooler in spirit.</p>
+      <div class="block">
+        <h3>Getting there</h3>
+        <p>An hour by car from Palm Springs via Banning and Highway 243, or the more dramatic route up the 74 Palms to Pines Highway from Palm Desert. Both are winding mountain roads, both are spectacular, and neither has any public transport. Take the 74 up and the 243 down so you see both.</p>
+      </div>
+      <div class="block">
+        <h3>The long run: Devil's Slide to the PCT</h3>
+        <p>From Humber Park above Idyllwild, the Devil's Slide Trail climbs four kilometres and four hundred metres to Saddle Junction, where it meets the Pacific Crest Trail. From there you can run north along the PCT towards Strawberry Junction and Wellman Divide, or south towards Tahquitz Peak and the fire lookout at 2,600 metres. A Tahquitz Peak loop is about eighteen kilometres with eight hundred metres of climbing, and a bigger PCT day gives you twenty eight kilometres. The forest is pine and cedar, the air is thin and cold, and it is one of the best trail systems in southern California.</p>
+        <div class="runbox">
+          <div><div class="k">Distance</div><div class="val">18 to 28 km</div></div>
+          <div><div class="k">Base altitude</div><div class="val">1,980 m at Humber Park</div></div>
+          <div><div class="k">Vert</div><div class="val">800 to 1,100 m</div></div>
+          <div><div class="k">Permit</div><div class="val">Free day use wilderness permit needed</div></div>
+          <div><div class="k">Temp at 7am</div><div class="val">Around 2 &deg;C in November</div></div>
+          <div><div class="k">Surface</div><div class="val">Pine forest singletrack, granite</div></div>
+        </div>
+        <p style="margin-top:14px">Get the free San Jacinto Wilderness day use permit from the Idyllwild ranger station or online before you go, and check for early season snow above 2,400 metres. In mid November it is usually clear but not guaranteed.</p>
+      </div>
+      <div class="block">
+        <h3>The rest of the weekend</h3>
+        <p>Stay at the Idyllwild Inn or a cabin in the pines. Eat at Gastrognome or Ferro. Coffee at Higher Grounds. The town has a golden retriever as its elected mayor, which tells you everything about the place. Come back down to the desert on Sunday afternoon and get in the pool.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 7</div>
+      <h2>Shopping</h2>
+      <p>Palm Springs is not a luxury capital, but it is one of the best places in America to buy mid century furniture and vintage, and there is a serious outlet mall on the way in.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Luxury</div><h3>El Paseo</h3><div class="loc">Palm Desert</div><p>The valley's actual luxury street, sometimes called the Rodeo Drive of the desert. Gucci, Saint Laurent, Tiffany, Louis Vuitton, plus galleries and good restaurants. Twenty minutes down valley.</p></div>
+      <div class="card2"><div class="tag">Outlets</div><h3>Desert Hills Premium Outlets</h3><div class="loc">Cabazon</div><p>One of the largest luxury outlet centres in America, twenty minutes west on the I10. Prada, Gucci, Saint Laurent, Bottega. Go on a weekday morning.</p></div>
+      <div class="card2"><div class="tag">Design</div><h3>The Shops at Thirteen Forty Five</h3><div class="loc">Palm Springs</div><p>A converted midcentury complex on North Palm Canyon housing several of the best design and vintage dealers under one roof. Start here.</p></div>
+      <div class="card2"><div class="tag">Vintage Furniture</div><h3>Uptown Design District</h3><div class="loc">North Palm Canyon</div><p>Ten blocks of vintage and antique dealers. Modern Way, a la mod, Christopher Anthony. The best place in the country to buy authentic mid century pieces.</p></div>
+      <div class="card2"><div class="tag">Menswear</div><h3>Trina Turk and Mr Turk</h3><div class="loc">North Palm Canyon</div><p>In an Albert Frey building, and the most Palm Springs clothing that exists. Bold prints, resort tailoring, and it works better than it should.</p></div>
+      <div class="card2"><div class="tag">Vintage Clothing</div><h3>Iconic Atomic and Dazzles</h3><div class="loc">Palm Springs</div><p>Genuinely good vintage clothing and jewellery, well curated rather than thrifted. Worth an hour on a hot afternoon.</p></div>
+      <div class="card2"><div class="tag">Books</div><h3>Just Fabulous</h3><div class="loc">Palm Springs</div><p>Independent bookshop and card store with a very strong design and architecture section. The right place for a Palm Springs modernism book.</p></div>
+      <div class="card2"><div class="tag">Running</div><h3>Fleet Feet Palm Desert</h3><div class="loc">Palm Desert</div><p>The proper running shop in the valley, with local trail knowledge and gait analysis. Best source for trail intel on the Indian Canyons.</p></div>
+    </div>
+  </section>
+
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 8</div>
+      <h2>Fitness</h2>
+      <p>Reformer, pole and gyms with short passes across the valley. Everything here is drop in friendly because half the population is seasonal.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Club Pilates Palm Springs and Palm Desert</h3><div class="loc">Multiple</div><p>Standard reformer format, several valley locations, and the easiest drop in for a visitor. Book through the app.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Pilates Studio Palm Springs</h3><div class="loc">Palm Springs</div><p>Small independent studio with classical reformer and capped classes. Better instruction than the chains, book by phone.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Bodies in Motion and Rancho Mirage studios</h3><div class="loc">Rancho Mirage</div><p>Down valley option combining reformer with physio and rehab work. Good on tired legs after the Indian Canyons.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Desert Pole and Aerial studios</h3><div class="loc">Palm Springs / Cathedral City</div><p>The valley pole scene is small and runs on Instagram and Facebook. There are one or two studios operating at any time, so search current listings and message ahead. Palm Springs is a good town for it and drop ins are welcomed.</p></div>
+      <div class="card2"><div class="tag">Gym Day Pass</div><h3>World Gym Palm Springs</h3><div class="loc">Palm Springs</div><p>The best equipped serious weight room in the city, with straightforward day and week passes. The default choice.</p></div>
+      <div class="card2"><div class="tag">Gym Day Pass</div><h3>Life Time Palm Desert</h3><div class="loc">Palm Desert</div><p>Full athletic club with pools, courts, classes and recovery. Twenty minutes down valley and worth it for a longer stay.</p></div>
+      <div class="card2"><div class="tag">Hotel Gym</div><h3>The Parker and Ritz Carlton fitness</h3><div class="loc">Palm Springs / Rancho Mirage</div><p>Both are excellent and both sell spa day passes that include the gym, which is often the nicest way to spend a hot afternoon.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Two Bunch Palms and Estrella Spa</h3><div class="loc">Desert Hot Springs / Palm Springs</div><p>Natural mineral springs at Two Bunch, and the Estrella Spa at the Avalon for treatments. Both take non guests. Book the day after the Idyllwild long run.</p></div>
+    </div>
+  </section>
+
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 9</div>
+      <h2>Groceries</h2>
+      <p>For the cook at home nights and for stocking a pool afternoon properly.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Whole Foods</div><h3>Whole Foods Market Palm Desert</h3><div class="loc">Palm Desert</div><p>The only full Whole Foods in the valley, twenty minutes down valley on Highway 111. Worth the drive for a proper stock up.</p></div>
+      <div class="card2"><div class="tag">Premium</div><h3>Jensen's Finest Foods</h3><div class="loc">Palm Springs and Rancho Mirage</div><p>The local upmarket grocer since 1954, with an excellent butcher, cheese counter and wine section. Closer than Whole Foods and often better.</p></div>
+      <div class="card2"><div class="tag">Organic</div><h3>Clark's Nutrition and Natural Foods</h3><div class="loc">Rancho Mirage</div><p>Enormous natural foods market with the widest supplement and organic produce range in the valley.</p></div>
+      <div class="card2"><div class="tag">Farmers Market</div><h3>Palm Springs Certified Farmers Market</h3><div class="loc">Downtown &middot; Saturday mornings</div><p>October through May at the Camelot Theatres lot. Local citrus, dates and produce. The best Saturday morning in town after a run.</p></div>
+      <div class="card2"><div class="tag">Street Fair</div><h3>VillageFest</h3><div class="loc">Palm Canyon Dr &middot; Thursday nights</div><p>Palm Canyon closes to traffic every Thursday evening for a street market with produce, food stalls and craft. Go once for the atmosphere.</p></div>
+      <div class="card2"><div class="tag">Local Specialty</div><h3>Shields Date Garden</h3><div class="loc">Indio</div><p>The Coachella Valley grows most of the dates in America. Shields has been selling them since 1924, plus a famously odd film about date pollination.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for Palm Springs, November 10 to 22, 2026, covering both legs of the stay. November is high season in the desert, so book restaurants and the tramway ahead. Get the free San Jacinto wilderness permit before Idyllwild, carry more water than you think you need, and use the pool.</p>
+  </div>
+</footer>
+
+</body>
+</html>

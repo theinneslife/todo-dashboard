@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slovenia Arrival Guide &middot; Julian Alps 50K, September 2026</title>
+<style>
+  :root{
+    --paper:#f7f2ea;
+    --paper-2:#fffaf2;
+    --ink:#231d18;
+    --ink-soft:#5c5148;
+    --line:#e4d9c8;
+    --ocean:#0f6e6b;
+    --ocean-deep:#0a4a48;
+    --gold:#c8952f;
+    --gold-soft:#e7c579;
+    --terra:#b8552f;
+    --rose:#9a3b52;
+    --shadow:0 18px 45px rgba(35,29,24,.10);
+    --shadow-soft:0 8px 22px rgba(35,29,24,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.3px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:82vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(10,52,54,.15) 0%,rgba(10,52,54,.35) 45%,rgba(10,52,54,.86) 100%),
+      linear-gradient(120deg,#0a4a48,#0f6e6b 45%,#c8952f 130%);
+    background-size:cover;background-position:center;
+  }
+  .hero-inner{padding:0 26px 60px;max-width:1080px;margin:0 auto;width:100%;color:#fff;}
+  .hero .kicker{color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:13px;font-weight:700;}
+  .hero h1{font-size:clamp(52px,10vw,104px);line-height:.95;margin:.12em 0 .1em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero .sub{font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;font-style:italic;color:#f5ecdb;max-width:640px;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:13px;letter-spacing:.5px;}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.sticky .wrap{display:flex;gap:6px;overflow-x:auto;padding:12px 26px;scrollbar-width:none;}
+  nav.sticky .wrap::-webkit-scrollbar{display:none;}
+  nav.sticky a{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding:7px 13px;border-radius:999px;font-weight:600;transition:.2s;}
+  nav.sticky a:hover{background:var(--ocean);color:#fff;}
+
+  section{padding:64px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(30px,5vw,44px);color:var(--ocean-deep);}
+  .sec-head p{color:var(--ink-soft);max-width:720px;margin-top:8px;}
+
+  /* ANNIVERSARY */
+  .anniv{
+    background:linear-gradient(160deg,#12100e,#241a20 55%,#3a1f26);
+    color:#f6ede0;border-radius:26px;padding:44px clamp(24px,4vw,52px);margin-top:26px;
+    box-shadow:var(--shadow);border:1px solid rgba(231,197,121,.25);
+  }
+  .anniv .eyebrow{color:var(--gold-soft);}
+  .anniv h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:.15em 0 .35em;}
+  .anniv .lead{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#f0dfc4;max-width:760px;margin-bottom:10px;}
+  .anniv .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px;}
+  .anniv .card{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:18px;padding:22px;}
+  .anniv .card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .anniv .card h3{color:#fff;font-size:21px;margin:9px 0 8px;}
+  .anniv .card p{color:#e4d7c3;font-size:14.5px;}
+  .anniv .card .note{margin-top:10px;font-size:12.5px;color:var(--gold-soft);font-weight:600;letter-spacing:.3px;}
+
+  .theday{margin-top:30px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:24px 26px;}
+  .theday h3{color:#fff;font-size:24px;margin-bottom:14px;}
+  .theday .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(231,197,121,.2);}
+  .theday .step:last-child{border-bottom:none;}
+  .theday .time{font-family:Georgia,serif;color:var(--gold-soft);font-size:15px;min-width:96px;font-style:italic;}
+  .theday .what{font-size:15px;color:#efe3d1;}
+  .theday .what b{color:#fff;}
+
+  .stay{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px;}
+  .stay .h{background:rgba(255,255,255,.05);border:1px solid rgba(231,197,121,.22);border-radius:16px;padding:20px;}
+  .stay .h .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .stay .h h4{color:#fff;font-family:Georgia,serif;font-size:20px;margin:8px 0 6px;}
+  .stay .h p{font-size:14px;color:#e4d7c3;}
+
+  /* FACT CARDS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-soft);}
+  .fact .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .fact .v{font-family:Georgia,serif;font-size:26px;color:var(--ocean-deep);margin-top:6px;line-height:1.15;}
+  .fact .d{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .panel{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow-soft);}
+  .panel h3{color:var(--ocean-deep);font-size:20px;margin-bottom:12px;}
+  .slang{display:flex;flex-wrap:wrap;gap:8px;}
+  .slang .term{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;}
+  .slang .term b{color:var(--terra);}
+  .panel ul{list-style:none;}
+  .panel li{padding:7px 0 7px 20px;position:relative;font-size:14.5px;color:var(--ink-soft);}
+  .panel li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* LISTS one per line */
+  .list .row{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+  .list .row:last-child{border-bottom:none;}
+  .list .rank{font-family:Georgia,serif;font-size:19px;color:var(--gold);}
+  .list .name{font-weight:700;color:var(--ink);}
+  .list .name span{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ocean-deep);background:#e5efe9;border:1px solid #cfe3da;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .tier{font-family:Georgia,serif;font-style:italic;color:var(--terra);font-size:15px;margin:26px 0 4px;}
+
+  /* CARDS grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .card2{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+  .card2:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card2 .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card2 h3{font-size:20px;margin:9px 0 4px;color:var(--ocean-deep);}
+  .card2 .loc{font-size:13px;color:var(--terra);font-weight:600;margin-bottom:8px;}
+  .card2 p{font-size:14px;color:var(--ink-soft);}
+
+  /* TIMELINE block */
+  .timeline{background:linear-gradient(160deg,#0a4a48,#0f6e6b);color:#eaf6f3;border-radius:24px;padding:38px clamp(24px,4vw,46px);box-shadow:var(--shadow);}
+  .timeline h2{color:#fff;}
+  .timeline .sub{color:#bfe3dc;font-family:Georgia,serif;font-style:italic;margin:6px 0 22px;}
+  .timeline .block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px;margin-bottom:16px;}
+  .timeline .block h3{color:#fff;font-size:21px;margin-bottom:6px;}
+  .timeline .block p{color:#dff0ec;font-size:14.5px;}
+  .timeline .runbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px;}
+  .timeline .runbox div{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;}
+  .timeline .runbox .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
+  .timeline .runbox .val{font-size:15px;color:#fff;margin-top:3px;}
+
+  .run-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+  footer{margin-top:70px;background:var(--ocean-deep);color:#dfeae7;padding:52px 0 46px;text-align:center;}
+  footer .sig{font-family:Georgia,serif;font-style:italic;font-size:28px;color:#fff;}
+  footer .fine{font-size:13px;color:#9fc4bd;max-width:640px;margin:14px auto 0;}
+
+  @media(max-width:640px){
+    .panels{grid-template-columns:1fr;}
+    .list .row{grid-template-columns:28px 1fr;}
+    .list .pill{grid-column:2;justify-self:start;margin-top:4px;}
+  }
+
+
+:root{
+  --paper:#f4f4ef; --paper-2:#fdfdf9; --ink:#1b201c; --ink-soft:#525b53;
+  --line:#dde2d8; --ocean:#2f6b4f; --ocean-deep:#173b2c; --gold:#b58a2c;
+  --gold-soft:#e3c680; --terra:#a1522c; --rose:#7a3a48;
+}
+.hero{background:
+  linear-gradient(180deg,rgba(12,32,24,.15) 0%,rgba(12,32,24,.38) 45%,rgba(12,32,24,.90) 100%),
+  linear-gradient(120deg,#123528,#2f6b4f 45%,#7fa6bd 105%,#e3c680 140%);}
+.anniv{background:linear-gradient(160deg,#0f1c17,#173b2c 55%,#2c4a3c);}
+.timeline{background:linear-gradient(160deg,#173b2c,#2f6b4f);}
+footer{background:#173b2c;}
+.pill{color:#1f4a37;background:#e4efe8;border-color:#cfe1d7;}
+.note-strip{background:#f6f2e2;border:1px solid #e8ddb8;border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0;font-size:14.5px;color:#544a2c;}
+.note-strip b{color:#3a3218;}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Arrival Playbook &middot; September 2026</div>
+    <h1>Slovenia</h1>
+    <p class="sub">Ten days between a small green capital and the Julian Alps, built around fifty five kilometres and 2,828 metres of climbing on Friday the eighteenth.</p>
+    <div class="meta">
+      <span class="chip">Sep 12 to Sep 21, 2026</span>
+      <span class="chip">Base: Ljubljana</span>
+      <span class="chip">Race: Fri Sep 18</span>
+      <span class="chip">UTMB Julian Alps 50K</span>
+      <span class="chip">Euro &middot; 1 USD = 0.86 EUR</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#race">The Race</a>
+    <a href="#basics">Basics</a>
+    <a href="#week">The Week</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#running">Running</a>
+    <a href="#afternoons">Afternoons</a>
+    <a href="#weekend">The Alps</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#fitness">Fitness</a>
+    <a href="#groceries">Groceries</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="race">
+    <div class="anniv">
+      <div class="eyebrow">The Main Event</div>
+      <h2>Sky Trail 50K</h2>
+      <p class="lead">Everything in this ten days points at one Friday morning. The I feel Slovenia Julian Alps Trail Run by UTMB runs September 18 to 20, 2026, and your race is the first one off the line.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">The Numbers</div>
+          <h3>55 km, 2,828 m</h3>
+          <p>The Sky Trail 50K starts in the village of Zirovnica, climbs onto the ridge line above the Sava valley, traverses with the Julian Alps on one side and the Karawanks and Austria on the other, and drops into Kranjska Gora to finish. Roughly 9,300 feet of vertical gain over 34 miles.</p>
+          <div class="note">Two waves on Friday Sep 18. First at 8:00am, second at 9:30am.</div>
+        </div>
+        <div class="card">
+          <div class="tag">The Logistics Problem</div>
+          <h3>Start and finish are 30 km apart</h3>
+          <p>Zirovnica to Kranjska Gora is about 35 minutes by road. UTMB runs shuttles between the race village and the start, but on a point to point course with an 8am gun you want zero uncertainty. Book the official runner shuttle the day registration opens and treat a rental car as the backup, not the plan.</p>
+          <div class="note">If you rent, park it outside the Ljubljana ring. City centre access is restricted and enforced.</div>
+        </div>
+        <div class="card">
+          <div class="tag">Race Week Shape</div>
+          <h3>Thursday and Friday are clear</h3>
+          <p>You are not working Thursday or Friday of race week. Drive or train up to Kranjska Gora Wednesday evening, collect the bib Thursday, sleep at altitude near the finish, race Friday, and stay Friday night rather than driving down on cooked legs.</p>
+          <div class="note">Two nights in Kranjska Gora beats a race morning transfer from Ljubljana.</div>
+        </div>
+      </div>
+
+      <div class="theday">
+        <h3>Race day plan</h3>
+        <div class="step"><div class="time">4:45am</div><div class="what"><b>Up and eating.</b> Three hours before the gun. Oats, banana, coffee, salt. Slovenian hotels will leave a breakfast box out if you ask the night before.</div></div>
+        <div class="step"><div class="time">6:15am</div><div class="what"><b>Shuttle to Zirovnica.</b> Allow 45 minutes plus buffer. Bring a throwaway layer, September mornings in that valley run near 8 degrees Celsius.</div></div>
+        <div class="step"><div class="time">8:00am</div><div class="what"><b>Wave one.</b> The first climb comes fast. Walk it early even when it feels absurd, the ridge rewards patience and punishes the first hour.</div></div>
+        <div class="step"><div class="time">Mid race</div><div class="what"><b>The traverse.</b> Exposed, technical in places, and the best running of the day. Eat on the flats because you will not want to on the climbs.</div></div>
+        <div class="step"><div class="time">Finish</div><div class="what"><b>Kranjska Gora.</b> Walk to the lake, get in the cold water for five minutes, then eat properly. Gostilna Pri Martinu in town does the right food for a wrecked body.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="sec-head">
+      <div class="eyebrow">Section 1</div>
+      <h2>Travel Basics</h2>
+      <p>Small country, excellent infrastructure, everybody speaks English, and it is one of the safest places you will ever run at 5am.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Currency</div><div class="v">Euro &euro;</div><div class="d">1 USD buys about 0.86 EUR as of late August 2026, so 1 EUR is roughly 1.16 USD. Cards everywhere, cash useful at mountain huts.</div></div>
+      <div class="fact"><div class="k">Ljubljana</div><div class="v">295 m</div><div class="d">Effectively sea level for training. The race tops out well above 1,500 m, so get two ridge days in beforehand.</div></div>
+      <div class="fact"><div class="k">September Weather</div><div class="v">22 &deg;C day</div><div class="d">Falling to 10 &deg;C at night in Ljubljana and near freezing on the Alpine ridges before dawn. Pack for both.</div></div>
+      <div class="fact"><div class="k">Getting around</div><div class="v">Train and car</div><div class="d">Ljubljana to Bled is 40 minutes by car, an hour by train. No Uber. Use Bolt in the city, it works well.</div></div>
+      <div class="fact"><div class="k">City centre</div><div class="v">Car free</div><div class="d">Ljubljana's old town is pedestrian only and enforced. Park at a P and R lot on the ring and walk or take the free Kavalir electric cart.</div></div>
+      <div class="fact"><div class="k">Language</div><div class="v">Slovenian</div><div class="d">English is close to universal under 50. Italian and German help in the mountains.</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Words worth having</h3>
+        <div class="slang">
+          <span class="term"><b>Zivjo</b> hi, informal</span>
+          <span class="term"><b>Hvala</b> thank you</span>
+          <span class="term"><b>Prosim</b> please, also you are welcome</span>
+          <span class="term"><b>Na zdravje</b> cheers</span>
+          <span class="term"><b>Gostilna</b> traditional inn restaurant</span>
+          <span class="term"><b>Kavarna</b> cafe</span>
+          <span class="term"><b>Planinska koca</b> mountain hut</span>
+          <span class="term"><b>Potica</b> the rolled nut cake</span>
+          <span class="term"><b>Zganje</b> fruit brandy, offered often</span>
+          <span class="term"><b>Vrh</b> summit</span>
+          <span class="term"><b>Jezero</b> lake</span>
+          <span class="term"><b>Super</b> means exactly what you think</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Safety and practicalities</h3>
+        <ul>
+          <li>Slovenia ranks among the safest countries in the world. Running alone before dawn in Ljubljana is genuinely fine.</li>
+          <li>Mountain weather changes fast in September. Carry a shell on every ridge run, no exceptions.</li>
+          <li>Tap water is excellent everywhere including from mountain fountains.</li>
+          <li>Vignette required for motorways if you rent. Buy it at the border or a petrol station before you drive.</li>
+          <li>Sunday closures are real outside Ljubljana. Shop Saturday.</li>
+          <li>Mountain rescue is world class but not free. Check that your travel insurance covers alpine trail running.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 2</div>
+      <h2>The Shape of Ten Days</h2>
+      <p class="sub">You are working 6pm to midnight most days, which makes Slovenia close to perfect. Mornings are yours and this country is a morning country.</p>
+      <div class="block"><h3>Sep 12 to 16, Ljubljana</h3><p>Settle in, run the Golovec and Roznik trails behind the city, taper properly, and eat your way through the best small food city in central Europe. Work the evenings. Do one recce day up to Bled or Vintgar to get the legs onto Alpine terrain.</p></div>
+      <div class="block"><h3>Sep 16 to 19, Kranjska Gora</h3><p>Move up Wednesday. Bib collection Thursday, easy shakeout on the Vrsic road, race Friday, stay Friday night. Saturday is for the lake, the sauna and doing nothing.</p></div>
+      <div class="block"><h3>Sep 19 to 21, the Soca or Bled</h3><p>Recovery days in the most beautiful part of the country. Bovec and the Soca valley if you want the river, Bled if you want comfort and a short drive back to the airport.</p></div>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Section 3</div>
+      <h2>Restaurants</h2>
+      <p>Slovenia punches absurdly above its weight. Ana Ros put the country on the map and the rest of the scene followed. Book the top three the week you land.</p>
+    </div>
+    <div class="tier">Worth planning a day around</div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Hisa Franko<span>Ana Ros in Kobarid, two Michelin stars and a green star. The most famous restaurant in the country and a two hour drive from Ljubljana. Book months out, and pair it with the Soca valley days.</span></div><div class="pill">Kobarid</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Gostilna na Gradu<span>Inside Ljubljana castle, serving genuinely serious Slovenian cooking with a view over the whole city. The most atmospheric table in town.</span></div><div class="pill">Ljubljana Castle</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Strelec<span>In the castle's archer tower, a tasting menu built on historical Slovenian recipes. Small, dark, remarkable.</span></div><div class="pill">Ljubljana Castle</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">JB Restavracija<span>Janez Bratovz, the elder statesman of Slovenian fine dining. Classic technique, immaculate service, and the wine list to learn Slovenian wine from.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Vila Podvin<span>Uros Stefelin near Radovljica, a Michelin plate and the best cooking on the way to the mountains. Perfect lunch stop between Ljubljana and Kranjska Gora.</span></div><div class="pill">Radovljica</div></div>
+    </div>
+    <div class="tier">Ljubljana, everyday excellent</div>
+    <div class="list">
+      <div class="row"><div class="rank">6</div><div class="name">Monstera Bistro<span>Bine Volcic's bistro, seasonal, confident, and the easiest good reservation in the city.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Gostilna Dela<span>Social enterprise restaurant training young people, and the food is genuinely very good. Lovely lunch.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Druga Violina<span>On Stari trg, run by adults with disabilities, serving proper Slovenian home cooking. Order the jota and the struklji.</span></div><div class="pill">Old Town</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Pop's Place<span>The best burger in Slovenia, on the river, with a serious craft beer list. Your post long run meal.</span></div><div class="pill">Riverside</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Klobasarna<span>Tiny counter serving Carniolan sausage and struklji. Six euro lunch, ten minutes, exactly right.</span></div><div class="pill">Old Town</div></div>
+      <div class="row"><div class="rank">11</div><div class="name">Ek Bistro<span>The best breakfast and brunch in Ljubljana. Go early, they do not take bookings and the queue is real.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">12</div><div class="name">Restavracija Cubo<span>Modern Mediterranean, quiet room, strong wine service. The reliable dinner when you cannot face a queue.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">13</div><div class="name">Sushimama<span>Better than it has any right to be for a landlocked capital, and the Adriatic is only an hour away.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">14</div><div class="name">Odprta Kuhna<span>The Friday open kitchen market on Pogacar square, March to October. Thirty stalls, the whole city turns up. Go on Sep 25 if you are back in town.</span></div><div class="pill">Central Market</div></div>
+    </div>
+    <div class="tier">In the mountains</div>
+    <div class="list">
+      <div class="row"><div class="rank">15</div><div class="name">Gostilna Pri Martinu<span>Kranjska Gora, unpretentious, huge portions, the correct place to eat after 55 kilometres.</span></div><div class="pill">Kranjska Gora</div></div>
+      <div class="row"><div class="rank">16</div><div class="name">Vila Bled and Ojstrica terrace<span>Bled, for the lake view and the cream cake. Touristy and worth it once.</span></div><div class="pill">Bled</div></div>
+      <div class="row"><div class="rank">17</div><div class="name">Hisa Polonka<span>Ana Ros's casual place in Kobarid. Local cheese, cured meat, beer, and none of the ceremony.</span></div><div class="pill">Kobarid</div></div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="sec-head">
+      <div class="eyebrow">Section 4</div>
+      <h2>Coffee</h2>
+      <p>Ljubljana is a cafe city in the Austro Hungarian sense, and it also has a real third wave scene. Everything below is inside a fifteen minute walk of the old town.</p>
+    </div>
+    <div class="list">
+      <div class="row"><div class="rank">1</div><div class="name">Crno Zrno<span>The best filter coffee in the country, tiny room, rotating single origins, staff who actually want to talk about it.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">2</div><div class="name">Cafe Cokl<span>The original Ljubljana specialty cafe, organic beans, on the edge of the old town. Sit outside.</span></div><div class="pill">Old Town</div></div>
+      <div class="row"><div class="rank">3</div><div class="name">Stow<span>Sleek modern roastery cafe with the most technically precise espresso in the city.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">4</div><div class="name">TOZD<span>Riverside, part cafe part bar, packed with students and creatives. Best people watching seat in Ljubljana.</span></div><div class="pill">Trubarjeva</div></div>
+      <div class="row"><div class="rank">5</div><div class="name">Kavarna Zvezda<span>Classic Austro Hungarian cafe on Kongresni trg. Come for the cake, especially the kremsnita.</span></div><div class="pill">Kongresni trg</div></div>
+      <div class="row"><div class="rank">6</div><div class="name">Kolibri Coffee<span>Small, serious, excellent flat white, and open early enough for a pre run stop.</span></div><div class="pill">Center</div></div>
+      <div class="row"><div class="rank">7</div><div class="name">Vigo Cafe<span>Multiple riverside locations, reliable coffee and the best gelato in the city under the same roof.</span></div><div class="pill">Riverside</div></div>
+      <div class="row"><div class="rank">8</div><div class="name">Le Petit Cafe<span>On Trg francoske revolucije, French leaning, big terrace, good for a long slow morning with a laptop.</span></div><div class="pill">Krizanke</div></div>
+      <div class="row"><div class="rank">9</div><div class="name">Kavarna Rog<span>In the redeveloped Rog centre, newer, bright, and the best place to work in the mornings.</span></div><div class="pill">Trubarjeva</div></div>
+      <div class="row"><div class="rank">10</div><div class="name">Cafe Kavarna Bled, SlaScicarna Zima<span>In Bled, for the original cream cake with a lake view. Coffee is fine, the cake is the point.</span></div><div class="pill">Bled</div></div>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 5</div>
+      <h2>Running</h2>
+      <p class="sub">Ljubljana is a genuinely great running city and the Alps are 40 minutes away. Taper here, sharpen there.</p>
+
+      <div class="block">
+        <h3>Daily from Ljubljana</h3>
+        <p>The Path of Remembrance and Comradeship is a 33 kilometre gravel and dirt loop that circles the entire city on the line of the old occupation fence. Flat, tree lined, soft underfoot and marked the whole way. It is the single best urban run in central Europe and you can join it from anywhere. For hills, Roznik is 15 minutes from the centre with 200 metres of gain on forest trail, and Golovec on the south side gives you a proper 400 metre climb on singletrack.</p>
+        <div class="runbox">
+          <div><div class="k">City loop</div><div class="val">33 km, flat, gravel</div></div>
+          <div><div class="k">Roznik</div><div class="val">Easy hills, forest</div></div>
+          <div><div class="k">Golovec</div><div class="val">400 m climb, technical</div></div>
+          <div><div class="k">Riverside</div><div class="val">Ljubljanica path, 8 km out and back</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Race specific sharpening, Sep 14 to 16</h3>
+        <p>The 50K is a ridge race with sustained climbing, so do not spend taper week on flat gravel. Drive to Bled on the Monday or Tuesday and run the Ojstrica and Mala Osojnica loop, short but steep with the classic lake view at the top. Then take the Vintgar Gorge boardwalk out and the forest trail back for an easy hour. That is enough Alpine specificity without digging a hole.</p>
+      </div>
+
+      <div class="block">
+        <h3>Recovery, Sep 19 to 21</h3>
+        <p>Kranjska Gora to Jasna lake and back is four flat kilometres on a paved path, which is all your legs should do on Saturday. Sunday, if the body allows, the Soca Trail from the source down through Bovec is soft, riverside and one of the most beautiful easy runs in Europe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="afternoons">
+    <div class="sec-head">
+      <div class="eyebrow">Section 6</div>
+      <h2>Afternoons</h2>
+      <p>One good thing per afternoon, scaled from light in taper week to bigger once the race is done.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Light</div><h3>Ljubljana Castle funicular and walls</h3><div class="loc">Old Town</div><p>Ride up, walk the ramparts, climb the viewing tower. Ninety minutes, no legs required, and the best orientation to the city.</p></div>
+      <div class="card2"><div class="tag">Light</div><h3>Central Market and Plecnik colonnade</h3><div class="loc">Vodnikov trg</div><p>Joze Plecnik designed most of what makes Ljubljana beautiful. Walk the covered market colonnade, buy cheese and figs, then see the Triple Bridge and the National Library.</p></div>
+      <div class="card2"><div class="tag">Signature Local</div><h3>Beekeeping and honey at Radovljica</h3><div class="loc">Radovljica</div><p>Slovenia is the beekeeping capital of Europe, with its own native bee and painted hive panels. The Museum of Apiculture plus a working apiary visit is the most Slovenian afternoon available.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Vintgar Gorge boardwalk</h3><div class="loc">Near Bled</div><p>A kilometre and a half of wooden walkway pinned to a limestone gorge above turquoise water. Timed entry, book online, go at 8am to have it nearly alone.</p></div>
+      <div class="card2"><div class="tag">Memorable</div><h3>Postojna Cave and Predjama Castle</h3><div class="loc">Postojna</div><p>An electric train into 24 kilometres of karst cave, then a castle built into a cliff mouth. Forty five minutes from Ljubljana and genuinely astonishing.</p></div>
+      <div class="card2"><div class="tag">Post Race</div><h3>Lake Bled island and the cream cake</h3><div class="loc">Bled</div><p>Row a pletna boat to the island, ring the wishing bell, then eat kremsnita on a terrace. Cliche and completely worth it.</p></div>
+      <div class="card2"><div class="tag">Post Race</div><h3>Soca river, Bovec</h3><div class="loc">Bovec</div><p>The most unreasonably coloured river in Europe. Rafting and canyoning still run in September, or just walk the Soca Trail and swim if you are brave.</p></div>
+      <div class="card2"><div class="tag">With Brooke</div><h3>Vipava valley wine day</h3><div class="loc">Vipava</div><p>An hour west, Slovenia's most exciting wine region. Natural and orange wines at Batic and Burja, and lunch at Majerija. Hire a driver.</p></div>
+    </div>
+  </section>
+
+  <section id="weekend">
+    <div class="timeline">
+      <div class="eyebrow" style="color:var(--gold-soft)">Section 7</div>
+      <h2>The Alps: Kranjska Gora and the Soca</h2>
+      <p class="sub">Your side trip is not optional, it is the race. Here is how to make the days around it worth the flight.</p>
+      <div class="block">
+        <h3>Getting there</h3>
+        <p>Ljubljana to Kranjska Gora is 85 kilometres and about an hour by car on the A2 motorway. Buy the vignette before you drive. Public transport works but takes over two hours with a change at Jesenice, so for race logistics a car is worth the friction. Park it in Kranjska Gora and leave it there, everything in the village is walkable.</p>
+      </div>
+      <div class="block">
+        <h3>Where to stay in Kranjska Gora</h3>
+        <p>Hotel Kotnik is the small, characterful choice right in the village centre with a very good restaurant attached. Ramada Resort is the practical one with a pool and spa for the day after. Book either the moment you have the bib, the whole valley fills for UTMB week.</p>
+      </div>
+      <div class="block">
+        <h3>The Vrsic pass, once you can drive again</h3>
+        <p>Fifty hairpins over the highest mountain pass in Slovenia, built by prisoners of war in 1915, dropping down into the Trenta valley and on to Bovec. It is one of the great drives in Europe and it is also the road you will look at on Thursday and correctly decide not to run.</p>
+        <div class="runbox">
+          <div><div class="k">Pass altitude</div><div class="val">1,611 m</div></div>
+          <div><div class="k">Hairpins</div><div class="val">50</div></div>
+          <div><div class="k">To Bovec</div><div class="val">50 km, 90 min</div></div>
+          <div><div class="k">Open</div><div class="val">Yes in September, closes with snow</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Section 8</div>
+      <h2>Shopping</h2>
+      <p>Ljubljana is not a luxury capital and pretending otherwise wastes your time. What it does have is excellent design, outdoor gear and things you cannot buy anywhere else.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Design</div><h3>Galerija Emporium</h3><div class="loc">Presernov trg</div><p>Slovenia's grand old department store in an art nouveau building on the main square. The closest thing to a luxury edit in the country, with international designer floors.</p></div>
+      <div class="card2"><div class="tag">Mall</div><h3>BTC City</h3><div class="loc">East Ljubljana</div><p>Enormous retail city on the ring road. Everything practical, plus a water park. Useful, not beautiful.</p></div>
+      <div class="card2"><div class="tag">Local Design</div><h3>Trubarjeva cesta</h3><div class="loc">Old Town</div><p>The independent strip. Slovenian ceramics, leather, jewellery and small labels. Almost Cool and the surrounding shops are where to spend an hour.</p></div>
+      <div class="card2"><div class="tag">Outdoor Gear</div><h3>Iglu Sport and Annapurna</h3><div class="loc">Center and BTC</div><p>Serious alpine and trail running retailers with real staff. The place to solve any race kit gap, and to buy Slovenian brands you will not see at home.</p></div>
+      <div class="card2"><div class="tag">Craft</div><h3>Rogaska crystal and Idrija lace</h3><div class="loc">Old Town shops</div><p>The two genuine Slovenian luxury crafts. Rogaska hand blown crystal and hand made bobbin lace from Idrija, both with centuries behind them.</p></div>
+      <div class="card2"><div class="tag">Edible</div><h3>Honey, pumpkin seed oil, salt</h3><div class="loc">Central Market</div><p>Slovenian forest honey, dark green Styrian pumpkin seed oil, and hand harvested Piran sea salt. The three things worth carrying home.</p></div>
+    </div>
+  </section>
+
+  <section id="fitness">
+    <div class="sec-head">
+      <div class="eyebrow">Section 9</div>
+      <h2>Fitness</h2>
+      <p>Reformer, pole and gyms with short passes in Ljubljana. Studios here are small and take bookings by app or direct message, so write ahead.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Pilates Studio Ljubljana</h3><div class="loc">Center</div><p>Small classical reformer studio with proper instruction and capped classes. The best option for a controlled taper session.</p></div>
+      <div class="card2"><div class="tag">Reformer Pilates</div><h3>Studio Pluto</h3><div class="loc">Center</div><p>Reformer plus physiotherapy under one roof, which is exactly what you want in the week before an alpine 50K.</p></div>
+      <div class="card2"><div class="tag">Pilates and Yoga</div><h3>Aum Center</h3><div class="loc">Center</div><p>Yoga, pilates and mobility, drop in friendly, English spoken. Good for Brooke and for your own hip work.</p></div>
+      <div class="card2"><div class="tag">Pole &amp; Aerial</div><h3>Pole Dance Studio Ljubljana</h3><div class="loc">Ljubljana</div><p>The city's pole scene is small but active and runs on Instagram and Facebook bookings. Message ahead for a drop in slot, they are used to visitors.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Sport Klub Ljubljana</h3><div class="loc">Multiple</div><p>The main full service chain with day and weekly passes, pool access at some locations. The straightforward choice.</p></div>
+      <div class="card2"><div class="tag">Gym Pass</div><h3>Fitnes Center Ilirija</h3><div class="loc">Tivoli Park</div><p>Right on the edge of Tivoli, so you can lift and then run the park trails. Simple day tickets.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Thermal spas, Terme Snovik or Terme Olimia</h3><div class="loc">Day trip</div><p>Slovenia is covered in thermal spas and they are excellent and cheap. The correct Saturday after the race.</p></div>
+      <div class="card2"><div class="tag">Recovery</div><h3>Ramada Resort spa, Kranjska Gora</h3><div class="loc">Kranjska Gora</div><p>Sauna world and pools in the village itself, walking distance from the finish. Book a slot for Saturday morning before you race.</p></div>
+    </div>
+  </section>
+
+  <section id="groceries">
+    <div class="sec-head">
+      <div class="eyebrow">Section 10</div>
+      <h2>Groceries</h2>
+      <p>For the cook at home nights with Brooke, and for race week food you actually control.</p>
+    </div>
+    <div class="cards">
+      <div class="card2"><div class="tag">Best Overall</div><h3>Central Market, Vodnikov trg</h3><div class="loc">Old Town &middot; Mon to Sat</div><p>Open air produce, a covered dairy and meat colonnade, and a fish market. Go before 10am. This is the closest Ljubljana gets to a Whole Foods experience and it is better.</p></div>
+      <div class="card2"><div class="tag">Supermarket</div><h3>Mercator and Spar</h3><div class="loc">Everywhere</div><p>The national chains. Spar Gourmet and Interspar have the widest organic and imported ranges. Closed or short hours Sundays.</p></div>
+      <div class="card2"><div class="tag">Organic</div><h3>Kalcek</h3><div class="loc">Center</div><p>The main organic and health food shop in Ljubljana. Supplements, nut butters, gluten free, and the things you need for race fuelling.</p></div>
+      <div class="card2"><div class="tag">Organic</div><h3>Zelena Japka</h3><div class="loc">Center</div><p>Certified organic grocer and juice bar with a good produce box service. Small, friendly, well sourced.</p></div>
+      <div class="card2"><div class="tag">Farmers</div><h3>Eco market, Pogacar square</h3><div class="loc">Fridays</div><p>Certified organic producers only, Friday mornings alongside the main market. The best eggs, cheese and bread of the week.</p></div>
+      <div class="card2"><div class="tag">Wine</div><h3>Vinoteka Movia and Dvor</h3><div class="loc">Old Town</div><p>For Slovenian wine done properly. Movia's tiny bar pours the country's most famous orange wines by the glass.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">In constant motion.</div>
+    <p class="fine">Built for Slovenia, September 12 to 21, 2026. Race details are from the official UTMB Julian Alps listings and can shift, so confirm the wave times and shuttle bookings on julianalps.utmb.world before you travel. Book Kranjska Gora lodging and Hisa Franko early. Run the ridge patiently.</p>
+  </div>
+</footer>
+
+</body>
+</html>

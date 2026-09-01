@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-01",
-  "generated_at": "2026-09-01T14:01:51Z",
+  "generated_at": "2026-09-01T19:42:22.838910Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery + Light Strength",
-      "message": "17 days to the Julian Alps. Calendar has today as active recovery after yesterday's 14mi/2,000ft race-sim day two (32mi combined block) - keep it that way. 20-30 min very easy jog or walk, Zone 1, no watch-chasing, then a light Strength Session 1: single-leg work, hips, core. This is the peak of the block settling in, not a day to add load."
+      "title": "Today's Run",
+      "message": "Easy 6–8 miles, Z2 only (140 bpm ceiling). Your recovery score is 46/100 and resting HR is elevated 7 bpm above 30-day avg—that's a flag. Yesterday's 10-miler at 129 avg plus the 19-miler last week means your CNS is still fatigued. This is taper week 21, not peak week 19; the goal is *retention*, not stimulus. Keep it conversational, sub-threshold. Dial back the mental intensity—no temptation to 'test your legs.' The mountains will wait 17 days."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You just banked a 32-mile back-to-back simulation with heavy carb and sodium turnover - today is about replenishing, not restricting. Aim for the ~220g carb rest-day target, push protein toward 1.6-2g/kg for muscle repair, and lean on anti-inflammatory foods (tart cherry, fatty fish, turmeric). Keep electrolytes going since you'll still be net-depleted from the block."
+      "message": "You're in taper, not calorie deficit. Eat at maintenance or +5–10% above normal: your glycogen stores need to be full, and sub-threshold runs don't burn enough to warrant cutting carbs. Aim for 6–8g carbs per kg body weight daily (assuming 75kg, that's 450–600g). Your sleep efficiency is 70%—slightly low. Post-run today, consume 1.2g carbs + 0.3g protein per kg within 30 min, then a full meal 2–3 hours later. Hydration: 0.5–0.7L per hour on the run; electrolytes if you're over 90 min."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Post-race-sim protocol: foam roll quads and calves, 15-20 min legs-up-the-wall, compression if you've got it, and protect an 8+ hour sleep window tonight. The light strength work is fine, but nothing beyond that - the adaptation from this week's peak volume happens on days exactly like this."
+      "message": "Sleep is adequate in duration (8.3h) but 70% efficiency suggests fragmented sleep or early waking—likely anxiety or elevated cortisol from training load. Prioritize sleep hygiene tonight: no screens after 21:00, dark room, cool temp (16–18°C), aim for 90-min sleep cycles (7.5–9h). Consider a 15–20 min nap post-run if travel allows. Elevated resting HR + moderate recovery score = mild parasympathetic suppression. One easy week won't fix that, but refusing harder stimulus today will prevent digging the hole deeper."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Week 6, transition into taper - the hard work for Julian Alps is essentially banked. With 17 days out, the discipline now is doing less, not more. Use the easy jog to mentally rehearse the alpine climbs and technical descents you'll hit at ~2,500m vert - trust that the fitness is there and let it show up on race day."
+      "message": "You're 17 days out with a moderately suppressed recovery picture. Resist the urge to 'make sure you're still fit'—that's ego, not strategy. Alpine ultras are won in the descent and on nutrition discipline, not in the final taper days. Visualize the Kranjska Gora course: steep tech downhills, sparse aid, cold. Your job now is sleep, easy running, full glycogen, and mental rehearsal. Trust the 32 weeks of work. The sharpness will come from rest, not one more hard session."
     }
   ]
 }

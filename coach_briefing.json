@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-02",
-  "generated_at": "2026-09-02T14:02:20Z",
+  "generated_at": "2026-09-02T19:34:26.362876Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills: 7mi + 1,600ft (Last Big Vert)",
-      "message": "Your calendar has this as the last substantial climbing session before taper — make it count but don't force it. Zone 2 to low Zone 3 on the climbs, power hike anything steep (short strides, hands on quads, steady breathing), and control the descents rather than pounding them — that's where Julian Alps' technical alpine terrain will actually punish sloppy form. 16 days out, this is your final vert deposit in the bank."
+      "title": "Today's Run",
+      "message": "You're 16 days out and in true taper now—cut today to 6–7 miles of Z2 work, hills optional but not required. Your last three runs average 138/129/94 bpm; that top effort tells me you're still carrying load. Recovery score is solid at 79, but resting HR dropped to 54 (down from your 30-day avg of 65.9), which signals nervous system fatigue despite the number looking good on paper. Skip the vert push; the race course will remind your legs what 2,500m feels like soon enough. Keep this easy, keep it short, build compliance into the taper mindset."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Pre-run: 60-80g easily digestible carbs 60-90 min out. During: 60-80g carbs/hr plus 700-900mg sodium/hr, per your own plan notes — this is a good dress rehearsal for alpine heat/altitude variability. Post-run: 20-30g protein + carbs within 45 min to kickstart quad and calf repair from the descending load."
+      "message": "Sleep efficiency was 66.3% last night—below your 30-day baseline of 8.17h—so prioritize carbohydrate repletion today to support both recovery and glycogen status heading into race week. Aim for 6–8g carbs per kilogram of body weight over the next 48 hours; a 75kg athlete means 450–600g daily. An easy 6-miler burns ~600–700 kcal; front-load breakfast and lunch with pasta, rice, or oats, then a solid dinner. Hydration matters more now than calorie chasing—your resting HR improvement suggests you're well-trained but potentially running lean. Drink to thirst, check urine color (pale yellow target), and don't create a fueling problem in the final 16 days."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Eccentric descending load hits quads hardest — prioritize a short walk or spin to flush legs this evening, then foam roll quads and calves before bed. Protein-forward dinner, hydrate to replace sodium losses, and protect a full night's sleep since the taper starts right after this session."
+      "message": "Sleep hit 7.54h last night at only 66% efficiency—that's a signal you're either not sleeping *deeply* or there's circadian disruption from travel. Julian Alps 50K is Saturday the 18th; your sleep architecture matters more than cumulative hours right now. No screens after 21:00, bedroom at 16–18°C, consider magnesium glycinate 300–400mg 90 minutes before bed if you travel Wednesday–Thursday. Aim for 8–8.5h every night for the next two weeks. Daytime napping (20 min, not more) is acceptable during taper if you're running a sleep debt; use it as a tool, not a crutch."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "This is the last time your legs will feel this kind of climbing before you're standing at the start line in Kranjska Gora. Bank the confidence: you've proven the vert legs work. From here it's about protecting the fitness, not chasing more of it — trust the taper."
+      "message": "Taper doubt is real—you've built 22 weeks of fitness, your recovery score is green, and now the volume drops and your brain whispers *am I ready?* You are. Your resting HR compression and ability to hold Z2 at 94 bpm on an easy day confirms aerobic adaptation. The next 16 days are about arriving fresh and confident, not squeaking out one more hard session. Trust the plan, own the taper, and use the mental space to visualize the climb sections and aid stations on course. Kranjska Gora's weather will be Alpine and variable—check the forecast Friday, but don't let it drive anxiety now."
     }
   ]
 }

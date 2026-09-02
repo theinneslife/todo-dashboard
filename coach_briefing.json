@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-01",
-  "generated_at": "2026-09-01T14:01:51Z",
+  "generated": "2026-09-02",
+  "generated_at": "2026-09-02T14:02:20Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery + Light Strength",
-      "message": "17 days to the Julian Alps. Calendar has today as active recovery after yesterday's 14mi/2,000ft race-sim day two (32mi combined block) - keep it that way. 20-30 min very easy jog or walk, Zone 1, no watch-chasing, then a light Strength Session 1: single-leg work, hips, core. This is the peak of the block settling in, not a day to add load."
+      "title": "Hills: 7mi + 1,600ft (Last Big Vert)",
+      "message": "Your calendar has this as the last substantial climbing session before taper — make it count but don't force it. Zone 2 to low Zone 3 on the climbs, power hike anything steep (short strides, hands on quads, steady breathing), and control the descents rather than pounding them — that's where Julian Alps' technical alpine terrain will actually punish sloppy form. 16 days out, this is your final vert deposit in the bank."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You just banked a 32-mile back-to-back simulation with heavy carb and sodium turnover - today is about replenishing, not restricting. Aim for the ~220g carb rest-day target, push protein toward 1.6-2g/kg for muscle repair, and lean on anti-inflammatory foods (tart cherry, fatty fish, turmeric). Keep electrolytes going since you'll still be net-depleted from the block."
+      "message": "Pre-run: 60-80g easily digestible carbs 60-90 min out. During: 60-80g carbs/hr plus 700-900mg sodium/hr, per your own plan notes — this is a good dress rehearsal for alpine heat/altitude variability. Post-run: 20-30g protein + carbs within 45 min to kickstart quad and calf repair from the descending load."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Post-race-sim protocol: foam roll quads and calves, 15-20 min legs-up-the-wall, compression if you've got it, and protect an 8+ hour sleep window tonight. The light strength work is fine, but nothing beyond that - the adaptation from this week's peak volume happens on days exactly like this."
+      "message": "Eccentric descending load hits quads hardest — prioritize a short walk or spin to flush legs this evening, then foam roll quads and calves before bed. Protein-forward dinner, hydrate to replace sodium losses, and protect a full night's sleep since the taper starts right after this session."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Week 6, transition into taper - the hard work for Julian Alps is essentially banked. With 17 days out, the discipline now is doing less, not more. Use the easy jog to mentally rehearse the alpine climbs and technical descents you'll hit at ~2,500m vert - trust that the fitness is there and let it show up on race day."
+      "message": "This is the last time your legs will feel this kind of climbing before you're standing at the start line in Kranjska Gora. Bank the confidence: you've proven the vert legs work. From here it's about protecting the fitness, not chasing more of it — trust the taper."
     }
   ]
 }

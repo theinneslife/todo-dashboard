@@ -1,32 +1,23 @@
 {
-  "generated": "2026-09-01T10:38:47.664653Z",
-  "ctl": 63.4,
-  "atl": 65.8,
-  "tsb": -11.8,
-  "weekly_tss": 34.8,
-  "rolling_7d_miles": 41.4,
-  "prior_7d_miles": 28.6,
-  "rolling_7d_elevation": 3996,
-  "prior_7d_elevation": 4475,
-  "rolling_7d_sessions": 6,
-  "prior_7d_sessions": 4,
+  "generated": "2026-08-31T07:47:39.106285Z",
+  "ctl": 63.6,
+  "atl": 71.8,
+  "tsb": -18.6,
+  "weekly_tss": 0,
+  "rolling_7d_miles": 48.8,
+  "prior_7d_miles": 18.2,
+  "rolling_7d_elevation": 5079,
+  "prior_7d_elevation": 3084,
+  "rolling_7d_sessions": 7,
+  "prior_7d_sessions": 2,
   "long_run_30d": 19.23,
   "prior_long_run_30d": 21.21,
-  "weekly_miles": 2.9,
-  "total_elevation_feet": 308,
+  "weekly_miles": 0.0,
+  "total_elevation_feet": 0,
   "last_week_miles": 48.8,
   "last_week_elevation_feet": 5079,
   "last_week_sessions": 7,
   "recent_runs": [
-    {
-      "name": "Afternoon Hike",
-      "date": "2026-08-31",
-      "miles": 2.94,
-      "elevation_feet": 308,
-      "duration": 3856,
-      "avg_hr": 94,
-      "max_hr": 105
-    },
     {
       "name": "Morning Run",
       "date": "2026-08-30",
@@ -341,6 +332,15 @@
       "duration": 13808,
       "avg_hr": 136,
       "max_hr": 165
+    },
+    {
+      "name": "Morning Run",
+      "date": "2026-07-02",
+      "miles": 12.05,
+      "elevation_feet": 1512,
+      "duration": 8284,
+      "avg_hr": 139,
+      "max_hr": 177
     }
   ]
 }

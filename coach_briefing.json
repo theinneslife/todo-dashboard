@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-02",
-  "generated_at": "2026-09-02T14:02:20Z",
+  "generated": "2026-09-03",
+  "generated_at": "2026-09-03T12:30:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Hills: 7mi + 1,600ft (Last Big Vert)",
-      "message": "Your calendar has this as the last substantial climbing session before taper — make it count but don't force it. Zone 2 to low Zone 3 on the climbs, power hike anything steep (short strides, hands on quads, steady breathing), and control the descents rather than pounding them — that's where Julian Alps' technical alpine terrain will actually punish sloppy form. 16 days out, this is your final vert deposit in the bank."
+      "title": "Easy 6mi Z2 + Strength",
+      "message": "Calendar has an easy 6-mile Zone 2 run today, HR 138-150 bpm, conversational effort only — yesterday's big vert session (7mi/1,600ft) was your last major climbing load before Julian Alps, so today is about circulation, not adaptation. Pair it with your final full strength session of the build: eccentric and plyometric durability plus core. After this, loading tapers off — 15 days out, protect this easy day."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Pre-run: 60-80g easily digestible carbs 60-90 min out. During: 60-80g carbs/hr plus 700-900mg sodium/hr, per your own plan notes — this is a good dress rehearsal for alpine heat/altitude variability. Post-run: 20-30g protein + carbs within 45 min to kickstart quad and calf repair from the descending load."
+      "message": "No fueling needed mid-run at this distance/effort — hydrate normally. Bigger priority is the post-strength window: 30-40g protein plus carbs within 60 minutes to support the eccentric/plyometric work. Hit your ~220g carb target today; this is a rest-adjacent day, so keep quality high (whole foods, less processed) rather than maxing intake."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Eccentric descending load hits quads hardest — prioritize a short walk or spin to flush legs this evening, then foam roll quads and calves before bed. Protein-forward dinner, hydrate to replace sodium losses, and protect a full night's sleep since the taper starts right after this session."
+      "message": "Eccentric and plyometric strength work leaves delayed soreness — foam roll quads/calves tonight and tomorrow morning, 10 minutes of hip and ankle mobility before bed. Aim for 8+ hours of sleep; this is the last day of real strength loading before Julian Alps, so let the taper start doing its job."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "This is the last time your legs will feel this kind of climbing before you're standing at the start line in Kranjska Gora. Bank the confidence: you've proven the vert legs work. From here it's about protecting the fitness, not chasing more of it — trust the taper."
+      "message": "15 days to Kranjska Gora. You banked the vert yesterday — today isn't about proving fitness, it's about protecting it. Trust that dialing back now is what lets you show up sharp on alpine terrain. The work is done; the discipline now is restraint."
     }
   ]
 }

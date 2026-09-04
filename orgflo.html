@@ -401,6 +401,7 @@
       line-height: 1.35;
     }
     .obox-person.vacant { color: var(--text-muted); font-weight: 500; font-style: italic; }
+    .obox-person.filled { color: var(--accent-green); font-weight: 700; }
     .obox-meta {
       font-size: 0.6rem;
       color: var(--text-muted);
@@ -719,6 +720,12 @@
     td.c-phase { width: 6rem; }
     td.c-qty   { width: 4.2rem; }
     .qty-input { text-align: center; font-weight: 700; }
+    .complete-banner {
+      margin: 0 0 0.8rem;
+      border-color: rgba(96,165,250,0.35);
+      background: rgba(96,165,250,0.07);
+      color: var(--text-secondary);
+    }
     .phase-total {
       margin-left: auto;
       font-size: 0.66rem;
@@ -1004,6 +1011,7 @@
     }
     .node-person { color: var(--accent-blue); font-weight: 600; }
     .node-person.vacant { color: var(--text-muted); font-weight: 500; font-style: italic; }
+    .node-person.filled { color: var(--accent-green); font-weight: 700; }
     .node-notes {
       font-size: 0.7rem;
       color: var(--text-muted);
@@ -1206,7 +1214,7 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v1.9</span>
+      <span class="version-badge">v2.0</span>
     </div>
 
 
@@ -1285,6 +1293,11 @@
       <div class="card">
         <div class="tree-toolbar">
           <div class="view-switch">
+            <button class="switch-btn" id="viewPhase1" onclick="OrgFlo.setChartPhase('p1')" title="Today's team plus the 40 Phase 1 hires">Phase 1</button>
+            <button class="switch-btn" id="viewComplete" onclick="OrgFlo.setChartPhase('complete')" title="The full end state once everyone is hired and the outsourced team is replaced">Completed</button>
+          </div>
+          <span class="toolbar-sep"></span>
+          <div class="view-switch">
             <button class="switch-btn" id="viewChart" onclick="OrgFlo.setView('chart')">Org chart</button>
             <button class="switch-btn" id="viewList" onclick="OrgFlo.setView('list')">Indented list</button>
           </div>
@@ -1302,6 +1315,12 @@
           </span>
           <button class="btn" onclick="OrgFlo.resetChart()">Reset to seeded chart</button>
           <span class="save-status" style="border:none;padding:0.35rem 0"><span id="chartSummary"></span></span>
+        </div>
+
+        <div class="banner complete-banner" id="completeBanner" style="display:none">
+          <b>Completed view.</b> The Phase 3 end state, derived from the goal rather than stored, so it always
+          matches the numbers. Green seats are people already on staff today. Everything else is still to hire.
+          Switch back to Phase 1 to edit the plan.
         </div>
 
         <!-- Traditional top down org chart -->
@@ -1411,6 +1430,14 @@
     </div>
 
     <div class="field">
+      <div class="check-row">
+        <input type="checkbox" id="mFilled">
+        <label for="mFilled">This seat is filled by current staff</label>
+      </div>
+      <div class="sub">Filled seats show as on staff. Everything else shows as an open seat to hire.</div>
+    </div>
+
+    <div class="field">
       <label for="mPhase">Phase tag</label>
       <select id="mPhase">
         <option value="">Inherit from the role above</option>
@@ -1446,7 +1473,7 @@
 <script>
 /* ============================================================
    OrgFlo — MDR organization designer
-   v1.9
+   v2.0
 
    Persistence pattern:
    the plan lives in orgflo_data.json in the repo, and edits are
@@ -1584,9 +1611,45 @@ var OrgFlo = (function () {
       phaseOf[node.id] = mine || '';
       (node.children || []).forEach(function (c) { rec(c, mine); });
     })(data.orgChart, '');
+    if (completeTree) {
+      (function rec(node, p) {
+        var mine = node.kind === 'shared' ? ''
+                 : PHASES.indexOf(node.phase) >= 0 ? node.phase : p;
+        phaseOf[node.id] = mine || '';
+        (node.children || []).forEach(function (c) { rec(c, mine); });
+      })(completeTree, '');
+    }
   }
 
   function phaseFor(node) { return phaseOf[node.id] || ''; }
+
+  // ─── Filled seats versus open seats ───────────────────────
+  // A seat is filled when someone already works here. Only genuinely to be
+  // hired roles render as open. Grouping nodes such as the shared functions
+  // header or the vendor wrapper hold no seat of their own, so they show
+  // nothing rather than claiming to be open.
+  function isFilled(node) { return !!node.person || node.filled === true; }
+
+  function isContainer(node) {
+    return (node.children || []).length > 0 &&
+           (node.kind === 'support' || node.kind === 'shared') &&
+           ownSeats(node) === 0;
+  }
+
+  function seatStatus(node) {
+    if (isContainer(node)) return null;
+    if (node.person) return { text: node.person, cls: '' };
+
+    var n = (node.kind === 'team' && !(node.children || []).length)
+      ? num(node.headcount, 0) : 0;
+
+    if (isFilled(node)) {
+      var word = phaseFor(node) === 'outsourced' ? 'working today' : 'on staff';
+      return { text: n ? fmt(n) + ' ' + word : (word === 'on staff' ? 'On staff' : 'Working today'),
+               cls: ' filled' };
+    }
+    return { text: n ? fmt(n) + ' open seats' : 'Open seat', cls: ' vacant' };
+  }
 
   // What a single node contributes on its own, so summing across the tree
   // never double counts a team against the slots it was expanded into.
@@ -2065,11 +2128,130 @@ var OrgFlo = (function () {
     changed({ skipHiring: true, skipNotes: true });
   }
 
+  // ─── The completed org chart ──────────────────────────────
+  // Phase 3 end state, built from the end state targets rather than stored, so
+  // it always reconciles with the goal. The current internal branch carries
+  // over as filled seats and everything still to hire renders as open.
+  var chartPhase = 'p1';          // 'p1' = today plus the Phase 1 hires
+  var completeTree = null;
+
+  // Re-key a cloned subtree so the derived view shares no ids with the plan.
+  function reid(node) {
+    walk(node, function (n) { n.id = 'c-' + n.id; });
+    return node;
+  }
+
+  function cnode(id, role, notes, kind, extra) {
+    var n = { id: id, role: role, person: '', notes: notes, kind: kind, children: [] };
+    for (var k in extra) if (extra.hasOwnProperty(k)) n[k] = extra[k];
+    return n;
+  }
+
+  // Split total across count teams, filling to cap and letting the remainder
+  // sit one under, so no team ever runs over the span of control.
+  function splitTeams(total, count, cap) {
+    var out = [], base = Math.floor(total / count), extra = total - base * count;
+    for (var i = 0; i < count; i++) out.push(Math.min(cap, base + (i < extra ? 1 : 0)));
+    return out;
+  }
+
+  function buildCompleteTree() {
+    var e = endState();
+    var h = headcount();
+    var src = data.orgChart;
+
+    var root = cnode('c-root', src.role, 'End state. Every seat internal, the vendor team gone, and the org at ' +
+                     fmt(e.mdrs) + ' MDRs to support ' + fmt(h.target) + ' meetings a quarter.',
+                     src.kind || 'exec', { filled: true });
+    root.person = src.person || '';
+
+    // Shared functions carry over untouched.
+    (src.children || []).forEach(function (c) {
+      if (c.kind === 'shared') root.children.push(reid(clone(c)));
+    });
+
+    root.children.push(cnode('c-trainer', 'MDR New Hire Trainer',
+      'Owns onboarding and the 1 month ramp. Hired in Phase 1.', 'support'));
+
+    // The internal branch that exists today keeps its people and its shape.
+    var todayDir = null;
+    walk(src, function (n) { if (n.id === 't1') todayDir = n; });
+
+    var mgrLeft = e.managers, dirLeft = e.directors, mdrLeft = e.mdrs;
+    var dirs = [];
+
+    if (todayDir) {
+      var carried = reid(clone(todayDir));
+      carried.role = 'Director of MDR, internal today';
+      carried.notes = 'Carries over from today. ' + fmt(sdrSeats(todayDir)) + ' MDRs across ' +
+                      (todayDir.children || []).length + ' managers already on staff.';
+      dirs.push(carried);
+      mgrLeft -= (todayDir.children || []).length;
+      dirLeft -= 1;
+      mdrLeft -= sdrSeats(todayDir);
+    }
+
+    // Fill the carried director up to span before opening new ones.
+    if (todayDir) {
+      var room = Math.max(0, e.dirSpan - (todayDir.children || []).length);
+      var addHere = Math.min(room, mgrLeft);
+      for (var a = 0; a < addHere; a++) dirs[0].children.push(null);   // placeholder, sized below
+      dirs[0].__newMgrs = addHere;
+      mgrLeft -= addHere;
+    }
+
+    // Open as many new directors as the remaining managers need.
+    var newDirs = Math.max(0, Math.min(dirLeft, Math.ceil(mgrLeft / e.dirSpan)));
+    var perDir = splitTeams(mgrLeft, newDirs || 1, e.dirSpan);
+    for (var i = 0; i < newDirs; i++) {
+      var dn = cnode('c-d' + (i + 1), 'Director of MDR #' + (i + 1), 'To hire. Owns ' + perDir[i] +
+                     ' managers.', 'director');
+      dn.__newMgrs = perDir[i];
+      dirs.push(dn);
+    }
+
+    // Every manager still to hire, sized so no team runs over the cap.
+    var newMgrTotal = dirs.reduce(function (t, d) { return t + (d.__newMgrs || 0); }, 0);
+    var sizes = newMgrTotal > 0 ? splitTeams(mdrLeft, newMgrTotal, e.mgrSpan) : [];
+    var si = 0, mi = 0;
+
+    dirs.forEach(function (dn) {
+      var n = dn.__newMgrs || 0;
+      delete dn.__newMgrs;
+      dn.children = (dn.children || []).filter(function (c) { return c; });
+      for (var k = 0; k < n; k++) {
+        mi += 1;
+        var hc = sizes[si++] || 0;
+        var m = cnode('c-m' + mi, 'MDR Manager ' + mi, 'To hire. Manages ' + hc + ' MDRs.', 'manager');
+        m.children.push(cnode('c-t' + mi, 'MDR Team ' + mi, 'To hire. Represents ' + hc + ' MDRs.',
+                              'team', { headcount: hc }));
+        dn.children.push(m);
+      }
+      root.children.push(dn);
+    });
+
+    // Phase tags describe the build sequence, which only means something in the
+    // Phase 1 view. The end state reads purely as filled versus still to hire.
+    walk(root, function (n) { delete n.phase; });
+    return root;
+  }
+
+  function activeChart() {
+    return chartPhase === 'complete' ? completeTree : data.orgChart;
+  }
+
+  function setChartPhase(p) {
+    chartPhase = (p === 'complete') ? 'complete' : 'p1';
+    collapsed = {};
+    renderTree();
+    centerChart();
+  }
+
   // ─── Traditional top down org chart ───────────────────────
   // Same data and same collapse state as the indented list, drawn as a
   // classic corporate chart: boxes on levels joined by connector lines.
   function renderClassic() {
-    $('orgTreeClassic').innerHTML = '<ul>' + renderOBox(data.orgChart) + '</ul>';
+    $('orgTreeClassic').innerHTML = '<ul>' + renderOBox(activeChart()) + '</ul>';
   }
 
   function renderOBox(node) {
@@ -2093,11 +2275,12 @@ var OrgFlo = (function () {
     h += '<div class="obox-wrap">';
     var ph = phaseFor(node);
     h += '<div class="obox k-' + esc(kind) + (ph ? ' ph-' + ph : '') + (node.existing ? ' existing' : '') +
-         '" onclick="OrgFlo.openNodeModal(\'' + id + '\')" title="Click to edit this role">';
+         (chartPhase === 'complete'
+           ? '">'
+           : '" onclick="OrgFlo.openNodeModal(\'' + id + '\')" title="Click to edit this role">');
     h += '<div class="obox-role">' + esc(node.role || 'Untitled role') + '</div>';
-    h += node.person
-      ? '<div class="obox-person">' + esc(node.person) + '</div>'
-      : '<div class="obox-person vacant">Open seat</div>';
+    var st = seatStatus(node);
+    if (st) h += '<div class="obox-person' + st.cls + '">' + esc(st.text) + '</div>';
     if (meta) h += '<div class="obox-meta">' + meta + '</div>';
     if (ph) h += '<div class="obox-phase">' + esc(PHASE_SHORT[ph]) + '</div>';
     if (isClosed && kids.length) {
@@ -2178,22 +2361,42 @@ var OrgFlo = (function () {
       if (!kids.length) return;
       if (d >= depth) collapsed[node.id] = true;
       kids.forEach(function (c) { mark(c, d + 1); });
-    })(data.orgChart, 0);
+    })(activeChart(), 0);
     renderTree();
     centerChart();
   }
 
   function renderTree() {
     computePhases();
+    // Built after the first phase pass so it can read the real plan, then the
+    // phases are recomputed so the generated nodes carry their tags too.
+    completeTree = buildCompleteTree();
+    computePhases();
+
+    $('viewPhase1').className  = 'switch-btn' + (chartPhase === 'p1' ? ' active' : '');
+    $('viewComplete').className = 'switch-btn' + (chartPhase === 'complete' ? ' active' : '');
+    $('completeBanner').style.display = chartPhase === 'complete' ? '' : 'none';
+
     var root = $('orgTree');
-    root.innerHTML = renderNode(data.orgChart);
+    root.innerHTML = renderNode(activeChart());
     renderClassic();
 
     var h = headcount();
-    $('chartSummary').textContent =
-      fmt(h.capacityP1) + ' MDR capacity: ' + fmt(h.exMdr) + ' internal today, ' +
-      fmt(h.outMdr) + ' outsourced, ' + fmt(h.p1Mdr) + ' Phase 1 hires. ' +
-      fmt(countKind('manager')) + ' managers, ' + fmt(countKind('director')) + ' directors';
+    var ac = activeChart();
+    var mgrs = 0, dirs = 0, filledSeats = 0, openSeats = 0;
+    walk(ac, function (n) {
+      if (n.kind === 'manager') mgrs += 1;
+      if (n.kind === 'director') dirs += 1;
+      var own = ownSeats(n);
+      if (own) { if (isFilled(n)) filledSeats += own; else openSeats += own; }
+    });
+
+    $('chartSummary').textContent = chartPhase === 'complete'
+      ? fmt(sdrSeats(ac)) + ' MDRs at full capacity: ' + fmt(filledSeats) + ' on staff today, ' +
+        fmt(openSeats) + ' still to hire. ' + fmt(mgrs) + ' managers, ' + fmt(dirs) + ' directors'
+      : fmt(h.capacityP1) + ' MDR capacity: ' + fmt(h.exMdr) + ' internal today, ' +
+        fmt(h.outMdr) + ' outsourced, ' + fmt(h.p1Mdr) + ' Phase 1 hires. ' +
+        fmt(mgrs) + ' managers, ' + fmt(dirs) + ' directors';
     renderSummary();
   }
 
@@ -2219,9 +2422,8 @@ var OrgFlo = (function () {
       pills += '<span class="pill">' + kids.length + ' direct</span>';
     }
 
-    var personHtml = node.person
-      ? '<span class="node-person">' + esc(node.person) + '</span>'
-      : '<span class="node-person vacant">Open seat</span>';
+    var st = seatStatus(node);
+    var personHtml = st ? '<span class="node-person' + st.cls + '">' + esc(st.text) + '</span>' : '';
 
     var html = '';
     html += '<li class="tnode' + (node.existing ? ' existing-branch' : '') + '" data-id="' + esc(node.id) + '">';
@@ -2237,12 +2439,17 @@ var OrgFlo = (function () {
     html += '</div>';
 
     html += '<div class="node-actions">';
+    if (chartPhase === 'complete') {
+      html += '</div></div>';
+      if (hasKids && !isClosed) html += '<ul>' + kids.map(renderNode).join('') + '</ul>';
+      return html + '</li>';
+    }
     html += '<button class="btn tiny" onclick="OrgFlo.openNodeModal(\'' + esc(node.id) + '\')" title="Edit this role">Edit</button>';
     html += '<button class="btn tiny" onclick="OrgFlo.addChild(\'' + esc(node.id) + '\')" title="Add a role reporting to this one">Add</button>';
     if (kind === 'team' && !kids.length && num(node.headcount, 0) > 0) {
       html += '<button class="btn tiny" onclick="OrgFlo.expandTeam(\'' + esc(node.id) + '\')" title="Break this team into individual MDR slots">Expand</button>';
     }
-    if (node.id !== data.orgChart.id) {
+    if (node.id !== activeChart().id) {
       html += '<button class="btn tiny" onclick="OrgFlo.moveNode(\'' + esc(node.id) + '\',-1)" title="Move up">↑</button>';
       html += '<button class="btn tiny" onclick="OrgFlo.moveNode(\'' + esc(node.id) + '\',1)" title="Move down">↓</button>';
       html += '<button class="btn tiny danger" onclick="OrgFlo.removeNode(\'' + esc(node.id) + '\')" title="Remove this role and everything under it">Remove</button>';
@@ -2269,8 +2476,9 @@ var OrgFlo = (function () {
     collapsed = {};
     if (!open) {
       // Fold everything except the very top so the shape stays readable.
-      walk(data.orgChart, function (node) {
-        if (node.id !== data.orgChart.id && (node.children || []).length) collapsed[node.id] = true;
+      var ac = activeChart();
+      walk(ac, function (node) {
+        if (node.id !== ac.id && (node.children || []).length) collapsed[node.id] = true;
       });
     }
     renderTree();
@@ -2345,6 +2553,8 @@ var OrgFlo = (function () {
         person: '',
         notes: '',
         kind: 'sdr',
+        // Slots split out of a team that is already staffed are staffed too.
+        filled: isFilled(hit.node) ? true : undefined,
         children: []
       });
     }
@@ -2376,6 +2586,7 @@ var OrgFlo = (function () {
     $('mKind').value      = n.kind || 'support';
     $('mPhase').value     = PHASES.indexOf(n.phase) >= 0 ? n.phase : '';
     $('mExisting').checked = !!n.existing;
+    $('mFilled').checked   = !!n.filled;
     $('mHeadcount').value = n.headcount === undefined ? '' : n.headcount;
     syncHeadcountField();
 
@@ -2408,6 +2619,9 @@ var OrgFlo = (function () {
 
     if ($('mExisting').checked) n.existing = true;
     else delete n.existing;
+
+    if ($('mFilled').checked) n.filled = true;
+    else delete n.filled;
 
     if (n.kind === 'team') {
       n.headcount = Math.max(0, Math.round(num($('mHeadcount').value, 0)));
@@ -2606,6 +2820,7 @@ var OrgFlo = (function () {
       if (n.existing !== true) delete n.existing;
       if (PHASES.indexOf(n.phase) < 0) delete n.phase;
       if (n.ramp !== true) delete n.ramp;
+      if (n.filled !== true) delete n.filled;
     });
 
     d.goal = d.goal || {};
@@ -2733,7 +2948,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v1.9';
+      data.appVersion = 'v2.0';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.
@@ -2830,6 +3045,7 @@ var OrgFlo = (function () {
   return {
     toggle: toggle,
     setView: setView,
+    setChartPhase: setChartPhase,
     zoom: zoom,
     expandToDepth: expandToDepth,
     expandAll: expandAll,

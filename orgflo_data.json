@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 8,
-  "appVersion": "v1.9",
+  "schemaVersion": 9,
+  "appVersion": "v2.0",
   "updatedAt": "2026-09-04T00:00:00Z",
   "calculator": {
     "scheduledPerSDR": 13,
@@ -165,7 +165,8 @@
             "notes": "Already exists. Reporting, tooling, dialer and CRM backbone. Supports this org on a dotted line.",
             "kind": "shared",
             "existing": true,
-            "children": []
+            "children": [],
+            "filled": true
           },
           {
             "id": "n3",
@@ -174,9 +175,11 @@
             "notes": "Already exists. PMM owns messaging and content. This org does not build a content or messaging function.",
             "kind": "shared",
             "existing": true,
-            "children": []
+            "children": [],
+            "filled": true
           }
-        ]
+        ],
+        "filled": true
       },
       {
         "id": "t0",
@@ -185,7 +188,8 @@
         "notes": "On the team today and moving to another role. The seat is not being backfilled. When the VP moves, the internal team rolls up to the Head of SMB Sales through the existing director.",
         "kind": "exec",
         "phase": "existing",
-        "children": []
+        "children": [],
+        "filled": true
       },
       {
         "id": "t1",
@@ -208,9 +212,11 @@
                 "notes": "Exists today. Represents 10 internal MDRs.",
                 "kind": "team",
                 "headcount": 10,
-                "children": []
+                "children": [],
+                "filled": true
               }
-            ]
+            ],
+            "filled": true
           },
           {
             "id": "t1m2",
@@ -226,9 +232,11 @@
                 "notes": "Exists today. Represents 9 internal MDRs.",
                 "kind": "team",
                 "headcount": 9,
-                "children": []
+                "children": [],
+                "filled": true
               }
-            ]
+            ],
+            "filled": true
           },
           {
             "id": "t1m3",
@@ -244,9 +252,11 @@
                 "notes": "Exists today. Represents 9 internal MDRs.",
                 "kind": "team",
                 "headcount": 9,
-                "children": []
+                "children": [],
+                "filled": true
               }
-            ]
+            ],
+            "filled": true
           },
           {
             "id": "t1m4",
@@ -262,12 +272,15 @@
                 "notes": "Exists today. Represents 9 internal MDRs.",
                 "kind": "team",
                 "headcount": 9,
-                "children": []
+                "children": [],
+                "filled": true
               }
-            ]
+            ],
+            "filled": true
           }
         ],
-        "phase": "existing"
+        "phase": "existing",
+        "filled": true
       },
       {
         "id": "v0",
@@ -284,7 +297,8 @@
             "notes": "Represents the 70 outsourced MDRs working today.",
             "kind": "team",
             "headcount": 70,
-            "children": []
+            "children": [],
+            "filled": true
           },
           {
             "id": "v0b",
@@ -407,7 +421,8 @@
           }
         ]
       }
-    ]
+    ],
+    "filled": true
   },
   "hiringList": [
     {

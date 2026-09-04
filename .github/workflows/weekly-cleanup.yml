@@ -5,6 +5,15 @@ on:
     - cron: '0 13 * * 1'   # every Monday 13:00 UTC (~6am PT)
   workflow_dispatch:         # allow manual trigger
 
+
+# All four workflows commit and push to main. Without this they can run at the
+# same time and race between their pull and their push, which is how main ends
+# up with clobbered data files. Shared group so they serialise against each
+# other, never cancelled so a sync in flight is not dropped mid write.
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
 jobs:
   cleanup:
     runs-on: ubuntu-latest

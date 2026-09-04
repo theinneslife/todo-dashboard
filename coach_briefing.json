@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-04",
-  "generated_at": "2026-09-04T14:01:48Z",
+  "generated_at": "2026-09-04T19:14:23.627557Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Easy 5mi Z2 Rolling",
-      "message": "Calendar has 5 miles easy, ~700ft of rolling vert, HR 138-150 (Zone 2, well under your 165 LTHR). Two weeks from Julian Alps, this is a taper session, not a fitness-building one -- keep it comfortable and conversational. Use the rolling terrain as a dress rehearsal for the alpine climbs: practice a steady power-hike cadence on the ups, quick relaxed turnover on the downs. If you're at altitude or heat in Lima today, let effort (not pace) set the intensity."
+      "title": "Today's Run",
+      "message": "Easy 45–50 min Z2 shakeout, 4–6 miles, sub-140 avg HR. You're 14 days out and your resting HR dropped to 53—you're primed. This is a pre-long-run primer: activate the aerobic system, clear metabolic junk, stay loose. Friday in taper means no intensity. Keep it conversational. Hills optional but not necessary; flat or rolling is fine. This run should feel like you're not even training."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Short easy run means no in-run fueling needed -- water or light electrolytes is enough. Hold total carbs near your 220g/day baseline even as mileage drops this taper block; your legs still need glycogen to absorb the work you've already banked. Post-run, get 20-30g protein plus some carbs within the hour, especially useful today with a travel day (Lima departure) stacked on top of the run."
+      "message": "Eat normal breakfast (carbs + protein) pre-run; you don't need a gel for 50 min easy. Post-run: 30–40g carbs + 15–20g protein within 30 min—chocolate milk, toast + egg, yogurt with granola. Your 10-hour sleep night shows you're recovering well; don't under-fuel in taper or you'll blunt adaptation. Hydrate consistently today; Alpine temps in September run cool, but you'll still lose 400–600ml per hour on Saturday's long run, so prepare your gut now."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Load is low today, so recovery is mostly about protecting sleep around travel logistics (pack, leave for Lima this afternoon). Hydrate well before the flight/drive, do 5-10 min of mobility for hips and calves tonight, and prioritize 7-8 hours of sleep despite the schedule shuffle -- taper weeks are won in bed, not on the trail."
+      "message": "Your recovery score is 99 and resting HR is excellent—you've earned this. Sleep remains your main lever: tonight target 8–9 hours again. No foam rolling or aggressive mobility needed; gentle 10-min yoga or walk if restless. Hydrate 16–20oz fluid this evening. Tomorrow's long run is the main event; treat today as active prep, not as a day to squeeze out more fitness. Your nervous system is primed; don't waste it on junk miles."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Two weeks out, the hardest discipline is doing less. Trust that the base and build work is already in your legs -- today's job is just to move well and stay sharp, not to chase extra fitness. Each rolling mile is a small rehearsal for the Julian Alps switchbacks: run it with the calm, patient mindset you'll need on race day."
+      "message": "14 days to race. You're in the zone: fitness is locked in, taper restlessness is normal. Today's easy run and tomorrow's long run are your last two chances to dial in race fueling, pacing feel, and mental anchors for the alpine terrain. Use these runs to rehearse: start conservative, settle into Z2–Z3 on climb, practice your aid-station rhythm. The Julian Alps will demand patience and presence—these final two runs are your dress rehearsal, not your last chance to get fit."
     }
   ]
 }

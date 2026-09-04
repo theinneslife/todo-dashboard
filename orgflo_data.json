@@ -1,14 +1,14 @@
 {
   "schemaVersion": 9,
-  "appVersion": "v2.1",
-  "updatedAt": "2026-09-04T00:00:00Z",
+  "appVersion": "v2.3",
+  "updatedAt": "2026-09-04T01:57:56.839Z",
   "calculator": {
     "scheduledPerSDR": 13,
     "completedPerSDR": 10,
     "meetingsPerMDR": 11,
     "showRate": 0.77,
     "quarterlyTarget": 9000,
-    "basis": "booked"
+    "basis": "completed"
   },
   "notes": [
     {
@@ -19,32 +19,27 @@
     {
       "id": "note2",
       "title": "Span of control",
-      "body": "One manager per 8 MDRs to leave real room for coaching. One director per roughly 6 managers, which is about 48 MDRs. Both ratios are the working model and both are open questions for Lynn. At 9,000 meetings a quarter and 11 booked per MDR per month, full capacity is 273 MDRs, which at 8 to 1 is 35 managers and 6 directors."
-    },
-    {
-      "id": "note3",
-      "title": "Messaging is owned by Product Marketing",
-      "body": "Product Marketing already provides messaging and content, so messaging and sequences is owned by PMM"
+      "body": "One manager per 8 MDRs to leave real room for coaching. One director per roughly 6 managers, which is about 48 MDRs. Both ratios are the working model. At 9,000 meetings a quarter and 11 booked per MDR per month, full capacity is 273 MDRs, which at 8 to 1 is 35 managers and 6 directors."
     },
     {
       "id": "note4",
       "title": "The New Hire Trainer stays lean",
-      "body": "We are not calling this Enablement. It is a New Hire Trainer, deliberately a single role, set up to onboard a new hire through their first month and then hand them to their manager. Ramp is 1 month, not 90 days. If tools and platform training is needed, existing enablement can help."
+      "body": "Deliberately a single role, set up to onboard a new hire through their first month and then hand them to their manager. Ramp is 1 month, not 90 days. If tools and platform training is needed, existing enablement can help."
     },
     {
       "id": "note5",
       "title": "Existing shared functions",
-      "body": "Operations (rev ops within Richards org) and Content / Messaging already exist on the current team. The Sales Recruiter is not on the team today, so it sits in the hiring list rather than here."
+      "body": "Operations (rev ops within Richards org) and Content / Messaging (Product Marketing) already exist on the current team. "
     },
     {
       "id": "note6",
       "title": "Phase 1, 40 hires in Q4",
-      "body": "Phase 1 is 40 hires in Q4 and it breaks down cleanly: 33 MDRs, 5 managers at one per 8, 1 director, and 1 New Hire Trainer. Teams are seeded at 7 and 6 so each can grow to 8 without adding a manager. The Sales Recruiter is a Phase 1 hire too but sits outside the forty because it is not an MDR org seat."
+      "body": "Phase 1 is 40 hires in Q4 and it breaks down cleanly: 32 MDRs, 5 managers at one per 8, 1 director, 1 New Hire Trainer and one Sales Recruiter. All five are counted inside the forty."
     },
     {
       "id": "note7",
       "title": "Where capacity lands",
-      "body": "Today capacity is 107 MDRs, which is 37 internal plus the 70 outsourced live as of 9/8. Once the vendor ramp completes in the middle of October that is 187. The 33 Phase 1 MDRs take it to 220 against a full capacity target of 273."
+      "body": "Today capacity is 107 MDRs (with 30 ramping reps), which is 37 internal plus the 70 outsourced live as of 9/8. Once the vendor ramp completes in the middle of October that is 187. The 32 Phase 1 MDRs take it to 219 against a full capacity target of 273."
     },
     {
       "id": "note8",
@@ -60,6 +55,16 @@
       "id": "note10",
       "title": "AEs are not decided",
       "body": "When the AEs move over is not decided. No AE org is modelled here. The 4 leads per day per sales rep implies roughly 36 receiving reps at 9,000 a quarter, but that is a sizing note, not a plan."
+    },
+    {
+      "id": "note11",
+      "title": "What a manager owns",
+      "body": "• A team of 8 MDRs and their meeting number, which is 11 booked per MDR per month.\n• Coaching cadence: a weekly team meeting, a weekly 1:1 with every rep, call and email reviews every week, and real time feedback on the floor.\n• Ramp: takes the rep from the New Hire Trainer at the end of month 1 and owns their performance from there. The rep is expected to carry the full 11 from month 2.\n• Reporting: weekly team number, meetings booked, and rep level performance up to their director.\n• Hiring: interviews and selects for their own team, and owns the bar on their own team."
+    },
+    {
+      "id": "note12",
+      "title": "What a director owns",
+      "body": "• Roughly 6 managers, which is about 48 MDRs, and their share of the meeting number.\n• Coaching the coaches: a weekly 1:1 with every manager, sitting in on team meetings and call reviews, and holding the coaching standard.\n• Ramp: accountable for time to productivity across the segment and for manager readiness ahead of each hiring wave.\n• Reporting: segment meetings booked, ramp, attrition and forecast up to the Head of SMB Sales.\n• Performance: manages out and backfills, and owns the bar across the segment."
     }
   ],
   "roleDefinitions": [
@@ -68,7 +73,7 @@
       "title": "Head of SMB Sales",
       "context": false,
       "responsibilities": [
-        "Owns the entire MDR org, its number of 9,000 meetings per quarter, and the operating model.",
+        "Owns the entire MDR org, and sales reps. its number of 9,000 meetings per quarter, and the operating model.",
         "Builds and leads the leadership layer, sets the coaching culture, and hires and develops the directors.",
         "Owns the three phase build: Phase 1 hires 50 in Q4, Phase 2 replaces the outsourced team with internal, Phase 3 goes to full capacity.",
         "Owns capacity planning, headcount ramp, targets and comp.",
@@ -325,7 +330,7 @@
         "id": "q1",
         "role": "Director of MDR #1 (Phase 1)",
         "person": "",
-        "notes": "Phase 1 hire. Owns the 33 net new internal MDRs across 5 managers. Coaching first: manager 1:1s, team meetings, call and email reviews.",
+        "notes": "Phase 1 hire. Owns the 32 net new internal MDRs across 5 managers. Coaching first: manager 1:1s, team meetings, call and email reviews.",
         "kind": "director",
         "phase": "p1",
         "children": [
@@ -369,16 +374,16 @@
             "id": "q1m3",
             "role": "MDR Manager 1.3",
             "person": "",
-            "notes": "Phase 1 hire. Manages a team of 7 MDRs, seeded under the 8 to 1 cap so the team can grow to 8 without adding a manager.",
+            "notes": "Phase 1 hire. Manages a team of 6 MDRs, seeded under the 8 to 1 cap so the team can grow to 8 without adding a manager.",
             "kind": "manager",
             "children": [
               {
                 "id": "q1t3",
                 "role": "MDR Team 1.3",
                 "person": "",
-                "notes": "Phase 1 hire. Represents 7 net new internal MDRs.",
+                "notes": "Phase 1 hire. Represents 6 net new internal MDRs.",
                 "kind": "team",
-                "headcount": 7,
+                "headcount": 6,
                 "children": []
               }
             ]
@@ -441,8 +446,8 @@
       "phase": "p1",
       "qty": 1,
       "role": "Sales Recruiter",
-      "reportsTo": "Head of SMB Sales",
-      "trigger": "First, alongside the trainer. Not on the team today. Sits outside the Phase 1 forty because it is not an MDR org seat",
+      "reportsTo": "People Team",
+      "trigger": "First, alongside the trainer. Not on the team today. Counted inside the Phase 1 forty",
       "status": "Open"
     },
     {
@@ -452,7 +457,7 @@
       "qty": 1,
       "role": "Director of MDR #1",
       "reportsTo": "Head of SMB Sales",
-      "trigger": "With wave one. Owns the 33 Phase 1 MDRs",
+      "trigger": "With wave one. Owns the 32 Phase 1 MDRs",
       "status": "Open"
     },
     {
@@ -479,10 +484,10 @@
       "id": "p1f",
       "priority": 6,
       "phase": "p1",
-      "qty": 20,
+      "qty": 19,
       "role": "MDR Waves 2 and 3",
       "reportsTo": "MDR Managers",
-      "trigger": "Weekly through Q4 until all 33 Phase 1 MDRs are in",
+      "trigger": "Weekly through Q4 until all 32 Phase 1 MDRs are in",
       "status": "Open"
     },
     {
@@ -519,10 +524,10 @@
       "id": "p3a",
       "priority": 10,
       "phase": "p3",
-      "qty": 53,
+      "qty": 54,
       "role": "Remaining MDRs to reach full capacity",
       "reportsTo": "MDR Managers",
-      "trigger": "No date. Takes the org from 220 to 273 MDRs to support 9,000 meetings a quarter",
+      "trigger": "No date. Takes the org from 219 to 273 MDRs to support 9,000 meetings a quarter",
       "status": "Open"
     },
     {
@@ -556,7 +561,7 @@
       "status": "Open"
     }
   ],
-  "hiringNote": "Operations (sales ops) and Content / Messaging already exist on the current team and are not new hires here. The Sales Recruiter is not on the team today, so it is in the list. Product Marketing owns messaging and content, so this org does not hire for it. Phase 1 is 40 net new MDR org hires in Q4 plus the recruiter. Phase 2 replaces outsourced headcount with internal and adds no capacity. Phase 3 takes the org to full capacity. AE timing is TBD.",
+  "hiringNote": "Operations (sales ops) and Content / Messaging already exist on the current team and are not new hires here. The Sales Recruiter is not on the team today, so it is in the list. Product Marketing owns messaging and content, so this org does not hire for it. Phase 1 is 40 net new hires in Q4, counting the New Hire Trainer and the Sales Recruiter inside the forty. Phase 2 replaces outsourced headcount with internal and adds no capacity. Phase 3 takes the org to full capacity. AE timing is TBD.",
   "endState": {
     "mdrs": 273,
     "managers": 35,
@@ -572,19 +577,27 @@
   },
   "discussion": [
     {
+      "id": "d2",
+      "title": "Org Chart Open Topics",
+      "items": [
+        "RATIOS: 8:1 MDRs to Manager, 35 total managers. 6:1 managers per director, 6 directors. ",
+        "Phase 1 is 40 hires in Q4: 32 MDRs, 5 managers, 1 director, 1 New Hire Trainer and one Sales Recruiter (reporting to People Team).",
+        "New hires ramp in 1 month. ",
+        "11 booked and completed demos per rep per month. "
+      ]
+    },
+    {
       "id": "d1",
       "title": "Assumptions",
       "items": [
-        "Span of control is 1 manager per 8 MDRs. ",
+        "1 manager per 8 MDRs. ",
         "Today the internal team runs 37 MDRs across 4 managers, which is about 9 per manager. The internal team is planning to remain remote but part of Lynn's org. As the team loses MDRS, that headcount moves to Austin. ",
         "Directors carry roughly 6 managers, which is about 48 MDRs each.",
-        "Each MDR books 11 meetings per month. This replaces the earlier 13 and the older 10 completed demos per month assumption.",
+        "Each MDR books 11 completed demos per month. ",
         "The goal is 9,000 meetings per quarter. At 11 booked per MDR per month that is 3,000 a month, which needs 273 MDRs at full capacity.",
-        "Show rate is the step to challenge. The model treats the 9,000 as meetings booked and applies no show rate discount.",
-        "If the 9,000 has to be completed demos rather than booked, then at a 77 percent show rate full capacity is 355 MDRs rather than 273.",
         "At 8 to 1 that 273 MDR end state needs 35 managers, and at 6 managers per director it needs 6 directors.",
         "Sales reps receive 4 leads per day. At roughly 21 working days that is about 84 a month per rep, so 9,000 a quarter needs roughly 36 receiving reps.",
-        "Phase 1 is 40 hires in Q4: 33 MDRs, 5 managers, 1 director and 1 New Hire Trainer.",
+        "Phase 1 is 40 hires in Q4: 32 MDRs, 5 managers, 1 director, 1 New Hire Trainer and one Sales Recruiter",
         "Phase 1 teams are seeded at 7 and 6 rather than 8 so each team can grow to 8 without adding a manager.",
         "Outsourced is 70 live as of 9/8 and ramps to a total of 150 by the middle of October.",
         "Outsourced headcount counts toward meeting capacity but not toward internal headcount.",
@@ -593,60 +606,8 @@
         "The Sales Recruiter is not on the team today. It is in the hiring list, not in the current headcount.",
         "Rounding up at each stage means staged manager and director counts can land one above the end state number. Those absorb as teams fill.",
         "Phase 2 and Phase 3 have no dates yet.",
-        "Timing for moving the AEs over is not decided."
-      ]
-    },
-    {
-      "id": "d2",
-      "title": "Open questions",
-      "items": [
-        "Do you prefer an 8:1 model or a different ratio?",
-        "At 8:1 the 273 MDR end state needs 35 managers.",
-        "At 10:1 it needs 28 managers, which is 7 fewer leaders but less coaching time per rep.",
-        "At 6:1 it needs 46 managers, which is more coaching but a heavier and more expensive layer.",
-        "Second question: how many managers should a director carry?",
-        "At 6 managers per director, 35 managers needs 6 directors. This is the working model.",
-        "At 8 managers per director it needs 5 directors, which is one fewer leader but thinner coach the coach time.",
-        "At 4 managers per director it needs 9 directors, which is much closer coaching of managers and three more leaders to pay for.",
-        "Both ratios drive the Phase 1 breakdown, the Q1 hiring plan and the cost of the whole build, so they are worth settling first."
-      ]
-    },
-    {
-      "id": "d3",
-      "title": "What a manager owns",
-      "items": [
-        "A team of 8 MDRs and their meeting number, which is 11 booked per MDR per month.",
-        "Coaching cadence: a weekly team meeting, a weekly 1:1 with every rep, call and email reviews every week, and real time feedback on the floor.",
-        "Ramp: takes the rep from the New Hire Trainer at the end of month 1 and owns their performance from there. The rep is expected to carry the full 11 from month 2.",
-        "Reporting: weekly team number, meetings booked, and rep level performance up to their director.",
-        "Hiring: interviews and selects for their own team, and owns the bar on their own team."
-      ]
-    },
-    {
-      "id": "d4",
-      "title": "What a director owns",
-      "items": [
-        "Roughly 6 managers, which is about 48 MDRs, and their share of the meeting number.",
-        "Coaching the coaches: a weekly 1:1 with every manager, sitting in on team meetings and call reviews, and holding the coaching standard.",
-        "Ramp: accountable for time to productivity across the segment and for manager readiness ahead of each hiring wave.",
-        "Reporting: segment meetings booked, ramp, attrition and forecast up to the Head of SMB Sales.",
-        "Performance: manages out and backfills, and owns the bar across the segment."
-      ]
-    },
-    {
-      "id": "d5",
-      "title": "Hiring needs for Q1",
-      "items": [
-        "This is an estimate tied to the plan, not a commitment. It is the first thing to confirm.",
-        "Q1 is Phase 2 territory, which is replacing outsourced MDRs with internal headcount.",
-        "Replacing all 150 outsourced in one quarter is not realistic while the 40 Q4 hires are still landing.",
-        "Estimate: replace half the outsourced team in Q1, which is 75 internal MDRs.",
-        "That needs about 10 more managers at 8 to 1, since 75 divided by 8 is 9.4.",
-        "And 2 more directors. Phase 1 leaves us at 9 managers, so 19 managers at 6 per director is 4 directors against the 2 we have.",
-        "Q1 estimate is therefore 87 internal hires: 75 MDRs, 10 managers and 2 directors.",
-        "On a 1 month ramp those 75 are productive inside the quarter, which is what makes half realistic.",
-        "The vendor contract needs to wind down in step with this so we are not paying for both.",
-        "If the Q4 forty land slower than planned, drop Q1 to replacing a third of the outsourced team rather than half."
+        "Timing for moving the AEs over is not decided.",
+        "RATIOS: 8:1 MDRs to Manager, 35 total managers. 6:1 managers per director, 6 directors. "
       ]
     }
   ]

@@ -1214,7 +1214,7 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v2.0</span>
+      <span class="version-badge">v2.1</span>
     </div>
 
 
@@ -1287,7 +1287,7 @@
     <section class="section">
       <div class="section-label">
         Org chart
-        <span class="hint">Today plus the Phase 1 build: 37 internal MDRs, 150 outsourced at full ramp, and 33 Phase 1 MDRs, which is 220 of working capacity against a 231 target. Every pod is tagged internal today, outsourced or Phase 1 hire. Working model is one manager per 8 MDRs and one director per roughly 6 managers</span>
+        <span class="hint">Today plus the Phase 1 build: 37 internal MDRs, 150 outsourced at full ramp, and 33 Phase 1 MDRs, which is 220 of working capacity against a 273 target. Every pod is tagged internal today, outsourced or Phase 1 hire. Working model is one manager per 8 MDRs and one director per roughly 6 managers</span>
       </div>
 
       <div class="card">
@@ -1473,7 +1473,7 @@
 <script>
 /* ============================================================
    OrgFlo — MDR organization designer
-   v2.0
+   v2.1
 
    Persistence pattern:
    the plan lives in orgflo_data.json in the repo, and edits are
@@ -1690,9 +1690,9 @@ var OrgFlo = (function () {
   function endState() {
     var e = data.endState || {};
     return {
-      mdrs:      num(e.mdrs, 231),
-      managers:  num(e.managers, 29),
-      directors: num(e.directors, 5),
+      mdrs:      num(e.mdrs, 273),
+      managers:  num(e.managers, 35),
+      directors: num(e.directors, 6),
       mgrSpan:   Math.max(1, num(e.mgrSpan, 8)),
       dirSpan:   Math.max(1, num(e.dirSpan, 6)),
       // Older plans called this an enablement lead. It is a New Hire Trainer now.
@@ -1740,7 +1740,7 @@ var OrgFlo = (function () {
 
     // Meetings, which is what the goal is actually measured in.
     var cal        = data.calculator || {};
-    h.perMdr       = num(cal.meetingsPerMDR, 13);
+    h.perMdr       = num(cal.meetingsPerMDR, 11);
     h.target       = num(cal.quarterlyTarget, 9000);
     h.showRate     = num(cal.showRate, 0.77);
     h.meetingsNow  = h.capacityNow * h.perMdr * 3;
@@ -2804,7 +2804,7 @@ var OrgFlo = (function () {
     c.scheduledPerSDR = num(c.scheduledPerSDR, 13);
     c.completedPerSDR = num(c.completedPerSDR, 10);
     // Capacity is driven off meetings booked now, not completed demos.
-    c.meetingsPerMDR  = Math.max(1, num(c.meetingsPerMDR, 13));
+    c.meetingsPerMDR  = Math.max(1, num(c.meetingsPerMDR, 11));
     c.showRate        = num(c.showRate, 0.77);
     c.quarterlyTarget = num(c.quarterlyTarget, 9000);
     // The 9,000 quarterly target is measured on completed demos, so that is
@@ -2839,9 +2839,9 @@ var OrgFlo = (function () {
     // The end state the summary measures the phases against.
     d.endState = d.endState || {};
     var es = d.endState;
-    es.mdrs            = num(es.mdrs, 231);
-    es.managers        = num(es.managers, 29);
-    es.directors       = num(es.directors, 5);
+    es.mdrs            = num(es.mdrs, 273);
+    es.managers        = num(es.managers, 35);
+    es.directors       = num(es.directors, 6);
     es.mgrSpan         = Math.max(1, num(es.mgrSpan, 8));
     es.dirSpan         = Math.max(1, num(es.dirSpan, 6));
     es.trainers        = num(es.trainers, num(es.enablementLeads, 1));
@@ -2948,7 +2948,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v2.0';
+      data.appVersion = 'v2.1';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.

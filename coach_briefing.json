@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-03",
-  "generated_at": "2026-09-03T19:32:16.449769Z",
+  "generated": "2026-09-04",
+  "generated_at": "2026-09-04T14:01:47Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 only (130–145 bpm), no vert push. You're 15 days out and your recovery score is 60—moderate, not ideal. Your resting HR dropped to 58 (vs. 30-day avg of 65.8), which signals some fatigue accumulation despite lighter volume this week. Thursday is your second recovery day in the taper; treat it as such. This is the phase where you preserve leg freshness and CNS capacity, not build anything. Keep it conversational, flat terrain preferred, 60–65 min easy."
+      "title": "Easy 5mi Z2 Rolling",
+      "message": "Calendar has 5 miles easy, ~700ft of rolling vert, HR 138-150 (Zone 2, well under your 165 LTHR). Two weeks from Julian Alps, this is a taper session, not a fitness-building one -- keep it comfortable and conversational. Use the rolling terrain as a dress rehearsal for the alpine climbs: practice a steady power-hike cadence on the ups, quick relaxed turnover on the downs. If you're at altitude or heat in Lima today, let effort (not pace) set the intensity."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your sleep last night was 5.69 hours at 69.5% efficiency—below your 30-day average of 8.04h. That deficit matters two weeks out. Prioritize carb repletion after today's easy run: 60–80g carbs + 20g protein within 30 min (rice, banana, Greek yogurt or equivalent). Don't restrict calories in taper; underfeeding now with poor sleep compounds fatigue. Hydrate consistently throughout the day; travel schedule often dehydrates. Aim for 3–4L water baseline plus electrolytes if you're moving between time zones."
+      "message": "Short easy run means no in-run fueling needed -- water or light electrolytes is enough. Hold total carbs near your 220g/day baseline even as mileage drops this taper block; your legs still need glycogen to absorb the work you've already banked. Post-run, get 20-30g protein plus some carbs within the hour, especially useful today with a travel day (Lima departure) stacked on top of the run."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your leak. Five-and-a-half hours won't cut it 15 days from a 50K. Target 8+ hours tonight—non-negotiable. Use your travel routine to create friction against screen time after 21:00. If jet lag or work stress is the culprit, get afternoon sunlight and consider melatonin 30 min before your target bedtime. Your resting HR improvement is positive, but sustained short sleep will undermine that adaptation. Recovery score of 60 means you're not yet in the green; sleep quality is your highest-ROI lever right now."
+      "message": "Load is low today, so recovery is mostly about protecting sleep around travel logistics (pack, leave for Lima this afternoon). Hydrate well before the flight/drive, do 5-10 min of mobility for hips and calves tonight, and prioritize 7-8 hours of sleep despite the schedule shuffle -- taper weeks are won in bed, not on the trail."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're in the psychological gauntlet of the taper: the fitness is there, the volume has dropped, and doubt creeps in. Resist the urge to add mileage or intensity to 'test' your form. The Julian Alps 50K is 2,500m of vert in a sparse-aid environment—that rewards efficiency and pacing discipline, not last-minute heroics. Use these 15 days to visualize race segments (Kranjska Gora start, aid station logistics, final descent), review your nutrition strategy, and mentally rehearse adverse scenarios (stomach issues, weather, bonking). Your mind will be sharper than your legs two weeks out; use it."
+      "message": "Two weeks out, the hardest discipline is doing less. Trust that the base and build work is already in your legs -- today's job is just to move well and stay sharp, not to chase extra fitness. Each rolling mile is a small rehearsal for the Julian Alps switchbacks: run it with the calm, patient mindset you'll need on race day."
     }
   ]
 }

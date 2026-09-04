@@ -717,6 +717,16 @@
       padding: 0.25rem 0.3rem;
     }
     td.c-phase { width: 6rem; }
+    td.c-qty   { width: 4.2rem; }
+    .qty-input { text-align: center; font-weight: 700; }
+    .phase-total {
+      margin-left: auto;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
 
     /* ============================================
        Notes
@@ -1196,7 +1206,7 @@
         <text x="80" y="28" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="url(#of-g)">Flo</text>
         <path d="M80 33Q96 28 114 33" stroke="url(#of-g)" stroke-width="2" fill="none" opacity=".8"/>
       </svg>
-      <span class="version-badge">v1.8</span>
+      <span class="version-badge">v1.9</span>
     </div>
 
 
@@ -1269,7 +1279,7 @@
     <section class="section">
       <div class="section-label">
         Org chart
-        <span class="hint">Today plus the Phase 1 build: 37 internal MDRs, 150 outsourced at full ramp, and 42 Phase 1 MDRs, which is 229 of working capacity against a 300 target. Every pod is tagged internal today, outsourced or Phase 1 hire. Working model is one manager per 8 MDRs and one director per roughly 6 managers</span>
+        <span class="hint">Today plus the Phase 1 build: 37 internal MDRs, 150 outsourced at full ramp, and 33 Phase 1 MDRs, which is 220 of working capacity against a 231 target. Every pod is tagged internal today, outsourced or Phase 1 hire. Working model is one manager per 8 MDRs and one director per roughly 6 managers</span>
       </div>
 
       <div class="card">
@@ -1342,6 +1352,7 @@
               <tr>
                 <th>Priority</th>
                 <th>Phase</th>
+                <th>Qty</th>
                 <th>Role</th>
                 <th>Reports to</th>
                 <th>When to hire (trigger)</th>
@@ -1435,7 +1446,7 @@
 <script>
 /* ============================================================
    OrgFlo — MDR organization designer
-   v1.8
+   v1.9
 
    Persistence pattern:
    the plan lives in orgflo_data.json in the repo, and edits are
@@ -1616,9 +1627,11 @@ var OrgFlo = (function () {
   function endState() {
     var e = data.endState || {};
     return {
-      mdrs:      num(e.mdrs, 300),
-      managers:  num(e.managers, 38),
-      directors: num(e.directors, 7),
+      mdrs:      num(e.mdrs, 231),
+      managers:  num(e.managers, 29),
+      directors: num(e.directors, 5),
+      mgrSpan:   Math.max(1, num(e.mgrSpan, 8)),
+      dirSpan:   Math.max(1, num(e.dirSpan, 6)),
       // Older plans called this an enablement lead. It is a New Hire Trainer now.
       trainers:  num(e.trainers, num(e.enablementLeads, 1)),
       leaders:   num(e.leaders, 1)
@@ -1650,9 +1663,27 @@ var OrgFlo = (function () {
     h.p1Hires      = h.p1Mdr + h.p1Mgr + h.p1Dir + h.p1Sup + h.p1Exec;
     h.capacityP1   = h.capacityRamp + h.p1Mdr;
     h.p2Replace    = h.outMdr;
+
+    // Leadership is staged against the running total rather than each phase in
+    // isolation, so the four stages add up to the end state instead of
+    // overshooting it by a rounded up manager or director.
+    var mgrAfterP1 = h.exMgr + h.p1Mgr;
+    var dirAfterP1 = h.exDir + h.p1Dir;
+    h.p2Mgr        = Math.ceil(h.outMdr / e.mgrSpan);
+    h.p2Dir        = Math.max(0, Math.ceil((mgrAfterP1 + h.p2Mgr) / e.dirSpan) - dirAfterP1);
     h.p3Mdr        = Math.max(0, e.mdrs - h.capacityP1);
-    h.p3Mgr        = Math.max(0, e.managers  - h.p1Mgr - h.exMgr);
-    h.p3Dir        = Math.max(0, e.directors - h.p1Dir - h.exDir);
+    h.p3Mgr        = Math.max(0, e.managers  - mgrAfterP1 - h.p2Mgr);
+    h.p3Dir        = Math.max(0, e.directors - dirAfterP1 - h.p2Dir);
+
+    // Meetings, which is what the goal is actually measured in.
+    var cal        = data.calculator || {};
+    h.perMdr       = num(cal.meetingsPerMDR, 13);
+    h.target       = num(cal.quarterlyTarget, 9000);
+    h.showRate     = num(cal.showRate, 0.77);
+    h.meetingsNow  = h.capacityNow * h.perMdr * 3;
+    h.meetingsP1   = h.capacityP1  * h.perMdr * 3;
+    h.meetingsEnd  = e.mdrs        * h.perMdr * 3;
+    h.altMdrs      = Math.ceil(h.target / 3 / (h.perMdr * h.showRate));
     h.endRoles     = e.mdrs + e.managers + e.directors + e.trainers + e.leaders;
     return h;
   }
@@ -1678,40 +1709,46 @@ var OrgFlo = (function () {
 
     var html = '';
     html += tile('t-existing', 'Internal team today', fmt(h.exMdr), 'MDRs',
-                 fmt(h.exExec) + ' VP of MDR (moving to another role), ' + fmt(h.exDir) + ' director and ' +
-                 fmt(h.exMgr) + ' managers. ' + fmt(h.internalNow) + ' internal people in total.');
+                 fmt(h.exExec) + ' VP of MDR (moving on, not being backfilled), ' + fmt(h.exDir) +
+                 ' director and ' + fmt(h.exMgr) + ' managers. ' + fmt(h.internalNow) +
+                 ' internal people. The Sales Recruiter is not on the team, it is a hire.');
     html += tile('t-outsourced', 'Outsourced live today', fmt(h.outLive), 'MDRs',
-                 'As of 9/8. Vendor managed, so it counts toward capacity and not toward internal headcount.');
+                 'As of 9/8. Vendor managed, so it counts toward meeting capacity and not toward internal headcount.');
     html += tile('t-outsourced', 'Outsourced at full ramp', fmt(h.outMdr), 'MDRs',
                  'By the middle of October. ' + fmt(h.outRamp) + ' still to arrive on top of the ' +
                  fmt(h.outLive) + ' working today.');
     html += tile('t-existing', 'Capacity today', fmt(h.capacityNow), 'MDRs',
-                 fmt(h.exMdr) + ' internal plus ' + fmt(h.outLive) + ' outsourced. Goes to ' +
-                 fmt(h.capacityRamp) + ' once the vendor ramp completes.');
+                 fmt(h.exMdr) + ' internal plus ' + fmt(h.outLive) + ' outsourced, which is ' +
+                 fmt(h.meetingsNow) + ' meetings a quarter. Goes to ' + fmt(h.capacityRamp) +
+                 ' MDRs once the vendor ramp completes.');
     html += tile('t-p1', 'Phase 1, Q4 hires', fmt(h.p1Hires), 'hires',
-                 fmt(h.p1Mdr) + ' MDRs, ' + fmt(h.p1Mgr) + ' managers at one per 8, ' + fmt(h.p1Dir) +
-                 ' director and ' + fmt(h.p1Sup) + ' New Hire Trainer.');
+                 fmt(h.p1Mdr) + ' MDRs, ' + fmt(h.p1Mgr) + ' managers at one per ' + fmt(e.mgrSpan) +
+                 ', ' + fmt(h.p1Dir) + ' director and ' + fmt(h.p1Sup) +
+                 ' New Hire Trainer. Plus 1 Sales Recruiter, outside the forty.');
     html += tile('t-p1', 'Capacity after Phase 1', fmt(h.capacityP1), 'MDRs',
-                 fmt(h.exMdr) + ' internal today, ' + fmt(h.outMdr) + ' outsourced and ' + fmt(h.p1Mdr) +
-                 ' Phase 1 MDRs, against a full capacity target of ' + fmt(e.mdrs) + '.');
+                 fmt(h.meetingsP1) + ' meetings a quarter against a goal of ' + fmt(h.target) +
+                 '. Full capacity is ' + fmt(e.mdrs) + ' MDRs.');
     html += tile('t-p2', 'Phase 2, replace outsourced', fmt(h.p2Replace), 'MDRs',
-                 'Swaps the outsourced team for internal headcount. No date. Adds no capacity.');
+                 'Swaps the outsourced team for internal headcount, plus ' + fmt(h.p2Mgr) +
+                 ' managers and ' + fmt(h.p2Dir) + ' directors. No date. Adds no capacity.');
     html += tile('t-p3', 'Phase 3, to full capacity', fmt(h.p3Mdr), 'more MDRs',
                  'No date. Takes the org from ' + fmt(h.capacityP1) + ' to ' + fmt(e.mdrs) +
-                 ', plus ' + fmt(h.p3Mgr) + ' more managers and ' + fmt(h.p3Dir) + ' more directors.');
+                 ' MDRs, plus ' + fmt(h.p3Mgr) + ' manager and ' + fmt(h.p3Dir) + ' directors.');
     html += tile('t-end', 'Full capacity', fmt(e.mdrs), 'MDRs',
-                 fmt(e.managers) + ' managers at one per 8, ' + fmt(e.directors) + ' directors, ' +
-                 fmt(e.trainers) + ' New Hire Trainer and ' + fmt(e.leaders) + ' Head of SMB Sales. ' +
+                 fmt(e.managers) + ' managers at one per ' + fmt(e.mgrSpan) + ', ' + fmt(e.directors) +
+                 ' directors at one per ' + fmt(e.dirSpan) + ' managers, ' + fmt(e.trainers) +
+                 ' New Hire Trainer and ' + fmt(e.leaders) + ' Head of SMB Sales. ' +
                  fmt(h.endRoles) + ' roles in all.');
 
     $('hcGrid').innerHTML = html;
     $('hcFoot').textContent =
-      'The goal is ' + fmt(num((data.calculator || {}).quarterlyTarget, 9000)) +
-      ' completed demos a quarter. At ' + fmt(num((data.calculator || {}).completedPerSDR, 10)) +
-      ' completed demos per MDR per month that needs ' + fmt(e.mdrs) + ' MDRs at full capacity. ' +
-      'Capacity today is ' + fmt(h.capacityNow) + ', ' + fmt(h.capacityRamp) +
-      ' once the vendor ramp completes, and ' + fmt(h.capacityP1) + ' after the Phase 1 ' +
-      fmt(h.p1Hires) + ' land. AE timing is not decided.';
+      'The goal is ' + fmt(h.target) + ' meetings a quarter. At ' + fmt(h.perMdr) +
+      ' booked per MDR per month that is ' + fmt(h.target / 3) + ' a month, which needs ' +
+      fmt(e.mdrs) + ' MDRs at full capacity. Capacity today is ' + fmt(h.capacityNow) +
+      ' MDRs, ' + fmt(h.capacityRamp) + ' once the vendor ramp completes, and ' + fmt(h.capacityP1) +
+      ' after the Phase 1 ' + fmt(h.p1Hires) + ' land. No show rate discount is applied. If the ' +
+      fmt(h.target) + ' has to be completed demos at a ' + Math.round(h.showRate * 100) +
+      ' percent show rate, full capacity is ' + fmt(h.altMdrs) + ' MDRs instead. AE timing is not decided.';
   }
 
   // ─── Discussion with Lynn ─────────────────────────────────
@@ -2393,7 +2430,7 @@ var OrgFlo = (function () {
   // Phase 1 is net new headcount. Phase 2 swaps outsourced and legacy
   // seats for internal ones and adds no capacity.
   var HIRE_PHASES = [
-    { v: 'p1', name: 'Phase 1', desc: 'Q4. 50 net new hires' },
+    { v: 'p1', name: 'Phase 1', desc: 'Q4. 40 net new MDR org hires, plus the recruiter' },
     { v: 'p2', name: 'Phase 2', desc: 'Replace the outsourced team with internal MDRs. No date, adds no capacity' },
     { v: 'p3', name: 'Phase 3', desc: 'Hire the team to full capacity. No date' }
   ];
@@ -2423,9 +2460,13 @@ var OrgFlo = (function () {
         lastPhase = row.phase;
         var meta = hirePhase(row.phase);
         if (meta) {
-          h += '<tr class="phase-head p-' + esc(meta.v) + '"><td colspan="7"><div class="phase-head-inner">' +
+          var tot = rows.reduce(function (t, r) {
+            return r.phase === meta.v ? t + num(r.qty, 0) : t;
+          }, 0);
+          h += '<tr class="phase-head p-' + esc(meta.v) + '"><td colspan="8"><div class="phase-head-inner">' +
                '<span class="phase-name">' + esc(meta.name) + '</span>' +
                '<span class="phase-desc">' + esc(meta.desc) + '</span>' +
+               '<span class="phase-total">' + fmt(tot) + ' hires</span>' +
                '</div></td></tr>';
         }
       }
@@ -2434,6 +2475,9 @@ var OrgFlo = (function () {
       h += '<td class="c-prio"><div class="prio">' + (i + 1) + '</div></td>';
       h += '<td class="c-phase"><select class="status-sel phase-sel" ' +
            'onchange="OrgFlo.editHire(\'' + esc(row.id) + '\',\'phase\',this.value)">' + phOpts + '</select></td>';
+      h += '<td class="c-qty"><input type="number" min="0" step="1" inputmode="numeric" class="qty-input" ' +
+           'value="' + esc(row.qty) + '" placeholder="0" ' +
+           'onchange="OrgFlo.editHire(\'' + esc(row.id) + '\',\'qty\',this.value)"></td>';
       h += '<td><input type="text" value="' + esc(row.role) + '" placeholder="Role" ' +
            'onchange="OrgFlo.editHire(\'' + esc(row.id) + '\',\'role\',this.value)"></td>';
       h += '<td><input type="text" value="' + esc(row.reportsTo) + '" placeholder="Reports to" ' +
@@ -2452,7 +2496,7 @@ var OrgFlo = (function () {
     }).join('');
 
     if (!rows.length) {
-      body.innerHTML = '<tr><td colspan="7" style="padding:1.25rem;color:var(--text-muted);font-size:0.8rem">' +
+      body.innerHTML = '<tr><td colspan="8" style="padding:1.25rem;color:var(--text-muted);font-size:0.8rem">' +
         'No roles in the list yet. Use Add row to start.</td></tr>';
     }
   }
@@ -2464,8 +2508,10 @@ var OrgFlo = (function () {
   function editHire(id, field, value) {
     var row = (data.hiringList || []).find(function (r) { return r.id === id; });
     if (!row) return;
-    row[field] = value;
-    changed({ skipHiring: field !== 'status' });
+    row[field] = (field === 'qty') ? Math.max(0, Math.round(num(value, 0))) : value;
+    // Changing a quantity moves the phase total in the band header, so that row
+    // has to redraw. Everything else can leave the list alone.
+    changed({ skipHiring: field !== 'status' && field !== 'qty' });
   }
 
   function addHire() {
@@ -2474,7 +2520,7 @@ var OrgFlo = (function () {
       id: uid('h'),
       priority: data.hiringList.length + 1,
       phase: (data.hiringList.length ? data.hiringList[data.hiringList.length - 1].phase : 'p1'),
-      role: '', reportsTo: '', trigger: '', status: 'Open'
+      qty: 1, role: '', reportsTo: '', trigger: '', status: 'Open'
     });
     renumber();
     changed();
@@ -2543,6 +2589,9 @@ var OrgFlo = (function () {
     var c = d.calculator;
     c.scheduledPerSDR = num(c.scheduledPerSDR, 13);
     c.completedPerSDR = num(c.completedPerSDR, 10);
+    // Capacity is driven off meetings booked now, not completed demos.
+    c.meetingsPerMDR  = Math.max(1, num(c.meetingsPerMDR, 13));
+    c.showRate        = num(c.showRate, 0.77);
     c.quarterlyTarget = num(c.quarterlyTarget, 9000);
     // The 9,000 quarterly target is measured on completed demos, so that is
     // the default reading. Scheduled stays visible as the secondary.
@@ -2575,9 +2624,11 @@ var OrgFlo = (function () {
     // The end state the summary measures the phases against.
     d.endState = d.endState || {};
     var es = d.endState;
-    es.mdrs            = num(es.mdrs, 300);
-    es.managers        = num(es.managers, 38);
-    es.directors       = num(es.directors, 7);
+    es.mdrs            = num(es.mdrs, 231);
+    es.managers        = num(es.managers, 29);
+    es.directors       = num(es.directors, 5);
+    es.mgrSpan         = Math.max(1, num(es.mgrSpan, 8));
+    es.dirSpan         = Math.max(1, num(es.dirSpan, 6));
     es.trainers        = num(es.trainers, num(es.enablementLeads, 1));
     delete es.enablementLeads;
     es.leaders         = num(es.leaders, 1);
@@ -2608,6 +2659,7 @@ var OrgFlo = (function () {
       r.reportsTo = r.reportsTo || '';
       r.trigger   = r.trigger || '';
       r.phase     = hirePhase(r.phase) ? r.phase : 'p1';
+      r.qty       = Math.max(0, Math.round(num(r.qty, 1)));
       r.status    = STATUSES.indexOf(r.status) >= 0 ? r.status : 'Open';
     });
     return d;
@@ -2681,7 +2733,7 @@ var OrgFlo = (function () {
     try {
       renumber();
       data.updatedAt = new Date().toISOString();
-      data.appVersion = 'v1.8';
+      data.appVersion = 'v1.9';
 
       // Always take the current sha immediately before writing so a commit
       // from another tab or from the automation does not get clobbered.

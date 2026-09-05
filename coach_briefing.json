@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-04",
-  "generated_at": "2026-09-04T19:14:23.627557Z",
+  "generated": "2026-09-05",
+  "generated_at": "2026-09-05T18:41:52.555809Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 45–50 min Z2 shakeout, 4–6 miles, sub-140 avg HR. You're 14 days out and your resting HR dropped to 53—you're primed. This is a pre-long-run primer: activate the aerobic system, clear metabolic junk, stay loose. Friday in taper means no intensity. Keep it conversational. Hills optional but not necessary; flat or rolling is fine. This run should feel like you're not even training."
+      "message": "13 days out, you run the long run today. Your recovery score is 89/100 and RHR dropped to 56—you're fresh. Build to 14–16 miles with 1,200–1,500 ft of vert, done entirely at Z2 (140–150 bpm based on recent data). This is your final chance to feel the alpine terrain under your legs without fatigue debt. Keep it steady, not fast. Practice your fueling rhythm: aim for 200–250 cal/hour via whatever you'll use in Slovenia. The goal is confidence and palatability, not effort."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat normal breakfast (carbs + protein) pre-run; you don't need a gel for 50 min easy. Post-run: 30–40g carbs + 15–20g protein within 30 min—chocolate milk, toast + egg, yogurt with granola. Your 10-hour sleep night shows you're recovering well; don't under-fuel in taper or you'll blunt adaptation. Hydrate consistently today; Alpine temps in September run cool, but you'll still lose 400–600ml per hour on Saturday's long run, so prepare your gut now."
+      "message": "You slept 8 hours with 93.9% efficiency—that's elite prep. Eat a familiar breakfast 90 min before you leave: 60g carb + 15g protein (bagel + peanut butter, oatmeal + egg, etc.). On the run, hit 50–60g carbs/hour via gels, chews, or real food—whatever you've tested. Post-run within 30 min: 40g carb + 20g protein to arrest glycogen depletion and begin adaptation. You've run 35.6 miles this week; you're in a taper, so don't underfuel thinking \"less work = less hunger.\" You need the fuel to recover."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your recovery score is 99 and resting HR is excellent—you've earned this. Sleep remains your main lever: tonight target 8–9 hours again. No foam rolling or aggressive mobility needed; gentle 10-min yoga or walk if restless. Hydrate 16–20oz fluid this evening. Tomorrow's long run is the main event; treat today as active prep, not as a day to squeeze out more fitness. Your nervous system is primed; don't waste it on junk miles."
+      "message": "Your sleep profile is locked in. Tonight, aim for 8+ hours again—non-negotiable. Post-run, foam roll your feet, calves, and IT band for 8 min; ice bath is optional but 10–12 min at 50°F will blunt inflammation if you've got soreness. Elevate legs for 20 min while eating. Your 30-day avg RHR was 65.4, now 56: you're adapted and recovered. Don't overthink it. If you feel sore tomorrow (Sunday), take it easy—you're 11 days from race day and any niggle compounds fast."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "14 days to race. You're in the zone: fitness is locked in, taper restlessness is normal. Today's easy run and tomorrow's long run are your last two chances to dial in race fueling, pacing feel, and mental anchors for the alpine terrain. Use these runs to rehearse: start conservative, settle into Z2–Z3 on climb, practice your aid-station rhythm. The Julian Alps will demand patience and presence—these final two runs are your dress rehearsal, not your last chance to get fit."
+      "message": "This is your last long run. Use it to visualize the descent from Kranjska Gora's north face—steep, technical, loose. Practice foot placement and rhythm so your brain has a template on race day. The Julian Alps demand precision on the downhill; your aerobic engine is ready, but your CNS needs the script. Run strong but controlled. After this week, your volume drops 30–40% and intensity stays light—that psychological shift from work to rest is real. Embrace it. You've earned the confidence to taper."
     }
   ]
 }

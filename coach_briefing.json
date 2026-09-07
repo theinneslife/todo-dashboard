@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-06",
-  "generated_at": "2026-09-06T18:45:56.015898Z",
+  "generated": "2026-09-07",
+  "generated_at": "2026-09-07T14:01:46Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 45–55 min Z2, rolling terrain if available, no fixed pace target. You're 12 days out in taper with a recovery score of 89 and resting HR 9 bpm below your 30-day average—your system is primed. This is a shakeout day to keep legs loose and turnover sharp without accumulating fatigue; your last three runs averaged 136–138 bpm, which is solid Build 2 work, but today drop to 125–130 bpm and focus on cadence and fluidity over effort. The Julian Alps is all about managing gravity and technical footing, not pace—use this run to dial in your downhill braking and ankle proprioception on uneven ground."
+      "title": "Active Recovery + Light Strength",
+      "message": "11 days out, taper is on. Calendar has this as a recovery day: 20-30 min very easy jog or walk, Zone 1 only (HR well under 138 bpm), then one last light strength session — single-leg work, hips, core, low volume. This isn't the day to chase fitness. Freshness for the Julian Alps' 2,500m of vert matters more right now than one more hard session."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Post-run, prioritize 30–40g protein + 60–90g carbs within 90 min to anchor glycogen and muscle protein synthesis; your sleep efficiency is 93.9% and HRV data is absent, so this window is non-negotiable. Today's easy effort won't deplete you heavily, but taper is when many athletes under-fuel out of misplaced caution—don't. At race day you'll burn 4,000–5,500 kcal depending on effort and altitude; your fueling strategy during the race (bottles, gels, real food at aid) must be tested, but today and the next 11 days, eat to your training load, not below it."
+      "message": "Light training load today, so keep carbs near the ~220g rest-day target rather than loading up — volume is dropping but you still need the glycogen for muscle repair from the strength work. Prioritize protein (25-30g per meal) for recovery, and use any easy run minutes to rehearse race-day fueling rhythm (sip fluids every 15-20 min) so gut and legs stay in sync for the 60-80g carbs/hr you'll need on course."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "You logged 8.01 hours at 93.9% efficiency last night—that's elite-tier sleep for a 40-something exec on a travel schedule. Hold it. No sleeping pills, no late work emails; aim for 8–9 hours nightly until race day. Your resting HR is visibly lower than baseline; combine that with 89/100 recovery score and you have zero excuse to add volume or intensity today. Ice bath or cold plunge optional (prefer post-hard sessions only); instead, walk 20–30 min, eat salt + carbs, and keep parasympathetic tone high. This is when you harvest the 12 weeks of Build work."
+      "message": "Post-strength: 10 min mobility focused on hips and ankles (alpine terrain punishes stiff ankles), then foam roll quads and calves. Target 8+ hours of sleep tonight — you're mid-travel, so protect the sleep window even if the schedule around you is chaotic. No run over 90 minutes for the rest of the taper, full stop."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Twelve days is short enough that nervous energy is rising—channel it into logistics, not self-doubt. Confirm your pre-race meals (what you'll eat the day before, the morning of, during aid station windows), test your pack weight and hydration system on Tuesday or Wednesday with a 90-min hill run, and review the course elevation profile and aid station locations obsessively. The Julian Alps is remote and vertical; knowing where to conserve, where to push, and how long between water stations removes variables on race day. Your fitness is built; your job now is to show up healthy, sharp, and strategically prepared."
+      "message": "The taper is the hard part for the mind, not the legs — the fitness is banked, now it's about trusting it. Use today's easy jog to mentally walk the Julian Alps course: the climbs, the weather that can turn fast in the Slovenian Alps, and your pacing plan for the descents. Patience now is what lets you run strong on the 18th."
     }
   ]
 }

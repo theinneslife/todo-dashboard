@@ -785,7 +785,7 @@
   {
     "id": "72a3059d-9f1e-43f4-8527-9b6cfcaaa1e9",
     "title": "Plan a Christmas perfume experience",
-    "description": "Mentioned a Christmas perfume experience \u2014 could be a gift idea, event, or activity to organize for the holiday season.",
+    "description": "Mentioned a Christmas perfume experience — could be a gift idea, event, or activity to organize for the holiday season.",
     "priority": 2,
     "status": "pending",
     "mode": "manual",
@@ -1491,6 +1491,36 @@
       }
     ],
     "created_at": "2026-08-28T16:59:52.218Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "start_date": null,
+    "category": null,
+    "effort": null,
+    "depends_on": [],
+    "collaborators": []
+  },
+  {
+    "id": "a831642c-179c-4348-9cd0-524c333a4793",
+    "title": "brazil visa",
+    "description": "",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "comments": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-09-08T15:21:15.238Z",
+        "action": "created",
+        "by": "System",
+        "details": "Task created"
+      }
+    ],
+    "created_at": "2026-09-08T15:21:15.238Z",
     "completed_at": null,
     "completion_notes": null,
     "project": null,

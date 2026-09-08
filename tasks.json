@@ -1445,7 +1445,7 @@
     "title": "MDRS",
     "description": "Product Marketing owning campaigns, kicking off messaging. \nPulling MDRS out of the pods, the pod leaders are creating their own messaging and campaigns. For the next 30 days, we should just have messaging by tier (s3,s4,s5) and their customer journey status (paused, churned over X, etc.)",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "auto",
     "labels": [],
     "due_date": null,
@@ -1464,17 +1464,24 @@
         "action": "assigned",
         "by": "System",
         "details": "Assigned to Claude"
+      },
+      {
+        "timestamp": "2026-09-08T15:21:35.604Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-08-28T02:15:54.487Z",
-    "completed_at": null,
+    "completed_at": "2026-09-08T15:21:35.604Z",
     "completion_notes": null,
     "project": null,
     "start_date": null,
     "category": null,
     "effort": null,
     "depends_on": [],
-    "collaborators": []
+    "collaborators": [],
+    "pinned": false
   },
   {
     "id": "4d88b265-591a-4c73-a842-2b7f6d19418d",

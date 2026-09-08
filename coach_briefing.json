@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-07",
-  "generated_at": "2026-09-07T20:18:18.370009Z",
+  "generated": "2026-09-08",
+  "generated_at": "2026-09-08T14:01:46Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Today's Run",
-      "message": "Easy 45–50 min Z2 (140–150m vert max) or rest day. You ran hard yesterday—12.27 miles at 128 avg HR with 1667 ft vert is solid work, not a shakeout. With 11 days to race and recovery score at 71 (baseline), you're in the green, but Monday in taper means you protect the win. Your resting HR at 60 is 5.4 bpm below your 30-day average, which signals good adaptation—don't squander it with a sloppy easy run. If you run, keep it conversational and flat; if you need a true off day, take it without guilt."
+      "title": "Easy 6mi + Strides",
+      "message": "10 days out, taper week 1 (~55% of peak volume). Easy Zone 2, 6 miles, HR 138-150 bpm — nothing above conversational. Finish with 4 relaxed strides at race pace, ~20 sec each, full recovery between. Keep it smooth; no run over 90 minutes for the rest of the taper. Today's about staying loose while you travel from Cieneguilla into Lima, not building fitness."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Front-load carbs today to top glycogen for the week ahead. Aim for 7–9g carbs per kg of bodyweight (roughly 450–550g for an 80kg athlete) split across four meals, with emphasis on breakfast and post-run. Your sleep efficiency sits at 77%—down from your 30-day avg of likely higher—which increases parasympathetic demand; prioritize starchy carbs, lean protein, and magnesium-rich foods (spinach, almonds) to support sleep quality tonight. Hydrate consistently; travel and taper often collide in dehydration. Avoid the 'eat less because you're running less' trap—taper fueling sustains mental resilience and glycogen store, not just recovery."
+      "message": "Short easy run means no in-run fueling needed — water only. Target ~220g carbs today to keep glycogen topped off through the taper, with solid protein at breakfast and post-run to support recovery. Travel day in Lima: don't let packing and checkout crowd out real meals."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep target: 8+ hours tonight, aiming for 8h 30m. Your 6h 55m average is underperforming your 7h 38m baseline, and that gap matters with 11 days to the start line. Prioritize dark room (blackout curtains), cool temperature (16–18°C), and zero screens after 21:00. If work travel is cutting sleep, consider a 20-minute nap (1300–1330) to bank extra recovery. No foam rolling or aggressive mobility work today—passive recovery only. A 10-minute walk in daylight this morning helps reset circadian rhythm if jet lag is a factor."
+      "message": "Light mobility work after the run, then let gym time this evening stay easy — mobility and single-leg/hip/core activation, not a hard session. Freshness beats fitness from here. Prioritize sleep despite the travel logistics (check-in, gym, packing)."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Taper anxiety creeps in now. You've logged 35.6 miles last week at race-specific vert; the fitness is there. The next 11 days are about arriving fresh, not arriving stronger. Use Monday to visualize one race-critical moment—aid station exchange at km 30, or the final 10k technical descent—and rehearse your decision tree (nutrition, pace, pacing, what discomfort feels normal vs. warning). Confidence compounds; running easy today reinforces trust in your aerobic base, not doubt about fitness."
+      "message": "10 days to Kranjska Gora. The work is banked — this week is about trusting it, not chasing more. Use today's strides to rehearse race-pace rhythm and visualize the alpine climbs. Let the travel chaos roll off; the taper is doing its job even when it feels like you're doing less."
     }
   ]
 }

@@ -1650,5 +1650,75 @@
     "effort": null,
     "depends_on": [],
     "collaborators": []
+  },
+  {
+    "id": "6289dd31-6049-4861-b9c5-5848535cfd09",
+    "title": "Talk to Chandler and Amanda",
+    "description": "Mentioned as task one. Reach out to Chandler and Amanda for a conversation (topic not specified).",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-09-08T17:12:24.750Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Leave"
+      }
+    ],
+    "created_at": "2026-09-08T17:12:24.750Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
+  },
+  {
+    "id": "39a4c823-dd2a-45ee-8b3f-44f29e340803",
+    "title": "Go through financials in detail with Richard, Mahua, and Lisa",
+    "description": "Mentioned as task two. Conduct a detailed financial review with Richard, Mahua, and Lisa.",
+    "priority": 1,
+    "status": "pending",
+    "mode": "manual",
+    "labels": [
+      "otter-ai"
+    ],
+    "due_date": null,
+    "recurrence": null,
+    "subtasks": [],
+    "activity_log": [
+      {
+        "timestamp": "2026-09-08T17:12:24.750Z",
+        "action": "created",
+        "by": "Otter Zap",
+        "details": "From: Leave"
+      }
+    ],
+    "created_at": "2026-09-08T17:12:24.750Z",
+    "completed_at": null,
+    "completion_notes": null,
+    "project": null,
+    "depends_on": [],
+    "collaborators": [],
+    "custom_fields": {
+      "client": "",
+      "revenue_impact": "",
+      "sprint": ""
+    },
+    "delegation_notes": null,
+    "pinned": false
   }
 ]

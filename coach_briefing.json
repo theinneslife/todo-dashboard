@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-09",
-  "generated_at": "2026-09-09T19:34:12.622515Z",
+  "generated": "2026-09-10",
+  "generated_at": "2026-09-10T19:23:02.656018Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 6–7 miles, Z2 only (140 bpm ceiling), 300–400 ft of rolling vert if available. You're 9 days out and in taper; Wednesday's traditional vert work is *off the table*. Your last three runs averaged 128 bpm—solid, but you're still accruing load. The goal today is blood flow and confidence on terrain without taxing your CNS. If you're traveling for work, a 45-min steady effort on whatever elevation is available will do. Skip any tempo or hill repeats; that window closed two weeks ago."
+      "message": "Easy 6–7 miles, Z2 only (130–140 bpm ceiling), 300–400 ft vert if terrain allows. You're 8 days out and your RHR is at 51—that's excellent taper signal. Your last three runs sit at 128–129 bpm, which is solidly aerobic, so keep Thursday loose and short. This isn't a fitness day; it's active recovery and CNS downregulation. Run by feel, no watch obsessing. If you're in transit for work today, a hotel treadmill at easy pace counts—don't skip it chasing perfect terrain."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You're running on a 6.55-hour sleep night with 77% efficiency—below your 30-day average of 7.63h. This is real sleep debt. Front-load carbohydrate today: 100–120g carbs at breakfast, 30–40g in the 2 hours before your run, and a solid refeed dinner (rice, pasta, or potatoes plus protein). Your resting HR is 60 bpm (lower than your average of 65.4), which is positive, but don't interpret it as permission to under-fuel. Alpine ultras punish glycogen deficits. Hydrate aggressively today—2–3L minimum—to offset any travel dehydration."
+      "message": "You slept 8.63 hours at 92.6% efficiency—use that recovery momentum. Eat 1.2–1.5g carbs per kg bodyweight today spread across 4–5 meals; your glycogen is fully topped from an easy week. Focus on anti-inflammatory foods: fatty fish, berries, leafy greens, turmeric. Skip any processed inflammatory markers. Hydrate to pale urine; alpine terrain and constant work travel can dehydrate you faster than you notice. If flying or moving between time zones today, add 500 mL electrolyte drink (sodium ~500–600mg per liter) to counteract travel sweat and cabin dehydration."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your rate-limiting factor right now. Tonight, aim for 8+ hours—no negotiation. Taper is when adaptation happens, not during the hard weeks. Your recovery score is 71 (Recovered), which is fine, but the 6.55h of sleep is dragging you backward. Skip the work emails after 9 PM, dial the room temp to 62–65°F if you're in a hotel, and use a sleep app to track trends through race week. Nine days out, one extra hour of sleep matters more than an extra 10 minutes of running."
+      "message": "Your recovery score of 96/100 and 51 bpm resting heart rate say you're prepared for race week. Maintain 8+ hours of sleep nightly through race day—this is non-negotiable for alpine 50K performance where fatigue and altitude interact. You've got no HRV data, so rely on that RHR trend: if it creeps above 60 in the next 8 days, dial back intensity immediately. Cold-water immersion or ice baths are off the table now; use 10–15 min easy foam rolling on quads, calves, IT band instead. Compression sleeves optional but not essential at this recovery score."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've logged 20.6 miles this week versus 35.6 last week—that's the cut you need. Resist the taper panic that tells you to add volume. The Julian Alps 50K will expose poor pacing and weak vertical legs, not lack of base miles. Your work as a Head of Corp Dev means you're managing stress and decision-making all day; bring that discipline to your taper protocol. Nail your nutrition, sleep, and easy runs. The fitness is already in your legs. Race week is about arriving rested and sharp, not second-guessing what you didn't do."
+      "message": "You're in the taper sweet spot: fitness is locked in, body is recovered, and doubt creeps in. Expect it. Reframe the next 8 days as sharpening the tool, not building it. Review your Julian Alps 50K course map—study the aid station locations, the descent profiles (where you'll make time), the exposed ridge sections (wind, exposure management). Visualize 2–3 key race moments: the 20-mile wall, your strongest climb, your target finish pace. This mental work calms the noise and gives you tactical specificity alpine terrain demands. You've put in the work; trust it."
     }
   ]
 }

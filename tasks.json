@@ -1656,7 +1656,7 @@
     "title": "Talk to Chandler and Amanda",
     "description": "Mentioned as task one. Reach out to Chandler and Amanda for a conversation (topic not specified).",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1670,10 +1670,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Leave"
+      },
+      {
+        "timestamp": "2026-09-10T16:28:12.960Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-09-08T17:12:24.750Z",
-    "completed_at": null,
+    "completed_at": "2026-09-10T16:28:12.960Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

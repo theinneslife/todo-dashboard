@@ -1697,7 +1697,7 @@
     "title": "Go through financials in detail with Richard, Mahua, and Lisa",
     "description": "Mentioned as task two. Conduct a detailed financial review with Richard, Mahua, and Lisa.",
     "priority": 1,
-    "status": "pending",
+    "status": "completed",
     "mode": "manual",
     "labels": [
       "otter-ai"
@@ -1711,10 +1711,16 @@
         "action": "created",
         "by": "Otter Zap",
         "details": "From: Leave"
+      },
+      {
+        "timestamp": "2026-09-10T16:28:42.825Z",
+        "action": "completed",
+        "by": "Christopher",
+        "details": "Task completed"
       }
     ],
     "created_at": "2026-09-08T17:12:24.750Z",
-    "completed_at": null,
+    "completed_at": "2026-09-10T16:28:42.825Z",
     "completion_notes": null,
     "project": null,
     "depends_on": [],

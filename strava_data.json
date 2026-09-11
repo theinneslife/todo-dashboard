@@ -1,14 +1,14 @@
 {
-  "generated": "2026-09-11T06:44:59.943737Z",
+  "generated": "2026-09-11T11:54:12.293518Z",
   "ctl": 61.9,
   "atl": 49.4,
   "tsb": 5.8,
   "weekly_tss": 251.7,
-  "rolling_7d_miles": 23.1,
-  "prior_7d_miles": 57.4,
-  "rolling_7d_elevation": 3061,
-  "prior_7d_elevation": 5210,
-  "rolling_7d_sessions": 3,
+  "rolling_7d_miles": 20.6,
+  "prior_7d_miles": 56.9,
+  "rolling_7d_elevation": 2795,
+  "prior_7d_elevation": 5075,
+  "rolling_7d_sessions": 2,
   "prior_7d_sessions": 7,
   "long_run_30d": 19.23,
   "prior_long_run_30d": 21.21,
@@ -332,15 +332,6 @@
       "duration": 4667,
       "avg_hr": 140,
       "max_hr": 157
-    },
-    {
-      "name": "Morning Run",
-      "date": "2026-07-13",
-      "miles": 17.16,
-      "elevation_feet": 374,
-      "duration": 10345,
-      "avg_hr": 125,
-      "max_hr": 142
     }
   ]
 }

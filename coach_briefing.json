@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-11",
-  "generated_at": "2026-09-11T19:22:16.815174Z",
+  "generated": "2026-09-12",
+  "generated_at": "2026-09-12T18:53:11.592269Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "You're 7 days out with a 92/100 recovery score and RHR of 56—you're primed. Run an easy 5–7 miles at Z2 (140–150 bpm based on your recent avg of 128–129 on harder efforts) on rolling terrain with 300–400 ft of vert. This is a shakeout: keep it conversational, test your legs for any niggles, and dial in race-day nutrition strategy on the trail. Friday before a Saturday long run in taper is about confidence, not volume. You're down 15 miles from last week already—don't creep back up."
+      "message": "60–75 minutes easy Z2, rolling terrain, 800–1200 ft vert. Your RHR is down to 56 (8.7 bpm below your 30-day average) and recovery score is 92—you're in an ideal taper window. This isn't a maintenance run; it's a neural sharpener. Keep it aerobic (130–140 bpm ballpark), hit some short climbs to remind your legs and nervous system what's coming in 6 days, but finish feeling fresher than you started. No threshold work, no long pushes. You've banked the fitness; now you're priming the engine."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Your 8.3h sleep at 88.8% efficiency is excellent—leverage it by front-loading carbs today. Aim for 6–7g per kg of body weight carbohydrate across the day (adjust for your weight; assume ~140g if 60kg, ~180g if 75kg). On today's shakeout, consume 30–40g carbs per hour (sports drink, gels, or real food) to rehearse your race-day gut tolerance. Tomorrow's long run will demand similar intake; test it now when stakes are low. Hydrate to pale urine; you'll be at altitude in a week."
+      "message": "Eat 60–80g carbs with this run (you're still logging heavy Z2 volume relative to rest days). Post-run, get 20–30g protein + 80–120g carbs within 90 minutes to anchor glycogen while taper is active. You've had 8.3h of solid sleep—use that recovery window aggressively. Given the sparse aid stations in the Julian Alps (you'll be self-sufficient for long stretches), practice your race-day nutrition bottle setup on tomorrow's or Monday's easy run if you haven't already. Dial in exactly what you'll carry and how you'll pace your intake over 7+ hours."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep is your limiting factor in taper, not training. You've banked 8.3h last night—maintain that. Aim for 8–9h tonight; if travel or work stress creeps in, prioritize blackout conditions and a consistent bedtime. RHR at 56 (down from your 30-day avg of 64.7) signals parasympathetic dominance; protect it. Skip ice baths or aggressive massage today—gentle movement, foam roll the feet and shins for 5 min, and call it done. You're not recovering *from* much anymore; you're preserving freshness."
+      "message": "Sleep is your biggest lever in the final 6 days—you're already crushing it at 8.3h with 88.8% efficiency. Protect that. No late meetings, no red-eye flights this week if you can help it; you've got a race in Slovenia that demands 2,500m of vert and your windows for quality sleep are finite. RHR dip and high recovery score confirm your body is ready to absorb sharp work. Use this Saturday and Sunday to stay horizontal as much as possible between runs. No strength work, no long walks. Rest is the third pillar of taper, after volume reduction and intensity retention."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "One week to race. The hard work is done; your peak phase loaded the fitness. Today's shakeout and tomorrow's long run are about anchoring confidence, not adding fitness. The Julian Alps demand alpine pacing discipline and aid-station discipline—neither comes from panic. Use today's run to rehearse your race fueling, test your legs on real vert, and mentally rehearse the descent strategy on a technical section. You're not overtrained; you're tapered. Trust it."
+      "message": "You're 6 days out and your physiology is primed—resting HR at 56, recovery score at 92, sleep quality elite. The race is won or lost now between your ears. Spend today's run getting familiar with effort cues: what 50K pace (likely 7:30–8:15/mi depending on vert) feels like on rolling terrain, how your breathing settles on the climbs, where your focus needs to be. Visualize the Kranjska Gora environment—alpine weather, technical descent sections, sparse aid—and see yourself moving efficiently through it. You don't need confidence; you need clarity. Execute the plan."
     }
   ]
 }

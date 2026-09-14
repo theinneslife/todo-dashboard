@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-13",
-  "generated_at": "2026-09-13T19:09:14.894322Z",
+  "generated": "2026-09-14",
+  "generated_at": "2026-09-14T20:41:50.934542Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 6–8 miles, Z2 (140–150 bpm range), rolling terrain if available but nothing steep. You're 5 days out from a 50K with 2,500m of vert; this is a shakeout, not a workout. Your resting HR is 56—down 8.7 bpm from your 30-day average—and your recovery score is 92/100, which means your body is primed. Don't waste that by going tempo. Keep it conversational, under 2 hours total, and finish feeling like you could do another easy hour. The goal is movement, not stimulus."
+      "message": "Easy 5–6 miles, Z2 only (130–140 bpm max), mostly flat or rolling. Your last three runs show consistent Z2 work at 128–132 bpm, which is exactly right for taper—you're maintaining aerobic capacity without accumulating fatigue 4 days out. Today is a shakeout to flush legs and keep the engine ticking. Stop at 6 miles if you feel heavy; this is not a confidence builder, it's a momentum keeper. Aim for 45–50 min total, zero intensity."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "You've got 5 days to top off your glycogen stores without overloading your gut. Today and tomorrow, eat 6–8g carbs per kg bodyweight (aim for ~450–500g if you're ~75kg), distributed evenly across 4–5 meals. Lean protein (0.8–1.2g/kg) at each meal. Alpine 50Ks punish the unprepared stomach: salt intake now (3–5g daily), practice your race-day food once more in a training run this week if you haven't, and dial in your hydration baseline—aim for pale urine by Monday. Alcohol off, caffeine moderate after 2 PM."
+      "message": "Eat to your travel schedule, not your training. You've likely logged corporate time already this week—prioritize 3–4 solid meals with carbs + protein rather than fueling around a token easy run. Aim for 150g carbs and 25–30g protein per meal to top off glycogen without overloading your gut 96 hours before a 50K. If you're flying or driving to Slovenia today or tomorrow, hydrate aggressively and avoid high-fiber foods 48 hours before race day."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your 8.3-hour sleep at 88.8% efficiency is exactly what you need in taper. Sleep is your performance drug here—don't compromise it for work emails. Target 8+ hours every night until Friday; go to bed 30 minutes earlier if you need to. Your HRV data isn't available, so use the resting HR (56) as your anchor: if it climbs back above 62, you're underdone on recovery. Ice baths are counterproductive this close to race day; focus on easy walking, foam rolling, and naps if possible during travel."
+      "message": "Your RHR is 56 (down 8.7 bpm from 30-day avg), sleep is 8.3h at 88.8% efficiency, and recovery score is 92/100—you are objectively ready. Maintain that 8+ hours through race week; don't break the sleep habit now. No massage guns, no ice baths, no extra stretching that taxes the nervous system. Sleep is your only recovery modality this week. If you're traveling today, prioritize sleep over training volume—a 5-hour flight + 2 hours of driving trumps a 6-miler."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Five days is long enough to overthink and short enough that you can't fix anything. Lock in your race plan now—splits, aid-station nutrition, cutoff timings, where you'll push vs. survive—and stop tinkering. Your recent runs (12.27 mi and 8.31 mi, both at 128–129 bpm) show you're fit and running controlled. Slovenia's terrain is unforgiving but not technically harder than what you've trained on. Use these last five days to visualize the second half of the race when your legs are heavy, not to doubt the base you've built."
+      "message": "You're 4 days out with a fully recovered system and a tapered training week. The work is done; Julian Alps 50K's 2,500m of vert and sparse aid stations are now a test of pacing discipline and mental toughness, not fitness. Use these next 96 hours to visualize the climb profiles, review aid station locations, and dial in your race fueling plan. Trust the taper. Easy runs feel sluggish right now—that's normal and necessary. You don't prove anything in week 22."
     }
   ]
 }

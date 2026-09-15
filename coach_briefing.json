@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-14",
-  "generated_at": "2026-09-14T20:41:50.934542Z",
+  "generated": "2026-09-15",
+  "generated_at": "2026-09-15T19:56:08.938044Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "Easy 5–6 miles, Z2 only (130–140 bpm max), mostly flat or rolling. Your last three runs show consistent Z2 work at 128–132 bpm, which is exactly right for taper—you're maintaining aerobic capacity without accumulating fatigue 4 days out. Today is a shakeout to flush legs and keep the engine ticking. Stop at 6 miles if you feel heavy; this is not a confidence builder, it's a momentum keeper. Aim for 45–50 min total, zero intensity."
+      "message": "Easy 5–6 miles, Z2 (140–150 bpm max), rolling terrain if available but nothing steep. You're 3 days out from a 50K with 2,500m vert; your resting HR is 52 and recovery score is maxed—your nervous system is primed. This is a sharpener, not a builder. Keep it conversational, no tempo work, no repeats. Finish feeling like you could do another 3 miles, not like you nailed anything."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Eat to your travel schedule, not your training. You've likely logged corporate time already this week—prioritize 3–4 solid meals with carbs + protein rather than fueling around a token easy run. Aim for 150g carbs and 25–30g protein per meal to top off glycogen without overloading your gut 96 hours before a 50K. If you're flying or driving to Slovenia today or tomorrow, hydrate aggressively and avoid high-fiber foods 48 hours before race day."
+      "message": "You're sleeping 10.7 hours and running easy volume; don't overfuel in a false carb-load panic. Eat normally at breakfast and lunch (aim for 4–5g carb/kg bodyweight across the day), then a light dinner. Tomorrow and Thursday you'll push carbs up slightly (6–7g/kg), but today is maintenance. Hydration stays consistent—no need to superharge now. Focus on getting sodium and electrolytes in consistent small doses to train your gut for the alpine aid station reality."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Your RHR is 56 (down 8.7 bpm from 30-day avg), sleep is 8.3h at 88.8% efficiency, and recovery score is 92/100—you are objectively ready. Maintain that 8+ hours through race week; don't break the sleep habit now. No massage guns, no ice baths, no extra stretching that taxes the nervous system. Sleep is your only recovery modality this week. If you're traveling today, prioritize sleep over training volume—a 5-hour flight + 2 hours of driving trumps a 6-miler."
+      "message": "Your sleep is exceptional (10.73h, 87.3% efficiency) and resting HR is the lowest in your 30-day average—you're ready. Maintain that sleep window tonight; don't stay up late from pre-race nerves. Ice baths, compression, or aggressive massage are counterproductive now—risk disrupting the nervous system calibration you've built. 20–30 minute easy walk this evening if restless, otherwise rest and hydrate."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You're 4 days out with a fully recovered system and a tapered training week. The work is done; Julian Alps 50K's 2,500m of vert and sparse aid stations are now a test of pacing discipline and mental toughness, not fitness. Use these next 96 hours to visualize the climb profiles, review aid station locations, and dial in your race fueling plan. Trust the taper. Easy runs feel sluggish right now—that's normal and necessary. You don't prove anything in week 22."
+      "message": "You've done the work over 34 weeks. The 50K demands patience on the uphills and controlled descent technique on the downs—neither of which changes in the next 72 hours. Spend tonight reviewing the course profile (know which climbs are runnable vs. hike-able) and your aid station nutrition plan. Run your easy 5–6 miles tomorrow with zero pressure; let the taper anxiety pass through you, not into you."
     }
   ]
 }

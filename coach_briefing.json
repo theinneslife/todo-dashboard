@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-16",
-  "generated_at": "2026-09-16T12:00:00Z",
+  "generated_at": "2026-09-16T19:48:51.338832Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -8,28 +8,28 @@
   },
   "coaching": [
     {
-      "type": "rest",
-      "icon": "😴",
-      "title": "Rest Day",
-      "message": "Two days out — complete rest from running today. This is race week, and rest is the work now: no legs on trail, all adaptation. Use the day for race prep instead — bib pickup, pack drop bags, lay out the vest with gels, chews, electrolytes and a backup headlamp, set poles to height, and check the alpine weather so you can pack a rain layer for the Julian Alps."
+      "type": "run",
+      "icon": "🏃",
+      "title": "Today's Run",
+      "message": "Easy 4–5 miles, Z2 (130–140 bpm), rolling terrain with 200–300 ft of vert max. Your last three runs have been dialed (134, 132, 129 bpm), and your RHR is 52—you're sharp. Two days out, you don't need sharpness; you need legs that feel springy and central nervous system calm. Keep it conversational, under 90 min total. This is a shakeout, not a workout. The Julian Alps will demand economy on steep climbs and sustained power on technical descents—preserve both now."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Carb-load today at roughly 220g+ carbs, leaning toward the higher end and easy-to-digest sources (rice, pasta, potatoes, fruit) to top off glycogen ahead of Thursday. Hydrate steadily with electrolytes rather than plain water. Keep fiber and fat moderate tonight so digestion is settled, not sluggish, by race morning."
+      "message": "You slept 10.73 hours with 87% efficiency—your body is banking recovery hard. Eat at maintenance or slight surplus today: aim for 2.2–2.4g carbs per kg bodyweight (assuming ~80kg, 175–190g carbs), 1.6–1.8g protein/kg, healthy fats. Hit your electrolytes (sodium 500–700mg per liter of fluid) and maintain normal caffeine—don't experiment. In a 50K alpine environment with sparse aid, your gut will be stressed by elevation and effort; eating familiar foods today and tomorrow locks in your fuel strategy without GI risk 48 hours before start."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Passive recovery only — an easy walk if anything, light mobility, foam roll the calves and quads. Sleep long tonight; the night two out from a race often sleeps worse than race eve itself, so don't stress if it's restless — just protect the window and get to bed early."
+      "message": "Your recovery score is maxed at 100 and sleep was exceptional—you're in the ideal taper window. Maintain that: target 9–10 hours again tonight (you've clearly prioritized this week, which is right). No ice baths, contrast therapy, or massage—avoid any stimulus that disrupts CNS readiness. Spend 10–15 min on easy mobility (hips, ankles, calves) to stay loose on altitude-sensitive legs, but skip intensity work. Your RHR drop from 63.8 to 52 bpm suggests strong parasympathetic tone; preserve it with low-stress evening (no work emails, dim lights by 21:30)."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "Trust the training — the work is done. As you pack drop bags and check the forecast for Kranjska Gora, run the race in your head: the ~2,500m of alpine vert, the weather that can turn fast up high, your pacing plan for the climbs. Rest is a decision, not a skip — you're choosing to show up strong on Thursday."
+      "message": "You're a corporate head of development running 6 days a week across time zones—discipline is your baseline, not your weakness. The Julian Alps 50K is 50 km and ~2,500m vert with sparse aid: that's 7–9 hours of sustained alpine climbing and technical descent. Your taper numbers (low volume, high recovery, sharp HR) tell me you're ready. Spend today visualizing two specific race scenarios: (1) km 20–30, climbing into thin air where pace drops but effort feels steady, and (2) descent tech around km 40 where legs are gassed but footwork matters. Rehearse staying methodical, not heroic. The mountains don't care about your corporate title."
     }
   ]
 }

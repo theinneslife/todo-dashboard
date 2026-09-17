@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-17",
-  "generated_at": "2026-09-17T13:30:00Z",
+  "generated_at": "2026-09-17T19:57:08.772616Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Race Eve Shakeout",
-      "message": "Just 15-20 min (about 2 mi), very easy, flat if you can find it. This is only to loosen the legs and wake up the nervous system, not to build fitness — that work is banked. Keep it well before your bib pickup and walkthrough so legs stay up the rest of the day."
+      "title": "Today's Run",
+      "message": "20–25 minutes easy, Z2 only (120–130 bpm based on your recent easy runs). This is a shakeout to keep legs loose and flush out yesterday's 3-miler; your recovery score is solid at 71, so you're cleared for gentle movement. Stay flat, no hills, no tempo. You're 24 hours from 2,500m of vert in the Julian Alps—preserve neuromuscular freshness, don't burn glycogen. Think of this as a systems check: confirm your watch is charged, test your race nutrition one more time if you haven't, and dial in your pacing feel for tomorrow's climb."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Tonight's dinner should be the one you've already tested — familiar, carb-forward, low fiber and low fat, nothing new. Keep sipping water with electrolytes through the day. Set out race breakfast now: oatmeal, banana, peanut butter, toast, coffee if that's your habit, eaten about 3 hours before the gun with 500 ml water and electrolytes."
+      "message": "Today is load day. Eat 7–9g carbs per kg bodyweight (estimate ~500–650g total if you're ~75kg), split across breakfast, lunch, snack, and dinner—prioritize easy-to-digest carbs (rice, pasta, potatoes, fruit, sports drinks). You slept 11.5h with 85% efficiency, which is excellent recovery, but that also means your glycogen depletion was real last week; replenish fully today. Tomorrow you'll start at dawn in cold alpine air on a brutal climb—arrive with full tanks. Protein at each meal (25–30g), minimal fiber and fat to avoid GI friction."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Lean into today's lymphatic drainage session on the legs, then stay off your feet — legs up between logistics stops. You've got a sleep block on the calendar starting 8pm; protect it. Final gear check and drop bag before you wind down so there's nothing left to think about at bedtime."
+      "message": "Target 8–9 hours tonight; your resting HR is 68 (4 bpm above 30-day avg), a mild signal your nervous system is still engaged post-taper. No alcohol, no caffeine after 2pm. Elevate legs for 10–15 minutes post-shakeout run. Your recovery score of 71 is green, but sleep quality tonight matters more than quantity—cool, dark, quiet room, no work email after 21:00. You've built the fitness over 34 weeks; these final 24 hours are about showing up rested and ready, not training."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "The Julian Alps' 2,700m of climbing rewards patience, not heroics tomorrow. Walk it through one more time: patient miles 1-10, find rhythm and power hike 11-20, let the training carry you 21-31. Trust the work — it's done. Tonight is just about staying calm and getting to the start line rested."
+      "message": "Visualize the first 3km climb out of Kranjska Gora—you'll be at moderate effort (Z3/Z4), working but controlled, aligned with your recent race-pace runs at 129–132 bpm. Sparse aid stations mean you own your pacing; lean on your ultra experience to settle into rhythm early rather than chase others. Tomorrow's course is about sustained climbing and alpine exposure, not speed. You've run 34 weeks for this single day—trust your fitness, execute your fueling plan, and let your executive discipline (which clearly runs deep in your profile) translate to controlled aggression on the mountain."
     }
   ]
 }

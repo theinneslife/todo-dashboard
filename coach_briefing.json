@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-07",
-  "generated_at": "2026-09-07T14:01:46Z",
+  "generated": "2026-09-18",
+  "generated_at": "2026-09-18T12:00:00Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -10,26 +10,26 @@
     {
       "type": "run",
       "icon": "🏃",
-      "title": "Active Recovery + Light Strength",
-      "message": "11 days out, taper is on. Calendar has this as a recovery day: 20-30 min very easy jog or walk, Zone 1 only (HR well under 138 bpm), then one last light strength session — single-leg work, hips, core, low volume. This isn't the day to chase fitness. Freshness for the Julian Alps' 2,500m of vert matters more right now than one more hard session."
+      "title": "Race Day: Julian Alps 50K",
+      "message": "Today's the day — 31 miles, ~2,700m up and down on technical alpine terrain out of Kranjska Gora. Start 10-15% slower than goal effort and walk every meaningful climb from mile 1. Keep HR in Zone 2 for the first 6 miles, no exceptions. Miles 1-10: patient. 11-20: settle into rhythm, power hike the steep grades. 21-31: this is where the training shows up — run the descents relaxed and controlled to protect your quads for the finish."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Light training load today, so keep carbs near the ~220g rest-day target rather than loading up — volume is dropping but you still need the glycogen for muscle repair from the strength work. Prioritize protein (25-30g per meal) for recovery, and use any easy run minutes to rehearse race-day fueling rhythm (sip fluids every 15-20 min) so gut and legs stay in sync for the 60-80g carbs/hr you'll need on course."
+      "message": "You already tested breakfast ~3 hours out — oatmeal, banana, peanut butter, toast, coffee if that's your habit, 500ml water with electrolytes. On course: eat every 30 minutes, 250-300 cal/hr, 800-1000mg sodium/hr. Bring in a caffeine gel from mile 20 onward if you need the lift. At every aid station: refill bottles, eat something real, take salt, under 3 minutes and move on."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Post-strength: 10 min mobility focused on hips and ankles (alpine terrain punishes stiff ankles), then foam roll quads and calves. Target 8+ hours of sleep tonight — you're mid-travel, so protect the sleep window even if the schedule around you is chaotic. No run over 90 minutes for the rest of the taper, full stop."
+      "message": "After you cross the line: don't sit down cold — walk 10-15 minutes to let HR come down gradually. Get 20-30g protein plus real carbs in within the first hour, rehydrate with electrolytes (you'll be down more sodium than you think after that vert). Compression socks on, legs up when you can, and prioritize sleep tonight over any celebration logistics — the real adaptation from today happens over the next 72 hours."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "The taper is the hard part for the mind, not the legs — the fitness is banked, now it's about trusting it. Use today's easy jog to mentally walk the Julian Alps course: the climbs, the weather that can turn fast in the Slovenian Alps, and your pacing plan for the descents. Patience now is what lets you run strong on the 18th."
+      "message": "Run the mile you're in. When it gets hard on those climbs, the plan is simple: walk, eat, drink, reassess in 15 minutes. Relentless forward progress. You've done the work — Bled to the finish, one section at a time."
     }
   ]
 }

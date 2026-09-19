@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-18",
-  "generated_at": "2026-09-18T19:21:02.533922Z",
+  "generated": "2026-09-19",
+  "generated_at": "2026-09-19T19:06:06.262726Z",
   "athlete": {
     "name": "Christopher",
     "goal_race": "Julian Alps 50K",
@@ -11,25 +11,25 @@
       "type": "run",
       "icon": "🏃",
       "title": "Today's Run",
-      "message": "This is race day. You race the Julian Alps 50K today at Kranjska Gora. Don't run this morning. Eat a solid breakfast (80–100g carbs, moderate protein, low fiber), stay hydrated, and keep moving gently to stay loose—10 minutes of easy walking if anything. Your last three runs averaged 132 bpm, which is controlled; your resting HR is 65 bpm and recovery score is 70/100, meaning you're adequately fresh. Trust the taper. The sparse aid stations on this alpine course demand discipline with pacing on the climbs and aggressive fueling early (gels/sports drink every 45 minutes up). You've done the work over 34 weeks."
+      "message": "Do not run. You ran 33.91 miles with 9,121 ft of vert yesterday—a full dress rehearsal at race intensity (124 bpm avg). Your legs need 48 hours of zero impact before Sunday's start. Your recovery score is 74/100 (adequate, not excellent), and sleep was 6.61 hours—below your 30-day average of 7.75h. A second big effort today invites injury and depletes glycogen stores you need to rebuild tonight and tomorrow morning. Walk if you're antsy, but stay off the legs."
     },
     {
       "type": "nutrition",
       "icon": "🥗",
       "title": "Fuel Right",
-      "message": "Breakfast 2–3 hours before start: oatmeal or toast with honey and a banana, plus 500 ml of sports drink or water. This gives you glycogen topped off without gut stress. On the course, you'll face 2,500m of vert with sparse aid; pack your own calories (6–8 gels minimum, one energy bar, electrolyte tabs). Drink to thirst but don't underestimate alpine sun and exertion—aim for 500–750 ml per hour depending on terrain. Post-race, consume 1.2g carbs per kg body weight within 30 minutes and protein within 2 hours to begin recovery."
+      "message": "You are 36 hours out. Prioritize carbohydrate repletion: aim for 8–10g/kg of body weight over the next 36 hours, spread across frequent meals. Yesterday's 33-miler burned roughly 4,500–5,000 kcal; today's caloric intake should be 20–25% above maintenance. Emphasize white rice, pasta, bread, fruit, and honey rather than fiber-heavy foods that slow gastric emptying. Sodium-inclusive meals help drive fluid retention. Avoid unfamiliar foods; you know what your gut tolerates at altitude."
     },
     {
       "type": "recovery",
       "icon": "💤",
       "title": "Recovery",
-      "message": "Sleep was solid at 7.81 hours with 84.3% efficiency—you're not sleep-deprived going in. After the race, prioritize immediate fueling, then ice bath or cold immersion if available (15 minutes to reduce inflammation from alpine descents). Tonight, aim for 8–9 hours and don't stress if you're wired post-effort. Tomorrow (Saturday), do nothing; Sunday, an easy 4–5 mile shakeout at Z2 (130 bpm) to flush legs. Resting HR will tick up 2–3 bpm for 48 hours post-50K—that's normal."
+      "message": "Sleep is your limiting factor—you got 6.61 hours last night with 88% efficiency, likely because yesterday's effort kept your nervous system elevated. Target 8–9 hours tonight and tomorrow night. Use cool, dark conditions; if you're still in the US, consider a 20-minute ice bath this afternoon to lower core temp and accelerate muscle glycogen uptake, then avoid hard compression. Resting HR of 56 bpm is excellent and shows your aerobic base is intact, but parasympathetic drive matters more than ever now. Melatonin (3–5mg) at 20:30 is fair game if sleep anxiety creeps in."
     },
     {
       "type": "mental",
       "icon": "🧠",
       "title": "Mental Edge",
-      "message": "You've trained through constant travel as a Corp Dev exec and never missed a session. The alpine terrain will be steep and exposed; manage it by running the tangent lines tight, breaking the race into 3 aid-station segments, and remembering that your aerobic base (weeks 1–15) and peak vert work (weeks 16–19) prepared you for this exact stimulus. When legs feel heavy on climbs—mile 20–30—that's normal, not failure. Descents are where executives who train smart gain time; lock your quads, trust your footwork, and go. You've got this."
+      "message": "You've done the work—40.9 miles this week, a full alpine simulation yesterday, and a year of polarized training. Tomorrow you're ready. Use today to visualize the first 10K (runnable, flat-to-rolling), the climb to Peričnik shelter (~15K), and the long alpine traverse where pacing discipline wins. Mentally rehearse your aid station protocol: what you'll eat at each stop, how you'll manage your pack, where you expect to fade and how you'll respond. Confidence comes from planning, not panic. Rest hard, arrive rested, and execute."
     }
   ]
 }
